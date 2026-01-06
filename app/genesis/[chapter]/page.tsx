@@ -27,7 +27,7 @@ export default function GenesisChapterPage({ params }: Props) {
   return (
     <main>
       <ChapterNav currentChapter={chapterNum} totalChapters={getChapterCount()} />
-      <GenesisReader chapter={chapterNum} verses={verses} />
+      <GenesisReader verses={verses} />
     </main>
   );
 }

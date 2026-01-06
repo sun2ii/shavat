@@ -8,8 +8,13 @@ export default function Header() {
   const [bookmarkChapter, setBookmarkChapter] = useState<number | null>(null);
 
   useEffect(() => {
-    const bookmark = storage.getBookmark();
-    setBookmarkChapter(bookmark?.chapter || null);
+    if (typeof window === 'undefined') return;
+    try {
+      const bookmark = storage.getBookmark();
+      setBookmarkChapter(bookmark?.chapter || null);
+    } catch (error) {
+      console.error('Failed to load bookmark', error);
+    }
   }, []);
 
   return (
@@ -27,9 +32,6 @@ export default function Header() {
               Bookmark ({bookmarkChapter})
             </Link>
           )}
-          <Link href="/highlights" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-            Highlights
-          </Link>
         </nav>
       </div>
     </header>

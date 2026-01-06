@@ -30,7 +30,7 @@
 
 body {
   @apply bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-primary))];
-  font-family: 'Crimson Pro', 'Georgia', serif;
+  font-family: 'Cardo', 'Georgia', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

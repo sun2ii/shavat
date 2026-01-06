@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: 255 255 255;
+    --bg-secondary: 249 250 251;
+    --text-primary: 17 24 39;
+    --text-secondary: 107 114 128;
+    --text-tertiary: 156 163 175;
+    --border: 229 231 235;
+    --highlight-yellow: 254 249 195;
+    --highlight-blue: 191 219 254;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: 17 24 39;
+      --bg-secondary: 31 41 55;
+      --text-primary: 243 244 246;
+      --text-secondary: 156 163 175;
+      --text-tertiary: 107 114 128;
+      --border: 55 65 81;
+      --highlight-yellow: 113 63 18;
+      --highlight-blue: 30 58 138;
+    }
+  }
+}
+
+body {
+  @apply bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-primary))];
+  font-family: 'Crimson Pro', 'Georgia', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

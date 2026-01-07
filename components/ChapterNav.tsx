@@ -109,30 +109,30 @@ export default function ChapterNav({
       </nav>
 
       {/* Fixed left navigation */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2">
+      <div className="fixed left-2 md:left-4 top-1/2 -translate-y-1/2">
         {hasPrev ? (
           <Link
             href={`/${bookRoute}/${currentChapter - 1}`}
-            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-2xl"
+            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
           >
-            ← {currentChapter - 1}
+            ← <span className="hidden md:inline">{currentChapter - 1}</span>
           </Link>
         ) : (
-          <span className="text-[rgb(var(--text-tertiary))] text-2xl">← {currentChapter - 1}</span>
+          <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl">← <span className="hidden md:inline">{currentChapter - 1}</span></span>
         )}
       </div>
 
       {/* Fixed right navigation */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2">
+      <div className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2">
         {hasNext ? (
           <Link
             href={`/${bookRoute}/${currentChapter + 1}`}
-            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-2xl"
+            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
           >
-            {currentChapter + 1} →
+            <span className="hidden md:inline">{currentChapter + 1}</span> →
           </Link>
         ) : (
-          <span className="text-[rgb(var(--text-tertiary))] text-2xl">{currentChapter + 1} →</span>
+          <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl"><span className="hidden md:inline">{currentChapter + 1}</span> →</span>
         )}
       </div>
     </>

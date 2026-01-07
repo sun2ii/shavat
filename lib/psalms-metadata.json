@@ -1,137 +1,2180 @@
 {
   "psalms": [
-    { "number": 1, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["wisdom", "meditation"] },
-    { "number": 2, "emotional_state": "confidence", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["kingship", "covenant"] },
-    { "number": 3, "emotional_state": "fear", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["persecution", "trust"] },
-    { "number": 4, "emotional_state": "anxiety", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["trust", "peace"] },
-    { "number": 5, "emotional_state": "anxiety", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["protection", "morning"] },
-    { "number": 6, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["sorrow", "weeping"] },
-    { "number": 7, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 1, "secondary_tags": ["injustice", "vindication"] },
-    { "number": 8, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["creation", "worship"] },
-    { "number": 10, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 1, "secondary_tags": ["injustice", "oppression"] },
-    { "number": 11, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["refuge", "confidence"] },
-    { "number": 12, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["loneliness", "waiting"] },
-    { "number": 13, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["sorrow", "waiting"] },
-    { "number": 15, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["holiness", "ethics"] },
-    { "number": 16, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["refuge", "confidence"] },
-    { "number": 18, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "long", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["deliverance", "victory"] },
-    { "number": 19, "emotional_state": "praise", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["creation", "torah"] },
-    { "number": 20, "emotional_state": "confidence", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["protection", "blessing"] },
-    { "number": 21, "emotional_state": "gratitude", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["blessing", "victory"] },
-    { "number": 22, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "full", "intensity": "high", "length": "long", "safe_when_fragile": false, "psalms_book": 1, "secondary_tags": ["abandonment", "suffering"] },
-    { "number": 23, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["protection", "comfort"] },
-    { "number": 24, "emotional_state": "praise", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["worship", "holiness"] },
-    { "number": 25, "emotional_state": "exhaustion", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["waiting", "guidance"] },
-    { "number": 27, "emotional_state": "fear", "primary_function": "trust", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["confidence", "waiting"] },
-    { "number": 29, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["creation", "power"] },
-    { "number": 30, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["healing", "deliverance"] },
-    { "number": 31, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["trust", "refuge"] },
-    { "number": 32, "emotional_state": "guilt", "primary_function": "confession", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["repentance", "forgiveness"] },
-    { "number": 33, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["creation", "providence"] },
-    { "number": 34, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["deliverance", "wisdom"] },
-    { "number": 35, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 1, "secondary_tags": ["persecution", "vindication"] },
-    { "number": 36, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["refuge", "lovingkindness"] },
-    { "number": 37, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "long", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["patience", "justice"] },
-    { "number": 38, "emotional_state": "guilt", "primary_function": "confession", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["repentance", "suffering"] },
-    { "number": 39, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 1, "secondary_tags": ["mortality", "silence"] },
-    { "number": 40, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["waiting", "deliverance"] },
-    { "number": 41, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 1, "secondary_tags": ["betrayal", "sickness"] },
-    { "number": 42, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["longing", "exile"] },
-    { "number": 43, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["longing", "exile"] },
-    { "number": 44, "emotional_state": "confusion", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["defeat", "questioning"] },
-    { "number": 45, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["wedding", "covenant"] },
-    { "number": 46, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["refuge", "protection"] },
-    { "number": 47, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["enthronement", "worship"] },
-    { "number": 49, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["mortality", "wealth"] },
-    { "number": 51, "emotional_state": "guilt", "primary_function": "confession", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["repentance", "cleansing"] },
-    { "number": 52, "emotional_state": "anger", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["wickedness", "confidence"] },
-    { "number": 55, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["betrayal", "loneliness"] },
-    { "number": 56, "emotional_state": "fear", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["trust", "persecution"] },
-    { "number": 57, "emotional_state": "fear", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["refuge", "protection"] },
-    { "number": 58, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["injustice", "judgment"] },
-    { "number": 59, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["persecution", "protection"] },
-    { "number": 60, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["defeat", "restoration"] },
-    { "number": 61, "emotional_state": "exhaustion", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["refuge", "longing"] },
-    { "number": 62, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["silence", "waiting"] },
-    { "number": 63, "emotional_state": "exhaustion", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["longing", "satisfaction"] },
-    { "number": 65, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["harvest", "provision"] },
-    { "number": 66, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["deliverance", "testimony"] },
-    { "number": 69, "emotional_state": "grief", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "long", "safe_when_fragile": false, "psalms_book": 2, "secondary_tags": ["suffering", "persecution"] },
-    { "number": 71, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["aging", "trust"] },
-    { "number": 72, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 2, "secondary_tags": ["justice", "peace"] },
-    { "number": 73, "emotional_state": "confusion", "primary_function": "wisdom", "directional_movement": "mixed", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 3, "secondary_tags": ["prosperity", "perspective"] },
-    { "number": 74, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 3, "secondary_tags": ["destruction", "exile"] },
-    { "number": 77, "emotional_state": "confusion", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 3, "secondary_tags": ["doubt", "memory"] },
-    { "number": 78, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "long", "safe_when_fragile": true, "psalms_book": 3, "secondary_tags": ["history", "covenant"] },
-    { "number": 79, "emotional_state": "grief", "primary_function": "imprecation", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 3, "secondary_tags": ["destruction", "exile"] },
-    { "number": 80, "emotional_state": "grief", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 3, "secondary_tags": ["exile", "restoration"] },
-    { "number": 83, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 3, "secondary_tags": ["enemies", "protection"] },
-    { "number": 86, "emotional_state": "exhaustion", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 3, "secondary_tags": ["mercy", "guidance"] },
-    { "number": 88, "emotional_state": "despair", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 3, "secondary_tags": ["darkness", "abandonment"] },
-    { "number": 89, "emotional_state": "confusion", "primary_function": "lament", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "long", "safe_when_fragile": false, "psalms_book": 3, "secondary_tags": ["covenant", "questioning"] },
-    { "number": 90, "emotional_state": "exhaustion", "primary_function": "wisdom", "directional_movement": "downward", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["mortality", "time"] },
-    { "number": 91, "emotional_state": "trust", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["protection", "refuge"] },
-    { "number": 92, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["sabbath", "righteousness"] },
-    { "number": 93, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["sovereignty", "enthronement"] },
-    { "number": 94, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 4, "secondary_tags": ["justice", "oppression"] },
-    { "number": 95, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["worship", "warning"] },
-    { "number": 96, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["enthronement", "creation"] },
-    { "number": 97, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["enthronement", "righteousness"] },
-    { "number": 98, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["salvation", "creation"] },
-    { "number": 99, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["holiness", "enthronement"] },
-    { "number": 100, "emotional_state": "joy", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["thanksgiving", "worship"] },
-    { "number": 102, "emotional_state": "grief", "primary_function": "confession", "directional_movement": "downward", "resolution_type": "partial", "intensity": "high", "length": "medium", "safe_when_fragile": false, "psalms_book": 4, "secondary_tags": ["suffering", "mortality"] },
-    { "number": 103, "emotional_state": "gratitude", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["forgiveness", "compassion"] },
-    { "number": 104, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "long", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["creation", "providence"] },
-    { "number": 105, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "long", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["history", "covenant"] },
-    { "number": 106, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "long", "safe_when_fragile": true, "psalms_book": 4, "secondary_tags": ["confession", "mercy"] },
-    { "number": 107, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "long", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["deliverance", "testimony"] },
-    { "number": 109, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "long", "safe_when_fragile": false, "psalms_book": 5, "secondary_tags": ["betrayal", "curse"] },
-    { "number": 110, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["messianic", "victory"] },
-    { "number": 111, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["works", "covenant"] },
-    { "number": 112, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["righteousness", "blessing"] },
-    { "number": 113, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "exaltation"] },
-    { "number": 114, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "exodus"] },
-    { "number": 115, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "trust"] },
-    { "number": 116, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "deliverance"] },
-    { "number": 117, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "nations"] },
-    { "number": 118, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "victory"] },
-    { "number": 119, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "long", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["torah", "meditation"] },
-    { "number": 120, "emotional_state": "anxiety", "primary_function": "pilgrimage", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "conflict"] },
-    { "number": 121, "emotional_state": "trust", "primary_function": "pilgrimage", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "protection"] },
-    { "number": 122, "emotional_state": "joy", "primary_function": "pilgrimage", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "jerusalem"] },
-    { "number": 123, "emotional_state": "exhaustion", "primary_function": "pilgrimage", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "waiting"] },
-    { "number": 124, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "deliverance"] },
-    { "number": 125, "emotional_state": "trust", "primary_function": "pilgrimage", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "security"] },
-    { "number": 126, "emotional_state": "grief", "primary_function": "pilgrimage", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "restoration"] },
-    { "number": 127, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "providence"] },
-    { "number": 128, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "blessing"] },
-    { "number": 129, "emotional_state": "endurance", "primary_function": "pilgrimage", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "persecution"] },
-    { "number": 130, "emotional_state": "guilt", "primary_function": "confession", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "repentance"] },
-    { "number": 131, "emotional_state": "exhaustion", "primary_function": "trust", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "humility"] },
-    { "number": 132, "emotional_state": "praise", "primary_function": "pilgrimage", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "covenant"] },
-    { "number": 133, "emotional_state": "wisdom", "primary_function": "wisdom", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "unity"] },
-    { "number": 134, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "low", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["ascent", "blessing"] },
-    { "number": 135, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "creation"] },
-    { "number": 136, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "lovingkindness"] },
-    { "number": 137, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "downward", "resolution_type": "none", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 5, "secondary_tags": ["exile", "grief"] },
-    { "number": 138, "emotional_state": "gratitude", "primary_function": "thanksgiving", "directional_movement": "upward", "resolution_type": "full", "intensity": "medium", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["praise", "confidence"] },
-    { "number": 140, "emotional_state": "anger", "primary_function": "imprecation", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": false, "psalms_book": 5, "secondary_tags": ["persecution", "protection"] },
-    { "number": 143, "emotional_state": "exhaustion", "primary_function": "lament", "directional_movement": "mixed", "resolution_type": "partial", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["despair", "guidance"] },
-    { "number": 144, "emotional_state": "praise", "primary_function": "kingship", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["victory", "blessing"] },
-    { "number": 145, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["greatness", "kingdom"] },
-    { "number": 146, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "trust"] },
-    { "number": 147, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "medium", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "creation"] },
-    { "number": 148, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "creation"] },
-    { "number": 149, "emotional_state": "praise", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "victory"] },
-    { "number": 150, "emotional_state": "joy", "primary_function": "praise", "directional_movement": "upward", "resolution_type": "full", "intensity": "high", "length": "short", "safe_when_fragile": true, "psalms_book": 5, "secondary_tags": ["hallel", "instruments"] }
+    {
+      "number": 1,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "wisdom",
+        "meditation"
+      ],
+      "category_number": 1,
+      "category_id": "wisdom-1"
+    },
+    {
+      "number": 2,
+      "emotional_state": "confidence",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "kingship",
+        "covenant"
+      ],
+      "category_number": 1,
+      "category_id": "confidence-1"
+    },
+    {
+      "number": 3,
+      "emotional_state": "fear",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "persecution",
+        "trust"
+      ],
+      "category_number": 1,
+      "category_id": "fear-1"
+    },
+    {
+      "number": 4,
+      "emotional_state": "anxiety",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "trust",
+        "peace"
+      ],
+      "category_number": 1,
+      "category_id": "anxiety-1"
+    },
+    {
+      "number": 5,
+      "emotional_state": "anxiety",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "protection",
+        "morning"
+      ],
+      "category_number": 2,
+      "category_id": "anxiety-2"
+    },
+    {
+      "number": 6,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "sorrow",
+        "weeping"
+      ],
+      "category_number": 1,
+      "category_id": "grief-1"
+    },
+    {
+      "number": 7,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "injustice",
+        "vindication"
+      ],
+      "category_number": 1,
+      "category_id": "anger-1"
+    },
+    {
+      "number": 8,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "creation",
+        "worship"
+      ],
+      "category_number": 1,
+      "category_id": "praise-1"
+    },
+    {
+      "number": 10,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "injustice",
+        "oppression"
+      ],
+      "category_number": 1,
+      "category_id": "despair-1"
+    },
+    {
+      "number": 11,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "refuge",
+        "confidence"
+      ],
+      "category_number": 1,
+      "category_id": "trust-1"
+    },
+    {
+      "number": 12,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "loneliness",
+        "waiting"
+      ],
+      "category_number": 2,
+      "category_id": "despair-2"
+    },
+    {
+      "number": 13,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "sorrow",
+        "waiting"
+      ],
+      "category_number": 2,
+      "category_id": "grief-2"
+    },
+    {
+      "number": 15,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "holiness",
+        "ethics"
+      ],
+      "category_number": 2,
+      "category_id": "wisdom-2"
+    },
+    {
+      "number": 16,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "refuge",
+        "confidence"
+      ],
+      "category_number": 2,
+      "category_id": "trust-2"
+    },
+    {
+      "number": 18,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "deliverance",
+        "victory"
+      ],
+      "category_number": 1,
+      "category_id": "gratitude-1"
+    },
+    {
+      "number": 19,
+      "emotional_state": "praise",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "creation",
+        "torah"
+      ],
+      "category_number": 2,
+      "category_id": "praise-2"
+    },
+    {
+      "number": 20,
+      "emotional_state": "confidence",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "protection",
+        "blessing"
+      ],
+      "category_number": 2,
+      "category_id": "confidence-2"
+    },
+    {
+      "number": 21,
+      "emotional_state": "gratitude",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "blessing",
+        "victory"
+      ],
+      "category_number": 2,
+      "category_id": "gratitude-2"
+    },
+    {
+      "number": 22,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": false,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "abandonment",
+        "suffering"
+      ],
+      "category_number": 3,
+      "category_id": "grief-3"
+    },
+    {
+      "number": 23,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "protection",
+        "comfort"
+      ],
+      "category_number": 3,
+      "category_id": "trust-3"
+    },
+    {
+      "number": 24,
+      "emotional_state": "praise",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "worship",
+        "holiness"
+      ],
+      "category_number": 3,
+      "category_id": "praise-3"
+    },
+    {
+      "number": 25,
+      "emotional_state": "exhaustion",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "waiting",
+        "guidance"
+      ],
+      "category_number": 1,
+      "category_id": "exhaustion-1"
+    },
+    {
+      "number": 27,
+      "emotional_state": "fear",
+      "primary_function": "trust",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "confidence",
+        "waiting"
+      ],
+      "category_number": 2,
+      "category_id": "fear-2"
+    },
+    {
+      "number": 29,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "creation",
+        "power"
+      ],
+      "category_number": 4,
+      "category_id": "praise-4"
+    },
+    {
+      "number": 30,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "healing",
+        "deliverance"
+      ],
+      "category_number": 3,
+      "category_id": "gratitude-3"
+    },
+    {
+      "number": 31,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "trust",
+        "refuge"
+      ],
+      "category_number": 4,
+      "category_id": "grief-4"
+    },
+    {
+      "number": 32,
+      "emotional_state": "guilt",
+      "primary_function": "confession",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "repentance",
+        "forgiveness"
+      ],
+      "category_number": 1,
+      "category_id": "guilt-1"
+    },
+    {
+      "number": 33,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "creation",
+        "providence"
+      ],
+      "category_number": 5,
+      "category_id": "praise-5"
+    },
+    {
+      "number": 34,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "deliverance",
+        "wisdom"
+      ],
+      "category_number": 4,
+      "category_id": "gratitude-4"
+    },
+    {
+      "number": 35,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "persecution",
+        "vindication"
+      ],
+      "category_number": 2,
+      "category_id": "anger-2"
+    },
+    {
+      "number": 36,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "refuge",
+        "lovingkindness"
+      ],
+      "category_number": 4,
+      "category_id": "trust-4"
+    },
+    {
+      "number": 37,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "patience",
+        "justice"
+      ],
+      "category_number": 3,
+      "category_id": "wisdom-3"
+    },
+    {
+      "number": 38,
+      "emotional_state": "guilt",
+      "primary_function": "confession",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "repentance",
+        "suffering"
+      ],
+      "category_number": 2,
+      "category_id": "guilt-2"
+    },
+    {
+      "number": 39,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "mortality",
+        "silence"
+      ],
+      "category_number": 5,
+      "category_id": "grief-5"
+    },
+    {
+      "number": 40,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "waiting",
+        "deliverance"
+      ],
+      "category_number": 5,
+      "category_id": "gratitude-5"
+    },
+    {
+      "number": 41,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 1,
+      "secondary_tags": [
+        "betrayal",
+        "sickness"
+      ],
+      "category_number": 3,
+      "category_id": "despair-3"
+    },
+    {
+      "number": 42,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "longing",
+        "exile"
+      ],
+      "category_number": 6,
+      "category_id": "grief-6"
+    },
+    {
+      "number": 43,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "longing",
+        "exile"
+      ],
+      "category_number": 7,
+      "category_id": "grief-7"
+    },
+    {
+      "number": 44,
+      "emotional_state": "confusion",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "defeat",
+        "questioning"
+      ],
+      "category_number": 1,
+      "category_id": "confusion-1"
+    },
+    {
+      "number": 45,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "wedding",
+        "covenant"
+      ],
+      "category_number": 6,
+      "category_id": "praise-6"
+    },
+    {
+      "number": 46,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "refuge",
+        "protection"
+      ],
+      "category_number": 5,
+      "category_id": "trust-5"
+    },
+    {
+      "number": 47,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "enthronement",
+        "worship"
+      ],
+      "category_number": 7,
+      "category_id": "praise-7"
+    },
+    {
+      "number": 49,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "mortality",
+        "wealth"
+      ],
+      "category_number": 4,
+      "category_id": "wisdom-4"
+    },
+    {
+      "number": 51,
+      "emotional_state": "guilt",
+      "primary_function": "confession",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "repentance",
+        "cleansing"
+      ],
+      "category_number": 3,
+      "category_id": "guilt-3"
+    },
+    {
+      "number": 52,
+      "emotional_state": "anger",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "wickedness",
+        "confidence"
+      ],
+      "category_number": 3,
+      "category_id": "anger-3"
+    },
+    {
+      "number": 55,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "betrayal",
+        "loneliness"
+      ],
+      "category_number": 4,
+      "category_id": "despair-4"
+    },
+    {
+      "number": 56,
+      "emotional_state": "fear",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "trust",
+        "persecution"
+      ],
+      "category_number": 3,
+      "category_id": "fear-3"
+    },
+    {
+      "number": 57,
+      "emotional_state": "fear",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "refuge",
+        "protection"
+      ],
+      "category_number": 4,
+      "category_id": "fear-4"
+    },
+    {
+      "number": 58,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "injustice",
+        "judgment"
+      ],
+      "category_number": 4,
+      "category_id": "anger-4"
+    },
+    {
+      "number": 59,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "persecution",
+        "protection"
+      ],
+      "category_number": 5,
+      "category_id": "anger-5"
+    },
+    {
+      "number": 60,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "defeat",
+        "restoration"
+      ],
+      "category_number": 5,
+      "category_id": "despair-5"
+    },
+    {
+      "number": 61,
+      "emotional_state": "exhaustion",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "refuge",
+        "longing"
+      ],
+      "category_number": 2,
+      "category_id": "exhaustion-2"
+    },
+    {
+      "number": 62,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "silence",
+        "waiting"
+      ],
+      "category_number": 6,
+      "category_id": "trust-6"
+    },
+    {
+      "number": 63,
+      "emotional_state": "exhaustion",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "longing",
+        "satisfaction"
+      ],
+      "category_number": 3,
+      "category_id": "exhaustion-3"
+    },
+    {
+      "number": 65,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "harvest",
+        "provision"
+      ],
+      "category_number": 6,
+      "category_id": "gratitude-6"
+    },
+    {
+      "number": 66,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "deliverance",
+        "testimony"
+      ],
+      "category_number": 7,
+      "category_id": "gratitude-7"
+    },
+    {
+      "number": 69,
+      "emotional_state": "grief",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": false,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "suffering",
+        "persecution"
+      ],
+      "category_number": 8,
+      "category_id": "grief-8"
+    },
+    {
+      "number": 71,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "aging",
+        "trust"
+      ],
+      "category_number": 9,
+      "category_id": "grief-9"
+    },
+    {
+      "number": 72,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 2,
+      "secondary_tags": [
+        "justice",
+        "peace"
+      ],
+      "category_number": 8,
+      "category_id": "praise-8"
+    },
+    {
+      "number": 73,
+      "emotional_state": "confusion",
+      "primary_function": "wisdom",
+      "directional_movement": "mixed",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "prosperity",
+        "perspective"
+      ],
+      "category_number": 2,
+      "category_id": "confusion-2"
+    },
+    {
+      "number": 74,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "destruction",
+        "exile"
+      ],
+      "category_number": 10,
+      "category_id": "grief-10"
+    },
+    {
+      "number": 77,
+      "emotional_state": "confusion",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "doubt",
+        "memory"
+      ],
+      "category_number": 3,
+      "category_id": "confusion-3"
+    },
+    {
+      "number": 78,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "history",
+        "covenant"
+      ],
+      "category_number": 5,
+      "category_id": "wisdom-5"
+    },
+    {
+      "number": 79,
+      "emotional_state": "grief",
+      "primary_function": "imprecation",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "destruction",
+        "exile"
+      ],
+      "category_number": 11,
+      "category_id": "grief-11"
+    },
+    {
+      "number": 80,
+      "emotional_state": "grief",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "exile",
+        "restoration"
+      ],
+      "category_number": 12,
+      "category_id": "grief-12"
+    },
+    {
+      "number": 83,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "enemies",
+        "protection"
+      ],
+      "category_number": 6,
+      "category_id": "anger-6"
+    },
+    {
+      "number": 86,
+      "emotional_state": "exhaustion",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "mercy",
+        "guidance"
+      ],
+      "category_number": 4,
+      "category_id": "exhaustion-4"
+    },
+    {
+      "number": 88,
+      "emotional_state": "despair",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "darkness",
+        "abandonment"
+      ],
+      "category_number": 6,
+      "category_id": "despair-6"
+    },
+    {
+      "number": 89,
+      "emotional_state": "confusion",
+      "primary_function": "lament",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": false,
+      "psalms_book": 3,
+      "secondary_tags": [
+        "covenant",
+        "questioning"
+      ],
+      "category_number": 4,
+      "category_id": "confusion-4"
+    },
+    {
+      "number": 90,
+      "emotional_state": "exhaustion",
+      "primary_function": "wisdom",
+      "directional_movement": "downward",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "mortality",
+        "time"
+      ],
+      "category_number": 5,
+      "category_id": "exhaustion-5"
+    },
+    {
+      "number": 91,
+      "emotional_state": "trust",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "protection",
+        "refuge"
+      ],
+      "category_number": 7,
+      "category_id": "trust-7"
+    },
+    {
+      "number": 92,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "sabbath",
+        "righteousness"
+      ],
+      "category_number": 8,
+      "category_id": "gratitude-8"
+    },
+    {
+      "number": 93,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "sovereignty",
+        "enthronement"
+      ],
+      "category_number": 9,
+      "category_id": "praise-9"
+    },
+    {
+      "number": 94,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "justice",
+        "oppression"
+      ],
+      "category_number": 7,
+      "category_id": "anger-7"
+    },
+    {
+      "number": 95,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "worship",
+        "warning"
+      ],
+      "category_number": 10,
+      "category_id": "praise-10"
+    },
+    {
+      "number": 96,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "enthronement",
+        "creation"
+      ],
+      "category_number": 11,
+      "category_id": "praise-11"
+    },
+    {
+      "number": 97,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "enthronement",
+        "righteousness"
+      ],
+      "category_number": 12,
+      "category_id": "praise-12"
+    },
+    {
+      "number": 98,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "salvation",
+        "creation"
+      ],
+      "category_number": 13,
+      "category_id": "praise-13"
+    },
+    {
+      "number": 99,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "holiness",
+        "enthronement"
+      ],
+      "category_number": 14,
+      "category_id": "praise-14"
+    },
+    {
+      "number": 100,
+      "emotional_state": "joy",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "thanksgiving",
+        "worship"
+      ],
+      "category_number": 1,
+      "category_id": "joy-1"
+    },
+    {
+      "number": 102,
+      "emotional_state": "grief",
+      "primary_function": "confession",
+      "directional_movement": "downward",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": false,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "suffering",
+        "mortality"
+      ],
+      "category_number": 13,
+      "category_id": "grief-13"
+    },
+    {
+      "number": 103,
+      "emotional_state": "gratitude",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "forgiveness",
+        "compassion"
+      ],
+      "category_number": 9,
+      "category_id": "gratitude-9"
+    },
+    {
+      "number": 104,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "creation",
+        "providence"
+      ],
+      "category_number": 15,
+      "category_id": "praise-15"
+    },
+    {
+      "number": 105,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "history",
+        "covenant"
+      ],
+      "category_number": 16,
+      "category_id": "praise-16"
+    },
+    {
+      "number": 106,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 4,
+      "secondary_tags": [
+        "confession",
+        "mercy"
+      ],
+      "category_number": 17,
+      "category_id": "praise-17"
+    },
+    {
+      "number": 107,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "deliverance",
+        "testimony"
+      ],
+      "category_number": 10,
+      "category_id": "gratitude-10"
+    },
+    {
+      "number": 109,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "long",
+      "safe_when_fragile": false,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "betrayal",
+        "curse"
+      ],
+      "category_number": 8,
+      "category_id": "anger-8"
+    },
+    {
+      "number": 110,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "messianic",
+        "victory"
+      ],
+      "category_number": 18,
+      "category_id": "praise-18"
+    },
+    {
+      "number": 111,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "works",
+        "covenant"
+      ],
+      "category_number": 19,
+      "category_id": "praise-19"
+    },
+    {
+      "number": 112,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "righteousness",
+        "blessing"
+      ],
+      "category_number": 6,
+      "category_id": "wisdom-6"
+    },
+    {
+      "number": 113,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "exaltation"
+      ],
+      "category_number": 20,
+      "category_id": "praise-20"
+    },
+    {
+      "number": 114,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "exodus"
+      ],
+      "category_number": 21,
+      "category_id": "praise-21"
+    },
+    {
+      "number": 115,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "trust"
+      ],
+      "category_number": 22,
+      "category_id": "praise-22"
+    },
+    {
+      "number": 116,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "deliverance"
+      ],
+      "category_number": 11,
+      "category_id": "gratitude-11"
+    },
+    {
+      "number": 117,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "nations"
+      ],
+      "category_number": 23,
+      "category_id": "praise-23"
+    },
+    {
+      "number": 118,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "victory"
+      ],
+      "category_number": 12,
+      "category_id": "gratitude-12"
+    },
+    {
+      "number": 119,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "long",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "torah",
+        "meditation"
+      ],
+      "category_number": 7,
+      "category_id": "wisdom-7"
+    },
+    {
+      "number": 120,
+      "emotional_state": "anxiety",
+      "primary_function": "pilgrimage",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "conflict"
+      ],
+      "category_number": 3,
+      "category_id": "anxiety-3"
+    },
+    {
+      "number": 121,
+      "emotional_state": "trust",
+      "primary_function": "pilgrimage",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "protection"
+      ],
+      "category_number": 8,
+      "category_id": "trust-8"
+    },
+    {
+      "number": 122,
+      "emotional_state": "joy",
+      "primary_function": "pilgrimage",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "jerusalem"
+      ],
+      "category_number": 2,
+      "category_id": "joy-2"
+    },
+    {
+      "number": 123,
+      "emotional_state": "exhaustion",
+      "primary_function": "pilgrimage",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "waiting"
+      ],
+      "category_number": 6,
+      "category_id": "exhaustion-6"
+    },
+    {
+      "number": 124,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "deliverance"
+      ],
+      "category_number": 13,
+      "category_id": "gratitude-13"
+    },
+    {
+      "number": 125,
+      "emotional_state": "trust",
+      "primary_function": "pilgrimage",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "security"
+      ],
+      "category_number": 9,
+      "category_id": "trust-9"
+    },
+    {
+      "number": 126,
+      "emotional_state": "grief",
+      "primary_function": "pilgrimage",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "restoration"
+      ],
+      "category_number": 14,
+      "category_id": "grief-14"
+    },
+    {
+      "number": 127,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "providence"
+      ],
+      "category_number": 8,
+      "category_id": "wisdom-8"
+    },
+    {
+      "number": 128,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "blessing"
+      ],
+      "category_number": 9,
+      "category_id": "wisdom-9"
+    },
+    {
+      "number": 129,
+      "emotional_state": "endurance",
+      "primary_function": "pilgrimage",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "persecution"
+      ],
+      "category_number": 1,
+      "category_id": "endurance-1"
+    },
+    {
+      "number": 130,
+      "emotional_state": "guilt",
+      "primary_function": "confession",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "repentance"
+      ],
+      "category_number": 4,
+      "category_id": "guilt-4"
+    },
+    {
+      "number": 131,
+      "emotional_state": "exhaustion",
+      "primary_function": "trust",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "humility"
+      ],
+      "category_number": 7,
+      "category_id": "exhaustion-7"
+    },
+    {
+      "number": 132,
+      "emotional_state": "praise",
+      "primary_function": "pilgrimage",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "covenant"
+      ],
+      "category_number": 24,
+      "category_id": "praise-24"
+    },
+    {
+      "number": 133,
+      "emotional_state": "wisdom",
+      "primary_function": "wisdom",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "unity"
+      ],
+      "category_number": 10,
+      "category_id": "wisdom-10"
+    },
+    {
+      "number": 134,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "low",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "ascent",
+        "blessing"
+      ],
+      "category_number": 25,
+      "category_id": "praise-25"
+    },
+    {
+      "number": 135,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "creation"
+      ],
+      "category_number": 26,
+      "category_id": "praise-26"
+    },
+    {
+      "number": 136,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "lovingkindness"
+      ],
+      "category_number": 27,
+      "category_id": "praise-27"
+    },
+    {
+      "number": 137,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "downward",
+      "resolution_type": "none",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "exile",
+        "grief"
+      ],
+      "category_number": 9,
+      "category_id": "anger-9"
+    },
+    {
+      "number": 138,
+      "emotional_state": "gratitude",
+      "primary_function": "thanksgiving",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "medium",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "praise",
+        "confidence"
+      ],
+      "category_number": 14,
+      "category_id": "gratitude-14"
+    },
+    {
+      "number": 140,
+      "emotional_state": "anger",
+      "primary_function": "imprecation",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": false,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "persecution",
+        "protection"
+      ],
+      "category_number": 10,
+      "category_id": "anger-10"
+    },
+    {
+      "number": 143,
+      "emotional_state": "exhaustion",
+      "primary_function": "lament",
+      "directional_movement": "mixed",
+      "resolution_type": "partial",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "despair",
+        "guidance"
+      ],
+      "category_number": 8,
+      "category_id": "exhaustion-8"
+    },
+    {
+      "number": 144,
+      "emotional_state": "praise",
+      "primary_function": "kingship",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "victory",
+        "blessing"
+      ],
+      "category_number": 28,
+      "category_id": "praise-28"
+    },
+    {
+      "number": 145,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "greatness",
+        "kingdom"
+      ],
+      "category_number": 29,
+      "category_id": "praise-29"
+    },
+    {
+      "number": 146,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "trust"
+      ],
+      "category_number": 30,
+      "category_id": "praise-30"
+    },
+    {
+      "number": 147,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "medium",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "creation"
+      ],
+      "category_number": 31,
+      "category_id": "praise-31"
+    },
+    {
+      "number": 148,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "creation"
+      ],
+      "category_number": 32,
+      "category_id": "praise-32"
+    },
+    {
+      "number": 149,
+      "emotional_state": "praise",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "victory"
+      ],
+      "category_number": 33,
+      "category_id": "praise-33"
+    },
+    {
+      "number": 150,
+      "emotional_state": "joy",
+      "primary_function": "praise",
+      "directional_movement": "upward",
+      "resolution_type": "full",
+      "intensity": "high",
+      "length": "short",
+      "safe_when_fragile": true,
+      "psalms_book": 5,
+      "secondary_tags": [
+        "hallel",
+        "instruments"
+      ],
+      "category_number": 3,
+      "category_id": "joy-3"
+    }
   ],
   "categories": {
-    "emotional_state": ["anxiety", "fear", "grief", "despair", "anger", "guilt", "confusion", "exhaustion", "trust", "gratitude", "joy", "praise", "resolve", "wisdom", "confidence", "endurance"],
-    "primary_function": ["lament", "trust", "confession", "imprecation", "wisdom", "praise", "kingship", "pilgrimage", "thanksgiving"],
-    "directional_movement": ["downward", "mixed", "upward"],
-    "resolution_type": ["none", "partial", "full"],
-    "intensity": ["low", "medium", "high"],
-    "length": ["short", "medium", "long"]
+    "emotional_state": [
+      "anxiety",
+      "fear",
+      "grief",
+      "despair",
+      "anger",
+      "guilt",
+      "confusion",
+      "exhaustion",
+      "trust",
+      "gratitude",
+      "joy",
+      "praise",
+      "resolve",
+      "wisdom",
+      "confidence",
+      "endurance"
+    ],
+    "primary_function": [
+      "lament",
+      "trust",
+      "confession",
+      "imprecation",
+      "wisdom",
+      "praise",
+      "kingship",
+      "pilgrimage",
+      "thanksgiving"
+    ],
+    "directional_movement": [
+      "downward",
+      "mixed",
+      "upward"
+    ],
+    "resolution_type": [
+      "none",
+      "partial",
+      "full"
+    ],
+    "intensity": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "length": [
+      "short",
+      "medium",
+      "long"
+    ]
   }
 }

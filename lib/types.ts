@@ -32,7 +32,7 @@ export interface Selection {
 }
 
 // Raw JSON structure from source
-export interface GenesisJSON {
+export interface BookJSON {
   book: string;
   count: number;
   chapters: Array<{
@@ -43,3 +43,5 @@ export interface GenesisJSON {
     }>;
   }>;
 }
+
+export type GenesisJSON = BookJSON;

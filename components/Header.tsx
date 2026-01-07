@@ -5,13 +5,15 @@ import { useState, useEffect } from 'react';
 import { storage } from '@/lib/storage';
 
 export default function Header() {
-  const [bookmarkChapter, setBookmarkChapter] = useState<number | null>(null);
+  const [bookmark, setBookmark] = useState<{ book: string; chapter: number } | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
-      const bookmark = storage.getBookmark();
-      setBookmarkChapter(bookmark?.chapter || null);
+      const savedBookmark = storage.getBookmark();
+      if (savedBookmark) {
+        setBookmark({ book: savedBookmark.book, chapter: savedBookmark.chapter });
+      }
     } catch (error) {
       console.error('Failed to load bookmark', error);
     }
@@ -25,11 +27,17 @@ export default function Header() {
         </Link>
         <nav className="flex gap-6 text-sm">
           <Link href="/genesis/1" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-            Read
+            Genesis
           </Link>
-          {bookmarkChapter && (
-            <Link href={`/genesis/${bookmarkChapter}`} className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-              Bookmark ({bookmarkChapter})
+          <Link href="/psalms" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
+            Psalms
+          </Link>
+          {bookmark && (
+            <Link
+              href={`/${bookmark.book.toLowerCase()}/${bookmark.chapter}`}
+              className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+            >
+              Bookmark ({bookmark.book} {bookmark.chapter})
             </Link>
           )}
         </nav>

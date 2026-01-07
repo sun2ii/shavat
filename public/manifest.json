@@ -1,0 +1,37 @@
+{
+  "name": "Shavat - Scripture Reader",
+  "short_name": "Shavat",
+  "description": "A Sabbath for reading scripture with emotional context",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#D4AF37",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["books", "education", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Browse Psalms",
+      "url": "/psalms",
+      "description": "Filter and browse all 150 psalms"
+    },
+    {
+      "name": "Genesis",
+      "url": "/genesis/1",
+      "description": "Read Genesis"
+    }
+  ]
+}

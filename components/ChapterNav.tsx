@@ -7,27 +7,36 @@ import { storage } from '@/lib/storage';
 interface Props {
   currentChapter: number;
   totalChapters: number;
+  bookName?: string;
+  bookRoute?: string;
 }
 
-export default function ChapterNav({ currentChapter, totalChapters }: Props) {
+export default function ChapterNav({
+  currentChapter,
+  totalChapters,
+  bookName = 'Genesis',
+  bookRoute = 'genesis',
+}: Props) {
   const hasPrev = currentChapter > 1;
   const hasNext = currentChapter < totalChapters;
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [jumpTo, setJumpTo] = useState('');
 
   // Check if current chapter is bookmarked
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const bookmark = storage.getBookmark();
-    setIsBookmarked(bookmark?.chapter === currentChapter);
-  }, [currentChapter]);
+    setIsBookmarked(bookmark?.chapter === currentChapter && bookmark?.book === bookName);
+  }, [currentChapter, bookName]);
 
   const handleBookmark = () => {
     if (typeof window === 'undefined') return;
 
     try {
       storage.setBookmark({
-        book: 'Genesis',
+        book: bookName,
         chapter: currentChapter,
         verse: 1,
       });
@@ -39,16 +48,63 @@ export default function ChapterNav({ currentChapter, totalChapters }: Props) {
     }
   };
 
+  const handleDoubleClick = () => {
+    setIsEditing(true);
+    setJumpTo('');
+  };
+
+  const handleJumpSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const num = parseInt(jumpTo);
+    if (!isNaN(num) && num >= 1 && num <= totalChapters) {
+      window.location.href = `/${bookRoute}/${num}`;
+    }
+    setIsEditing(false);
+  };
+
+  const handleJumpKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setIsEditing(false);
+    }
+  };
+
   return (
     <>
       {/* Top header with chapter title and bookmark */}
-      <nav className="flex flex-col items-center justify-center gap-2 mb-6 pb-3 border-b border-[rgb(var(--border))]">
-        <span className="text-[#D4AF37] text-3xl font-semibold tracking-wide">Genesis {currentChapter}</span>
+      <nav className="relative flex items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
+        {isEditing ? (
+          <form onSubmit={handleJumpSubmit} className="flex items-center gap-2">
+            <span className="text-[#D4AF37] text-3xl font-semibold tracking-wide">{bookName}</span>
+            <input
+              type="number"
+              value={jumpTo}
+              onChange={(e) => setJumpTo(e.target.value)}
+              onKeyDown={handleJumpKeyDown}
+              onBlur={() => setIsEditing(false)}
+              autoFocus
+              min={1}
+              max={totalChapters}
+              className="w-20 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] text-[#D4AF37] border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              placeholder={currentChapter.toString()}
+            />
+          </form>
+        ) : (
+          <span
+            onDoubleClick={handleDoubleClick}
+            className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
+            title="Double-click to jump to chapter"
+          >
+            {bookName} {currentChapter}
+          </span>
+        )}
+
+        {/* Bookmark Icon */}
         <button
           onClick={handleBookmark}
-          className="px-3 py-1 text-xs bg-[rgb(var(--bg-secondary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))] rounded transition-colors"
+          className="absolute right-0 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
+          title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
         >
-          {showSaved ? '✓ Saved' : isBookmarked ? 'Bookmarked' : 'Bookmark'}
+          {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
         </button>
       </nav>
 
@@ -56,7 +112,7 @@ export default function ChapterNav({ currentChapter, totalChapters }: Props) {
       <div className="fixed left-4 top-1/2 -translate-y-1/2">
         {hasPrev ? (
           <Link
-            href={`/genesis/${currentChapter - 1}`}
+            href={`/${bookRoute}/${currentChapter - 1}`}
             className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-2xl"
           >
             ← {currentChapter - 1}
@@ -70,7 +126,7 @@ export default function ChapterNav({ currentChapter, totalChapters }: Props) {
       <div className="fixed right-4 top-1/2 -translate-y-1/2">
         {hasNext ? (
           <Link
-            href={`/genesis/${currentChapter + 1}`}
+            href={`/${bookRoute}/${currentChapter + 1}`}
             className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-2xl"
           >
             {currentChapter + 1} →

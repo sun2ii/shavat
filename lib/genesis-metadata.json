@@ -1,0 +1,53 @@
+{
+  "books": [
+    {
+      "id": "creation",
+      "title": "The Book of Creation",
+      "chapters": [1, 2],
+      "theme": "Order from chaos",
+      "summary": "Creation of the heavens and the earth; order, purpose, blessing"
+    },
+    {
+      "id": "adam-and-eve",
+      "title": "The Book of Adam & Eve",
+      "chapters": [3, 4, 5],
+      "theme": "Fall and its spread",
+      "summary": "Humanity, the Fall, exile, the spread of sin and consequence"
+    },
+    {
+      "id": "noah",
+      "title": "The Book of Noah",
+      "chapters": [6, 7, 8, 9, 10, 11],
+      "theme": "Judgment, reset, scattering",
+      "summary": "Judgment, preservation, covenant, renewal, and the scattering at Babel"
+    },
+    {
+      "id": "abraham",
+      "title": "The Book of Abraham",
+      "chapters": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "theme": "Call, promise, tested faith",
+      "summary": "The call of Abram, covenant promises, and the testing of faith"
+    },
+    {
+      "id": "isaac",
+      "title": "The Book of Isaac",
+      "chapters": [26, 27],
+      "theme": "Inheritance and blessing",
+      "summary": "The inheritance of promise and the contested blessing"
+    },
+    {
+      "id": "jacob",
+      "title": "The Book of Jacob",
+      "chapters": [28, 29, 30, 31, 32, 33, 34, 35, 36],
+      "theme": "Struggle and transformation",
+      "summary": "Wrestling with God and man, transformation from Jacob to Israel"
+    },
+    {
+      "id": "joseph",
+      "title": "The Book of Joseph",
+      "chapters": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+      "theme": "Providence and reconciliation",
+      "summary": "What man meant for evil, God meant for good"
+    }
+  ]
+}

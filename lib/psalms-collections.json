@@ -1,0 +1,94 @@
+{
+  "collections": [
+    {
+      "id": "praise",
+      "title": "Psalms of Praise",
+      "theme": "Worship and adoration",
+      "psalms": [8, 19, 24, 29, 33, 45, 47, 72, 93, 95, 96, 97, 98, 99, 104, 105, 106, 110, 111, 113, 114, 115, 117, 132, 134, 135, 136, 144, 145, 146, 147, 148, 149]
+    },
+    {
+      "id": "trust",
+      "title": "Psalms of Trust",
+      "theme": "Refuge and confidence",
+      "psalms": [11, 16, 23, 36, 46, 62, 91, 121, 125]
+    },
+    {
+      "id": "gratitude",
+      "title": "Psalms of Gratitude",
+      "theme": "Thanksgiving and testimony",
+      "psalms": [18, 21, 30, 34, 40, 65, 66, 92, 103, 107, 116, 118, 124, 138]
+    },
+    {
+      "id": "wisdom",
+      "title": "Psalms of Wisdom",
+      "theme": "Meditation and instruction",
+      "psalms": [1, 15, 37, 49, 78, 112, 119, 127, 128, 133]
+    },
+    {
+      "id": "grief",
+      "title": "Psalms of Grief",
+      "theme": "Sorrow and lament",
+      "psalms": [6, 13, 22, 31, 39, 42, 43, 69, 71, 74, 79, 80, 102, 126]
+    },
+    {
+      "id": "fear",
+      "title": "Psalms of Fear",
+      "theme": "Anxiety and trembling",
+      "psalms": [3, 27, 56, 57]
+    },
+    {
+      "id": "anxiety",
+      "title": "Psalms of Anxiety",
+      "theme": "Worry and unrest",
+      "psalms": [4, 5, 120]
+    },
+    {
+      "id": "despair",
+      "title": "Psalms of Despair",
+      "theme": "Darkness and abandonment",
+      "psalms": [10, 12, 41, 55, 60, 88]
+    },
+    {
+      "id": "anger",
+      "title": "Psalms of Anger",
+      "theme": "Injustice and imprecation",
+      "psalms": [7, 35, 52, 58, 59, 83, 94, 109, 137, 140]
+    },
+    {
+      "id": "guilt",
+      "title": "Psalms of Guilt",
+      "theme": "Confession and repentance",
+      "psalms": [32, 38, 51, 130]
+    },
+    {
+      "id": "confusion",
+      "title": "Psalms of Confusion",
+      "theme": "Doubt and questioning",
+      "psalms": [44, 73, 77, 89]
+    },
+    {
+      "id": "exhaustion",
+      "title": "Psalms of Exhaustion",
+      "theme": "Weariness and waiting",
+      "psalms": [25, 61, 63, 86, 90, 123, 131, 143]
+    },
+    {
+      "id": "joy",
+      "title": "Psalms of Joy",
+      "theme": "Gladness and celebration",
+      "psalms": [100, 122, 150]
+    },
+    {
+      "id": "confidence",
+      "title": "Psalms of Confidence",
+      "theme": "Assurance and boldness",
+      "psalms": [2, 20]
+    },
+    {
+      "id": "endurance",
+      "title": "Psalms of Endurance",
+      "theme": "Perseverance through trial",
+      "psalms": [129]
+    }
+  ]
+}

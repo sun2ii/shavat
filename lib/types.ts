@@ -45,3 +45,28 @@ export interface BookJSON {
 }
 
 export type GenesisJSON = BookJSON;
+
+// Genesis Collection (curated narrative unit)
+export interface GenesisBook {
+  id: string;
+  title: string;
+  chapters: number[];
+  theme: string;
+  summary: string;
+}
+
+export interface GenesisMetadata {
+  books: GenesisBook[];
+}
+
+// Psalms Collection (curated emotional unit)
+export interface PsalmsCollection {
+  id: string;
+  title: string;
+  theme: string;
+  psalms: number[];
+}
+
+export interface PsalmsCollectionsMetadata {
+  collections: PsalmsCollection[];
+}

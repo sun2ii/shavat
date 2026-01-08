@@ -22,22 +22,19 @@ export default function Header() {
   return (
     <header className="mb-6 pb-3 border-b border-[rgb(var(--border))]">
       <div className="flex items-center justify-between">
-        <Link href="/genesis/1" className="text-lg font-light text-[rgb(var(--text-primary))] tracking-wide">
+        <Link href="/" className="text-lg font-light text-[rgb(var(--text-primary))] tracking-wide">
           Shavat
         </Link>
         <nav className="flex gap-6 text-sm">
-          <Link href="/genesis/1" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-            Genesis
-          </Link>
-          <Link href="/psalms" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-            Psalms
+          <Link href="/" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
+            Library
           </Link>
           {bookmark && (
             <Link
               href={`/${bookmark.book.toLowerCase()}/${bookmark.chapter}`}
               className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
             >
-              Bookmark ({bookmark.book} {bookmark.chapter})
+              Bookmark
             </Link>
           )}
         </nav>

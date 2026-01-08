@@ -7,16 +7,7 @@ export default function LibraryPage() {
   const psalmsCollections = getAllCollections();
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-12">
-      <header className="mb-12 text-center">
-        <h1 className="text-2xl font-light text-[rgb(var(--text-primary))] tracking-wide mb-2">
-          Shavat
-        </h1>
-        <p className="text-sm text-[rgb(var(--text-secondary))]">
-          A library of Scripture
-        </p>
-      </header>
-
+    <main className="max-w-7xl mx-auto px-4 py-4">
       {/* Psalms Section */}
       <section className="mb-12">
         <h2 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] mb-4">

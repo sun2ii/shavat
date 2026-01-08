@@ -26,9 +26,6 @@ export default function Header() {
           Shavat
         </Link>
         <nav className="flex gap-6 text-sm">
-          <Link href="/" className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
-            Library
-          </Link>
           {bookmark && (
             <Link
               href={`/${bookmark.book.toLowerCase()}/${bookmark.chapter}`}

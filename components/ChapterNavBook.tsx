@@ -74,16 +74,6 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
 
   return (
     <>
-      {/* Back to library link */}
-      <div className="mb-4">
-        <Link
-          href="/"
-          className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-        >
-          ← Library
-        </Link>
-      </div>
-
       {/* Chapter nav header */}
       <nav className="relative flex items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
         {/* Canonical reference - left corner */}

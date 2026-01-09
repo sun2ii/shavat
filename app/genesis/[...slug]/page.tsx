@@ -1,4 +1,5 @@
 import { notFound, redirect } from 'next/navigation';
+import { Metadata } from 'next';
 import { getChapter } from '@/lib/genesis';
 import { getBookById, getBookByChapter } from '@/lib/genesis-collections';
 import GenesisReader from '@/components/GenesisReader';
@@ -7,6 +8,33 @@ import ChapterNavBook from '@/components/ChapterNavBook';
 interface Props {
   params: {
     slug: string[];
+  };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+
+  if (slug.length === 2) {
+    const [bookId, chapterStr] = slug;
+    const book = getBookById(bookId);
+    const chapterNum = parseInt(chapterStr);
+
+    if (book && book.chapters.includes(chapterNum)) {
+      const chapterIndex = book.chapters.indexOf(chapterNum);
+      const bookDisplayName = book.title.replace('The Book of ', '');
+
+      return {
+        title: `Shavat | ${bookDisplayName} ${chapterIndex + 1}`,
+        openGraph: {
+          title: `Shavat | ${bookDisplayName} ${chapterIndex + 1}`,
+          images: ['/shavat.png'],
+        },
+      };
+    }
+  }
+
+  return {
+    title: 'Shavat',
   };
 }
 

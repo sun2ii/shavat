@@ -1,4 +1,5 @@
 import { notFound, redirect } from 'next/navigation';
+import { Metadata } from 'next';
 import { getChapter } from '@/lib/psalms';
 import { getCollectionById, getCollectionByPsalm } from '@/lib/psalms-collections';
 import GenesisReader from '@/components/GenesisReader';
@@ -7,6 +8,33 @@ import ChapterNavPsalm from '@/components/ChapterNavPsalm';
 interface Props {
   params: {
     slug: string[];
+  };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = params;
+
+  if (slug.length === 2) {
+    const [collectionId, psalmStr] = slug;
+    const collection = getCollectionById(collectionId);
+    const psalmNum = parseInt(psalmStr);
+
+    if (collection && collection.psalms.includes(psalmNum)) {
+      const psalmIndex = collection.psalms.indexOf(psalmNum);
+      const collectionDisplayName = collection.title.replace('Psalms of ', '');
+
+      return {
+        title: `Shavat | ${collectionDisplayName} ${psalmIndex + 1}`,
+        openGraph: {
+          title: `Shavat | ${collectionDisplayName} ${psalmIndex + 1}`,
+          images: ['/shavat.png'],
+        },
+      };
+    }
+  }
+
+  return {
+    title: 'Shavat',
   };
 }
 

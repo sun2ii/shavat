@@ -21,7 +21,7 @@ export default function LibraryPage() {
               className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
             >
               <h3 className="text-sm font-light text-[rgb(var(--text-primary))] mb-1 leading-tight">
-                {collection.title.replace('Psalms of ', '')}
+                {collection.title.replace('Psalms of ', '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {collection.psalms.length}</span>
               </h3>
               <p className="text-xs text-[rgb(var(--text-secondary))] opacity-60">
                 {collection.theme}
@@ -44,7 +44,7 @@ export default function LibraryPage() {
               className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
             >
               <h3 className="text-sm font-light text-[rgb(var(--text-primary))] mb-1 leading-tight">
-                {book.title.replace('The Book of ', '')}
+                {book.title.replace('The Book of ', '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {book.chapters.length}</span>
               </h3>
               <p className="text-xs text-[rgb(var(--text-secondary))] opacity-60">
                 {book.theme}

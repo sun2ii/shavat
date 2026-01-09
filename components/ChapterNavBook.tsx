@@ -75,9 +75,9 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
   return (
     <>
       {/* Chapter nav header */}
-      <nav className="relative flex items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
+      <nav className="relative flex flex-col items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
         {/* Canonical reference - left corner */}
-        <span className="absolute left-0 text-xs text-[rgb(var(--text-secondary))] opacity-50">
+        <span className="absolute left-0 top-0 text-xs text-blue-400 opacity-70">
           Gen {currentChapter}
         </span>
 
@@ -107,10 +107,30 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
           </span>
         )}
 
-        {/* Bookmark Icon - right corner */}
+        {/* Chapter links */}
+        <div className="flex gap-3 mt-3">
+          {book.chapters.map((chapterNum, idx) => {
+            const isActive = chapterNum === currentChapter;
+            return (
+              <Link
+                key={chapterNum}
+                href={`/genesis/${book.id}/${chapterNum}`}
+                className={`text-sm transition-colors ${
+                  isActive
+                    ? 'text-[#D4AF37] font-semibold'
+                    : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
+                }`}
+              >
+                {idx + 1}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Bookmark Icon - below Gen reference */}
         <button
           onClick={handleBookmark}
-          className="absolute right-0 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
+          className="absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
           title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
         >
           {showSaved ? '✓' : isBookmarked ? '★' : '☆'}

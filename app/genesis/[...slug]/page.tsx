@@ -1,9 +1,8 @@
 import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import { getChapter } from '@/lib/genesis';
-import { getBookById, getBookByChapter } from '@/lib/genesis-collections';
-import GenesisReader from '@/components/GenesisReader';
-import ChapterNavBook from '@/components/ChapterNavBook';
+import { getBookById, getBookByChapter, getChapterSummary } from '@/lib/genesis-collections';
+import GenesisPageClient from '@/components/GenesisPageClient';
 
 interface Props {
   params: {
@@ -87,14 +86,15 @@ export default function GenesisPage({ params }: Props) {
       notFound();
     }
 
+    const chapterSummary = getChapterSummary(chapterNum);
+
     return (
-      <main>
-        <ChapterNavBook
-          currentChapter={chapterNum}
-          book={book}
-        />
-        <GenesisReader verses={verses} />
-      </main>
+      <GenesisPageClient
+        verses={verses}
+        book={book}
+        currentChapter={chapterNum}
+        chapterSummary={chapterSummary}
+      />
     );
   }
 

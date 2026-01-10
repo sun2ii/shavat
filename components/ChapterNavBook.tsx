@@ -4,13 +4,17 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { storage } from '@/lib/storage';
 import { GenesisBook } from '@/lib/types';
+import { getNextBook, getPreviousBook } from '@/lib/genesis-collections';
 
 interface Props {
   currentChapter: number;
   book: GenesisBook;
+  onCopyChapter: () => void;
+  copied: boolean;
+  chapterSummary?: string;
 }
 
-export default function ChapterNavBook({ currentChapter, book }: Props) {
+export default function ChapterNavBook({ currentChapter, book, onCopyChapter, copied, chapterSummary }: Props) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -18,12 +22,24 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
 
   const chapterIndex = book.chapters.indexOf(currentChapter);
   const bookChapterNum = chapterIndex + 1; // 1-indexed position within book
-  const hasPrev = chapterIndex > 0;
-  const hasNext = chapterIndex < book.chapters.length - 1;
-  const prevChapter = hasPrev ? book.chapters[chapterIndex - 1] : null;
-  const nextChapter = hasNext ? book.chapters[chapterIndex + 1] : null;
-  const prevBookChapterNum = hasPrev ? chapterIndex : null;
-  const nextBookChapterNum = hasNext ? chapterIndex + 2 : null;
+
+  // Current book navigation
+  const hasPrevInBook = chapterIndex > 0;
+  const hasNextInBook = chapterIndex < book.chapters.length - 1;
+  const prevChapterInBook = hasPrevInBook ? book.chapters[chapterIndex - 1] : null;
+  const nextChapterInBook = hasNextInBook ? book.chapters[chapterIndex + 1] : null;
+
+  // Cross-book navigation
+  const nextBook = !hasNextInBook ? getNextBook(book.id) : null;
+  const prevBook = !hasPrevInBook ? getPreviousBook(book.id) : null;
+
+  // Final navigation targets
+  const prevChapter = prevChapterInBook || (prevBook ? prevBook.chapters[prevBook.chapters.length - 1] : null);
+  const nextChapter = nextChapterInBook || (nextBook ? nextBook.chapters[0] : null);
+  const prevBookId = hasPrevInBook ? book.id : prevBook?.id;
+  const nextBookId = hasNextInBook ? book.id : nextBook?.id;
+  const prevBookChapterNum = hasPrevInBook ? chapterIndex : (prevBook ? prevBook.chapters.length : null);
+  const nextBookChapterNum = hasNextInBook ? chapterIndex + 2 : (nextBook ? 1 : null);
 
   // Book display name (without "The Book of")
   const bookDisplayName = book.title.replace('The Book of ', '');
@@ -76,6 +92,15 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
     <>
       {/* Chapter nav header */}
       <nav className="relative flex flex-col items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
+        {/* Copy chapter icon - top right */}
+        <button
+          onClick={onCopyChapter}
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+          title="Copy chapter"
+        >
+          {copied ? '✓' : '⧉'}
+        </button>
+
         {/* Canonical reference - left corner */}
         <span className="absolute left-0 top-0 text-xs text-blue-400 opacity-70">
           Gen {currentChapter}
@@ -98,13 +123,20 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
             />
           </form>
         ) : (
-          <span
-            onDoubleClick={handleDoubleClick}
-            className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
-            title="Double-click to jump to chapter"
-          >
-            {bookDisplayName} {bookChapterNum}
-          </span>
+          <div className="flex flex-col items-center">
+            <span
+              onDoubleClick={handleDoubleClick}
+              className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
+              title="Double-click to jump to chapter"
+            >
+              {bookDisplayName} {bookChapterNum}
+            </span>
+            {chapterSummary && (
+              <p className="text-sm text-[rgb(var(--text-secondary))] mt-2 max-w-2xl text-center italic">
+                {chapterSummary}
+              </p>
+            )}
+          </div>
         )}
 
         {/* Chapter links */}
@@ -139,9 +171,9 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
 
       {/* Fixed left navigation */}
       <div className="fixed left-2 md:left-4 top-1/2 -translate-y-1/2">
-        {hasPrev && prevChapter && prevBookChapterNum ? (
+        {prevChapter && prevBookId && prevBookChapterNum !== null ? (
           <Link
-            href={`/genesis/${book.id}/${prevChapter}`}
+            href={`/genesis/${prevBookId}/${prevChapter}`}
             className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
           >
             ← <span className="hidden md:inline">{prevBookChapterNum}</span>
@@ -153,9 +185,9 @@ export default function ChapterNavBook({ currentChapter, book }: Props) {
 
       {/* Fixed right navigation */}
       <div className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2">
-        {hasNext && nextChapter && nextBookChapterNum ? (
+        {nextChapter && nextBookId && nextBookChapterNum !== null ? (
           <Link
-            href={`/genesis/${book.id}/${nextChapter}`}
+            href={`/genesis/${nextBookId}/${nextChapter}`}
             className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
           >
             <span className="hidden md:inline">{nextBookChapterNum}</span> →

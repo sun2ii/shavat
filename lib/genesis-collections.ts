@@ -65,3 +65,28 @@ export function getChapterPositionInBook(chapter: number): { position: number; t
   const position = book.chapters.indexOf(chapter) + 1;
   return { position, total: book.chapters.length };
 }
+
+/**
+ * Get the next book in the sequence
+ */
+export function getNextBook(bookId: string): GenesisBook | undefined {
+  const currentIndex = metadata.books.findIndex(book => book.id === bookId);
+  if (currentIndex === -1 || currentIndex === metadata.books.length - 1) return undefined;
+  return metadata.books[currentIndex + 1];
+}
+
+/**
+ * Get the previous book in the sequence
+ */
+export function getPreviousBook(bookId: string): GenesisBook | undefined {
+  const currentIndex = metadata.books.findIndex(book => book.id === bookId);
+  if (currentIndex === -1 || currentIndex === 0) return undefined;
+  return metadata.books[currentIndex - 1];
+}
+
+/**
+ * Get the summary for a specific Genesis chapter
+ */
+export function getChapterSummary(chapterNum: number): string | undefined {
+  return metadata.chapterSummaries?.[chapterNum.toString()];
+}

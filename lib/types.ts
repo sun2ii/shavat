@@ -57,6 +57,7 @@ export interface GenesisBook {
 
 export interface GenesisMetadata {
   books: GenesisBook[];
+  chapterSummaries?: { [chapterNum: string]: string };
 }
 
 // Psalms Collection (curated emotional unit)

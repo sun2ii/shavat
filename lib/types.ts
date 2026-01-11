@@ -71,3 +71,29 @@ export interface PsalmsCollection {
 export interface PsalmsCollectionsMetadata {
   collections: PsalmsCollection[];
 }
+
+// Bible Book Entry (for master index)
+export interface BibleBookEntry {
+  slug: string;           // URL/file identifier
+  name: string;           // Display name
+  testament: 'old' | 'new';
+  category: string;       // Reference to CATEGORIES
+  order: number;          // Canonical position 1-66
+  chapterCount: number;   // Total chapters
+  abbreviation: string;   // Common abbreviation
+}
+
+// Generic Book Division (thematic section for any book)
+export interface BookDivision {
+  id: string;              // URL slug (e.g., "creation", "slavery-in-egypt")
+  title: string;           // Display name (e.g., "The Book of Creation")
+  chapters: number[];      // [1, 2] or [1,2,3,4,5,6]
+  theme: string;           // One-line theme
+  summary: string;         // Brief description
+}
+
+// Generic Book Metadata (for any book)
+export interface BookMetadata {
+  divisions: BookDivision[];
+  chapterSummaries: Record<string, string>;
+}

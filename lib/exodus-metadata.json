@@ -1,0 +1,95 @@
+{
+  "divisions": [
+    {
+      "id": "slavery-in-egypt",
+      "title": "Moses",
+      "chapters": [1, 2, 3, 4, 5, 6],
+      "theme": "Oppression and the call",
+      "summary": "Israel's enslavement in Egypt and Moses' call to deliver them"
+    },
+    {
+      "id": "plagues",
+      "title": "The Ten Plagues",
+      "chapters": [7, 8, 9, 10, 11, 12],
+      "theme": "Judgment on Egypt",
+      "summary": "God demonstrates His power through ten plagues on Egypt"
+    },
+    {
+      "id": "exodus-and-wilderness",
+      "title": "The Exodus",
+      "chapters": [13, 14, 15, 16, 17, 18],
+      "theme": "Deliverance and journey",
+      "summary": "Red Sea crossing and wilderness journey to Mount Sinai"
+    },
+    {
+      "id": "covenant-and-law",
+      "title": "The Law at Sinai",
+      "chapters": [19, 20, 21, 22, 23, 24],
+      "theme": "Covenant relationship",
+      "summary": "Ten Commandments and covenant laws given at Mount Sinai"
+    },
+    {
+      "id": "tabernacle-instructions",
+      "title": "Tabernacle Instructions",
+      "chapters": [25, 26, 27, 28, 29, 30, 31],
+      "theme": "Plans for God's dwelling",
+      "summary": "Detailed instructions for building the tabernacle and priestly garments"
+    },
+    {
+      "id": "golden-calf",
+      "title": "Golden Calf & Renewal",
+      "chapters": [32, 33, 34],
+      "theme": "Rebellion and restoration",
+      "summary": "Golden calf incident and covenant renewal"
+    },
+    {
+      "id": "tabernacle-construction",
+      "title": "Tabernacle Construction",
+      "chapters": [35, 36, 37, 38, 39, 40],
+      "theme": "God's dwelling completed",
+      "summary": "Construction and consecration of the tabernacle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Two women fearing God defeat the fear of Pharaoh",
+    "2": "Moses' birth, flight to Midian, and God's remembrance of His covenant",
+    "3": "God calls Moses at the burning bush",
+    "4": "God equips Moses with signs and Aaron as spokesman",
+    "5": "Moses and Aaron's first encounter with Pharaoh; oppression increases",
+    "6": "God renews His promise to deliver Israel",
+    "7": "The plague of blood",
+    "8": "The plagues of frogs, gnats, and flies",
+    "9": "The plagues on livestock, boils, and hail",
+    "10": "The plagues of locusts and darkness",
+    "11": "The announcement of the final plague",
+    "12": "The Passover and the exodus from Egypt",
+    "13": "Consecration of the firstborn and the pillar of cloud and fire",
+    "14": "The crossing of the Red Sea",
+    "15": "The song of Moses and the bitter waters of Marah",
+    "16": "Manna and quail in the wilderness",
+    "17": "Water from the rock and victory over Amalek",
+    "18": "Jethro's visit and advice on delegation",
+    "19": "Israel arrives at Mount Sinai; God's holiness",
+    "20": "The Ten Commandments",
+    "21": "Laws concerning servants, violence, and restitution",
+    "22": "Laws concerning property, social responsibility, and justice",
+    "23": "Laws concerning justice, festivals, and the conquest",
+    "24": "The covenant confirmed with blood",
+    "25": "Instructions for the ark, table, and lampstand",
+    "26": "Instructions for the tabernacle structure",
+    "27": "Instructions for the altar and courtyard",
+    "28": "Instructions for the priestly garments",
+    "29": "Instructions for consecrating the priests",
+    "30": "Instructions for the altar of incense, census, and anointing oil",
+    "31": "Bezalel and Oholiab appointed; the Sabbath sign",
+    "32": "The golden calf and Moses' intercession",
+    "33": "God's presence promised despite Israel's sin",
+    "34": "The covenant renewed; Moses' face shines",
+    "35": "The Sabbath and offerings for the tabernacle",
+    "36": "The construction of the tabernacle begins",
+    "37": "The ark, table, lampstand, and altar of incense",
+    "38": "The altar of burnt offering and the courtyard",
+    "39": "The priestly garments completed",
+    "40": "The tabernacle erected and filled with God's glory"
+  }
+}

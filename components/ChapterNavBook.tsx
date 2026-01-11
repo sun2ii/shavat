@@ -95,7 +95,7 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
         {/* Copy chapter icon - top right */}
         <button
           onClick={onCopyChapter}
-          className="absolute right-0 top-1/2 -translate-y-1/2 text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors cursor-pointer"
           title="Copy chapter"
         >
           {copied ? '✓' : '⧉'}

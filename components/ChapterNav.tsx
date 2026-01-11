@@ -182,32 +182,40 @@ export default function ChapterNav({
       </nav>
 
       {/* Fixed left navigation */}
-      <div className="fixed left-2 md:left-4 top-1/2 -translate-y-1/2">
-        {prevChapter && prevDivisionId && prevDivisionChapterNum !== null ? (
-          <Link
-            href={`/${bookSlug}/${prevDivisionId}/${prevChapter}`}
-            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
-          >
+      {prevChapter && prevDivisionId && prevDivisionChapterNum !== null ? (
+        <Link
+          href={`/${bookSlug}/${prevDivisionId}/${prevChapter}`}
+          className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
+        >
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
             ← <span className="hidden md:inline">{prevDivisionChapterNum}</span>
-          </Link>
-        ) : (
-          <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">←</span>
-        )}
-      </div>
+          </div>
+        </Link>
+      ) : (
+        <div className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">←</span>
+          </div>
+        </div>
+      )}
 
       {/* Fixed right navigation */}
-      <div className="fixed right-2 md:right-4 top-1/2 -translate-y-1/2">
-        {nextChapter && nextDivisionId && nextDivisionChapterNum !== null ? (
-          <Link
-            href={`/${bookSlug}/${nextDivisionId}/${nextChapter}`}
-            className="text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl"
-          >
+      {nextChapter && nextDivisionId && nextDivisionChapterNum !== null ? (
+        <Link
+          href={`/${bookSlug}/${nextDivisionId}/${nextChapter}`}
+          className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
+        >
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
             <span className="hidden md:inline">{nextDivisionChapterNum}</span> →
-          </Link>
-        ) : (
-          <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">→</span>
-        )}
-      </div>
+          </div>
+        </Link>
+      ) : (
+        <div className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">→</span>
+          </div>
+        </div>
+      )}
     </>
   );
 }

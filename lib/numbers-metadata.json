@@ -1,1 +1,90 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "preparation-at-sinai",
+      "title": "Preparation at Sinai",
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      "theme": "Organizing the camp",
+      "summary": "Census, camp arrangement, Levitical duties, and departure from Sinai",
+      "contentType": "instructional"
+    },
+    {
+      "id": "wilderness-rebellion",
+      "title": "Wilderness Rebellion",
+      "chapters": [11, 12, 13, 14],
+      "theme": "Complaints and unbelief",
+      "summary": "Grumbling, Miriam's rebellion, the spies, and refusal to enter Canaan",
+      "contentType": "narrative"
+    },
+    {
+      "id": "laws-and-offerings",
+      "title": "Laws & Offerings",
+      "chapters": [15, 16, 17, 18, 19],
+      "theme": "Regulations and Korah's revolt",
+      "summary": "Various laws, Korah's rebellion, and purification rituals",
+      "contentType": "mixed"
+    },
+    {
+      "id": "journey-to-moab",
+      "title": "Journey to Moab",
+      "chapters": [20, 21, 22, 23, 24, 25],
+      "theme": "From Kadesh to the plains of Moab",
+      "summary": "Water from the rock, bronze serpent, Balaam's oracles, and Moab's seduction",
+      "contentType": "narrative"
+    },
+    {
+      "id": "second-census-and-laws",
+      "title": "Second Census & Laws",
+      "chapters": [26, 27, 28, 29, 30],
+      "theme": "Preparing the next generation",
+      "summary": "New census, inheritance laws, offerings calendar, and vows",
+      "contentType": "instructional"
+    },
+    {
+      "id": "conquest-and-settlement",
+      "title": "Conquest & Settlement",
+      "chapters": [31, 32, 33, 34, 35, 36],
+      "theme": "Victory and land division",
+      "summary": "Midianite war, tribal territories, and inheritance regulations",
+      "contentType": "mixed"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "The first census of Israel in the wilderness",
+    "2": "The arrangement of the tribal camps",
+    "3": "The census and duties of the Levites",
+    "4": "Service assignments for the Levitical clans",
+    "5": "Laws for purity, restitution, and testing adultery",
+    "6": "The Nazirite vow and the priestly blessing",
+    "7": "Offerings from the leaders at the tabernacle's dedication",
+    "8": "Setting up the lampstand and consecrating the Levites",
+    "9": "The Passover and the cloud guiding Israel",
+    "10": "Silver trumpets and departure from Sinai",
+    "11": "Complaints about hardship; quail and plague",
+    "12": "Miriam and Aaron oppose Moses",
+    "13": "The twelve spies explore Canaan",
+    "14": "Israel refuses to enter; sentenced to wander 40 years",
+    "15": "Laws about offerings, Sabbath-breaking, and tassels",
+    "16": "Korah's rebellion against Moses and Aaron",
+    "17": "Aaron's staff buds, confirming his priesthood",
+    "18": "Duties and provisions for priests and Levites",
+    "19": "The red heifer and purification from death",
+    "20": "Water from the rock; Edom refuses passage; Aaron dies",
+    "21": "Bronze serpent; victories over Arad and the Amorites",
+    "22": "Balak summons Balaam; the talking donkey",
+    "23": "Balaam's first and second oracles",
+    "24": "Balaam's third and fourth oracles",
+    "25": "Israel's sin with Moabite women; Phinehas' zeal",
+    "26": "The second census of Israel",
+    "27": "Zelophehad's daughters; Joshua appointed",
+    "28": "Daily and festival offerings",
+    "29": "Offerings for the Feast of Trumpets, Day of Atonement, and Tabernacles",
+    "30": "Laws concerning vows",
+    "31": "Vengeance on Midian",
+    "32": "Reuben and Gad settle east of the Jordan",
+    "33": "Summary of Israel's wilderness journey",
+    "34": "Boundaries of Canaan and tribal leaders",
+    "35": "Cities for the Levites and cities of refuge",
+    "36": "Marriage and inheritance for Zelophehad's daughters"
+  }
+}

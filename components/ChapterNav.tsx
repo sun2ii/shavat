@@ -35,6 +35,12 @@ export default function ChapterNav({
   const chapterIndex = division.chapters.indexOf(currentChapter);
   const divisionChapterNum = chapterIndex + 1; // 1-indexed position within division
 
+  // Conditional styling based on content type
+  const isInstructional = division.contentType === 'instructional';
+  const divisionColor = isInstructional ? 'text-orange-500' : 'text-[#D4AF37]';
+  const divisionRingColor = isInstructional ? 'ring-orange-500' : 'ring-[#D4AF37]';
+  const hoverColor = isInstructional ? 'hover:text-orange-600' : 'hover:text-[#D4AF37]';
+
   // Current division navigation
   const hasPrevInDivision = chapterIndex > 0;
   const hasNextInDivision = chapterIndex < division.chapters.length - 1;
@@ -120,7 +126,7 @@ export default function ChapterNav({
 
         {isEditing ? (
           <form onSubmit={handleJumpSubmit} className="flex items-center gap-2">
-            <span className="text-[#D4AF37] text-3xl font-semibold tracking-wide">{divisionDisplayName}</span>
+            <span className={`${divisionColor} text-3xl font-semibold tracking-wide`}>{divisionDisplayName}</span>
             <input
               type="number"
               value={jumpTo}
@@ -130,7 +136,7 @@ export default function ChapterNav({
               autoFocus
               min={1}
               max={division.chapters.length}
-              className="w-16 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] text-[#D4AF37] border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className={`w-16 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] ${divisionColor} border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:${divisionRingColor}`}
               placeholder={divisionChapterNum.toString()}
             />
           </form>
@@ -138,7 +144,7 @@ export default function ChapterNav({
           <div className="flex flex-col items-center">
             <span
               onDoubleClick={handleDoubleClick}
-              className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
+              className={`${divisionColor} text-3xl font-semibold tracking-wide cursor-pointer select-none`}
               title="Double-click to jump to chapter"
             >
               {divisionDisplayName} {divisionChapterNum}
@@ -161,7 +167,7 @@ export default function ChapterNav({
                 href={`/${bookSlug}/${division.id}/${chapterNum}`}
                 className={`text-sm transition-colors ${
                   isActive
-                    ? 'text-[#D4AF37] font-semibold'
+                    ? `${divisionColor} font-semibold`
                     : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
                 }`}
               >
@@ -174,7 +180,7 @@ export default function ChapterNav({
         {/* Bookmark Icon - below canonical reference */}
         <button
           onClick={handleBookmark}
-          className="absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
+          className={`absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] ${hoverColor} transition-colors`}
           title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
         >
           {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
@@ -185,14 +191,14 @@ export default function ChapterNav({
       {prevChapter && prevDivisionId && prevDivisionChapterNum !== null ? (
         <Link
           href={`/${bookSlug}/${prevDivisionId}/${prevChapter}`}
-          className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
+          className="fixed left-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
             ← <span className="hidden md:inline">{prevDivisionChapterNum}</span>
           </div>
         </Link>
       ) : (
-        <div className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group">
+        <div className="fixed left-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-start pl-2 md:pl-4 group">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity">
             <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">←</span>
           </div>
@@ -203,14 +209,14 @@ export default function ChapterNav({
       {nextChapter && nextDivisionId && nextDivisionChapterNum !== null ? (
         <Link
           href={`/${bookSlug}/${nextDivisionId}/${nextChapter}`}
-          className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
+          className="fixed right-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
             <span className="hidden md:inline">{nextDivisionChapterNum}</span> →
           </div>
         </Link>
       ) : (
-        <div className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group">
+        <div className="fixed right-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-end pr-2 md:pr-4 group">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity">
             <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">→</span>
           </div>

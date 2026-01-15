@@ -53,6 +53,7 @@ export interface GenesisBook {
   chapters: number[];
   theme: string;
   summary: string;
+  contentType?: 'instructional' | 'narrative' | 'mixed';  // Content classification for visual differentiation
 }
 
 export interface GenesisMetadata {
@@ -90,6 +91,7 @@ export interface BookDivision {
   chapters: number[];      // [1, 2] or [1,2,3,4,5,6]
   theme: string;           // One-line theme
   summary: string;         // Brief description
+  contentType?: 'instructional' | 'narrative' | 'mixed';  // Content classification for visual differentiation
 }
 
 // Generic Book Metadata (for any book)

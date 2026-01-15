@@ -5,49 +5,56 @@
       "title": "Moses",
       "chapters": [1, 2, 3, 4, 5, 6],
       "theme": "Oppression and the call",
-      "summary": "Israel's enslavement in Egypt and Moses' call to deliver them"
+      "summary": "Israel's enslavement in Egypt and Moses' call to deliver them",
+      "contentType": "narrative"
     },
     {
       "id": "plagues",
-      "title": "The Ten Plagues",
+      "title": "The 10 Plagues",
       "chapters": [7, 8, 9, 10, 11, 12],
       "theme": "Judgment on Egypt",
-      "summary": "God demonstrates His power through ten plagues on Egypt"
+      "summary": "God demonstrates His power through ten plagues on Egypt",
+      "contentType": "narrative"
     },
     {
       "id": "exodus-and-wilderness",
       "title": "The Exodus",
       "chapters": [13, 14, 15, 16, 17, 18],
       "theme": "Deliverance and journey",
-      "summary": "Red Sea crossing and wilderness journey to Mount Sinai"
+      "summary": "Red Sea crossing and wilderness journey to Mount Sinai",
+      "contentType": "narrative"
     },
     {
       "id": "covenant-and-law",
       "title": "The Law at Sinai",
       "chapters": [19, 20, 21, 22, 23, 24],
       "theme": "Covenant relationship",
-      "summary": "Ten Commandments and covenant laws given at Mount Sinai"
+      "summary": "Ten Commandments and covenant laws given at Mount Sinai",
+      "contentType": "mixed"
     },
     {
       "id": "tabernacle-instructions",
       "title": "Tabernacle Instructions",
       "chapters": [25, 26, 27, 28, 29, 30, 31],
       "theme": "Plans for God's dwelling",
-      "summary": "Detailed instructions for building the tabernacle and priestly garments"
+      "summary": "Detailed instructions for building the tabernacle and priestly garments",
+      "contentType": "instructional"
     },
     {
       "id": "golden-calf",
       "title": "Golden Calf & Renewal",
       "chapters": [32, 33, 34],
       "theme": "Rebellion and restoration",
-      "summary": "Golden calf incident and covenant renewal"
+      "summary": "Golden calf incident and covenant renewal",
+      "contentType": "narrative"
     },
     {
       "id": "tabernacle-construction",
       "title": "Tabernacle Construction",
       "chapters": [35, 36, 37, 38, 39, 40],
       "theme": "God's dwelling completed",
-      "summary": "Construction and consecration of the tabernacle"
+      "summary": "Construction and consecration of the tabernacle",
+      "contentType": "instructional"
     }
   ],
   "chapterSummaries": {

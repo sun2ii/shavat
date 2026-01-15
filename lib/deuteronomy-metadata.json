@@ -1,1 +1,80 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "first-sermon",
+      "title": "First Sermon",
+      "chapters": [1, 2, 3, 4],
+      "theme": "Remembering God's faithfulness",
+      "summary": "Moses reviews Israel's journey from Horeb to Moab",
+      "contentType": "narrative"
+    },
+    {
+      "id": "second-sermon-intro",
+      "title": "Second Sermon: Introduction",
+      "chapters": [5, 6, 7, 8, 9, 10, 11],
+      "theme": "Love and obey the Lord",
+      "summary": "The Ten Commandments repeated; call to wholehearted devotion",
+      "contentType": "mixed"
+    },
+    {
+      "id": "second-sermon-laws",
+      "title": "Second Sermon: Laws",
+      "chapters": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+      "theme": "Detailed regulations for life in the land",
+      "summary": "Laws governing worship, justice, war, family life, and social order",
+      "contentType": "instructional"
+    },
+    {
+      "id": "covenant-renewal",
+      "title": "Covenant Renewal",
+      "chapters": [27, 28, 29, 30],
+      "theme": "Blessings and curses",
+      "summary": "Ceremony at Ebal and Gerizim; consequences of obedience and disobedience",
+      "contentType": "mixed"
+    },
+    {
+      "id": "moses-farewell",
+      "title": "Moses' Farewell",
+      "chapters": [31, 32, 33, 34],
+      "theme": "Joshua commissioned; Moses dies",
+      "summary": "Moses' song, blessing of the tribes, and death on Mount Nebo",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Moses recalls the journey from Horeb to Kadesh Barnea",
+    "2": "Passing through Edom, Moab, and defeating Sihon",
+    "3": "Victory over Og; Moses forbidden to enter Canaan",
+    "4": "Call to obedience and warning against idolatry",
+    "5": "The Ten Commandments repeated",
+    "6": "The Shema: Love the Lord your God with all your heart",
+    "7": "Driving out the nations; holiness and covenant love",
+    "8": "Remember the Lord in the wilderness and in prosperity",
+    "9": "Israel's rebellion and the golden calf",
+    "10": "New tablets; what the Lord requires",
+    "11": "Love and obey the Lord; blessings and curses",
+    "12": "The place the Lord will choose for worship",
+    "13": "Warning against false prophets and idolatry",
+    "14": "Clean and unclean food; tithes",
+    "15": "The sabbatical year and releasing debts",
+    "16": "The three annual festivals",
+    "17": "Laws for worship, courts, and kingship",
+    "18": "Provisions for Levites and prophets",
+    "19": "Cities of refuge and witnesses",
+    "20": "Laws concerning warfare",
+    "21": "Unsolved murders, captive women, and rebellious sons",
+    "22": "Various laws on property, purity, and marriage",
+    "23": "Exclusion from the assembly and miscellaneous laws",
+    "24": "Divorce, pledges, kidnapping, and fairness",
+    "25": "Justice, levirate marriage, and honest weights",
+    "26": "Firstfruits and tithes; covenant affirmation",
+    "27": "Altar on Mount Ebal and the curses",
+    "28": "Blessings for obedience and curses for disobedience",
+    "29": "Covenant in Moab; call to choose life",
+    "30": "Restoration after exile; the choice of life or death",
+    "31": "Joshua commissioned; the law written down",
+    "32": "The Song of Moses",
+    "33": "Moses blesses the twelve tribes",
+    "34": "The death of Moses on Mount Nebo"
+  }
+}

@@ -1,1 +1,81 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "laws-of-sacrifice",
+      "title": "Laws of Sacrifice",
+      "chapters": [1, 2, 3, 4, 5, 6, 7],
+      "theme": "Approaching God through offerings",
+      "summary": "Instructions for burnt, grain, peace, sin, and guilt offerings",
+      "contentType": "instructional"
+    },
+    {
+      "id": "consecration-of-priests",
+      "title": "Consecration of Priests",
+      "chapters": [8, 9, 10],
+      "theme": "Priesthood ordained and tested",
+      "summary": "Aaron and his sons consecrated; Nadab and Abihu's unauthorized fire",
+      "contentType": "mixed"
+    },
+    {
+      "id": "purity-laws",
+      "title": "Purity Laws",
+      "chapters": [11, 12, 13, 14, 15],
+      "theme": "Clean and unclean distinctions",
+      "summary": "Laws concerning food, childbirth, skin diseases, and bodily discharges",
+      "contentType": "instructional"
+    },
+    {
+      "id": "day-of-atonement",
+      "title": "Day of Atonement",
+      "chapters": [16],
+      "theme": "Annual cleansing ritual",
+      "summary": "The high priest enters the Most Holy Place once a year",
+      "contentType": "mixed"
+    },
+    {
+      "id": "holiness-code",
+      "title": "Holiness Code",
+      "chapters": [17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
+      "theme": "Be holy as I am holy",
+      "summary": "Laws for holy living, festivals, and covenant blessings/curses",
+      "contentType": "instructional"
+    },
+    {
+      "id": "vows-and-valuation",
+      "title": "Vows & Valuation",
+      "chapters": [27],
+      "theme": "Dedicating property to God",
+      "summary": "Rules for vows, tithes, and dedicating people or property",
+      "contentType": "instructional"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Burnt offerings: voluntary acts of worship and atonement",
+    "2": "Grain offerings: gifts from the harvest to God",
+    "3": "Peace offerings: fellowship with God through shared meals",
+    "4": "Sin offerings: unintentional sins covered",
+    "5": "Guilt offerings: restitution for specific wrongs",
+    "6": "Instructions for priests administering offerings",
+    "7": "More priestly instructions and prohibitions",
+    "8": "Aaron and his sons consecrated as priests",
+    "9": "Aaron's first sacrifices and God's glory appears",
+    "10": "Nadab and Abihu's unauthorized fire; they die",
+    "11": "Clean and unclean animals",
+    "12": "Purification after childbirth",
+    "13": "Diagnosing skin diseases and mildew",
+    "14": "Cleansing rituals for skin diseases",
+    "15": "Laws concerning bodily discharges",
+    "16": "The Day of Atonement ritual",
+    "17": "Regulations for sacrifices and blood",
+    "18": "Unlawful sexual relations",
+    "19": "Various laws for holy living",
+    "20": "Penalties for child sacrifice and immorality",
+    "21": "Rules for priests regarding holiness",
+    "22": "Acceptable offerings and priestly eating regulations",
+    "23": "The appointed festivals",
+    "24": "Oil, bread, and the blasphemer's punishment",
+    "25": "Sabbath year, Jubilee, and redemption laws",
+    "26": "Blessings for obedience, curses for disobedience",
+    "27": "Laws concerning vows and dedicated things"
+  }
+}

@@ -76,23 +76,29 @@ export default function LibraryPage() {
         {isExpanded && (
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
             {hasDivisions ? (
-              divisions.map((division) => (
-                <Link
-                  key={division.id}
-                  href={slug === 'genesis'
-                    ? `/genesis/${division.id}/${division.chapters[0]}`
-                    : `/${slug}/${division.id}/${division.chapters[0]}`
-                  }
-                  className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
-                >
-                  <h3 className="text-sm font-light text-[rgb(var(--text-primary))] mb-1 leading-tight">
-                    {division.title.replace('The Book of ', '').replace(/^The /, '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {division.chapters.length}</span>
-                  </h3>
-                  <p className="text-xs text-[rgb(var(--text-secondary))] opacity-60">
-                    {division.theme}
-                  </p>
-                </Link>
-              ))
+              divisions.map((division) => {
+                const isInstructional = division.contentType === 'instructional';
+                const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
+                const themeColor = isInstructional ? 'text-orange-400 opacity-80' : 'text-[rgb(var(--text-secondary))] opacity-60';
+
+                return (
+                  <Link
+                    key={division.id}
+                    href={slug === 'genesis'
+                      ? `/genesis/${division.id}/${division.chapters[0]}`
+                      : `/${slug}/${division.id}/${division.chapters[0]}`
+                    }
+                    className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
+                  >
+                    <h3 className={`text-sm font-light ${titleColor} mb-1 leading-tight`}>
+                      {division.title.replace('The Book of ', '').replace(/^The /, '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {division.chapters.length}</span>
+                    </h3>
+                    <p className={`text-xs ${themeColor}`}>
+                      {division.theme}
+                    </p>
+                  </Link>
+                );
+              })
             ) : (
               <Link
                 href={`/${slug}/1`}

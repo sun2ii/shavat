@@ -1,1 +1,62 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "authority-revealed",
+      "title": "Authority Revealed",
+      "chapters": [1, 2, 3],
+      "theme": "The beginning of Jesus' ministry",
+      "summary": "Jesus is baptized, calls disciples, demonstrates authority through miracles and teaching, and faces early conflicts with religious leaders",
+      "contentType": "narrative"
+    },
+    {
+      "id": "power-and-identity",
+      "title": "Power and Identity",
+      "chapters": [4, 5, 6, 7, 8],
+      "theme": "Revelation of Jesus' true nature",
+      "summary": "Parables of the kingdom, mighty works of power, feeding thousands, and Peter's confession that Jesus is the Christ",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-way-of-the-cross",
+      "title": "The Way of the Cross",
+      "chapters": [9, 10],
+      "theme": "Discipleship and suffering",
+      "summary": "The transfiguration, teaching on servanthood and sacrifice, predictions of death, and the journey toward Jerusalem",
+      "contentType": "narrative"
+    },
+    {
+      "id": "confrontation-in-jerusalem",
+      "title": "Confrontation in Jerusalem",
+      "chapters": [11, 12, 13],
+      "theme": "Authority challenged and judgment pronounced",
+      "summary": "Triumphal entry, temple cleansing, debates with religious leaders, and the Olivet Discourse on the last days",
+      "contentType": "narrative"
+    },
+    {
+      "id": "passion-and-victory",
+      "title": "Passion and Victory",
+      "chapters": [14, 15, 16],
+      "theme": "Death and resurrection",
+      "summary": "The Last Supper, betrayal and arrest, trial before Pilate, crucifixion, burial, and resurrection",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "John the Baptist prepares the way; Jesus is baptized and begins his ministry",
+    "2": "Jesus heals a paralytic and calls Levi; questions about fasting and the Sabbath",
+    "3": "Jesus heals on the Sabbath and appoints the twelve apostles",
+    "4": "The parable of the sower and other parables of the kingdom",
+    "5": "Jesus casts out demons, heals a bleeding woman, and raises Jairus's daughter",
+    "6": "Jesus is rejected at Nazareth, sends out the twelve, and feeds five thousand",
+    "7": "Jesus teaches on what defiles and heals a Syrophoenician woman's daughter",
+    "8": "Jesus feeds four thousand and Peter confesses him as the Christ",
+    "9": "The transfiguration and teaching on faith, humility, and sacrifice",
+    "10": "Teaching on divorce, children, wealth, and the request of James and John",
+    "11": "The triumphal entry, cursing of the fig tree, and cleansing of the temple",
+    "12": "Parables and debates with religious leaders; the widow's offering",
+    "13": "The Olivet Discourse on the destruction of the temple and the end times",
+    "14": "The Last Supper, Gethsemane, betrayal, and trial before the Sanhedrin",
+    "15": "Trial before Pilate, crucifixion, death, and burial of Jesus",
+    "16": "The resurrection and appearances of Jesus; the Great Commission"
+  }
+}

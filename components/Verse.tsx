@@ -4,9 +4,10 @@ interface Props {
   verse: VerseType;
   isSelected?: boolean;
   onToggle?: (verseNum: number) => void;
+  commentary?: string;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary }: Props) {
   const handleClick = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -26,6 +27,11 @@ export default function Verse({ verse, isSelected = false, onToggle }: Props) {
         {verse.text}
       </span>
       <br />
+      {isSelected && commentary && (
+        <div className="ml-6 mb-6 p-4 bg-gray-100 dark:bg-gray-800 border-l-4 border-yellow-500 rounded-r text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+          {commentary}
+        </div>
+      )}
     </>
   );
 }

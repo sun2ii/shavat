@@ -115,7 +115,7 @@ export default function BookPage({ params }: Props) {
             </div>
           </div>
         </div>
-        <GenesisReader verses={verses} />
+        <GenesisReader verses={verses} book={book} chapter={chapterNum} />
       </main>
     );
   }

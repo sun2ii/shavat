@@ -45,7 +45,7 @@ export default function BookPageClient({
         copied={copied}
         chapterSummary={chapterSummary}
       />
-      <GenesisReader verses={verses} />
+      <GenesisReader verses={verses} book={bookSlug} chapter={currentChapter} />
     </main>
   );
 }

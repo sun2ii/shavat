@@ -295,39 +295,44 @@ export default function HomePage() {
   return (
     <main className="max-w-7xl mx-auto px-4 py-4">
       {/* Tab Navigation */}
-      <div className="flex items-center justify-between mb-8 border-b border-[rgb(var(--border))]">
-        <div className="flex gap-1">
-          {[
-            { id: 'torah' as TabId, label: 'Torah' },
-            { id: 'psalms' as TabId, label: 'Psalms' },
-            { id: 'old-testament' as TabId, label: 'OT' },
-            { id: 'new-testament' as TabId, label: 'NT' },
-            { id: 'gospels' as TabId, label: 'Gospels' },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 text-sm font-medium transition-colors ${
-                activeTab === tab.id
-                  ? 'text-[rgb(var(--text-primary))] border-b-2 border-gold'
-                  : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+      <div className="mb-6 md:mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
+          {/* Tabs - scrollable on mobile */}
+          <div className="overflow-x-auto border-b border-[rgb(var(--border))] -mx-4 px-4 md:mx-0 md:px-0 md:flex-1">
+            <div className="flex gap-1 min-w-max md:min-w-0">
+              {[
+                { id: 'torah' as TabId, label: 'Torah' },
+                { id: 'psalms' as TabId, label: 'Psalms' },
+                { id: 'old-testament' as TabId, label: 'OT' },
+                { id: 'new-testament' as TabId, label: 'NT' },
+                { id: 'gospels' as TabId, label: 'Gospels' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 md:px-6 py-3 text-sm font-medium transition-colors whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? 'text-[rgb(var(--text-primary))] border-b-2 border-gold'
+                      : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-        {/* Hide Instructional Toggle */}
-        <label className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] cursor-pointer mb-[-1px]">
-          <input
-            type="checkbox"
-            checked={hideInstructional}
-            onChange={(e) => setHideInstructional(e.target.checked)}
-            className="cursor-pointer"
-          />
-          Hide Instructional
-        </label>
+          {/* Hide Instructional Toggle */}
+          <label className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] cursor-pointer px-4 md:px-0 md:mb-[-1px]">
+            <input
+              type="checkbox"
+              checked={hideInstructional}
+              onChange={(e) => setHideInstructional(e.target.checked)}
+              className="cursor-pointer"
+            />
+            Hide Instructional
+          </label>
+        </div>
       </div>
 
       {/* Tab Content */}

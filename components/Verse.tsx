@@ -21,7 +21,7 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
           isSelected ? 'bg-yellow-200 text-gray-900' : 'hover:bg-yellow-100 hover:text-gray-900'
         }`}
         data-verse={verse.verse}
-        onClick={handleClick}
+        onDoubleClick={handleClick}
       >
         <sup className={`mr-2 text-xs font-light select-none transition-colors ${isSelected ? 'text-gray-600' : 'text-[rgb(var(--text-tertiary))] group-hover:text-gray-600'}`}>{verse.verse}</sup>
         {verse.text}

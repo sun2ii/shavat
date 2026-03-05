@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 
 interface Props {
@@ -8,8 +9,31 @@ interface Props {
 }
 
 export default function Verse({ verse, isSelected = false, onToggle, commentary }: Props) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect if device is mobile/touch-enabled
+    const checkMobile = () => {
+      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isMobileWidth = window.innerWidth < 768;
+      setIsMobile(hasTouchScreen || isMobileWidth);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const handleClick = () => {
-    if (onToggle) {
+    if (onToggle && !isMobile) {
+      // Desktop: single click
+      onToggle(verse.verse);
+    }
+  };
+
+  const handleDoubleClick = () => {
+    if (onToggle && isMobile) {
+      // Mobile: double tap
       onToggle(verse.verse);
     }
   };
@@ -21,7 +45,8 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
           isSelected ? 'bg-yellow-200 text-gray-900' : 'hover:bg-yellow-100 hover:text-gray-900'
         }`}
         data-verse={verse.verse}
-        onDoubleClick={handleClick}
+        onClick={handleClick}
+        onDoubleClick={handleDoubleClick}
       >
         <sup className={`mr-2 text-xs font-light select-none transition-colors ${isSelected ? 'text-gray-600' : 'text-[rgb(var(--text-tertiary))] group-hover:text-gray-600'}`}>{verse.verse}</sup>
         {verse.text}

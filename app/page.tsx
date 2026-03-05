@@ -14,7 +14,7 @@ type TabId = 'torah' | 'psalms' | 'old-testament' | 'new-testament' | 'gospels';
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<TabId>('torah');
-  const [hideInstructional, setHideInstructional] = useState(false);
+  const [hideInstructional, setHideInstructional] = useState(true);
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -42,7 +42,7 @@ export default function HomePage() {
                 <Fragment key={book.slug}>
                   {/* Book name header */}
                   <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3">
+                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center">
                       {book.name}
                     </h3>
                   </div>
@@ -68,7 +68,9 @@ export default function HomePage() {
                           }`}
                         >
                           <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                            {division.title.replace('The Book of ', '').replace(/^The /, '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {division.chapters.length}</span>
+                            {division.title.replace('The Book of ', '').replace(/^The /, '')}
+                            <br />
+                            <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                           </h3>
                         </Link>
                       );
@@ -80,7 +82,9 @@ export default function HomePage() {
                       className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
                     >
                       <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {book.chapterCount}</span>
+                        {book.name}
+                        <br />
+                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                       </h3>
                     </Link>
                   )}
@@ -103,7 +107,9 @@ export default function HomePage() {
                 className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
               >
                 <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                  {collection.title.replace('Psalms of ', '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {collection.psalms.length}</span>
+                  {collection.title.replace('Psalms of ', '')}
+                  <br />
+                  <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{collection.psalms.length}</span>
                 </h3>
               </Link>
             ))}
@@ -126,6 +132,13 @@ export default function HomePage() {
 
               return (
                 <Fragment key={category.id}>
+                  {/* Category header */}
+                  <div className="col-span-full">
+                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center">
+                      {category.name}
+                    </h3>
+                  </div>
+
                   {categoryBooks.map((book) => {
                     const divisions = getAllDivisions(book.slug);
                     const hasDivisions = divisions.length > 0;
@@ -156,7 +169,9 @@ export default function HomePage() {
                             }`}
                           >
                             <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                              {division.title.replace('The Book of ', '').replace(/^The /, '')} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {division.chapters.length}</span>
+                              {division.title.replace('The Book of ', '').replace(/^The /, '')}
+                              <br />
+                              <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                             </h3>
                           </Link>
                         );
@@ -170,7 +185,9 @@ export default function HomePage() {
                         className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
                       >
                         <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                          {book.name} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {book.chapterCount}</span>
+                          {book.name}
+                          <br />
+                          <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                         </h3>
                       </Link>
                     );
@@ -200,6 +217,13 @@ export default function HomePage() {
 
               return (
                 <Fragment key={category.id}>
+                  {/* Category header */}
+                  <div className="col-span-full">
+                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center">
+                      {category.name}
+                    </h3>
+                  </div>
+
                   {categoryBooks.map((book) => (
                     <Link
                       key={book.slug}
@@ -207,7 +231,9 @@ export default function HomePage() {
                       className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
                     >
                       <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {book.chapterCount}</span>
+                        {book.name}
+                        <br />
+                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                       </h3>
                     </Link>
                   ))}
@@ -240,7 +266,7 @@ export default function HomePage() {
                 <Fragment key={book.slug}>
                   {/* Book name header */}
                   <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3">
+                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-left">
                       {book.name}
                     </h3>
                   </div>
@@ -265,7 +291,9 @@ export default function HomePage() {
                           }`}
                         >
                           <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                            {division.title} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {division.chapters.length}</span>
+                            {division.title}
+                            <br />
+                            <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                           </h3>
                         </Link>
                       );
@@ -277,7 +305,9 @@ export default function HomePage() {
                       className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
                     >
                       <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name} <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">- {book.chapterCount}</span>
+                        {book.name}
+                        <br />
+                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                       </h3>
                     </Link>
                   )}
@@ -302,10 +332,10 @@ export default function HomePage() {
             <div className="flex gap-1 min-w-max md:min-w-0">
               {[
                 { id: 'torah' as TabId, label: 'Torah' },
-                { id: 'psalms' as TabId, label: 'Psalms' },
                 { id: 'old-testament' as TabId, label: 'OT' },
                 { id: 'new-testament' as TabId, label: 'NT' },
                 { id: 'gospels' as TabId, label: 'Gospels' },
+                { id: 'psalms' as TabId, label: 'Psalms' },
               ].map((tab) => (
                 <button
                   key={tab.id}

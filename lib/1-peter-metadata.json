@@ -1,1 +1,27 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "suffering-and-hope",
+      "title": "Suffering and Hope",
+      "chapters": [1, 2],
+      "theme": "Living hope through trials",
+      "summary": "New birth into living hope, chosen people and royal priesthood, suffering for doing good as Christ suffered for us",
+      "contentType": "epistle"
+    },
+    {
+      "id": "submission-and-witness",
+      "title": "Submission and Witness",
+      "chapters": [3, 4, 5],
+      "theme": "Godly conduct in suffering",
+      "summary": "Submission in relationships, suffering for righteousness, living for God's will, shepherding the flock with humility",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Living hope through the resurrection, refined faith, love Christ though you have not seen him",
+    "2": "Chosen people, living stones, submit to authorities, follow Christ's example in suffering",
+    "3": "Wives and husbands, bless those who persecute, Christ preached to spirits in prison",
+    "4": "Live for God's will, rejoice in sharing Christ's sufferings, judgment begins with God's household",
+    "5": "Elders shepherd the flock, humble yourselves, resist the devil, God will restore you"
+  }
+}

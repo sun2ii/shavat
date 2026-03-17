@@ -1,1 +1,28 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "church-order",
+      "title": "Church Order",
+      "chapters": [1, 2, 3],
+      "theme": "Sound doctrine and leadership",
+      "summary": "Warning against false teachers, instructions for worship, qualifications for overseers and deacons",
+      "contentType": "epistle"
+    },
+    {
+      "id": "personal-charge",
+      "title": "Personal Charge",
+      "chapters": [4, 5, 6],
+      "theme": "Godliness and faithfulness",
+      "summary": "Training in godliness, care for widows and elders, warnings about wealth, guard what has been entrusted",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Warning against false teachers, the law is good, Paul's testimony of mercy",
+    "2": "Prayer for all people, one mediator, women in the church",
+    "3": "Qualifications for overseers and deacons, mystery of godliness",
+    "4": "Warnings about false teaching, train yourself in godliness",
+    "5": "Care for widows, honor for elders, instructions about sin",
+    "6": "Contentment and godliness, flee from love of money, fight the good fight"
+  }
+}

@@ -427,6 +427,1526 @@ const MARK_16_SECTIONS: DaySection[] = [
   { day: 'Appearances and Commission', verseRange: [9, 20], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
 ];
 
+// MATTHEW SECTIONS
+const MATTHEW_1_SECTIONS: DaySection[] = [
+  { day: 'The Genealogy', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Birth of Jesus', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const MATTHEW_2_SECTIONS: DaySection[] = [
+  { day: 'The Magi Visit', verseRange: [1, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Escape to Egypt', verseRange: [13, 18], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Return to Nazareth', verseRange: [19, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const MATTHEW_3_SECTIONS: DaySection[] = [
+  { day: 'John the Baptist Prepares the Way', verseRange: [1, 12], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Baptism of Jesus', verseRange: [13, 17], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const MATTHEW_4_SECTIONS: DaySection[] = [
+  { day: 'The Temptation', verseRange: [1, 11], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Jesus Begins His Ministry', verseRange: [12, 17], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Jesus Calls the First Disciples', verseRange: [18, 22], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Jesus Heals the Sick', verseRange: [23, 25], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const MATTHEW_5_SECTIONS: DaySection[] = [
+  { day: 'Beatitudes', verseRange: [1, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Salt and Light', verseRange: [13, 16], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Fulfilling the Law', verseRange: [17, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Teaching on Anger', verseRange: [21, 26], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Teaching on Adultery', verseRange: [27, 30], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Teaching on Divorce', verseRange: [31, 32], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Teaching on Oaths', verseRange: [33, 37], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Eye for Eye', verseRange: [38, 42], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Love for Enemies', verseRange: [43, 48], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const MATTHEW_6_SECTIONS: DaySection[] = [
+  { day: 'Giving to the Needy', verseRange: [1, 4], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Teaching on Prayer', verseRange: [5, 15], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Teaching on Fasting', verseRange: [16, 18], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Treasures in Heaven', verseRange: [19, 24], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Do Not Worry', verseRange: [25, 34], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const MATTHEW_7_SECTIONS: DaySection[] = [
+  { day: 'Judging Others', verseRange: [1, 6], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Ask, Seek, Knock', verseRange: [7, 12], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Narrow and Wide Gates', verseRange: [13, 14], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'True and False Prophets', verseRange: [15, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Wise and Foolish Builders', verseRange: [24, 29], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const MATTHEW_8_SECTIONS: DaySection[] = [
+  { day: 'Jesus Heals a Leper', verseRange: [1, 4], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Centurion\'s Faith', verseRange: [5, 13], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Many Healed', verseRange: [14, 17], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Cost of Following Jesus', verseRange: [18, 22], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Jesus Calms the Storm', verseRange: [23, 27], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Demon-Possessed Men', verseRange: [28, 34], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const MATTHEW_9_SECTIONS: DaySection[] = [
+  { day: 'Jesus Heals a Paralytic', verseRange: [1, 8], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Call of Matthew', verseRange: [9, 13], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Question About Fasting', verseRange: [14, 17], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'A Dead Girl and a Sick Woman', verseRange: [18, 26], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Jesus Heals the Blind and Mute', verseRange: [27, 34], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Workers Are Few', verseRange: [35, 38], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const MATTHEW_10_SECTIONS: DaySection[] = [
+  { day: 'The Twelve Apostles', verseRange: [1, 4], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus Sends Out the Twelve', verseRange: [5, 15], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Sheep Among Wolves', verseRange: [16, 23], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Do Not Fear', verseRange: [24, 33], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Not Peace but a Sword', verseRange: [34, 42], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const MATTHEW_11_SECTIONS: DaySection[] = [
+  { day: 'John the Baptist\'s Question', verseRange: [1, 6], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Testifies About John', verseRange: [7, 19], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Woe to Unrepentant Cities', verseRange: [20, 24], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Come to Me and Rest', verseRange: [25, 30], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const MATTHEW_12_SECTIONS: DaySection[] = [
+  { day: 'Lord of the Sabbath', verseRange: [1, 14], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'God\'s Chosen Servant', verseRange: [15, 21], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Jesus and Beelzebul', verseRange: [22, 37], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Sign of Jonah', verseRange: [38, 45], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Jesus\' Mother and Brothers', verseRange: [46, 50], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const MATTHEW_13_SECTIONS: DaySection[] = [
+  { day: 'Parable of the Sower', verseRange: [1, 23], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Parable of the Weeds', verseRange: [24, 30], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Parables of Mustard Seed and Yeast', verseRange: [31, 35], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Parable of the Weeds Explained', verseRange: [36, 43], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Parables of Hidden Treasure, Pearl, and Net', verseRange: [44, 52], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Prophet Without Honor', verseRange: [53, 58], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const MATTHEW_14_SECTIONS: DaySection[] = [
+  { day: 'John the Baptist Beheaded', verseRange: [1, 12], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Jesus Feeds the Five Thousand', verseRange: [13, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Jesus Walks on Water', verseRange: [22, 36], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const MATTHEW_15_SECTIONS: DaySection[] = [
+  { day: 'Clean and Unclean', verseRange: [1, 20], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'The Canaanite Woman\'s Faith', verseRange: [21, 28], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Feeds the Four Thousand', verseRange: [29, 39], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const MATTHEW_16_SECTIONS: DaySection[] = [
+  { day: 'The Pharisees and Sadducees Demand a Sign', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Yeast of the Pharisees', verseRange: [5, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Peter\'s Confession of Christ', verseRange: [13, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Predicts His Death', verseRange: [21, 28], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const MATTHEW_17_SECTIONS: DaySection[] = [
+  { day: 'The Transfiguration', verseRange: [1, 13], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Jesus Heals a Demon-Possessed Boy', verseRange: [14, 21], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Jesus Predicts His Death Again', verseRange: [22, 23], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Temple Tax', verseRange: [24, 27], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const MATTHEW_18_SECTIONS: DaySection[] = [
+  { day: 'The Greatest in the Kingdom', verseRange: [1, 9], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Parable of the Lost Sheep', verseRange: [10, 14], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Dealing with Sin in the Church', verseRange: [15, 20], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Parable of the Unmerciful Servant', verseRange: [21, 35], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const MATTHEW_19_SECTIONS: DaySection[] = [
+  { day: 'Divorce', verseRange: [1, 12], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Jesus Blesses Little Children', verseRange: [13, 15], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Rich Young Man', verseRange: [16, 30], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const MATTHEW_20_SECTIONS: DaySection[] = [
+  { day: 'The Parable of the Workers in the Vineyard', verseRange: [1, 16], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Predicts His Death a Third Time', verseRange: [17, 19], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'The Request of James and John', verseRange: [20, 28], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Two Blind Men Receive Sight', verseRange: [29, 34], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const MATTHEW_21_SECTIONS: DaySection[] = [
+  { day: 'The Triumphal Entry', verseRange: [1, 11], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Clears the Temple', verseRange: [12, 17], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Jesus Curses a Fig Tree', verseRange: [18, 22], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Authority of Jesus Questioned', verseRange: [23, 27], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Parable of the Two Sons', verseRange: [28, 32], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Parable of the Tenants', verseRange: [33, 46], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const MATTHEW_22_SECTIONS: DaySection[] = [
+  { day: 'The Parable of the Wedding Banquet', verseRange: [1, 14], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Paying Taxes to Caesar', verseRange: [15, 22], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Marriage at the Resurrection', verseRange: [23, 33], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Greatest Commandment', verseRange: [34, 40], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Whose Son is the Christ?', verseRange: [41, 46], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const MATTHEW_23_SECTIONS: DaySection[] = [
+  { day: 'Warning Against Hypocrisy', verseRange: [1, 12], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Seven Woes to the Pharisees', verseRange: [13, 36], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Lament Over Jerusalem', verseRange: [37, 39], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const MATTHEW_24_SECTIONS: DaySection[] = [
+  { day: 'Signs of the End', verseRange: [1, 14], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Great Tribulation', verseRange: [15, 28], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Coming of the Son of Man', verseRange: [29, 35], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'No One Knows the Day', verseRange: [36, 51], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const MATTHEW_25_SECTIONS: DaySection[] = [
+  { day: 'The Parable of the Ten Virgins', verseRange: [1, 13], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'The Parable of the Talents', verseRange: [14, 30], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Sheep and the Goats', verseRange: [31, 46], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const MATTHEW_26_SECTIONS: DaySection[] = [
+  { day: 'Plot to Kill Jesus', verseRange: [1, 5], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Anointing at Bethany', verseRange: [6, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Judas Agrees to Betray', verseRange: [14, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'The Last Supper', verseRange: [17, 30], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Predicts Peter\'s Denial', verseRange: [31, 35], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Gethsemane', verseRange: [36, 46], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Jesus Arrested', verseRange: [47, 56], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Before the Sanhedrin', verseRange: [57, 68], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Peter Denies Jesus', verseRange: [69, 75], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const MATTHEW_27_SECTIONS: DaySection[] = [
+  { day: 'Judas Hangs Himself', verseRange: [1, 10], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Jesus Before Pilate', verseRange: [11, 26], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Soldiers Mock Jesus', verseRange: [27, 31], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Crucifixion', verseRange: [32, 44], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Death of Jesus', verseRange: [45, 56], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Burial of Jesus', verseRange: [57, 66], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const MATTHEW_28_SECTIONS: DaySection[] = [
+  { day: 'The Resurrection', verseRange: [1, 10], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Guards\' Report', verseRange: [11, 15], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Great Commission', verseRange: [16, 20], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+// LUKE SECTIONS
+const LUKE_1_SECTIONS: DaySection[] = [
+  { day: 'Introduction', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Birth of John Foretold', verseRange: [5, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Birth of Jesus Foretold', verseRange: [26, 38], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Mary Visits Elizabeth', verseRange: [39, 56], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Birth of John the Baptist', verseRange: [57, 66], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Zechariah\'s Prophecy', verseRange: [67, 80], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+// JOHN SECTIONS
+const JOHN_1_SECTIONS: DaySection[] = [
+  { day: 'The Word Became Flesh', verseRange: [1, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'John the Baptist\'s Testimony', verseRange: [19, 34], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The First Disciples', verseRange: [35, 51], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOHN_2_SECTIONS: DaySection[] = [
+  { day: 'The Wedding at Cana', verseRange: [1, 12], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Jesus Clears the Temple Courts', verseRange: [13, 25], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const JOHN_3_SECTIONS: DaySection[] = [
+  { day: 'Jesus Teaches Nicodemus', verseRange: [1, 21], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'John Testifies About Jesus', verseRange: [22, 36], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const JOHN_4_SECTIONS: DaySection[] = [
+  { day: 'Jesus and the Samaritan Woman', verseRange: [1, 26], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Disciples Rejoin Jesus', verseRange: [27, 38], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Many Samaritans Believe', verseRange: [39, 42], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Jesus Heals an Official\'s Son', verseRange: [43, 54], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const JOHN_5_SECTIONS: DaySection[] = [
+  { day: 'The Healing at the Pool', verseRange: [1, 15], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Authority of the Son', verseRange: [16, 30], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Testimonies About Jesus', verseRange: [31, 47], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const JOHN_6_SECTIONS: DaySection[] = [
+  { day: 'Jesus Feeds the Five Thousand', verseRange: [1, 15], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus Walks on Water', verseRange: [16, 21], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'The Bread of Life Discourse', verseRange: [22, 59], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Many Disciples Desert Jesus', verseRange: [60, 71], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOHN_7_SECTIONS: DaySection[] = [
+  { day: 'Jesus at the Festival of Tabernacles', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus Teaches at the Festival', verseRange: [14, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Division Over Jesus', verseRange: [25, 44], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Unbelief of the Jewish Leaders', verseRange: [45, 53], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const JOHN_8_SECTIONS: DaySection[] = [
+  { day: 'The Woman Caught in Adultery', verseRange: [1, 11], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Light of the World', verseRange: [12, 30], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Children of Abraham or the Devil', verseRange: [31, 47], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Before Abraham Was, I Am', verseRange: [48, 59], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const JOHN_9_SECTIONS: DaySection[] = [
+  { day: 'Jesus Heals a Man Born Blind', verseRange: [1, 12], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Pharisees Investigate the Healing', verseRange: [13, 34], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Spiritual Blindness', verseRange: [35, 41], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const JOHN_10_SECTIONS: DaySection[] = [
+  { day: 'The Good Shepherd', verseRange: [1, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Further Conflict Over Jesus\' Identity', verseRange: [22, 42], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const JOHN_11_SECTIONS: DaySection[] = [
+  { day: 'The Death of Lazarus', verseRange: [1, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus Comforts Martha and Mary', verseRange: [17, 37], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Raises Lazarus', verseRange: [38, 44], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'The Plot to Kill Jesus', verseRange: [45, 57], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOHN_12_SECTIONS: DaySection[] = [
+  { day: 'Mary Anoints Jesus at Bethany', verseRange: [1, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus Comes to Jerusalem as King', verseRange: [12, 19], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Predicts His Death', verseRange: [20, 36], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Belief and Unbelief Among the Jews', verseRange: [37, 50], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const JOHN_13_SECTIONS: DaySection[] = [
+  { day: 'Jesus Washes the Disciples\' Feet', verseRange: [1, 17], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Jesus Predicts Betrayal', verseRange: [18, 30], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The New Commandment', verseRange: [31, 38], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const JOHN_14_SECTIONS: DaySection[] = [
+  { day: 'Jesus Comforts His Disciples', verseRange: [1, 14], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Jesus Promises the Holy Spirit', verseRange: [15, 31], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const JOHN_15_SECTIONS: DaySection[] = [
+  { day: 'The Vine and the Branches', verseRange: [1, 17], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The World Hates the Disciples', verseRange: [18, 27], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const JOHN_16_SECTIONS: DaySection[] = [
+  { day: 'The Work of the Holy Spirit', verseRange: [1, 16], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Sorrow Will Turn to Joy', verseRange: [17, 33], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const JOHN_17_SECTIONS: DaySection[] = [
+  { day: 'Jesus Prays for Himself', verseRange: [1, 5], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Jesus Prays for His Disciples', verseRange: [6, 19], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Jesus Prays for All Believers', verseRange: [20, 26], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const JOHN_18_SECTIONS: DaySection[] = [
+  { day: 'Jesus Arrested', verseRange: [1, 14], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Peter\'s First Denial', verseRange: [15, 18], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'The High Priest Questions Jesus', verseRange: [19, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Peter\'s Second and Third Denials', verseRange: [25, 27], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus Before Pilate', verseRange: [28, 40], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOHN_19_SECTIONS: DaySection[] = [
+  { day: 'Jesus Sentenced to Death', verseRange: [1, 16], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Crucifixion', verseRange: [17, 27], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Death of Jesus', verseRange: [28, 37], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Burial of Jesus', verseRange: [38, 42], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const JOHN_20_SECTIONS: DaySection[] = [
+  { day: 'The Empty Tomb', verseRange: [1, 10], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Jesus Appears to Mary Magdalene', verseRange: [11, 18], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Jesus Appears to His Disciples', verseRange: [19, 23], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Jesus Appears to Thomas', verseRange: [24, 29], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Purpose of This Gospel', verseRange: [30, 31], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const JOHN_21_SECTIONS: DaySection[] = [
+  { day: 'Jesus and the Miraculous Catch of Fish', verseRange: [1, 14], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Jesus Reinstates Peter', verseRange: [15, 19], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Jesus and the Beloved Disciple', verseRange: [20, 25], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const LUKE_2_SECTIONS: DaySection[] = [
+  { day: 'Birth of Jesus', verseRange: [1, 7], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Shepherds', verseRange: [8, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Presentation in the Temple', verseRange: [21, 40], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Boy Jesus at the Temple', verseRange: [41, 52], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const LUKE_3_SECTIONS: DaySection[] = [
+  { day: 'John the Baptist Prepares the Way', verseRange: [1, 20], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Baptism of Jesus', verseRange: [21, 22], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Genealogy of Jesus', verseRange: [23, 38], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const LUKE_4_SECTIONS: DaySection[] = [
+  { day: 'The Temptation', verseRange: [1, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Jesus Rejected at Nazareth', verseRange: [14, 30], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus Drives Out an Impure Spirit', verseRange: [31, 37], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Heals Many', verseRange: [38, 44], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const LUKE_5_SECTIONS: DaySection[] = [
+  { day: 'The Calling of the First Disciples', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Jesus Cleanses a Leper', verseRange: [12, 16], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus Heals a Paralytic', verseRange: [17, 26], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Calling of Levi', verseRange: [27, 32], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Questions About Fasting', verseRange: [33, 39], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const LUKE_6_SECTIONS: DaySection[] = [
+  { day: 'Lord of the Sabbath', verseRange: [1, 11], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Twelve Apostles', verseRange: [12, 16], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Blessings and Woes', verseRange: [17, 26], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Love for Enemies', verseRange: [27, 36], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Judging Others', verseRange: [37, 42], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'A Tree and Its Fruit', verseRange: [43, 49], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const LUKE_7_SECTIONS: DaySection[] = [
+  { day: 'The Faith of the Centurion', verseRange: [1, 10], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Jesus Raises a Widow\'s Son', verseRange: [11, 17], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'John the Baptist\'s Question', verseRange: [18, 35], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'A Sinful Woman Forgiven', verseRange: [36, 50], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const LUKE_8_SECTIONS: DaySection[] = [
+  { day: 'Women Who Followed Jesus', verseRange: [1, 3], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Parable of the Sower', verseRange: [4, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'A Lamp on a Stand', verseRange: [16, 18], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus\' Mother and Brothers', verseRange: [19, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Calms the Storm', verseRange: [22, 25], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Gerasene Demoniac', verseRange: [26, 39], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'A Dead Girl and a Sick Woman', verseRange: [40, 56], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const LUKE_9_SECTIONS: DaySection[] = [
+  { day: 'Jesus Sends Out the Twelve', verseRange: [1, 9], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Jesus Feeds the Five Thousand', verseRange: [10, 17], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Peter\'s Confession of Christ', verseRange: [18, 27], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Transfiguration', verseRange: [28, 36], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Jesus Heals a Demon-Possessed Boy', verseRange: [37, 45], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Who Will Be the Greatest?', verseRange: [46, 50], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Samaritan Opposition', verseRange: [51, 56], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Cost of Following Jesus', verseRange: [57, 62], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const LUKE_10_SECTIONS: DaySection[] = [
+  { day: 'Jesus Sends Out the Seventy-Two', verseRange: [1, 24], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'The Parable of the Good Samaritan', verseRange: [25, 37], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'At the Home of Martha and Mary', verseRange: [38, 42], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const LUKE_11_SECTIONS: DaySection[] = [
+  { day: 'Jesus Teaches on Prayer', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus and Beelzebul', verseRange: [14, 28], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Sign of Jonah', verseRange: [29, 36], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Woes to Pharisees and Lawyers', verseRange: [37, 54], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const LUKE_12_SECTIONS: DaySection[] = [
+  { day: 'Warnings and Encouragements', verseRange: [1, 12], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Parable of the Rich Fool', verseRange: [13, 21], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Do Not Worry', verseRange: [22, 34], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Watchfulness', verseRange: [35, 48], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Not Peace but Division', verseRange: [49, 53], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Interpreting the Times', verseRange: [54, 59], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const LUKE_13_SECTIONS: DaySection[] = [
+  { day: 'Repent or Perish', verseRange: [1, 9], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Jesus Heals on the Sabbath', verseRange: [10, 17], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Parables of the Mustard Seed and Yeast', verseRange: [18, 21], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Narrow Door', verseRange: [22, 30], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus\' Lament over Jerusalem', verseRange: [31, 35], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const LUKE_14_SECTIONS: DaySection[] = [
+  { day: 'Jesus Heals on the Sabbath', verseRange: [1, 6], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Teachings on Humility', verseRange: [7, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Parable of the Great Banquet', verseRange: [15, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Cost of Discipleship', verseRange: [25, 35], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const LUKE_15_SECTIONS: DaySection[] = [
+  { day: 'Parable of the Lost Sheep', verseRange: [1, 7], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Parable of the Lost Coin', verseRange: [8, 10], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Parable of the Prodigal Son', verseRange: [11, 32], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const LUKE_16_SECTIONS: DaySection[] = [
+  { day: 'Parable of the Shrewd Manager', verseRange: [1, 13], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Law and the Kingdom of God', verseRange: [14, 18], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Rich Man and Lazarus', verseRange: [19, 31], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const LUKE_17_SECTIONS: DaySection[] = [
+  { day: 'Sin, Faith, and Duty', verseRange: [1, 10], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Ten Healed of Leprosy', verseRange: [11, 19], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Coming of the Kingdom of God', verseRange: [20, 37], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const LUKE_18_SECTIONS: DaySection[] = [
+  { day: 'Parable of the Persistent Widow', verseRange: [1, 8], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Parable of the Pharisee and Tax Collector', verseRange: [9, 14], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Little Children and Jesus', verseRange: [15, 17], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Rich Ruler', verseRange: [18, 30], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Jesus Predicts His Death', verseRange: [31, 34], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'A Blind Beggar Receives His Sight', verseRange: [35, 43], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const LUKE_19_SECTIONS: DaySection[] = [
+  { day: 'Zacchaeus the Tax Collector', verseRange: [1, 10], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Parable of the Ten Minas', verseRange: [11, 27], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Triumphal Entry', verseRange: [28, 40], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus Weeps over Jerusalem', verseRange: [41, 44], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Jesus Cleanses the Temple', verseRange: [45, 48], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const LUKE_20_SECTIONS: DaySection[] = [
+  { day: 'The Authority of Jesus Questioned', verseRange: [1, 8], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Parable of the Wicked Tenants', verseRange: [9, 19], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Paying Taxes to Caesar', verseRange: [20, 26], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Resurrection and Marriage', verseRange: [27, 40], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Whose Son Is the Christ?', verseRange: [41, 47], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const LUKE_21_SECTIONS: DaySection[] = [
+  { day: 'The Widow\'s Offering', verseRange: [1, 4], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Signs of the End of the Age', verseRange: [5, 28], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Watch and Pray', verseRange: [29, 38], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const LUKE_22_SECTIONS: DaySection[] = [
+  { day: 'Judas Agrees to Betray Jesus', verseRange: [1, 6], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Last Supper', verseRange: [7, 23], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Who Is the Greatest?', verseRange: [24, 30], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Jesus Predicts Peter\'s Denial', verseRange: [31, 38], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Jesus Prays on the Mount of Olives', verseRange: [39, 46], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jesus Arrested', verseRange: [47, 53], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Peter Denies Jesus', verseRange: [54, 62], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Jesus Before the Council', verseRange: [63, 71], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const LUKE_23_SECTIONS: DaySection[] = [
+  { day: 'Jesus Before Pilate', verseRange: [1, 5], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Jesus Before Herod', verseRange: [6, 12], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Pilate Delivers Jesus to Be Crucified', verseRange: [13, 25], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Crucifixion', verseRange: [26, 43], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Death of Jesus', verseRange: [44, 49], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Burial of Jesus', verseRange: [50, 56], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const LUKE_24_SECTIONS: DaySection[] = [
+  { day: 'The Empty Tomb', verseRange: [1, 12], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'On the Road to Emmaus', verseRange: [13, 35], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Jesus Appears to the Disciples', verseRange: [36, 49], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'The Ascension', verseRange: [50, 53], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+// ACTS SECTIONS
+const ACTS_1_SECTIONS: DaySection[] = [
+  { day: 'Jesus Taken Up Into Heaven', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Apostles Wait in Prayer', verseRange: [12, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Matthias Chosen to Replace Judas', verseRange: [15, 26], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ACTS_2_SECTIONS: DaySection[] = [
+  { day: 'The Holy Spirit Comes at Pentecost', verseRange: [1, 13], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Peter\'s Sermon', verseRange: [14, 36], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Fellowship of Believers', verseRange: [37, 47], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ACTS_3_SECTIONS: DaySection[] = [
+  { day: 'Peter Heals a Lame Beggar', verseRange: [1, 10], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Peter Speaks to the Onlookers', verseRange: [11, 26], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const ACTS_4_SECTIONS: DaySection[] = [
+  { day: 'Peter and John Before the Sanhedrin', verseRange: [1, 22], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Believers\' Prayer', verseRange: [23, 31], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Believers Share Everything', verseRange: [32, 37], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const ACTS_5_SECTIONS: DaySection[] = [
+  { day: 'Ananias and Sapphira', verseRange: [1, 11], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Apostles Heal Many', verseRange: [12, 16], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Apostles Persecuted', verseRange: [17, 42], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const ACTS_6_SECTIONS: DaySection[] = [
+  { day: 'The Choosing of the Seven', verseRange: [1, 7], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Stephen Seized', verseRange: [8, 15], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const ACTS_7_SECTIONS: DaySection[] = [
+  { day: 'Stephen\'s Speech: The Patriarchs', verseRange: [1, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Moses and the Exodus', verseRange: [17, 43], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'The Tabernacle and Solomon\'s Temple', verseRange: [44, 50], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Israel\'s Resistance and Stephen\'s Martyrdom', verseRange: [51, 60], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const ACTS_8_SECTIONS: DaySection[] = [
+  { day: 'The Church Persecuted and Scattered', verseRange: [1, 3], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Philip in Samaria', verseRange: [4, 8], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Simon the Sorcerer', verseRange: [9, 25], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Philip and the Ethiopian', verseRange: [26, 40], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+// ROMANS SECTIONS
+const ROMANS_1_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Greeting and Gospel Theme', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'God\'s Wrath Against Humanity', verseRange: [18, 32], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const ROMANS_2_SECTIONS: DaySection[] = [
+  { day: 'God\'s Righteous Judgment', verseRange: [1, 16], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Jews and the Law', verseRange: [17, 29], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ROMANS_3_SECTIONS: DaySection[] = [
+  { day: 'God\'s Faithfulness', verseRange: [1, 8], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'No One Righteous', verseRange: [9, 20], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Righteousness Through Faith', verseRange: [21, 31], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const ROMANS_4_SECTIONS: DaySection[] = [
+  { day: 'Abraham Justified by Faith', verseRange: [1, 12], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Faith and the Promise', verseRange: [13, 25], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const ROMANS_5_SECTIONS: DaySection[] = [
+  { day: 'Peace with God Through Faith', verseRange: [1, 11], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Death Through Adam, Life Through Christ', verseRange: [12, 21], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const ROMANS_6_SECTIONS: DaySection[] = [
+  { day: 'Dead to Sin, Alive in Christ', verseRange: [1, 14], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Slaves to Righteousness', verseRange: [15, 23], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const ROMANS_7_SECTIONS: DaySection[] = [
+  { day: 'Released from the Law', verseRange: [1, 6], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Law and Sin', verseRange: [7, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Struggle with Sin', verseRange: [14, 25], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const ROMANS_8_SECTIONS: DaySection[] = [
+  { day: 'No Condemnation in Christ', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Life by the Spirit', verseRange: [5, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Future Glory', verseRange: [18, 27], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'More Than Conquerors', verseRange: [28, 39], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const ROMANS_9_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Anguish for Israel', verseRange: [1, 5], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'God\'s Sovereign Election', verseRange: [6, 29], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Israel\'s Unbelief', verseRange: [30, 33], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const ROMANS_10_SECTIONS: DaySection[] = [
+  { day: 'Christ the End of the Law', verseRange: [1, 13], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Faith Comes from Hearing', verseRange: [14, 21], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const ROMANS_11_SECTIONS: DaySection[] = [
+  { day: 'The Remnant of Israel', verseRange: [1, 10], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Ingrafted Branches', verseRange: [11, 24], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'All Israel Will Be Saved', verseRange: [25, 36], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const ROMANS_12_SECTIONS: DaySection[] = [
+  { day: 'A Living Sacrifice', verseRange: [1, 2], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Humble Service in the Body of Christ', verseRange: [3, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Love in Action', verseRange: [9, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const ROMANS_13_SECTIONS: DaySection[] = [
+  { day: 'Submission to Governing Authorities', verseRange: [1, 7], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Love Fulfills the Law', verseRange: [8, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Day Is Near', verseRange: [11, 14], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ROMANS_14_SECTIONS: DaySection[] = [
+  { day: 'The Weak and the Strong', verseRange: [1, 12], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Do Not Cause Another to Stumble', verseRange: [13, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const ROMANS_15_SECTIONS: DaySection[] = [
+  { day: 'Bear One Another\'s Burdens', verseRange: [1, 13], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Paul\'s Ministry and Plans', verseRange: [14, 33], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const ROMANS_16_SECTIONS: DaySection[] = [
+  { day: 'Personal Greetings', verseRange: [1, 16], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Final Instructions and Doxology', verseRange: [17, 27], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+// 1 CORINTHIANS SECTIONS
+const CORINTHIANS_1_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting', verseRange: [1, 9], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Divisions in the Church', verseRange: [10, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Foolishness of the Cross', verseRange: [18, 31], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const CORINTHIANS_1_2_SECTIONS: DaySection[] = [
+  { day: 'Spiritual Wisdom', verseRange: [1, 5], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'God\'s Wisdom Revealed by the Spirit', verseRange: [6, 16], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const CORINTHIANS_1_3_SECTIONS: DaySection[] = [
+  { day: 'Worldliness in the Church', verseRange: [1, 9], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Church is God\'s Temple', verseRange: [10, 17], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'True Wisdom', verseRange: [18, 23], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const CORINTHIANS_1_4_SECTIONS: DaySection[] = [
+  { day: 'The Nature of True Apostleship', verseRange: [1, 7], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Paul\'s Defense of His Ministry', verseRange: [8, 21], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const CORINTHIANS_1_5_SECTIONS: DaySection[] = [
+  { day: 'Dealing with Immorality', verseRange: [1, 8], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Church Discipline', verseRange: [9, 13], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const CORINTHIANS_1_6_SECTIONS: DaySection[] = [
+  { day: 'Lawsuits Among Believers', verseRange: [1, 11], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Sexual Immorality', verseRange: [12, 20], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const CORINTHIANS_1_7_SECTIONS: DaySection[] = [
+  { day: 'Principles of Marriage', verseRange: [1, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Concerning the Unmarried', verseRange: [17, 40], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const CORINTHIANS_1_8_SECTIONS: DaySection[] = [
+  { day: 'Food Sacrificed to Idols', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const CORINTHIANS_1_9_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Rights as an Apostle', verseRange: [1, 18], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Paul\'s Discipline and Service', verseRange: [19, 27], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const CORINTHIANS_1_10_SECTIONS: DaySection[] = [
+  { day: 'Warnings from Israel\'s History', verseRange: [1, 13], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Idol Feasts and the Lord\'s Supper', verseRange: [14, 22], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Do Everything for God\'s Glory', verseRange: [23, 33], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const CORINTHIANS_1_11_SECTIONS: DaySection[] = [
+  { day: 'Head Coverings', verseRange: [1, 16], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Correcting the Lord\'s Supper', verseRange: [17, 34], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const CORINTHIANS_1_12_SECTIONS: DaySection[] = [
+  { day: 'Concerning Spiritual Gifts', verseRange: [1, 11], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Unity and Diversity in the Body', verseRange: [12, 31], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const CORINTHIANS_1_13_SECTIONS: DaySection[] = [
+  { day: 'The Supremacy of Love', verseRange: [1, 3], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Love Described', verseRange: [4, 7], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Love Never Fails', verseRange: [8, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const CORINTHIANS_1_14_SECTIONS: DaySection[] = [
+  { day: 'Prophecy and Tongues', verseRange: [1, 25], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Order in Worship', verseRange: [26, 40], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const CORINTHIANS_1_15_SECTIONS: DaySection[] = [
+  { day: 'The Gospel and the Resurrection', verseRange: [1, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Resurrection of the Dead', verseRange: [12, 34], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Resurrection Body', verseRange: [35, 58], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const CORINTHIANS_1_16_SECTIONS: DaySection[] = [
+  { day: 'The Collection for the Lord\'s People', verseRange: [1, 4], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Personal Requests and Greetings', verseRange: [5, 24], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+// 2 CORINTHIANS SECTIONS
+const CORINTHIANS_2_1_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Greeting', verseRange: [1, 2], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Comfort in Suffering', verseRange: [3, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Paul\'s Change of Plans', verseRange: [12, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const CORINTHIANS_2_2_SECTIONS: DaySection[] = [
+  { day: 'Forgiveness for the Offender', verseRange: [1, 11], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Triumph in Christ', verseRange: [12, 17], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const CORINTHIANS_2_3_SECTIONS: DaySection[] = [
+  { day: 'Ministers of the New Covenant', verseRange: [1, 6], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Glory of the New Covenant', verseRange: [7, 18], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const CORINTHIANS_2_4_SECTIONS: DaySection[] = [
+  { day: 'Treasure in Jars of Clay', verseRange: [1, 12], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Eternal Weight of Glory', verseRange: [13, 18], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const CORINTHIANS_2_5_SECTIONS: DaySection[] = [
+  { day: 'Our Heavenly Dwelling', verseRange: [1, 10], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Ministry of Reconciliation', verseRange: [11, 21], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const CORINTHIANS_2_6_SECTIONS: DaySection[] = [
+  { day: 'Hardships of Paul\'s Ministry', verseRange: [1, 13], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Do Not Be Unequally Yoked', verseRange: [14, 18], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const CORINTHIANS_2_7_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Joy at Their Repentance', verseRange: [1, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Godly Sorrow Brings Repentance', verseRange: [8, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const CORINTHIANS_2_8_SECTIONS: DaySection[] = [
+  { day: 'The Example of the Macedonian Churches', verseRange: [1, 7], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Grace of Giving', verseRange: [8, 15], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Titus and the Delegation', verseRange: [16, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const CORINTHIANS_2_9_SECTIONS: DaySection[] = [
+  { day: 'Generosity Encouraged', verseRange: [1, 5], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Sowing and Reaping', verseRange: [6, 15], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const CORINTHIANS_2_10_SECTIONS: DaySection[] = [
+  { day: 'Paul Defends His Authority', verseRange: [1, 6], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Spiritual Warfare', verseRange: [7, 18], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const CORINTHIANS_2_11_SECTIONS: DaySection[] = [
+  { day: 'Paul and the False Apostles', verseRange: [1, 15], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Paul\'s Sufferings', verseRange: [16, 33], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const CORINTHIANS_2_12_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Visions and Revelations', verseRange: [1, 10], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Thorn in the Flesh', verseRange: [11, 21], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const CORINTHIANS_2_13_SECTIONS: DaySection[] = [
+  { day: 'Final Warnings', verseRange: [1, 10], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Final Greetings', verseRange: [11, 14], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+// GALATIANS SECTIONS
+const GALATIANS_1_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Greeting', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'No Other Gospel', verseRange: [6, 10], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Paul\'s Calling from God', verseRange: [11, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const GALATIANS_2_SECTIONS: DaySection[] = [
+  { day: 'Gospel Confirmed by the Apostles', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Paul Confronts Peter', verseRange: [11, 14], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Justified by Faith', verseRange: [15, 21], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const GALATIANS_3_SECTIONS: DaySection[] = [
+  { day: 'Faith or Works of the Law', verseRange: [1, 14], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Law and the Promise', verseRange: [15, 25], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Children of God Through Faith', verseRange: [26, 29], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const GALATIANS_4_SECTIONS: DaySection[] = [
+  { day: 'Sons, Not Slaves', verseRange: [1, 11], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Paul\'s Concern for the Galatians', verseRange: [12, 20], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Hagar and Sarah', verseRange: [21, 31], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const GALATIANS_5_SECTIONS: DaySection[] = [
+  { day: 'Freedom in Christ', verseRange: [1, 15], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Fruit of the Spirit', verseRange: [16, 26], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const GALATIANS_6_SECTIONS: DaySection[] = [
+  { day: 'Bear One Another\'s Burdens', verseRange: [1, 10], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Boast Only in the Cross', verseRange: [11, 18], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+// EPHESIANS SECTIONS
+const EPHESIANS_1_SECTIONS: DaySection[] = [
+  { day: 'Spiritual Blessings in Christ', verseRange: [1, 14], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Prayer for Spiritual Wisdom', verseRange: [15, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EPHESIANS_2_SECTIONS: DaySection[] = [
+  { day: 'Alive in Christ', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'One in Christ', verseRange: [11, 22], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const EPHESIANS_3_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Ministry to the Gentiles', verseRange: [1, 13], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Prayer for Strength and Love', verseRange: [14, 21], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const EPHESIANS_4_SECTIONS: DaySection[] = [
+  { day: 'Unity in the Body', verseRange: [1, 16], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Put Off the Old Self', verseRange: [17, 32], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const EPHESIANS_5_SECTIONS: DaySection[] = [
+  { day: 'Walk in Love and Light', verseRange: [1, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Marriage as a Picture of Christ and the Church', verseRange: [21, 33], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const EPHESIANS_6_SECTIONS: DaySection[] = [
+  { day: 'Children and Parents, Slaves and Masters', verseRange: [1, 9], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Armor of God', verseRange: [10, 20], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Final Greetings', verseRange: [21, 24], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+// PHILIPPIANS SECTIONS
+const PHILIPPIANS_1_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Greeting and Prayer', verseRange: [1, 11], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Paul\'s Chains Advance the Gospel', verseRange: [12, 26], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Stand Firm for the Gospel', verseRange: [27, 30], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const PHILIPPIANS_2_SECTIONS: DaySection[] = [
+  { day: 'Imitating Christ\'s Humility', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Shine as Lights', verseRange: [12, 18], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Timothy and Epaphroditus', verseRange: [19, 30], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const PHILIPPIANS_3_SECTIONS: DaySection[] = [
+  { day: 'Righteousness Through Faith in Christ', verseRange: [1, 11], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Pressing On Toward the Goal', verseRange: [12, 21], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const PHILIPPIANS_4_SECTIONS: DaySection[] = [
+  { day: 'Stand Firm, Rejoice, and Think on Good Things', verseRange: [1, 9], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Contentment in All Circumstances', verseRange: [10, 20], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Final Greetings', verseRange: [21, 23], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+// COLOSSIANS SECTIONS
+const COLOSSIANS_1_SECTIONS: DaySection[] = [
+  { day: 'Thanksgiving and Prayer', verseRange: [1, 14], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Supremacy of Christ', verseRange: [15, 23], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Paul\'s Labor for the Church', verseRange: [24, 29], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const COLOSSIANS_2_SECTIONS: DaySection[] = [
+  { day: 'Freedom from Human Rules', verseRange: [1, 12], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Fullness in Christ', verseRange: [13, 23], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const COLOSSIANS_3_SECTIONS: DaySection[] = [
+  { day: 'Set Your Hearts on Things Above', verseRange: [1, 4], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Put to Death the Old Self', verseRange: [5, 11], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Clothe Yourselves with Christ', verseRange: [12, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Christian Household', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const COLOSSIANS_4_SECTIONS: DaySection[] = [
+  { day: 'Instructions for Masters', verseRange: [1, 1], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Prayer and Wise Conduct', verseRange: [2, 6], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Final Greetings', verseRange: [7, 18], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+// 1 THESSALONIANS SECTIONS
+const THESSALONIANS_1_1_SECTIONS: DaySection[] = [
+  { day: 'Thanksgiving for the Thessalonians', verseRange: [1, 10], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const THESSALONIANS_1_2_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Ministry in Thessalonica', verseRange: [1, 12], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Reception of the Gospel', verseRange: [13, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const THESSALONIANS_1_3_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Longing to Visit', verseRange: [1, 5], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Timothy\'s Encouraging Report', verseRange: [6, 13], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const THESSALONIANS_1_4_SECTIONS: DaySection[] = [
+  { day: 'Living to Please God', verseRange: [1, 12], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Coming of the Lord', verseRange: [13, 18], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const THESSALONIANS_1_5_SECTIONS: DaySection[] = [
+  { day: 'The Day of the Lord', verseRange: [1, 11], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Final Instructions', verseRange: [12, 28], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+// 2 THESSALONIANS SECTIONS
+const THESSALONIANS_2_1_SECTIONS: DaySection[] = [
+  { day: 'Thanksgiving and Prayer', verseRange: [1, 4], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'God\'s Righteous Judgment', verseRange: [5, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const THESSALONIANS_2_2_SECTIONS: DaySection[] = [
+  { day: 'The Man of Lawlessness', verseRange: [1, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Stand Firm', verseRange: [13, 17], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const THESSALONIANS_2_3_SECTIONS: DaySection[] = [
+  { day: 'Request for Prayer', verseRange: [1, 5], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Warning Against Idleness', verseRange: [6, 15], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Final Greetings', verseRange: [16, 18], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+// 1 TIMOTHY SECTIONS
+const TIMOTHY_1_1_SECTIONS: DaySection[] = [
+  { day: 'Warning Against False Teachers', verseRange: [1, 11], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Paul\'s Testimony of Mercy', verseRange: [12, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const TIMOTHY_1_2_SECTIONS: DaySection[] = [
+  { day: 'Instructions on Worship', verseRange: [1, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const TIMOTHY_1_3_SECTIONS: DaySection[] = [
+  { day: 'Qualifications for Overseers', verseRange: [1, 7], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Qualifications for Deacons', verseRange: [8, 13], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Mystery of Godliness', verseRange: [14, 16], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const TIMOTHY_1_4_SECTIONS: DaySection[] = [
+  { day: 'Warning Against False Teachers', verseRange: [1, 5], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Train Yourself in Godliness', verseRange: [6, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const TIMOTHY_1_5_SECTIONS: DaySection[] = [
+  { day: 'Care for Widows', verseRange: [1, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Honor for Elders', verseRange: [17, 25], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const TIMOTHY_1_6_SECTIONS: DaySection[] = [
+  { day: 'Instructions for Slaves', verseRange: [1, 2], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'False Teachers and Love of Money', verseRange: [3, 10], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Fight the Good Fight', verseRange: [11, 21], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+// 2 TIMOTHY SECTIONS
+const TIMOTHY_2_1_SECTIONS: DaySection[] = [
+  { day: 'Thanksgiving and Encouragement', verseRange: [1, 7], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Not Ashamed of the Gospel', verseRange: [8, 18], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const TIMOTHY_2_2_SECTIONS: DaySection[] = [
+  { day: 'Endure Hardship', verseRange: [1, 13], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Approved Workman', verseRange: [14, 26], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const TIMOTHY_2_3_SECTIONS: DaySection[] = [
+  { day: 'Godlessness in the Last Days', verseRange: [1, 9], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'All Scripture is God-Breathed', verseRange: [10, 17], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const TIMOTHY_2_4_SECTIONS: DaySection[] = [
+  { day: 'Preach the Word', verseRange: [1, 8], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Paul\'s Final Testimony', verseRange: [9, 18], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Final Greetings', verseRange: [19, 22], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+// TITUS SECTIONS
+const TITUS_1_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Greeting', verseRange: [1, 4], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Qualifications for Elders', verseRange: [5, 9], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Rebuking False Teachers', verseRange: [10, 16], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const TITUS_2_SECTIONS: DaySection[] = [
+  { day: 'Sound Doctrine for All Ages', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Grace Teaches Us', verseRange: [11, 15], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const TITUS_3_SECTIONS: DaySection[] = [
+  { day: 'Doing What Is Good', verseRange: [1, 8], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Avoid Foolish Controversies', verseRange: [9, 11], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Final Instructions', verseRange: [12, 15], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+// PHILEMON SECTIONS
+const PHILEMON_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting and Thanksgiving', verseRange: [1, 7], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Paul\'s Appeal for Onesimus', verseRange: [8, 21], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Final Greetings', verseRange: [22, 25], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+// HEBREWS SECTIONS
+const HEBREWS_1_SECTIONS: DaySection[] = [
+  { day: 'God Has Spoken by His Son', verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Son Superior to Angels', verseRange: [5, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const HEBREWS_2_SECTIONS: DaySection[] = [
+  { day: 'Warning to Pay Attention', verseRange: [1, 4], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Jesus Made Fully Human', verseRange: [5, 9], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jesus the Merciful High Priest', verseRange: [10, 18], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const HEBREWS_3_SECTIONS: DaySection[] = [
+  { day: 'Jesus Greater than Moses', verseRange: [1, 6], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Warning Against Unbelief', verseRange: [7, 19], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const HEBREWS_4_SECTIONS: DaySection[] = [
+  { day: 'The Sabbath Rest for God\'s People', verseRange: [1, 11], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Living Word of God', verseRange: [12, 13], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Jesus the Great High Priest', verseRange: [14, 16], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const HEBREWS_5_SECTIONS: DaySection[] = [
+  { day: 'The Qualifications of a High Priest', verseRange: [1, 4], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Christ\'s Priestly Appointment', verseRange: [5, 10], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Warning Against Falling Away', verseRange: [11, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const HEBREWS_6_SECTIONS: DaySection[] = [
+  { day: 'Press On to Maturity', verseRange: [1, 3], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Warning of Apostasy', verseRange: [4, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Encouragement and Hope', verseRange: [9, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Certainty of God\'s Promise', verseRange: [13, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const HEBREWS_7_SECTIONS: DaySection[] = [
+  { day: 'Melchizedek the Priest', verseRange: [1, 10], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Jesus Like Melchizedek', verseRange: [11, 22], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Superiority of Christ\'s Priesthood', verseRange: [23, 28], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const HEBREWS_8_SECTIONS: DaySection[] = [
+  { day: 'The High Priest of a New Covenant', verseRange: [1, 6], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The New Covenant', verseRange: [7, 13], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const HEBREWS_9_SECTIONS: DaySection[] = [
+  { day: 'Worship in the Earthly Tabernacle', verseRange: [1, 10], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Blood of Christ', verseRange: [11, 22], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Christ\'s Sacrifice Once for All', verseRange: [23, 28], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const HEBREWS_10_SECTIONS: DaySection[] = [
+  { day: 'Christ\'s Sacrifice Perfect', verseRange: [1, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Draw Near to God', verseRange: [19, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Warning of Judgment', verseRange: [26, 31], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Call to Persevere in Faith', verseRange: [32, 39], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const HEBREWS_11_SECTIONS: DaySection[] = [
+  { day: 'Faith Defined', verseRange: [1, 3], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Examples of Faith: Abel to Noah', verseRange: [4, 7], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Abraham\'s Faith', verseRange: [8, 19], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Faith of the Patriarchs', verseRange: [20, 22], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Moses\'s Faith', verseRange: [23, 29], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Faith\'s Hall of Fame', verseRange: [30, 40], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const HEBREWS_12_SECTIONS: DaySection[] = [
+  { day: 'Run with Endurance', verseRange: [1, 3], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'God Disciplines His Children', verseRange: [4, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Warning Against Refusing God', verseRange: [14, 17], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Kingdom That Cannot Be Shaken', verseRange: [18, 29], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const HEBREWS_13_SECTIONS: DaySection[] = [
+  { day: 'Practical Christian Living', verseRange: [1, 6], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Spiritual Leadership', verseRange: [7, 19], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Benediction and Greetings', verseRange: [20, 25], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+// JAMES SECTIONS
+const JAMES_1_SECTIONS: DaySection[] = [
+  { day: 'Joy in Trials', verseRange: [1, 8], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Poverty and Riches', verseRange: [9, 11], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Temptation and Sin', verseRange: [12, 18], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Hearing and Doing the Word', verseRange: [19, 27], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const JAMES_2_SECTIONS: DaySection[] = [
+  { day: 'Warning Against Favoritism', verseRange: [1, 13], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Faith and Deeds', verseRange: [14, 26], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const JAMES_3_SECTIONS: DaySection[] = [
+  { day: 'Taming the Tongue', verseRange: [1, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Two Kinds of Wisdom', verseRange: [13, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JAMES_4_SECTIONS: DaySection[] = [
+  { day: 'Friendship with the World', verseRange: [1, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Warning Against Judging', verseRange: [11, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Boasting About Tomorrow', verseRange: [13, 17], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const JAMES_5_SECTIONS: DaySection[] = [
+  { day: 'Warning to Rich Oppressors', verseRange: [1, 6], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Patience in Suffering', verseRange: [7, 12], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Prayer of Faith', verseRange: [13, 18], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Restoring a Wanderer', verseRange: [19, 20], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+// 1 PETER SECTIONS
+const PETER1_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting', verseRange: [1, 2], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Living Hope Through the Resurrection', verseRange: [3, 12], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Called to Be Holy', verseRange: [13, 25], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const PETER1_2_SECTIONS: DaySection[] = [
+  { day: 'Living Stones and a Chosen People', verseRange: [1, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Submission to Authority', verseRange: [13, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Following Christ\'s Example', verseRange: [18, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const PETER1_3_SECTIONS: DaySection[] = [
+  { day: 'Wives and Husbands', verseRange: [1, 7], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Suffering for Doing Good', verseRange: [8, 17], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Christ\'s Victory Over Death', verseRange: [18, 22], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const PETER1_4_SECTIONS: DaySection[] = [
+  { day: 'Living for God', verseRange: [1, 6], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The End Is Near', verseRange: [7, 11], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Suffering as a Christian', verseRange: [12, 19], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const PETER1_5_SECTIONS: DaySection[] = [
+  { day: 'To the Elders and Young Men', verseRange: [1, 5], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Humble Yourselves', verseRange: [6, 11], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Final Greetings', verseRange: [12, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+// 2 PETER SECTIONS
+const PETER2_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting and Divine Power', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Make Your Calling Sure', verseRange: [5, 11], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Peter\'s Eyewitness Account', verseRange: [12, 21], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const PETER2_2_SECTIONS: DaySection[] = [
+  { day: 'False Teachers Condemned', verseRange: [1, 9], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Depravity of False Teachers', verseRange: [10, 22], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const PETER2_3_SECTIONS: DaySection[] = [
+  { day: 'The Day of the Lord Will Come', verseRange: [1, 10], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'New Heavens and a New Earth', verseRange: [11, 18], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+// 1 JOHN SECTIONS
+const JOHN1_1_SECTIONS: DaySection[] = [
+  { day: 'The Word of Life', verseRange: [1, 4], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Walking in the Light', verseRange: [5, 10], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const JOHN1_2_SECTIONS: DaySection[] = [
+  { day: 'Christ Our Advocate', verseRange: [1, 6], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The New Command', verseRange: [7, 11], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Do Not Love the World', verseRange: [12, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Warning Against Antichrists', verseRange: [18, 29], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOHN1_3_SECTIONS: DaySection[] = [
+  { day: 'Children of God', verseRange: [1, 10], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Love in Deed and Truth', verseRange: [11, 24], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const JOHN1_4_SECTIONS: DaySection[] = [
+  { day: 'Test the Spirits', verseRange: [1, 6], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'God Is Love', verseRange: [7, 21], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const JOHN1_5_SECTIONS: DaySection[] = [
+  { day: 'Faith Overcomes the World', verseRange: [1, 5], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Testimony of God', verseRange: [6, 12], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Concluding Affirmations', verseRange: [13, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+// 2 JOHN SECTIONS
+const JOHN2_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting and Love Command', verseRange: [1, 6], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Warning Against Deceivers', verseRange: [7, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Final Words', verseRange: [12, 13], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+// 3 JOHN SECTIONS
+const JOHN3_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting and Gaius\'s Faithfulness', verseRange: [1, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Diotrephes and Demetrius', verseRange: [9, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Closing Words', verseRange: [13, 15], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+// JUDE SECTIONS
+const JUDE_1_SECTIONS: DaySection[] = [
+  { day: 'Greeting and Purpose', verseRange: [1, 4], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Historical Examples of Judgment', verseRange: [5, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'False Teachers Condemned', verseRange: [8, 16], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Call to Persevere', verseRange: [17, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Doxology', verseRange: [24, 25], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const ACTS_9_SECTIONS: DaySection[] = [
+  { day: 'Saul\'s Conversion on the Road to Damascus', verseRange: [1, 9], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Ananias and Saul', verseRange: [10, 19], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Saul in Damascus and Jerusalem', verseRange: [20, 31], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Aeneas and Dorcas', verseRange: [32, 43], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const ACTS_10_SECTIONS: DaySection[] = [
+  { day: 'Cornelius Calls for Peter', verseRange: [1, 8], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Peter\'s Vision', verseRange: [9, 23], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Peter at Cornelius\'s House', verseRange: [24, 33], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Gentiles Receive the Holy Spirit', verseRange: [34, 48], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const ACTS_11_SECTIONS: DaySection[] = [
+  { day: 'Peter Explains His Actions', verseRange: [1, 18], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Church in Antioch', verseRange: [19, 30], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const ACTS_12_SECTIONS: DaySection[] = [
+  { day: 'Peter\'s Miraculous Escape from Prison', verseRange: [1, 19], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Herod\'s Death', verseRange: [20, 25], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const ACTS_13_SECTIONS: DaySection[] = [
+  { day: 'Barnabas and Saul Sent Off', verseRange: [1, 3], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'On Cyprus', verseRange: [4, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'In Pisidian Antioch', verseRange: [13, 43], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Rejection and Turn to the Gentiles', verseRange: [44, 52], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const ACTS_14_SECTIONS: DaySection[] = [
+  { day: 'In Iconium', verseRange: [1, 7], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'In Lystra and Derbe', verseRange: [8, 20], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Return to Antioch in Syria', verseRange: [21, 28], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const ACTS_15_SECTIONS: DaySection[] = [
+  { day: 'The Debate in Jerusalem', verseRange: [1, 12], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'James\'s Judgment', verseRange: [13, 21], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The Council\'s Letter to Gentile Believers', verseRange: [22, 35], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Paul and Barnabas Separate', verseRange: [36, 41], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const ACTS_16_SECTIONS: DaySection[] = [
+  { day: 'Timothy Joins Paul and Silas', verseRange: [1, 5], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Paul\'s Vision of the Man of Macedonia', verseRange: [6, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Lydia\'s Conversion in Philippi', verseRange: [11, 15], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Paul and Silas in Prison', verseRange: [16, 40], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const ACTS_17_SECTIONS: DaySection[] = [
+  { day: 'In Thessalonica', verseRange: [1, 9], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'In Berea', verseRange: [10, 15], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'In Athens', verseRange: [16, 34], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ACTS_18_SECTIONS: DaySection[] = [
+  { day: 'In Corinth', verseRange: [1, 17], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Priscilla, Aquila and Apollos', verseRange: [18, 28], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const ACTS_19_SECTIONS: DaySection[] = [
+  { day: 'Paul in Ephesus', verseRange: [1, 10], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'The Sons of Sceva', verseRange: [11, 20], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Riot in Ephesus', verseRange: [21, 41], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const ACTS_20_SECTIONS: DaySection[] = [
+  { day: 'Through Macedonia and Greece', verseRange: [1, 6], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Eutychus Raised from the Dead at Troas', verseRange: [7, 12], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Paul\'s Farewell to the Ephesian Elders', verseRange: [13, 38], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const ACTS_21_SECTIONS: DaySection[] = [
+  { day: 'On to Jerusalem', verseRange: [1, 16], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Paul\'s Arrival at Jerusalem', verseRange: [17, 26], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Paul Arrested', verseRange: [27, 40], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const ACTS_22_SECTIONS: DaySection[] = [
+  { day: 'Paul Speaks to the Crowd', verseRange: [1, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Paul the Roman Citizen', verseRange: [22, 30], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const ACTS_23_SECTIONS: DaySection[] = [
+  { day: 'Paul Before the Sanhedrin', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Plot to Kill Paul', verseRange: [12, 22], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Paul Transferred to Caesarea', verseRange: [23, 35], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const ACTS_24_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Trial Before Felix', verseRange: [1, 21], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Paul\'s Two Years in Caesarea', verseRange: [22, 27], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const ACTS_25_SECTIONS: DaySection[] = [
+  { day: 'Paul\'s Trial Before Festus', verseRange: [1, 12], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Festus Consults King Agrippa', verseRange: [13, 27], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const ACTS_26_SECTIONS: DaySection[] = [
+  { day: 'Paul Before Agrippa', verseRange: [1, 11], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Paul Recounts His Conversion', verseRange: [12, 18], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Paul\'s Defense and Appeal', verseRange: [19, 32], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const ACTS_27_SECTIONS: DaySection[] = [
+  { day: 'Paul Sails for Rome', verseRange: [1, 12], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'The Storm', verseRange: [13, 26], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Shipwreck', verseRange: [27, 44], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const ACTS_28_SECTIONS: DaySection[] = [
+  { day: 'Ashore on Malta', verseRange: [1, 10], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Paul\'s Arrival at Rome', verseRange: [11, 16], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Paul Preaches at Rome Under Guard', verseRange: [17, 31], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+// REVELATION SECTIONS
+const REVELATION_1_SECTIONS: DaySection[] = [
+  { day: 'Prologue', verseRange: [1, 3], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Greeting to Seven Churches', verseRange: [4, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'John\'s Vision on Patmos', verseRange: [9, 11], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Vision of the Son of Man', verseRange: [12, 16], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Christ\'s Commission to John', verseRange: [17, 20], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const REVELATION_2_SECTIONS: DaySection[] = [
+  { day: 'To Ephesus: Lost First Love', verseRange: [1, 7], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'To Smyrna: Faithful in Suffering', verseRange: [8, 11], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'To Pergamum: Where Satan Dwells', verseRange: [12, 17], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'To Thyatira: Tolerating Jezebel', verseRange: [18, 29], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const REVELATION_3_SECTIONS: DaySection[] = [
+  { day: 'To Sardis: Wake Up', verseRange: [1, 6], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'To Philadelphia: Open Door', verseRange: [7, 13], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'To Laodicea: Lukewarm', verseRange: [14, 22], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const REVELATION_4_SECTIONS: DaySection[] = [
+  { day: 'The Throne in Heaven', verseRange: [1, 3], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Twenty-Four Elders', verseRange: [4, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Four Living Creatures', verseRange: [9, 11], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const REVELATION_5_SECTIONS: DaySection[] = [
+  { day: 'The Scroll and the Lamb', verseRange: [1, 7], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The New Song', verseRange: [8, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const REVELATION_6_SECTIONS: DaySection[] = [
+  { day: 'First Four Seals: The Four Horsemen', verseRange: [1, 8], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Fifth Seal: Souls Under the Altar', verseRange: [9, 11], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Sixth Seal: Cosmic Upheaval', verseRange: [12, 17], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const REVELATION_7_SECTIONS: DaySection[] = [
+  { day: '144,000 Sealed from Israel', verseRange: [1, 8], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Great Multitude from Every Nation', verseRange: [9, 17], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const REVELATION_8_SECTIONS: DaySection[] = [
+  { day: 'Seventh Seal: Silence in Heaven', verseRange: [1, 5], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'First Four Trumpets', verseRange: [6, 13], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const REVELATION_9_SECTIONS: DaySection[] = [
+  { day: 'Fifth Trumpet: Demonic Locusts', verseRange: [1, 12], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Sixth Trumpet: Army from the Euphrates', verseRange: [13, 21], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+];
+
+const REVELATION_10_SECTIONS: DaySection[] = [
+  { day: 'The Angel and the Little Scroll', verseRange: [1, 7], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'John Eats the Scroll', verseRange: [8, 11], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const REVELATION_11_SECTIONS: DaySection[] = [
+  { day: 'The Two Witnesses', verseRange: [1, 6], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Death and Resurrection of Witnesses', verseRange: [7, 14], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Seventh Trumpet: Kingdom Proclaimed', verseRange: [15, 19], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const REVELATION_12_SECTIONS: DaySection[] = [
+  { day: 'The Woman and the Dragon', verseRange: [1, 6], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'War in Heaven', verseRange: [7, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Dragon Persecutes the Woman', verseRange: [13, 17], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const REVELATION_13_SECTIONS: DaySection[] = [
+  { day: 'The Beast from the Sea', verseRange: [1, 10], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Beast from the Earth', verseRange: [11, 18], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const REVELATION_14_SECTIONS: DaySection[] = [
+  { day: 'The Lamb and 144,000 on Mount Zion', verseRange: [1, 5], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+  { day: 'Three Angels\' Messages', verseRange: [6, 13], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Harvest of the Earth', verseRange: [14, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const REVELATION_15_SECTIONS: DaySection[] = [
+  { day: 'Seven Angels with Seven Last Plagues', verseRange: [1, 4], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Temple Opened', verseRange: [5, 8], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const REVELATION_16_SECTIONS: DaySection[] = [
+  { day: 'First Four Bowls', verseRange: [1, 9], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Fifth and Sixth Bowls', verseRange: [10, 16], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+  { day: 'Seventh Bowl: It Is Done', verseRange: [17, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const REVELATION_17_SECTIONS: DaySection[] = [
+  { day: 'The Great Prostitute Babylon', verseRange: [1, 6], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Mystery Explained', verseRange: [7, 18], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const REVELATION_18_SECTIONS: DaySection[] = [
+  { day: 'Babylon\'s Fall Announced', verseRange: [1, 8], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Lament for Babylon', verseRange: [9, 19], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Finality of Babylon\'s Fall', verseRange: [20, 24], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const REVELATION_19_SECTIONS: DaySection[] = [
+  { day: 'Hallelujah Chorus', verseRange: [1, 5], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Wedding Supper of the Lamb', verseRange: [6, 10], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Rider on the White Horse', verseRange: [11, 16], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Defeat of the Beast and False Prophet', verseRange: [17, 21], color: 'bg-rose-50 dark:bg-rose-950/20', borderColor: 'border-rose-400' },
+];
+
+const REVELATION_20_SECTIONS: DaySection[] = [
+  { day: 'The Thousand Year Reign', verseRange: [1, 6], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Satan\'s Final Rebellion', verseRange: [7, 10], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Great White Throne Judgment', verseRange: [11, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const REVELATION_21_SECTIONS: DaySection[] = [
+  { day: 'A New Heaven and a New Earth', verseRange: [1, 8], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'The New Jerusalem', verseRange: [9, 21], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'The Glory of the New Jerusalem', verseRange: [22, 27], color: 'bg-sky-50 dark:bg-sky-950/20', borderColor: 'border-sky-400' },
+];
+
+const REVELATION_22_SECTIONS: DaySection[] = [
+  { day: 'Eden Restored', verseRange: [1, 5], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Jesus is Coming', verseRange: [6, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Invitation', verseRange: [17, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
 export default function GenesisReader({ verses, book, chapter }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
@@ -474,10 +1994,36 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     return () => window.removeEventListener('keydown', handleCopy);
   }, [selectedVerses, verses]);
 
-  // Check if this is Genesis 1-50 or Mark 1-16
+  // Check if this is Genesis 1-50, Mark 1-16, Matthew 1-28, Luke 1-24, John 1-21, Acts 1-28, Romans 1-16, 1 Corinthians 1-16, 2 Corinthians 1-13, Galatians 1-6, Ephesians 1-6, Philippians 1-4, Colossians 1-4, 1 Thessalonians 1-5, 2 Thessalonians 1-3, 1 Timothy 1-6, 2 Timothy 1-4, Titus 1-3, Philemon 1, Hebrews 1-13, James 1-5, 1 Peter 1-5, 2 Peter 1-3, 1 John 1-5, 2 John 1, 3 John 1, Jude 1, or Revelation 4-5, 12, 21-22
   const hasStructuredSections =
     (actualBook === 'genesis' && actualChapter >= 1 && actualChapter <= 50) ||
-    (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16);
+    (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
+    (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
+    (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
+    (actualBook === 'john' && actualChapter >= 1 && actualChapter <= 21) ||
+    (actualBook === 'acts' && actualChapter >= 1 && actualChapter <= 28) ||
+    (actualBook === 'romans' && actualChapter >= 1 && actualChapter <= 16) ||
+    (actualBook === '1corinthians' && actualChapter >= 1 && actualChapter <= 16) ||
+    (actualBook === '2corinthians' && actualChapter >= 1 && actualChapter <= 13) ||
+    (actualBook === 'galatians' && actualChapter >= 1 && actualChapter <= 6) ||
+    (actualBook === 'ephesians' && actualChapter >= 1 && actualChapter <= 6) ||
+    (actualBook === 'philippians' && actualChapter >= 1 && actualChapter <= 4) ||
+    (actualBook === 'colossians' && actualChapter >= 1 && actualChapter <= 4) ||
+    (actualBook === '1thessalonians' && actualChapter >= 1 && actualChapter <= 5) ||
+    (actualBook === '2thessalonians' && actualChapter >= 1 && actualChapter <= 3) ||
+    (actualBook === '1timothy' && actualChapter >= 1 && actualChapter <= 6) ||
+    (actualBook === '2timothy' && actualChapter >= 1 && actualChapter <= 4) ||
+    (actualBook === 'titus' && actualChapter >= 1 && actualChapter <= 3) ||
+    (actualBook === 'philemon' && actualChapter === 1) ||
+    (actualBook === 'hebrews' && actualChapter >= 1 && actualChapter <= 13) ||
+    (actualBook === 'james' && actualChapter >= 1 && actualChapter <= 5) ||
+    (actualBook === '1-peter' && actualChapter >= 1 && actualChapter <= 5) ||
+    (actualBook === '2-peter' && actualChapter >= 1 && actualChapter <= 3) ||
+    (actualBook === '1-john' && actualChapter >= 1 && actualChapter <= 5) ||
+    (actualBook === '2-john' && actualChapter === 1) ||
+    (actualBook === '3-john' && actualChapter === 1) ||
+    (actualBook === 'jude' && actualChapter === 1) ||
+    (actualBook === 'revelation' && actualChapter >= 1 && actualChapter <= 22);
 
   if (hasStructuredSections) {
     let sections: DaySection[] = [];
@@ -684,6 +2230,816 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 16:
           sections = MARK_16_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'matthew') {
+      switch (actualChapter) {
+        case 1:
+          sections = MATTHEW_1_SECTIONS;
+          break;
+        case 2:
+          sections = MATTHEW_2_SECTIONS;
+          break;
+        case 3:
+          sections = MATTHEW_3_SECTIONS;
+          break;
+        case 4:
+          sections = MATTHEW_4_SECTIONS;
+          break;
+        case 5:
+          sections = MATTHEW_5_SECTIONS;
+          break;
+        case 6:
+          sections = MATTHEW_6_SECTIONS;
+          break;
+        case 7:
+          sections = MATTHEW_7_SECTIONS;
+          break;
+        case 8:
+          sections = MATTHEW_8_SECTIONS;
+          break;
+        case 9:
+          sections = MATTHEW_9_SECTIONS;
+          break;
+        case 10:
+          sections = MATTHEW_10_SECTIONS;
+          break;
+        case 11:
+          sections = MATTHEW_11_SECTIONS;
+          break;
+        case 12:
+          sections = MATTHEW_12_SECTIONS;
+          break;
+        case 13:
+          sections = MATTHEW_13_SECTIONS;
+          break;
+        case 14:
+          sections = MATTHEW_14_SECTIONS;
+          break;
+        case 15:
+          sections = MATTHEW_15_SECTIONS;
+          break;
+        case 16:
+          sections = MATTHEW_16_SECTIONS;
+          break;
+        case 17:
+          sections = MATTHEW_17_SECTIONS;
+          break;
+        case 18:
+          sections = MATTHEW_18_SECTIONS;
+          break;
+        case 19:
+          sections = MATTHEW_19_SECTIONS;
+          break;
+        case 20:
+          sections = MATTHEW_20_SECTIONS;
+          break;
+        case 21:
+          sections = MATTHEW_21_SECTIONS;
+          break;
+        case 22:
+          sections = MATTHEW_22_SECTIONS;
+          break;
+        case 23:
+          sections = MATTHEW_23_SECTIONS;
+          break;
+        case 24:
+          sections = MATTHEW_24_SECTIONS;
+          break;
+        case 25:
+          sections = MATTHEW_25_SECTIONS;
+          break;
+        case 26:
+          sections = MATTHEW_26_SECTIONS;
+          break;
+        case 27:
+          sections = MATTHEW_27_SECTIONS;
+          break;
+        case 28:
+          sections = MATTHEW_28_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'luke') {
+      switch (actualChapter) {
+        case 1:
+          sections = LUKE_1_SECTIONS;
+          break;
+        case 2:
+          sections = LUKE_2_SECTIONS;
+          break;
+        case 3:
+          sections = LUKE_3_SECTIONS;
+          break;
+        case 4:
+          sections = LUKE_4_SECTIONS;
+          break;
+        case 5:
+          sections = LUKE_5_SECTIONS;
+          break;
+        case 6:
+          sections = LUKE_6_SECTIONS;
+          break;
+        case 7:
+          sections = LUKE_7_SECTIONS;
+          break;
+        case 8:
+          sections = LUKE_8_SECTIONS;
+          break;
+        case 9:
+          sections = LUKE_9_SECTIONS;
+          break;
+        case 10:
+          sections = LUKE_10_SECTIONS;
+          break;
+        case 11:
+          sections = LUKE_11_SECTIONS;
+          break;
+        case 12:
+          sections = LUKE_12_SECTIONS;
+          break;
+        case 13:
+          sections = LUKE_13_SECTIONS;
+          break;
+        case 14:
+          sections = LUKE_14_SECTIONS;
+          break;
+        case 15:
+          sections = LUKE_15_SECTIONS;
+          break;
+        case 16:
+          sections = LUKE_16_SECTIONS;
+          break;
+        case 17:
+          sections = LUKE_17_SECTIONS;
+          break;
+        case 18:
+          sections = LUKE_18_SECTIONS;
+          break;
+        case 19:
+          sections = LUKE_19_SECTIONS;
+          break;
+        case 20:
+          sections = LUKE_20_SECTIONS;
+          break;
+        case 21:
+          sections = LUKE_21_SECTIONS;
+          break;
+        case 22:
+          sections = LUKE_22_SECTIONS;
+          break;
+        case 23:
+          sections = LUKE_23_SECTIONS;
+          break;
+        case 24:
+          sections = LUKE_24_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'john') {
+      switch (actualChapter) {
+        case 1:
+          sections = JOHN_1_SECTIONS;
+          break;
+        case 2:
+          sections = JOHN_2_SECTIONS;
+          break;
+        case 3:
+          sections = JOHN_3_SECTIONS;
+          break;
+        case 4:
+          sections = JOHN_4_SECTIONS;
+          break;
+        case 5:
+          sections = JOHN_5_SECTIONS;
+          break;
+        case 6:
+          sections = JOHN_6_SECTIONS;
+          break;
+        case 7:
+          sections = JOHN_7_SECTIONS;
+          break;
+        case 8:
+          sections = JOHN_8_SECTIONS;
+          break;
+        case 9:
+          sections = JOHN_9_SECTIONS;
+          break;
+        case 10:
+          sections = JOHN_10_SECTIONS;
+          break;
+        case 11:
+          sections = JOHN_11_SECTIONS;
+          break;
+        case 12:
+          sections = JOHN_12_SECTIONS;
+          break;
+        case 13:
+          sections = JOHN_13_SECTIONS;
+          break;
+        case 14:
+          sections = JOHN_14_SECTIONS;
+          break;
+        case 15:
+          sections = JOHN_15_SECTIONS;
+          break;
+        case 16:
+          sections = JOHN_16_SECTIONS;
+          break;
+        case 17:
+          sections = JOHN_17_SECTIONS;
+          break;
+        case 18:
+          sections = JOHN_18_SECTIONS;
+          break;
+        case 19:
+          sections = JOHN_19_SECTIONS;
+          break;
+        case 20:
+          sections = JOHN_20_SECTIONS;
+          break;
+        case 21:
+          sections = JOHN_21_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'acts') {
+      switch (actualChapter) {
+        case 1:
+          sections = ACTS_1_SECTIONS;
+          break;
+        case 2:
+          sections = ACTS_2_SECTIONS;
+          break;
+        case 3:
+          sections = ACTS_3_SECTIONS;
+          break;
+        case 4:
+          sections = ACTS_4_SECTIONS;
+          break;
+        case 5:
+          sections = ACTS_5_SECTIONS;
+          break;
+        case 6:
+          sections = ACTS_6_SECTIONS;
+          break;
+        case 7:
+          sections = ACTS_7_SECTIONS;
+          break;
+        case 8:
+          sections = ACTS_8_SECTIONS;
+          break;
+        case 9:
+          sections = ACTS_9_SECTIONS;
+          break;
+        case 10:
+          sections = ACTS_10_SECTIONS;
+          break;
+        case 11:
+          sections = ACTS_11_SECTIONS;
+          break;
+        case 12:
+          sections = ACTS_12_SECTIONS;
+          break;
+        case 13:
+          sections = ACTS_13_SECTIONS;
+          break;
+        case 14:
+          sections = ACTS_14_SECTIONS;
+          break;
+        case 15:
+          sections = ACTS_15_SECTIONS;
+          break;
+        case 16:
+          sections = ACTS_16_SECTIONS;
+          break;
+        case 17:
+          sections = ACTS_17_SECTIONS;
+          break;
+        case 18:
+          sections = ACTS_18_SECTIONS;
+          break;
+        case 19:
+          sections = ACTS_19_SECTIONS;
+          break;
+        case 20:
+          sections = ACTS_20_SECTIONS;
+          break;
+        case 21:
+          sections = ACTS_21_SECTIONS;
+          break;
+        case 22:
+          sections = ACTS_22_SECTIONS;
+          break;
+        case 23:
+          sections = ACTS_23_SECTIONS;
+          break;
+        case 24:
+          sections = ACTS_24_SECTIONS;
+          break;
+        case 25:
+          sections = ACTS_25_SECTIONS;
+          break;
+        case 26:
+          sections = ACTS_26_SECTIONS;
+          break;
+        case 27:
+          sections = ACTS_27_SECTIONS;
+          break;
+        case 28:
+          sections = ACTS_28_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'romans') {
+      switch (actualChapter) {
+        case 1:
+          sections = ROMANS_1_SECTIONS;
+          break;
+        case 2:
+          sections = ROMANS_2_SECTIONS;
+          break;
+        case 3:
+          sections = ROMANS_3_SECTIONS;
+          break;
+        case 4:
+          sections = ROMANS_4_SECTIONS;
+          break;
+        case 5:
+          sections = ROMANS_5_SECTIONS;
+          break;
+        case 6:
+          sections = ROMANS_6_SECTIONS;
+          break;
+        case 7:
+          sections = ROMANS_7_SECTIONS;
+          break;
+        case 8:
+          sections = ROMANS_8_SECTIONS;
+          break;
+        case 9:
+          sections = ROMANS_9_SECTIONS;
+          break;
+        case 10:
+          sections = ROMANS_10_SECTIONS;
+          break;
+        case 11:
+          sections = ROMANS_11_SECTIONS;
+          break;
+        case 12:
+          sections = ROMANS_12_SECTIONS;
+          break;
+        case 13:
+          sections = ROMANS_13_SECTIONS;
+          break;
+        case 14:
+          sections = ROMANS_14_SECTIONS;
+          break;
+        case 15:
+          sections = ROMANS_15_SECTIONS;
+          break;
+        case 16:
+          sections = ROMANS_16_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1corinthians') {
+      switch (actualChapter) {
+        case 1:
+          sections = CORINTHIANS_1_1_SECTIONS;
+          break;
+        case 2:
+          sections = CORINTHIANS_1_2_SECTIONS;
+          break;
+        case 3:
+          sections = CORINTHIANS_1_3_SECTIONS;
+          break;
+        case 4:
+          sections = CORINTHIANS_1_4_SECTIONS;
+          break;
+        case 5:
+          sections = CORINTHIANS_1_5_SECTIONS;
+          break;
+        case 6:
+          sections = CORINTHIANS_1_6_SECTIONS;
+          break;
+        case 7:
+          sections = CORINTHIANS_1_7_SECTIONS;
+          break;
+        case 8:
+          sections = CORINTHIANS_1_8_SECTIONS;
+          break;
+        case 9:
+          sections = CORINTHIANS_1_9_SECTIONS;
+          break;
+        case 10:
+          sections = CORINTHIANS_1_10_SECTIONS;
+          break;
+        case 11:
+          sections = CORINTHIANS_1_11_SECTIONS;
+          break;
+        case 12:
+          sections = CORINTHIANS_1_12_SECTIONS;
+          break;
+        case 13:
+          sections = CORINTHIANS_1_13_SECTIONS;
+          break;
+        case 14:
+          sections = CORINTHIANS_1_14_SECTIONS;
+          break;
+        case 15:
+          sections = CORINTHIANS_1_15_SECTIONS;
+          break;
+        case 16:
+          sections = CORINTHIANS_1_16_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2corinthians') {
+      switch (actualChapter) {
+        case 1:
+          sections = CORINTHIANS_2_1_SECTIONS;
+          break;
+        case 2:
+          sections = CORINTHIANS_2_2_SECTIONS;
+          break;
+        case 3:
+          sections = CORINTHIANS_2_3_SECTIONS;
+          break;
+        case 4:
+          sections = CORINTHIANS_2_4_SECTIONS;
+          break;
+        case 5:
+          sections = CORINTHIANS_2_5_SECTIONS;
+          break;
+        case 6:
+          sections = CORINTHIANS_2_6_SECTIONS;
+          break;
+        case 7:
+          sections = CORINTHIANS_2_7_SECTIONS;
+          break;
+        case 8:
+          sections = CORINTHIANS_2_8_SECTIONS;
+          break;
+        case 9:
+          sections = CORINTHIANS_2_9_SECTIONS;
+          break;
+        case 10:
+          sections = CORINTHIANS_2_10_SECTIONS;
+          break;
+        case 11:
+          sections = CORINTHIANS_2_11_SECTIONS;
+          break;
+        case 12:
+          sections = CORINTHIANS_2_12_SECTIONS;
+          break;
+        case 13:
+          sections = CORINTHIANS_2_13_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'galatians') {
+      switch (actualChapter) {
+        case 1:
+          sections = GALATIANS_1_SECTIONS;
+          break;
+        case 2:
+          sections = GALATIANS_2_SECTIONS;
+          break;
+        case 3:
+          sections = GALATIANS_3_SECTIONS;
+          break;
+        case 4:
+          sections = GALATIANS_4_SECTIONS;
+          break;
+        case 5:
+          sections = GALATIANS_5_SECTIONS;
+          break;
+        case 6:
+          sections = GALATIANS_6_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'ephesians') {
+      switch (actualChapter) {
+        case 1:
+          sections = EPHESIANS_1_SECTIONS;
+          break;
+        case 2:
+          sections = EPHESIANS_2_SECTIONS;
+          break;
+        case 3:
+          sections = EPHESIANS_3_SECTIONS;
+          break;
+        case 4:
+          sections = EPHESIANS_4_SECTIONS;
+          break;
+        case 5:
+          sections = EPHESIANS_5_SECTIONS;
+          break;
+        case 6:
+          sections = EPHESIANS_6_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'philippians') {
+      switch (actualChapter) {
+        case 1:
+          sections = PHILIPPIANS_1_SECTIONS;
+          break;
+        case 2:
+          sections = PHILIPPIANS_2_SECTIONS;
+          break;
+        case 3:
+          sections = PHILIPPIANS_3_SECTIONS;
+          break;
+        case 4:
+          sections = PHILIPPIANS_4_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'colossians') {
+      switch (actualChapter) {
+        case 1:
+          sections = COLOSSIANS_1_SECTIONS;
+          break;
+        case 2:
+          sections = COLOSSIANS_2_SECTIONS;
+          break;
+        case 3:
+          sections = COLOSSIANS_3_SECTIONS;
+          break;
+        case 4:
+          sections = COLOSSIANS_4_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1thessalonians') {
+      switch (actualChapter) {
+        case 1:
+          sections = THESSALONIANS_1_1_SECTIONS;
+          break;
+        case 2:
+          sections = THESSALONIANS_1_2_SECTIONS;
+          break;
+        case 3:
+          sections = THESSALONIANS_1_3_SECTIONS;
+          break;
+        case 4:
+          sections = THESSALONIANS_1_4_SECTIONS;
+          break;
+        case 5:
+          sections = THESSALONIANS_1_5_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2thessalonians') {
+      switch (actualChapter) {
+        case 1:
+          sections = THESSALONIANS_2_1_SECTIONS;
+          break;
+        case 2:
+          sections = THESSALONIANS_2_2_SECTIONS;
+          break;
+        case 3:
+          sections = THESSALONIANS_2_3_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1timothy') {
+      switch (actualChapter) {
+        case 1:
+          sections = TIMOTHY_1_1_SECTIONS;
+          break;
+        case 2:
+          sections = TIMOTHY_1_2_SECTIONS;
+          break;
+        case 3:
+          sections = TIMOTHY_1_3_SECTIONS;
+          break;
+        case 4:
+          sections = TIMOTHY_1_4_SECTIONS;
+          break;
+        case 5:
+          sections = TIMOTHY_1_5_SECTIONS;
+          break;
+        case 6:
+          sections = TIMOTHY_1_6_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2timothy') {
+      switch (actualChapter) {
+        case 1:
+          sections = TIMOTHY_2_1_SECTIONS;
+          break;
+        case 2:
+          sections = TIMOTHY_2_2_SECTIONS;
+          break;
+        case 3:
+          sections = TIMOTHY_2_3_SECTIONS;
+          break;
+        case 4:
+          sections = TIMOTHY_2_4_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'titus') {
+      switch (actualChapter) {
+        case 1:
+          sections = TITUS_1_SECTIONS;
+          break;
+        case 2:
+          sections = TITUS_2_SECTIONS;
+          break;
+        case 3:
+          sections = TITUS_3_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'philemon') {
+      switch (actualChapter) {
+        case 1:
+          sections = PHILEMON_1_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'hebrews') {
+      switch (actualChapter) {
+        case 1:
+          sections = HEBREWS_1_SECTIONS;
+          break;
+        case 2:
+          sections = HEBREWS_2_SECTIONS;
+          break;
+        case 3:
+          sections = HEBREWS_3_SECTIONS;
+          break;
+        case 4:
+          sections = HEBREWS_4_SECTIONS;
+          break;
+        case 5:
+          sections = HEBREWS_5_SECTIONS;
+          break;
+        case 6:
+          sections = HEBREWS_6_SECTIONS;
+          break;
+        case 7:
+          sections = HEBREWS_7_SECTIONS;
+          break;
+        case 8:
+          sections = HEBREWS_8_SECTIONS;
+          break;
+        case 9:
+          sections = HEBREWS_9_SECTIONS;
+          break;
+        case 10:
+          sections = HEBREWS_10_SECTIONS;
+          break;
+        case 11:
+          sections = HEBREWS_11_SECTIONS;
+          break;
+        case 12:
+          sections = HEBREWS_12_SECTIONS;
+          break;
+        case 13:
+          sections = HEBREWS_13_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'james') {
+      switch (actualChapter) {
+        case 1:
+          sections = JAMES_1_SECTIONS;
+          break;
+        case 2:
+          sections = JAMES_2_SECTIONS;
+          break;
+        case 3:
+          sections = JAMES_3_SECTIONS;
+          break;
+        case 4:
+          sections = JAMES_4_SECTIONS;
+          break;
+        case 5:
+          sections = JAMES_5_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1-peter') {
+      switch (actualChapter) {
+        case 1:
+          sections = PETER1_1_SECTIONS;
+          break;
+        case 2:
+          sections = PETER1_2_SECTIONS;
+          break;
+        case 3:
+          sections = PETER1_3_SECTIONS;
+          break;
+        case 4:
+          sections = PETER1_4_SECTIONS;
+          break;
+        case 5:
+          sections = PETER1_5_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2-peter') {
+      switch (actualChapter) {
+        case 1:
+          sections = PETER2_1_SECTIONS;
+          break;
+        case 2:
+          sections = PETER2_2_SECTIONS;
+          break;
+        case 3:
+          sections = PETER2_3_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1-john') {
+      switch (actualChapter) {
+        case 1:
+          sections = JOHN1_1_SECTIONS;
+          break;
+        case 2:
+          sections = JOHN1_2_SECTIONS;
+          break;
+        case 3:
+          sections = JOHN1_3_SECTIONS;
+          break;
+        case 4:
+          sections = JOHN1_4_SECTIONS;
+          break;
+        case 5:
+          sections = JOHN1_5_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2-john') {
+      switch (actualChapter) {
+        case 1:
+          sections = JOHN2_1_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '3-john') {
+      switch (actualChapter) {
+        case 1:
+          sections = JOHN3_1_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'jude') {
+      switch (actualChapter) {
+        case 1:
+          sections = JUDE_1_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'revelation') {
+      switch (actualChapter) {
+        case 1:
+          sections = REVELATION_1_SECTIONS;
+          break;
+        case 2:
+          sections = REVELATION_2_SECTIONS;
+          break;
+        case 3:
+          sections = REVELATION_3_SECTIONS;
+          break;
+        case 4:
+          sections = REVELATION_4_SECTIONS;
+          break;
+        case 5:
+          sections = REVELATION_5_SECTIONS;
+          break;
+        case 6:
+          sections = REVELATION_6_SECTIONS;
+          break;
+        case 7:
+          sections = REVELATION_7_SECTIONS;
+          break;
+        case 8:
+          sections = REVELATION_8_SECTIONS;
+          break;
+        case 9:
+          sections = REVELATION_9_SECTIONS;
+          break;
+        case 10:
+          sections = REVELATION_10_SECTIONS;
+          break;
+        case 11:
+          sections = REVELATION_11_SECTIONS;
+          break;
+        case 12:
+          sections = REVELATION_12_SECTIONS;
+          break;
+        case 13:
+          sections = REVELATION_13_SECTIONS;
+          break;
+        case 14:
+          sections = REVELATION_14_SECTIONS;
+          break;
+        case 15:
+          sections = REVELATION_15_SECTIONS;
+          break;
+        case 16:
+          sections = REVELATION_16_SECTIONS;
+          break;
+        case 17:
+          sections = REVELATION_17_SECTIONS;
+          break;
+        case 18:
+          sections = REVELATION_18_SECTIONS;
+          break;
+        case 19:
+          sections = REVELATION_19_SECTIONS;
+          break;
+        case 20:
+          sections = REVELATION_20_SECTIONS;
+          break;
+        case 21:
+          sections = REVELATION_21_SECTIONS;
+          break;
+        case 22:
+          sections = REVELATION_22_SECTIONS;
           break;
       }
     }

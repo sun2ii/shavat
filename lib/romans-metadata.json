@@ -1,1 +1,62 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "sin-and-judgment",
+      "title": "Sin and Judgment",
+      "chapters": [1, 2, 3],
+      "theme": "Universal guilt",
+      "summary": "Humanity's rebellion against God, both Gentiles and Jews are under sin, no one is righteous",
+      "contentType": "epistle"
+    },
+    {
+      "id": "justification-by-faith",
+      "title": "Justification by Faith",
+      "chapters": [4, 5],
+      "theme": "Abraham and grace",
+      "summary": "Abraham justified by faith, peace with God through Christ, grace abounds over sin",
+      "contentType": "epistle"
+    },
+    {
+      "id": "sanctification",
+      "title": "Sanctification",
+      "chapters": [6, 7, 8],
+      "theme": "Dead to sin, alive in the Spirit",
+      "summary": "Died with Christ, struggle with sin, life in the Spirit, nothing can separate us from God's love",
+      "contentType": "epistle"
+    },
+    {
+      "id": "israels-place",
+      "title": "Israel's Place",
+      "chapters": [9, 10, 11],
+      "theme": "Election and remnant",
+      "summary": "God's sovereignty, Israel's rejection, Gentile inclusion, and future restoration of Israel",
+      "contentType": "epistle"
+    },
+    {
+      "id": "practical-christian-living",
+      "title": "Practical Christian Living",
+      "chapters": [12, 13, 14, 15, 16],
+      "theme": "Love and submission",
+      "summary": "Living sacrifices, love, submission to authorities, accepting the weak and strong, greetings",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Paul's greeting, the power of the gospel, God's wrath against sinful humanity",
+    "2": "God's righteous judgment applies to all, Jews and Gentiles alike",
+    "3": "All have sinned, justification through faith in Jesus Christ",
+    "4": "Abraham justified by faith, not works, righteousness credited through faith",
+    "5": "Peace with God through Christ, justification brings life and hope",
+    "6": "Dead to sin, alive in Christ, slaves to righteousness",
+    "7": "Released from the law, the struggle with sin in the believer",
+    "8": "Life in the Spirit, adoption as children, nothing can separate us from God's love",
+    "9": "God's sovereignty, Israel's rejection, election and mercy",
+    "10": "Israel's unbelief, faith comes by hearing the word of Christ",
+    "11": "The remnant of Israel, Gentiles grafted in, all Israel will be saved",
+    "12": "Living sacrifices, transformed minds, using spiritual gifts, genuine love",
+    "13": "Submission to authorities, love fulfills the law, the day is near",
+    "14": "Accept the weak and strong, do not judge, live for the Lord",
+    "15": "Please your neighbor, Paul's ministry to the Gentiles, travel plans",
+    "16": "Greetings to many believers, warning against divisive people, final benediction"
+  }
+}

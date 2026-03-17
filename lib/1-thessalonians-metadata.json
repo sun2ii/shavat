@@ -1,1 +1,27 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "commendation",
+      "title": "Commendation",
+      "chapters": [1, 2, 3],
+      "theme": "Faithful witness",
+      "summary": "Thanksgiving for their faith and perseverance, Paul's ministry among them, Timothy's encouraging report",
+      "contentType": "epistle"
+    },
+    {
+      "id": "instruction",
+      "title": "Instruction",
+      "chapters": [4, 5],
+      "theme": "Living to please God",
+      "summary": "Sexual purity, love for one another, the coming of the Lord, be watchful and sober, encourage one another",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Faith, love, and hope, turned from idols to serve the living God",
+    "2": "Paul's ministry among them, the gospel despite opposition",
+    "3": "Timothy's encouraging report, prayer for their love to increase",
+    "4": "Live to please God, the Lord's return, comfort one another",
+    "5": "Day of the Lord comes like a thief, be watchful, encourage and build up"
+  }
+}

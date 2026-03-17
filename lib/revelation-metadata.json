@@ -1,1 +1,68 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "letters-to-seven-churches",
+      "title": "Letters to Seven Churches",
+      "chapters": [1, 2, 3],
+      "theme": "Vision of Christ and church messages",
+      "summary": "John's vision of the risen Christ and messages to the seven churches in Asia",
+      "contentType": "apocalyptic"
+    },
+    {
+      "id": "throne-and-seals",
+      "title": "Throne and Seals",
+      "chapters": [4, 5, 6, 7],
+      "theme": "Worship and judgment",
+      "summary": "Throne room worship, the Lamb opens the scroll, seven seals of judgment",
+      "contentType": "apocalyptic"
+    },
+    {
+      "id": "trumpets-and-witnesses",
+      "title": "Trumpets and Witnesses",
+      "chapters": [8, 9, 10, 11],
+      "theme": "Warnings and testimony",
+      "summary": "Seven trumpets sound, the little scroll, two witnesses prophesy and are killed",
+      "contentType": "apocalyptic"
+    },
+    {
+      "id": "conflict-and-bowls",
+      "title": "Conflict and Bowls",
+      "chapters": [12, 13, 14, 15, 16],
+      "theme": "Cosmic war and wrath",
+      "summary": "The woman and the dragon, beasts from sea and earth, seven last plagues and bowls of wrath",
+      "contentType": "apocalyptic"
+    },
+    {
+      "id": "fall-of-babylon-and-new-jerusalem",
+      "title": "Fall of Babylon and New Jerusalem",
+      "chapters": [17, 18, 19, 20, 21, 22],
+      "theme": "Judgment and restoration",
+      "summary": "Fall of Babylon, marriage supper of the Lamb, final judgment, new heaven and new earth, new Jerusalem",
+      "contentType": "apocalyptic"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "John's vision of the risen Christ among the lampstands",
+    "2": "Letters to the churches in Ephesus, Smyrna, Pergamum, and Thyatira",
+    "3": "Letters to the churches in Sardis, Philadelphia, and Laodicea",
+    "4": "The throne in heaven, four living creatures, and twenty-four elders",
+    "5": "The Lamb who was slain is worthy to open the scroll",
+    "6": "The Lamb opens the first six seals of judgment",
+    "7": "144,000 sealed from Israel, great multitude from every nation",
+    "8": "Seventh seal, golden censer, first four trumpets sound",
+    "9": "Fifth and sixth trumpets, demonic locusts and army",
+    "10": "Angel with the little scroll, John eats the scroll",
+    "11": "Two witnesses prophesy, are killed, and raised, seventh trumpet",
+    "12": "The woman, the dragon, and war in heaven",
+    "13": "Beast from the sea and beast from the earth, mark of the beast",
+    "14": "The Lamb and the 144,000, three angels, harvest of the earth",
+    "15": "Seven angels with seven last plagues, song of Moses and the Lamb",
+    "16": "Seven bowls of God's wrath poured out on the earth",
+    "17": "The great prostitute Babylon rides the beast, her judgment",
+    "18": "Fall of Babylon the Great, lament over her destruction",
+    "19": "Hallelujah, marriage supper of the Lamb, Christ returns on white horse",
+    "20": "Thousand-year reign, Satan bound and released, final judgment",
+    "21": "New heaven and new earth, new Jerusalem descends from heaven",
+    "22": "River of life, tree of life, Jesus is coming soon, invitation"
+  }
+}

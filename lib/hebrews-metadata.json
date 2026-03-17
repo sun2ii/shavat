@@ -1,1 +1,51 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "christ-superior-to-all",
+      "title": "Christ Superior to All",
+      "chapters": [1, 2, 3, 4],
+      "theme": "The supremacy of Christ",
+      "summary": "Christ is superior to angels and Moses, the ultimate revelation of God, our great high priest who sympathizes with our weaknesses",
+      "contentType": "epistle"
+    },
+    {
+      "id": "christs-priesthood",
+      "title": "Christ's Priesthood",
+      "chapters": [5, 6, 7],
+      "theme": "Melchizedek and eternal priesthood",
+      "summary": "Jesus is a high priest in the order of Melchizedek, not Aaron, warning against falling away, hope as an anchor for the soul",
+      "contentType": "epistle"
+    },
+    {
+      "id": "faith-and-sacrifice",
+      "title": "Faith and Sacrifice",
+      "chapters": [8, 9, 10],
+      "theme": "The new covenant and Christ's once-for-all sacrifice",
+      "summary": "Jesus mediates a better covenant, entered the heavenly tabernacle with his own blood, his sacrifice perfects believers forever",
+      "contentType": "epistle"
+    },
+    {
+      "id": "call-to-persevere",
+      "title": "Call to Persevere",
+      "chapters": [11, 12, 13],
+      "theme": "Faith, endurance, and holiness",
+      "summary": "The hall of faith, fix eyes on Jesus who endured the cross, pursue holiness, offer sacrifices of praise to God",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "God has spoken through his Son, who is superior to angels",
+    "2": "Pay attention to salvation, Jesus made like us to defeat death",
+    "3": "Jesus is greater than Moses, warning against hardening hearts",
+    "4": "Enter God's rest through faith, the living and active word of God",
+    "5": "Jesus appointed high priest, called according to Melchizedek",
+    "6": "Press on to maturity, God's unchangeable promise, hope as an anchor",
+    "7": "Melchizedek's priesthood, Jesus our eternal high priest",
+    "8": "Jesus mediates a new covenant, written on hearts",
+    "9": "Christ entered heaven itself with his own blood",
+    "10": "One sacrifice perfects forever, draw near with confidence",
+    "11": "Faith defined, examples of faith from Abel to the prophets",
+    "12": "Run the race, Jesus the founder and perfecter of faith, discipline as proof of sonship",
+    "13": "Love, hospitality, contentment, obey leaders, offer sacrifices of praise"
+  }
+}

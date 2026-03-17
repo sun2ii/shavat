@@ -1,1 +1,78 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "birth-narratives",
+      "title": "Birth Narratives",
+      "chapters": [1, 2],
+      "theme": "The birth of John and Jesus",
+      "summary": "Annunciations to Zechariah and Mary, births of John the Baptist and Jesus, presentation in the temple",
+      "contentType": "narrative"
+    },
+    {
+      "id": "preparation-and-galilean-ministry",
+      "title": "Preparation and Galilean Ministry",
+      "chapters": [3, 4, 5, 6, 7, 8, 9],
+      "theme": "Jesus begins his ministry",
+      "summary": "Baptism, genealogy, temptation, rejection at Nazareth, calling disciples, teaching, and miracles throughout Galilee",
+      "contentType": "narrative"
+    },
+    {
+      "id": "journey-to-jerusalem",
+      "title": "Journey to Jerusalem",
+      "chapters": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+      "theme": "The long journey",
+      "summary": "Jesus sets his face toward Jerusalem and teaches through parables and encounters along the way",
+      "contentType": "narrative"
+    },
+    {
+      "id": "jerusalem-ministry",
+      "title": "Jerusalem Ministry",
+      "chapters": [20, 21],
+      "theme": "Teaching in the temple",
+      "summary": "Jesus teaches in the temple, debates with religious leaders, and gives the Olivet discourse",
+      "contentType": "narrative"
+    },
+    {
+      "id": "passion",
+      "title": "Passion",
+      "chapters": [22, 23],
+      "theme": "Suffering and death",
+      "summary": "The Last Supper, arrest, trials before the Sanhedrin and Pilate, and crucifixion",
+      "contentType": "narrative"
+    },
+    {
+      "id": "resurrection-and-ascension",
+      "title": "Resurrection and Ascension",
+      "chapters": [24],
+      "theme": "Victory and commissioning",
+      "summary": "Empty tomb, road to Emmaus, appearances to disciples, and ascension",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Announcement of John's and Jesus' births to Zechariah and Mary",
+    "2": "Birth of Jesus, shepherds, presentation in the temple, and boy Jesus in the temple",
+    "3": "John the Baptist prepares the way, Jesus is baptized, genealogy of Jesus",
+    "4": "Jesus is tempted, rejected at Nazareth, and begins healing ministry",
+    "5": "Calling of the first disciples, healing a leper and paralytic",
+    "6": "Lord of the Sabbath, choosing the twelve, Sermon on the Plain",
+    "7": "Healing the centurion's servant, raising widow's son, John's question",
+    "8": "Parable of the sower, calming the storm, healing demon-possessed man",
+    "9": "Sending out the twelve, feeding five thousand, Peter's confession, transfiguration",
+    "10": "Sending the seventy-two, parable of the Good Samaritan, Mary and Martha",
+    "11": "Teaching on prayer, Beelzebul accusation, sign of Jonah, woes to Pharisees",
+    "12": "Warnings and parables about greed, worry, watchfulness, and division",
+    "13": "Repent or perish, healing on Sabbath, parables of mustard seed and yeast",
+    "14": "Healing on Sabbath, parables of the banquet and cost of discipleship",
+    "15": "Parables of the lost sheep, lost coin, and prodigal son",
+    "16": "Parable of the shrewd manager, teachings on wealth and divorce",
+    "17": "Teaching on sin, faith, duty, healing ten lepers, coming of the kingdom",
+    "18": "Parables of persistent widow and Pharisee, blessing children, rich ruler",
+    "19": "Zacchaeus, parable of the ten minas, triumphal entry, cleansing temple",
+    "20": "Authority questioned, parable of tenants, questions about taxes and resurrection",
+    "21": "Widow's offering, signs of the end times, destruction of Jerusalem",
+    "22": "Conspiracy, Last Supper, Gethsemane, arrest, Peter's denial, trial",
+    "23": "Trial before Pilate and Herod, crucifixion, death, and burial",
+    "24": "Resurrection, road to Emmaus, appearances to disciples, ascension"
+  }
+}

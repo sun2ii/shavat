@@ -1,1 +1,67 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "prologue-and-witness",
+      "title": "Prologue and Witness",
+      "chapters": [1],
+      "theme": "The Word became flesh",
+      "summary": "The eternal Word, John the Baptist's testimony, and the calling of the first disciples",
+      "contentType": "narrative"
+    },
+    {
+      "id": "signs-and-discourses",
+      "title": "Signs and Discourses",
+      "chapters": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "theme": "Revelation through signs",
+      "summary": "Water to wine, cleansing temple, Nicodemus, Samaritan woman, healings, bread of life, light of the world, good shepherd, raising Lazarus",
+      "contentType": "narrative"
+    },
+    {
+      "id": "final-week-and-teaching",
+      "title": "Final Week and Teaching",
+      "chapters": [12, 13, 14, 15, 16, 17],
+      "theme": "Preparing the disciples",
+      "summary": "Triumphal entry, foot washing, farewell discourse, the vine and branches, and the high priestly prayer",
+      "contentType": "narrative"
+    },
+    {
+      "id": "passion",
+      "title": "Passion",
+      "chapters": [18, 19],
+      "theme": "Death and glorification",
+      "summary": "Arrest in the garden, trials before Annas, Caiaphas, and Pilate, and crucifixion",
+      "contentType": "narrative"
+    },
+    {
+      "id": "resurrection",
+      "title": "Resurrection",
+      "chapters": [20, 21],
+      "theme": "Victory and restoration",
+      "summary": "Empty tomb, appearances to Mary and disciples, doubting Thomas, and restoration of Peter",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "The Word became flesh, John's testimony, calling of first disciples",
+    "2": "Wedding at Cana, water to wine, cleansing the temple",
+    "3": "Nicodemus visits Jesus, teaching on being born again and God's love",
+    "4": "The Samaritan woman at the well, healing the official's son",
+    "5": "Healing at the pool of Bethesda, Jesus' authority and testimony",
+    "6": "Feeding the five thousand, walking on water, bread of life discourse",
+    "7": "Jesus at the Feast of Tabernacles, division among the people",
+    "8": "Woman caught in adultery, Jesus the light of the world, truth sets free",
+    "9": "Jesus heals a man born blind, Pharisees investigate",
+    "10": "The good shepherd, Jesus claims to be one with the Father",
+    "11": "Raising of Lazarus, plot to kill Jesus",
+    "12": "Mary anoints Jesus, triumphal entry, Jesus predicts his death",
+    "13": "Jesus washes disciples' feet, predicts betrayal, new commandment to love",
+    "14": "I am the way, truth, and life; promise of the Holy Spirit",
+    "15": "The vine and the branches, love one another, the world's hatred",
+    "16": "Work of the Holy Spirit, sorrow will turn to joy, I have overcome the world",
+    "17": "Jesus prays for himself, his disciples, and all believers",
+    "18": "Arrest in the garden, trial before Annas and Caiaphas, Peter's denial",
+    "19": "Trial before Pilate, crucifixion, death, and burial of Jesus",
+    "20": "Empty tomb, Jesus appears to Mary, disciples, and Thomas",
+    "21": "Jesus appears at the Sea of Galilee, restoration of Peter, epilogue"
+  }
+}

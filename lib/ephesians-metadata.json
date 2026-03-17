@@ -1,1 +1,28 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "doctrine",
+      "title": "Doctrine",
+      "chapters": [1, 2, 3],
+      "theme": "Blessings in Christ",
+      "summary": "Chosen in Christ, saved by grace through faith, mystery of Christ revealed, the church as his body",
+      "contentType": "epistle"
+    },
+    {
+      "id": "practice",
+      "title": "Practice",
+      "chapters": [4, 5, 6],
+      "theme": "Walk worthy",
+      "summary": "Unity in the body, new life in Christ, love like Christ, household relationships, armor of God",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Blessed in Christ, predestined and adopted, sealed with the Spirit",
+    "2": "Dead in sin, alive in Christ, saved by grace, one new man",
+    "3": "Mystery of Christ revealed, Paul's prayer for strength and love",
+    "4": "Unity of the Spirit, gifts for building up, put off the old self",
+    "5": "Walk in love, light, and wisdom, be filled with the Spirit, marriage reflects Christ",
+    "6": "Children and parents, slaves and masters, armor of God, stand firm"
+  }
+}

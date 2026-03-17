@@ -1,1 +1,26 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "joy-in-christ",
+      "title": "Joy in Christ",
+      "chapters": [1, 2],
+      "theme": "Christ is gain",
+      "summary": "Joy in suffering, living is Christ, humility of Christ, working out salvation with fear and trembling",
+      "contentType": "epistle"
+    },
+    {
+      "id": "righteousness-and-peace",
+      "title": "Righteousness and Peace",
+      "chapters": [3, 4],
+      "theme": "Press on toward the goal",
+      "summary": "Righteousness through faith not law, pressing toward the prize, rejoice always, peace of God, final thanks",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Paul's chains advance the gospel, to live is Christ, stand firm in one spirit",
+    "2": "Humility of Christ, work out your salvation, Timothy and Epaphroditus",
+    "3": "Beware of dogs, righteousness through faith, press toward the goal",
+    "4": "Rejoice always, peace of God, think on these things, content in all circumstances"
+  }
+}

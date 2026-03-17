@@ -1,1 +1,62 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "church-divisions",
+      "title": "Church Divisions",
+      "chapters": [1, 2, 3, 4],
+      "theme": "Factions and wisdom",
+      "summary": "Divisions over leaders, true wisdom is Christ crucified, immaturity and jealousy in the church",
+      "contentType": "epistle"
+    },
+    {
+      "id": "moral-issues",
+      "title": "Moral Issues",
+      "chapters": [5, 6, 7],
+      "theme": "Sexual immorality and marriage",
+      "summary": "Dealing with immorality in the church, lawsuits among believers, teachings on marriage and celibacy",
+      "contentType": "epistle"
+    },
+    {
+      "id": "christian-liberty",
+      "title": "Christian Liberty",
+      "chapters": [8, 9, 10, 11],
+      "theme": "Freedom with responsibility",
+      "summary": "Food sacrificed to idols, Paul's rights as an apostle, warnings from Israel's history, Lord's Supper",
+      "contentType": "epistle"
+    },
+    {
+      "id": "spiritual-gifts",
+      "title": "Spiritual Gifts",
+      "chapters": [12, 13, 14],
+      "theme": "Body of Christ and love",
+      "summary": "Variety of gifts, one body, love is supreme, prophecy and tongues in worship",
+      "contentType": "epistle"
+    },
+    {
+      "id": "resurrection-and-closing",
+      "title": "Resurrection and Closing",
+      "chapters": [15, 16],
+      "theme": "Victory over death",
+      "summary": "The resurrection of Christ and believers, collection for Jerusalem, final instructions",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Paul addresses divisions in the church, Christ the wisdom and power of God",
+    "2": "Paul's message is Christ crucified, wisdom from the Spirit",
+    "3": "Divisions show immaturity, we are God's fellow workers and temple",
+    "4": "Apostles are servants of Christ, Paul's fatherly appeal",
+    "5": "Expel the immoral brother, judgment of those inside the church",
+    "6": "Lawsuits among believers, the body is a temple of the Holy Spirit",
+    "7": "Concerning marriage, remain in your calling, teachings on celibacy",
+    "8": "Food sacrificed to idols, knowledge puffs up but love builds up",
+    "9": "Paul's rights as an apostle, becoming all things to save some",
+    "10": "Warnings from Israel's history, flee from idolatry, do all for God's glory",
+    "11": "Head coverings in worship, correction concerning the Lord's Supper",
+    "12": "One Spirit gives many gifts, many members but one body",
+    "13": "Love is supreme, greater than gifts, love never fails",
+    "14": "Prophecy and tongues, orderly worship in the church",
+    "15": "The gospel, resurrection of Christ and believers, victory over death",
+    "16": "Collection for Jerusalem, Paul's travel plans, final greetings"
+  }
+}

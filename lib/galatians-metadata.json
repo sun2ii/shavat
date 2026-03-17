@@ -1,1 +1,36 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "gospel-defense",
+      "title": "Gospel Defense",
+      "chapters": [1, 2],
+      "theme": "The true gospel and Paul's authority",
+      "summary": "Paul defends the gospel of grace against false teachers, recounts his calling and confrontation with Peter",
+      "contentType": "epistle"
+    },
+    {
+      "id": "freedom-in-christ",
+      "title": "Freedom in Christ",
+      "chapters": [3, 4],
+      "theme": "Faith not law",
+      "summary": "Justification by faith not works of law, Abraham's children through faith, heirs in Christ not slaves",
+      "contentType": "epistle"
+    },
+    {
+      "id": "life-in-the-spirit",
+      "title": "Life in the Spirit",
+      "chapters": [5, 6],
+      "theme": "Walk by the Spirit",
+      "summary": "Freedom not license, flesh versus Spirit, fruit of the Spirit, doing good and bearing burdens",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Paul's apostleship, no other gospel, his calling from God",
+    "2": "Gospel confirmed by apostles, confrontation with Peter, justified by faith",
+    "3": "Received the Spirit by faith, the law was a guardian, one in Christ",
+    "4": "No longer slaves but sons, Paul's concern, allegory of Hagar and Sarah",
+    "5": "Stand firm in freedom, walk by the Spirit, fruit of the Spirit",
+    "6": "Bear one another's burdens, sow to the Spirit, boast in the cross"
+  }
+}

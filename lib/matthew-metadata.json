@@ -1,1 +1,106 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "birth-and-preparation",
+      "title": "Birth and Preparation",
+      "chapters": [1, 2, 3, 4],
+      "theme": "The arrival of the Messiah",
+      "summary": "Genealogy, birth narratives, baptism by John, and temptation in the wilderness",
+      "contentType": "narrative"
+    },
+    {
+      "id": "sermon-on-the-mount",
+      "title": "Sermon on the Mount",
+      "chapters": [5, 6, 7],
+      "theme": "Kingdom ethics and teaching",
+      "summary": "Jesus teaches the Beatitudes, the Law fulfilled, prayer, worry, and judging others",
+      "contentType": "narrative"
+    },
+    {
+      "id": "authority-in-action",
+      "title": "Authority in Action",
+      "chapters": [8, 9, 10],
+      "theme": "Healing power and mission",
+      "summary": "Jesus demonstrates authority through miracles, healings, and sending out the twelve disciples",
+      "contentType": "narrative"
+    },
+    {
+      "id": "parables-of-the-kingdom",
+      "title": "Parables of the Kingdom",
+      "chapters": [11, 12, 13],
+      "theme": "Kingdom revealed in parables",
+      "summary": "John's question, Sabbath controversies, and parables of the sower, weeds, mustard seed, and more",
+      "contentType": "narrative"
+    },
+    {
+      "id": "discipleship-and-identity",
+      "title": "Discipleship and Identity",
+      "chapters": [14, 15, 16, 17],
+      "theme": "Who is Jesus?",
+      "summary": "Feeding of five thousand, walking on water, Peter's confession, and the transfiguration",
+      "contentType": "narrative"
+    },
+    {
+      "id": "teaching-on-community",
+      "title": "Teaching on Community",
+      "chapters": [18, 19, 20],
+      "theme": "Life together in the kingdom",
+      "summary": "Humility, forgiveness, marriage, children, wealth, and the vineyard workers",
+      "contentType": "narrative"
+    },
+    {
+      "id": "confrontation-in-jerusalem",
+      "title": "Confrontation in Jerusalem",
+      "chapters": [21, 22, 23],
+      "theme": "Authority challenged",
+      "summary": "Triumphal entry, temple cleansing, debates with Pharisees, and woes pronounced",
+      "contentType": "narrative"
+    },
+    {
+      "id": "olivet-discourse",
+      "title": "Olivet Discourse",
+      "chapters": [24, 25],
+      "theme": "The end times",
+      "summary": "Signs of the end, the coming of the Son of Man, and parables of readiness",
+      "contentType": "narrative"
+    },
+    {
+      "id": "passion-and-resurrection",
+      "title": "Passion and Resurrection",
+      "chapters": [26, 27, 28],
+      "theme": "Death and victory",
+      "summary": "The Last Supper, betrayal and arrest, trial, crucifixion, burial, and resurrection",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "The genealogy of Jesus Christ and his birth to Mary",
+    "2": "Wise men visit, flight to Egypt, and return to Nazareth",
+    "3": "John the Baptist prepares the way and baptizes Jesus",
+    "4": "Jesus is tempted by Satan and begins his ministry in Galilee",
+    "5": "The Beatitudes and teaching on the Law and righteousness",
+    "6": "Teaching on giving, prayer, fasting, and trust in God",
+    "7": "Judging others, ask and seek, narrow gate, and wise builder",
+    "8": "Jesus heals a leper, centurion's servant, and calms the storm",
+    "9": "Jesus heals a paralytic, calls Matthew, and raises a girl",
+    "10": "Jesus sends out the twelve apostles with authority to heal and preach",
+    "11": "John's question, woe to unrepentant cities, and Jesus' invitation to rest",
+    "12": "Lord of the Sabbath, healing and Pharisees' blasphemy",
+    "13": "Parables of the sower, weeds, mustard seed, treasure, and pearl",
+    "14": "John the Baptist beheaded, feeding of five thousand, walking on water",
+    "15": "Teaching on what defiles, faith of the Canaanite woman, feeding four thousand",
+    "16": "Pharisees demand a sign, Peter confesses Jesus as the Christ",
+    "17": "The transfiguration, healing of demon-possessed boy, temple tax",
+    "18": "Teaching on humility, dealing with sin, and the parable of the unmerciful servant",
+    "19": "Teaching on divorce, blessing children, and the rich young ruler",
+    "20": "Parable of the vineyard workers and the request of James and John",
+    "21": "Triumphal entry, cleansing the temple, and cursing the fig tree",
+    "22": "Parables and debates about taxes, resurrection, and the greatest commandment",
+    "23": "Seven woes to the Pharisees and teachers of the law",
+    "24": "Signs of the end times and the coming of the Son of Man",
+    "25": "Parables of the ten virgins, talents, and the sheep and goats",
+    "26": "The Last Supper, Gethsemane, betrayal, and trial before the Sanhedrin",
+    "27": "Trial before Pilate, crucifixion, death, and burial of Jesus",
+    "28": "The resurrection, the Great Commission, and Jesus' ascension"
+  }
+}

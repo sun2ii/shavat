@@ -1,1 +1,26 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "christs-supremacy",
+      "title": "Christ's Supremacy",
+      "chapters": [1, 2],
+      "theme": "Fullness of deity",
+      "summary": "Christ is the image of God, creator of all, head of the church, fullness of deity dwells in him, complete in him",
+      "contentType": "epistle"
+    },
+    {
+      "id": "christian-living",
+      "title": "Christian Living",
+      "chapters": [3, 4],
+      "theme": "Raised with Christ",
+      "summary": "Put to death earthly nature, put on the new self, household rules, prayer and conduct, final greetings",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Image of the invisible God, firstborn over creation, reconciled through his blood",
+    "2": "Mystery of God is Christ, rooted in him, fullness of deity, risen with him",
+    "3": "Set minds on things above, put to death the old, put on the new self",
+    "4": "Devote yourselves to prayer, walk in wisdom, greetings from fellow workers"
+  }
+}

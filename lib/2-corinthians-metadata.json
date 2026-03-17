@@ -1,1 +1,43 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "pauls-ministry",
+      "title": "Paul's Ministry",
+      "chapters": [1, 2, 3, 4, 5, 6, 7],
+      "theme": "Comfort, reconciliation, and apostolic ministry",
+      "summary": "Paul defends his ministry, explains suffering and comfort, calls for reconciliation, and describes the glory of the new covenant",
+      "contentType": "epistle"
+    },
+    {
+      "id": "generous-giving",
+      "title": "Generous Giving",
+      "chapters": [8, 9],
+      "theme": "Grace of giving",
+      "summary": "The example of Macedonian churches, principles of generous and cheerful giving for the Jerusalem collection",
+      "contentType": "epistle"
+    },
+    {
+      "id": "pauls-defense",
+      "title": "Paul's Defense",
+      "chapters": [10, 11, 12, 13],
+      "theme": "Apostolic authority",
+      "summary": "Paul defends his apostleship against false teachers, boasts in weakness, describes visions and hardships, final warnings",
+      "contentType": "epistle"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Paul's greeting, comfort in affliction, why he changed travel plans",
+    "2": "Restoring the repentant sinner, triumph in Christ, aroma of life",
+    "3": "Ministers of the new covenant, glory that exceeds the old",
+    "4": "Treasure in jars of clay, light from darkness, eternal weight of glory",
+    "5": "Earthly tent and heavenly dwelling, ministry of reconciliation",
+    "6": "Working together with God, hardships of ministry, do not be unequally yoked",
+    "7": "Paul's joy at their repentance, godly sorrow leads to salvation",
+    "8": "The grace of giving, the example of Macedonian churches, Christ became poor",
+    "9": "Sowing and reaping, God loves a cheerful giver, thanksgiving to God",
+    "10": "Paul defends his authority, weapons of warfare, boasting in the Lord",
+    "11": "Concern for the Corinthians, Paul's sufferings as an apostle",
+    "12": "Visions and revelations, thorn in the flesh, strength in weakness",
+    "13": "Final warnings, examine yourselves, greetings and benediction"
+  }
+}

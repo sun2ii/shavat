@@ -12,8 +12,6 @@ interface Props {
   bookAbbreviation: string;        // e.g., "Gen", "Exod"
   currentChapter: number;
   division: BookDivision;
-  onCopyChapter: () => void;
-  copied: boolean;
   chapterSummary?: string;
 }
 
@@ -23,8 +21,6 @@ export default function ChapterNav({
   bookAbbreviation,
   currentChapter,
   division,
-  onCopyChapter,
-  copied,
   chapterSummary
 }: Props) {
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -110,15 +106,6 @@ export default function ChapterNav({
     <>
       {/* Chapter nav header */}
       <nav className="relative flex flex-col items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
-        {/* Copy chapter icon - top right */}
-        <button
-          onClick={onCopyChapter}
-          className="absolute right-0 top-1/2 -translate-y-1/2 text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors cursor-pointer"
-          title="Copy chapter"
-        >
-          {copied ? '✓' : '⧉'}
-        </button>
-
         {/* Canonical reference - left corner */}
         <span className="absolute left-0 top-0 text-xs text-blue-400 opacity-70">
           {bookAbbreviation} {currentChapter}

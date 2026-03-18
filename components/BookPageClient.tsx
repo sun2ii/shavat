@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Verse as VerseType, BookDivision } from '@/lib/types';
 import ChapterNav from './ChapterNav';
 import GenesisReader from './GenesisReader';
@@ -24,15 +23,6 @@ export default function BookPageClient({
   currentChapter,
   chapterSummary
 }: Props) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyChapter = async () => {
-    const chapterText = verses.map(v => `${v.verse}. ${v.text}`).join('\n\n');
-    await navigator.clipboard.writeText(chapterText);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <main>
       <ChapterNav
@@ -41,8 +31,6 @@ export default function BookPageClient({
         bookAbbreviation={bookAbbreviation}
         currentChapter={currentChapter}
         division={division}
-        onCopyChapter={handleCopyChapter}
-        copied={copied}
         chapterSummary={chapterSummary}
       />
       <GenesisReader verses={verses} book={bookSlug} chapter={currentChapter} />

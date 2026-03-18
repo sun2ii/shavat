@@ -1950,6 +1950,7 @@ const REVELATION_22_SECTIONS: DaySection[] = [
 export default function GenesisReader({ verses, book, chapter }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
+  const [copiedSection, setCopiedSection] = useState<string | null>(null);
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
@@ -1973,6 +1974,13 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
       }
       return next;
     });
+  };
+
+  const handleCopySection = async (sectionName: string, sectionVerses: VerseType[]) => {
+    const sectionText = sectionVerses.map(v => `${v.verse}. ${v.text}`).join('\n\n');
+    await navigator.clipboard.writeText(sectionText);
+    setCopiedSection(sectionName);
+    setTimeout(() => setCopiedSection(null), 2000);
   };
 
   useEffect(() => {
@@ -3053,9 +3061,18 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
 
           return (
             <div key={daySection.day} className={`p-6 rounded-lg border-l-4 ${daySection.borderColor} ${daySection.color}`}>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-                {daySection.day}
-              </h3>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                  {daySection.day}
+                </h3>
+                <button
+                  onClick={() => handleCopySection(daySection.day, dayVerses)}
+                  className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors cursor-pointer"
+                  title="Copy section"
+                >
+                  {copiedSection === daySection.day ? '✓' : '⧉'}
+                </button>
+              </div>
               <div className="text-[rgb(var(--text-primary))] text-lg leading-relaxed">
                 {dayVerses.map((verse) => (
                   <Verse

@@ -12,6 +12,12 @@ export default function Header() {
         </Link>
         <nav className="flex items-center gap-4">
           <Link
+            href="/library"
+            className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+          >
+            Library
+          </Link>
+          <Link
             href="/chronology"
             className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
           >

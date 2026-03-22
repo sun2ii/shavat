@@ -9,6 +9,11 @@ export function hasCommentary(book: string, chapter: number): boolean {
     return true;
   }
 
+  // John chapters 1-21 have commentary
+  if (book === 'john' && chapter >= 1 && chapter <= 21) {
+    return true;
+  }
+
   return false;
 }
 

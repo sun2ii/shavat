@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
 import { getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
+import { hasWriting, getWriting } from '@/lib/hasWritings';
 
 interface Props {
   bookSlug: string;                // e.g., "genesis", "exodus"
@@ -57,6 +58,10 @@ export default function ChapterNav({
 
   // Division display name (without "The Book of" or similar prefixes)
   const divisionDisplayName = division.title.replace('The Book of ', '').replace(/^The /, '');
+
+  // Check if a writing exists for this chapter
+  const writingExists = hasWriting(bookSlug, currentChapter);
+  const writing = writingExists ? getWriting(bookSlug, currentChapter) : null;
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -172,6 +177,17 @@ export default function ChapterNav({
         >
           {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
         </button>
+
+        {/* Writing link - top right */}
+        {writing && (
+          <Link
+            href={writing.path}
+            className="absolute right-0 top-0 text-xs text-blue-400 opacity-70 hover:opacity-100 transition-opacity"
+            title="Read theological writing"
+          >
+            Essay
+          </Link>
+        )}
       </nav>
 
       {/* Fixed left navigation */}

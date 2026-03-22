@@ -23,6 +23,12 @@ export default function Header() {
           >
             Chronology
           </Link>
+          <Link
+            href="/writings"
+            className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+          >
+            Writings
+          </Link>
         </nav>
       </div>
     </header>

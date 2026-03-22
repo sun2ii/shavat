@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -37,6 +38,7 @@ export default function RootLayout({
       </head>
       <body className="max-w-4xl mx-auto px-4 md:px-20 py-6">
         <Header />
+        <Breadcrumbs />
         {children}
       </body>
     </html>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
+import ChapterOutline from './ChapterOutline';
 
 interface Props {
   verses: VerseType[];
@@ -16,6 +17,13 @@ interface DaySection {
   verseRange: [number, number];
   color: string;
   borderColor: string;
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-');
 }
 
 const GENESIS_1_DAYS: DaySection[] = [
@@ -3054,13 +3062,14 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
 
     return (
       <div className="max-w-none space-y-6">
+        <ChapterOutline sections={sections} />
         {sections.map((daySection) => {
           const dayVerses = verses.filter(
             v => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
           );
 
           return (
-            <div key={daySection.day} className={`p-6 rounded-lg border-l-4 ${daySection.borderColor} ${daySection.color}`}>
+            <div key={daySection.day} id={slugify(daySection.day)} className={`p-6 rounded-lg border-l-4 ${daySection.borderColor} ${daySection.color}`}>
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
                   {daySection.day}

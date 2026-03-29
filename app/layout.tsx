@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RoutePersistence from '@/components/RoutePersistence';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -37,9 +39,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="max-w-4xl mx-auto px-4 md:px-20 py-6">
+        <RoutePersistence />
         <Header />
         <Breadcrumbs />
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );

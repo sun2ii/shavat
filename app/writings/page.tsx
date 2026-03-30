@@ -26,7 +26,7 @@ export default function WritingsPage() {
   }, {} as Record<string, typeof allWritings>);
 
   return (
-    <main className="max-w-3xl mx-auto">
+    <main className="max-w-3xl mx-auto select-text">
       <div className="mb-8">
         <h1 className="text-3xl font-light text-[rgb(var(--text-primary))] mb-2">
           Writings

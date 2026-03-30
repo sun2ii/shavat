@@ -38,7 +38,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="max-w-4xl mx-auto px-4 md:px-20 py-6">
+      <body className="max-w-4xl lg:max-w-none mx-auto px-4 md:px-20 py-6">
         <RoutePersistence />
         <Header />
         <Breadcrumbs />

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 
 interface Props {
@@ -9,21 +8,6 @@ interface Props {
 }
 
 export default function Verse({ verse, isSelected = false, onToggle, commentary }: Props) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Detect if device is mobile/touch-enabled
-    const checkMobile = () => {
-      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      const isMobileWidth = window.innerWidth < 768;
-      setIsMobile(hasTouchScreen || isMobileWidth);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -34,13 +18,12 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
     <>
       <span
         className={`inline-block mb-4 py-1 font-medium cursor-pointer transition-colors px-2 rounded ${
-          isSelected ? 'bg-yellow-200 text-gray-900' : 'hover:bg-yellow-100 hover:text-gray-900'
+          isSelected ? 'bg-yellow-200 text-gray-900' : ''
         }`}
         data-verse={verse.verse}
-        onClick={isMobile ? undefined : handleInteraction}
-        onDoubleClick={isMobile ? handleInteraction : undefined}
+        onDoubleClick={handleInteraction}
       >
-        <sup className={`mr-2 text-xs font-light select-none transition-colors ${isSelected ? 'text-gray-600' : 'text-[rgb(var(--text-tertiary))] group-hover:text-gray-600'}`}>{verse.verse}</sup>
+        <sup className={`mr-2 text-xs font-light select-none transition-colors ${isSelected ? 'text-gray-600' : 'text-[rgb(var(--text-tertiary))]'}`}>{verse.verse}</sup>
         {verse.text}
       </span>
       <br />

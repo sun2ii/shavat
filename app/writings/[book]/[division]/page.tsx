@@ -51,7 +51,7 @@ export default async function WritingPage({ params }: Props) {
   const bookName = book?.name || params.book;
 
   return (
-    <main className="max-w-3xl mx-auto">
+    <main className="max-w-3xl lg:max-w-none mx-auto select-text">
       {/* Link to chapter */}
       <div className="mb-6">
         <Link

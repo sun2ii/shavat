@@ -10,6 +10,7 @@ import { getAllCollections } from '@/lib/psalms-collections';
 import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { divisionHasCommentary } from '@/lib/hasCommentary';
+import { divisionHasWritings } from '@/lib/hasWritings';
 
 type TabId = 'torah' | 'psalms' | 'old-testament' | 'new-testament' | 'gospels';
 
@@ -63,6 +64,7 @@ export default function LibraryPage() {
                       const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
                       const themeColor = isInstructional ? 'text-orange-400 opacity-80' : 'text-[rgb(var(--text-secondary))] opacity-60';
                       const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
+                      const hasWritings = divisionHasWritings(book.slug, division.chapters);
 
                       return (
                         <Link
@@ -74,6 +76,8 @@ export default function LibraryPage() {
                           className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
                             hasCommentary
                               ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
+                              : hasWritings
+                              ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
                               : 'border-[rgb(var(--border))]'
                           }`}
                         >
@@ -167,6 +171,7 @@ export default function LibraryPage() {
                         const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
                         const themeColor = isInstructional ? 'text-orange-400 opacity-80' : 'text-[rgb(var(--text-secondary))] opacity-60';
                         const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
+                        const hasWritings = divisionHasWritings(book.slug, division.chapters);
 
                         return (
                           <Link
@@ -175,6 +180,8 @@ export default function LibraryPage() {
                             className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
                               hasCommentary
                                 ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
+                                : hasWritings
+                                ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
                                 : 'border-[rgb(var(--border))]'
                             }`}
                           >
@@ -234,19 +241,32 @@ export default function LibraryPage() {
                     </h3>
                   </div>
 
-                  {categoryBooks.map((book) => (
-                    <Link
-                      key={book.slug}
-                      href={`/${book.slug}/1`}
-                      className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
-                    >
-                      <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name}
-                        <br />
-                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
-                      </h3>
-                    </Link>
-                  ))}
+                  {categoryBooks.map((book) => {
+                    // Check if book has any commentary or writings
+                    const allChapters = Array.from({ length: book.chapterCount }, (_, i) => i + 1);
+                    const hasCommentary = divisionHasCommentary(book.slug, allChapters);
+                    const hasWritings = divisionHasWritings(book.slug, allChapters);
+
+                    return (
+                      <Link
+                        key={book.slug}
+                        href={`/${book.slug}/1`}
+                        className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
+                          hasCommentary
+                            ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
+                            : hasWritings
+                            ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
+                            : 'border-[rgb(var(--border))]'
+                        }`}
+                      >
+                        <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
+                          {book.name}
+                          <br />
+                          <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
+                        </h3>
+                      </Link>
+                    );
+                  })}
 
                   {/* Add spacing between categories */}
                   {categoryIndex < ntCategories.length - 1 && <div className="col-span-full h-8" />}
@@ -286,6 +306,7 @@ export default function LibraryPage() {
                       const isInstructional = division.contentType === 'instructional';
                       const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
                       const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
+                      const hasWritings = divisionHasWritings(book.slug, division.chapters);
 
                       return (
                         <Link
@@ -297,6 +318,8 @@ export default function LibraryPage() {
                           className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
                             hasCommentary
                               ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
+                              : hasWritings
+                              ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
                               : 'border-[rgb(var(--border))]'
                           }`}
                         >
@@ -336,7 +359,7 @@ export default function LibraryPage() {
     <main className="max-w-7xl mx-auto px-4 py-4">
       {/* Tab Navigation */}
       <div className="mb-6 md:mb-8">
-        <div className="flex items-center justify-between border-b border-[rgb(var(--border))] -mx-4 px-4 md:mx-0 md:px-0">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-[rgb(var(--border))] -mx-4 px-4 md:mx-0 md:px-0">
           {/* Tabs - scrollable on mobile */}
           <div className="overflow-x-auto flex-1">
             <div className="flex gap-1 min-w-max md:min-w-0">
@@ -356,8 +379,8 @@ export default function LibraryPage() {
             </div>
           </div>
 
-          {/* Law Toggle */}
-          <label className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 cursor-pointer py-3 transition-opacity whitespace-nowrap">
+          {/* Law Toggle - below tabs on mobile, right side on desktop */}
+          <label className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 cursor-pointer py-3 transition-opacity whitespace-nowrap md:ml-4">
             <input
               type="checkbox"
               checked={hideInstructional}

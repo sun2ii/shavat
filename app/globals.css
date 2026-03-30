@@ -10,7 +10,7 @@
     --text-secondary: 107 114 128;
     --text-tertiary: 156 163 175;
     --border: 229 231 235;
-    --highlight-yellow: 254 249 195;
+    --highlight-yellow: 240 230 170;
     --highlight-blue: 191 219 254;
   }
 
@@ -22,7 +22,7 @@
       --text-secondary: 156 163 175;
       --text-tertiary: 107 114 128;
       --border: 55 65 81;
-      --highlight-yellow: 113 63 18;
+      --highlight-yellow: 90 75 35;
       --highlight-blue: 30 58 138;
     }
   }
@@ -33,4 +33,10 @@ body {
   font-family: 'Cardo', 'Georgia', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

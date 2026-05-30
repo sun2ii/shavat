@@ -1,5 +1,30 @@
 {
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "encouragement-in-persecution",
+      "title": "Encouragement in Persecution",
+      "chapters": [1],
+      "theme": "God's righteous judgment",
+      "summary": "Thanksgiving for perseverance, God will judge persecutors and give relief to the afflicted",
+      "contentType": "epistle"
+    },
+    {
+      "id": "the-day-of-the-lord",
+      "title": "The Day of the Lord",
+      "chapters": [2],
+      "theme": "Man of lawlessness",
+      "summary": "Don't be deceived about the Lord's return, the rebellion and man of lawlessness must come first, stand firm",
+      "contentType": "epistle"
+    },
+    {
+      "id": "practical-exhortations",
+      "title": "Practical Exhortations",
+      "chapters": [3],
+      "theme": "Work and discipline",
+      "summary": "Prayer for the gospel's spread, warning against idleness, keep away from idle believers, do not grow weary",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Thanksgiving for perseverance, God's righteous judgment, relief and glory",
     "2": "The day of the Lord, the man of lawlessness, stand firm in truth",

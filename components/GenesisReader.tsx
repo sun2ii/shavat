@@ -2025,10 +2025,10 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     (actualBook === 'ephesians' && actualChapter >= 1 && actualChapter <= 6) ||
     (actualBook === 'philippians' && actualChapter >= 1 && actualChapter <= 4) ||
     (actualBook === 'colossians' && actualChapter >= 1 && actualChapter <= 4) ||
-    (actualBook === '1thessalonians' && actualChapter >= 1 && actualChapter <= 5) ||
-    (actualBook === '2thessalonians' && actualChapter >= 1 && actualChapter <= 3) ||
-    (actualBook === '1timothy' && actualChapter >= 1 && actualChapter <= 6) ||
-    (actualBook === '2timothy' && actualChapter >= 1 && actualChapter <= 4) ||
+    (actualBook === '1-thessalonians' && actualChapter >= 1 && actualChapter <= 5) ||
+    (actualBook === '2-thessalonians' && actualChapter >= 1 && actualChapter <= 3) ||
+    (actualBook === '1-timothy' && actualChapter >= 1 && actualChapter <= 6) ||
+    (actualBook === '2-timothy' && actualChapter >= 1 && actualChapter <= 4) ||
     (actualBook === 'titus' && actualChapter >= 1 && actualChapter <= 3) ||
     (actualBook === 'philemon' && actualChapter === 1) ||
     (actualBook === 'hebrews' && actualChapter >= 1 && actualChapter <= 13) ||
@@ -2779,7 +2779,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           sections = COLOSSIANS_4_SECTIONS;
           break;
       }
-    } else if (actualBook === '1thessalonians') {
+    } else if (actualBook === '1-thessalonians') {
       switch (actualChapter) {
         case 1:
           sections = THESSALONIANS_1_1_SECTIONS;
@@ -2797,7 +2797,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           sections = THESSALONIANS_1_5_SECTIONS;
           break;
       }
-    } else if (actualBook === '2thessalonians') {
+    } else if (actualBook === '2-thessalonians') {
       switch (actualChapter) {
         case 1:
           sections = THESSALONIANS_2_1_SECTIONS;
@@ -2809,7 +2809,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           sections = THESSALONIANS_2_3_SECTIONS;
           break;
       }
-    } else if (actualBook === '1timothy') {
+    } else if (actualBook === '1-timothy') {
       switch (actualChapter) {
         case 1:
           sections = TIMOTHY_1_1_SECTIONS;
@@ -2830,7 +2830,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           sections = TIMOTHY_1_6_SECTIONS;
           break;
       }
-    } else if (actualBook === '2timothy') {
+    } else if (actualBook === '2-timothy') {
       switch (actualChapter) {
         case 1:
           sections = TIMOTHY_2_1_SECTIONS;

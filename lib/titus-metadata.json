@@ -1,5 +1,22 @@
 {
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "church-leadership",
+      "title": "Church Leadership",
+      "chapters": [1],
+      "theme": "Elders and sound doctrine",
+      "summary": "Appoint qualified elders in every town, rebuke false teachers who corrupt sound doctrine",
+      "contentType": "epistle"
+    },
+    {
+      "id": "christian-living",
+      "title": "Christian Living",
+      "chapters": [2, 3],
+      "theme": "Grace and good works",
+      "summary": "Sound doctrine for all ages, grace teaches godliness, saved by mercy not works, do good and avoid division",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Appoint elders in every town, qualifications for elders, rebuke false teachers",
     "2": "Sound doctrine for all ages, grace teaches us to say no to ungodliness",

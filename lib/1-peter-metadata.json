@@ -1,9 +1,13 @@
 {
+  "bookTheme": "Hope in Suffering",
   "divisions": [
     {
       "id": "suffering-and-hope",
       "title": "Suffering and Hope",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "Living hope through trials",
       "summary": "New birth into living hope, chosen people and royal priesthood, suffering for doing good as Christ suffered for us",
       "contentType": "epistle"
@@ -11,7 +15,11 @@
     {
       "id": "submission-and-witness",
       "title": "Submission and Witness",
-      "chapters": [3, 4, 5],
+      "chapters": [
+        3,
+        4,
+        5
+      ],
       "theme": "Godly conduct in suffering",
       "summary": "Submission in relationships, suffering for righteousness, living for God's will, shepherding the flock with humility",
       "contentType": "epistle"

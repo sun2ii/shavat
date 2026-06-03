@@ -11,6 +11,7 @@ import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { divisionHasCommentary } from '@/lib/hasCommentary';
 import { divisionHasWritings } from '@/lib/hasWritings';
+import { getBookTheme } from '@/lib/getBookThemes';
 
 type TabId = 'torah' | 'psalms' | 'old-testament' | 'new-testament' | 'gospels';
 
@@ -83,6 +84,14 @@ export default function LibraryPage() {
                         >
                           <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
                             {division.title.replace('The Book of ', '').replace(/^The /, '')}
+                            {division.theme && (
+                              <>
+                                <br />
+                                <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                                  {division.theme}
+                                </span>
+                              </>
+                            )}
                             <br />
                             <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                           </h3>
@@ -122,6 +131,14 @@ export default function LibraryPage() {
               >
                 <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
                   {collection.title.replace('Psalms of ', '')}
+                  {collection.theme && (
+                    <>
+                      <br />
+                      <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                        {collection.theme}
+                      </span>
+                    </>
+                  )}
                   <br />
                   <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{collection.psalms.length}</span>
                 </h3>
@@ -187,6 +204,14 @@ export default function LibraryPage() {
                           >
                             <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
                               {division.title.replace('The Book of ', '').replace(/^The /, '')}
+                              {division.theme && (
+                                <>
+                                  <br />
+                                  <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                                    {division.theme}
+                                  </span>
+                                </>
+                              )}
                               <br />
                               <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                             </h3>
@@ -195,6 +220,7 @@ export default function LibraryPage() {
                       });
                     }
 
+                    const bookTheme = getBookTheme(book.slug);
                     return (
                       <Link
                         key={book.slug}
@@ -203,6 +229,14 @@ export default function LibraryPage() {
                       >
                         <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
                           {book.name}
+                          {bookTheme && (
+                            <>
+                              <br />
+                              <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                                {bookTheme}
+                              </span>
+                            </>
+                          )}
                           <br />
                           <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                         </h3>
@@ -246,6 +280,7 @@ export default function LibraryPage() {
                     const allChapters = Array.from({ length: book.chapterCount }, (_, i) => i + 1);
                     const hasCommentary = divisionHasCommentary(book.slug, allChapters);
                     const hasWritings = divisionHasWritings(book.slug, allChapters);
+                    const bookTheme = getBookTheme(book.slug);
 
                     return (
                       <Link
@@ -261,6 +296,14 @@ export default function LibraryPage() {
                       >
                         <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
                           {book.name}
+                          {bookTheme && (
+                            <>
+                              <br />
+                              <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                                {bookTheme}
+                              </span>
+                            </>
+                          )}
                           <br />
                           <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
                         </h3>
@@ -325,6 +368,14 @@ export default function LibraryPage() {
                         >
                           <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
                             {division.title}
+                            {division.theme && (
+                              <>
+                                <br />
+                                <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
+                                  {division.theme}
+                                </span>
+                              </>
+                            )}
                             <br />
                             <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
                           </h3>
@@ -389,6 +440,63 @@ export default function LibraryPage() {
             />
             Law
           </label>
+
+          {/* Contents Buttons - conditional based on active tab */}
+          {activeTab === 'torah' && (
+            <Link
+              href="/torah-toc"
+              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Contents
+            </Link>
+          )}
+          {activeTab === 'old-testament' && (
+            <Link
+              href="/ot-toc"
+              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Contents
+            </Link>
+          )}
+          {activeTab === 'new-testament' && (
+            <Link
+              href="/nt-toc"
+              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Contents
+            </Link>
+          )}
+          {activeTab === 'gospels' && (
+            <Link
+              href="/gospels-toc"
+              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Contents
+            </Link>
+          )}
+          {activeTab === 'psalms' && (
+            <Link
+              href="/psalms-toc"
+              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+              </svg>
+              Contents
+            </Link>
+          )}
         </div>
       </div>
 

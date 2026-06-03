@@ -1,9 +1,13 @@
 {
+  "bookTheme": "Guard the Gospel and Preach the Word",
   "divisions": [
     {
       "id": "faithful-witness",
       "title": "Faithful Witness",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "Guard the gospel",
       "summary": "Not ashamed of the gospel, guard the good deposit, be strong in grace, endure hardship, approved workman",
       "contentType": "epistle"
@@ -11,7 +15,10 @@
     {
       "id": "final-charge",
       "title": "Final Charge",
-      "chapters": [3, 4],
+      "chapters": [
+        3,
+        4
+      ],
       "theme": "Preach the word",
       "summary": "Terrible times in last days, all Scripture is God-breathed, preach the word in season and out, Paul's final testimony",
       "contentType": "epistle"

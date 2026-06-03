@@ -1,9 +1,13 @@
 {
+  "bookTheme": "The Supremacy and Sufficiency of Christ",
   "divisions": [
     {
       "id": "christs-supremacy",
       "title": "Christ's Supremacy",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "Fullness of deity",
       "summary": "Christ is the image of God, creator of all, head of the church, fullness of deity dwells in him, complete in him",
       "contentType": "epistle"
@@ -11,7 +15,10 @@
     {
       "id": "christian-living",
       "title": "Christian Living",
-      "chapters": [3, 4],
+      "chapters": [
+        3,
+        4
+      ],
       "theme": "Raised with Christ",
       "summary": "Put to death earthly nature, put on the new self, household rules, prayer and conduct, final greetings",
       "contentType": "epistle"

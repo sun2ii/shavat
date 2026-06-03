@@ -106,21 +106,3 @@ export function getWritingByPath(book: string, divisionPath: string): Writing | 
 export function divisionHasWritings(book: string, chapters: number[]): boolean {
   return chapters.some(chapter => hasWriting(book, chapter));
 }
-
-export async function getWritingContent(book: string, chapter: number): Promise<string | null> {
-  try {
-    const fs = require('fs');
-    const path = require('path');
-    const filePath = path.join(process.cwd(), 'lib', 'writings', book, `${book}-${chapter}.md`);
-
-    if (!fs.existsSync(filePath)) {
-      return null;
-    }
-
-    const content = fs.readFileSync(filePath, 'utf8');
-    return content;
-  } catch (error) {
-    console.error('Error reading writing:', error);
-    return null;
-  }
-}

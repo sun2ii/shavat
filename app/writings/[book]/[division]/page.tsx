@@ -2,7 +2,8 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
-import { getWritingByPath, getWritingContent } from '@/lib/hasWritings';
+import { getWritingByPath } from '@/lib/hasWritings';
+import { getWritingContent } from '@/lib/getWritingContent';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 
 interface Props {

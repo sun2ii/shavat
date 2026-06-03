@@ -1,9 +1,13 @@
 {
+  "bookTheme": "Joy in Christ Despite All Circumstances",
   "divisions": [
     {
       "id": "joy-in-christ",
       "title": "Joy in Christ",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "Christ is gain",
       "summary": "Joy in suffering, living is Christ, humility of Christ, working out salvation with fear and trembling",
       "contentType": "epistle"
@@ -11,7 +15,10 @@
     {
       "id": "righteousness-and-peace",
       "title": "Righteousness and Peace",
-      "chapters": [3, 4],
+      "chapters": [
+        3,
+        4
+      ],
       "theme": "Press on toward the goal",
       "summary": "Righteousness through faith not law, pressing toward the prize, rejoice always, peace of God, final thanks",
       "contentType": "epistle"

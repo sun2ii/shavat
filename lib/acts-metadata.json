@@ -1,9 +1,13 @@
 {
+  "bookTheme": "The Gospel Spreads to the Ends of the Earth",
   "divisions": [
     {
       "id": "birth-of-the-church",
       "title": "Birth of the Church",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "The Spirit comes",
       "summary": "Ascension of Jesus, choosing Matthias, Pentecost, and Peter's sermon",
       "contentType": "narrative"
@@ -11,7 +15,13 @@
     {
       "id": "jerusalem-ministry",
       "title": "Jerusalem Ministry",
-      "chapters": [3, 4, 5, 6, 7],
+      "chapters": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
       "theme": "Miracles and persecution",
       "summary": "Early miracles, apostles' boldness, Ananias and Sapphira, choosing deacons, Stephen's martyrdom",
       "contentType": "narrative"
@@ -19,7 +29,13 @@
     {
       "id": "judea-and-samaria",
       "title": "Judea and Samaria",
-      "chapters": [8, 9, 10, 11, 12],
+      "chapters": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
       "theme": "Gospel spreads beyond Jerusalem",
       "summary": "Philip's ministry, Saul's conversion, Peter's vision, Gentiles receive the Spirit, Antioch church",
       "contentType": "narrative"
@@ -27,7 +43,10 @@
     {
       "id": "first-missionary-journey",
       "title": "First Missionary Journey",
-      "chapters": [13, 14],
+      "chapters": [
+        13,
+        14
+      ],
       "theme": "Sent out from Antioch",
       "summary": "Barnabas and Saul sent out, ministry in Cyprus and Galatia, opposition and return",
       "contentType": "narrative"
@@ -35,7 +54,9 @@
     {
       "id": "jerusalem-council",
       "title": "Jerusalem Council",
-      "chapters": [15],
+      "chapters": [
+        15
+      ],
       "theme": "Gentile inclusion",
       "summary": "Debate over circumcision, council's decision, letter sent to Gentile believers",
       "contentType": "narrative"
@@ -43,7 +64,13 @@
     {
       "id": "second-and-third-journeys",
       "title": "Second and Third Journeys",
-      "chapters": [16, 17, 18, 19, 20],
+      "chapters": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
       "theme": "Expanding into Europe and Asia",
       "summary": "Macedonia, Athens, Corinth, Ephesus, farewell to Ephesian elders",
       "contentType": "narrative"
@@ -51,7 +78,16 @@
     {
       "id": "journey-to-rome",
       "title": "Journey to Rome",
-      "chapters": [21, 22, 23, 24, 25, 26, 27, 28],
+      "chapters": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
       "theme": "Paul's arrest and trials",
       "summary": "Arrest in Jerusalem, defense speeches, trials before Felix, Festus, and Agrippa, shipwreck, arrival in Rome",
       "contentType": "narrative"

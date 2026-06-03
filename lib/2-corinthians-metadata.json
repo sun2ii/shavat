@@ -1,9 +1,18 @@
 {
+  "bookTheme": "Authentic Apostolic Ministry",
   "divisions": [
     {
       "id": "pauls-ministry",
       "title": "Paul's Ministry",
-      "chapters": [1, 2, 3, 4, 5, 6, 7],
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
       "theme": "Comfort, reconciliation, and apostolic ministry",
       "summary": "Paul defends his ministry, explains suffering and comfort, calls for reconciliation, and describes the glory of the new covenant",
       "contentType": "epistle"
@@ -11,7 +20,10 @@
     {
       "id": "generous-giving",
       "title": "Generous Giving",
-      "chapters": [8, 9],
+      "chapters": [
+        8,
+        9
+      ],
       "theme": "Grace of giving",
       "summary": "The example of Macedonian churches, principles of generous and cheerful giving for the Jerusalem collection",
       "contentType": "epistle"
@@ -19,7 +31,12 @@
     {
       "id": "pauls-defense",
       "title": "Paul's Defense",
-      "chapters": [10, 11, 12, 13],
+      "chapters": [
+        10,
+        11,
+        12,
+        13
+      ],
       "theme": "Apostolic authority",
       "summary": "Paul defends his apostleship against false teachers, boasts in weakness, describes visions and hardships, final warnings",
       "contentType": "epistle"

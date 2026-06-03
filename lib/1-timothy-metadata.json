@@ -1,9 +1,14 @@
 {
+  "bookTheme": "Sound Doctrine and Faithful Leadership",
   "divisions": [
     {
       "id": "church-order",
       "title": "Church Order",
-      "chapters": [1, 2, 3],
+      "chapters": [
+        1,
+        2,
+        3
+      ],
       "theme": "Sound doctrine and leadership",
       "summary": "Warning against false teachers, instructions for worship, qualifications for overseers and deacons",
       "contentType": "epistle"
@@ -11,7 +16,11 @@
     {
       "id": "personal-charge",
       "title": "Personal Charge",
-      "chapters": [4, 5, 6],
+      "chapters": [
+        4,
+        5,
+        6
+      ],
       "theme": "Godliness and faithfulness",
       "summary": "Training in godliness, care for widows and elders, warnings about wealth, guard what has been entrusted",
       "contentType": "epistle"

@@ -1,9 +1,14 @@
 {
+  "bookTheme": "The Righteousness of God Revealed",
   "divisions": [
     {
       "id": "sin-and-judgment",
       "title": "Sin and Judgment",
-      "chapters": [1, 2, 3],
+      "chapters": [
+        1,
+        2,
+        3
+      ],
       "theme": "Universal guilt",
       "summary": "Humanity's rebellion against God, both Gentiles and Jews are under sin, no one is righteous",
       "contentType": "epistle"
@@ -11,7 +16,10 @@
     {
       "id": "justification-by-faith",
       "title": "Justification by Faith",
-      "chapters": [4, 5],
+      "chapters": [
+        4,
+        5
+      ],
       "theme": "Abraham and grace",
       "summary": "Abraham justified by faith, peace with God through Christ, grace abounds over sin",
       "contentType": "epistle"
@@ -19,7 +27,11 @@
     {
       "id": "sanctification",
       "title": "Sanctification",
-      "chapters": [6, 7, 8],
+      "chapters": [
+        6,
+        7,
+        8
+      ],
       "theme": "Dead to sin, alive in the Spirit",
       "summary": "Died with Christ, struggle with sin, life in the Spirit, nothing can separate us from God's love",
       "contentType": "epistle"
@@ -27,7 +39,11 @@
     {
       "id": "israels-place",
       "title": "Israel's Place",
-      "chapters": [9, 10, 11],
+      "chapters": [
+        9,
+        10,
+        11
+      ],
       "theme": "Election and remnant",
       "summary": "God's sovereignty, Israel's rejection, Gentile inclusion, and future restoration of Israel",
       "contentType": "epistle"
@@ -35,7 +51,13 @@
     {
       "id": "practical-christian-living",
       "title": "Practical Christian Living",
-      "chapters": [12, 13, 14, 15, 16],
+      "chapters": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
       "theme": "Love and submission",
       "summary": "Living sacrifices, love, submission to authorities, accepting the weak and strong, greetings",
       "contentType": "epistle"

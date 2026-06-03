@@ -1,9 +1,14 @@
 {
+  "bookTheme": "Unity in Christ",
   "divisions": [
     {
       "id": "doctrine",
       "title": "Doctrine",
-      "chapters": [1, 2, 3],
+      "chapters": [
+        1,
+        2,
+        3
+      ],
       "theme": "Blessings in Christ",
       "summary": "Chosen in Christ, saved by grace through faith, mystery of Christ revealed, the church as his body",
       "contentType": "epistle"
@@ -11,7 +16,11 @@
     {
       "id": "practice",
       "title": "Practice",
-      "chapters": [4, 5, 6],
+      "chapters": [
+        4,
+        5,
+        6
+      ],
       "theme": "Walk worthy",
       "summary": "Unity in the body, new life in Christ, love like Christ, household relationships, armor of God",
       "contentType": "epistle"

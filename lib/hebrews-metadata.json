@@ -1,9 +1,15 @@
 {
+  "bookTheme": "The Supremacy of Christ Over All",
   "divisions": [
     {
       "id": "christ-superior-to-all",
       "title": "Christ Superior to All",
-      "chapters": [1, 2, 3, 4],
+      "chapters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "theme": "The supremacy of Christ",
       "summary": "Christ is superior to angels and Moses, the ultimate revelation of God, our great high priest who sympathizes with our weaknesses",
       "contentType": "epistle"
@@ -11,7 +17,11 @@
     {
       "id": "christs-priesthood",
       "title": "Christ's Priesthood",
-      "chapters": [5, 6, 7],
+      "chapters": [
+        5,
+        6,
+        7
+      ],
       "theme": "Melchizedek and eternal priesthood",
       "summary": "Jesus is a high priest in the order of Melchizedek, not Aaron, warning against falling away, hope as an anchor for the soul",
       "contentType": "epistle"
@@ -19,7 +29,11 @@
     {
       "id": "faith-and-sacrifice",
       "title": "Faith and Sacrifice",
-      "chapters": [8, 9, 10],
+      "chapters": [
+        8,
+        9,
+        10
+      ],
       "theme": "The new covenant and Christ's once-for-all sacrifice",
       "summary": "Jesus mediates a better covenant, entered the heavenly tabernacle with his own blood, his sacrifice perfects believers forever",
       "contentType": "epistle"
@@ -27,7 +41,11 @@
     {
       "id": "call-to-persevere",
       "title": "Call to Persevere",
-      "chapters": [11, 12, 13],
+      "chapters": [
+        11,
+        12,
+        13
+      ],
       "theme": "Faith, endurance, and holiness",
       "summary": "The hall of faith, fix eyes on Jesus who endured the cross, pursue holiness, offer sacrifices of praise to God",
       "contentType": "epistle"

@@ -311,6 +311,826 @@ const GENESIS_50_SECTIONS: DaySection[] = [
   { day: 'Joseph\'s Death', verseRange: [22, 26], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
 ];
 
+// EXODUS SECTIONS
+const EXODUS_1_SECTIONS: DaySection[] = [
+  { day: 'Israel Multiplies in Egypt', verseRange: [1, 7], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Oppression Under New Pharaoh', verseRange: [8, 14], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Hebrew Midwives Defy Pharaoh', verseRange: [15, 22], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const EXODUS_2_SECTIONS: DaySection[] = [
+  { day: 'Birth and Rescue of Moses', verseRange: [1, 10], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Moses Flees to Midian', verseRange: [11, 22], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'God Hears Israel\'s Groaning', verseRange: [23, 25], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const EXODUS_3_SECTIONS: DaySection[] = [
+  { day: 'The Burning Bush', verseRange: [1, 6], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'God\'s Commission to Moses', verseRange: [7, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Name "I AM"', verseRange: [13, 15], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Instructions for Deliverance', verseRange: [16, 22], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const EXODUS_4_SECTIONS: DaySection[] = [
+  { day: 'Three Signs for Moses', verseRange: [1, 9], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Moses\' Objections and Aaron', verseRange: [10, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Return to Egypt', verseRange: [18, 26], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Meeting with Elders', verseRange: [27, 31], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const EXODUS_5_SECTIONS: DaySection[] = [
+  { day: 'First Encounter with Pharaoh', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Increased Burdens', verseRange: [6, 14], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Complaints Against Moses', verseRange: [15, 23], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const EXODUS_6_SECTIONS: DaySection[] = [
+  { day: 'God Renews His Promise', verseRange: [1, 9], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Genealogy of Moses and Aaron', verseRange: [10, 27], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Aaron\'s Staff', verseRange: [28, 30], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const EXODUS_7_SECTIONS: DaySection[] = [
+  { day: 'Moses and Aaron\'s Commission', verseRange: [1, 7], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Staff Becomes Serpent', verseRange: [8, 13], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'First Plague: Water to Blood', verseRange: [14, 25], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const EXODUS_8_SECTIONS: DaySection[] = [
+  { day: 'Second Plague: Frogs', verseRange: [1, 15], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Third Plague: Gnats', verseRange: [16, 19], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Fourth Plague: Flies', verseRange: [20, 32], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const EXODUS_9_SECTIONS: DaySection[] = [
+  { day: 'Fifth Plague: Livestock Disease', verseRange: [1, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Sixth Plague: Boils', verseRange: [8, 12], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Seventh Plague: Hail', verseRange: [13, 35], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const EXODUS_10_SECTIONS: DaySection[] = [
+  { day: 'Eighth Plague: Locusts', verseRange: [1, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Ninth Plague: Darkness', verseRange: [21, 29], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const EXODUS_11_SECTIONS: DaySection[] = [
+  { day: 'Announcement of Final Plague', verseRange: [1, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const EXODUS_12_SECTIONS: DaySection[] = [
+  { day: 'Institution of Passover', verseRange: [1, 13], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Festival of Unleavened Bread', verseRange: [14, 20], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Tenth Plague: Death of Firstborn', verseRange: [21, 30], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Exodus Begins', verseRange: [31, 42], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Passover Regulations', verseRange: [43, 51], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const EXODUS_13_SECTIONS: DaySection[] = [
+  { day: 'Consecration of Firstborn', verseRange: [1, 16], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Pillar of Cloud and Fire', verseRange: [17, 22], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const EXODUS_14_SECTIONS: DaySection[] = [
+  { day: 'Pharaoh Pursues Israel', verseRange: [1, 9], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Fear and Faith', verseRange: [10, 14], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Crossing the Red Sea', verseRange: [15, 25], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Destruction of Egyptian Army', verseRange: [26, 31], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EXODUS_15_SECTIONS: DaySection[] = [
+  { day: 'Song of Moses', verseRange: [1, 18], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Song of Miriam', verseRange: [19, 21], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Bitter Water Made Sweet', verseRange: [22, 27], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const EXODUS_16_SECTIONS: DaySection[] = [
+  { day: 'Grumbling in the Wilderness', verseRange: [1, 3], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Promise of Manna and Quail', verseRange: [4, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Gathering Manna', verseRange: [13, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Sabbath Rest', verseRange: [22, 30], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Manna Preserved', verseRange: [31, 36], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EXODUS_17_SECTIONS: DaySection[] = [
+  { day: 'Water from the Rock', verseRange: [1, 7], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Victory over Amalek', verseRange: [8, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const EXODUS_18_SECTIONS: DaySection[] = [
+  { day: 'Jethro Visits Moses', verseRange: [1, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Jethro\'s Counsel', verseRange: [13, 27], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const EXODUS_19_SECTIONS: DaySection[] = [
+  { day: 'Arrival at Sinai', verseRange: [1, 2], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Covenant Proposal', verseRange: [3, 8], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Consecration of the People', verseRange: [9, 15], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Lord Descends on Sinai', verseRange: [16, 25], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const EXODUS_20_SECTIONS: DaySection[] = [
+  { day: 'The Ten Commandments', verseRange: [1, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The People\'s Fear', verseRange: [18, 21], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Laws about Worship', verseRange: [22, 26], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const EXODUS_21_SECTIONS: DaySection[] = [
+  { day: 'Laws about Servants', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Laws about Violence', verseRange: [12, 27], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Laws about Property Damage', verseRange: [28, 36], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const EXODUS_22_SECTIONS: DaySection[] = [
+  { day: 'Laws about Theft and Restitution', verseRange: [1, 15], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Social and Moral Laws', verseRange: [16, 31], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const EXODUS_23_SECTIONS: DaySection[] = [
+  { day: 'Laws about Justice', verseRange: [1, 9], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Sabbath and Festival Laws', verseRange: [10, 19], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Angel and the Promise', verseRange: [20, 33], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EXODUS_24_SECTIONS: DaySection[] = [
+  { day: 'Covenant Ceremony', verseRange: [1, 8], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Moses on the Mountain', verseRange: [9, 18], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const EXODUS_25_SECTIONS: DaySection[] = [
+  { day: 'Offerings for the Tabernacle', verseRange: [1, 9], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Ark of the Covenant', verseRange: [10, 22], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Table and Lampstand', verseRange: [23, 40], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const EXODUS_26_SECTIONS: DaySection[] = [
+  { day: 'Tabernacle Curtains', verseRange: [1, 14], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Framework and Veil', verseRange: [15, 37], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const EXODUS_27_SECTIONS: DaySection[] = [
+  { day: 'The Altar of Burnt Offering', verseRange: [1, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Courtyard', verseRange: [9, 19], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Oil for the Lampstand', verseRange: [20, 21], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const EXODUS_28_SECTIONS: DaySection[] = [
+  { day: 'Garments for the Priests', verseRange: [1, 5], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Ephod', verseRange: [6, 14], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'The Breastpiece', verseRange: [15, 30], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Other Priestly Garments', verseRange: [31, 43], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EXODUS_29_SECTIONS: DaySection[] = [
+  { day: 'Consecration of Priests', verseRange: [1, 9], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Offerings for Ordination', verseRange: [10, 28], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Daily Offerings', verseRange: [29, 37], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'God\'s Promise to Dwell', verseRange: [38, 46], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const EXODUS_30_SECTIONS: DaySection[] = [
+  { day: 'Altar of Incense', verseRange: [1, 10], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Census Tax', verseRange: [11, 16], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Bronze Basin', verseRange: [17, 21], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Anointing Oil and Incense', verseRange: [22, 38], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const EXODUS_31_SECTIONS: DaySection[] = [
+  { day: 'Craftsmen for the Tabernacle', verseRange: [1, 11], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'The Sabbath Sign', verseRange: [12, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Two Tablets', verseRange: [18, 18], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const EXODUS_32_SECTIONS: DaySection[] = [
+  { day: 'The Golden Calf', verseRange: [1, 6], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'God\'s Anger and Moses\' Intercession', verseRange: [7, 14], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Moses Destroys the Calf', verseRange: [15, 24], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Levites\' Zeal and Judgment', verseRange: [25, 29], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Moses\' Second Intercession', verseRange: [30, 35], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const EXODUS_33_SECTIONS: DaySection[] = [
+  { day: 'The Tent Outside the Camp', verseRange: [1, 11], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Moses\' Request for God\'s Presence', verseRange: [12, 17], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'God\'s Glory Passes By', verseRange: [18, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const EXODUS_34_SECTIONS: DaySection[] = [
+  { day: 'New Tablets', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Covenant Renewed', verseRange: [10, 28], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Moses\' Radiant Face', verseRange: [29, 35], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const EXODUS_35_SECTIONS: DaySection[] = [
+  { day: 'Sabbath Regulations', verseRange: [1, 3], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Offerings for the Tabernacle', verseRange: [4, 29], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Bezalel and Oholiab', verseRange: [30, 35], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const EXODUS_36_SECTIONS: DaySection[] = [
+  { day: 'Abundant Contributions', verseRange: [1, 7], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Construction of the Tabernacle', verseRange: [8, 38], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const EXODUS_37_SECTIONS: DaySection[] = [
+  { day: 'The Ark', verseRange: [1, 9], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Table and Lampstand', verseRange: [10, 24], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Altar of Incense and Anointing Oil', verseRange: [25, 29], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const EXODUS_38_SECTIONS: DaySection[] = [
+  { day: 'Altar and Basin', verseRange: [1, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Courtyard', verseRange: [9, 20], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Materials Used', verseRange: [21, 31], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const EXODUS_39_SECTIONS: DaySection[] = [
+  { day: 'Priestly Garments', verseRange: [1, 31], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Completion of the Tabernacle', verseRange: [32, 43], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const EXODUS_40_SECTIONS: DaySection[] = [
+  { day: 'Setting Up the Tabernacle', verseRange: [1, 33], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'The Glory of the Lord Fills', verseRange: [34, 38], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+// LEVITICUS SECTIONS
+const LEVITICUS_1_SECTIONS: DaySection[] = [
+  { day: 'Burnt Offering from Herd', verseRange: [1, 9], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Burnt Offering from Flock or Birds', verseRange: [10, 17], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const LEVITICUS_2_SECTIONS: DaySection[] = [
+  { day: 'Grain Offering Types', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Regulations for Grain Offerings', verseRange: [11, 16], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const LEVITICUS_3_SECTIONS: DaySection[] = [
+  { day: 'Peace Offering from Herd', verseRange: [1, 5], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Peace Offering from Flock', verseRange: [6, 17], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const LEVITICUS_4_SECTIONS: DaySection[] = [
+  { day: 'Sin Offering for Priest', verseRange: [1, 12], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Sin Offering for Community', verseRange: [13, 21], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Sin Offering for Leader', verseRange: [22, 26], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Sin Offering for Individual', verseRange: [27, 35], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const LEVITICUS_5_SECTIONS: DaySection[] = [
+  { day: 'Cases Requiring Sin Offering', verseRange: [1, 13], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Guilt Offering', verseRange: [14, 19], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const LEVITICUS_6_SECTIONS: DaySection[] = [
+  { day: 'Guilt Offering for Deception', verseRange: [1, 7], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Law of Burnt Offering', verseRange: [8, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Law of Grain Offering', verseRange: [14, 23], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Law of Sin Offering', verseRange: [24, 30], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const LEVITICUS_7_SECTIONS: DaySection[] = [
+  { day: 'Law of Guilt Offering', verseRange: [1, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Law of Peace Offering', verseRange: [11, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Prohibition of Fat and Blood', verseRange: [22, 27], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Priests\' Portion', verseRange: [28, 38], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const LEVITICUS_8_SECTIONS: DaySection[] = [
+  { day: 'Consecration Ceremony Begins', verseRange: [1, 13], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Offerings for Ordination', verseRange: [14, 30], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Seven Days of Ordination', verseRange: [31, 36], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const LEVITICUS_9_SECTIONS: DaySection[] = [
+  { day: 'First Offerings by Aaron', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Offerings for the People', verseRange: [15, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Glory of the Lord Appears', verseRange: [22, 24], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const LEVITICUS_10_SECTIONS: DaySection[] = [
+  { day: 'Death of Nadab and Abihu', verseRange: [1, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Regulations for Priests', verseRange: [8, 15], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Sin Offering Controversy', verseRange: [16, 20], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const LEVITICUS_11_SECTIONS: DaySection[] = [
+  { day: 'Clean and Unclean Land Animals', verseRange: [1, 8], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Water Creatures and Birds', verseRange: [9, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Swarming Creatures', verseRange: [24, 38], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Purpose of Dietary Laws', verseRange: [39, 47], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const LEVITICUS_12_SECTIONS: DaySection[] = [
+  { day: 'Purification after Childbirth', verseRange: [1, 8], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const LEVITICUS_13_SECTIONS: DaySection[] = [
+  { day: 'Laws about Skin Diseases', verseRange: [1, 28], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Laws about Baldness', verseRange: [29, 46], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Laws about Mildew in Fabric', verseRange: [47, 59], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const LEVITICUS_14_SECTIONS: DaySection[] = [
+  { day: 'Cleansing from Skin Disease', verseRange: [1, 32], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Laws about Mildew in Houses', verseRange: [33, 57], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const LEVITICUS_15_SECTIONS: DaySection[] = [
+  { day: 'Male Discharges', verseRange: [1, 18], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Female Discharges', verseRange: [19, 33], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const LEVITICUS_16_SECTIONS: DaySection[] = [
+  { day: 'Preparation for Day of Atonement', verseRange: [1, 10], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'The Atonement Ritual', verseRange: [11, 22], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Annual Observance', verseRange: [23, 34], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const LEVITICUS_17_SECTIONS: DaySection[] = [
+  { day: 'One Place of Sacrifice', verseRange: [1, 9], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Prohibition Against Eating Blood', verseRange: [10, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const LEVITICUS_18_SECTIONS: DaySection[] = [
+  { day: 'Introduction to Sexual Laws', verseRange: [1, 5], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Unlawful Sexual Relations', verseRange: [6, 23], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Warning Against Defilement', verseRange: [24, 30], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const LEVITICUS_19_SECTIONS: DaySection[] = [
+  { day: 'Call to Holiness', verseRange: [1, 4], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Various Moral and Social Laws', verseRange: [5, 18], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'More Holiness Laws', verseRange: [19, 37], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const LEVITICUS_20_SECTIONS: DaySection[] = [
+  { day: 'Penalties for Molech Worship', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Penalties for Sexual Sins', verseRange: [6, 21], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Call to Separation', verseRange: [22, 27], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const LEVITICUS_21_SECTIONS: DaySection[] = [
+  { day: 'Rules for Priests', verseRange: [1, 9], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Rules for High Priest', verseRange: [10, 15], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Priestly Qualifications', verseRange: [16, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const LEVITICUS_22_SECTIONS: DaySection[] = [
+  { day: 'Priests and Sacred Offerings', verseRange: [1, 16], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Acceptable Offerings', verseRange: [17, 33], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const LEVITICUS_23_SECTIONS: DaySection[] = [
+  { day: 'The Sabbath', verseRange: [1, 3], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Passover and Unleavened Bread', verseRange: [4, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Firstfruits and Weeks', verseRange: [9, 22], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Trumpets, Atonement, Booths', verseRange: [23, 44], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const LEVITICUS_24_SECTIONS: DaySection[] = [
+  { day: 'Oil and Bread in the Tabernacle', verseRange: [1, 9], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Blasphemy and Retaliation Laws', verseRange: [10, 23], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const LEVITICUS_25_SECTIONS: DaySection[] = [
+  { day: 'The Sabbath Year', verseRange: [1, 7], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Jubilee Year', verseRange: [8, 22], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Redemption of Property', verseRange: [23, 34], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Treatment of the Poor', verseRange: [35, 55], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const LEVITICUS_26_SECTIONS: DaySection[] = [
+  { day: 'Blessings for Obedience', verseRange: [1, 13], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Curses for Disobedience', verseRange: [14, 39], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Promise of Restoration', verseRange: [40, 46], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const LEVITICUS_27_SECTIONS: DaySection[] = [
+  { day: 'Vows and Valuations', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Redemption of Property', verseRange: [14, 25], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Things Not Redeemable', verseRange: [26, 34], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+// NUMBERS SECTIONS
+const NUMBERS_1_SECTIONS: DaySection[] = [
+  { day: 'The Census Command', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Tribal Leaders', verseRange: [5, 16], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Census Results', verseRange: [17, 46], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Levites Exempted', verseRange: [47, 54], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const NUMBERS_2_SECTIONS: DaySection[] = [
+  { day: 'Camp Arrangement East', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Camp Arrangement South', verseRange: [10, 16], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Camp Arrangement West and North', verseRange: [17, 31], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Summary', verseRange: [32, 34], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const NUMBERS_3_SECTIONS: DaySection[] = [
+  { day: 'Aaron\'s Sons', verseRange: [1, 4], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Duties of Levites', verseRange: [5, 13], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Levite Clans Numbered', verseRange: [14, 39], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Redemption of Firstborn', verseRange: [40, 51], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const NUMBERS_4_SECTIONS: DaySection[] = [
+  { day: 'Kohathites\' Duties', verseRange: [1, 20], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Gershonites\' Duties', verseRange: [21, 28], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Merarites\' Duties', verseRange: [29, 33], color: 'bg-teal-50 dark:bg-teal-950/20', borderColor: 'border-teal-400' },
+  { day: 'Census of Levite Clans', verseRange: [34, 49], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const NUMBERS_5_SECTIONS: DaySection[] = [
+  { day: 'Purity of the Camp', verseRange: [1, 4], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Restitution for Wrongs', verseRange: [5, 10], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Test for Adultery', verseRange: [11, 31], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const NUMBERS_6_SECTIONS: DaySection[] = [
+  { day: 'Nazirite Vow', verseRange: [1, 21], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Aaronic Blessing', verseRange: [22, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const NUMBERS_7_SECTIONS: DaySection[] = [
+  { day: 'Wagons for Levites', verseRange: [1, 9], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Tribal Offerings Days 1-6', verseRange: [10, 47], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Tribal Offerings Days 7-12', verseRange: [48, 83], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Summary and Voice from Ark', verseRange: [84, 89], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const NUMBERS_8_SECTIONS: DaySection[] = [
+  { day: 'Setting Up the Lamps', verseRange: [1, 4], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Consecration of Levites', verseRange: [5, 22], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Levite Service Years', verseRange: [23, 26], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const NUMBERS_9_SECTIONS: DaySection[] = [
+  { day: 'Second Passover', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Cloud Guides Israel', verseRange: [15, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const NUMBERS_10_SECTIONS: DaySection[] = [
+  { day: 'Silver Trumpets', verseRange: [1, 10], color: 'bg-silver-50 dark:bg-gray-900/20', borderColor: 'border-gray-400' },
+  { day: 'Departure from Sinai', verseRange: [11, 28], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Hobab and the Ark', verseRange: [29, 36], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const NUMBERS_11_SECTIONS: DaySection[] = [
+  { day: 'Complaints and Fire', verseRange: [1, 3], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Craving for Meat', verseRange: [4, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Seventy Elders', verseRange: [16, 30], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Quail and Plague', verseRange: [31, 35], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const NUMBERS_12_SECTIONS: DaySection[] = [
+  { day: 'Miriam and Aaron Oppose Moses', verseRange: [1, 3], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'God Defends Moses', verseRange: [4, 9], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Miriam\'s Leprosy', verseRange: [10, 16], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const NUMBERS_13_SECTIONS: DaySection[] = [
+  { day: 'Twelve Spies Sent', verseRange: [1, 16], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Exploring Canaan', verseRange: [17, 25], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Report of the Spies', verseRange: [26, 33], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const NUMBERS_14_SECTIONS: DaySection[] = [
+  { day: 'People Rebel', verseRange: [1, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Moses Intercedes', verseRange: [11, 19], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'God\'s Judgment', verseRange: [20, 35], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Failed Attempt to Enter', verseRange: [36, 45], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const NUMBERS_15_SECTIONS: DaySection[] = [
+  { day: 'Offerings for the Future', verseRange: [1, 16], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Sin Offerings', verseRange: [17, 31], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Sabbath Breaker Stoned', verseRange: [32, 36], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Tassels as Reminders', verseRange: [37, 41], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const NUMBERS_16_SECTIONS: DaySection[] = [
+  { day: 'Korah\'s Rebellion', verseRange: [1, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Dathan and Abiram', verseRange: [12, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Test', verseRange: [16, 24], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Earth Swallows Rebels', verseRange: [25, 35], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Plague and Atonement', verseRange: [36, 50], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const NUMBERS_17_SECTIONS: DaySection[] = [
+  { day: 'Aaron\'s Staff Buds', verseRange: [1, 13], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const NUMBERS_18_SECTIONS: DaySection[] = [
+  { day: 'Duties of Priests and Levites', verseRange: [1, 7], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Offerings for Priests', verseRange: [8, 20], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Tithes for Levites', verseRange: [21, 32], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const NUMBERS_19_SECTIONS: DaySection[] = [
+  { day: 'Red Heifer Ritual', verseRange: [1, 10], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Water of Purification', verseRange: [11, 22], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const NUMBERS_20_SECTIONS: DaySection[] = [
+  { day: 'Miriam Dies, Water from Rock', verseRange: [1, 13], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Edom Refuses Passage', verseRange: [14, 21], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Aaron\'s Death', verseRange: [22, 29], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const NUMBERS_21_SECTIONS: DaySection[] = [
+  { day: 'Victory over Canaanites', verseRange: [1, 3], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Bronze Serpent', verseRange: [4, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Journey Continues', verseRange: [10, 20], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Defeat of Sihon and Og', verseRange: [21, 35], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const NUMBERS_22_SECTIONS: DaySection[] = [
+  { day: 'Balak Summons Balaam', verseRange: [1, 14], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Second Summons', verseRange: [15, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Balaam\'s Donkey Speaks', verseRange: [22, 35], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Balaam Meets Balak', verseRange: [36, 41], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const NUMBERS_23_SECTIONS: DaySection[] = [
+  { day: 'Balaam\'s First Oracle', verseRange: [1, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Balaam\'s Second Oracle', verseRange: [13, 26], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Balaam\'s Third Oracle', verseRange: [27, 30], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const NUMBERS_24_SECTIONS: DaySection[] = [
+  { day: 'Balaam\'s Fourth Oracle', verseRange: [1, 9], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Balaam\'s Final Oracles', verseRange: [10, 25], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const NUMBERS_25_SECTIONS: DaySection[] = [
+  { day: 'Moabite Women Seduce Israel', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Phinehas\' Zeal', verseRange: [6, 18], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const NUMBERS_26_SECTIONS: DaySection[] = [
+  { day: 'Second Census Begins', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Census of Tribes', verseRange: [5, 51], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+  { day: 'Land Division Instructions', verseRange: [52, 56], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Levites Counted Separately', verseRange: [57, 65], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const NUMBERS_27_SECTIONS: DaySection[] = [
+  { day: 'Daughters of Zelophehad', verseRange: [1, 11], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Joshua to Succeed Moses', verseRange: [12, 23], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const NUMBERS_28_SECTIONS: DaySection[] = [
+  { day: 'Daily and Sabbath Offerings', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Monthly and Festival Offerings', verseRange: [11, 31], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+];
+
+const NUMBERS_29_SECTIONS: DaySection[] = [
+  { day: 'Offerings for Seventh Month', verseRange: [1, 11], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Offerings for Feast of Booths', verseRange: [12, 40], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const NUMBERS_30_SECTIONS: DaySection[] = [
+  { day: 'Vows by Men and Unmarried Women', verseRange: [1, 2], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Vows by Married Women', verseRange: [3, 16], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+const NUMBERS_31_SECTIONS: DaySection[] = [
+  { day: 'War Against Midian', verseRange: [1, 12], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Purification After Battle', verseRange: [13, 24], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Division of Plunder', verseRange: [25, 54], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const NUMBERS_32_SECTIONS: DaySection[] = [
+  { day: 'Reuben and Gad Request Land', verseRange: [1, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Moses\' Conditional Agreement', verseRange: [16, 27], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Allocation East of Jordan', verseRange: [28, 42], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const NUMBERS_33_SECTIONS: DaySection[] = [
+  { day: 'Journey from Egypt to Sinai', verseRange: [1, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Journey from Sinai to Canaan', verseRange: [16, 49], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Instructions for Conquest', verseRange: [50, 56], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const NUMBERS_34_SECTIONS: DaySection[] = [
+  { day: 'Boundaries of Canaan', verseRange: [1, 15], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Leaders to Divide the Land', verseRange: [16, 29], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const NUMBERS_35_SECTIONS: DaySection[] = [
+  { day: 'Cities for Levites', verseRange: [1, 8], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Cities of Refuge', verseRange: [9, 34], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const NUMBERS_36_SECTIONS: DaySection[] = [
+  { day: 'Inheritance for Women', verseRange: [1, 13], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+];
+
+// DEUTERONOMY SECTIONS
+const DEUTERONOMY_1_SECTIONS: DaySection[] = [
+  { day: 'Introduction', verseRange: [1, 5], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Command to Leave Horeb', verseRange: [6, 8], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Appointment of Leaders', verseRange: [9, 18], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Failed Entry into Canaan', verseRange: [19, 46], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const DEUTERONOMY_2_SECTIONS: DaySection[] = [
+  { day: 'Journey Through Edom and Moab', verseRange: [1, 23], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Defeat of Sihon', verseRange: [24, 37], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const DEUTERONOMY_3_SECTIONS: DaySection[] = [
+  { day: 'Defeat of Og', verseRange: [1, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Land East of Jordan Divided', verseRange: [12, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Moses Forbidden to Enter', verseRange: [21, 29], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const DEUTERONOMY_4_SECTIONS: DaySection[] = [
+  { day: 'Obedience Commanded', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Warning Against Idolatry', verseRange: [15, 31], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Lord Alone is God', verseRange: [32, 40], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Cities of Refuge', verseRange: [41, 43], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Introduction to the Law', verseRange: [44, 49], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const DEUTERONOMY_5_SECTIONS: DaySection[] = [
+  { day: 'The Ten Commandments', verseRange: [1, 21], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Moses as Mediator', verseRange: [22, 33], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const DEUTERONOMY_6_SECTIONS: DaySection[] = [
+  { day: 'The Greatest Commandment', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Caution Against Forgetting', verseRange: [10, 19], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Teaching Children', verseRange: [20, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const DEUTERONOMY_7_SECTIONS: DaySection[] = [
+  { day: 'Destroy the Nations', verseRange: [1, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Blessings for Obedience', verseRange: [12, 26], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const DEUTERONOMY_8_SECTIONS: DaySection[] = [
+  { day: 'Remember the Wilderness', verseRange: [1, 10], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Warning Against Pride', verseRange: [11, 20], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const DEUTERONOMY_9_SECTIONS: DaySection[] = [
+  { day: 'Not Because of Righteousness', verseRange: [1, 6], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Golden Calf Remembered', verseRange: [7, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Moses\' Intercession', verseRange: [22, 29], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const DEUTERONOMY_10_SECTIONS: DaySection[] = [
+  { day: 'New Tablets and the Ark', verseRange: [1, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Fear and Love the Lord', verseRange: [12, 22], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const DEUTERONOMY_11_SECTIONS: DaySection[] = [
+  { day: 'Love and Obey the Lord', verseRange: [1, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Blessings and Curses', verseRange: [13, 25], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Blessings on Gerizim and Ebal', verseRange: [26, 32], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const DEUTERONOMY_12_SECTIONS: DaySection[] = [
+  { day: 'One Place of Worship', verseRange: [1, 14], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Eating Meat', verseRange: [15, 28], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Warning Against Idolatry', verseRange: [29, 32], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const DEUTERONOMY_13_SECTIONS: DaySection[] = [
+  { day: 'False Prophets', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Family Members Who Entice', verseRange: [6, 11], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Apostate Cities', verseRange: [12, 18], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const DEUTERONOMY_14_SECTIONS: DaySection[] = [
+  { day: 'Clean and Unclean Food', verseRange: [1, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Tithes', verseRange: [22, 29], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const DEUTERONOMY_15_SECTIONS: DaySection[] = [
+  { day: 'Year of Release', verseRange: [1, 11], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Hebrew Servants', verseRange: [12, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Firstborn Animals', verseRange: [19, 23], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const DEUTERONOMY_16_SECTIONS: DaySection[] = [
+  { day: 'Passover', verseRange: [1, 8], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Feast of Weeks and Booths', verseRange: [9, 17], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Judges and Justice', verseRange: [18, 20], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Forbidden Worship', verseRange: [21, 22], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const DEUTERONOMY_17_SECTIONS: DaySection[] = [
+  { day: 'Acceptable Sacrifices', verseRange: [1, 1], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Idolaters Must Die', verseRange: [2, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Hard Cases for Priests', verseRange: [8, 13], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Laws Concerning Kings', verseRange: [14, 20], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const DEUTERONOMY_18_SECTIONS: DaySection[] = [
+  { day: 'Provision for Levites', verseRange: [1, 8], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Detestable Practices', verseRange: [9, 14], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'The Prophet Like Moses', verseRange: [15, 22], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const DEUTERONOMY_19_SECTIONS: DaySection[] = [
+  { day: 'Cities of Refuge', verseRange: [1, 13], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Boundary Stones', verseRange: [14, 14], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Witnesses', verseRange: [15, 21], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const DEUTERONOMY_20_SECTIONS: DaySection[] = [
+  { day: 'Laws for Warfare', verseRange: [1, 9], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Distant Cities', verseRange: [10, 15], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Cities in Canaan', verseRange: [16, 18], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Trees in Siege', verseRange: [19, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const DEUTERONOMY_21_SECTIONS: DaySection[] = [
+  { day: 'Unsolved Murder', verseRange: [1, 9], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Female Captives', verseRange: [10, 14], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Rights of Firstborn', verseRange: [15, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Rebellious Son', verseRange: [18, 21], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Hanged on a Tree', verseRange: [22, 23], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const DEUTERONOMY_22_SECTIONS: DaySection[] = [
+  { day: 'Various Laws', verseRange: [1, 12], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Laws About Sexual Purity', verseRange: [13, 30], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const DEUTERONOMY_23_SECTIONS: DaySection[] = [
+  { day: 'Exclusion from Assembly', verseRange: [1, 8], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Cleanliness in Camp', verseRange: [9, 14], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Miscellaneous Laws', verseRange: [15, 25], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
+const DEUTERONOMY_24_SECTIONS: DaySection[] = [
+  { day: 'Laws About Divorce', verseRange: [1, 4], color: 'bg-pink-50 dark:bg-pink-950/20', borderColor: 'border-pink-400' },
+  { day: 'Miscellaneous Laws', verseRange: [5, 22], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const DEUTERONOMY_25_SECTIONS: DaySection[] = [
+  { day: 'Flogging', verseRange: [1, 3], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Oxen and Levirate Marriage', verseRange: [4, 10], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'Various Laws', verseRange: [11, 16], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Blot Out Amalek', verseRange: [17, 19], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const DEUTERONOMY_26_SECTIONS: DaySection[] = [
+  { day: 'Firstfruits and Tithes', verseRange: [1, 15], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
+  { day: 'Covenant Reaffirmed', verseRange: [16, 19], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const DEUTERONOMY_27_SECTIONS: DaySection[] = [
+  { day: 'The Altar on Mount Ebal', verseRange: [1, 10], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Curses from Mount Ebal', verseRange: [11, 26], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const DEUTERONOMY_28_SECTIONS: DaySection[] = [
+  { day: 'Blessings for Obedience', verseRange: [1, 14], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Curses for Disobedience', verseRange: [15, 68], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const DEUTERONOMY_29_SECTIONS: DaySection[] = [
+  { day: 'Review of God\'s Faithfulness', verseRange: [1, 9], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Covenant in Moab', verseRange: [10, 15], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Warning Against Idolatry', verseRange: [16, 29], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const DEUTERONOMY_30_SECTIONS: DaySection[] = [
+  { day: 'Restoration Promised', verseRange: [1, 10], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+  { day: 'The Choice of Life or Death', verseRange: [11, 20], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const DEUTERONOMY_31_SECTIONS: DaySection[] = [
+  { day: 'Joshua Commissioned', verseRange: [1, 8], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+  { day: 'Reading of the Law', verseRange: [9, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Israel\'s Rebellion Predicted', verseRange: [14, 23], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'The Law Placed in the Ark', verseRange: [24, 29], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const DEUTERONOMY_32_SECTIONS: DaySection[] = [
+  { day: 'Song of Moses: Introduction', verseRange: [1, 6], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'God\'s Care for Israel', verseRange: [7, 14], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Israel\'s Rebellion', verseRange: [15, 25], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'God\'s Judgment and Mercy', verseRange: [26, 43], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'Moses to Die on Mount Nebo', verseRange: [44, 52], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+];
+
+const DEUTERONOMY_33_SECTIONS: DaySection[] = [
+  { day: 'Introduction to Blessings', verseRange: [1, 5], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Blessings on Tribes', verseRange: [6, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Conclusion', verseRange: [26, 29], color: 'bg-emerald-50 dark:bg-emerald-950/20', borderColor: 'border-emerald-400' },
+];
+
+const DEUTERONOMY_34_SECTIONS: DaySection[] = [
+  { day: 'Moses Views the Promised Land', verseRange: [1, 4], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+  { day: 'Death of Moses', verseRange: [5, 8], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Joshua Succeeds Moses', verseRange: [9, 12], color: 'bg-indigo-50 dark:bg-indigo-950/20', borderColor: 'border-indigo-400' },
+];
+
 // MARK SECTIONS
 const MARK_1_SECTIONS: DaySection[] = [
   { day: 'John the Baptist', verseRange: [1, 8], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
@@ -2010,9 +2830,13 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     return () => window.removeEventListener('keydown', handleCopy);
   }, [selectedVerses, verses]);
 
-  // Check if this is Genesis 1-50, Mark 1-16, Matthew 1-28, Luke 1-24, John 1-21, Acts 1-28, Romans 1-16, 1 Corinthians 1-16, 2 Corinthians 1-13, Galatians 1-6, Ephesians 1-6, Philippians 1-4, Colossians 1-4, 1 Thessalonians 1-5, 2 Thessalonians 1-3, 1 Timothy 1-6, 2 Timothy 1-4, Titus 1-3, Philemon 1, Hebrews 1-13, James 1-5, 1 Peter 1-5, 2 Peter 1-3, 1 John 1-5, 2 John 1, 3 John 1, Jude 1, or Revelation 4-5, 12, 21-22
+  // Check if this is Genesis 1-50, Exodus 1-40, Leviticus 1-27, Numbers 1-36, Deuteronomy 1-34, Mark 1-16, Matthew 1-28, Luke 1-24, John 1-21, Acts 1-28, Romans 1-16, 1 Corinthians 1-16, 2 Corinthians 1-13, Galatians 1-6, Ephesians 1-6, Philippians 1-4, Colossians 1-4, 1 Thessalonians 1-5, 2 Thessalonians 1-3, 1 Timothy 1-6, 2 Timothy 1-4, Titus 1-3, Philemon 1, Hebrews 1-13, James 1-5, 1 Peter 1-5, 2 Peter 1-3, 1 John 1-5, 2 John 1, 3 John 1, Jude 1, or Revelation 4-5, 12, 21-22
   const hasStructuredSections =
     (actualBook === 'genesis' && actualChapter >= 1 && actualChapter <= 50) ||
+    (actualBook === 'exodus' && actualChapter >= 1 && actualChapter <= 40) ||
+    (actualBook === 'leviticus' && actualChapter >= 1 && actualChapter <= 27) ||
+    (actualBook === 'numbers' && actualChapter >= 1 && actualChapter <= 36) ||
+    (actualBook === 'deuteronomy' && actualChapter >= 1 && actualChapter <= 34) ||
     (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
     (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
     (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
@@ -2195,6 +3019,429 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 50:
           sections = GENESIS_50_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'exodus') {
+      switch (actualChapter) {
+        case 1:
+          sections = EXODUS_1_SECTIONS;
+          break;
+        case 2:
+          sections = EXODUS_2_SECTIONS;
+          break;
+        case 3:
+          sections = EXODUS_3_SECTIONS;
+          break;
+        case 4:
+          sections = EXODUS_4_SECTIONS;
+          break;
+        case 5:
+          sections = EXODUS_5_SECTIONS;
+          break;
+        case 6:
+          sections = EXODUS_6_SECTIONS;
+          break;
+        case 7:
+          sections = EXODUS_7_SECTIONS;
+          break;
+        case 8:
+          sections = EXODUS_8_SECTIONS;
+          break;
+        case 9:
+          sections = EXODUS_9_SECTIONS;
+          break;
+        case 10:
+          sections = EXODUS_10_SECTIONS;
+          break;
+        case 11:
+          sections = EXODUS_11_SECTIONS;
+          break;
+        case 12:
+          sections = EXODUS_12_SECTIONS;
+          break;
+        case 13:
+          sections = EXODUS_13_SECTIONS;
+          break;
+        case 14:
+          sections = EXODUS_14_SECTIONS;
+          break;
+        case 15:
+          sections = EXODUS_15_SECTIONS;
+          break;
+        case 16:
+          sections = EXODUS_16_SECTIONS;
+          break;
+        case 17:
+          sections = EXODUS_17_SECTIONS;
+          break;
+        case 18:
+          sections = EXODUS_18_SECTIONS;
+          break;
+        case 19:
+          sections = EXODUS_19_SECTIONS;
+          break;
+        case 20:
+          sections = EXODUS_20_SECTIONS;
+          break;
+        case 21:
+          sections = EXODUS_21_SECTIONS;
+          break;
+        case 22:
+          sections = EXODUS_22_SECTIONS;
+          break;
+        case 23:
+          sections = EXODUS_23_SECTIONS;
+          break;
+        case 24:
+          sections = EXODUS_24_SECTIONS;
+          break;
+        case 25:
+          sections = EXODUS_25_SECTIONS;
+          break;
+        case 26:
+          sections = EXODUS_26_SECTIONS;
+          break;
+        case 27:
+          sections = EXODUS_27_SECTIONS;
+          break;
+        case 28:
+          sections = EXODUS_28_SECTIONS;
+          break;
+        case 29:
+          sections = EXODUS_29_SECTIONS;
+          break;
+        case 30:
+          sections = EXODUS_30_SECTIONS;
+          break;
+        case 31:
+          sections = EXODUS_31_SECTIONS;
+          break;
+        case 32:
+          sections = EXODUS_32_SECTIONS;
+          break;
+        case 33:
+          sections = EXODUS_33_SECTIONS;
+          break;
+        case 34:
+          sections = EXODUS_34_SECTIONS;
+          break;
+        case 35:
+          sections = EXODUS_35_SECTIONS;
+          break;
+        case 36:
+          sections = EXODUS_36_SECTIONS;
+          break;
+        case 37:
+          sections = EXODUS_37_SECTIONS;
+          break;
+        case 38:
+          sections = EXODUS_38_SECTIONS;
+          break;
+        case 39:
+          sections = EXODUS_39_SECTIONS;
+          break;
+        case 40:
+          sections = EXODUS_40_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'leviticus') {
+      switch (actualChapter) {
+        case 1:
+          sections = LEVITICUS_1_SECTIONS;
+          break;
+        case 2:
+          sections = LEVITICUS_2_SECTIONS;
+          break;
+        case 3:
+          sections = LEVITICUS_3_SECTIONS;
+          break;
+        case 4:
+          sections = LEVITICUS_4_SECTIONS;
+          break;
+        case 5:
+          sections = LEVITICUS_5_SECTIONS;
+          break;
+        case 6:
+          sections = LEVITICUS_6_SECTIONS;
+          break;
+        case 7:
+          sections = LEVITICUS_7_SECTIONS;
+          break;
+        case 8:
+          sections = LEVITICUS_8_SECTIONS;
+          break;
+        case 9:
+          sections = LEVITICUS_9_SECTIONS;
+          break;
+        case 10:
+          sections = LEVITICUS_10_SECTIONS;
+          break;
+        case 11:
+          sections = LEVITICUS_11_SECTIONS;
+          break;
+        case 12:
+          sections = LEVITICUS_12_SECTIONS;
+          break;
+        case 13:
+          sections = LEVITICUS_13_SECTIONS;
+          break;
+        case 14:
+          sections = LEVITICUS_14_SECTIONS;
+          break;
+        case 15:
+          sections = LEVITICUS_15_SECTIONS;
+          break;
+        case 16:
+          sections = LEVITICUS_16_SECTIONS;
+          break;
+        case 17:
+          sections = LEVITICUS_17_SECTIONS;
+          break;
+        case 18:
+          sections = LEVITICUS_18_SECTIONS;
+          break;
+        case 19:
+          sections = LEVITICUS_19_SECTIONS;
+          break;
+        case 20:
+          sections = LEVITICUS_20_SECTIONS;
+          break;
+        case 21:
+          sections = LEVITICUS_21_SECTIONS;
+          break;
+        case 22:
+          sections = LEVITICUS_22_SECTIONS;
+          break;
+        case 23:
+          sections = LEVITICUS_23_SECTIONS;
+          break;
+        case 24:
+          sections = LEVITICUS_24_SECTIONS;
+          break;
+        case 25:
+          sections = LEVITICUS_25_SECTIONS;
+          break;
+        case 26:
+          sections = LEVITICUS_26_SECTIONS;
+          break;
+        case 27:
+          sections = LEVITICUS_27_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'numbers') {
+      switch (actualChapter) {
+        case 1:
+          sections = NUMBERS_1_SECTIONS;
+          break;
+        case 2:
+          sections = NUMBERS_2_SECTIONS;
+          break;
+        case 3:
+          sections = NUMBERS_3_SECTIONS;
+          break;
+        case 4:
+          sections = NUMBERS_4_SECTIONS;
+          break;
+        case 5:
+          sections = NUMBERS_5_SECTIONS;
+          break;
+        case 6:
+          sections = NUMBERS_6_SECTIONS;
+          break;
+        case 7:
+          sections = NUMBERS_7_SECTIONS;
+          break;
+        case 8:
+          sections = NUMBERS_8_SECTIONS;
+          break;
+        case 9:
+          sections = NUMBERS_9_SECTIONS;
+          break;
+        case 10:
+          sections = NUMBERS_10_SECTIONS;
+          break;
+        case 11:
+          sections = NUMBERS_11_SECTIONS;
+          break;
+        case 12:
+          sections = NUMBERS_12_SECTIONS;
+          break;
+        case 13:
+          sections = NUMBERS_13_SECTIONS;
+          break;
+        case 14:
+          sections = NUMBERS_14_SECTIONS;
+          break;
+        case 15:
+          sections = NUMBERS_15_SECTIONS;
+          break;
+        case 16:
+          sections = NUMBERS_16_SECTIONS;
+          break;
+        case 17:
+          sections = NUMBERS_17_SECTIONS;
+          break;
+        case 18:
+          sections = NUMBERS_18_SECTIONS;
+          break;
+        case 19:
+          sections = NUMBERS_19_SECTIONS;
+          break;
+        case 20:
+          sections = NUMBERS_20_SECTIONS;
+          break;
+        case 21:
+          sections = NUMBERS_21_SECTIONS;
+          break;
+        case 22:
+          sections = NUMBERS_22_SECTIONS;
+          break;
+        case 23:
+          sections = NUMBERS_23_SECTIONS;
+          break;
+        case 24:
+          sections = NUMBERS_24_SECTIONS;
+          break;
+        case 25:
+          sections = NUMBERS_25_SECTIONS;
+          break;
+        case 26:
+          sections = NUMBERS_26_SECTIONS;
+          break;
+        case 27:
+          sections = NUMBERS_27_SECTIONS;
+          break;
+        case 28:
+          sections = NUMBERS_28_SECTIONS;
+          break;
+        case 29:
+          sections = NUMBERS_29_SECTIONS;
+          break;
+        case 30:
+          sections = NUMBERS_30_SECTIONS;
+          break;
+        case 31:
+          sections = NUMBERS_31_SECTIONS;
+          break;
+        case 32:
+          sections = NUMBERS_32_SECTIONS;
+          break;
+        case 33:
+          sections = NUMBERS_33_SECTIONS;
+          break;
+        case 34:
+          sections = NUMBERS_34_SECTIONS;
+          break;
+        case 35:
+          sections = NUMBERS_35_SECTIONS;
+          break;
+        case 36:
+          sections = NUMBERS_36_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'deuteronomy') {
+      switch (actualChapter) {
+        case 1:
+          sections = DEUTERONOMY_1_SECTIONS;
+          break;
+        case 2:
+          sections = DEUTERONOMY_2_SECTIONS;
+          break;
+        case 3:
+          sections = DEUTERONOMY_3_SECTIONS;
+          break;
+        case 4:
+          sections = DEUTERONOMY_4_SECTIONS;
+          break;
+        case 5:
+          sections = DEUTERONOMY_5_SECTIONS;
+          break;
+        case 6:
+          sections = DEUTERONOMY_6_SECTIONS;
+          break;
+        case 7:
+          sections = DEUTERONOMY_7_SECTIONS;
+          break;
+        case 8:
+          sections = DEUTERONOMY_8_SECTIONS;
+          break;
+        case 9:
+          sections = DEUTERONOMY_9_SECTIONS;
+          break;
+        case 10:
+          sections = DEUTERONOMY_10_SECTIONS;
+          break;
+        case 11:
+          sections = DEUTERONOMY_11_SECTIONS;
+          break;
+        case 12:
+          sections = DEUTERONOMY_12_SECTIONS;
+          break;
+        case 13:
+          sections = DEUTERONOMY_13_SECTIONS;
+          break;
+        case 14:
+          sections = DEUTERONOMY_14_SECTIONS;
+          break;
+        case 15:
+          sections = DEUTERONOMY_15_SECTIONS;
+          break;
+        case 16:
+          sections = DEUTERONOMY_16_SECTIONS;
+          break;
+        case 17:
+          sections = DEUTERONOMY_17_SECTIONS;
+          break;
+        case 18:
+          sections = DEUTERONOMY_18_SECTIONS;
+          break;
+        case 19:
+          sections = DEUTERONOMY_19_SECTIONS;
+          break;
+        case 20:
+          sections = DEUTERONOMY_20_SECTIONS;
+          break;
+        case 21:
+          sections = DEUTERONOMY_21_SECTIONS;
+          break;
+        case 22:
+          sections = DEUTERONOMY_22_SECTIONS;
+          break;
+        case 23:
+          sections = DEUTERONOMY_23_SECTIONS;
+          break;
+        case 24:
+          sections = DEUTERONOMY_24_SECTIONS;
+          break;
+        case 25:
+          sections = DEUTERONOMY_25_SECTIONS;
+          break;
+        case 26:
+          sections = DEUTERONOMY_26_SECTIONS;
+          break;
+        case 27:
+          sections = DEUTERONOMY_27_SECTIONS;
+          break;
+        case 28:
+          sections = DEUTERONOMY_28_SECTIONS;
+          break;
+        case 29:
+          sections = DEUTERONOMY_29_SECTIONS;
+          break;
+        case 30:
+          sections = DEUTERONOMY_30_SECTIONS;
+          break;
+        case 31:
+          sections = DEUTERONOMY_31_SECTIONS;
+          break;
+        case 32:
+          sections = DEUTERONOMY_32_SECTIONS;
+          break;
+        case 33:
+          sections = DEUTERONOMY_33_SECTIONS;
+          break;
+        case 34:
+          sections = DEUTERONOMY_34_SECTIONS;
           break;
       }
     } else if (actualBook === 'mark') {

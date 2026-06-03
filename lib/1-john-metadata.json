@@ -1,9 +1,13 @@
 {
+  "bookTheme": "Walk in Light and Love",
   "divisions": [
     {
       "id": "fellowship-with-god",
       "title": "Fellowship with God",
-      "chapters": [1, 2],
+      "chapters": [
+        1,
+        2
+      ],
       "theme": "Walking in the light",
       "summary": "God is light, confess sin to have fellowship, Jesus is our advocate, love is keeping his commands and loving one another",
       "contentType": "epistle"
@@ -11,7 +15,10 @@
     {
       "id": "love-one-another",
       "title": "Love One Another",
-      "chapters": [3, 4],
+      "chapters": [
+        3,
+        4
+      ],
       "theme": "Children of God",
       "summary": "We are God's children, love in deed and truth, test the spirits, God is love, we love because he first loved us",
       "contentType": "epistle"
@@ -19,7 +26,9 @@
     {
       "id": "assurance",
       "title": "Assurance",
-      "chapters": [5],
+      "chapters": [
+        5
+      ],
       "theme": "Faith and eternal life",
       "summary": "Faith overcomes the world, testimony of God about his Son, we have eternal life through believing in Jesus",
       "contentType": "epistle"

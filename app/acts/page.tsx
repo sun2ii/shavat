@@ -118,26 +118,78 @@ export default function ActsPage() {
 
         <div className="grid grid-cols-1 gap-3">
           {divisions.map((division) => (
-            <Link
-              key={division.id}
-              href={`/acts/${division.id}/${division.chapters[0]}`}
-              className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
-            >
-              <div className="flex items-baseline justify-between gap-4">
-                <div>
-                  <h3 className="text-base font-normal text-[rgb(var(--text-primary))] mb-1">
-                    {division.title}
-                  </h3>
-                  <p className="text-sm text-[rgb(var(--text-secondary))] opacity-70">
-                    {division.summary}
-                  </p>
+            <div key={division.id}>
+              <Link
+                href={`/acts/${division.id}/${division.chapters[0]}`}
+                className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <h3 className="text-base font-normal text-[rgb(var(--text-primary))] mb-1">
+                      {division.title}
+                    </h3>
+                    <p className="text-sm text-[rgb(var(--text-secondary))] opacity-70">
+                      {division.summary}
+                    </p>
+                  </div>
+                  <span className="text-xs text-[rgb(var(--text-secondary))] opacity-60 whitespace-nowrap">
+                    {division.chapters.length} {division.chapters.length === 1 ? 'chapter' : 'chapters'}
+                  </span>
                 </div>
-                <span className="text-xs text-[rgb(var(--text-secondary))] opacity-60 whitespace-nowrap">
-                  {division.chapters.length} {division.chapters.length === 1 ? 'chapter' : 'chapters'}
-                </span>
-              </div>
-            </Link>
+              </Link>
+
+              {division.lettersWritten && division.lettersWritten.length > 0 && (
+                <div className="mt-2 ml-4 pl-4 border-l border-[rgb(var(--border))]">
+                  <p className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-50 mb-2">
+                    Letters written here
+                  </p>
+                  <div className="flex flex-col gap-1.5">
+                    {division.lettersWritten.map((letter) => (
+                      <Link
+                        key={letter.slug}
+                        href={`/${letter.slug}/1`}
+                        className="group text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
+                      >
+                        <span className="font-medium text-[rgb(var(--text-primary))] group-hover:underline">
+                          {letter.title}
+                        </span>
+                        {letter.note && (
+                          <span className="opacity-60"> — {letter.note}</span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
+        </div>
+
+        {/* Letters written after Acts ends */}
+        <div className="mt-6 ml-4 pl-4 border-l border-dashed border-[rgb(var(--border))]">
+          <p className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-50 mb-2">
+            After Acts ends
+          </p>
+          <p className="text-sm text-[rgb(var(--text-secondary))] opacity-70 mb-2">
+            Three more letters fall after the book of Acts closes — the Pastoral Epistles, from Paul&apos;s final years:
+          </p>
+          <div className="flex flex-col gap-1.5">
+            <Link href="/1-timothy/1" className="group text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
+              <span className="font-medium text-[rgb(var(--text-primary))] group-hover:underline">1 Timothy</span>
+              <span className="opacity-60"> — leading a church.</span>
+            </Link>
+            <Link href="/titus/1" className="group text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
+              <span className="font-medium text-[rgb(var(--text-primary))] group-hover:underline">Titus</span>
+              <span className="opacity-60"> — order on Crete.</span>
+            </Link>
+            <Link href="/2-timothy/1" className="group text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors">
+              <span className="font-medium text-[rgb(var(--text-primary))] group-hover:underline">2 Timothy</span>
+              <span className="opacity-60"> — Paul&apos;s last words.</span>
+            </Link>
+          </div>
+          <p className="text-xs text-[rgb(var(--text-secondary))] opacity-40 mt-3 italic">
+            Dates and placements follow the traditional reconstruction; a few are debated by scholars.
+          </p>
         </div>
       </div>
     </main>

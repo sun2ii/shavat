@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
 import { getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
@@ -24,6 +25,7 @@ export default function ChapterNav({
   division,
   chapterSummary
 }: Props) {
+  const router = useRouter();
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -68,6 +70,42 @@ export default function ChapterNav({
     const bookmark = storage.getBookmark();
     setIsBookmarked(bookmark?.chapter === currentChapter && bookmark?.book === bookName);
   }, [currentChapter, bookName]);
+
+  // Prefetch adjacent chapters for instant navigation
+  useEffect(() => {
+    if (prevChapter && prevDivisionId) {
+      router.prefetch(`/${bookSlug}/${prevDivisionId}/${prevChapter}`);
+    }
+    if (nextChapter && nextDivisionId) {
+      router.prefetch(`/${bookSlug}/${nextDivisionId}/${nextChapter}`);
+    }
+  }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't trigger if user is typing in an input
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+
+      // Home navigation
+      if (e.key === 'h') {
+        router.push('/');
+        return;
+      }
+
+      // Chapter navigation
+      if (e.key === 'ArrowLeft' && prevChapter && prevDivisionId && prevDivisionChapterNum !== null) {
+        router.push(`/${bookSlug}/${prevDivisionId}/${prevChapter}`);
+      } else if (e.key === 'ArrowRight' && nextChapter && nextDivisionId && nextDivisionChapterNum !== null) {
+        router.push(`/${bookSlug}/${nextDivisionId}/${nextChapter}`);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId, prevDivisionChapterNum, nextDivisionChapterNum]);
 
   const handleBookmark = () => {
     if (typeof window === 'undefined') return;

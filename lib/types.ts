@@ -92,6 +92,7 @@ export interface BookDivision {
   theme: string;           // One-line theme
   summary: string;         // Brief description
   contentType?: 'instructional' | 'narrative' | 'mixed';  // Content classification for visual differentiation
+  lettersWritten?: { slug: string; title: string; note?: string }[];  // Epistles connected to this stretch of narrative
 }
 
 // Generic Book Metadata (for any book)

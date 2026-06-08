@@ -49,7 +49,14 @@
       ],
       "theme": "Sent out from Antioch",
       "summary": "Barnabas and Saul sent out, ministry in Cyprus and Galatia, opposition and return",
-      "contentType": "narrative"
+      "contentType": "narrative",
+      "lettersWritten": [
+        {
+          "slug": "galatians",
+          "title": "Galatians",
+          "note": "Written to the churches planted on this journey, confronting the same law-vs-faith question the Jerusalem Council settles next."
+        }
+      ]
     },
     {
       "id": "jerusalem-council",
@@ -62,18 +69,56 @@
       "contentType": "narrative"
     },
     {
-      "id": "second-and-third-journeys",
-      "title": "Second and Third Journeys",
+      "id": "second-journey",
+      "title": "Second Missionary Journey",
       "chapters": [
         16,
         17,
-        18,
+        18
+      ],
+      "theme": "The gospel enters Europe",
+      "summary": "The Macedonian call, Philippi, Thessalonica, Berea, Athens, and a long stay in Corinth",
+      "contentType": "narrative",
+      "lettersWritten": [
+        {
+          "slug": "1-thessalonians",
+          "title": "1 Thessalonians",
+          "note": "From Corinth, to the young church Paul was forced to leave abruptly (ch 17)."
+        },
+        {
+          "slug": "2-thessalonians",
+          "title": "2 Thessalonians",
+          "note": "A follow-up from Corinth, steadying them about the return of Christ."
+        }
+      ]
+    },
+    {
+      "id": "third-journey",
+      "title": "Third Missionary Journey",
+      "chapters": [
         19,
         20
       ],
-      "theme": "Expanding into Europe and Asia",
-      "summary": "Macedonia, Athens, Corinth, Ephesus, farewell to Ephesian elders",
-      "contentType": "narrative"
+      "theme": "Ephesus and farewell",
+      "summary": "Three years in Ephesus, through Macedonia and Greece, farewell to the Ephesian elders",
+      "contentType": "narrative",
+      "lettersWritten": [
+        {
+          "slug": "1-corinthians",
+          "title": "1 Corinthians",
+          "note": "From Ephesus (ch 19), addressing divisions and disorder in Corinth."
+        },
+        {
+          "slug": "2-corinthians",
+          "title": "2 Corinthians",
+          "note": "From Macedonia, Paul defending his ministry after a painful visit."
+        },
+        {
+          "slug": "romans",
+          "title": "Romans",
+          "note": "From Greece at the journey's end (ch 20) \u2014 to a church he had not yet visited."
+        }
+      ]
     },
     {
       "id": "journey-to-rome",
@@ -90,7 +135,29 @@
       ],
       "theme": "Paul's arrest and trials",
       "summary": "Arrest in Jerusalem, defense speeches, trials before Felix, Festus, and Agrippa, shipwreck, arrival in Rome",
-      "contentType": "narrative"
+      "contentType": "narrative",
+      "lettersWritten": [
+        {
+          "slug": "ephesians",
+          "title": "Ephesians",
+          "note": "A Prison Epistle \u2014 Christ and his church."
+        },
+        {
+          "slug": "philippians",
+          "title": "Philippians",
+          "note": "A Prison Epistle \u2014 joy from a Roman cell."
+        },
+        {
+          "slug": "colossians",
+          "title": "Colossians",
+          "note": "A Prison Epistle \u2014 the supremacy of Christ."
+        },
+        {
+          "slug": "philemon",
+          "title": "Philemon",
+          "note": "A Prison Epistle \u2014 grace for a runaway slave."
+        }
+      ]
     }
   ],
   "chapterSummaries": {

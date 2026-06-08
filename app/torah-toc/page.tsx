@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getNTSections } from '@/lib/extractSections';
 import { BIBLE_INDEX } from '@/lib/bible-index';
 import NTBookSection from '@/components/NTBookSection';
@@ -16,6 +17,19 @@ export default function TorahTableOfContents() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900 py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-[1800px] mx-auto">
+        {/* Breadcrumbs */}
+        <nav className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+          <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+            Library
+          </Link>
+          <span className="mx-2">/</span>
+          <Link href="/library/torah" className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+            Torah
+          </Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-900 dark:text-gray-100">Contents</span>
+        </nav>
+
         <header className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-1">
             Torah

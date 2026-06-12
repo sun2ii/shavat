@@ -93,6 +93,17 @@ export interface BookDivision {
   summary: string;         // Brief description
   contentType?: 'instructional' | 'narrative' | 'mixed';  // Content classification for visual differentiation
   lettersWritten?: { slug: string; title: string; note?: string }[];  // Epistles connected to this stretch of narrative
+
+  // Story Map extension (all optional — map degrades gracefully when absent)
+  era?: string;            // grouping band id, e.g. "primeval", "patriarchs"
+  characters?: string[];   // main figures
+  conflict?: string;       // the core tension in one line
+  whatGodIsDoing?: string; // the theological action, one line
+  keyPassages?: {          // entry points into the text
+    ref: string;           // human label, e.g. "Genesis 1:1–2:3"
+    href: string;          // existing reader route
+  }[];
+  next?: string[];         // ids of movements to go to next
 }
 
 // Generic Book Metadata (for any book)

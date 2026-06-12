@@ -13,31 +13,58 @@
       "contentType": "narrative"
     },
     {
-      "id": "jerusalem-ministry",
-      "title": "Jerusalem Ministry",
+      "id": "peters-ministry",
+      "title": "Peter's Ministry",
       "chapters": [
         3,
         4,
-        5,
-        6,
-        7
+        5
       ],
-      "theme": "Miracles and persecution",
-      "summary": "Early miracles, apostles' boldness, Ananias and Sapphira, choosing deacons, Stephen's martyrdom",
+      "theme": "Miracles, boldness, and opposition",
+      "summary": "Lame beggar healed, Sanhedrin confrontations, Ananias and Sapphira, apostles jailed and freed",
       "contentType": "narrative"
     },
     {
-      "id": "judea-and-samaria",
-      "title": "Judea and Samaria",
+      "id": "stephens-ministry",
+      "title": "Stephen's Ministry",
       "chapters": [
-        8,
-        9,
+        6,
+        7
+      ],
+      "theme": "The first martyr and the seeds of scattering",
+      "summary": "Seven deacons chosen, Stephen's signs and wonders, defense before Sanhedrin, martyrdom",
+      "contentType": "narrative"
+    },
+    {
+      "id": "philips-ministry",
+      "title": "Philip's Ministry",
+      "chapters": [
+        8
+      ],
+      "theme": "Scattering as strategy",
+      "summary": "Persecution scatters believers, Philip in Samaria, Ethiopian eunuch baptized",
+      "contentType": "narrative"
+    },
+    {
+      "id": "sauls-conversion",
+      "title": "Saul's Conversion",
+      "chapters": [
+        9
+      ],
+      "theme": "The enemy transformed",
+      "summary": "Saul encounters Jesus on the Damascus road, is baptized, and begins preaching Christ",
+      "contentType": "narrative"
+    },
+    {
+      "id": "peter-and-the-gentiles",
+      "title": "Peter and the Gentiles",
+      "chapters": [
         10,
         11,
         12
       ],
-      "theme": "Gospel spreads beyond Jerusalem",
-      "summary": "Philip's ministry, Saul's conversion, Peter's vision, Gentiles receive the Spirit, Antioch church",
+      "theme": "The door opens to the nations",
+      "summary": "Cornelius' vision, Peter's vision, Gentiles receive the Spirit, Antioch church, James martyred, Peter freed",
       "contentType": "narrative"
     },
     {
@@ -121,8 +148,8 @@
       ]
     },
     {
-      "id": "journey-to-rome",
-      "title": "Journey to Rome",
+      "id": "pauls-witness",
+      "title": "Paul's Witness",
       "chapters": [
         21,
         22,
@@ -133,8 +160,8 @@
         27,
         28
       ],
-      "theme": "Paul's arrest and trials",
-      "summary": "Arrest in Jerusalem, defense speeches, trials before Felix, Festus, and Agrippa, shipwreck, arrival in Rome",
+      "theme": "Prisoner and witness to the Gentiles",
+      "summary": "Arrest in Jerusalem, defense speeches, trials before Felix, Festus, and Agrippa, shipwreck, arrival and witness in Rome",
       "contentType": "narrative",
       "lettersWritten": [
         {

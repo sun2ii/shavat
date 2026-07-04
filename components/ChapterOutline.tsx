@@ -16,6 +16,10 @@ function slugify(text: string): string {
     .replace(/\s+/g, '-');
 }
 
+/**
+ * Thematic section outline, rendered as horizontally-scrolling chips.
+ * First chip reads as "active"; all jump to their section on click.
+ */
 export default function ChapterOutline({ sections }: Props) {
   const scrollToSection = (sectionTitle: string) => {
     const id = slugify(sectionTitle);
@@ -30,18 +34,20 @@ export default function ChapterOutline({ sections }: Props) {
   }
 
   return (
-    <div className="mb-8 p-4 bg-gray-50 dark:bg-gray-900/30 rounded-lg">
-      <nav className="space-y-2">
-        {sections.map((section) => (
-          <button
-            key={section.day}
-            onClick={() => scrollToSection(section.day)}
-            className="block w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 rounded transition-colors"
-          >
-            {section.day}
-          </button>
-        ))}
-      </nav>
-    </div>
+    <nav className="flex flex-wrap justify-center gap-2 mb-10">
+      {sections.map((section, i) => (
+        <button
+          key={section.day}
+          onClick={() => scrollToSection(section.day)}
+          className={`font-sans text-xs rounded-full px-3.5 py-1.5 transition-colors ${
+            i === 0
+              ? 'bg-ink text-paper font-semibold'
+              : 'bg-paper-2 text-muted hover:text-ink font-medium'
+          }`}
+        >
+          {section.day}
+        </button>
+      ))}
+    </nav>
   );
 }

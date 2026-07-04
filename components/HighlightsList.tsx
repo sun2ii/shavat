@@ -17,11 +17,8 @@ export default function HighlightsList() {
     setHighlights(storage.getHighlights());
   };
 
-  // Group highlights by chapter
   const highlightsByChapter = highlights.reduce((acc, highlight) => {
-    if (!acc[highlight.chapter]) {
-      acc[highlight.chapter] = [];
-    }
+    if (!acc[highlight.chapter]) acc[highlight.chapter] = [];
     acc[highlight.chapter].push(highlight);
     return acc;
   }, {} as Record<number, Highlight[]>);
@@ -32,67 +29,89 @@ export default function HighlightsList() {
 
   if (highlights.length === 0) {
     return (
-      <div className="text-center py-16">
-        <p className="text-[rgb(var(--text-secondary))] text-lg mb-4">No highlights yet.</p>
-        <Link href="/genesis/1" className="text-blue-600 hover:underline inline-block">
-          Start reading
+      <div className="text-center py-20">
+        <p className="font-serif italic text-muted text-xl mb-4">No highlights yet.</p>
+        <Link
+          href="/genesis/creation/1"
+          className="font-sans text-sm text-brand hover:underline inline-block"
+        >
+          Start reading →
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="space-y-10">
-      {chapters.map((chapterNum) => (
-        <div key={chapterNum} className="space-y-4">
-          <h2 className="text-xl font-light text-[rgb(var(--text-primary))] border-b border-[rgb(var(--border))] pb-3">
-            <Link href={`/genesis/${chapterNum}`} className="hover:text-blue-600 transition-colors">
-              Genesis {chapterNum}
-            </Link>
-          </h2>
-
-          <div className="space-y-5">
-            {highlightsByChapter[chapterNum].map((highlight) => (
-              <div
-                key={highlight.id}
-                className={`p-4 rounded-lg border border-[rgb(var(--border))] ${
-                  highlight.color === 'yellow'
-                    ? 'bg-[rgb(var(--highlight-yellow))]'
-                    : 'bg-[rgb(var(--highlight-blue))]'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <Link
-                      href={`/genesis/${highlight.chapter}`}
-                      className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-                    >
-                      {highlight.verseStart === highlight.verseEnd
-                        ? `Verse ${highlight.verseStart}`
-                        : `Verses ${highlight.verseStart}–${highlight.verseEnd}`}
-                    </Link>
-
-                    {highlight.note && (
-                      <p className="mt-2 text-[rgb(var(--text-primary))] leading-relaxed">{highlight.note}</p>
-                    )}
-
-                    <p className="mt-2 text-xs text-[rgb(var(--text-tertiary))]">
-                      {new Date(highlight.createdAt).toLocaleDateString()}
-                    </p>
-                  </div>
-
-                  <button
-                    onClick={() => handleDelete(highlight.id)}
-                    className="text-[rgb(var(--text-tertiary))] hover:text-red-600 text-sm transition-colors"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+    <main>
+      <header className="mb-8">
+        <p className="font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+          Your Reading
+        </p>
+        <div className="flex items-baseline gap-4">
+          <h1 className="font-serif font-bold text-5xl text-ink leading-none">Highlights</h1>
+          <span className="font-sans text-sm text-faint">
+            {highlights.length} saved · {chapters.length}{' '}
+            {chapters.length === 1 ? 'chapter' : 'chapters'}
+          </span>
         </div>
-      ))}
-    </div>
+      </header>
+
+      <div className="space-y-10">
+        {chapters.map((chapterNum) => (
+          <section key={chapterNum}>
+            <h2 className="font-serif font-bold text-2xl text-ink pb-3 border-b-2 border-ink mb-5">
+              <Link href={`/genesis/${chapterNum}`} className="hover:text-gold transition-colors">
+                Genesis {chapterNum}
+              </Link>
+            </h2>
+
+            <div className="grid sm:grid-cols-2 gap-3.5">
+              {highlightsByChapter[chapterNum].map((highlight) => {
+                const isYellow = highlight.color === 'yellow';
+                return (
+                  <div
+                    key={highlight.id}
+                    className="flex bg-surface border border-hairline rounded-xl overflow-hidden"
+                  >
+                    <span
+                      className="w-[5px] shrink-0"
+                      style={{ background: isYellow ? '#e5c65a' : '#7ba0cf' }}
+                    />
+                    <div className="flex-1 p-4">
+                      <div className="flex items-center justify-between mb-2.5">
+                        <Link
+                          href={`/genesis/${highlight.chapter}`}
+                          className={`font-sans text-[11px] font-bold tracking-[0.12em] uppercase transition-colors hover:opacity-80 ${
+                            isYellow ? 'text-gold-ink' : 'text-blue-ref'
+                          }`}
+                        >
+                          {highlight.verseStart === highlight.verseEnd
+                            ? `Verse ${highlight.verseStart}`
+                            : `Verses ${highlight.verseStart}–${highlight.verseEnd}`}
+                        </Link>
+                        <button
+                          onClick={() => handleDelete(highlight.id)}
+                          className="font-sans text-xs text-faint hover:text-red-500 transition-colors"
+                        >
+                          Delete
+                        </button>
+                      </div>
+
+                      {highlight.note && (
+                        <p className="font-serif text-lg leading-snug text-ink">{highlight.note}</p>
+                      )}
+
+                      <p className="mt-2 font-sans text-xs text-faint">
+                        {new Date(highlight.createdAt).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    </main>
   );
 }

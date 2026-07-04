@@ -1,34 +1,38 @@
 'use client';
 
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
+
+const NAV = [
+  { href: '/library', label: 'Library' },
+  { href: '/chronology', label: 'Chronology' },
+  { href: '/writings', label: 'Writings' },
+];
 
 export default function Header() {
   return (
-    <header className="mb-6 pb-3 border-b border-[rgb(var(--border))]">
+    <header className="mb-6 pb-3 border-b border-hairline">
       <div className="flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <img src="/shavat.png" alt="Shavat" className="h-6 w-auto" />
-          <span className="text-lg font-light text-[rgb(var(--text-primary))] tracking-wide">Shavat</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <span className="w-[30px] h-[30px] rounded-lg bg-brand text-gold flex items-center justify-center font-serif text-[17px] leading-none">
+            ש
+          </span>
+          <span className="font-sans text-base font-bold tracking-tight text-ink">Shavat</span>
         </Link>
-        <nav className="flex items-center gap-4">
-          <Link
-            href="/library"
-            className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-          >
-            Library
-          </Link>
-          <Link
-            href="/chronology"
-            className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-          >
-            Chronology
-          </Link>
-          <Link
-            href="/writings"
-            className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
-          >
-            Writings
-          </Link>
+
+        <nav className="flex items-center gap-1.5 font-sans text-[13px]">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="px-3.5 py-1.5 rounded-full text-muted hover:text-ink transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <span className="ml-1">
+            <ThemeToggle />
+          </span>
         </nav>
       </div>
     </header>

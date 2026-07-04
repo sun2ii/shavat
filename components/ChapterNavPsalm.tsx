@@ -83,7 +83,7 @@ export default function ChapterNavPsalm({ currentPsalm, collection }: Props) {
 
         {isEditing ? (
           <form onSubmit={handleJumpSubmit} className="flex items-center gap-2">
-            <span className="text-[#D4AF37] text-3xl font-semibold tracking-wide">{collectionDisplayName}</span>
+            <span className="text-gold text-3xl font-semibold tracking-wide">{collectionDisplayName}</span>
             <input
               type="number"
               value={jumpTo}
@@ -93,14 +93,14 @@ export default function ChapterNavPsalm({ currentPsalm, collection }: Props) {
               autoFocus
               min={1}
               max={collection.psalms.length}
-              className="w-16 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] text-[#D4AF37] border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-16 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] text-gold border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:ring-gold"
               placeholder={collectionPosition.toString()}
             />
           </form>
         ) : (
           <span
             onDoubleClick={handleDoubleClick}
-            className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
+            className="text-gold text-3xl font-semibold tracking-wide cursor-pointer select-none"
             title="Double-click to jump to psalm"
           >
             {collectionDisplayName} {collectionPosition}
@@ -117,7 +117,7 @@ export default function ChapterNavPsalm({ currentPsalm, collection }: Props) {
                 href={`/psalms/${collection.id}/${psalmNum}`}
                 className={`text-sm transition-colors ${
                   isActive
-                    ? 'text-[#D4AF37] font-semibold'
+                    ? 'text-gold font-semibold'
                     : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
                 }`}
               >
@@ -130,7 +130,7 @@ export default function ChapterNavPsalm({ currentPsalm, collection }: Props) {
         {/* Bookmark Icon - below Ps reference */}
         <button
           onClick={handleBookmark}
-          className="absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
+          className="absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] hover:text-gold transition-colors"
           title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this psalm'}
         >
           {showSaved ? '✓' : isBookmarked ? '★' : '☆'}

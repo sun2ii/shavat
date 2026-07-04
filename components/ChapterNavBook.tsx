@@ -21,19 +21,16 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
   const [jumpTo, setJumpTo] = useState('');
 
   const chapterIndex = book.chapters.indexOf(currentChapter);
-  const bookChapterNum = chapterIndex + 1; // 1-indexed position within book
+  const bookChapterNum = chapterIndex + 1;
 
-  // Current book navigation
   const hasPrevInBook = chapterIndex > 0;
   const hasNextInBook = chapterIndex < book.chapters.length - 1;
   const prevChapterInBook = hasPrevInBook ? book.chapters[chapterIndex - 1] : null;
   const nextChapterInBook = hasNextInBook ? book.chapters[chapterIndex + 1] : null;
 
-  // Cross-book navigation
   const nextBook = !hasNextInBook ? getNextBook(book.id) : null;
   const prevBook = !hasPrevInBook ? getPreviousBook(book.id) : null;
 
-  // Final navigation targets
   const prevChapter = prevChapterInBook || (prevBook ? prevBook.chapters[prevBook.chapters.length - 1] : null);
   const nextChapter = nextChapterInBook || (nextBook ? nextBook.chapters[0] : null);
   const prevBookId = hasPrevInBook ? book.id : prevBook?.id;
@@ -41,7 +38,6 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
   const prevBookChapterNum = hasPrevInBook ? chapterIndex : (prevBook ? prevBook.chapters.length : null);
   const nextBookChapterNum = hasNextInBook ? chapterIndex + 2 : (nextBook ? 1 : null);
 
-  // Book display name (without "The Book of")
   const bookDisplayName = book.title.replace('The Book of ', '');
 
   useEffect(() => {
@@ -52,13 +48,8 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
 
   const handleBookmark = () => {
     if (typeof window === 'undefined') return;
-
     try {
-      storage.setBookmark({
-        book: 'Genesis',
-        chapter: currentChapter,
-        verse: 1,
-      });
+      storage.setBookmark({ book: 'Genesis', chapter: currentChapter, verse: 1 });
       setIsBookmarked(true);
       setShowSaved(true);
       setTimeout(() => setShowSaved(false), 2000);
@@ -76,39 +67,49 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
     e.preventDefault();
     const num = parseInt(jumpTo);
     if (!isNaN(num) && num >= 1 && num <= book.chapters.length) {
-      const targetChapter = book.chapters[num - 1];
-      window.location.href = `/genesis/${book.id}/${targetChapter}`;
+      window.location.href = `/genesis/${book.id}/${book.chapters[num - 1]}`;
     }
     setIsEditing(false);
   };
 
   const handleJumpKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setIsEditing(false);
-    }
+    if (e.key === 'Escape') setIsEditing(false);
   };
 
   return (
     <>
       {/* Chapter nav header */}
-      <nav className="relative flex flex-col items-center justify-center mb-6 pb-3 border-b border-[rgb(var(--border))]">
-        {/* Copy chapter icon - top right */}
+      <nav className="relative flex flex-col items-center justify-center mb-8 pb-5 border-b border-hairline">
+        {/* Left: canonical reference + bookmark */}
+        <div className="absolute left-0 top-0 flex flex-col items-start gap-2.5">
+          <span className="font-sans text-[13px] font-semibold text-blue-ref bg-[rgb(var(--blue-ref)/0.12)] px-2.5 py-1 rounded-full">
+            Gen {currentChapter}
+          </span>
+          <button
+            onClick={handleBookmark}
+            className="text-lg text-faint hover:text-gold transition-colors leading-none"
+            title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
+          >
+            {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
+          </button>
+        </div>
+
+        {/* Right: copy chapter */}
         <button
           onClick={onCopyChapter}
-          className="absolute right-0 top-1/2 -translate-y-1/2 text-base text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors cursor-pointer"
+          className="absolute right-0 top-0 w-9 h-9 flex items-center justify-center rounded-lg border border-hairline text-muted hover:text-ink transition-colors"
           title="Copy chapter"
         >
           {copied ? '✓' : '⧉'}
         </button>
 
-        {/* Canonical reference - left corner */}
-        <span className="absolute left-0 top-0 text-xs text-blue-400 opacity-70">
-          Gen {currentChapter}
-        </span>
+        <p className="font-sans text-xs tracking-[0.24em] uppercase text-muted font-semibold">
+          Torah · Genesis
+        </p>
 
         {isEditing ? (
-          <form onSubmit={handleJumpSubmit} className="flex items-center gap-2">
-            <span className="text-[#D4AF37] text-3xl font-semibold tracking-wide">{bookDisplayName}</span>
+          <form onSubmit={handleJumpSubmit} className="flex items-center gap-2 mt-2">
+            <span className="font-serif text-gold text-5xl font-bold">{bookDisplayName}</span>
             <input
               type="number"
               value={jumpTo}
@@ -118,39 +119,36 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
               autoFocus
               min={1}
               max={book.chapters.length}
-              className="w-16 px-2 py-1 text-2xl font-semibold text-center bg-[rgb(var(--bg-secondary))] text-[#D4AF37] border border-[rgb(var(--border))] rounded focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+              className="w-20 px-2 py-1 text-4xl font-serif font-bold text-center bg-paper-2 text-gold border border-hairline rounded focus:outline-none focus:ring-2 focus:ring-gold"
               placeholder={bookChapterNum.toString()}
             />
           </form>
         ) : (
-          <div className="flex flex-col items-center">
-            <span
-              onDoubleClick={handleDoubleClick}
-              className="text-[#D4AF37] text-3xl font-semibold tracking-wide cursor-pointer select-none"
-              title="Double-click to jump to chapter"
-            >
-              {bookDisplayName} {bookChapterNum}
-            </span>
-            {chapterSummary && (
-              <p className="text-sm text-[rgb(var(--text-secondary))] mt-2 max-w-2xl text-center italic">
-                {chapterSummary}
-              </p>
-            )}
-          </div>
+          <span
+            onDoubleClick={handleDoubleClick}
+            className="font-serif text-gold text-5xl font-bold cursor-pointer select-none mt-2"
+            title="Double-click to jump to chapter"
+          >
+            {bookDisplayName} {bookChapterNum}
+          </span>
         )}
 
-        {/* Chapter links */}
-        <div className="flex gap-3 mt-3">
+        {chapterSummary && (
+          <p className="font-serif italic text-lg text-muted mt-2 max-w-2xl text-center">
+            {chapterSummary}
+          </p>
+        )}
+
+        {/* Chapter pager */}
+        <div className="flex gap-4 mt-4 font-serif text-lg">
           {book.chapters.map((chapterNum, idx) => {
             const isActive = chapterNum === currentChapter;
             return (
               <Link
                 key={chapterNum}
                 href={`/genesis/${book.id}/${chapterNum}`}
-                className={`text-sm transition-colors ${
-                  isActive
-                    ? 'text-[#D4AF37] font-semibold'
-                    : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
+                className={`transition-colors ${
+                  isActive ? 'text-gold font-bold' : 'text-faint hover:text-ink'
                 }`}
               >
                 {idx + 1}
@@ -158,15 +156,6 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
             );
           })}
         </div>
-
-        {/* Bookmark Icon - below Gen reference */}
-        <button
-          onClick={handleBookmark}
-          className="absolute left-0 top-5 p-2 text-[rgb(var(--text-secondary))] hover:text-[#D4AF37] transition-colors"
-          title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
-        >
-          {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
-        </button>
       </nav>
 
       {/* Fixed left navigation */}
@@ -175,16 +164,12 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
           href={`/genesis/${prevBookId}/${prevChapter}`}
           className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
         >
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
             ← <span className="hidden md:inline">{prevBookChapterNum}</span>
           </div>
         </Link>
       ) : (
-        <div className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group">
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-            <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">←</span>
-          </div>
-        </div>
+        <div className="fixed left-0 top-80 bottom-0 w-24 md:w-32" />
       )}
 
       {/* Fixed right navigation */}
@@ -193,16 +178,12 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
           href={`/genesis/${nextBookId}/${nextChapter}`}
           className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
         >
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-[rgb(var(--text-secondary))] group-hover:text-[rgb(var(--text-primary))] transition-colors text-lg md:text-2xl">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
             <span className="hidden md:inline">{nextBookChapterNum}</span> →
           </div>
         </Link>
       ) : (
-        <div className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group">
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-            <span className="text-[rgb(var(--text-tertiary))] text-lg md:text-2xl opacity-30">→</span>
-          </div>
-        </div>
+        <div className="fixed right-0 top-80 bottom-0 w-24 md:w-32" />
       )}
     </>
   );

@@ -4308,49 +4308,54 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     }
 
     return (
-      <div className="max-w-none space-y-6">
+      <div className="max-w-[760px] mx-auto">
         <ChapterOutline sections={sections} />
-        {sections.map((daySection) => {
-          const dayVerses = verses.filter(
-            v => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
-          );
-
-          return (
-            <div key={daySection.day} id={slugify(daySection.day)} className={`p-6 rounded-lg border-l-4 ${daySection.borderColor} ${daySection.color}`}>
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                  {daySection.day}
-                </h3>
-                <button
-                  onClick={() => handleCopySection(daySection.day, dayVerses)}
-                  className="text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors cursor-pointer"
-                  title="Copy section"
-                >
-                  {copiedSection === daySection.day ? '✓' : '⧉'}
-                </button>
+        <div className="space-y-4">
+          {sections.map((daySection) => {
+            const dayVerses = verses.filter(
+              (v) => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
+            );
+            return (
+              <div
+                key={daySection.day}
+                id={slugify(daySection.day)}
+                className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${daySection.borderColor} ${daySection.color}`}
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="font-sans text-[12px] tracking-[0.16em] uppercase font-bold text-gold-ink">
+                    {daySection.day}
+                  </h3>
+                  <button
+                    onClick={() => handleCopySection(daySection.day, dayVerses)}
+                    className="font-sans text-sm text-muted hover:text-ink transition-colors cursor-pointer"
+                    title="Copy section"
+                  >
+                    {copiedSection === daySection.day ? '✓' : '⧉'}
+                  </button>
+                </div>
+                <div className="font-serif text-ink text-[21px] leading-[1.95]">
+                  {dayVerses.map((verse) => (
+                    <Verse
+                      key={verse.verse}
+                      verse={verse}
+                      isSelected={selectedVerses.has(verse.verse)}
+                      onToggle={toggleVerse}
+                      commentary={commentary.get(verse.verse)}
+                    />
+                  ))}
+                </div>
               </div>
-              <div className="text-[rgb(var(--text-primary))] text-lg leading-relaxed">
-                {dayVerses.map((verse) => (
-                  <Verse
-                    key={verse.verse}
-                    verse={verse}
-                    isSelected={selectedVerses.has(verse.verse)}
-                    onToggle={toggleVerse}
-                    commentary={commentary.get(verse.verse)}
-                  />
-                ))}
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     );
   }
 
   // Default rendering for other chapters
   return (
-    <div className="max-w-none">
-      <div className="text-[rgb(var(--text-primary))] text-lg leading-relaxed">
+    <div className="max-w-[760px] mx-auto">
+      <div className="font-serif text-ink text-[21px] leading-[1.95]">
         {verses.map((verse) => (
           <Verse
             key={verse.verse}

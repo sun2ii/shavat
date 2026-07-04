@@ -100,7 +100,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('emotional_state', state)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.emotional_state.includes(state)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -120,7 +120,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('primary_function', func)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.primary_function.includes(func)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -140,7 +140,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('directional_movement', dir)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.directional_movement.includes(dir)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -160,7 +160,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('resolution_type', res)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.resolution_type.includes(res)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -180,7 +180,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('intensity', int)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.intensity.includes(int)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -200,7 +200,7 @@ export default function PsalmBrowser() {
                   onClick={() => toggleFilter('length', len)}
                   className={`px-2 py-1 text-xs rounded transition-colors ${
                     filters.length.includes(len)
-                      ? 'bg-[#D4AF37] text-white'
+                      ? 'bg-gold text-white'
                       : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
                   }`}
                 >
@@ -217,7 +217,7 @@ export default function PsalmBrowser() {
               onClick={toggleSafeFilter}
               className={`px-3 py-1 text-xs rounded transition-colors ${
                 filters.safe_when_fragile === true
-                  ? 'bg-[#D4AF37] text-white'
+                  ? 'bg-gold text-white'
                   : filters.safe_when_fragile === false
                   ? 'bg-red-600 text-white'
                   : 'bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] border border-[rgb(var(--border))]'
@@ -240,7 +240,7 @@ export default function PsalmBrowser() {
               ${!psalm.safe_when_fragile ? 'border-2 border-red-600/30' : 'border border-[rgb(var(--border))]'}
               bg-[rgb(var(--bg-secondary))]
               text-[rgb(var(--text-secondary))]
-              hover:bg-[#D4AF37] hover:text-white
+              hover:bg-gold hover:text-white
             `}
             title={`${psalm.emotional_state} • ${psalm.primary_function} • ${psalm.directional_movement}`}
           >

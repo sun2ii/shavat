@@ -2,41 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Shavat — "2c Editorial" design tokens.
+  Theme is class-based: <html> gets `light` or `dark` (set by the no-flash
+  script in layout.tsx). Retuning these variables reskins most of the app;
+  components add the editorial layout (numbered books, tints, pills).
+*/
 @layer base {
-  :root {
-    --bg-primary: 255 255 255;
-    --bg-secondary: 249 250 251;
-    --text-primary: 17 24 39;
-    --text-secondary: 107 114 128;
-    --text-tertiary: 156 163 175;
-    --border: 229 231 235;
-    --highlight-yellow: 240 230 170;
-    --highlight-blue: 191 219 254;
+  :root,
+  .light {
+    --bg-primary: 251 250 248;   /* #fbfaf8 warm paper   */
+    --bg-secondary: 244 242 238; /* #f4f2ee               */
+    --surface: 255 255 255;      /* cards                 */
+    --tint-warm: 246 241 232;    /* #f6f1e8 book tint     */
+    --text-primary: 26 26 26;    /* #1a1a1a ink           */
+    --text-secondary: 119 113 106; /* #77716a             */
+    --text-tertiary: 162 154 140;  /* #a29a8c             */
+    --border: 236 234 229;       /* #eceae5 hairline      */
+    --gold: 201 162 75;          /* #c9a24b               */
+    --gold-ink: 138 109 31;      /* #8a6d1f (text on gold tint) */
+    --brand: 30 58 95;           /* #1e3a5f dove blue     */
+    --blue-ref: 59 120 212;      /* #3b78d4 canonical ref */
+    --highlight-yellow: 240 226 189;
+    --highlight-blue: 188 208 234;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg-primary: 17 24 39;
-      --bg-secondary: 31 41 55;
-      --text-primary: 243 244 246;
-      --text-secondary: 156 163 175;
-      --text-tertiary: 107 114 128;
-      --border: 55 65 81;
-      --highlight-yellow: 90 75 35;
-      --highlight-blue: 30 58 138;
-    }
+  .dark {
+    --bg-primary: 16 24 38;      /* #101826 deep navy     */
+    --bg-secondary: 24 32 49;    /* #182031               */
+    --surface: 22 32 46;         /* #16202e cards         */
+    --tint-warm: 33 29 20;       /* #211d14               */
+    --text-primary: 236 231 220; /* #ece7dc warm white    */
+    --text-secondary: 154 161 173; /* #9aa1ad             */
+    --text-tertiary: 106 115 131;  /* #6a7383             */
+    --border: 42 51 66;          /* #2a3342               */
+    --gold: 216 179 74;          /* #d8b34a               */
+    --gold-ink: 230 201 111;     /* #e6c96f               */
+    --brand: 47 95 158;          /* #2f5f9e               */
+    --blue-ref: 111 159 224;     /* #6f9fe0               */
+    --highlight-yellow: 90 75 35;
+    --highlight-blue: 30 58 138;
   }
 }
 
 body {
   @apply bg-[rgb(var(--bg-primary))] text-[rgb(var(--text-primary))];
-  font-family: 'Cardo', 'Georgia', serif;
+  font-family: "Cardo", "Georgia", serif; /* reading voice by default */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  /* Disable text selection */
+/* Let readers select scripture (needed for copy / study); keep chrome unselectable. */
+.select-none-ui {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }

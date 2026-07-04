@@ -17,20 +17,29 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
   return (
     <>
       <span
-        className={`inline-block mb-4 py-1 font-medium cursor-pointer transition-colors px-2 rounded ${
-          isSelected ? 'bg-yellow-200 text-gray-900' : ''
+        className={`inline transition-colors cursor-pointer rounded ${
+          isSelected
+            ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
+            : ''
         }`}
         data-verse={verse.verse}
         onDoubleClick={handleInteraction}
       >
-        <sup className={`mr-2 text-xs font-light select-none transition-colors ${isSelected ? 'text-gray-600' : 'text-[rgb(var(--text-tertiary))]'}`}>{verse.verse}</sup>
-        {verse.text}
+        <sup className="mr-1 text-xs font-sans font-semibold select-none align-super text-gold">
+          {verse.verse}
+        </sup>
+        {verse.text}{' '}
       </span>
-      <br />
+
       {isSelected && commentary && (
-        <div className="ml-6 mb-6 p-4 bg-gray-100 dark:bg-gray-800 border-l-4 border-yellow-500 rounded-r text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-          {commentary}
-        </div>
+        <span className="block my-5 pl-5 border-l-2 border-gold">
+          <span className="block font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-gold-ink mb-1.5">
+            Commentary · Verse {verse.verse}
+          </span>
+          <span className="block font-serif text-[16.5px] leading-relaxed text-muted">
+            {commentary}
+          </span>
+        </span>
       )}
     </>
   );

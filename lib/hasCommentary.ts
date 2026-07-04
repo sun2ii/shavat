@@ -4,8 +4,18 @@ export function hasCommentary(book: string, chapter: number): boolean {
     return true;
   }
 
+  // Matthew chapters 1-28 have commentary
+  if (book === 'matthew' && chapter >= 1 && chapter <= 28) {
+    return true;
+  }
+
   // Mark chapters 1-16 have commentary
   if (book === 'mark' && chapter >= 1 && chapter <= 16) {
+    return true;
+  }
+
+  // Luke chapters 1-24 have commentary
+  if (book === 'luke' && chapter >= 1 && chapter <= 24) {
     return true;
   }
 

@@ -38,38 +38,37 @@ export default function HighlightToolbar({ selection, onHighlight, onCancel }: P
       : `Verses ${selection.start}–${selection.end}`;
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-[rgb(var(--bg-primary))] shadow-2xl rounded-lg border border-[rgb(var(--border))]">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[calc(100vw-2rem)]">
       {!showNoteInput ? (
-        <div className="flex items-center gap-4 px-5 py-4">
-          <span className="text-sm text-[rgb(var(--text-secondary))]">{verseRange}</span>
+        <div className="flex items-center gap-3.5 pl-5 pr-2.5 py-2.5 rounded-full bg-ink text-white shadow-2xl border border-white/10">
+          <span className="font-sans text-[13px] text-white/60 whitespace-nowrap">{verseRange}</span>
+          <span className="w-px h-5 bg-white/15" />
           <button
             onClick={() => handleColorClick('yellow')}
-            className="px-4 py-2 bg-[rgb(var(--highlight-yellow))] hover:opacity-80 rounded text-sm font-medium transition-opacity"
-          >
-            Yellow
-          </button>
+            aria-label="Highlight yellow"
+            className="w-6 h-6 rounded-full bg-[#e5c65a] border border-white/25 hover:scale-110 transition-transform"
+          />
           <button
             onClick={() => handleColorClick('blue')}
-            className="px-4 py-2 bg-[rgb(var(--highlight-blue))] hover:opacity-80 rounded text-sm font-medium transition-opacity"
-          >
-            Blue
-          </button>
+            aria-label="Highlight blue"
+            className="w-6 h-6 rounded-full bg-[#7ba0cf] border border-white/25 hover:scale-110 transition-transform"
+          />
           <button
             onClick={handleCancel}
-            className="px-4 py-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] text-sm transition-colors"
+            className="font-sans text-[13px] text-white/70 hover:text-white transition-colors px-1"
           >
             Cancel
           </button>
         </div>
       ) : (
-        <div className="px-5 py-4 space-y-3 min-w-[320px]">
-          <div className="text-sm text-[rgb(var(--text-secondary))]">{verseRange}</div>
+        <div className="px-4 py-3.5 rounded-2xl bg-ink text-white shadow-2xl border border-white/10 space-y-3 min-w-[320px]">
+          <div className="font-sans text-[13px] text-white/60">{verseRange}</div>
           <input
             type="text"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Add note (optional)"
-            className="w-full px-3 py-2 border border-[rgb(var(--border))] bg-[rgb(var(--bg-secondary))] text-[rgb(var(--text-primary))] rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 rounded-lg bg-white/10 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:ring-2 focus:ring-gold"
             autoFocus
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleSave();
@@ -79,13 +78,13 @@ export default function HighlightToolbar({ selection, onHighlight, onCancel }: P
           <div className="flex gap-2">
             <button
               onClick={handleSave}
-              className="px-4 py-2 bg-[rgb(var(--text-primary))] text-[rgb(var(--bg-primary))] rounded text-sm hover:opacity-90 transition-opacity font-medium"
+              className="px-4 py-2 rounded-full bg-gold text-[#231c07] font-sans text-sm font-semibold hover:opacity-90 transition-opacity"
             >
               Save
             </button>
             <button
               onClick={handleCancel}
-              className="px-4 py-2 text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] text-sm transition-colors"
+              className="px-4 py-2 font-sans text-sm text-white/70 hover:text-white transition-colors"
             >
               Cancel
             </button>

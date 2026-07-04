@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, Fragment, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
@@ -18,17 +18,118 @@ type TabId = 'torah' | 'psalms' | 'old-testament' | 'new-testament' | 'gospels';
 type FocusableCard = {
   id: string;
   href: string;
-  bookSlug: string; // Track which book this card belongs to
-  categoryId?: string; // Track category for OT/NT tabs with category groupings
+  bookSlug: string;
+  categoryId?: string;
 };
 
 const TABS = [
   { id: 'torah' as TabId, label: 'Torah' },
-  { id: 'old-testament' as TabId, label: 'OT' },
-  { id: 'new-testament' as TabId, label: 'NT' },
+  { id: 'old-testament' as TabId, label: 'Old Testament' },
+  { id: 'new-testament' as TabId, label: 'New Testament' },
   { id: 'gospels' as TabId, label: 'Gospels' },
   { id: 'psalms' as TabId, label: 'Psalms' },
 ];
+
+const TOC_LINKS: Partial<Record<TabId, string>> = {
+  torah: '/torah-toc',
+  'new-testament': '/nt-toc',
+  gospels: '/gospels-toc',
+};
+
+const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
+  torah: { kicker: 'The Five Books of Moses', title: 'Torah' },
+  'old-testament': { kicker: 'Historical, Wisdom & Prophets', title: 'Old Testament' },
+  'new-testament': { kicker: 'Acts, Epistles & Revelation', title: 'New Testament' },
+  gospels: { kicker: 'The Four Gospels', title: 'Gospels' },
+  psalms: { kicker: 'The Book of Psalms', title: 'Psalms' },
+};
+
+// Harmonious warm-neutral tints (light) / low washes (dark), cycled per card.
+const TINTS = [
+  'bg-[#f6f1e8] dark:bg-[#211d14]',
+  'bg-[#f6efe9] dark:bg-[#221a18]',
+  'bg-[#eef1f4] dark:bg-[#172029]',
+  'bg-[#eff2ea] dark:bg-[#1a2018]',
+  'bg-[#f1eef3] dark:bg-[#201b21]',
+  'bg-[#eaf1ef] dark:bg-[#152120]',
+  'bg-[#f6f0e6] dark:bg-[#211c14]',
+];
+
+function Pill({ tone, children }: { tone: 'gold' | 'green'; children: React.ReactNode }) {
+  const cls =
+    tone === 'gold'
+      ? 'text-gold-ink bg-[#efe1c0] dark:bg-[rgba(216,179,74,0.16)] dark:text-[#e6c96f]'
+      : 'text-[#4a6b3a] bg-[#dfe8d2] dark:bg-[rgba(138,154,91,0.2)] dark:text-[#a9c894]';
+  return (
+    <span className={`font-sans text-[11px] font-semibold px-2 py-[3px] rounded-full ${cls}`}>
+      {children}
+    </span>
+  );
+}
+
+function SectionHeader({ number, name, sub }: { number?: string; name: string; sub?: string }) {
+  return (
+    <div className="flex items-baseline gap-4 pt-6 pb-4 border-t-2 border-ink">
+      {number && <span className="font-serif text-[15px] font-bold text-gold">{number}</span>}
+      <div className="flex-1">
+        <div className="font-serif text-3xl font-bold text-ink leading-none">{name}</div>
+        {sub && <div className="font-sans text-[13px] text-muted mt-1">{sub}</div>}
+      </div>
+    </div>
+  );
+}
+
+function DivisionCard({
+  href,
+  title,
+  count,
+  theme,
+  hasCommentary,
+  hasWritings,
+  tint,
+  instructional,
+  focused,
+}: {
+  href: string;
+  title: string;
+  count: number;
+  theme?: string;
+  hasCommentary?: boolean;
+  hasWritings?: boolean;
+  tint: string;
+  instructional?: boolean;
+  focused?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={`block rounded-xl p-4 border transition-colors ${tint} ${
+        focused ? 'border-gold ring-2 ring-gold' : 'border-hairline hover:border-muted'
+      }`}
+    >
+      <div
+        className={`font-serif text-xl leading-tight ${
+          instructional ? 'text-orange-500' : 'text-ink'
+        }`}
+      >
+        {title}
+      </div>
+      {theme && (
+        <div className="font-serif italic text-[13px] text-muted leading-snug mt-1">{theme}</div>
+      )}
+      <div className="flex items-center justify-between mt-3">
+        {hasCommentary ? (
+          <Pill tone="gold">Commentary</Pill>
+        ) : hasWritings ? (
+          <Pill tone="green">Reflections</Pill>
+        ) : (
+          <span />
+        )}
+        <span className="font-sans text-xs text-faint">{count} ch</span>
+      </div>
+    </Link>
+  );
+}
 
 export default function LibraryPage() {
   const params = useParams();
@@ -41,145 +142,91 @@ export default function LibraryPage() {
   const psalmsCollections = getAllCollections();
   const markDivisions = getMarkDivisions();
 
-  // Extract focusable cards based on active tab
+  // Focusable cards in the exact order the tab renders them (keyboard navigation).
   const extractFocusableCards = (): FocusableCard[] => {
     const cards: FocusableCard[] = [];
 
+    const pushDivided = (
+      bookSlug: string,
+      divisions: ReturnType<typeof getAllDivisions>,
+      routePrefix: string,
+      categoryId?: string,
+    ) => {
+      const filtered = hideInstructional
+        ? divisions.filter((d) => d.contentType !== 'instructional')
+        : divisions;
+      filtered.forEach((division) => {
+        cards.push({
+          id: `${bookSlug}:${division.id}`,
+          href: `/${routePrefix}/${division.id}/${division.chapters[0]}`,
+          bookSlug,
+          categoryId,
+        });
+      });
+    };
+
     switch (activeTab) {
       case 'torah': {
-        const torahBooks = getBooksByTopLevelCategory('torah');
-        torahBooks.forEach(book => {
-          const divisions = book.slug === 'genesis' ? genesisBooks : getAllDivisions(book.slug);
-          const hasDivisions = divisions.length > 0;
-          const filteredDivisions = hideInstructional
-            ? divisions.filter(d => d.contentType !== 'instructional')
-            : divisions;
-
-          if (hasDivisions && filteredDivisions.length > 0) {
-            filteredDivisions.forEach(division => {
-              cards.push({
-                id: `${book.slug}:${division.id}`,
-                href: book.slug === 'genesis'
-                  ? `/genesis/${division.id}/${division.chapters[0]}`
-                  : `/${book.slug}/${division.id}/${division.chapters[0]}`,
-                bookSlug: book.slug
-              });
-            });
-          } else if (!hasDivisions) {
-            cards.push({
-              id: book.slug,
-              href: `/${book.slug}/1`,
-              bookSlug: book.slug
-            });
+        getBooksByTopLevelCategory('torah').forEach((book) => {
+          const divisions =
+            book.slug === 'genesis'
+              ? (genesisBooks as unknown as ReturnType<typeof getAllDivisions>)
+              : getAllDivisions(book.slug);
+          if (divisions.length > 0) {
+            pushDivided(book.slug, divisions, book.slug);
+          } else {
+            cards.push({ id: book.slug, href: `/${book.slug}/1`, bookSlug: book.slug });
           }
         });
         break;
       }
-
+      case 'gospels': {
+        getBooksByTopLevelCategory('gospels').forEach((book) => {
+          const divisions =
+            book.slug === 'mark'
+              ? (markDivisions as unknown as ReturnType<typeof getAllDivisions>)
+              : getAllDivisions(book.slug);
+          if (divisions.length > 0) {
+            pushDivided(book.slug, divisions, book.slug);
+          } else {
+            cards.push({ id: book.slug, href: `/${book.slug}/1`, bookSlug: book.slug });
+          }
+        });
+        break;
+      }
       case 'psalms': {
-        psalmsCollections.forEach(collection => {
+        psalmsCollections.forEach((collection) => {
           cards.push({
             id: collection.id,
             href: `/psalms/${collection.id}/${collection.psalms[0]}`,
-            bookSlug: 'psalms'
+            bookSlug: 'psalms',
           });
         });
         break;
       }
-
-      case 'old-testament': {
-        const otBooks = getBooksByTopLevelCategory('old-testament');
-        const otCategories = [
-          CATEGORIES.HISTORICAL,
-          CATEGORIES.WISDOM,
-          CATEGORIES.MAJOR_PROPHETS,
-          CATEGORIES.MINOR_PROPHETS,
-        ];
-
-        // Extract cards in category order to match rendering
-        otCategories.forEach(category => {
-          const categoryBooks = otBooks.filter(book => book.category === category.id);
-
-          categoryBooks.forEach(book => {
-            const divisions = getAllDivisions(book.slug);
-            const hasDivisions = divisions.length > 0;
-            const filteredDivisions = hideInstructional
-              ? divisions.filter(d => d.contentType !== 'instructional')
-              : divisions;
-
-            if (hasDivisions && filteredDivisions.length > 0) {
-              filteredDivisions.forEach(division => {
-                cards.push({
-                  id: `${book.slug}:${division.id}`,
-                  href: `/${book.slug}/${division.id}/${division.chapters[0]}`,
-                  bookSlug: book.slug,
-                  categoryId: category.id
-                });
-              });
-            } else {
-              cards.push({
-                id: book.slug,
-                href: `/${book.slug}/1`,
-                bookSlug: book.slug,
-                categoryId: category.id
-              });
-            }
-          });
-        });
-        break;
-      }
-
+      case 'old-testament':
       case 'new-testament': {
-        const ntBooks = getBooksByTopLevelCategory('new-testament');
-        const ntCategories = [
-          CATEGORIES.ACTS,
-          CATEGORIES.PAULINE,
-          CATEGORIES.GENERAL,
-          CATEGORIES.APOCALYPSE,
-        ];
-
-        // Extract cards in category order to match rendering
-        ntCategories.forEach(category => {
-          const categoryBooks = ntBooks.filter(book => book.category === category.id);
-
-          categoryBooks.forEach(book => {
-            cards.push({
-              id: book.slug,
-              href: `/${book.slug}/1`,
-              bookSlug: book.slug,
-              categoryId: category.id
+        const isOT = activeTab === 'old-testament';
+        const books = getBooksByTopLevelCategory(activeTab);
+        const cats = isOT
+          ? [CATEGORIES.HISTORICAL, CATEGORIES.WISDOM, CATEGORIES.MAJOR_PROPHETS, CATEGORIES.MINOR_PROPHETS]
+          : [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
+        cats.forEach((category) => {
+          books
+            .filter((b) => b.category === category.id)
+            .forEach((book) => {
+              const divisions = isOT ? getAllDivisions(book.slug) : [];
+              if (divisions.length > 0) {
+                pushDivided(book.slug, divisions, book.slug, category.id);
+              } else {
+                cards.push({
+                  id: book.slug,
+                  href: `/${book.slug}/1`,
+                  bookSlug: book.slug,
+                  categoryId: category.id,
+                });
+              }
             });
-          });
-        });
-        break;
-      }
-
-      case 'gospels': {
-        const gospelBooks = getBooksByTopLevelCategory('gospels');
-        gospelBooks.forEach(book => {
-          const divisions = book.slug === 'mark' ? markDivisions : getAllDivisions(book.slug);
-          const hasDivisions = divisions.length > 0;
-          const filteredDivisions = hideInstructional
-            ? divisions.filter(d => d.contentType !== 'instructional')
-            : divisions;
-
-          if (hasDivisions && filteredDivisions.length > 0) {
-            filteredDivisions.forEach(division => {
-              cards.push({
-                id: `${book.slug}:${division.id}`,
-                href: book.slug === 'mark'
-                  ? `/mark/${division.id}/${division.chapters[0]}`
-                  : `/${book.slug}/${division.id}/${division.chapters[0]}`,
-                bookSlug: book.slug
-              });
-            });
-          } else {
-            cards.push({
-              id: book.slug,
-              href: `/${book.slug}/1`,
-              bookSlug: book.slug
-            });
-          }
         });
         break;
       }
@@ -189,111 +236,69 @@ export default function LibraryPage() {
   };
 
   const focusableCards = extractFocusableCards();
+  const focusedCardId =
+    focusedCardIndex !== null ? focusableCards[focusedCardIndex]?.id ?? null : null;
 
-  // Get the focused card ID
-  const focusedCardId = focusedCardIndex !== null ? (focusableCards[focusedCardIndex]?.id || null) : null;
-
-  // Calculate grid columns based on viewport width
+  // Columns of the card grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-3).
   const getGridColumns = () => {
-    if (typeof window === 'undefined') return 5;
+    if (typeof window === 'undefined') return 3;
     const width = window.innerWidth;
-    if (width < 768) return 2;  // mobile
-    if (width < 1024) return 4; // tablet
-    return 5; // desktop
+    if (width < 640) return 1;
+    if (width < 1024) return 2;
+    return 3;
   };
-
   const [gridColumns, setGridColumns] = useState(getGridColumns);
 
-  // Update grid columns on resize
   useEffect(() => {
     const handleResize = () => setGridColumns(getGridColumns());
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Debug logging
-  useEffect(() => {
-    console.log('Tab:', activeTab, '| Cards:', focusableCards.length, '| Focused index:', focusedCardIndex, '| Focused ID:', focusedCardId, '| Grid cols:', gridColumns);
-  }, [activeTab, focusableCards.length, focusedCardIndex, focusedCardId, gridColumns]);
-
-  // Reset focus when tab changes
+  // Reset focus when the visible card set changes.
   useEffect(() => {
     setFocusedCardIndex(null);
   }, [activeTab, hideInstructional]);
 
-  // Auto-scroll focused card into view
+  // Keep the focused card in view.
   useEffect(() => {
-    if (focusedCardIndex !== null && focusedCardId) {
-      // Find the focused card element by its href
-      const focusedCard = focusableCards[focusedCardIndex];
-      if (focusedCard) {
-        // Find all links and match by href
-        const links = document.querySelectorAll('a[href]');
-        const cardElement = Array.from(links).find(link =>
-          link.getAttribute('href') === focusedCard.href
-        );
-
-        if (cardElement) {
-          cardElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-            inline: 'center'
-          });
-        }
-      }
-    }
+    if (focusedCardIndex === null) return;
+    const focusedCard = focusableCards[focusedCardIndex];
+    if (!focusedCard) return;
+    const cardElement = document.querySelector(`a[href="${focusedCard.href}"]`);
+    cardElement?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
   }, [focusedCardIndex, focusedCardId, focusableCards]);
 
-  // Keyboard navigation
+  // Keyboard navigation: arrows move, Enter opens, 1-5 switch tabs.
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger if user is typing in an input
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
 
-      // 2D grid navigation with arrow keys
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
-        setFocusedCardIndex(prev => {
-          // If nothing focused, start at first card
-          if (prev === null) return 0;
-          const newIndex = Math.max(0, prev - 1);
-          console.log('Left arrow: ', prev, '->', newIndex);
-          return newIndex;
-        });
+        setFocusedCardIndex((prev) => (prev === null ? 0 : Math.max(0, prev - 1)));
         return;
       }
 
       if (e.key === 'ArrowRight') {
         e.preventDefault();
-        setFocusedCardIndex(prev => {
-          // If nothing focused, start at first card
-          if (prev === null) return 0;
-          const newIndex = Math.min(focusableCards.length - 1, prev + 1);
-          console.log('Right arrow: ', prev, '->', newIndex);
-          return newIndex;
-        });
+        setFocusedCardIndex((prev) =>
+          prev === null ? 0 : Math.min(focusableCards.length - 1, prev + 1),
+        );
         return;
       }
 
       if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setFocusedCardIndex(prev => {
-          // If nothing focused, start at first card
-          if (prev === null) return 0;
-          // Move up one row (subtract gridColumns)
-          const newIndex = Math.max(0, prev - gridColumns);
-          console.log('Up arrow: ', prev, '->', newIndex, '(cols:', gridColumns, ')');
-          return newIndex;
-        });
+        setFocusedCardIndex((prev) => (prev === null ? 0 : Math.max(0, prev - gridColumns)));
         return;
       }
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setFocusedCardIndex(prev => {
-          // If nothing focused, start at first card
+        setFocusedCardIndex((prev) => {
           if (prev === null) return 0;
 
           const currentCard = focusableCards[prev];
@@ -302,47 +307,40 @@ export default function LibraryPage() {
           if (tentativeIndex < focusableCards.length) {
             const tentativeCard = focusableCards[tentativeIndex];
 
-            // Priority 1: Check if crossing to a new category (OT/NT tabs)
-            if (currentCard.categoryId && tentativeCard.categoryId &&
-                currentCard.categoryId !== tentativeCard.categoryId) {
-              // Jump to first card of new category
-              const firstCardOfNewCategory = focusableCards.findIndex(
-                card => card.categoryId === tentativeCard.categoryId
+            // Crossing into a new category: land on its first card.
+            if (
+              currentCard.categoryId &&
+              tentativeCard.categoryId &&
+              currentCard.categoryId !== tentativeCard.categoryId
+            ) {
+              const first = focusableCards.findIndex(
+                (card) => card.categoryId === tentativeCard.categoryId,
               );
-              console.log('Down arrow: crossing categories from', currentCard.categoryId, 'to', tentativeCard.categoryId, '| Jump to index:', firstCardOfNewCategory);
-              return firstCardOfNewCategory !== -1 ? firstCardOfNewCategory : tentativeIndex;
+              return first !== -1 ? first : tentativeIndex;
             }
 
-            // Priority 2: Check if crossing to a new book (within same category or no categories)
+            // Crossing into a new book: land on its first card.
             if (currentCard.bookSlug !== tentativeCard.bookSlug) {
-              // Jump to first card of new book
-              const firstCardOfNewBook = focusableCards.findIndex(
-                card => card.bookSlug === tentativeCard.bookSlug
+              const first = focusableCards.findIndex(
+                (card) => card.bookSlug === tentativeCard.bookSlug,
               );
-              console.log('Down arrow: crossing books from', currentCard.bookSlug, 'to', tentativeCard.bookSlug, '| Jump to index:', firstCardOfNewBook);
-              return firstCardOfNewBook !== -1 ? firstCardOfNewBook : tentativeIndex;
+              return first !== -1 ? first : tentativeIndex;
             }
           }
 
-          // Normal down movement
-          const newIndex = Math.min(focusableCards.length - 1, tentativeIndex);
-          console.log('Down arrow: ', prev, '->', newIndex, '(cols:', gridColumns, ')');
-          return newIndex;
+          return Math.min(focusableCards.length - 1, tentativeIndex);
         });
         return;
       }
 
       if (e.key === 'Enter') {
-        console.log('Enter pressed. Index:', focusedCardIndex, 'Card:', focusedCardIndex !== null ? focusableCards[focusedCardIndex] : null);
-        if (focusedCardIndex !== null && focusableCards.length > 0 && focusableCards[focusedCardIndex]) {
-          console.log('Navigating to:', focusableCards[focusedCardIndex].href);
-          router.push(focusableCards[focusedCardIndex].href);
+        if (focusedCardIndex !== null && focusableCards[focusedCardIndex]) {
           e.preventDefault();
+          router.push(focusableCards[focusedCardIndex].href);
         }
         return;
       }
 
-      // Tab navigation by number keys
       switch (e.key) {
         case '1':
           router.push('/library/torah');
@@ -366,524 +364,262 @@ export default function LibraryPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [router, focusableCards, focusedCardIndex, gridColumns]);
 
+  // Render a whole "book" that has thematic divisions (Genesis, Mark, ...).
+  const renderDividedBook = (
+    book: { slug: string; name: string; chapterCount: number },
+    number: string,
+    divisions: ReturnType<typeof getAllDivisions>,
+    routePrefix?: string,
+  ) => {
+    const filtered = hideInstructional
+      ? divisions.filter((d) => d.contentType !== 'instructional')
+      : divisions;
+    if (filtered.length === 0) return null;
+    const prefix = routePrefix ?? book.slug;
+    return (
+      <section key={book.slug}>
+        <SectionHeader number={number} name={book.name} sub={`${divisions.length} books · ${book.chapterCount} chapters`} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {filtered.map((division, i) => {
+            const isInstructional = division.contentType === 'instructional';
+            const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
+            const hasWritings = divisionHasWritings(book.slug, division.chapters);
+            return (
+              <DivisionCard
+                key={division.id}
+                href={`/${prefix}/${division.id}/${division.chapters[0]}`}
+                title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                count={division.chapters.length}
+                theme={division.theme}
+                hasCommentary={hasCommentary}
+                hasWritings={hasWritings}
+                instructional={isInstructional}
+                tint={TINTS[i % TINTS.length]}
+                focused={focusedCardId === `${book.slug}:${division.id}`}
+              />
+            );
+          })}
+        </div>
+      </section>
+    );
+  };
+
   const renderTabContent = () => {
-    let cardIndex = 0; // Track card index for focus indicator
     switch (activeTab) {
-      case 'torah':
+      case 'torah': {
         const torahBooks = getBooksByTopLevelCategory('torah');
         return (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {torahBooks.map((book, bookIndex) => {
-              const divisions = book.slug === 'genesis' ? genesisBooks : getAllDivisions(book.slug);
-              const hasDivisions = divisions.length > 0;
-              const filteredDivisions = hideInstructional
-                ? divisions.filter(d => d.contentType !== 'instructional')
-                : divisions;
-
-              // Skip book if all divisions are hidden
-              if (hasDivisions && filteredDivisions.length === 0) {
-                return null;
+          <div className="space-y-2">
+            {torahBooks.map((book, idx) => {
+              const divisions =
+                book.slug === 'genesis'
+                  ? (genesisBooks as unknown as ReturnType<typeof getAllDivisions>)
+                  : getAllDivisions(book.slug);
+              const number = String(idx + 1).padStart(2, '0');
+              if (divisions.length > 0) {
+                return renderDividedBook(
+                  book,
+                  number,
+                  divisions,
+                  book.slug === 'genesis' ? 'genesis' : book.slug,
+                );
               }
-
               return (
-                <Fragment key={book.slug}>
-                  {/* Book name header */}
-                  <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center font-semibold">
-                      {book.name}
-                    </h3>
-                  </div>
-
-                  {hasDivisions ? (
-                    filteredDivisions.map((division) => {
-                      const isInstructional = division.contentType === 'instructional';
-                      const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
-                      const themeColor = isInstructional ? 'text-orange-400 opacity-80' : 'text-[rgb(var(--text-secondary))] opacity-60';
-                      const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
-                      const hasWritings = divisionHasWritings(book.slug, division.chapters);
-                      const cardId = `${book.slug}:${division.id}`;
-                      const isFocused = focusedCardId === cardId;
-
-                      return (
-                        <Link
-                          key={division.id}
-                          href={book.slug === 'genesis'
-                            ? `/genesis/${division.id}/${division.chapters[0]}`
-                            : `/${book.slug}/${division.id}/${division.chapters[0]}`
-                          }
-                          className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
-                            isFocused
-                              ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50'
-                              : ''
-                          } ${
-                            hasCommentary
-                              ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
-                              : hasWritings
-                              ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
-                              : 'border-[rgb(var(--border))]'
-                          }`}
-                        >
-                          <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                            {division.title.replace('The Book of ', '').replace(/^The /, '')}
-                            {division.theme && (
-                              <>
-                                <br />
-                                <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                                  {division.theme}
-                                </span>
-                              </>
-                            )}
-                            <br />
-                            <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
-                          </h3>
-                        </Link>
-                      );
-                    })
-                  ) : (
-                    <Link
-                      key={book.slug}
+                <section key={book.slug}>
+                  <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <DivisionCard
                       href={`/${book.slug}/1`}
-                      className={`block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center ${
-                        focusedCardId === book.slug ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50' : ''
-                      }`}
-                    >
-                      <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name}
-                        <br />
-                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
-                      </h3>
-                    </Link>
-                  )}
-
-                  {/* Add spacing between books */}
-                  {bookIndex < torahBooks.length - 1 && <div className="col-span-full h-8" />}
-                </Fragment>
+                      title={`Read ${book.name}`}
+                      count={book.chapterCount}
+                      theme={getBookTheme(book.slug)}
+                      tint={TINTS[idx % TINTS.length]}
+                      focused={focusedCardId === book.slug}
+                    />
+                  </div>
+                </section>
               );
             })}
           </div>
         );
+      }
+
+      case 'gospels': {
+        const gospelBooks = getBooksByTopLevelCategory('gospels');
+        return (
+          <div className="space-y-2">
+            {gospelBooks.map((book, idx) => {
+              const divisions =
+                book.slug === 'mark'
+                  ? (markDivisions as unknown as ReturnType<typeof getAllDivisions>)
+                  : getAllDivisions(book.slug);
+              const number = String(idx + 1).padStart(2, '0');
+              if (divisions.length > 0) {
+                return renderDividedBook(book, number, divisions, book.slug);
+              }
+              return (
+                <section key={book.slug}>
+                  <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <DivisionCard
+                      href={`/${book.slug}/1`}
+                      title={`Read ${book.name}`}
+                      count={book.chapterCount}
+                      theme={getBookTheme(book.slug)}
+                      tint={TINTS[idx % TINTS.length]}
+                      focused={focusedCardId === book.slug}
+                    />
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        );
+      }
 
       case 'psalms':
         return (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {psalmsCollections.map((collection) => {
-              const isFocused = focusedCardId === collection.id;
-              return (
-                <Link
+          <div className="space-y-2">
+            <SectionHeader name="Psalms" sub={`${psalmsCollections.length} collections`} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {psalmsCollections.map((collection, i) => (
+                <DivisionCard
                   key={collection.id}
                   href={`/psalms/${collection.id}/${collection.psalms[0]}`}
-                  className={`block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center ${
-                    isFocused ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50' : ''
-                  }`}
-                >
-                  <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                    {collection.title.replace('Psalms of ', '')}
-                    {collection.theme && (
-                      <>
-                        <br />
-                        <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                          {collection.theme}
-                        </span>
-                      </>
-                    )}
-                    <br />
-                    <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{collection.psalms.length}</span>
-                  </h3>
-                </Link>
-              );
-            })}
+                  title={collection.title.replace('Psalms of ', '')}
+                  count={collection.psalms.length}
+                  theme={collection.theme}
+                  tint={TINTS[i % TINTS.length]}
+                  focused={focusedCardId === collection.id}
+                />
+              ))}
+            </div>
           </div>
         );
 
       case 'old-testament':
-        const otBooks = getBooksByTopLevelCategory('old-testament');
-        const otCategories = [
-          CATEGORIES.HISTORICAL,
-          CATEGORIES.WISDOM,
-          CATEGORIES.MAJOR_PROPHETS,
-          CATEGORIES.MINOR_PROPHETS,
-        ];
+      case 'new-testament': {
+        const isOT = activeTab === 'old-testament';
+        const books = getBooksByTopLevelCategory(activeTab);
+        const cats = isOT
+          ? [CATEGORIES.HISTORICAL, CATEGORIES.WISDOM, CATEGORIES.MAJOR_PROPHETS, CATEGORIES.MINOR_PROPHETS]
+          : [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
 
         return (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {otCategories.map((category, categoryIndex) => {
-              const categoryBooks = otBooks.filter(book => book.category === category.id);
+          <div className="space-y-2">
+            {cats.map((category) => {
+              const categoryBooks = books.filter((b) => b.category === category.id);
+              const cards: React.ReactNode[] = [];
+              categoryBooks.forEach((book, i) => {
+                const divisions = isOT ? getAllDivisions(book.slug) : [];
+                const filtered = hideInstructional
+                  ? divisions.filter((d) => d.contentType !== 'instructional')
+                  : divisions;
 
-              return (
-                <Fragment key={category.id}>
-                  {/* Category header */}
-                  <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center font-semibold">
-                      {category.name}
-                    </h3>
-                  </div>
-
-                  {categoryBooks.map((book) => {
-                    const divisions = getAllDivisions(book.slug);
-                    const hasDivisions = divisions.length > 0;
-                    const filteredDivisions = hideInstructional
-                      ? divisions.filter(d => d.contentType !== 'instructional')
-                      : divisions;
-
-                    if (hasDivisions) {
-                      // Skip if all divisions are hidden
-                      if (filteredDivisions.length === 0) {
-                        return null;
-                      }
-
-                      return filteredDivisions.map((division) => {
-                        const isInstructional = division.contentType === 'instructional';
-                        const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
-                        const themeColor = isInstructional ? 'text-orange-400 opacity-80' : 'text-[rgb(var(--text-secondary))] opacity-60';
-                        const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
-                        const hasWritings = divisionHasWritings(book.slug, division.chapters);
-                        const cardId = `${book.slug}:${division.id}`;
-                        const isFocused = focusedCardId === cardId;
-
-                        return (
-                          <Link
-                            key={division.id}
-                            href={`/${book.slug}/${division.id}/${division.chapters[0]}`}
-                            className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
-                              isFocused
-                                ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50'
-                                : ''
-                            } ${
-                              hasCommentary
-                                ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
-                                : hasWritings
-                                ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
-                                : 'border-[rgb(var(--border))]'
-                            }`}
-                          >
-                            <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                              {division.title.replace('The Book of ', '').replace(/^The /, '')}
-                              {division.theme && (
-                                <>
-                                  <br />
-                                  <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                                    {division.theme}
-                                  </span>
-                                </>
-                              )}
-                              <br />
-                              <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
-                            </h3>
-                          </Link>
-                        );
-                      });
-                    }
-
-                    const bookTheme = getBookTheme(book.slug);
-                    const isFocused = focusedCardId === book.slug;
-                    return (
-                      <Link
-                        key={book.slug}
-                        href={`/${book.slug}/1`}
-                        className={`block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center ${
-                          isFocused ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50' : ''
-                        }`}
-                      >
-                        <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                          {book.name}
-                          {bookTheme && (
-                            <>
-                              <br />
-                              <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                                {bookTheme}
-                              </span>
-                            </>
-                          )}
-                          <br />
-                          <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
-                        </h3>
-                      </Link>
+                if (divisions.length > 0) {
+                  filtered.forEach((division, j) => {
+                    cards.push(
+                      <DivisionCard
+                        key={division.id}
+                        href={`/${book.slug}/${division.id}/${division.chapters[0]}`}
+                        title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                        count={division.chapters.length}
+                        theme={division.theme}
+                        instructional={division.contentType === 'instructional'}
+                        hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                        hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                        tint={TINTS[(i + j) % TINTS.length]}
+                        focused={focusedCardId === `${book.slug}:${division.id}`}
+                      />,
                     );
-                  })}
-
-                  {/* Add spacing between categories */}
-                  {categoryIndex < otCategories.length - 1 && <div className="col-span-full h-8" />}
-                </Fragment>
-              );
-            })}
-          </div>
-        );
-
-      case 'new-testament':
-        const ntBooks = getBooksByTopLevelCategory('new-testament');
-        const ntCategories = [
-          CATEGORIES.ACTS,
-          CATEGORIES.PAULINE,
-          CATEGORIES.GENERAL,
-          CATEGORIES.APOCALYPSE,
-        ];
-
-        return (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {ntCategories.map((category, categoryIndex) => {
-              const categoryBooks = ntBooks.filter(book => book.category === category.id);
-
-              return (
-                <Fragment key={category.id}>
-                  {/* Category header */}
-                  <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center font-semibold">
-                      {category.name}
-                    </h3>
-                  </div>
-
-                  {categoryBooks.map((book) => {
-                    // Check if book has any commentary or writings
-                    const allChapters = Array.from({ length: book.chapterCount }, (_, i) => i + 1);
-                    const hasCommentary = divisionHasCommentary(book.slug, allChapters);
-                    const hasWritings = divisionHasWritings(book.slug, allChapters);
-                    const bookTheme = getBookTheme(book.slug);
-                    const isFocused = focusedCardId === book.slug;
-
-                    return (
-                      <Link
-                        key={book.slug}
-                        href={`/${book.slug}/1`}
-                        className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
-                          isFocused
-                            ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50'
-                            : ''
-                        } ${
-                          hasCommentary
-                            ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
-                            : hasWritings
-                            ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
-                            : 'border-[rgb(var(--border))]'
-                        }`}
-                      >
-                        <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                          {book.name}
-                          {bookTheme && (
-                            <>
-                              <br />
-                              <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                                {bookTheme}
-                              </span>
-                            </>
-                          )}
-                          <br />
-                          <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
-                        </h3>
-                      </Link>
-                    );
-                  })}
-
-                  {/* Add spacing between categories */}
-                  {categoryIndex < ntCategories.length - 1 && <div className="col-span-full h-8" />}
-                </Fragment>
-              );
-            })}
-          </div>
-        );
-
-      case 'gospels':
-        const gospelBooks = getBooksByTopLevelCategory('gospels');
-        return (
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {gospelBooks.map((book, bookIndex) => {
-              const divisions = book.slug === 'mark' ? markDivisions : getAllDivisions(book.slug);
-              const hasDivisions = divisions.length > 0;
-              const filteredDivisions = hideInstructional
-                ? divisions.filter(d => d.contentType !== 'instructional')
-                : divisions;
-
-              // Skip book if all divisions are hidden
-              if (hasDivisions && filteredDivisions.length === 0) {
-                return null;
-              }
-
-              return (
-                <Fragment key={book.slug}>
-                  {/* Book name header */}
-                  <div className="col-span-full">
-                    <h3 className="text-xs uppercase tracking-widest text-[rgb(var(--text-secondary))] opacity-70 mb-3 text-center font-semibold">
-                      {book.name}
-                    </h3>
-                  </div>
-
-                  {hasDivisions ? (
-                    filteredDivisions.map((division) => {
-                      const isInstructional = division.contentType === 'instructional';
-                      const titleColor = isInstructional ? 'text-orange-500' : 'text-[rgb(var(--text-primary))]';
-                      const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
-                      const hasWritings = divisionHasWritings(book.slug, division.chapters);
-                      const cardId = `${book.slug}:${division.id}`;
-                      const isFocused = focusedCardId === cardId;
-
-                      return (
-                        <Link
-                          key={division.id}
-                          href={book.slug === 'mark'
-                            ? `/mark/${division.id}/${division.chapters[0]}`
-                            : `/${book.slug}/${division.id}/${division.chapters[0]}`
-                          }
-                          className={`block p-4 border rounded hover:border-[rgb(var(--text-secondary))] transition-all text-center ${
-                            isFocused
-                              ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50'
-                              : ''
-                          } ${
-                            hasCommentary
-                              ? 'border-blue-400/60 shadow-md shadow-blue-400/40 dark:border-blue-500/70 dark:shadow-blue-500/30'
-                              : hasWritings
-                              ? 'border-green-400/60 shadow-md shadow-green-400/40 dark:border-green-500/70 dark:shadow-green-500/30'
-                              : 'border-[rgb(var(--border))]'
-                          }`}
-                        >
-                          <h3 className={`text-sm font-light ${titleColor} leading-tight`}>
-                            {division.title}
-                            {division.theme && (
-                              <>
-                                <br />
-                                <span className="text-xs text-[rgb(var(--text-secondary))] opacity-50 italic">
-                                  {division.theme}
-                                </span>
-                              </>
-                            )}
-                            <br />
-                            <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{division.chapters.length}</span>
-                          </h3>
-                        </Link>
-                      );
-                    })
-                  ) : (
-                    <Link
+                  });
+                } else {
+                  const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+                  cards.push(
+                    <DivisionCard
                       key={book.slug}
                       href={`/${book.slug}/1`}
-                      className={`block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center ${
-                        focusedCardId === book.slug ? '!border-4 !border-yellow-400 shadow-lg shadow-yellow-400/50' : ''
-                      }`}
-                    >
-                      <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-                        {book.name}
-                        <br />
-                        <span className="text-[rgb(var(--text-secondary))] text-xs opacity-60">{book.chapterCount}</span>
-                      </h3>
-                    </Link>
-                  )}
+                      title={book.name}
+                      count={book.chapterCount}
+                      theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      tint={TINTS[i % TINTS.length]}
+                      focused={focusedCardId === book.slug}
+                    />,
+                  );
+                }
+              });
 
-                  {/* Add spacing between books */}
-                  {bookIndex < gospelBooks.length - 1 && <div className="col-span-full h-8" />}
-                </Fragment>
+              if (cards.length === 0) return null;
+              return (
+                <section key={category.id}>
+                  <SectionHeader name={category.name} />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">{cards}</div>
+                </section>
               );
             })}
           </div>
         );
+      }
     }
   };
 
+  const mast = MASTHEAD[activeTab];
+  const tocHref = TOC_LINKS[activeTab];
+
   return (
-    <main className="max-w-7xl mx-auto px-4 py-4">
-      {/* Tab Navigation */}
-      <div className="mb-6 md:mb-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-[rgb(var(--border))] -mx-4 px-4 md:mx-0 md:px-0">
-          {/* Tabs - scrollable on mobile */}
-          <div className="overflow-x-auto flex-1">
-            <div className="flex gap-1 min-w-max md:min-w-0">
-              {TABS.map((tab) => (
-                <Link
-                  key={tab.id}
-                  href={`/library/${tab.id}`}
-                  className={`px-4 md:px-6 py-3 text-sm font-medium transition-colors whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? 'text-[rgb(var(--text-primary))] border-b-2 border-gold'
-                      : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
-                  }`}
-                >
-                  {tab.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+    <main className="max-w-6xl mx-auto">
+      {/* Masthead */}
+      <div className="pt-2 pb-5">
+        <p className="font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+          {mast.kicker}
+        </p>
+        <h1 className="font-serif font-bold text-5xl md:text-6xl text-ink leading-none tracking-tight">
+          {mast.title}
+        </h1>
+      </div>
 
-          {/* Story/Law Mode Toggle - below tabs on mobile, right side on desktop */}
-          <div className="flex items-center gap-3 py-3 md:ml-6 border-l border-[rgb(var(--border))] pl-4">
-            <button
-              onClick={() => setHideInstructional(true)}
-              className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${
-                hideInstructional
-                  ? 'bg-[#D4AF37] text-black'
-                  : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
-              }`}
-            >
-              Story
-            </button>
-            <button
-              onClick={() => setHideInstructional(false)}
-              className={`px-3 py-1.5 text-sm font-medium rounded transition-all ${
-                !hideInstructional
-                  ? 'bg-orange-500 text-white'
-                  : 'text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))]'
-              }`}
-            >
-              Study
-            </button>
-          </div>
+      {/* Tabs + Law toggle */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+        <div className="inline-flex bg-paper-2 rounded-full p-1 font-sans text-[13px] font-medium overflow-x-auto max-w-full">
+          {TABS.map((tab) => {
+            const active = activeTab === tab.id;
+            return (
+              <Link
+                key={tab.id}
+                href={`/library/${tab.id}`}
+                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
+                  active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
+                }`}
+              >
+                {tab.label}
+              </Link>
+            );
+          })}
+        </div>
 
-          {/* Contents Buttons - conditional based on active tab */}
-          {activeTab === 'torah' && (
+        <div className="flex items-center gap-5">
+          {tocHref && (
             <Link
-              href="/torah-toc"
-              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
+              href={tocHref}
+              className="font-sans text-xs text-muted hover:text-ink transition-colors whitespace-nowrap"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
               Contents
             </Link>
           )}
-          {activeTab === 'old-testament' && (
-            <Link
-              href="/ot-toc"
-              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
-              Contents
-            </Link>
-          )}
-          {activeTab === 'new-testament' && (
-            <Link
-              href="/nt-toc"
-              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
-              Contents
-            </Link>
-          )}
-          {activeTab === 'gospels' && (
-            <Link
-              href="/gospels-toc"
-              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
-              Contents
-            </Link>
-          )}
-          {activeTab === 'psalms' && (
-            <Link
-              href="/psalms-toc"
-              className="flex items-center gap-2 text-xs text-[rgb(var(--text-secondary))] opacity-50 hover:opacity-100 py-3 transition-opacity whitespace-nowrap md:ml-4"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-              </svg>
-              Contents
-            </Link>
-          )}
+          <label className="flex items-center gap-2 font-sans text-xs text-muted cursor-pointer whitespace-nowrap">
+            <input
+              type="checkbox"
+              checked={hideInstructional}
+              onChange={(e) => setHideInstructional(e.target.checked)}
+              className="accent-[rgb(var(--gold))] cursor-pointer"
+            />
+            Hide the Law
+          </label>
         </div>
       </div>
 
-      {/* Tab Content */}
       {renderTabContent()}
     </main>
   );

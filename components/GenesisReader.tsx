@@ -4321,10 +4321,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
                 id={slugify(daySection.day)}
                 className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${daySection.borderColor} ${daySection.color}`}
               >
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-sans text-[12px] tracking-[0.16em] uppercase font-bold text-gold-ink">
-                    {daySection.day}
-                  </h3>
+                <div className="flex items-center gap-3 mb-4">
                   <button
                     onClick={() => handleCopySection(daySection.day, dayVerses)}
                     className="font-sans text-sm text-muted hover:text-ink transition-colors cursor-pointer"
@@ -4332,6 +4329,9 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
                   >
                     {copiedSection === daySection.day ? '✓' : '⧉'}
                   </button>
+                  <h3 className="font-sans text-[12px] tracking-[0.16em] uppercase font-bold text-gold-ink">
+                    {daySection.day}
+                  </h3>
                 </div>
                 <div className="font-serif text-ink text-[21px] leading-[1.95]">
                   {dayVerses.map((verse) => (

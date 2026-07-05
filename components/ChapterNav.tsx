@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
-import { getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
+import { getAllDivisions, getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
 import { hasWriting, getWriting } from '@/lib/hasWritings';
+import BookMap from './BookMap';
 
 interface Props {
   bookSlug: string;
@@ -135,9 +136,13 @@ export default function ChapterNav({
       <nav className="relative flex flex-col items-center justify-center mb-8 pb-5 border-b border-hairline">
         {/* Left: canonical reference + bookmark */}
         <div className="absolute left-0 top-0 flex flex-col items-start gap-2.5">
-          <span className="font-sans text-[13px] font-semibold text-blue-ref bg-[rgb(var(--blue-ref)/0.12)] px-2.5 py-1 rounded-full">
-            {bookAbbreviation} {currentChapter}
-          </span>
+          <BookMap
+            label={`${bookAbbreviation} ${currentChapter}`}
+            divisions={getAllDivisions(bookSlug)}
+            basePath={`/${bookSlug}`}
+            currentChapter={currentChapter}
+            currentDivisionId={division.id}
+          />
           <button
             onClick={handleBookmark}
             className="text-lg text-faint hover:text-gold transition-colors leading-none"

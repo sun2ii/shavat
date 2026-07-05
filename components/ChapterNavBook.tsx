@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { storage } from '@/lib/storage';
 import { GenesisBook } from '@/lib/types';
-import { getNextBook, getPreviousBook } from '@/lib/genesis-collections';
+import { getAllBooks, getNextBook, getPreviousBook } from '@/lib/genesis-collections';
+import BookMap from './BookMap';
 
 interface Props {
   currentChapter: number;
@@ -82,9 +83,13 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
       <nav className="relative flex flex-col items-center justify-center mb-8 pb-5 border-b border-hairline">
         {/* Left: canonical reference + bookmark */}
         <div className="absolute left-0 top-0 flex flex-col items-start gap-2.5">
-          <span className="font-sans text-[13px] font-semibold text-blue-ref bg-[rgb(var(--blue-ref)/0.12)] px-2.5 py-1 rounded-full">
-            Gen {currentChapter}
-          </span>
+          <BookMap
+            label={`Gen ${currentChapter}`}
+            divisions={getAllBooks()}
+            basePath="/genesis"
+            currentChapter={currentChapter}
+            currentDivisionId={book.id}
+          />
           <button
             onClick={handleBookmark}
             className="text-lg text-faint hover:text-gold transition-colors leading-none"

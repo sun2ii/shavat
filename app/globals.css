@@ -25,6 +25,10 @@
     --blue-ref: 59 120 212;      /* #3b78d4 canonical ref */
     --highlight-yellow: 240 226 189;
     --highlight-blue: 188 208 234;
+    --highlight-purple: 221 207 240;
+    --highlight-rose: 242 206 218;
+    --highlight-emerald: 202 229 212;
+    --highlight-silver: 223 226 231;
   }
 
   .dark {
@@ -42,6 +46,10 @@
     --blue-ref: 111 159 224;     /* #6f9fe0               */
     --highlight-yellow: 90 75 35;
     --highlight-blue: 30 58 138;
+    --highlight-purple: 66 52 98;
+    --highlight-rose: 96 46 62;
+    --highlight-emerald: 34 74 52;
+    --highlight-silver: 58 64 74;
   }
 }
 

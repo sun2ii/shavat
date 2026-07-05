@@ -7,13 +7,15 @@ export interface Verse {
 }
 
 // Highlight model (persisted)
+export type HighlightColor = 'yellow' | 'blue' | 'purple' | 'rose' | 'emerald' | 'silver';
+
 export interface Highlight {
   id: string;
   book: string;
   chapter: number;
   verseStart: number;
   verseEnd: number;
-  color: 'yellow' | 'blue';
+  color: HighlightColor;
   note?: string;
   createdAt: number;
 }

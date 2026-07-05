@@ -1,17 +1,19 @@
 import { useState } from 'react';
+import { HighlightColor } from '@/lib/types';
+import { HIGHLIGHT_COLORS } from '@/lib/highlight-colors';
 
 interface Props {
   selection: { start: number; end: number };
-  onHighlight: (color: 'yellow' | 'blue', note?: string) => void;
+  onHighlight: (color: HighlightColor, note?: string) => void;
   onCancel: () => void;
 }
 
 export default function HighlightToolbar({ selection, onHighlight, onCancel }: Props) {
   const [showNoteInput, setShowNoteInput] = useState(false);
   const [note, setNote] = useState('');
-  const [selectedColor, setSelectedColor] = useState<'yellow' | 'blue' | null>(null);
+  const [selectedColor, setSelectedColor] = useState<HighlightColor | null>(null);
 
-  const handleColorClick = (color: 'yellow' | 'blue') => {
+  const handleColorClick = (color: HighlightColor) => {
     setSelectedColor(color);
     setShowNoteInput(true);
   };
@@ -43,16 +45,16 @@ export default function HighlightToolbar({ selection, onHighlight, onCancel }: P
         <div className="flex items-center gap-3.5 pl-5 pr-2.5 py-2.5 rounded-full bg-ink text-white shadow-2xl border border-white/10">
           <span className="font-sans text-[13px] text-white/60 whitespace-nowrap">{verseRange}</span>
           <span className="w-px h-5 bg-white/15" />
-          <button
-            onClick={() => handleColorClick('yellow')}
-            aria-label="Highlight yellow"
-            className="w-6 h-6 rounded-full bg-[#e5c65a] border border-white/25 hover:scale-110 transition-transform"
-          />
-          <button
-            onClick={() => handleColorClick('blue')}
-            aria-label="Highlight blue"
-            className="w-6 h-6 rounded-full bg-[#7ba0cf] border border-white/25 hover:scale-110 transition-transform"
-          />
+          {HIGHLIGHT_COLORS.map((color) => (
+            <button
+              key={color.id}
+              onClick={() => handleColorClick(color.id)}
+              aria-label={`Highlight ${color.name.toLowerCase()}`}
+              title={color.name}
+              className="w-6 h-6 rounded-full border border-white/25 hover:scale-110 transition-transform"
+              style={{ background: color.swatch }}
+            />
+          ))}
           <button
             onClick={handleCancel}
             className="font-sans text-[13px] text-white/70 hover:text-white transition-colors px-1"

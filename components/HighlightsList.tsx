@@ -1,6 +1,7 @@
 'use client';
 
 import { Highlight } from '@/lib/types';
+import { getHighlightColor } from '@/lib/highlight-colors';
 import { storage } from '@/lib/storage';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -67,7 +68,7 @@ export default function HighlightsList() {
 
             <div className="grid sm:grid-cols-2 gap-3.5">
               {highlightsByChapter[chapterNum].map((highlight) => {
-                const isYellow = highlight.color === 'yellow';
+                const color = getHighlightColor(highlight.color);
                 return (
                   <div
                     key={highlight.id}
@@ -75,15 +76,14 @@ export default function HighlightsList() {
                   >
                     <span
                       className="w-[5px] shrink-0"
-                      style={{ background: isYellow ? '#e5c65a' : '#7ba0cf' }}
+                      style={{ background: color.swatch }}
                     />
                     <div className="flex-1 p-4">
                       <div className="flex items-center justify-between mb-2.5">
                         <Link
                           href={`/genesis/${highlight.chapter}`}
-                          className={`font-sans text-[11px] font-bold tracking-[0.12em] uppercase transition-colors hover:opacity-80 ${
-                            isYellow ? 'text-gold-ink' : 'text-blue-ref'
-                          }`}
+                          className="font-sans text-[11px] font-bold tracking-[0.12em] uppercase transition-colors hover:opacity-80"
+                          style={{ color: color.label }}
                         >
                           {highlight.verseStart === highlight.verseEnd
                             ? `Verse ${highlight.verseStart}`

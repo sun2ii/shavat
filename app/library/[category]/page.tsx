@@ -36,6 +36,25 @@ const TOC_LINKS: Partial<Record<TabId, string>> = {
   gospels: '/gospels-toc',
 };
 
+// Acts reads as two books split at Saul's conversion (ch 9); the fine-grained
+// divisions in acts-metadata.json still drive the reader once inside.
+const ACTS_BOOKS = [
+  {
+    id: 'acts:before-paul',
+    title: 'Before Paul',
+    theme: 'The Spirit births the church — Jerusalem to Samaria',
+    href: '/acts/birth-of-the-church/1',
+    count: 8,
+  },
+  {
+    id: 'acts:after-paul',
+    title: 'After Paul',
+    theme: "From Saul's conversion to the ends of the earth",
+    href: '/acts/sauls-conversion/9',
+    count: 20,
+  },
+];
+
 const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
   torah: { kicker: 'The Five Books of Moses', title: 'Torah' },
   'old-testament': { kicker: 'Historical, Wisdom & Prophets', title: 'Old Testament' },
@@ -215,6 +234,17 @@ export default function LibraryPage() {
           books
             .filter((b) => b.category === category.id)
             .forEach((book) => {
+              if (book.slug === 'acts') {
+                ACTS_BOOKS.forEach((actsBook) => {
+                  cards.push({
+                    id: actsBook.id,
+                    href: actsBook.href,
+                    bookSlug: 'acts',
+                    categoryId: category.id,
+                  });
+                });
+                return;
+              }
               const divisions = isOT ? getAllDivisions(book.slug) : [];
               if (divisions.length > 0) {
                 pushDivided(book.slug, divisions, book.slug, category.id);
@@ -511,6 +541,23 @@ export default function LibraryPage() {
               const categoryBooks = books.filter((b) => b.category === category.id);
               const cards: React.ReactNode[] = [];
               categoryBooks.forEach((book, i) => {
+                if (book.slug === 'acts') {
+                  ACTS_BOOKS.forEach((actsBook, j) => {
+                    cards.push(
+                      <DivisionCard
+                        key={actsBook.id}
+                        href={actsBook.href}
+                        title={actsBook.title}
+                        count={actsBook.count}
+                        theme={actsBook.theme}
+                        tint={TINTS[(i + j) % TINTS.length]}
+                        focused={focusedCardId === actsBook.id}
+                      />,
+                    );
+                  });
+                  return;
+                }
+
                 const divisions = isOT ? getAllDivisions(book.slug) : [];
                 const filtered = hideInstructional
                   ? divisions.filter((d) => d.contentType !== 'instructional')

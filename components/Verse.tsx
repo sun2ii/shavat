@@ -17,7 +17,7 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
   return (
     <>
       <span
-        className={`inline transition-colors cursor-pointer rounded ${
+        className={`block mb-3 transition-colors cursor-pointer rounded ${
           isSelected
             ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : ''
@@ -28,7 +28,7 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary 
         <sup className="mr-1 text-xs font-sans font-semibold select-none align-super text-gold">
           {verse.verse}
         </sup>
-        {verse.text}{' '}
+        {verse.text}
       </span>
 
       {isSelected && commentary && (

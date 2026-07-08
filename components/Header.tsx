@@ -5,7 +5,7 @@ import ThemeToggle from './ThemeToggle';
 
 const NAV = [
   { href: '/library', label: 'Library' },
-  { href: '/chronology', label: 'Chronology' },
+  { href: '/map', label: 'Map' },
   { href: '/writings', label: 'Writings' },
 ];
 

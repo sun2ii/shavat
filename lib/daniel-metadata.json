@@ -1,1 +1,44 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "faithful-in-babylon",
+      "title": "Faithful in Babylon",
+      "chapters": [
+        1,
+        2,
+        3
+      ],
+      "theme": "Unbowed in exile",
+      "summary": "The king’s food refused, the dream of the statue, and the fiery furnace.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "kings-humbled",
+      "title": "Kings Humbled",
+      "chapters": [
+        4,
+        5,
+        6
+      ],
+      "theme": "Heaven rules",
+      "summary": "Nebuchadnezzar’s madness, the writing on the wall, and the lions’ den.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "daniels-visions",
+      "title": "Daniel’s Visions",
+      "chapters": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "theme": "History from above",
+      "summary": "Beasts, kingdoms, and the Son of Man — the sweep of empires foretold.",
+      "contentType": "mixed"
+    }
+  ],
+  "chapterSummaries": {}
+}

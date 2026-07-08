@@ -1,1 +1,74 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "crossing-the-jordan",
+      "title": "Crossing the Jordan",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "theme": "Into the land at last",
+      "summary": "Joshua takes command; Israel crosses the Jordan on dry ground and camps at Gilgal.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "jericho-and-ai",
+      "title": "Jericho & Ai",
+      "chapters": [
+        6,
+        7,
+        8
+      ],
+      "theme": "Walls fall, sin costs",
+      "summary": "Jericho collapses; Achan’s hidden sin brings defeat at Ai, then victory after honesty.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-conquest",
+      "title": "The Southern & Northern Campaigns",
+      "chapters": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "theme": "The land is taken",
+      "summary": "The Gibeonite trick, the sun stands still, and the kings of the land fall.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "dividing-the-land",
+      "title": "Dividing the Land",
+      "chapters": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "theme": "Every tribe its inheritance",
+      "summary": "The land is allotted tribe by tribe; cities of refuge are set apart.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "choose-this-day",
+      "title": "Choose This Day",
+      "chapters": [
+        22,
+        23,
+        24
+      ],
+      "theme": "Covenant renewed",
+      "summary": "Joshua’s farewell: \"as for me and my house, we will serve the LORD.\"",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

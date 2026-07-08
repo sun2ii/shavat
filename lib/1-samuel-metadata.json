@@ -1,1 +1,90 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "samuel",
+      "title": "Samuel",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "theme": "A voice in the silence",
+      "summary": "Hannah’s prayer, the call in the night, and the ark among the Philistines.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "give-us-a-king",
+      "title": "Give Us a King",
+      "chapters": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "theme": "The people’s demand",
+      "summary": "Israel demands a king like the nations; Saul is chosen and crowned.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "sauls-fall",
+      "title": "Saul’s Rise and Fall",
+      "chapters": [
+        13,
+        14,
+        15
+      ],
+      "theme": "Obedience over sacrifice",
+      "summary": "Saul’s impatience and half-obedience cost him the kingdom.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-and-goliath",
+      "title": "David & Goliath",
+      "chapters": [
+        16,
+        17
+      ],
+      "theme": "The heart, not the height",
+      "summary": "Samuel anoints the shepherd boy; a sling fells the giant.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-on-the-run",
+      "title": "David on the Run",
+      "chapters": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "theme": "The anointed fugitive",
+      "summary": "Jonathan’s friendship, Saul’s spears, and David sparing the king’s life — twice.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-death-of-saul",
+      "title": "The Death of Saul",
+      "chapters": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "theme": "A kingdom’s end",
+      "summary": "The medium at Endor, the battle at Gilboa, and Saul’s fall.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

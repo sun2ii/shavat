@@ -4,17 +4,20 @@
 
 import { BIBLE_INDEX } from './bible-index';
 import { BookDivision, BibleBookEntry } from './types';
-import { ERAS, Era, inferEra } from './eras';
+import { ERAS, Era, inferEra, getPlacement, BookRole } from './eras';
 
 export interface Movement extends BookDivision {
   key: string;        // globally unique: `${bookSlug}:${id}`
   bookSlug: string;
   bookName: string;
-  eraId: string;      // resolved era (explicit field or inferred)
+  eraId: string;      // resolved act (explicit field or inferred)
   position: number;   // 0-based position in the full canonical sequence
   href: string;       // reader entry point (first chapter)
   oriented: boolean;  // true when the movement answers the orientation questions
   synthesized: boolean; // true when the book had no divisions and the whole book is one node
+  spine: boolean;     // true = part of the unbroken storyline
+  role: BookRole;     // story | voice | wisdom
+  anchor?: string;    // slot-ins: one line on why the book sits in this act
 }
 
 export interface EraGroup {
@@ -67,6 +70,7 @@ export function getAllMovements(): Movement[] {
 
   for (const book of BIBLE_INDEX) {
     const divisions = readDivisions(book.slug);
+    const placement = getPlacement(book.slug);
 
     if (divisions.length > 0) {
       for (const d of divisions) {
@@ -80,6 +84,9 @@ export function getAllMovements(): Movement[] {
           href: readerHref(book, d),
           oriented: isOriented(d),
           synthesized: false,
+          spine: placement.spine,
+          role: placement.role,
+          anchor: placement.anchor,
         });
       }
     } else {
@@ -98,6 +105,9 @@ export function getAllMovements(): Movement[] {
         href: readerHref(book, null),
         oriented: false,
         synthesized: true,
+        spine: placement.spine,
+        role: placement.role,
+        anchor: placement.anchor,
       });
     }
   }
@@ -106,12 +116,57 @@ export function getAllMovements(): Movement[] {
   return movements;
 }
 
-/** Ordered eras, each with its movements. Empty eras are omitted. */
-export function getStoryMap(): EraGroup[] {
-  const all = getAllMovements();
+// Books whose map nodes are their movements, not the whole book.
+// Only books that contain multiple distinct stories belong here.
+const SPLIT_ON_MAP = new Set(['genesis']);
+
+/**
+ * Ordered acts, each with its map nodes. Empty acts are omitted.
+ *
+ * Zoom rule: one node ≈ one narrative unit you can hold. Most spine books
+ * are one node ("Joshua", "Acts") linking to the book page, where its
+ * movements (scenes) live. Genesis alone splits into its movements on the
+ * map, since 50 chapters span several distinct stories.
+ *
+ * Spine-first: only storyline books are returned by default.
+ * Pass `{ includeSlotIns: true }` for the full terrain (later pass).
+ */
+export function getStoryMap(options?: { includeSlotIns?: boolean }): EraGroup[] {
+  const nodes: Movement[] = [];
+
+  for (const book of BIBLE_INDEX) {
+    const placement = getPlacement(book.slug);
+    if (!placement.spine && !options?.includeSlotIns) continue;
+
+    if (SPLIT_ON_MAP.has(book.slug)) {
+      nodes.push(...getAllMovements().filter((m) => m.bookSlug === book.slug));
+      continue;
+    }
+
+    nodes.push({
+      id: book.slug,
+      title: book.name,
+      chapters: Array.from({ length: book.chapterCount }, (_, i) => i + 1),
+      theme: placement.tagline ?? '',
+      summary: '',
+      contentType: 'narrative',
+      key: `${book.slug}:book`,
+      bookSlug: book.slug,
+      bookName: book.name,
+      eraId: placement.act,
+      position: nodes.length,
+      href: `/${book.slug}`,
+      oriented: false,
+      synthesized: false,
+      spine: placement.spine,
+      role: placement.role,
+      anchor: placement.anchor,
+    });
+  }
+
   return ERAS.map((era) => ({
     era,
-    movements: all.filter((m) => m.eraId === era.id),
+    movements: nodes.filter((m) => m.eraId === era.id),
   })).filter((group) => group.movements.length > 0);
 }
 

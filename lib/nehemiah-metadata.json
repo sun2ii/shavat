@@ -1,1 +1,45 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "rebuilding-the-wall",
+      "title": "Rebuilding the Wall",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "theme": "Fifty-two days",
+      "summary": "A cupbearer’s grief, a night ride, and a wall built with sword in hand.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-law-read-aloud",
+      "title": "The Law Read Aloud",
+      "chapters": [
+        8,
+        9,
+        10
+      ],
+      "theme": "Revival at the gate",
+      "summary": "Ezra reads from dawn to midday; weeping turns to joy and covenant.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "nehemiahs-reforms",
+      "title": "Nehemiah’s Reforms",
+      "chapters": [
+        11,
+        12,
+        13
+      ],
+      "theme": "Holding the line",
+      "summary": "Jerusalem repopulated, the dedication sung, and compromises confronted.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

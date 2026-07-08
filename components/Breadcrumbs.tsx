@@ -56,9 +56,9 @@ export default function Breadcrumbs() {
       return breadcrumbs;
     }
 
-    // Handle /chronology
-    if (segments[0] === 'chronology') {
-      breadcrumbs.push({ label: 'Chronology', href: '/chronology' });
+    // Handle /map
+    if (segments[0] === 'map') {
+      breadcrumbs.push({ label: 'Map', href: '/map' });
       return breadcrumbs;
     }
 

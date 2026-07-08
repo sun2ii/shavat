@@ -1256,6 +1256,248 @@ const MARK_16_SECTIONS: DaySection[] = [
 ];
 
 // MATTHEW SECTIONS
+const JOSHUA_1_SECTIONS: DaySection[] = [
+  { day: 'Be Strong and Courageous', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Orders to Cross', verseRange: [10, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The People Pledge', verseRange: [16, 18], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_2_SECTIONS: DaySection[] = [
+  { day: 'Spies Sent to Jericho', verseRange: [1, 7], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Rahab's Faith", verseRange: [8, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Scarlet Cord', verseRange: [15, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_3_SECTIONS: DaySection[] = [
+  { day: 'To the Jordan', verseRange: [1, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Waters Stop', verseRange: [9, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_4_SECTIONS: DaySection[] = [
+  { day: 'Twelve Stones', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Memorial at Gilgal', verseRange: [15, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_5_SECTIONS: DaySection[] = [
+  { day: 'Circumcision at Gilgal', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'First Passover in the Land', verseRange: [10, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Commander of the Army', verseRange: [13, 15], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_6_SECTIONS: DaySection[] = [
+  { day: 'Marching Orders', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Walls Fall', verseRange: [15, 21], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Rahab Spared', verseRange: [22, 27], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_7_SECTIONS: DaySection[] = [
+  { day: 'Defeat at Ai', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Sin in the Camp', verseRange: [10, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Achan Exposed', verseRange: [16, 26], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_8_SECTIONS: DaySection[] = [
+  { day: 'The Ambush Plan', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Ai Destroyed', verseRange: [14, 29], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Covenant at Mount Ebal', verseRange: [30, 35], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_9_SECTIONS: DaySection[] = [
+  { day: 'The Gibeonite Deception', verseRange: [1, 15], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Treaty Stands', verseRange: [16, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_10_SECTIONS: DaySection[] = [
+  { day: 'The Sun Stands Still', verseRange: [1, 15], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Five Kings in a Cave', verseRange: [16, 28], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Southern Campaign', verseRange: [29, 43], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_11_SECTIONS: DaySection[] = [
+  { day: 'The Northern Coalition', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Whole Land Taken', verseRange: [10, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_12_SECTIONS: DaySection[] = [
+  { day: 'Kings East of the Jordan', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Kings West of the Jordan', verseRange: [7, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_13_SECTIONS: DaySection[] = [
+  { day: 'Land Yet to Be Taken', verseRange: [1, 7], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Eastern Inheritance', verseRange: [8, 33], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_14_SECTIONS: DaySection[] = [
+  { day: 'Dividing the Inheritance', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Caleb's Mountain", verseRange: [6, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_15_SECTIONS: DaySection[] = [
+  { day: "Judah's Borders", verseRange: [1, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Caleb and Aksah', verseRange: [13, 19], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Judah's Towns", verseRange: [20, 63], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JOSHUA_16_SECTIONS: DaySection[] = [
+  { day: "Ephraim's Inheritance", verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const JOSHUA_17_SECTIONS: DaySection[] = [
+  { day: "Manasseh's Inheritance", verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Joseph Tribes Push Back', verseRange: [14, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_18_SECTIONS: DaySection[] = [
+  { day: 'The Tent at Shiloh', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Benjamin's Territory", verseRange: [11, 28], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_19_SECTIONS: DaySection[] = [
+  { day: 'The Remaining Tribes', verseRange: [1, 48], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Joshua's Own Town", verseRange: [49, 51], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_20_SECTIONS: DaySection[] = [
+  { day: 'Cities of Refuge', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const JOSHUA_21_SECTIONS: DaySection[] = [
+  { day: 'Towns for the Levites', verseRange: [1, 42], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Not One Promise Failed', verseRange: [43, 45], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_22_SECTIONS: DaySection[] = [
+  { day: 'The Eastern Tribes Go Home', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Altar of Witness', verseRange: [10, 34], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JOSHUA_23_SECTIONS: DaySection[] = [
+  { day: "Joshua's Farewell", verseRange: [1, 16], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const JOSHUA_24_SECTIONS: DaySection[] = [
+  { day: 'The Covenant at Shechem', verseRange: [1, 28], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Three Burials', verseRange: [29, 33], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_1_SECTIONS: DaySection[] = [
+  { day: 'Judah Leads', verseRange: [1, 21], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Failures Spread', verseRange: [22, 36], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_2_SECTIONS: DaySection[] = [
+  { day: 'The Angel at Bokim', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'A Generation Forgets', verseRange: [6, 10], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Cycle Begins', verseRange: [11, 23], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_3_SECTIONS: DaySection[] = [
+  { day: 'The Nations That Remained', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Othniel', verseRange: [7, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Ehud's Left Hand", verseRange: [12, 30], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Shamgar', verseRange: [31, 31], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const JUDGES_4_SECTIONS: DaySection[] = [
+  { day: 'Deborah and Barak', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Sisera's Defeat", verseRange: [11, 16], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Jael's Tent Peg", verseRange: [17, 24], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_5_SECTIONS: DaySection[] = [
+  { day: 'The Song of Deborah', verseRange: [1, 31], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const JUDGES_6_SECTIONS: DaySection[] = [
+  { day: "Midian's Oppression", verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Call of Gideon', verseRange: [11, 24], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Altar Torn Down', verseRange: [25, 32], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Fleece', verseRange: [33, 40], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const JUDGES_7_SECTIONS: DaySection[] = [
+  { day: 'Three Hundred Men', verseRange: [1, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Dream in the Camp', verseRange: [9, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Torches and Trumpets', verseRange: [16, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_8_SECTIONS: DaySection[] = [
+  { day: 'Pursuit Beyond the Jordan', verseRange: [1, 21], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Gideon's Ephod", verseRange: [22, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'After Gideon', verseRange: [28, 35], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_9_SECTIONS: DaySection[] = [
+  { day: 'Abimelech Seizes Power', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Jotham's Parable", verseRange: [7, 21], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Shechem Revolts', verseRange: [22, 49], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'A Millstone Falls', verseRange: [50, 57], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const JUDGES_10_SECTIONS: DaySection[] = [
+  { day: 'Tola and Jair', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Sold to Their Enemies', verseRange: [6, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_11_SECTIONS: DaySection[] = [
+  { day: 'Jephthah the Outcast', verseRange: [1, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Case Against Ammon', verseRange: [12, 28], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Rash Vow', verseRange: [29, 40], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_12_SECTIONS: DaySection[] = [
+  { day: 'The Ephraimite War', verseRange: [1, 7], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Three Minor Judges', verseRange: [8, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_13_SECTIONS: DaySection[] = [
+  { day: 'The Angel and the Barren Wife', verseRange: [1, 14], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Manoah's Offering", verseRange: [15, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Samson Is Born', verseRange: [24, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_14_SECTIONS: DaySection[] = [
+  { day: 'A Wife from Timnah', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Riddle at the Feast', verseRange: [10, 20], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_15_SECTIONS: DaySection[] = [
+  { day: 'Foxes and Fire', verseRange: [1, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Jawbone', verseRange: [9, 20], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_16_SECTIONS: DaySection[] = [
+  { day: 'The Gates of Gaza', verseRange: [1, 3], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Delilah', verseRange: [4, 22], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Strength Returns Once More', verseRange: [23, 31], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_17_SECTIONS: DaySection[] = [
+  { day: "Micah's Shrine", verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'A Priest for Hire', verseRange: [7, 13], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_18_SECTIONS: DaySection[] = [
+  { day: 'The Danites Scout Laish', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Stolen Gods', verseRange: [11, 26], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Laish Falls', verseRange: [27, 31], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const JUDGES_19_SECTIONS: DaySection[] = [
+  { day: "The Levite's Journey", verseRange: [1, 15], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Outrage at Gibeah', verseRange: [16, 30], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_20_SECTIONS: DaySection[] = [
+  { day: 'Israel Assembles', verseRange: [1, 17], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'War with Benjamin', verseRange: [18, 48], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const JUDGES_21_SECTIONS: DaySection[] = [
+  { day: 'Wives for the Survivors', verseRange: [1, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
 const MATTHEW_1_SECTIONS: DaySection[] = [
   { day: 'The Genealogy', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
   { day: 'The Birth of Jesus', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
@@ -2837,6 +3079,8 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     (actualBook === 'leviticus' && actualChapter >= 1 && actualChapter <= 27) ||
     (actualBook === 'numbers' && actualChapter >= 1 && actualChapter <= 36) ||
     (actualBook === 'deuteronomy' && actualChapter >= 1 && actualChapter <= 34) ||
+    (actualBook === 'joshua' && actualChapter >= 1 && actualChapter <= 24) ||
+    (actualBook === 'judges' && actualChapter >= 1 && actualChapter <= 21) ||
     (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
     (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
     (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
@@ -3493,6 +3737,147 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 16:
           sections = MARK_16_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'joshua') {
+      switch (actualChapter) {
+        case 1:
+          sections = JOSHUA_1_SECTIONS;
+          break;
+        case 2:
+          sections = JOSHUA_2_SECTIONS;
+          break;
+        case 3:
+          sections = JOSHUA_3_SECTIONS;
+          break;
+        case 4:
+          sections = JOSHUA_4_SECTIONS;
+          break;
+        case 5:
+          sections = JOSHUA_5_SECTIONS;
+          break;
+        case 6:
+          sections = JOSHUA_6_SECTIONS;
+          break;
+        case 7:
+          sections = JOSHUA_7_SECTIONS;
+          break;
+        case 8:
+          sections = JOSHUA_8_SECTIONS;
+          break;
+        case 9:
+          sections = JOSHUA_9_SECTIONS;
+          break;
+        case 10:
+          sections = JOSHUA_10_SECTIONS;
+          break;
+        case 11:
+          sections = JOSHUA_11_SECTIONS;
+          break;
+        case 12:
+          sections = JOSHUA_12_SECTIONS;
+          break;
+        case 13:
+          sections = JOSHUA_13_SECTIONS;
+          break;
+        case 14:
+          sections = JOSHUA_14_SECTIONS;
+          break;
+        case 15:
+          sections = JOSHUA_15_SECTIONS;
+          break;
+        case 16:
+          sections = JOSHUA_16_SECTIONS;
+          break;
+        case 17:
+          sections = JOSHUA_17_SECTIONS;
+          break;
+        case 18:
+          sections = JOSHUA_18_SECTIONS;
+          break;
+        case 19:
+          sections = JOSHUA_19_SECTIONS;
+          break;
+        case 20:
+          sections = JOSHUA_20_SECTIONS;
+          break;
+        case 21:
+          sections = JOSHUA_21_SECTIONS;
+          break;
+        case 22:
+          sections = JOSHUA_22_SECTIONS;
+          break;
+        case 23:
+          sections = JOSHUA_23_SECTIONS;
+          break;
+        case 24:
+          sections = JOSHUA_24_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'judges') {
+      switch (actualChapter) {
+        case 1:
+          sections = JUDGES_1_SECTIONS;
+          break;
+        case 2:
+          sections = JUDGES_2_SECTIONS;
+          break;
+        case 3:
+          sections = JUDGES_3_SECTIONS;
+          break;
+        case 4:
+          sections = JUDGES_4_SECTIONS;
+          break;
+        case 5:
+          sections = JUDGES_5_SECTIONS;
+          break;
+        case 6:
+          sections = JUDGES_6_SECTIONS;
+          break;
+        case 7:
+          sections = JUDGES_7_SECTIONS;
+          break;
+        case 8:
+          sections = JUDGES_8_SECTIONS;
+          break;
+        case 9:
+          sections = JUDGES_9_SECTIONS;
+          break;
+        case 10:
+          sections = JUDGES_10_SECTIONS;
+          break;
+        case 11:
+          sections = JUDGES_11_SECTIONS;
+          break;
+        case 12:
+          sections = JUDGES_12_SECTIONS;
+          break;
+        case 13:
+          sections = JUDGES_13_SECTIONS;
+          break;
+        case 14:
+          sections = JUDGES_14_SECTIONS;
+          break;
+        case 15:
+          sections = JUDGES_15_SECTIONS;
+          break;
+        case 16:
+          sections = JUDGES_16_SECTIONS;
+          break;
+        case 17:
+          sections = JUDGES_17_SECTIONS;
+          break;
+        case 18:
+          sections = JUDGES_18_SECTIONS;
+          break;
+        case 19:
+          sections = JUDGES_19_SECTIONS;
+          break;
+        case 20:
+          sections = JUDGES_20_SECTIONS;
+          break;
+        case 21:
+          sections = JUDGES_21_SECTIONS;
           break;
       }
     } else if (actualBook === 'matthew') {

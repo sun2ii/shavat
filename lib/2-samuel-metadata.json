@@ -1,1 +1,83 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "david-crowned",
+      "title": "David Crowned",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "theme": "The long-promised throne",
+      "summary": "David laments Saul, reigns in Hebron, then takes Jerusalem as his city.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "ark-and-covenant",
+      "title": "The Ark & the Covenant",
+      "chapters": [
+        6,
+        7
+      ],
+      "theme": "A house forever",
+      "summary": "The ark comes home dancing; God promises David an everlasting dynasty.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "davids-victories",
+      "title": "David’s Victories",
+      "chapters": [
+        8,
+        9,
+        10
+      ],
+      "theme": "The kingdom secured",
+      "summary": "Wars won on every side; kindness shown to Mephibosheth.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-and-bathsheba",
+      "title": "David & Bathsheba",
+      "chapters": [
+        11,
+        12
+      ],
+      "theme": "The fall of the king",
+      "summary": "Adultery, murder, and Nathan’s parable: \"You are the man.\"",
+      "contentType": "narrative"
+    },
+    {
+      "id": "absaloms-rebellion",
+      "title": "Absalom’s Rebellion",
+      "chapters": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "theme": "The sword in the house",
+      "summary": "Amnon, Tamar, and Absalom — David’s own son drives him from Jerusalem.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "davids-final-years",
+      "title": "David’s Final Years",
+      "chapters": [
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "theme": "A weary crown",
+      "summary": "Rebellion, famine, songs of deliverance, and the census that cost a plague.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

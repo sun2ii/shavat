@@ -1,1 +1,33 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-first-return",
+      "title": "The First Return",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "theme": "Home to rebuild",
+      "summary": "Cyrus sends the exiles home; against opposition, the temple rises again.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "ezras-reform",
+      "title": "Ezra’s Reform",
+      "chapters": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "theme": "The law comes home",
+      "summary": "Ezra arrives to teach the law and calls the people back to covenant faithfulness.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

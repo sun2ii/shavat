@@ -1,1 +1,80 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "unfinished-conquest",
+      "title": "The Unfinished Conquest",
+      "chapters": [
+        1,
+        2
+      ],
+      "theme": "Compromise plants the seed",
+      "summary": "Israel fails to drive out the nations; a generation forgets the LORD.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "deborah",
+      "title": "Ehud & Deborah",
+      "chapters": [
+        3,
+        4,
+        5
+      ],
+      "theme": "Unlikely deliverers",
+      "summary": "The first judges: left-handed Ehud, and Deborah and Jael defeating Sisera.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "gideon",
+      "title": "Gideon",
+      "chapters": [
+        6,
+        7,
+        8
+      ],
+      "theme": "Strength in weakness",
+      "summary": "Three hundred men, torches, and trumpets rout Midian.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "abimelech-and-jephthah",
+      "title": "Abimelech & Jephthah",
+      "chapters": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "theme": "Leadership corrupted",
+      "summary": "Abimelech grasps power by murder; Jephthah’s rash vow costs him everything.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "samson",
+      "title": "Samson",
+      "chapters": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "theme": "Gifted and wasted",
+      "summary": "The strongest judge, undone by his own appetites, wins his greatest victory in death.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "no-king-in-israel",
+      "title": "No King in Israel",
+      "chapters": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "theme": "The spiral hits bottom",
+      "summary": "Idolatry and atrocity: everyone does what is right in their own eyes.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

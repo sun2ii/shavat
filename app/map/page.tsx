@@ -14,13 +14,13 @@ export default function MapPage() {
   const groups = getStoryMap();
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-4">
-      <div className="mb-8">
-        <h1 className="text-2xl font-light text-[rgb(var(--text-primary))] mb-2">
+    <main className="max-w-5xl mx-auto px-4 py-4">
+      <div className="mb-4">
+        <h1 className="text-xl font-light text-[rgb(var(--text-primary))]">
           Story Map
         </h1>
-        <p className="text-sm text-[rgb(var(--text-secondary))]">
-          The whole story, Genesis to Revelation — ordered movements grouped by era
+        <p className="text-xs text-[rgb(var(--text-secondary))] opacity-60">
+          The spine — one unbroken storyline in ten acts
         </p>
       </div>
 

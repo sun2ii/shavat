@@ -24,33 +24,26 @@ function tintStyle(contentType?: string): React.CSSProperties {
 }
 
 export default function MovementNode({ movement }: MovementNodeProps) {
-  const chapterCount = movement.chapters.length;
+  // Terrain names, not formal labels: "Creation", not "The Book of Creation".
+  const displayTitle = movement.title.replace(/^The Book of\s+/i, '');
+
+  const first = movement.chapters[0];
+  const last = movement.chapters[movement.chapters.length - 1];
+  const range = first === last ? `${first}` : `${first}–${last}`;
 
   return (
     <Link
       href={movement.href}
-      className={`block p-3 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors ${
-        movement.synthesized ? 'opacity-60' : ''
-      }`}
+      title={movement.theme || undefined}
+      className="inline-flex items-baseline gap-2 px-3 py-1.5 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
       style={tintStyle(movement.contentType)}
     >
-      <h3 className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight">
-        {movement.title}
-      </h3>
-      <p className="text-xs text-[rgb(var(--text-secondary))] opacity-60 mt-0.5">
-        {movement.bookName}
-        {' · '}
-        {chapterCount} {chapterCount === 1 ? 'chapter' : 'chapters'}
-      </p>
-      {movement.theme ? (
-        <p className="text-xs text-[rgb(var(--text-secondary))] mt-1">
-          {movement.theme}
-        </p>
-      ) : (
-        <p className="text-xs text-[rgb(var(--text-tertiary))] italic mt-1">
-          not yet oriented
-        </p>
-      )}
+      <span className="text-sm font-light text-[rgb(var(--text-primary))] leading-tight whitespace-nowrap">
+        {displayTitle}
+      </span>
+      <span className="text-[10px] text-[rgb(var(--text-secondary))] opacity-50 whitespace-nowrap">
+        {range}
+      </span>
     </Link>
   );
 }

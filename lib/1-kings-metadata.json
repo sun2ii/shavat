@@ -1,1 +1,81 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "solomon-takes-the-throne",
+      "title": "Solomon Takes the Throne",
+      "chapters": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "theme": "Wisdom asked, wisdom given",
+      "summary": "Succession intrigue, then Solomon asks God for a discerning heart.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-temple",
+      "title": "The Temple",
+      "chapters": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "theme": "God dwells with his people",
+      "summary": "Seven years of building; the glory of the LORD fills the house.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "glory-and-drift",
+      "title": "Glory & Drift",
+      "chapters": [
+        9,
+        10,
+        11
+      ],
+      "theme": "The wisest man’s folly",
+      "summary": "The Queen of Sheba marvels — but a thousand wives turn Solomon’s heart.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-kingdom-divides",
+      "title": "The Kingdom Divides",
+      "chapters": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "theme": "One nation becomes two",
+      "summary": "Rehoboam’s arrogance splits Israel from Judah; golden calves rise in the north.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "elijah",
+      "title": "Elijah",
+      "chapters": [
+        17,
+        18,
+        19
+      ],
+      "theme": "Fire on Carmel",
+      "summary": "Drought, ravens, the widow’s flour, and fire from heaven — then a whisper.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "ahabs-end",
+      "title": "Ahab’s Wars & End",
+      "chapters": [
+        20,
+        21,
+        22
+      ],
+      "theme": "Justice catches up",
+      "summary": "Naboth’s vineyard, Micaiah’s lone truth, and an arrow finds the king.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

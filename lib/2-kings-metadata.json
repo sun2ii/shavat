@@ -1,1 +1,84 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "elisha",
+      "title": "Elisha",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "theme": "A double portion",
+      "summary": "Chariots of fire, Naaman’s healing, and miracles among ordinary people.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "jehus-purge",
+      "title": "Jehu’s Purge",
+      "chapters": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "theme": "Zeal and its limits",
+      "summary": "Jehu destroys Ahab’s house and Baal’s temple — but not the calves.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-fall-of-israel",
+      "title": "The Fall of Israel",
+      "chapters": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "theme": "The north goes dark",
+      "summary": "Kings rise and fall until Assyria carries the ten tribes away, 722 BC.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "hezekiah",
+      "title": "Hezekiah & Isaiah",
+      "chapters": [
+        18,
+        19,
+        20
+      ],
+      "theme": "Trust under siege",
+      "summary": "Sennacherib’s taunt, Hezekiah’s prayer, and an angel routs an army.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "manasseh-and-josiah",
+      "title": "Manasseh & Josiah",
+      "chapters": [
+        21,
+        22,
+        23
+      ],
+      "theme": "The worst and the best",
+      "summary": "Manasseh fills Jerusalem with blood; Josiah finds the lost Book of the Law.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-fall-of-jerusalem",
+      "title": "The Fall of Jerusalem",
+      "chapters": [
+        24,
+        25
+      ],
+      "theme": "The unthinkable happens",
+      "summary": "Babylon breaches the walls; temple burned, people exiled. The spine’s darkest hour.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

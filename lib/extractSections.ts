@@ -41,6 +41,8 @@ export function getNTSections(): BookSections {
     'LEVITICUS': 'leviticus',
     'NUMBERS': 'numbers',
     'DEUTERONOMY': 'deuteronomy',
+    'JOSHUA': 'joshua',
+    'JUDGES': 'judges',
     // NT
     'MATTHEW': 'matthew',
     'MARK': 'mark',

@@ -18,11 +18,8 @@ interface Props {
 export default function ChapterNavBook({ currentChapter, book, onCopyChapter, copied, chapterSummary }: Props) {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [jumpTo, setJumpTo] = useState('');
 
   const chapterIndex = book.chapters.indexOf(currentChapter);
-  const bookChapterNum = chapterIndex + 1;
 
   const hasPrevInBook = chapterIndex > 0;
   const hasNextInBook = chapterIndex < book.chapters.length - 1;
@@ -38,8 +35,6 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
   const nextBookId = hasNextInBook ? book.id : nextBook?.id;
   const prevBookChapterNum = hasPrevInBook ? chapterIndex : (prevBook ? prevBook.chapters.length : null);
   const nextBookChapterNum = hasNextInBook ? chapterIndex + 2 : (nextBook ? 1 : null);
-
-  const bookDisplayName = book.title.replace('The Book of ', '');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -57,24 +52,6 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
     } catch (error) {
       console.error('Failed to save bookmark', error);
     }
-  };
-
-  const handleDoubleClick = () => {
-    setIsEditing(true);
-    setJumpTo('');
-  };
-
-  const handleJumpSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const num = parseInt(jumpTo);
-    if (!isNaN(num) && num >= 1 && num <= book.chapters.length) {
-      window.location.href = `/genesis/${book.id}/${book.chapters[num - 1]}`;
-    }
-    setIsEditing(false);
-  };
-
-  const handleJumpKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') setIsEditing(false);
   };
 
   return (
@@ -112,52 +89,45 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
           Torah · Genesis
         </p>
 
-        {isEditing ? (
-          <form onSubmit={handleJumpSubmit} className="flex items-center gap-2 mt-2">
-            <span className="font-serif text-gold text-5xl font-bold">{bookDisplayName}</span>
-            <input
-              type="number"
-              value={jumpTo}
-              onChange={(e) => setJumpTo(e.target.value)}
-              onKeyDown={handleJumpKeyDown}
-              onBlur={() => setIsEditing(false)}
-              autoFocus
-              min={1}
-              max={book.chapters.length}
-              className="w-20 px-2 py-1 text-4xl font-serif font-bold text-center bg-paper-2 text-gold border border-hairline rounded focus:outline-none focus:ring-2 focus:ring-gold"
-              placeholder={bookChapterNum.toString()}
-            />
-          </form>
-        ) : (
-          <span
-            onDoubleClick={handleDoubleClick}
-            className="font-serif text-gold text-5xl font-bold cursor-pointer select-none mt-2"
-            title="Double-click to jump to chapter"
-          >
-            {bookDisplayName} {bookChapterNum}
-          </span>
-        )}
-
         {chapterSummary && (
           <p className="font-serif italic text-lg text-muted mt-2 max-w-2xl text-center">
             {chapterSummary}
           </p>
         )}
 
-        {/* Chapter pager */}
-        <div className="flex gap-4 mt-4 font-serif text-lg">
-          {book.chapters.map((chapterNum, idx) => {
-            const isActive = chapterNum === currentChapter;
+        {/* Book terrain — all of Genesis's books with their chapters, readable in place */}
+        <div className="flex flex-wrap justify-center items-start gap-x-8 gap-y-4 mt-5 max-w-3xl">
+          {getAllBooks().map((b) => {
+            const isCurrentBook = b.id === book.id;
+            const bTitle = b.title
+              .replace('The Book of ', '')
+              .replace(/^The /, '');
             return (
-              <Link
-                key={chapterNum}
-                href={`/genesis/${book.id}/${chapterNum}`}
-                className={`transition-colors ${
-                  isActive ? 'text-gold font-bold' : 'text-faint hover:text-ink'
-                }`}
-              >
-                {idx + 1}
-              </Link>
+              <div key={b.id} className="text-center">
+                <div
+                  className={`font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 ${
+                    isCurrentBook ? 'text-gold-ink' : 'text-faint'
+                  }`}
+                >
+                  {bTitle}
+                </div>
+                <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+                  {b.chapters.map((ch) => {
+                    const isActive = isCurrentBook && ch === currentChapter;
+                    return (
+                      <Link
+                        key={ch}
+                        href={`/genesis/${b.id}/${ch}`}
+                        className={`transition-colors ${
+                          isActive ? 'text-gold font-bold' : 'text-faint hover:text-ink'
+                        }`}
+                      >
+                        {ch}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             );
           })}
         </div>

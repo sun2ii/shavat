@@ -1,7 +1,12 @@
-// Ordered era list — the stable spine of the Story Map.
-// Eras follow canon order (Genesis → Revelation). A movement's `era` field
-// wins if present; otherwise the era is inferred from its book (and, for
-// Genesis, from the movement id, since Genesis spans two eras).
+// The 10-act spine — the terrain map of the whole biblical story.
+// Acts replace the old shelf-order eras. Every book has a placement:
+//   spine  — advances the plot; read these alone and you get the whole arc.
+//   voice  — written from inside the story (prophets, psalms, letters);
+//            anchored to the act it speaks into.
+//   wisdom — floats above the story; anchored where it best fits.
+//
+// This pass renders the spine only. Slot-ins (voice/wisdom) carry their
+// anchor act so a later pass can attach them under each act band.
 
 export interface Era {
   id: string;
@@ -9,122 +14,130 @@ export interface Era {
   description: string;
 }
 
+// Kept as `Era`/`ERAS` so existing imports stay stable; these are the acts.
 export const ERAS: Era[] = [
-  { id: 'primeval', label: 'Primeval', description: 'Creation, fall, flood, and the scattering at Babel' },
-  { id: 'patriarchs', label: 'Patriarchs', description: 'Abraham, Isaac, Jacob, and Joseph — promise carried by a family' },
-  { id: 'exodus-law', label: 'Exodus & Law', description: 'Deliverance from Egypt and the covenant at Sinai' },
-  { id: 'conquest-judges', label: 'Conquest & Judges', description: 'Entering the land and the cycle of rescue and relapse' },
-  { id: 'kingdom', label: 'Kingdom', description: 'The rise, division, and fall of the monarchy' },
-  { id: 'exile-return', label: 'Exile & Return', description: 'Judgment, captivity, and the long road home' },
-  { id: 'wisdom', label: 'Wisdom & Poetry', description: 'Songs, proverbs, and the questions of suffering and meaning' },
-  { id: 'prophets', label: 'Prophets', description: 'Voices calling the people back and pointing forward' },
-  { id: 'gospels', label: 'Gospels', description: 'The life, death, and resurrection of Jesus' },
-  { id: 'church', label: 'The Church', description: 'The Spirit poured out; the message goes to the nations' },
-  { id: 'epistles', label: 'Epistles', description: 'Letters forming the scattered churches' },
-  { id: 'apocalypse', label: 'Apocalypse', description: 'All things made new' },
+  { id: 'origins', label: 'Act 1 · Origins', description: 'Creation to Joseph — the family the whole story follows' },
+  { id: 'out-of-egypt', label: 'Act 2 · Out of Egypt', description: 'Slavery, deliverance, Sinai, and the wilderness road' },
+  { id: 'taking-the-land', label: 'Act 3 · Taking the Land', description: 'Conquest, then the downward spiral of the judges' },
+  { id: 'kingdom', label: 'Act 4 · The Kingdom', description: 'Saul, David, Solomon — the rise of the monarchy' },
+  { id: 'kingdom-falls', label: 'Act 5 · The Kingdom Falls', description: 'Division, decline, and the fall of Jerusalem' },
+  { id: 'exile', label: 'Act 6 · Exile', description: 'Babylon — keeping faith in a foreign land' },
+  { id: 'return', label: 'Act 7 · The Return', description: 'The long road home and the rebuild' },
+  { id: 'jesus', label: 'Act 8 · Jesus', description: 'The life, death, and resurrection of Jesus — three angles' },
+  { id: 'church', label: 'Act 9 · The Church', description: 'Luke’s two volumes — from Jesus to the ends of the earth' },
+  { id: 'the-end', label: 'Act 10 · The End', description: 'All things made new — the finale of the whole arc' },
 ];
 
 export function getEraById(id: string): Era | undefined {
   return ERAS.find((e) => e.id === id);
 }
 
-// Genesis is the one book that spans two eras; split by movement id.
-const GENESIS_MOVEMENT_ERAS: Record<string, string> = {
-  creation: 'primeval',
-  'adam-and-eve': 'primeval',
-  noah: 'primeval',
-  abraham: 'patriarchs',
-  isaac: 'patriarchs',
-  jacob: 'patriarchs',
-  joseph: 'patriarchs',
+export type BookRole = 'story' | 'voice' | 'wisdom';
+
+export interface BookPlacement {
+  act: string;      // act id the book belongs to (spine) or anchors to (slot-in)
+  spine: boolean;   // true = part of the unbroken storyline
+  role: BookRole;
+  anchor?: string;  // one line: why it sits here (slot-ins)
+  tagline?: string; // one line of narrative weight, shown on book-level map nodes
+}
+
+// Every book in the canon gets exactly one placement.
+// Genesis movements are all Act 1 (handled in inferEra).
+export const BOOK_PLACEMENTS: Record<string, BookPlacement> = {
+  genesis: { act: 'origins', spine: true, role: 'story' },
+  job: { act: 'origins', spine: false, role: 'wisdom', anchor: 'Set in the patriarch era — the oldest “meanwhile” in the Bible' },
+
+  exodus: { act: 'out-of-egypt', spine: true, role: 'story', tagline: 'Slavery, plagues, the sea, Sinai' },
+  numbers: { act: 'out-of-egypt', spine: true, role: 'story', tagline: 'Forty years in the wilderness' },
+  leviticus: { act: 'out-of-egypt', spine: false, role: 'voice', anchor: 'The law given while camped at Sinai' },
+  deuteronomy: { act: 'out-of-egypt', spine: false, role: 'voice', anchor: 'Moses’ farewell sermon before the story resumes' },
+
+  joshua: { act: 'taking-the-land', spine: true, role: 'story', tagline: 'The land is taken' },
+  judges: { act: 'taking-the-land', spine: true, role: 'story', tagline: 'The downward spiral' },
+  ruth: { act: 'taking-the-land', spine: false, role: 'story', anchor: 'A short story set “in the days of the judges”' },
+
+  '1-samuel': { act: 'kingdom', spine: true, role: 'story', tagline: 'Samuel, Saul, and the rise of David' },
+  '2-samuel': { act: 'kingdom', spine: true, role: 'story', tagline: 'David’s reign — glory and fracture' },
+  '1-kings': { act: 'kingdom', spine: true, role: 'story', tagline: 'Solomon’s glory; the kingdom splits' }, // chs 1–11 Solomon; 12+ begins the fall
+  psalms: { act: 'kingdom', spine: false, role: 'voice', anchor: 'David’s songs from inside these very chapters' },
+  proverbs: { act: 'kingdom', spine: false, role: 'wisdom', anchor: 'Solomon-era wisdom' },
+  ecclesiastes: { act: 'kingdom', spine: false, role: 'wisdom', anchor: 'Solomon-era wisdom' },
+  'song-of-solomon': { act: 'kingdom', spine: false, role: 'wisdom', anchor: 'Solomon-era wisdom' },
+
+  '2-kings': { act: 'kingdom-falls', spine: true, role: 'story', tagline: 'The long fall to Babylon' },
+  amos: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'To the northern kingdom before Assyria destroys it' },
+  hosea: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'To the northern kingdom before Assyria destroys it' },
+  jonah: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'About Assyria itself' },
+  nahum: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'About Assyria itself' },
+  isaiah: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'To Judah during the Assyrian crisis' },
+  micah: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'To Judah during the Assyrian crisis' },
+  zephaniah: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'Judah’s final decline' },
+  habakkuk: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'Judah’s final decline' },
+  joel: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'A day-of-the-LORD warning; date debated, fits the decline' },
+  jeremiah: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'Eyewitness to Jerusalem’s fall' },
+  lamentations: { act: 'kingdom-falls', spine: false, role: 'voice', anchor: 'The funeral poem — read right after 2 Kings 25' },
+
+  daniel: { act: 'exile', spine: true, role: 'story', tagline: 'Faithful in a foreign empire' }, // chs 1–6 story; 7–12 visions
+  ezekiel: { act: 'exile', spine: false, role: 'voice', anchor: 'Voice from among the exiles in Babylon' },
+  obadiah: { act: 'exile', spine: false, role: 'voice', anchor: 'Against Edom for gloating over Jerusalem’s fall' },
+
+  ezra: { act: 'return', spine: true, role: 'story', tagline: 'Home to rebuild the temple' },
+  nehemiah: { act: 'return', spine: true, role: 'story', tagline: 'The wall in fifty-two days' },
+  esther: { act: 'return', spine: true, role: 'story', tagline: 'The queen and the great reversal' },
+  haggai: { act: 'return', spine: false, role: 'voice', anchor: 'Preaching during the temple rebuild' },
+  zechariah: { act: 'return', spine: false, role: 'voice', anchor: 'Preaching during the temple rebuild' },
+  malachi: { act: 'return', spine: false, role: 'voice', anchor: 'The Old Testament’s last word' },
+  '1-chronicles': { act: 'return', spine: false, role: 'story', anchor: 'The royal story retold for the returnees — second-pass material' },
+  '2-chronicles': { act: 'return', spine: false, role: 'story', anchor: 'The royal story retold for the returnees — second-pass material' },
+
+  matthew: { act: 'jesus', spine: true, role: 'story', tagline: 'Jesus, the promised King' },
+  mark: { act: 'jesus', spine: true, role: 'story', tagline: 'Jesus, urgent and unstoppable' },
+  john: { act: 'jesus', spine: true, role: 'story', tagline: 'Jesus, the Word made flesh' },
+
+  luke: { act: 'church', spine: true, role: 'story', tagline: 'Volume one — the story of Jesus' },
+  acts: { act: 'church', spine: true, role: 'story', tagline: 'Volume two — the story goes to the world' },
+  galatians: { act: 'church', spine: false, role: 'voice', anchor: 'Early journeys (Acts 13–17)' },
+  '1-thessalonians': { act: 'church', spine: false, role: 'voice', anchor: 'Early journeys (Acts 13–17)' },
+  '2-thessalonians': { act: 'church', spine: false, role: 'voice', anchor: 'Early journeys (Acts 13–17)' },
+  '1-corinthians': { act: 'church', spine: false, role: 'voice', anchor: 'Third journey (Acts 18–20)' },
+  '2-corinthians': { act: 'church', spine: false, role: 'voice', anchor: 'Third journey (Acts 18–20)' },
+  romans: { act: 'church', spine: false, role: 'voice', anchor: 'Third journey (Acts 18–20)' },
+  ephesians: { act: 'church', spine: false, role: 'voice', anchor: 'Written from the prison where Acts ends' },
+  philippians: { act: 'church', spine: false, role: 'voice', anchor: 'Written from the prison where Acts ends' },
+  colossians: { act: 'church', spine: false, role: 'voice', anchor: 'Written from the prison where Acts ends' },
+  philemon: { act: 'church', spine: false, role: 'voice', anchor: 'Written from the prison where Acts ends' },
+  '1-timothy': { act: 'church', spine: false, role: 'voice', anchor: 'After Acts closes' },
+  titus: { act: 'church', spine: false, role: 'voice', anchor: 'After Acts closes' },
+  '2-timothy': { act: 'church', spine: false, role: 'voice', anchor: 'Paul’s last words' },
+  james: { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  '1-peter': { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  '2-peter': { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  hebrews: { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  jude: { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  '1-john': { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  '2-john': { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+  '3-john': { act: 'church', spine: false, role: 'voice', anchor: 'Other voices to the same scattered churches' },
+
+  revelation: { act: 'the-end', spine: true, role: 'story', tagline: 'All things made new' },
 };
 
-// Book slug → era id, for every non-Genesis book.
-const BOOK_ERAS: Record<string, string> = {
-  exodus: 'exodus-law',
-  leviticus: 'exodus-law',
-  numbers: 'exodus-law',
-  deuteronomy: 'exodus-law',
-
-  joshua: 'conquest-judges',
-  judges: 'conquest-judges',
-  ruth: 'conquest-judges',
-
-  '1-samuel': 'kingdom',
-  '2-samuel': 'kingdom',
-  '1-kings': 'kingdom',
-  '2-kings': 'kingdom',
-  '1-chronicles': 'kingdom',
-  '2-chronicles': 'kingdom',
-
-  ezra: 'exile-return',
-  nehemiah: 'exile-return',
-  esther: 'exile-return',
-
-  job: 'wisdom',
-  psalms: 'wisdom',
-  proverbs: 'wisdom',
-  ecclesiastes: 'wisdom',
-  'song-of-solomon': 'wisdom',
-
-  isaiah: 'prophets',
-  jeremiah: 'prophets',
-  lamentations: 'prophets',
-  ezekiel: 'prophets',
-  daniel: 'prophets',
-  hosea: 'prophets',
-  joel: 'prophets',
-  amos: 'prophets',
-  obadiah: 'prophets',
-  jonah: 'prophets',
-  micah: 'prophets',
-  nahum: 'prophets',
-  habakkuk: 'prophets',
-  zephaniah: 'prophets',
-  haggai: 'prophets',
-  zechariah: 'prophets',
-  malachi: 'prophets',
-
-  matthew: 'gospels',
-  mark: 'gospels',
-  luke: 'gospels',
-  john: 'gospels',
-
-  acts: 'church',
-
-  romans: 'epistles',
-  '1-corinthians': 'epistles',
-  '2-corinthians': 'epistles',
-  galatians: 'epistles',
-  ephesians: 'epistles',
-  philippians: 'epistles',
-  colossians: 'epistles',
-  '1-thessalonians': 'epistles',
-  '2-thessalonians': 'epistles',
-  '1-timothy': 'epistles',
-  '2-timothy': 'epistles',
-  titus: 'epistles',
-  philemon: 'epistles',
-  hebrews: 'epistles',
-  james: 'epistles',
-  '1-peter': 'epistles',
-  '2-peter': 'epistles',
-  '1-john': 'epistles',
-  '2-john': 'epistles',
-  '3-john': 'epistles',
-  jude: 'epistles',
-
-  revelation: 'apocalypse',
-};
+export function getPlacement(bookSlug: string): BookPlacement {
+  return (
+    BOOK_PLACEMENTS[bookSlug] ?? {
+      act: 'origins',
+      spine: false,
+      role: 'wisdom',
+    }
+  );
+}
 
 /**
- * Infer the era for a movement. An explicit `era` field on the division
- * always wins (pass it as `explicitEra`).
+ * Resolve the act for a movement. An explicit `era` field on the division
+ * always wins (pass it as `explicitEra`). Kept as `inferEra` for
+ * compatibility with existing callers.
  */
 export function inferEra(bookSlug: string, movementId: string, explicitEra?: string): string {
   if (explicitEra && getEraById(explicitEra)) return explicitEra;
-  if (bookSlug === 'genesis') {
-    return GENESIS_MOVEMENT_ERAS[movementId] ?? 'primeval';
-  }
-  return BOOK_ERAS[bookSlug] ?? 'prophets';
+  return getPlacement(bookSlug).act;
 }

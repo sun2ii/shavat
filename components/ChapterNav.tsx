@@ -29,11 +29,8 @@ export default function ChapterNav({
   const router = useRouter();
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [jumpTo, setJumpTo] = useState('');
 
   const chapterIndex = division.chapters.indexOf(currentChapter);
-  const divisionChapterNum = chapterIndex + 1;
 
   const isInstructional = division.contentType === 'instructional';
   // Instructional passages read in a warm orange; everything else in gold.
@@ -53,8 +50,6 @@ export default function ChapterNav({
   const nextDivisionId = hasNextInDivision ? division.id : nextDivision?.id;
   const prevDivisionChapterNum = hasPrevInDivision ? chapterIndex : (prevDivision ? prevDivision.chapters.length : null);
   const nextDivisionChapterNum = hasNextInDivision ? chapterIndex + 2 : (nextDivision ? 1 : null);
-
-  const divisionDisplayName = division.title.replace('The Book of ', '').replace(/^The /, '');
 
   const writingExists = hasWriting(bookSlug, currentChapter);
   const writing = writingExists ? getWriting(bookSlug, currentChapter) : null;
@@ -113,24 +108,6 @@ export default function ChapterNav({
     }
   };
 
-  const handleDoubleClick = () => {
-    setIsEditing(true);
-    setJumpTo('');
-  };
-
-  const handleJumpSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const num = parseInt(jumpTo);
-    if (!isNaN(num) && num >= 1 && num <= division.chapters.length) {
-      window.location.href = `/${bookSlug}/${division.id}/${division.chapters[num - 1]}`;
-    }
-    setIsEditing(false);
-  };
-
-  const handleJumpKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') setIsEditing(false);
-  };
-
   return (
     <>
       <nav className="relative flex flex-col items-center justify-center mb-8 pb-5 border-b border-hairline">
@@ -156,32 +133,6 @@ export default function ChapterNav({
           {bookName}
         </p>
 
-        {isEditing ? (
-          <form onSubmit={handleJumpSubmit} className="flex items-center gap-2 mt-2">
-            <span className={`font-serif ${titleColor} text-5xl font-bold`}>{divisionDisplayName}</span>
-            <input
-              type="number"
-              value={jumpTo}
-              onChange={(e) => setJumpTo(e.target.value)}
-              onKeyDown={handleJumpKeyDown}
-              onBlur={() => setIsEditing(false)}
-              autoFocus
-              min={1}
-              max={division.chapters.length}
-              className={`w-20 px-2 py-1 text-4xl font-serif font-bold text-center bg-paper-2 ${titleColor} border border-hairline rounded focus:outline-none focus:ring-2 focus:ring-gold`}
-              placeholder={divisionChapterNum.toString()}
-            />
-          </form>
-        ) : (
-          <span
-            onDoubleClick={handleDoubleClick}
-            className={`font-serif ${titleColor} text-5xl font-bold cursor-pointer select-none mt-2`}
-            title="Double-click to jump to chapter"
-          >
-            {divisionDisplayName} {divisionChapterNum}
-          </span>
-        )}
-
         {chapterSummary && (
           <p className="font-serif italic text-lg text-muted mt-2 max-w-2xl text-center">
             {chapterSummary}
@@ -200,20 +151,39 @@ export default function ChapterNav({
           </Link>
         )}
 
-        {/* Chapter pager */}
-        <div className="flex gap-4 mt-4 font-serif text-lg">
-          {division.chapters.map((chapterNum, idx) => {
-            const isActive = chapterNum === currentChapter;
+        {/* Book terrain — every division with its chapters, readable in place */}
+        <div className="flex flex-wrap justify-center items-start gap-x-8 gap-y-4 mt-5 max-w-3xl">
+          {getAllDivisions(bookSlug).map((div) => {
+            const isCurrentDivision = div.id === division.id;
+            const divTitle = div.title
+              .replace('The Book of ', '')
+              .replace(/^The /, '');
             return (
-              <Link
-                key={chapterNum}
-                href={`/${bookSlug}/${division.id}/${chapterNum}`}
-                className={`transition-colors ${
-                  isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
-                }`}
-              >
-                {idx + 1}
-              </Link>
+              <div key={div.id} className="text-center">
+                <div
+                  className={`font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 ${
+                    isCurrentDivision ? 'text-gold-ink' : 'text-faint'
+                  }`}
+                >
+                  {divTitle}
+                </div>
+                <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+                  {div.chapters.map((ch) => {
+                    const isActive = isCurrentDivision && ch === currentChapter;
+                    return (
+                      <Link
+                        key={ch}
+                        href={`/${bookSlug}/${div.id}/${ch}`}
+                        className={`transition-colors ${
+                          isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
+                        }`}
+                      >
+                        {ch}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             );
           })}
         </div>

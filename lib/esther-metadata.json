@@ -1,1 +1,42 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "esther-becomes-queen",
+      "title": "Esther Becomes Queen",
+      "chapters": [
+        1,
+        2
+      ],
+      "theme": "Positioned in the palace",
+      "summary": "Vashti deposed; a Jewish orphan becomes queen of Persia.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "hamans-plot",
+      "title": "Haman’s Plot",
+      "chapters": [
+        3,
+        4,
+        5
+      ],
+      "theme": "For such a time as this",
+      "summary": "A decree of annihilation — and Esther risks death to approach the king.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-great-reversal",
+      "title": "The Great Reversal",
+      "chapters": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "theme": "The gallows turned",
+      "summary": "A sleepless night flips everything; Haman falls, and Purim is born.",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {}
+}

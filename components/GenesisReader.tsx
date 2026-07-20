@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
@@ -3017,10 +3017,60 @@ const REVELATION_22_SECTIONS: DaySection[] = [
   { day: 'The Invitation', verseRange: [17, 21], color: 'bg-yellow-50 dark:bg-yellow-950/20', borderColor: 'border-yellow-400' },
 ];
 
+/*
+  Copy-confirmation flash. Each section is tinted with its own hue, so a single
+  fixed flash color would collide on same-family sections (blue on blue reads as
+  muddy rather than as a signal). Instead each tint maps to roughly its opposite
+  on the wheel, so the flash always cuts against the background it sits on.
+  Full class strings are required — Tailwind scans source and cannot see
+  interpolated names.
+*/
+const COPY_FLASH: Record<string, string> = {
+  red: 'text-teal-600 dark:text-teal-300',
+  orange: 'text-blue-600 dark:text-blue-300',
+  amber: 'text-indigo-600 dark:text-indigo-300',
+  yellow: 'text-violet-600 dark:text-violet-300',
+  green: 'text-rose-600 dark:text-rose-300',
+  emerald: 'text-pink-600 dark:text-pink-300',
+  teal: 'text-red-600 dark:text-red-300',
+  cyan: 'text-orange-600 dark:text-orange-300',
+  sky: 'text-amber-600 dark:text-amber-300',
+  blue: 'text-amber-600 dark:text-amber-300',
+  indigo: 'text-yellow-600 dark:text-yellow-300',
+  violet: 'text-yellow-600 dark:text-yellow-300',
+  purple: 'text-green-600 dark:text-green-300',
+  pink: 'text-emerald-600 dark:text-emerald-300',
+  rose: 'text-green-600 dark:text-green-300',
+  gray: 'text-blue-600 dark:text-blue-300',
+  slate: 'text-amber-600 dark:text-amber-300',
+};
+
+const FALLBACK_FLASH = 'text-blue-600 dark:text-blue-300';
+
+/*
+  Neon halo for the copied state. Both layers use currentColor, so the glow
+  inherits whichever complement above is active — one class covers all 17 tints.
+  The tight layer reads as the filament, the wide one as the bloom.
+*/
+const COPY_GLOW = '[text-shadow:0_0_7px_currentColor,0_0_20px_currentColor]';
+
+/*
+  Resting counterpart to COPY_GLOW. Not `none` — CSS cannot interpolate a shadow
+  list from `none`, and mismatched layer counts interpolate inconsistently, so
+  the glow would pop instead of fade. Same two layers, same radii, transparent.
+*/
+const COPY_GLOW_OFF = '[text-shadow:0_0_7px_transparent,0_0_20px_transparent]';
+
+function copyFlashClass(borderColor: string): string {
+  const family = borderColor.match(/border-([a-z]+)-/)?.[1];
+  return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
+}
+
 export default function GenesisReader({ verses, book, chapter }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
+  const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
@@ -3048,9 +3098,14 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
 
   const handleCopySection = async (sectionName: string, sectionVerses: VerseType[]) => {
     const sectionText = sectionVerses.map(v => `${v.verse}. ${v.text}`).join('\n\n');
-    await navigator.clipboard.writeText(sectionText);
+    try {
+      await navigator.clipboard.writeText(sectionText);
+    } catch {
+      return;
+    }
+    if (copyTimer.current) clearTimeout(copyTimer.current);
     setCopiedSection(sectionName);
-    setTimeout(() => setCopiedSection(null), 2000);
+    copyTimer.current = setTimeout(() => setCopiedSection(null), 1600);
   };
 
   useEffect(() => {
@@ -4706,18 +4761,19 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
                 id={slugify(daySection.day)}
                 className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${daySection.borderColor} ${daySection.color}`}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <h3 className="mb-4">
                   <button
                     onClick={() => handleCopySection(daySection.day, dayVerses)}
-                    className="font-sans text-sm text-muted hover:text-ink transition-colors cursor-pointer"
                     title="Copy section"
+                    className={`font-sans text-[12px] tracking-[0.16em] uppercase font-bold cursor-pointer text-left [transition:color_250ms_ease,text-shadow_700ms_ease-in-out] ${
+                      copiedSection === daySection.day
+                        ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
+                        : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`
+                    }`}
                   >
-                    {copiedSection === daySection.day ? '✓' : '⧉'}
-                  </button>
-                  <h3 className="font-sans text-[12px] tracking-[0.16em] uppercase font-bold text-gold-ink">
                     {daySection.day}
-                  </h3>
-                </div>
+                  </button>
+                </h3>
                 <div className="font-serif text-ink text-[21px] leading-[1.95]">
                   {dayVerses.map((verse) => (
                     <Verse

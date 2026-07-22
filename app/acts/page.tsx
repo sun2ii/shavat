@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
+import { readingPath } from '@/lib/routes';
 
 export const metadata = {
   title: 'Shavat | Acts',
@@ -120,7 +121,7 @@ export default function ActsPage() {
           {divisions.map((division) => (
             <div key={division.id}>
               <Link
-                href={`/acts/${division.id}/${division.chapters[0]}`}
+                href={`/nt/acts/${division.id}/${division.chapters[0]}`}
                 className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
               >
                 <div className="flex items-baseline justify-between gap-4">
@@ -147,7 +148,7 @@ export default function ActsPage() {
                     {division.lettersWritten.map((letter) => (
                       <Link
                         key={letter.slug}
-                        href={`/${letter.slug}/1`}
+                        href={readingPath(letter.slug, 1)}
                         className="group text-sm text-[rgb(var(--text-secondary))] hover:text-[rgb(var(--text-primary))] transition-colors"
                       >
                         <span className="font-medium text-[rgb(var(--text-primary))] group-hover:underline">

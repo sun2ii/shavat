@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
+import { readingPath } from '@/lib/routes';
 import { CATEGORIES } from '@/lib/bible-metadata';
 import { getAllBooks } from '@/lib/genesis-collections';
 import { getAllCollections } from '@/lib/psalms-collections';
@@ -177,7 +178,7 @@ export default function LibraryPage() {
       filtered.forEach((division) => {
         cards.push({
           id: `${bookSlug}:${division.id}`,
-          href: `/${routePrefix}/${division.id}/${division.chapters[0]}`,
+          href: readingPath(routePrefix, division.id, division.chapters[0]),
           bookSlug,
           categoryId,
         });
@@ -194,7 +195,7 @@ export default function LibraryPage() {
           if (divisions.length > 0) {
             pushDivided(book.slug, divisions, book.slug);
           } else {
-            cards.push({ id: book.slug, href: `/${book.slug}/1`, bookSlug: book.slug });
+            cards.push({ id: book.slug, href: readingPath(book.slug, 1), bookSlug: book.slug });
           }
         });
         break;
@@ -208,7 +209,7 @@ export default function LibraryPage() {
           if (divisions.length > 0) {
             pushDivided(book.slug, divisions, book.slug);
           } else {
-            cards.push({ id: book.slug, href: `/${book.slug}/1`, bookSlug: book.slug });
+            cards.push({ id: book.slug, href: readingPath(book.slug, 1), bookSlug: book.slug });
           }
         });
         break;
@@ -251,7 +252,7 @@ export default function LibraryPage() {
               } else {
                 cards.push({
                   id: book.slug,
-                  href: `/${book.slug}/1`,
+                  href: readingPath(book.slug, 1),
                   bookSlug: book.slug,
                   categoryId: category.id,
                 });
@@ -417,7 +418,7 @@ export default function LibraryPage() {
             return (
               <DivisionCard
                 key={division.id}
-                href={`/${prefix}/${division.id}/${division.chapters[0]}`}
+                href={readingPath(prefix, division.id, division.chapters[0])}
                 title={division.title.replace('The Book of ', '').replace(/^The /, '')}
                 count={division.chapters.length}
                 theme={division.theme}
@@ -459,7 +460,7 @@ export default function LibraryPage() {
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     <DivisionCard
-                      href={`/${book.slug}/1`}
+                      href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
                       count={book.chapterCount}
                       theme={getBookTheme(book.slug)}
@@ -492,7 +493,7 @@ export default function LibraryPage() {
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     <DivisionCard
-                      href={`/${book.slug}/1`}
+                      href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
                       count={book.chapterCount}
                       theme={getBookTheme(book.slug)}
@@ -568,7 +569,7 @@ export default function LibraryPage() {
                     cards.push(
                       <DivisionCard
                         key={division.id}
-                        href={`/${book.slug}/${division.id}/${division.chapters[0]}`}
+                        href={readingPath(book.slug, division.id, division.chapters[0])}
                         title={division.title.replace('The Book of ', '').replace(/^The /, '')}
                         count={division.chapters.length}
                         theme={division.theme}
@@ -585,7 +586,7 @@ export default function LibraryPage() {
                   cards.push(
                     <DivisionCard
                       key={book.slug}
-                      href={`/${book.slug}/1`}
+                      href={readingPath(book.slug, 1)}
                       title={book.name}
                       count={book.chapterCount}
                       theme={getBookTheme(book.slug)}

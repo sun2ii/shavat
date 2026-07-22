@@ -8,6 +8,7 @@ import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { getWritingByPath } from '@/lib/hasWritings';
+import { readingPath } from '@/lib/routes';
 
 interface Breadcrumb {
   label: string;
@@ -35,6 +36,10 @@ export default function Breadcrumbs() {
     }
 
     const segments = pathname.split('/').filter(Boolean);
+
+    // Reading routes are namespaced by testament: /ot/joshua/possess-the-land/9
+    const bookSegments =
+      segments[0] === 'ot' || segments[0] === 'nt' ? segments.slice(1) : segments;
 
     // Get all book categories once
     const torahBooks = getBooksByTopLevelCategory('torah');
@@ -82,14 +87,28 @@ export default function Breadcrumbs() {
             label: writing.title,
             href: writing.path
           });
+        } else {
+          // Division-level writing: Writings / Joshua / Possess the Land
+          const book = [...torahBooks, ...otBooks, ...ntBooks, ...gospelBooks].find(
+            b => b.slug === bookSlug
+          );
+          const division = getAllDivisions(bookSlug).find(d => d.id === divisionPath);
+
+          if (book && division) {
+            breadcrumbs.push({ label: book.name, href: `/${bookSlug}` });
+            breadcrumbs.push({
+              label: division.title,
+              href: `/writings/${bookSlug}/${divisionPath}`
+            });
+          }
         }
       }
       return breadcrumbs;
     }
 
     // Handle book routes (e.g., /genesis/creation/1, /mark/beginning/1, /psalms/happy/1)
-    if (segments.length >= 1) {
-      const bookSlug = segments[0];
+    if (bookSegments.length >= 1) {
+      const bookSlug = bookSegments[0];
 
       // Determine which category the book belongs to
       let category = '';
@@ -126,8 +145,8 @@ export default function Breadcrumbs() {
         });
 
         // Add division/collection name if present
-        if (segments.length >= 2) {
-          const divisionId = segments[1];
+        if (bookSegments.length >= 2) {
+          const divisionId = bookSegments[1];
 
           let divisions: any[] = [];
           if (bookSlug === 'genesis') {
@@ -142,10 +161,10 @@ export default function Breadcrumbs() {
 
           const division = divisions.find(d => d.id === divisionId);
           if (division) {
-            const chapterNum = segments[2] || division.chapters[0] || division.psalms?.[0] || '1';
+            const chapterNum = bookSegments[2] || division.chapters[0] || division.psalms?.[0] || '1';
             breadcrumbs.push({
               label: division.title.replace('The Book of ', '').replace('Psalms of ', ''),
-              href: `/${bookSlug}/${divisionId}/${chapterNum}`
+              href: readingPath(bookSlug, divisionId, chapterNum)
             });
           }
         }

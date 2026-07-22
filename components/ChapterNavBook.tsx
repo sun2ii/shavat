@@ -6,6 +6,7 @@ import { storage } from '@/lib/storage';
 import { GenesisBook } from '@/lib/types';
 import { getAllBooks, getNextBook, getPreviousBook } from '@/lib/genesis-collections';
 import BookMap from './BookMap';
+import { readingPath } from '@/lib/routes';
 
 interface Props {
   currentChapter: number;
@@ -117,7 +118,7 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
                     return (
                       <Link
                         key={ch}
-                        href={`/genesis/${b.id}/${ch}`}
+                        href={readingPath('genesis', b.id, ch)}
                         className={`transition-colors ${
                           isActive ? 'text-gold font-bold' : 'text-faint hover:text-ink'
                         }`}
@@ -136,7 +137,7 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
       {/* Fixed left navigation */}
       {prevChapter && prevBookId && prevBookChapterNum !== null ? (
         <Link
-          href={`/genesis/${prevBookId}/${prevChapter}`}
+          href={readingPath('genesis', prevBookId, prevChapter)}
           className="fixed left-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
@@ -150,7 +151,7 @@ export default function ChapterNavBook({ currentChapter, book, onCopyChapter, co
       {/* Fixed right navigation */}
       {nextChapter && nextBookId && nextBookChapterNum !== null ? (
         <Link
-          href={`/genesis/${nextBookId}/${nextChapter}`}
+          href={readingPath('genesis', nextBookId, nextChapter)}
           className="fixed right-0 top-80 bottom-0 w-24 md:w-32 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">

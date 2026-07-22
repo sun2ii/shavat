@@ -7,6 +7,7 @@ import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
 import { getAllDivisions, getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
 import { hasWriting, getWriting } from '@/lib/hasWritings';
+import { readingPath, writingPath } from '@/lib/routes';
 import BookMap from './BookMap';
 
 interface Props {
@@ -63,10 +64,10 @@ export default function ChapterNav({
   // Prefetch adjacent chapters for instant navigation
   useEffect(() => {
     if (prevChapter && prevDivisionId) {
-      router.prefetch(`/${bookSlug}/${prevDivisionId}/${prevChapter}`);
+      router.prefetch(readingPath(bookSlug, prevDivisionId, prevChapter));
     }
     if (nextChapter && nextDivisionId) {
-      router.prefetch(`/${bookSlug}/${nextDivisionId}/${nextChapter}`);
+      router.prefetch(readingPath(bookSlug, nextDivisionId, nextChapter));
     }
   }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId]);
 
@@ -86,9 +87,9 @@ export default function ChapterNav({
 
       // Chapter navigation
       if (e.key === 'ArrowLeft' && prevChapter && prevDivisionId && prevDivisionChapterNum !== null) {
-        router.push(`/${bookSlug}/${prevDivisionId}/${prevChapter}`);
+        router.push(readingPath(bookSlug, prevDivisionId, prevChapter));
       } else if (e.key === 'ArrowRight' && nextChapter && nextDivisionId && nextDivisionChapterNum !== null) {
-        router.push(`/${bookSlug}/${nextDivisionId}/${nextChapter}`);
+        router.push(readingPath(bookSlug, nextDivisionId, nextChapter));
       }
     };
 
@@ -116,7 +117,7 @@ export default function ChapterNav({
           <BookMap
             label={`${bookAbbreviation} ${currentChapter}`}
             divisions={getAllDivisions(bookSlug)}
-            basePath={`/${bookSlug}`}
+            basePath={readingPath(bookSlug)}
             currentChapter={currentChapter}
             currentDivisionId={division.id}
           />
@@ -160,20 +161,22 @@ export default function ChapterNav({
               .replace(/^The /, '');
             return (
               <div key={div.id} className="text-center">
-                <div
-                  className={`font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 ${
-                    isCurrentDivision ? 'text-gold-ink' : 'text-faint'
+                <Link
+                  href={writingPath(bookSlug, div.id)}
+                  title={`Writing: ${divTitle}`}
+                  className={`block font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 transition-colors ${
+                    isCurrentDivision ? 'text-gold-ink hover:text-gold' : 'text-faint hover:text-ink'
                   }`}
                 >
                   {divTitle}
-                </div>
+                </Link>
                 <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
                   {div.chapters.map((ch) => {
                     const isActive = isCurrentDivision && ch === currentChapter;
                     return (
                       <Link
                         key={ch}
-                        href={`/${bookSlug}/${div.id}/${ch}`}
+                        href={readingPath(bookSlug, div.id, ch)}
                         className={`transition-colors ${
                           isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
                         }`}
@@ -192,7 +195,7 @@ export default function ChapterNav({
       {/* Fixed left navigation */}
       {prevChapter && prevDivisionId && prevDivisionChapterNum !== null ? (
         <Link
-          href={`/${bookSlug}/${prevDivisionId}/${prevChapter}`}
+          href={readingPath(bookSlug, prevDivisionId, prevChapter)}
           className="fixed left-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
@@ -206,7 +209,7 @@ export default function ChapterNav({
       {/* Fixed right navigation */}
       {nextChapter && nextDivisionId && nextDivisionChapterNum !== null ? (
         <Link
-          href={`/${bookSlug}/${nextDivisionId}/${nextChapter}`}
+          href={readingPath(bookSlug, nextDivisionId, nextChapter)}
           className="fixed right-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
         >
           <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">

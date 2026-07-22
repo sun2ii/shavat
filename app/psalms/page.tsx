@@ -13,7 +13,7 @@ export default function PsalmsPage() {
       {collections.map((collection) => (
         <Link
           key={collection.id}
-          href={`/psalms/${collection.id}/${collection.psalms[0]}`}
+          href={`/ot/psalms/${collection.id}/${collection.psalms[0]}`}
           className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
         >
           <h3 className="text-sm font-light text-[rgb(var(--text-primary))] mb-1 leading-tight">

@@ -5,6 +5,7 @@
 import { BIBLE_INDEX } from './bible-index';
 import { BookDivision, BibleBookEntry } from './types';
 import { ERAS, Era, inferEra, getPlacement, BookRole } from './eras';
+import { readingPath } from './routes';
 
 export interface Movement extends BookDivision {
   key: string;        // globally unique: `${bookSlug}:${id}`
@@ -47,8 +48,8 @@ function readDivisions(bookSlug: string): BookDivision[] {
 
 function readerHref(book: BibleBookEntry, division: BookDivision | null): string {
   if (book.slug === 'psalms') return '/psalms';
-  if (division) return `/${book.slug}/${division.id}/${division.chapters[0]}`;
-  return `/${book.slug}/1`;
+  if (division) return readingPath(book.slug, division.id, division.chapters[0]);
+  return readingPath(book.slug, 1);
 }
 
 function isOriented(d: BookDivision): boolean {

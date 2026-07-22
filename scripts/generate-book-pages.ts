@@ -5,7 +5,7 @@
 
 import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join } from 'path';
-import { BIBLE_INDEX } from '../lib/bible-index';
+import { BIBLE_INDEX, getBookBySlug } from '../lib/bible-index';
 
 interface BookSummary {
   opening: string;
@@ -49,6 +49,8 @@ const BOOK_SUMMARIES: Record<string, BookSummary> = {
 
 function generateBookPage(slug: string, name: string): string {
   const summary = BOOK_SUMMARIES[slug];
+  // Reading routes are namespaced by testament: /ot/joshua/..., /nt/john/...
+  const testament = getBookBySlug(slug)?.testament === 'new' ? 'nt' : 'ot';
 
   if (!summary) {
     // Return a basic template for books without detailed summaries
@@ -82,7 +84,7 @@ export default function ${name.replace(/[^a-zA-Z]/g, '')}Page() {
           {divisions.map((division) => (
             <Link
               key={division.id}
-              href={\`/${slug}/\${division.id}/\${division.chapters[0]}\`}
+              href={\`/${testament}/${slug}/\${division.id}/\${division.chapters[0]}\`}
               className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
             >
               <div className="flex items-baseline justify-between gap-4">
@@ -169,7 +171,7 @@ export default function ${name.replace(/[^a-zA-Z]/g, '')}Page() {
           {divisions.map((division) => (
             <Link
               key={division.id}
-              href={\`/${slug}/\${division.id}/\${division.chapters[0]}\`}
+              href={\`/${testament}/${slug}/\${division.id}/\${division.chapters[0]}\`}
               className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
             >
               <div className="flex items-baseline justify-between gap-4">

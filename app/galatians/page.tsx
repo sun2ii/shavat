@@ -120,7 +120,7 @@ export default function GalatiansPage() {
           {divisions.map((division) => (
             <Link
               key={division.id}
-              href={`/galatians/${division.id}/${division.chapters[0]}`}
+              href={`/nt/galatians/${division.id}/${division.chapters[0]}`}
               className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
             >
               <div className="flex items-baseline justify-between gap-4">

@@ -1,8 +1,8 @@
 {
   "divisions": [
     {
-      "id": "crossing-the-jordan",
-      "title": "Crossing the Jordan",
+      "id": "formation",
+      "title": "Formation",
       "chapters": [
         1,
         2,
@@ -15,8 +15,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "jericho-and-ai",
-      "title": "Jericho & Ai",
+      "id": "first-tests",
+      "title": "First Tests",
       "chapters": [
         6,
         7,
@@ -27,8 +27,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "the-conquest",
-      "title": "The Southern & Northern Campaigns",
+      "id": "possess-the-land",
+      "title": "Possess the Land",
       "chapters": [
         9,
         10,
@@ -40,8 +40,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "dividing-the-land",
-      "title": "Dividing the Land",
+      "id": "inheritance",
+      "title": "Inheritance",
       "chapters": [
         13,
         14,
@@ -58,8 +58,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "choose-this-day",
-      "title": "Choose This Day",
+      "id": "legacy",
+      "title": "Legacy",
       "chapters": [
         22,
         23,

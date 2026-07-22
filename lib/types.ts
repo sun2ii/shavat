@@ -113,3 +113,38 @@ export interface BookMetadata {
   divisions: BookDivision[];
   chapterSummaries: Record<string, string>;
 }
+
+// A division memorial — the durable summary of one movement of a book,
+// e.g. Joshua 9–12 "Possess the Land". Content-only; the page renders it.
+export interface MemorialChapter {
+  chapter: number;
+  anchor: string;          // in-page anchor id, e.g. "discernment"
+  theme: string;           // one-word chapter title
+
+  // Joshua's own pattern: story -> tension -> revelation -> memorial
+  story: string;           // what happened
+  tension: string;         // the question the narrative is asking
+  revelation: string;      // what the chapter reveals, answering the tension
+
+  memorialStones: string[];  // truths left behind for later generations
+  quote: string;
+}
+
+export interface DivisionMemorial {
+  bookSlug: string;
+  bookName: string;
+  divisionId: string;
+  eyebrow: string;         // e.g. "Joshua 9–12"
+  title: string;
+  intro: string[];
+  memorialIntro: { heading: string; body: string[] };
+  chapters: MemorialChapter[];
+  synthesis: {
+    eyebrow: string;
+    heading: string;
+    opening: string[];
+    steps: { question: string; theme: string }[];
+    closing: string[];
+  };
+  canon: { title: string; principles: string[] };
+}

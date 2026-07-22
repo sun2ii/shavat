@@ -4749,7 +4749,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
 
     return (
       <div className="max-w-[760px] mx-auto">
-        <ChapterOutline sections={sections} />
+        <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
         <div className="space-y-4">
           {sections.map((daySection) => {
             const dayVerses = verses.filter(
@@ -4761,11 +4761,11 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
                 id={slugify(daySection.day)}
                 className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${daySection.borderColor} ${daySection.color}`}
               >
-                <h3 className="mb-4">
+                <h3 className="mb-4 text-center">
                   <button
                     onClick={() => handleCopySection(daySection.day, dayVerses)}
                     title="Copy section"
-                    className={`font-sans text-[12px] tracking-[0.16em] uppercase font-bold cursor-pointer text-left [transition:color_250ms_ease,text-shadow_700ms_ease-in-out] ${
+                    className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center [transition:color_250ms_ease,text-shadow_700ms_ease-in-out] ${
                       copiedSection === daySection.day
                         ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
                         : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`

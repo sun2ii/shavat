@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { BibleBookEntry } from '@/lib/types';
+import { readingPath } from '@/lib/routes';
 
 interface BookCardProps {
   book: BibleBookEntry;
@@ -8,7 +9,7 @@ interface BookCardProps {
 export default function BookCard({ book }: BookCardProps) {
   return (
     <Link
-      href={`/${book.slug}/1`}
+      href={readingPath(book.slug, 1)}
       className="block p-4 border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors text-center"
     >
       <h3 className="text-sm font-light text-[rgb(var(--text-primary))] mb-1 leading-tight">

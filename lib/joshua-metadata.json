@@ -27,8 +27,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "possess-the-land",
-      "title": "Possess the Land",
+      "id": "possess",
+      "title": "Possess",
       "chapters": [
         9,
         10,
@@ -47,14 +47,23 @@
         14,
         15,
         16,
-        17,
+        17
+      ],
+      "theme": "The first allotments",
+      "summary": "The land east of the Jordan is confirmed, Caleb claims Hebron, and Judah and the sons of Joseph receive their portions.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "shiloh",
+      "title": "Shiloh",
+      "chapters": [
         18,
         19,
         20,
         21
       ],
-      "theme": "Every tribe its inheritance",
-      "summary": "The land is allotted tribe by tribe; cities of refuge are set apart.",
+      "theme": "The rest of the land divided",
+      "summary": "At the tent of meeting the remaining seven tribes are surveyed and given their lots; cities of refuge and Levite towns are set apart.",
       "contentType": "narrative"
     },
     {

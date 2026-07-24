@@ -115,7 +115,7 @@ export interface BookMetadata {
 }
 
 // A division memorial — the durable summary of one movement of a book,
-// e.g. Joshua 9–12 "Possess the Land". Content-only; the page renders it.
+// e.g. Joshua 9–12 "Possess". Content-only; the page renders it.
 export interface MemorialChapter {
   chapter: number;
   anchor: string;          // in-page anchor id, e.g. "discernment"
@@ -144,6 +144,29 @@ export interface DivisionMemorial {
     heading: string;
     opening: string[];
     steps: { question: string; theme: string }[];
+    closing: string[];
+  };
+  canon: { title: string; principles: string[] };
+}
+
+// A book memorial — one level above the division memorial. It states what the
+// whole book is doing and hands off to each movement in turn.
+export interface BookMemorial {
+  slug: string;
+  title: string;
+  subtitle: string;        // e.g. "The Faithfulness of God"
+  scripture: string;       // e.g. "Joshua 1–24"
+  summary: string[];
+  keyVerse: { reference: string; text: string };
+  theme: { heading: string; body: string[] };
+
+  // Each entry points at a division memorial by its id in <book>-metadata.json.
+  divisions: { id: string; title: string; scripture: string; summary: string }[];
+
+  synthesis: {
+    heading: string;
+    opening: string[];
+    steps: { question: string; answer: string }[];
     closing: string[];
   };
   canon: { title: string; principles: string[] };

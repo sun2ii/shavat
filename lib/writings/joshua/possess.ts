@@ -1,18 +1,18 @@
 import { DivisionMemorial } from '@/lib/types';
 
 /**
- * Content for the Possess the Land memorial (Joshua 9–12).
+ * Content for the Possess memorial (Joshua 9–12).
  *
  * Each chapter follows the pattern the book itself uses:
  * story -> tension -> revelation -> memorial. The stones are meant to read as
  * truths Joshua left behind, not as lessons drawn out afterward.
  */
-export const POSSESS_THE_LAND: DivisionMemorial = {
+export const POSSESS: DivisionMemorial = {
   bookSlug: 'joshua',
   bookName: 'Joshua',
-  divisionId: 'possess-the-land',
+  divisionId: 'possess',
   eyebrow: 'Joshua 9–12',
-  title: 'Possess the Land',
+  title: 'Possess',
   intro: [
     'Possessing the land required more than winning battles. Israel had to learn how to discern appearances, honor costly commitments, depend on God in the face of overwhelming power, and remember what had been accomplished.',
     'These chapters record the movement from uncertainty to possession. Each chapter leaves behind a principle worth carrying forward.',
@@ -137,7 +137,7 @@ export const POSSESS_THE_LAND: DivisionMemorial = {
     ],
   },
   canon: {
-    title: 'The Possess the Land Canon',
+    title: 'The Possess Canon',
     principles: [
       'Inquire of the Lord before you commit.',
       'Keep the oath that costs you.',

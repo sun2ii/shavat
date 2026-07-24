@@ -64,26 +64,53 @@ const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
   psalms: { kicker: 'The Book of Psalms', title: 'Psalms' },
 };
 
-// Harmonious warm-neutral tints (light) / low washes (dark), cycled per card.
-const TINTS = [
-  'bg-[#f6f1e8] dark:bg-[#211d14]',
-  'bg-[#f6efe9] dark:bg-[#221a18]',
-  'bg-[#eef1f4] dark:bg-[#172029]',
-  'bg-[#eff2ea] dark:bg-[#1a2018]',
-  'bg-[#f1eef3] dark:bg-[#201b21]',
-  'bg-[#eaf1ef] dark:bg-[#152120]',
-  'bg-[#f6f0e6] dark:bg-[#211c14]',
+/*
+  Accents — one per book, and they are only ever a LINE. Never a fill.
+
+  A card carries no color at rest: same surface, same hairline, every one of
+  them. The book's accent shows up in exactly two places — the rule under its
+  heading, and the card's left edge on hover. That is enough to say "these six
+  belong to Joshua" without six tinted rectangles competing for the eye.
+
+  Chroma is higher than a fill could ever take, because a 1–2px line needs it
+  to register at all. Lightness sits mid-scale so one value works on paper and
+  on ink without a dark-mode variant.
+*/
+const ACCENTS = [
+  'oklch(72% 0.11 85)',  // gold
+  'oklch(60% 0.07 140)', // olive
+  'oklch(55% 0.09 245)', // deep blue
+  'oklch(57% 0.13 25)',  // crimson
+  'oklch(60% 0.07 195)', // teal
+  'oklch(55% 0.07 305)', // plum
 ];
 
 function Pill({ tone, children }: { tone: 'gold' | 'green'; children: React.ReactNode }) {
   const cls =
     tone === 'gold'
-      ? 'text-gold-ink bg-[#efe1c0] dark:bg-[rgba(216,179,74,0.16)] dark:text-[#e6c96f]'
-      : 'text-[#4a6b3a] bg-[#dfe8d2] dark:bg-[rgba(138,154,91,0.2)] dark:text-[#a9c894]';
+      ? 'text-gold-ink bg-[rgba(201,162,75,0.14)] dark:bg-[rgba(216,179,74,0.16)] dark:text-[#e6c96f]'
+      : 'text-[#4a6b3a] bg-[rgba(122,153,90,0.16)] dark:bg-[rgba(138,154,91,0.2)] dark:text-[#a9c894]';
   return (
-    <span className={`font-sans text-[11px] font-semibold px-2 py-[3px] rounded-full ${cls}`}>
+    <span className={`font-sans text-[10px] font-semibold px-1.5 py-[2px] rounded-full ${cls}`}>
       {children}
     </span>
+  );
+}
+
+/*
+  One book inside a category. Lighter than SectionHeader on purpose — the
+  category is the chapter of the page, the book is the paragraph inside it.
+*/
+function BookHeader({ name, sub, accent }: { name: string; sub?: string; accent: string }) {
+  return (
+    <div className="flex items-baseline gap-3 pt-7 pb-3.5">
+      <h3 className="font-serif text-xl font-bold text-ink leading-none whitespace-nowrap">
+        {name}
+      </h3>
+      {sub && <span className="font-sans text-[12px] text-faint whitespace-nowrap">{sub}</span>}
+      {/* The book's one line of color. */}
+      <span className="flex-1 h-px" style={{ backgroundColor: accent }} />
+    </div>
   );
 }
 
@@ -106,7 +133,7 @@ function DivisionCard({
   theme,
   hasCommentary,
   hasWritings,
-  tint,
+  accent,
   instructional,
   focused,
 }: {
@@ -116,28 +143,38 @@ function DivisionCard({
   theme?: string;
   hasCommentary?: boolean;
   hasWritings?: boolean;
-  tint: string;
+  accent: string;
   instructional?: boolean;
   focused?: boolean;
 }) {
   return (
+    /*
+      One surface, one hairline, on every card in the app. The left border is
+      2px at rest as well as on hover — it only changes color, so nothing
+      reflows. Feedback lives in the hover state, not in the resting card.
+    */
     <Link
       href={href}
-      className={`block rounded-xl p-4 border transition-colors ${tint} ${
-        focused ? 'border-gold ring-2 ring-gold' : 'border-hairline hover:border-muted'
+      style={{ '--accent': accent } as React.CSSProperties}
+      className={`block rounded-lg px-3.5 py-3 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] ${
+        focused
+          ? 'border-gold ring-2 ring-gold'
+          : 'border-hairline focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold'
       }`}
     >
       <div
-        className={`font-serif text-xl leading-tight ${
+        className={`font-serif text-[16px] leading-tight ${
           instructional ? 'text-orange-500' : 'text-ink'
         }`}
       >
         {title}
       </div>
       {theme && (
-        <div className="font-serif italic text-[13px] text-muted leading-snug mt-1">{theme}</div>
+        <div className="font-serif italic text-[12.5px] text-muted leading-snug mt-1 line-clamp-1">
+          {theme}
+        </div>
       )}
-      <div className="flex items-center justify-between mt-3">
+      <div className="flex items-center justify-between mt-2">
         {hasCommentary ? (
           <Pill tone="gold">Commentary</Pill>
         ) : hasWritings ? (
@@ -145,7 +182,7 @@ function DivisionCard({
         ) : (
           <span />
         )}
-        <span className="font-sans text-xs text-faint">{count} ch</span>
+        <span className="font-sans text-[11px] text-faint">{count} ch</span>
       </div>
     </Link>
   );
@@ -270,13 +307,15 @@ export default function LibraryPage() {
   const focusedCardId =
     focusedCardIndex !== null ? focusableCards[focusedCardIndex]?.id ?? null : null;
 
-  // Columns of the card grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-3).
+  // Must track the grid classes exactly, or arrow keys skip rows:
+  // grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4.
   const getGridColumns = () => {
-    if (typeof window === 'undefined') return 3;
+    if (typeof window === 'undefined') return 4;
     const width = window.innerWidth;
     if (width < 640) return 1;
-    if (width < 1024) return 2;
-    return 3;
+    if (width < 768) return 2;
+    if (width < 1024) return 3;
+    return 4;
   };
   const [gridColumns, setGridColumns] = useState(getGridColumns);
 
@@ -407,10 +446,12 @@ export default function LibraryPage() {
       : divisions;
     if (filtered.length === 0) return null;
     const prefix = routePrefix ?? book.slug;
+    // One accent for the whole book; `number` is its 1-based position.
+    const accent = ACCENTS[(parseInt(number, 10) - 1) % ACCENTS.length];
     return (
       <section key={book.slug}>
         <SectionHeader number={number} name={book.name} sub={`${divisions.length} books · ${book.chapterCount} chapters`} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
           {filtered.map((division, i) => {
             const isInstructional = division.contentType === 'instructional';
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
@@ -424,8 +465,8 @@ export default function LibraryPage() {
                 theme={division.theme}
                 hasCommentary={hasCommentary}
                 hasWritings={hasWritings}
+                accent={accent}
                 instructional={isInstructional}
-                tint={TINTS[i % TINTS.length]}
                 focused={focusedCardId === `${book.slug}:${division.id}`}
               />
             );
@@ -458,13 +499,13 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
                       count={book.chapterCount}
                       theme={getBookTheme(book.slug)}
-                      tint={TINTS[idx % TINTS.length]}
+                      accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
                     />
                   </div>
@@ -491,13 +532,13 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
                       count={book.chapterCount}
                       theme={getBookTheme(book.slug)}
-                      tint={TINTS[idx % TINTS.length]}
+                      accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
                     />
                   </div>
@@ -512,7 +553,7 @@ export default function LibraryPage() {
         return (
           <div className="space-y-2">
             <SectionHeader name="Psalms" sub={`${psalmsCollections.length} collections`} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
               {psalmsCollections.map((collection, i) => (
                 <DivisionCard
                   key={collection.id}
@@ -520,7 +561,7 @@ export default function LibraryPage() {
                   title={collection.title.replace('Psalms of ', '')}
                   count={collection.psalms.length}
                   theme={collection.theme}
-                  tint={TINTS[i % TINTS.length]}
+                  accent={ACCENTS[i % ACCENTS.length]}
                   focused={focusedCardId === collection.id}
                 />
               ))}
@@ -540,22 +581,61 @@ export default function LibraryPage() {
           <div className="space-y-2">
             {cats.map((category) => {
               const categoryBooks = books.filter((b) => b.category === category.id);
-              const cards: React.ReactNode[] = [];
+
+              /*
+                A book that breaks into movements earns its own heading, so you
+                can see where Joshua ends and Judges begins. A book that is one
+                undivided read — Ruth, every minor prophet — is just a tile; a
+                heading over a single card only says the title twice. Undivided
+                books that sit next to each other in the canon share one grid,
+                which keeps them in order instead of exiling them to the end.
+              */
+              const bookBlocks: React.ReactNode[] = [];
+              let looseTiles: React.ReactNode[] = [];
+
+              const flushLooseTiles = () => {
+                if (looseTiles.length === 0) return;
+                bookBlocks.push(
+                  <div key={`tiles-${bookBlocks.length}`} className="pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                      {looseTiles}
+                    </div>
+                  </div>,
+                );
+                looseTiles = [];
+              };
+
               categoryBooks.forEach((book, i) => {
+                // One accent per book: its heading rule and its cards agree.
+                const accent = ACCENTS[i % ACCENTS.length];
+
+                const pushBookSection = (cards: React.ReactNode[], sub: string) => {
+                  flushLooseTiles();
+                  bookBlocks.push(
+                    <div key={book.slug}>
+                      <BookHeader name={book.name} sub={sub} accent={accent} />
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                        {cards}
+                      </div>
+                    </div>,
+                  );
+                };
+
                 if (book.slug === 'acts') {
-                  ACTS_BOOKS.forEach((actsBook, j) => {
-                    cards.push(
+                  pushBookSection(
+                    ACTS_BOOKS.map((actsBook) => (
                       <DivisionCard
                         key={actsBook.id}
                         href={actsBook.href}
                         title={actsBook.title}
                         count={actsBook.count}
                         theme={actsBook.theme}
-                        tint={TINTS[(i + j) % TINTS.length]}
+                        accent={accent}
                         focused={focusedCardId === actsBook.id}
-                      />,
-                    );
-                  });
+                      />
+                    )),
+                    `${ACTS_BOOKS.length} movements · ${book.chapterCount} chapters`,
+                  );
                   return;
                 }
 
@@ -564,9 +644,9 @@ export default function LibraryPage() {
                   ? divisions.filter((d) => d.contentType !== 'instructional')
                   : divisions;
 
-                if (divisions.length > 0) {
-                  filtered.forEach((division, j) => {
-                    cards.push(
+                if (filtered.length > 0) {
+                  pushBookSection(
+                    filtered.map((division) => (
                       <DivisionCard
                         key={division.id}
                         href={readingPath(book.slug, division.id, division.chapters[0])}
@@ -576,34 +656,41 @@ export default function LibraryPage() {
                         instructional={division.contentType === 'instructional'}
                         hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                         hasWritings={divisionHasWritings(book.slug, division.chapters)}
-                        tint={TINTS[(i + j) % TINTS.length]}
+                        accent={accent}
                         focused={focusedCardId === `${book.slug}:${division.id}`}
-                      />,
-                    );
-                  });
-                } else {
-                  const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
-                  cards.push(
-                    <DivisionCard
-                      key={book.slug}
-                      href={readingPath(book.slug, 1)}
-                      title={book.name}
-                      count={book.chapterCount}
-                      theme={getBookTheme(book.slug)}
-                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
-                      hasWritings={divisionHasWritings(book.slug, allChapters)}
-                      tint={TINTS[i % TINTS.length]}
-                      focused={focusedCardId === book.slug}
-                    />,
+                      />
+                    )),
+                    `${filtered.length} movements · ${book.chapterCount} chapters`,
                   );
+                  return;
                 }
+
+                const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+                looseTiles.push(
+                  <DivisionCard
+                    key={book.slug}
+                    href={readingPath(book.slug, 1)}
+                    title={book.name}
+                    count={book.chapterCount}
+                    theme={getBookTheme(book.slug)}
+                    hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                    hasWritings={divisionHasWritings(book.slug, allChapters)}
+                    accent={accent}
+                    focused={focusedCardId === book.slug}
+                  />,
+                );
               });
 
-              if (cards.length === 0) return null;
+              flushLooseTiles();
+
+              if (bookBlocks.length === 0) return null;
               return (
                 <section key={category.id}>
-                  <SectionHeader name={category.name} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">{cards}</div>
+                  <SectionHeader
+                    name={category.name}
+                    sub={`${categoryBooks.length} ${categoryBooks.length === 1 ? 'book' : 'books'}`}
+                  />
+                  <div className="space-y-2">{bookBlocks}</div>
                 </section>
               );
             })}

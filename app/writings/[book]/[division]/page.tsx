@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import ReactMarkdown, { Components } from 'react-markdown';
 import Link from 'next/link';
@@ -10,7 +10,7 @@ import {
 } from '@/lib/getWritingContent';
 import { getDivisionById } from '@/lib/book-metadata-utils';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
-import { readingPath } from '@/lib/routes';
+import { readingPath, resolveDivisionId, writingPath } from '@/lib/routes';
 
 interface Props {
   params: {
@@ -89,6 +89,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function WritingPage({ params }: Props) {
+  // A division renamed since this URL was written still resolves, the same way
+  // the reading route resolves it. The canonical id may own a static page.
+  const canonicalDivision = resolveDivisionId(params.book, params.division);
+  if (canonicalDivision !== params.division) {
+    redirect(writingPath(params.book, canonicalDivision));
+  }
+
   const bookName = getBookName(params.book);
   const writing = getWritingByPath(params.book, params.division);
 

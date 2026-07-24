@@ -7,7 +7,7 @@ export async function getWritingContent(book: string, chapter: number): Promise<
 
 /**
  * A division-level writing — the summary of a whole movement, e.g.
- * lib/writings/joshua/joshua-possess-the-land.md
+ * lib/writings/joshua/joshua-possess.md
  */
 export async function getDivisionWritingContent(
   book: string,

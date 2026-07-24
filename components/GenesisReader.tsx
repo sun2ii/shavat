@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
+import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION } from '@/lib/copy-glow';
 import ChapterOutline from './ChapterOutline';
 
 interface Props {
@@ -3047,20 +3048,6 @@ const COPY_FLASH: Record<string, string> = {
 
 const FALLBACK_FLASH = 'text-blue-600 dark:text-blue-300';
 
-/*
-  Neon halo for the copied state. Both layers use currentColor, so the glow
-  inherits whichever complement above is active — one class covers all 17 tints.
-  The tight layer reads as the filament, the wide one as the bloom.
-*/
-const COPY_GLOW = '[text-shadow:0_0_7px_currentColor,0_0_20px_currentColor]';
-
-/*
-  Resting counterpart to COPY_GLOW. Not `none` — CSS cannot interpolate a shadow
-  list from `none`, and mismatched layer counts interpolate inconsistently, so
-  the glow would pop instead of fade. Same two layers, same radii, transparent.
-*/
-const COPY_GLOW_OFF = '[text-shadow:0_0_7px_transparent,0_0_20px_transparent]';
-
 function copyFlashClass(borderColor: string): string {
   const family = borderColor.match(/border-([a-z]+)-/)?.[1];
   return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
@@ -3070,11 +3057,31 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
+  // Tracked as the open set, not the closed one: empty means folded, which is
+  // the resting state, and needs no knowledge of a chapter's section titles.
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
   const actualChapter = chapter || verses[0]?.chapter;
+
+  // Section titles are chapter-scoped, so a chapter change folds everything again.
+  useEffect(() => {
+    setExpandedSections(new Set());
+  }, [actualBook, actualChapter]);
+
+  const toggleSection = (sectionName: string) => {
+    setExpandedSections(prev => {
+      const next = new Set(prev);
+      if (next.has(sectionName)) {
+        next.delete(sectionName);
+      } else {
+        next.add(sectionName);
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (actualBook && actualChapter) {
@@ -3105,7 +3112,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     }
     if (copyTimer.current) clearTimeout(copyTimer.current);
     setCopiedSection(sectionName);
-    copyTimer.current = setTimeout(() => setCopiedSection(null), 1600);
+    copyTimer.current = setTimeout(() => setCopiedSection(null), COPY_FLASH_MS);
   };
 
   useEffect(() => {
@@ -4755,35 +4762,98 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
             const dayVerses = verses.filter(
               (v) => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
             );
+            const sectionId = slugify(daySection.day);
+            const isCollapsed = !expandedSections.has(daySection.day);
             return (
+              /*
+                Folded, the whole card is the target. Open, only the header is —
+                otherwise selecting a verse or double-clicking one for its
+                commentary would slam the section shut underneath the reader.
+              */
               <div
                 key={daySection.day}
-                id={slugify(daySection.day)}
-                className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${daySection.borderColor} ${daySection.color}`}
+                id={sectionId}
+                onClick={isCollapsed ? () => toggleSection(daySection.day) : undefined}
+                className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${
+                  isCollapsed ? 'cursor-pointer' : ''
+                } ${daySection.borderColor} ${daySection.color}`}
               >
-                <h3 className="mb-4 text-center">
-                  <button
-                    onClick={() => handleCopySection(daySection.day, dayVerses)}
-                    title="Copy section"
-                    className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center [transition:color_250ms_ease,text-shadow_700ms_ease-in-out] ${
-                      copiedSection === daySection.day
-                        ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
-                        : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`
-                    }`}
-                  >
-                    {daySection.day}
-                  </button>
-                </h3>
-                <div className="font-serif text-ink text-[21px] leading-[1.95]">
-                  {dayVerses.map((verse) => (
-                    <Verse
-                      key={verse.verse}
-                      verse={verse}
-                      isSelected={selectedVerses.has(verse.verse)}
-                      onToggle={toggleVerse}
-                      commentary={commentary.get(verse.verse)}
-                    />
-                  ))}
+                <div
+                  onClick={() => {
+                    // Collapsed, this bubbles to the card, which owns the toggle.
+                    if (!isCollapsed) toggleSection(daySection.day);
+                  }}
+                  className="cursor-pointer"
+                >
+                  <h3 className={`relative text-center ${isCollapsed ? 'mb-0' : 'mb-4'}`}>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopySection(daySection.day, dayVerses);
+                      }}
+                      title="Copy section"
+                      className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center ${COPY_TRANSITION} ${
+                        copiedSection === daySection.day
+                          ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
+                          : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`
+                      }`}
+                    >
+                      {daySection.day}
+                    </button>
+                    {/* The keyboard path, and the sign that the card folds at all. */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleSection(daySection.day);
+                      }}
+                      aria-expanded={!isCollapsed}
+                      aria-controls={`${sectionId}-verses`}
+                      title={isCollapsed ? 'Expand section' : 'Collapse section'}
+                      className="absolute right-0 top-1/2 -translate-y-1/2 p-1 text-faint hover:text-ink transition-colors"
+                    >
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.75"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`h-4 w-4 transition-transform duration-300 ease-out ${
+                          isCollapsed ? '' : 'rotate-180'
+                        }`}
+                      >
+                        <path d="M5 7.5 10 12.5 15 7.5" />
+                      </svg>
+                    </button>
+                  </h3>
+
+                  {isCollapsed && (
+                    <p className="mt-2 text-center font-sans text-[11px] tracking-[0.16em] uppercase text-faint">
+                      Verses {daySection.verseRange[0]}–{daySection.verseRange[1]}
+                    </p>
+                  )}
+                </div>
+
+                {/* 0fr → 1fr folds to the content's natural height without measuring it. */}
+                <div
+                  id={`${sectionId}-verses`}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    isCollapsed ? 'grid-rows-[0fr]' : 'grid-rows-[1fr]'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="font-serif text-ink text-[21px] leading-[1.95]">
+                      {dayVerses.map((verse) => (
+                        <Verse
+                          key={verse.verse}
+                          verse={verse}
+                          isSelected={selectedVerses.has(verse.verse)}
+                          onToggle={toggleVerse}
+                          commentary={commentary.get(verse.verse)}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             );

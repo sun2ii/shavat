@@ -1,7 +1,7 @@
 # Writing a Division Memorial
 
 Instructional prompt for authoring a memorial page — the permanent record of one
-movement of a book (e.g. Joshua 9–12, "Possess the Land").
+movement of a book (e.g. Joshua 9–12, "Possess").
 
 A memorial is **passive**. It is read, not worked through. No prompts, no
 journaling fields, no exercises. It exists so a truth can be returned to years
@@ -59,7 +59,7 @@ Content lives in `lib/writings/<book>/<division-id>.ts` and satisfies
 {
   bookSlug, bookName, divisionId,
   eyebrow,        // "Joshua 9–12"
-  title,          // "Possess the Land"
+  title,          // "Possess"
   intro: string[],
   memorialIntro: { heading, body: string[] },
 

@@ -3,7 +3,7 @@ import { getBookBySlug } from './bible-index';
 export type TestamentPrefix = 'ot' | 'nt';
 
 /**
- * Reading routes are namespaced by testament: /ot/joshua/possess-the-land/9.
+ * Reading routes are namespaced by testament: /ot/joshua/possess/9.
  * The prefix comes from the canonical index, so a book only ever resolves to
  * one of them.
  */
@@ -15,7 +15,7 @@ export function testamentPrefix(bookSlug: string): TestamentPrefix {
  * Canonical reading path.
  *   readingPath('joshua')                       -> /ot/joshua
  *   readingPath('joshua', 9)                    -> /ot/joshua/9
- *   readingPath('joshua', 'possess-the-land', 9) -> /ot/joshua/possess-the-land/9
+ *   readingPath('joshua', 'possess', 9)         -> /ot/joshua/possess/9
  */
 export function readingPath(
   bookSlug: string,
@@ -25,9 +25,14 @@ export function readingPath(
   return `/${testamentPrefix(bookSlug)}/${bookSlug}${tail}`;
 }
 
-/** Division-level writing, where a summary of that division is recorded. */
-export function writingPath(bookSlug: string, divisionId: string): string {
-  return `/writings/${bookSlug}/${divisionId}`;
+/**
+ * Recorded summaries. With a division id, the memorial for that movement;
+ * without one, the book-level overview those movements hang from.
+ *   writingPath('joshua')             -> /writings/joshua
+ *   writingPath('joshua', 'shiloh')   -> /writings/joshua/shiloh
+ */
+export function writingPath(bookSlug: string, divisionId?: string): string {
+  return divisionId ? `/writings/${bookSlug}/${divisionId}` : `/writings/${bookSlug}`;
 }
 
 /**
@@ -38,7 +43,8 @@ const LEGACY_DIVISION_IDS: Record<string, Record<string, string>> = {
   joshua: {
     'crossing-the-jordan': 'formation',
     'jericho-and-ai': 'first-tests',
-    'the-conquest': 'possess-the-land',
+    'the-conquest': 'possess',
+    'possess-the-land': 'possess',
     'dividing-the-land': 'inheritance',
     'choose-this-day': 'legacy',
   },

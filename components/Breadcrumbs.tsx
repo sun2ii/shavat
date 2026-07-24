@@ -8,7 +8,8 @@ import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { getWritingByPath } from '@/lib/hasWritings';
-import { readingPath } from '@/lib/routes';
+import { hasBookMemorial } from '@/lib/writings/bookMemorials';
+import { readingPath, writingPath } from '@/lib/routes';
 
 interface Breadcrumb {
   label: string;
@@ -37,7 +38,7 @@ export default function Breadcrumbs() {
 
     const segments = pathname.split('/').filter(Boolean);
 
-    // Reading routes are namespaced by testament: /ot/joshua/possess-the-land/9
+    // Reading routes are namespaced by testament: /ot/joshua/possess/9
     const bookSegments =
       segments[0] === 'ot' || segments[0] === 'nt' ? segments.slice(1) : segments;
 
@@ -77,6 +78,18 @@ export default function Breadcrumbs() {
     if (segments[0] === 'writings') {
       breadcrumbs.push({ label: 'Writings', href: '/writings' });
 
+      // Book-level memorial: Writings / Joshua
+      if (segments[1] && !segments[2] && hasBookMemorial(segments[1])) {
+        const book = [...torahBooks, ...otBooks, ...ntBooks, ...gospelBooks].find(
+          b => b.slug === segments[1]
+        );
+
+        if (book) {
+          breadcrumbs.push({ label: book.name, href: `/writings/${book.slug}` });
+        }
+        return breadcrumbs;
+      }
+
       if (segments[1] && segments[2]) {
         const bookSlug = segments[1];
         const divisionPath = segments[2];
@@ -88,14 +101,19 @@ export default function Breadcrumbs() {
             href: writing.path
           });
         } else {
-          // Division-level writing: Writings / Joshua / Possess the Land
+          // Division-level writing: Writings / Joshua / Possess
           const book = [...torahBooks, ...otBooks, ...ntBooks, ...gospelBooks].find(
             b => b.slug === bookSlug
           );
           const division = getAllDivisions(bookSlug).find(d => d.id === divisionPath);
 
           if (book && division) {
-            breadcrumbs.push({ label: book.name, href: `/${bookSlug}` });
+            // The book crumb goes to its overview when one exists, since that
+            // page is the hub for every movement below it.
+            breadcrumbs.push({
+              label: book.name,
+              href: hasBookMemorial(bookSlug) ? writingPath(bookSlug) : `/${bookSlug}`,
+            });
             breadcrumbs.push({
               label: division.title,
               href: `/writings/${bookSlug}/${divisionPath}`

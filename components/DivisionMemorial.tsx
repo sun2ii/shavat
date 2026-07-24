@@ -1,11 +1,80 @@
 import Link from 'next/link';
-import { DivisionMemorial as DivisionMemorialData } from '@/lib/types';
+import { DivisionMemorial as DivisionMemorialData, MemorialChapter } from '@/lib/types';
 import { readingPath } from '@/lib/routes';
+import CopyHeading from './CopyHeading';
+
+/*
+  Clipboard payloads. Each heading copies exactly the block it titles, so the
+  page's own hierarchy is the selection model — no drag, no partial capture.
+  Serialized on the server; the client only carries the finished strings.
+*/
+function chapterText(bookName: string, chapter: MemorialChapter): string {
+  return [
+    `${bookName} ${chapter.chapter} — ${chapter.theme}`,
+    '',
+    'STORY',
+    chapter.story,
+    '',
+    'TENSION',
+    chapter.tension,
+    '',
+    'REVELATION',
+    chapter.revelation,
+    '',
+    'MEMORIAL STONES',
+    ...chapter.memorialStones.map((stone, i) => `${i + 1}. ${stone}`),
+    '',
+    `“${chapter.quote}”`,
+  ].join('\n');
+}
+
+function memorialIntroText(memorial: DivisionMemorialData): string {
+  return [memorial.memorialIntro.heading, '', ...memorial.memorialIntro.body].join('\n\n');
+}
+
+function synthesisText(memorial: DivisionMemorialData): string {
+  const { synthesis } = memorial;
+  return [
+    synthesis.eyebrow,
+    synthesis.heading,
+    '',
+    ...synthesis.opening,
+    '',
+    ...synthesis.steps.map((step) => `${step.question}\n— ${step.theme}`),
+    '',
+    ...synthesis.closing,
+  ].join('\n\n');
+}
+
+function canonText(memorial: DivisionMemorialData): string {
+  return [
+    memorial.canon.title,
+    '',
+    ...memorial.canon.principles.map((principle, i) => `${i + 1}. ${principle}`),
+  ].join('\n');
+}
+
+function memorialText(memorial: DivisionMemorialData): string {
+  return [
+    memorial.eyebrow,
+    memorial.title,
+    '',
+    ...memorial.intro,
+    '',
+    memorialIntroText(memorial),
+    '',
+    ...memorial.chapters.map((chapter) => chapterText(memorial.bookName, chapter)),
+    '',
+    synthesisText(memorial),
+    '',
+    canonText(memorial),
+  ].join('\n\n');
+}
 
 /**
  * A division memorial: the summary and record of one movement of a book.
- * Passive by design — nothing here is interactive except the anchors and the
- * links back into the text.
+ * Passive by design — the anchors, the links back into the text, and the
+ * headings, which copy the block they title.
  */
 export default function DivisionMemorial({ memorial }: { memorial: DivisionMemorialData }) {
   const { bookSlug, bookName, divisionId, chapters, synthesis, canon } = memorial;
@@ -18,8 +87,14 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
           {memorial.eyebrow}
         </p>
 
-        <h1 className="font-serif text-4xl md:text-5xl text-ink leading-tight mb-8">
-          {memorial.title}
+        <h1 className="mb-8">
+          <CopyHeading
+            text={memorialText(memorial)}
+            title="Copy the whole memorial"
+            className="font-serif text-4xl md:text-5xl leading-tight text-center"
+          >
+            {memorial.title}
+          </CopyHeading>
         </h1>
 
         <div className="text-left space-y-5">
@@ -58,8 +133,14 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
 
       {/* Memorial stones introduction */}
       <section className="py-10">
-        <h2 className="font-sans text-[11px] uppercase tracking-[0.2em] font-bold text-gold-ink mb-4">
-          {memorial.memorialIntro.heading}
+        <h2 className="mb-4">
+          <CopyHeading
+            text={memorialIntroText(memorial)}
+            className="font-sans text-[11px] uppercase tracking-[0.2em] font-bold text-left"
+            restClass="text-gold-ink hover:text-gold"
+          >
+            {memorial.memorialIntro.heading}
+          </CopyHeading>
         </h2>
         <div className="space-y-4">
           {memorial.memorialIntro.body.map((paragraph) => (
@@ -81,7 +162,15 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
             {bookName} {chapter.chapter}
           </p>
 
-          <h2 className="font-serif text-3xl md:text-4xl text-ink mb-8">{chapter.theme}</h2>
+          <h2 className="mb-8">
+            <CopyHeading
+              text={chapterText(bookName, chapter)}
+              title={`Copy ${bookName} ${chapter.chapter}`}
+              className="font-serif text-3xl md:text-4xl text-left"
+            >
+              {chapter.theme}
+            </CopyHeading>
+          </h2>
 
           {/* Story -> tension -> revelation, the pattern the book itself follows */}
           <div className="mb-10 space-y-7">
@@ -150,7 +239,14 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
           {synthesis.eyebrow}
         </p>
 
-        <h2 className="font-serif text-3xl md:text-4xl text-ink mb-8">{synthesis.heading}</h2>
+        <h2 className="mb-8">
+          <CopyHeading
+            text={synthesisText(memorial)}
+            className="font-serif text-3xl md:text-4xl text-left"
+          >
+            {synthesis.heading}
+          </CopyHeading>
+        </h2>
 
         <div className="space-y-5 mb-10">
           {synthesis.opening.map((paragraph) => (
@@ -185,8 +281,14 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
 
       {/* Final memorial */}
       <section className="mb-16 border border-hairline rounded-2xl px-6 py-8 md:px-8">
-        <h2 className="font-sans text-[11px] uppercase tracking-[0.2em] font-bold text-gold-ink mb-6">
-          {canon.title}
+        <h2 className="mb-6">
+          <CopyHeading
+            text={canonText(memorial)}
+            className="font-sans text-[11px] uppercase tracking-[0.2em] font-bold text-left"
+            restClass="text-gold-ink hover:text-gold"
+          >
+            {canon.title}
+          </CopyHeading>
         </h2>
 
         <ol>

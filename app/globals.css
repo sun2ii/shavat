@@ -65,3 +65,36 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
+
+/*
+  Anything that acts on a press shows the hand, in one place rather than as a
+  utility class repeated per component. React attaches handlers at the root
+  rather than as an onclick attribute, so a plain div that listens for clicks
+  still needs its own `cursor-pointer` — this covers everything selectable.
+*/
+button,
+summary,
+label,
+select,
+[role="button"],
+[role="tab"],
+[role="option"],
+[role="menuitem"],
+[role="switch"],
+a[href],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+input[type="file"] {
+  cursor: pointer;
+}
+
+/* A control that cannot act should not invite the press. */
+button:disabled,
+select:disabled,
+input:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+}

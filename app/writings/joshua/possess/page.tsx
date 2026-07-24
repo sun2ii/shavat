@@ -1,16 +1,16 @@
 import { Metadata } from 'next';
 import DivisionMemorial from '@/components/DivisionMemorial';
-import { POSSESS_THE_LAND } from '@/lib/writings/joshua/possess-the-land';
+import { POSSESS } from '@/lib/writings/joshua/possess';
 
 export const metadata: Metadata = {
-  title: 'Shavat | Possess the Land',
+  title: 'Shavat | Possess',
   description: 'Joshua 9–12: discernment, courage, dependence, and remembrance.',
   openGraph: {
-    title: 'Shavat | Possess the Land',
+    title: 'Shavat | Possess',
     images: ['/shavat.png'],
   },
 };
 
-export default function PossessTheLandPage() {
-  return <DivisionMemorial memorial={POSSESS_THE_LAND} />;
+export default function PossessPage() {
+  return <DivisionMemorial memorial={POSSESS} />;
 }

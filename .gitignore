@@ -4,3 +4,8 @@ out
 .DS_Store
 *.log
 *.tsbuildinfo
+.env
+.env*.local
+
+# Written at runtime by app/api/bookmarks.
+bookmarks.json

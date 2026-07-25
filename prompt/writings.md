@@ -1,5 +1,9 @@
 # Writing a Division Memorial
 
+To write one, use `memorial.md` — the skeleton, the five rules, and a worked
+example. This file is the full specification behind it: voice, failure modes,
+and design constraints.
+
 Instructional prompt for authoring a memorial page — the permanent record of one
 movement of a book (e.g. Joshua 9–12, "Possess").
 
@@ -158,6 +162,9 @@ Preferred: the book's own nouns and images. If Joshua says stones, say stones.
 
 Division ids match `lib/<book>-metadata.json`. Adding a division memorial never
 changes the reading routes or the chapter pages.
+
+These three files are what `/studio` writes. Writing them by hand still works
+and produces the same result.
 
 ## 8. Design constraints
 

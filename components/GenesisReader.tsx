@@ -1499,6 +1499,32 @@ const JUDGES_21_SECTIONS: DaySection[] = [
   { day: 'Wives for the Survivors', verseRange: [1, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
 ];
 
+const RUTH_1_SECTIONS: DaySection[] = [
+  { day: 'Famine and Three Graves', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Turn Back, My Daughters', verseRange: [6, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Where You Go, I Will Go', verseRange: [15, 18], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Call Me Mara', verseRange: [19, 22], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const RUTH_2_SECTIONS: DaySection[] = [
+  { day: 'Gleaning in the Field', verseRange: [1, 7], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Boaz Notices Ruth', verseRange: [8, 16], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'The Redeemer Named', verseRange: [17, 23], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const RUTH_3_SECTIONS: DaySection[] = [
+  { day: "Naomi's Plan", verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Midnight at the Threshing Floor', verseRange: [6, 13], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Six Measures of Barley', verseRange: [14, 18], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const RUTH_4_SECTIONS: DaySection[] = [
+  { day: 'The Nearer Kinsman', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Sandal at the Gate', verseRange: [7, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'A Son Born to Naomi', verseRange: [13, 17], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Line to David', verseRange: [18, 22], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
 const MATTHEW_1_SECTIONS: DaySection[] = [
   { day: 'The Genealogy', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
   { day: 'The Birth of Jesus', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
@@ -3143,6 +3169,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     (actualBook === 'deuteronomy' && actualChapter >= 1 && actualChapter <= 34) ||
     (actualBook === 'joshua' && actualChapter >= 1 && actualChapter <= 24) ||
     (actualBook === 'judges' && actualChapter >= 1 && actualChapter <= 21) ||
+    (actualBook === 'ruth' && actualChapter >= 1 && actualChapter <= 4) ||
     (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
     (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
     (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
@@ -3940,6 +3967,21 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 21:
           sections = JUDGES_21_SECTIONS;
+          break;
+      }
+    } else if (actualBook === 'ruth') {
+      switch (actualChapter) {
+        case 1:
+          sections = RUTH_1_SECTIONS;
+          break;
+        case 2:
+          sections = RUTH_2_SECTIONS;
+          break;
+        case 3:
+          sections = RUTH_3_SECTIONS;
+          break;
+        case 4:
+          sections = RUTH_4_SECTIONS;
           break;
       }
     } else if (actualBook === 'matthew') {

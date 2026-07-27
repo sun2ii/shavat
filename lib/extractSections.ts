@@ -43,6 +43,7 @@ export function getNTSections(): BookSections {
     'DEUTERONOMY': 'deuteronomy',
     'JOSHUA': 'joshua',
     'JUDGES': 'judges',
+    'RUTH': 'ruth',
     // NT
     'MATTHEW': 'matthew',
     'MARK': 'mark',

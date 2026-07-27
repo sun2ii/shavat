@@ -1,39 +1,49 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import BookMemorial from '@/components/BookMemorial';
-import { getBookMemorial } from '@/lib/writings/bookMemorials';
+import BookOrientation from '@/components/BookOrientation';
+import { getBookMemorial, getBookOrientation } from '@/lib/writings/bookWritings';
 
 interface Props {
   params: { book: string };
 }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const book = getBookMemorial(params.book);
+  const memorial = getBookMemorial(params.book);
+  const orientation = getBookOrientation(params.book);
+  const writing = memorial ?? orientation;
 
-  if (!book) {
+  if (!writing) {
     return { title: 'Shavat | Writings' };
   }
 
   return {
-    title: `Shavat | ${book.title}`,
-    description: `${book.scripture}: ${book.subtitle}`,
+    title: `Shavat | ${writing.title}`,
+    description: orientation
+      ? orientation.summary
+      : `${writing.scripture}: ${writing.subtitle}`,
     openGraph: {
-      title: `Shavat | ${book.title}`,
+      title: `Shavat | ${writing.title}`,
       images: ['/shavat.png'],
     },
   };
 }
 
 /**
- * The book-level memorial. Only books in the registry have one; everything
- * else still reaches its divisions through /writings/<book>/<division>.
+ * The book-level writing: a memorial of what a book left behind, or an
+ * orientation to the ground before reading it. A book has one or the other;
+ * everything else still reaches its divisions through /writings/<book>/<division>.
  */
 export default function BookWritingPage({ params }: Props) {
-  const book = getBookMemorial(params.book);
-
-  if (!book) {
-    notFound();
+  const memorial = getBookMemorial(params.book);
+  if (memorial) {
+    return <BookMemorial book={memorial} />;
   }
 
-  return <BookMemorial book={book} />;
+  const orientation = getBookOrientation(params.book);
+  if (orientation) {
+    return <BookOrientation book={orientation} />;
+  }
+
+  notFound();
 }

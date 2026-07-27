@@ -8,7 +8,7 @@ import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { getWritingByPath } from '@/lib/hasWritings';
-import { hasBookMemorial } from '@/lib/writings/bookMemorials';
+import { hasBookWriting } from '@/lib/writings/bookWritings';
 import { readingPath, writingPath } from '@/lib/routes';
 
 interface Breadcrumb {
@@ -78,8 +78,8 @@ export default function Breadcrumbs() {
     if (segments[0] === 'writings') {
       breadcrumbs.push({ label: 'Writings', href: '/writings' });
 
-      // Book-level memorial: Writings / Joshua
-      if (segments[1] && !segments[2] && hasBookMemorial(segments[1])) {
+      // Book-level writing: Writings / Joshua
+      if (segments[1] && !segments[2] && hasBookWriting(segments[1])) {
         const book = [...torahBooks, ...otBooks, ...ntBooks, ...gospelBooks].find(
           b => b.slug === segments[1]
         );
@@ -112,7 +112,7 @@ export default function Breadcrumbs() {
             // page is the hub for every movement below it.
             breadcrumbs.push({
               label: book.name,
-              href: hasBookMemorial(bookSlug) ? writingPath(bookSlug) : `/${bookSlug}`,
+              href: hasBookWriting(bookSlug) ? writingPath(bookSlug) : `/${bookSlug}`,
             });
             breadcrumbs.push({
               label: division.title,

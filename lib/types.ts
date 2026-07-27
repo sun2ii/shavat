@@ -171,3 +171,55 @@ export interface BookMemorial {
   };
   canon: { title: string; principles: string[] };
 }
+
+// A book orientation — the other kind of book-level writing. Where a memorial
+// records what a book left behind, an orientation maps the ground before the
+// first verse: terrain, people, places, structure, themes. Read once, before
+// reading; the diagrams carry as much of it as the prose.
+export interface OrientationFigure {
+  art: string;             // monospace diagram, rendered verbatim
+  caption?: string;
+}
+
+// A named thing and what it does in the narrative: a person, a place, a book
+// Ruth answers, a Hebrew word.
+export interface OrientationEntry {
+  term: string;
+  role?: string;           // short label set beside the term
+  detail: string;
+}
+
+export interface OrientationTheme {
+  name: string;
+  definition: string;
+  appears: string;         // where the book carries it
+  matters: string;         // why it is load-bearing
+}
+
+export interface OrientationReversal {
+  from: string;
+  to: string;
+  note: string;
+}
+
+// Every section renders the same way: label, heading, prose, figures, then
+// whichever list it carries. A section uses the fields it needs and no others.
+export interface OrientationSection {
+  id: string;              // in-page anchor
+  heading: string;
+  body?: string[];
+  figures?: OrientationFigure[];
+  entries?: OrientationEntry[];
+  themes?: OrientationTheme[];
+  reversals?: OrientationReversal[];
+  closing?: string[];      // prose after the list, when the list needs landing
+}
+
+export interface BookOrientation {
+  slug: string;
+  title: string;
+  subtitle: string;        // e.g. "Covenant Faithfulness in the Days of the Judges"
+  scripture: string;       // e.g. "Ruth 1–4"
+  summary: string;         // the whole book in one sentence
+  sections: OrientationSection[];
+}

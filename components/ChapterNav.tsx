@@ -7,7 +7,7 @@ import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
 import { getAllDivisions, getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
 import { hasWriting, getWriting } from '@/lib/hasWritings';
-import { hasBookMemorial } from '@/lib/writings/bookMemorials';
+import { hasBookWriting } from '@/lib/writings/bookWritings';
 import { readingPath, writingPath } from '@/lib/routes';
 import BookMap from './BookMap';
 
@@ -204,7 +204,7 @@ export default function ChapterNav({
         </div>
 
         {/* The book's name is the way up to its overview, when one is recorded. */}
-        {hasBookMemorial(bookSlug) ? (
+        {hasBookWriting(bookSlug) ? (
           <Link
             href={writingPath(bookSlug)}
             title={`${bookName} overview`}

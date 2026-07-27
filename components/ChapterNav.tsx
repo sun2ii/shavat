@@ -164,43 +164,47 @@ export default function ChapterNav({
           </Link>
         )}
 
-        {/* Book terrain — every division with its chapters, readable in place */}
-        <div className="flex flex-wrap justify-center items-start gap-x-8 gap-y-4 mt-5 max-w-3xl">
-          {getAllDivisions(bookSlug).map((div) => {
-            const isCurrentDivision = div.id === division.id;
-            const divTitle = div.title
-              .replace('The Book of ', '')
-              .replace(/^The /, '');
-            return (
-              <div key={div.id} className="text-center">
+        {/* Division selector dropdown */}
+        <div className="mt-5 flex flex-col items-center gap-3">
+          <select
+            value={division.id}
+            onChange={(e) => {
+              const selectedDiv = getAllDivisions(bookSlug).find(d => d.id === e.target.value);
+              if (selectedDiv) {
+                router.push(readingPath(bookSlug, selectedDiv.id, selectedDiv.chapters[0]));
+              }
+            }}
+            className="px-4 py-2 rounded-lg border border-hairline bg-paper text-ink font-sans text-sm focus:outline-none focus:ring-2 focus:ring-gold/50"
+          >
+            {getAllDivisions(bookSlug).map((div) => {
+              const divTitle = div.title
+                .replace('The Book of ', '')
+                .replace(/^The /, '');
+              return (
+                <option key={div.id} value={div.id}>
+                  {divTitle} ({div.chapters[0]}{div.chapters.length > 1 ? `–${div.chapters[div.chapters.length - 1]}` : ''})
+                </option>
+              );
+            })}
+          </select>
+
+          {/* Current division chapters */}
+          <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+            {division.chapters.map((ch) => {
+              const isActive = ch === currentChapter;
+              return (
                 <Link
-                  href={writingPath(bookSlug, div.id)}
-                  title={`Writing: ${divTitle}`}
-                  className={`block font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 transition-colors ${
-                    isCurrentDivision ? 'text-gold-ink hover:text-gold' : 'text-faint hover:text-ink'
+                  key={ch}
+                  href={readingPath(bookSlug, division.id, ch)}
+                  className={`transition-colors ${
+                    isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
                   }`}
                 >
-                  {divTitle}
+                  {ch}
                 </Link>
-                <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
-                  {div.chapters.map((ch) => {
-                    const isActive = isCurrentDivision && ch === currentChapter;
-                    return (
-                      <Link
-                        key={ch}
-                        href={readingPath(bookSlug, div.id, ch)}
-                        className={`transition-colors ${
-                          isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
-                        }`}
-                      >
-                        {ch}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </nav>
 

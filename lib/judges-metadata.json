@@ -1,8 +1,8 @@
 {
   "divisions": [
     {
-      "id": "unfinished-conquest",
-      "title": "The Unfinished Conquest",
+      "id": "foundations",
+      "title": "Foundations",
       "chapters": [
         1,
         2
@@ -12,15 +12,33 @@
       "contentType": "narrative"
     },
     {
-      "id": "deborah",
-      "title": "Ehud & Deborah",
+      "id": "othniel",
+      "title": "Othniel",
       "chapters": [
-        3,
-        4,
+        3
+      ],
+      "theme": "The first judge",
+      "summary": "Othniel delivers Israel from Cushan-Rishathaim.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "ehud",
+      "title": "Ehud",
+      "chapters": [
+        4
+      ],
+      "theme": "Left-handed deliverance",
+      "summary": "Ehud assassinates Eglon and delivers Israel from Moab.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "deborah",
+      "title": "Deborah",
+      "chapters": [
         5
       ],
-      "theme": "Unlikely deliverers",
-      "summary": "The first judges: left-handed Ehud, and Deborah and Jael defeating Sisera.",
+      "theme": "A woman leads",
+      "summary": "Deborah and Barak defeat Sisera; Jael drives the tent peg.",
       "contentType": "narrative"
     },
     {
@@ -36,16 +54,25 @@
       "contentType": "narrative"
     },
     {
-      "id": "abimelech-and-jephthah",
-      "title": "Abimelech & Jephthah",
+      "id": "abimelech",
+      "title": "Abimelech",
       "chapters": [
-        9,
+        9
+      ],
+      "theme": "Grasping for power",
+      "summary": "Abimelech murders his brothers and establishes himself as king.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "jephthah",
+      "title": "Jephthah",
+      "chapters": [
         10,
         11,
         12
       ],
-      "theme": "Leadership corrupted",
-      "summary": "Abimelech grasps power by murder; Jephthah’s rash vow costs him everything.",
+      "theme": "A rash vow",
+      "summary": "Jephthah defeats Ammon but his vow costs him everything.",
       "contentType": "narrative"
     },
     {
@@ -62,8 +89,8 @@
       "contentType": "narrative"
     },
     {
-      "id": "no-king-in-israel",
-      "title": "No King in Israel",
+      "id": "collapse",
+      "title": "Collapse",
       "chapters": [
         17,
         18,

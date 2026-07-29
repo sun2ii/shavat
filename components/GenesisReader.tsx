@@ -1525,6 +1525,152 @@ const RUTH_4_SECTIONS: DaySection[] = [
   { day: 'The Line to David', verseRange: [18, 22], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
 ];
 
+const SAMUEL_1_1_SECTIONS: DaySection[] = [
+  { day: "Hannah's Barrenness", verseRange: [1, 8], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Hannah's Prayer at Shiloh", verseRange: [9, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Samuel's Birth", verseRange: [19, 20], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Samuel Given to the Lord', verseRange: [21, 28], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const SAMUEL_1_2_SECTIONS: DaySection[] = [
+  { day: "Hannah's Song", verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Eli's Wicked Sons", verseRange: [11, 17], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: "Samuel's Growth", verseRange: [18, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: "Judgment on Eli's House", verseRange: [22, 36], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_1_3_SECTIONS: DaySection[] = [
+  { day: 'The Lord Calls Samuel', verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Message for Eli', verseRange: [11, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Samuel Confirmed as Prophet', verseRange: [19, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_1_4_SECTIONS: DaySection[] = [
+  { day: 'Israel Defeated, Ark Captured', verseRange: [1, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: "Eli's Death", verseRange: [12, 22], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_1_5_SECTIONS: DaySection[] = [
+  { day: 'The Ark in Philistine Territory', verseRange: [1, 12], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_6_SECTIONS: DaySection[] = [
+  { day: 'The Ark Returned to Israel', verseRange: [1, 21], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_1_7_SECTIONS: DaySection[] = [
+  { day: "Samuel's Leadership", verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Victory Over the Philistines', verseRange: [7, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_8_SECTIONS: DaySection[] = [
+  { day: 'Israel Demands a King', verseRange: [1, 22], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const SAMUEL_1_9_SECTIONS: DaySection[] = [
+  { day: 'Saul Meets Samuel', verseRange: [1, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_10_SECTIONS: DaySection[] = [
+  { day: 'Saul Anointed King', verseRange: [1, 16], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Saul Chosen by Lot', verseRange: [17, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_11_SECTIONS: DaySection[] = [
+  { day: 'Saul Rescues Jabesh-gilead', verseRange: [1, 11], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Saul Confirmed as King', verseRange: [12, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_12_SECTIONS: DaySection[] = [
+  { day: "Samuel's Farewell Address", verseRange: [1, 25], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const SAMUEL_1_13_SECTIONS: DaySection[] = [
+  { day: "Saul's Unlawful Sacrifice", verseRange: [1, 23], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_14_SECTIONS: DaySection[] = [
+  { day: "Jonathan's Victory", verseRange: [1, 23], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: "Saul's Rash Oath", verseRange: [24, 46], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: "Saul's Military Summary", verseRange: [47, 52], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_15_SECTIONS: DaySection[] = [
+  { day: 'Saul Rejected as King', verseRange: [1, 35], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_16_SECTIONS: DaySection[] = [
+  { day: 'David Anointed', verseRange: [1, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "David Enters Saul's Service", verseRange: [14, 23], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_17_SECTIONS: DaySection[] = [
+  { day: "Goliath's Challenge", verseRange: [1, 11], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'David Accepts the Challenge', verseRange: [12, 40], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'David Defeats Goliath', verseRange: [41, 58], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_1_18_SECTIONS: DaySection[] = [
+  { day: 'David and Jonathan', verseRange: [1, 4], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Saul's Jealousy", verseRange: [5, 30], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_19_SECTIONS: DaySection[] = [
+  { day: 'Saul Tries to Kill David', verseRange: [1, 24], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_20_SECTIONS: DaySection[] = [
+  { day: "David and Jonathan's Covenant", verseRange: [1, 42], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_21_SECTIONS: DaySection[] = [
+  { day: 'David at Nob', verseRange: [1, 9], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'David at Gath', verseRange: [10, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_22_SECTIONS: DaySection[] = [
+  { day: "David's Refuge", verseRange: [1, 5], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Saul Kills the Priests', verseRange: [6, 23], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_23_SECTIONS: DaySection[] = [
+  { day: 'David Saves Keilah', verseRange: [1, 13], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Saul Pursues David', verseRange: [14, 29], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_1_24_SECTIONS: DaySection[] = [
+  { day: 'David Spares Saul', verseRange: [1, 22], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_25_SECTIONS: DaySection[] = [
+  { day: "Samuel's Death", verseRange: [1, 1], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+  { day: 'David and Abigail', verseRange: [2, 44], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_26_SECTIONS: DaySection[] = [
+  { day: 'David Spares Saul Again', verseRange: [1, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_1_27_SECTIONS: DaySection[] = [
+  { day: 'David Among the Philistines', verseRange: [1, 12], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_1_28_SECTIONS: DaySection[] = [
+  { day: 'Saul and the Medium', verseRange: [1, 25], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_1_29_SECTIONS: DaySection[] = [
+  { day: 'David Sent Back from Battle', verseRange: [1, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_1_30_SECTIONS: DaySection[] = [
+  { day: 'David Defeats the Amalekites', verseRange: [1, 31], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_1_31_SECTIONS: DaySection[] = [
+  { day: "Saul's Death", verseRange: [1, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
 const MATTHEW_1_SECTIONS: DaySection[] = [
   { day: 'The Genealogy', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
   { day: 'The Birth of Jesus', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
@@ -3160,7 +3306,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     return () => window.removeEventListener('keydown', handleCopy);
   }, [selectedVerses, verses]);
 
-  // Check if this is Genesis 1-50, Exodus 1-40, Leviticus 1-27, Numbers 1-36, Deuteronomy 1-34, Mark 1-16, Matthew 1-28, Luke 1-24, John 1-21, Acts 1-28, Romans 1-16, 1 Corinthians 1-16, 2 Corinthians 1-13, Galatians 1-6, Ephesians 1-6, Philippians 1-4, Colossians 1-4, 1 Thessalonians 1-5, 2 Thessalonians 1-3, 1 Timothy 1-6, 2 Timothy 1-4, Titus 1-3, Philemon 1, Hebrews 1-13, James 1-5, 1 Peter 1-5, 2 Peter 1-3, 1 John 1-5, 2 John 1, 3 John 1, Jude 1, or Revelation 4-5, 12, 21-22
+  // Check if this is Genesis 1-50, Exodus 1-40, Leviticus 1-27, Numbers 1-36, Deuteronomy 1-34, Joshua 1-24, Judges 1-21, 1 Samuel 1-31, Mark 1-16, Matthew 1-28, Luke 1-24, John 1-21, Acts 1-28, Romans 1-16, 1 Corinthians 1-16, 2 Corinthians 1-13, Galatians 1-6, Ephesians 1-6, Philippians 1-4, Colossians 1-4, 1 Thessalonians 1-5, 2 Thessalonians 1-3, 1 Timothy 1-6, 2 Timothy 1-4, Titus 1-3, Philemon 1, Hebrews 1-13, James 1-5, 1 Peter 1-5, 2 Peter 1-3, 1 John 1-5, 2 John 1, 3 John 1, Jude 1, or Revelation 4-5, 12, 21-22
   const hasStructuredSections =
     (actualBook === 'genesis' && actualChapter >= 1 && actualChapter <= 50) ||
     (actualBook === 'exodus' && actualChapter >= 1 && actualChapter <= 40) ||
@@ -3170,6 +3316,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     (actualBook === 'joshua' && actualChapter >= 1 && actualChapter <= 24) ||
     (actualBook === 'judges' && actualChapter >= 1 && actualChapter <= 21) ||
     (actualBook === 'ruth' && actualChapter >= 1 && actualChapter <= 4) ||
+    (actualBook === '1-samuel' && actualChapter >= 1 && actualChapter <= 31) ||
     (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
     (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
     (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
@@ -3982,6 +4129,102 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 4:
           sections = RUTH_4_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '1-samuel') {
+      switch (actualChapter) {
+        case 1:
+          sections = SAMUEL_1_1_SECTIONS;
+          break;
+        case 2:
+          sections = SAMUEL_1_2_SECTIONS;
+          break;
+        case 3:
+          sections = SAMUEL_1_3_SECTIONS;
+          break;
+        case 4:
+          sections = SAMUEL_1_4_SECTIONS;
+          break;
+        case 5:
+          sections = SAMUEL_1_5_SECTIONS;
+          break;
+        case 6:
+          sections = SAMUEL_1_6_SECTIONS;
+          break;
+        case 7:
+          sections = SAMUEL_1_7_SECTIONS;
+          break;
+        case 8:
+          sections = SAMUEL_1_8_SECTIONS;
+          break;
+        case 9:
+          sections = SAMUEL_1_9_SECTIONS;
+          break;
+        case 10:
+          sections = SAMUEL_1_10_SECTIONS;
+          break;
+        case 11:
+          sections = SAMUEL_1_11_SECTIONS;
+          break;
+        case 12:
+          sections = SAMUEL_1_12_SECTIONS;
+          break;
+        case 13:
+          sections = SAMUEL_1_13_SECTIONS;
+          break;
+        case 14:
+          sections = SAMUEL_1_14_SECTIONS;
+          break;
+        case 15:
+          sections = SAMUEL_1_15_SECTIONS;
+          break;
+        case 16:
+          sections = SAMUEL_1_16_SECTIONS;
+          break;
+        case 17:
+          sections = SAMUEL_1_17_SECTIONS;
+          break;
+        case 18:
+          sections = SAMUEL_1_18_SECTIONS;
+          break;
+        case 19:
+          sections = SAMUEL_1_19_SECTIONS;
+          break;
+        case 20:
+          sections = SAMUEL_1_20_SECTIONS;
+          break;
+        case 21:
+          sections = SAMUEL_1_21_SECTIONS;
+          break;
+        case 22:
+          sections = SAMUEL_1_22_SECTIONS;
+          break;
+        case 23:
+          sections = SAMUEL_1_23_SECTIONS;
+          break;
+        case 24:
+          sections = SAMUEL_1_24_SECTIONS;
+          break;
+        case 25:
+          sections = SAMUEL_1_25_SECTIONS;
+          break;
+        case 26:
+          sections = SAMUEL_1_26_SECTIONS;
+          break;
+        case 27:
+          sections = SAMUEL_1_27_SECTIONS;
+          break;
+        case 28:
+          sections = SAMUEL_1_28_SECTIONS;
+          break;
+        case 29:
+          sections = SAMUEL_1_29_SECTIONS;
+          break;
+        case 30:
+          sections = SAMUEL_1_30_SECTIONS;
+          break;
+        case 31:
+          sections = SAMUEL_1_31_SECTIONS;
           break;
       }
     } else if (actualBook === 'matthew') {

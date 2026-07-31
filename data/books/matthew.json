@@ -1,0 +1,43 @@
+{
+  "slug": "matthew",
+  "name": "Matthew",
+  "description": "The Gospel of Matthew - Jesus as the Messiah and King of Israel",
+  "intro": "Matthew presents Jesus as the promised Messiah and King of Israel, demonstrating how his life, teaching, death, and resurrection fulfill the Hebrew Scriptures. Written with a Jewish audience in view, Matthew shows Jesus as the new Moses who brings the Law to fulfillment and inaugurates the kingdom of heaven.",
+  "themes": [
+    {
+      "title": "Fulfillment of Scripture",
+      "body": "Matthew repeatedly shows how Jesus fulfills Old Testament prophecy and typology. The formula \"to fulfill what was spoken\" appears throughout, establishing Jesus' legitimacy as the long-awaited Messiah."
+    },
+    {
+      "title": "The kingdom of heaven",
+      "body": "Matthew's distinctive phrase \"kingdom of heaven\" frames his gospel. Jesus both announces and embodies this kingdom, teaching its ethics, demonstrating its power, and inviting people to enter through repentance and faith."
+    },
+    {
+      "title": "Jesus as new Moses",
+      "body": "The five major teaching discourses echo the Pentateuch's structure. Like Moses, Jesus ascends a mountain to teach, but he speaks with direct authority: \"You have heard... but I say to you.\""
+    },
+    {
+      "title": "Righteousness and discipleship",
+      "body": "Matthew emphasizes a righteousness that exceeds the scribes and Pharisees, not through rule-keeping but through heart transformation. Discipleship means following Jesus in obedience, not mere profession."
+    },
+    {
+      "title": "The church and mission",
+      "body": "Matthew is the only gospel to use the word \"church.\" The Great Commission extends the mission beyond Israel to all nations, with the promise of Jesus' ongoing presence: \"I am with you always.\""
+    }
+  ],
+  "structure": [
+    {
+      "title": "Birth and Preparation (1–4)",
+      "body": "Genealogy, birth narrative, baptism, and temptation establish Jesus' identity and mission."
+    },
+    {
+      "title": "Five Teaching Discourses (5–25)",
+      "body": "Sermon on the Mount, mission instructions, parables of the kingdom, community teaching, and end times prophecy."
+    },
+    {
+      "title": "Passion and Resurrection (26–28)",
+      "body": "Jesus' betrayal, trial, crucifixion, and resurrection, culminating in the Great Commission."
+    }
+  ],
+  "whyRead": "Matthew provides the most comprehensive portrait of Jesus' teaching ministry and serves as the bridge between the Old and New Testaments. Its focus on Jesus as the fulfillment of Israel's hopes makes it essential for understanding how the entire biblical story coheres in Christ."
+}

@@ -409,9 +409,9 @@ sections: [
 /* ⚙ = measured from the repo — re-measure, never hand-edit */
 scoreboard: [
   {metric:"reader-loc",  num:"<span class='from'>4,924</span> → <span class='to'>267 ✓</span>", lbl:"BookReader lines", gen:true},
-  {metric:"wrappers",    num:"<span class='from'>66</span> → <span class='to'>1</span>",       lbl:"lib book wrappers",  gen:true},
-  {metric:"pages",       num:"<span class='from'>39</span> → <span class='to'>1</span>",       lbl:"landing pages",      gen:true},
-  {metric:"routing",     num:"<span class='from'>4</span> → <span class='to'>1</span>",        lbl:"routing schemes",    gen:true},
+  {metric:"wrappers",    num:"<span class='from'>66</span> → <span class='to'>1 ✓</span>",     lbl:"lib book wrappers",  gen:true},
+  {metric:"pages",       num:"<span class='from'>64</span> → <span class='to'>1 ✓</span>",     lbl:"landing pages (was mis-measured 39)", gen:true},
+  {metric:"routing",     num:"<span class='from'>4</span> → <span class='to'>1 ✓</span>",      lbl:"routing schemes",    gen:true},
   {metric:"loc-delete",  num:"<span class='from'>~6,000</span> LOC",                            lbl:"to delete",          gen:true},
   {metric:"mb-delete",   num:"<span class='from'>1.1</span> MB",                                lbl:"superseded data",    gen:true}
 ],
@@ -421,22 +421,21 @@ health: [
   {s:"g", name:"Truth has one home", why:"Sections live at data/sections/*.json — one data address", flip:"flipped at P1"},
   {s:"g", name:"Content is data",        why:"The 496 constants are JSON now; BookReader is 267 lines", flip:"flipped at P1"},
   {s:"g", name:"Dependency direction",   why:"extractSections deleted — nothing parses source; access reads data", flip:"flipped at P1"},
-  {s:"a", name:"One representation", why:"66 wrappers, 39 pages, 138 hand-maintained commentary ranges", flip:"flips at P2"},
-  {s:"a", name:"Navigation",                why:"Canonical routes exist; 2 bespoke bypasses + 7 hardcoded division routes remain", flip:"flips at P3"}
+  {s:"g", name:"One representation", why:"1 accessor factory · 1 landing template · manifest generated at build", flip:"flipped at P2"},
+  {s:"g", name:"Navigation",                why:"One shared route per testament · one writings route · bespoke doors deleted", flip:"flipped at P3"}
 ],
 
 model: [
   {n:"Book", tag:"invariant", f:"slug · name · chapterCount",
    rows:[["g","data/*.json","canonical — already right"],
-         ["a","66× lib/&lt;book&gt;.ts","byte-identical wrappers"],
-         ["a","39× app/*/page.tsx","landing template per book"],
-         ["a","4 routing schemes","each spells slugs its own way"]],
-   tgt:"JSON + createBookAccessor(slug) — everything else derived"},
+         ["g","createBookAccessor(slug)","one factory — 65 wrappers deleted at P2"],
+         ["g","app/[book]/page.tsx","one landing template + data/books/*.json (P2)"],
+         ["g","one routing scheme","genesis + psalms fold into the shared route (P3)"]],
+   tgt:"unchanged"},
   {n:"Division", tag:"invariant", f:"id · title · summary · chapters[]",
-   rows:[["g","data/*.json","canonical"],
-         ["r","DivisionMemorial TS objects","content as code"],
-         ["r","app/writings/joshua/* ×7","hardcoded route per division"]],
-   tgt:"JSON + one [book]/[division] route"},
+   rows:[["g","data/*.json","canonical — genesis + psalms divisions promoted at P3"],
+         ["g","one [book]/[division] route","renders memorial drafts — TS objects + 7 routes deleted (P3)"]],
+   tgt:"unchanged"},
   {n:"Chapter", tag:"invariant", f:"number · theme",
    rows:[["g","data/*.json","canonical"],
          ["g","lib/sections.ts lookup","derived from JSON — chain deleted at P1"]],
@@ -448,9 +447,9 @@ model: [
    rows:[["g","data/*.json","canonical — untouched by the cleanup"]],
    tgt:"unchanged"},
   {n:"Commentary", tag:"overlay · per verse", f:"verse ref → commentary body",
-   rows:[["g","lib/commentary/ · 259 files","the files are fine"],
-         ["r","hasCommentary.ts","138 hand ranges describing those same files — guaranteed drift"]],
-   tgt:"files + build-time manifest, generated not written"},
+   rows:[["g","lib/commentary/ · 260 chapters","the files are fine"],
+         ["g","commentary-manifest.json","generated at prebuild — measured zero drift vs the hand ranges (P2)"]],
+   tgt:"unchanged"},
   {n:"Writing / Memorial", tag:"overlay · per chapter/division", f:"title · body · attach point",
    rows:[["a",".md files","representation #1 — the survivor"],
          ["r","DivisionMemorial TS objects","representation #2"],
@@ -460,43 +459,41 @@ model: [
 
 structure: [
   {t:"Presentation — app/ + components", items:[
-    {s:"g", nm:"/ot/[book] · /nt/[book]", why:"canonical readers — the keepers"},
-    {s:"r", nm:"/ot/genesis · /ot/psalms", why:"103 + 109-line bespoke bypasses of the shared route"},
-    {s:"a", nm:"39× app/*/page.tsx", why:"identical landing templates (26 shape A · 13 shape B)"},
-    {s:"r", nm:"app/writings/joshua/* ×7", why:"hardcoded routes duplicating [book]/[division]"},
+    {s:"g", nm:"/ot/[book] · /nt/[book]", why:"every book, one door — bespoke bypasses deleted (P3)"},
+    {s:"g", nm:"app/[book]/page.tsx", why:"one landing template — 64 static pages deleted (P2)"},
+    
     {s:"r", nm:"/api/bookmarks", why:"cwd JSON · enumerable clientId — P4"},
     {sec:"components"},
     {s:"g", nm:"BookReader.tsx · 267 ln", why:"sections arrive as props · content-free (P1)"},
     {s:"g", nm:"remaining components", why:"in real use — 7 dead ones deleted at P0"},
     {sec:"target"},
-    {s:"fog", nm:"one reading route per testament", why:"generateStaticParams · zero bespoke doors"},
-    {s:"fog", nm:"one landing template", why:"a tweak = 1 edit, not 39"}
+    {s:"fog", nm:"—", why:"presentation converged; P4 is bookmarks only"}
   ]},
   {t:"Access — lib/", items:[
-    {s:"a", nm:"66 per-book wrappers", why:"64 byte-identical modulo book name · ~1,780 ln"},
+    {s:"g", nm:"book-accessor.ts", why:"one factory — 65 wrappers + getBookUtils deleted (P2)"},
     {s:"g", nm:"sections.ts", why:"loads data/sections/&lt;book&gt;.json — parser deleted (P1)"},
-    {s:"r", nm:"hasCommentary.ts", why:"138 hand-maintained ranges describing files already on disk"},
+    {s:"g", nm:"hasCommentary.ts", why:"reads the generated manifest — 15 lines (P2)"},
     {s:"g", nm:"remaining lib", why:"real logic, keeps"},
     {sec:"target"},
-    {s:"fog", nm:"createBookAccessor(slug)", why:"one factory replaces 66 files"},
-    {s:"fog", nm:"commentary manifest", why:"generated at build — cannot drift"}
+    {s:"fog", nm:"—", why:"access layer converged; P3 is routing only"}
   ]},
   {t:"Content — the only layer that knows facts", items:[
     {s:"g", nm:"133 canonical data JSONs", why:"books, chapters, verses — already right"},
     {s:"g", nm:"data/sections/ · 35 JSONs", why:"the one-line cut landed at P1 — 496 chapters, 1,498 sections"},
+    {s:"g", nm:"data/books/ · 64 JSONs", why:"landing prose extracted from the 64 pages (P2)"},
+    {s:"g", nm:"data/commentary-manifest.json", why:"build artifact, derived, never edited (P2)"},
     {s:"g", nm:"lib/commentary/ · 259 files", why:"the files themselves are fine"},
-    {s:"a", nm:"writings .md files", why:"one of three writing representations — the survivor"},
-    {s:"r", nm:"DivisionMemorial TS objects", why:"content as code again"},
+    {s:"g", nm:"writings .draft.md files", why:"the one memorial pipeline — TS objects deleted (P3)"},
     {sec:"target"},
-    {s:"fog", nm:"commentary-manifest.json", why:"build artifact, derived, never edited"}
+    {s:"fog", nm:"—", why:"content layer converged"}
   ]}
 ],
 
 flowToday: [
   {n:"T1", t:"URL",
-   p:"<code>/ot/genesis</code> hits <span class='w'>103 lines of bespoke redirect logic</span>; <code>/ot/psalms</code> has its own 109-line near-copy. Every other book walks through the shared <code>/ot/[book]</code>. Four routing schemes compete for one job.",
-   a:"<span class='dim'>Nothing — routing decisions are hand-inlined in the pages.</span>",
-   d:"<span class='dim'>Nothing. Content doesn't know it's being bypassed.</span>"},
+   p:"<span class='r'>CLEAN</span> since P3 — every book, both testaments, walks through <code>/ot/[book]</code> · <code>/nt/[book]</code>. Genesis and psalms divisions were promoted into metadata; their bespoke routes are deleted.",
+   a:"<span class='r'>READ</span> — divisions come from metadata like every other book.",
+   d:"<span class='dim'>One address scheme; content never knew it was bypassed.</span>"},
   {n:"T2", t:"Reader",
    p:"The route renders <code>BookReader</code> — <span class='r'>267 lines</span> since P1. Sections arrive as props; the client bundle carries zero content (181 → 154 kB).",
    a:"<span class='r'>READ</span> — the server route loads sections via <code>lib/sections</code> and passes them down.",
@@ -579,20 +576,20 @@ phases: [
    risks:["generateStaticParams misses one slug spelling → silent 404. Diff routes.after.txt against B3 — don't spot-check.",
           "A build-time manifest that reads outside the repo differs across environments."],
    tasks:[
-    {id:"p2-factory", tag:"refactor", tx:"66 lib/*.ts wrappers → one <code>createBookAccessor(slug)</code>",
+    {id:"p2-factory", done:true, tag:"refactor", tx:"66 lib/*.ts wrappers → one <code>createBookAccessor(slug)</code>",
      problem:"one accessor change = 66 edits", goal:"one factory, books as data", impact:"−1,780 ln"},
-    {id:"p2-pages", tag:"refactor", tx:"39 identical app/*/page.tsx → one <code>generateStaticParams</code> route",
+    {id:"p2-pages", done:true, tag:"refactor", tx:"64 identical app/*/page.tsx → one <code>generateStaticParams</code> route (re-measured: 64, not 39)",
      problem:"a landing tweak = 39 edits", goal:"one template + params", impact:"39 → 1"},
-    {id:"p2-manifest", tag:"refactor", tx:"hasCommentary.ts → manifest generated at build from <code>lib/commentary/</code>",
+    {id:"p2-manifest", done:true, tag:"refactor", tx:"hasCommentary.ts → manifest generated at build from <code>lib/commentary/</code>",
      problem:"hand-ranges describe files on disk", goal:"derived at build, never written", impact:"cannot drift"}
    ]},
   {name:"Phase 3 — Unify routing",
    risks:["An old URL shape (bookmarked or indexed) missing from the redirect map → dead link.",
           "joshua/judges route files may bake in one-off content — diff rendered HTML before deleting."],
    tasks:[
-    {id:"p3-bespoke", tag:"refactor", tx:"Fold /ot/genesis + /ot/psalms into the shared route; old URLs 301",
+    {id:"p3-bespoke", done:true, tag:"refactor", tx:"Fold /ot/genesis + /ot/psalms into the shared route; old URLs 301",
      problem:"2 books bypass the shared route", goal:"one door per book", impact:"fixes reach every book"},
-    {id:"p3-writings", tag:"refactor", tx:"Collapse app/writings/joshua/* + judges/* into [book]/[division]",
+    {id:"p3-writings", done:true, tag:"refactor", tx:"Collapse app/writings/joshua/* + judges/* into [book]/[division]",
      problem:"3 representations of one concept", goal:".md in, page out", impact:"2 pipelines deleted"}
    ]},
   {name:"Phase 4 — Correctness (intended change #2)",

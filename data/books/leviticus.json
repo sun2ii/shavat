@@ -1,0 +1,51 @@
+{
+  "slug": "leviticus",
+  "name": "Leviticus",
+  "description": "Leviticus - Holiness and worship in the presence of God",
+  "intro": "Leviticus teaches how a holy God can dwell among a sinful people through the system of sacrifice, priesthood, and purity laws. Often neglected, Leviticus is foundational for understanding the New Testament's presentation of Christ as both priest and sacrifice.",
+  "themes": [
+    {
+      "title": "Holiness",
+      "body": "\"You shall be holy, for I the LORD your God am holy.\" Holiness is not merely moral purity but separation unto God, reflecting his character in every dimension of life: worship, ethics, food, sex, and social relations."
+    },
+    {
+      "title": "Sacrifice and atonement",
+      "body": "The sacrificial system teaches that sin requires death but God provides a substitute. The blood of the sacrifice covers sin and makes atonement, pointing forward to Christ's once-for-all sacrifice."
+    },
+    {
+      "title": "Priesthood and mediation",
+      "body": "The Aaronic priesthood mediates between God and Israel, offering sacrifices and maintaining the sanctuary. This temporary priesthood foreshadows Christ's eternal priesthood after the order of Melchizedek."
+    },
+    {
+      "title": "Clean and unclean",
+      "body": "Purity laws distinguish clean from unclean, teaching Israel to make ethical and spiritual distinctions. While fulfilled in Christ, these categories train God's people to discern between holy and profane."
+    },
+    {
+      "title": "The Day of Atonement",
+      "body": "Leviticus 16 establishes the annual day when the high priest enters the Most Holy Place to make atonement for all Israel's sins. Hebrews interprets this as the pattern for Christ's entry into heaven itself."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Laws of Sacrifice (1–7)",
+      "body": "Five types of offerings and instructions for priests and people."
+    },
+    {
+      "title": "Priesthood Established (8–10)",
+      "body": "Ordination of Aaron and his sons, inauguration of worship, and judgment for unauthorized fire."
+    },
+    {
+      "title": "Purity Laws (11–15)",
+      "body": "Clean and unclean animals, childbirth, skin diseases, and bodily discharges."
+    },
+    {
+      "title": "Day of Atonement (16)",
+      "body": "The high priest's annual entry into the Most Holy Place to atone for all Israel's sin."
+    },
+    {
+      "title": "Holiness Code (17–27)",
+      "body": "Ethical, ceremonial, and social laws defining holiness in all of life, including festivals, Sabbaths, and covenant blessings."
+    }
+  ],
+  "whyRead": "Leviticus is essential for understanding the logic of substitutionary atonement and the book of Hebrews. Its call to holiness remains binding on God's people, though fulfilled in Christ who is both our sacrifice and our priest."
+}

@@ -2,20 +2,14 @@ import { NextRequest, NextResponse } from 'next/server';
 import { STUDIO_IS_LIVE, writeRepoFile } from '@/lib/studio/files';
 import { parseDraft, serializeDraft } from '@/lib/studio/draftFormat';
 import { isBlocked, validate } from '@/lib/studio/validate';
-import {
-  draftFilePath,
-  memorialFilePath,
-  memorialSource,
-  pageFilePath,
-  pageSource,
-} from '@/lib/studio/emitTypeScript';
+import { draftFilePath } from '@/lib/studio/paths';
 import { getDivisionById } from '@/lib/book-metadata-utils';
 import { writingPath } from '@/lib/routes';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-/** Write the memorial, its draft, and its route. Three files, one division. */
+/** Write the draft — the single source the writings route renders from. */
 export async function POST(request: NextRequest) {
   if (!STUDIO_IS_LIVE) {
     return NextResponse.json({ error: 'The studio only runs in development.' }, { status: 403 });
@@ -52,11 +46,9 @@ export async function POST(request: NextRequest) {
   }
 
   const written = [
-    { path: memorialFilePath(book, division), content: memorialSource(memorial) },
     // Re-serialized rather than stored verbatim, so the file on disk is always
     // the canonical form of what was parsed. That is what makes reload lossless.
     { path: draftFilePath(book, division), content: serializeDraft(memorial) },
-    { path: pageFilePath(book, division), content: pageSource(memorial) },
   ];
 
   try {

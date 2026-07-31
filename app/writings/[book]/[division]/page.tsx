@@ -1,7 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import ReactMarkdown, { Components } from 'react-markdown';
 import Link from 'next/link';
+import DivisionMemorial from '@/components/DivisionMemorial';
+import { parseDraft } from '@/lib/studio/draftFormat';
+import { draftFilePath } from '@/lib/studio/paths';
 import { getWritingByPath } from '@/lib/hasWritings';
 import {
   getWritingContent,
@@ -64,7 +69,48 @@ function getBookName(bookSlug: string): string {
   return allBooks.find((b) => b.slug === bookSlug)?.name || bookSlug;
 }
 
+/**
+ * A division memorial, parsed from its draft — the one writings source.
+ * Null when the division has no memorial.
+ */
+function loadMemorial(book: string, division: string) {
+  if (!/^[a-z0-9-]+$/.test(book) || !/^[a-z0-9-]+$/.test(division)) {
+    return null;
+  }
+  const file = path.join(process.cwd(), draftFilePath(book, division));
+  if (!fs.existsSync(file)) {
+    return null;
+  }
+  return parseDraft(fs.readFileSync(file, 'utf-8')).memorial;
+}
+
+/** Memorial pages are known at build time — prerender them. */
+export function generateStaticParams() {
+  const root = path.join(process.cwd(), 'lib', 'writings');
+  const params: { book: string; division: string }[] = [];
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    for (const f of fs.readdirSync(path.join(root, entry.name))) {
+      const m = f.match(/^(.+)\.draft\.md$/);
+      if (m) params.push({ book: entry.name, division: m[1] });
+    }
+  }
+  return params;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const memorial = loadMemorial(params.book, params.division);
+  if (memorial) {
+    return {
+      title: `Shavat | ${memorial.title}`,
+      description: memorial.description,
+      openGraph: {
+        title: `Shavat | ${memorial.title}`,
+        images: ['/shavat.png'],
+      },
+    };
+  }
+
   const writing = getWritingByPath(params.book, params.division);
 
   if (writing) {
@@ -94,6 +140,12 @@ export default async function WritingPage({ params }: Props) {
   const canonicalDivision = resolveDivisionId(params.book, params.division);
   if (canonicalDivision !== params.division) {
     redirect(writingPath(params.book, canonicalDivision));
+  }
+
+  // A division memorial — .md in, page out
+  const memorial = loadMemorial(params.book, params.division);
+  if (memorial) {
+    return <DivisionMemorial memorial={memorial} />;
   }
 
   const bookName = getBookName(params.book);

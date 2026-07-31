@@ -1,7 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import { getBookBySlug } from '@/lib/bible-index';
-import { getBookUtils } from '@/lib/getBookUtils';
+import { createBookAccessor } from '@/lib/book-accessor';
 import {
   getBookMetadataSync,
   getDivisionById,
@@ -53,8 +53,7 @@ export default function BookReadingRoute({
     redirect(readingPath(book, ...slug));
   }
 
-  // Get book utils using static imports (avoids webpack bundling hooks)
-  const bookUtils = getBookUtils(book);
+  const bookUtils = createBookAccessor(book);
   if (!bookUtils) {
     notFound();
   }

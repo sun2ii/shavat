@@ -1,0 +1,43 @@
+{
+  "slug": "acts",
+  "name": "Acts",
+  "description": "Acts - The spread of the gospel from Jerusalem to Rome",
+  "intro": "Acts chronicles the explosive growth of the early church from a small band of disciples in Jerusalem to a multiethnic movement reaching Rome itself. Luke presents the continuing work of the risen Christ through the Holy Spirit, demonstrating how the gospel transcends ethnic and social boundaries.",
+  "themes": [
+    {
+      "title": "The Holy Spirit's power",
+      "body": "Pentecost inaugurates the age of the Spirit, fulfilling Joel's prophecy. The Spirit empowers witness, guides mission strategy, and manifests Christ's presence in the church. Acts could be titled \"The Acts of the Holy Spirit.\""
+    },
+    {
+      "title": "Witness to the ends of the earth",
+      "body": "\"You will be my witnesses in Jerusalem and in all Judea and Samaria, and to the end of the earth.\" This programmatic verse structures Acts as the gospel spreads geographically and culturally from Jewish Jerusalem to Gentile Rome."
+    },
+    {
+      "title": "The resurrection and apostolic preaching",
+      "body": "Every sermon in Acts centers on Jesus' death and resurrection as the fulfillment of Scripture and the vindication of his messianic claims. The apostles are witnesses to the resurrection, and this testimony transforms lives."
+    },
+    {
+      "title": "The church's unity and mission",
+      "body": "The early church is marked by devotion to the apostles' teaching, fellowship, breaking of bread, and prayer. Unity does not mean uniformity, but Spirit-wrought communion across ethnic and social divisions."
+    },
+    {
+      "title": "Opposition and suffering",
+      "body": "The gospel faces constant opposition from religious and political authorities, yet persecution scatters the church and spreads the word. The pattern of suffering and vindication mirrors Jesus' own path."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Jerusalem (1–7)",
+      "body": "Ascension, Pentecost, early preaching, growth of the church, and Stephen's martyrdom."
+    },
+    {
+      "title": "Judea and Samaria (8–12)",
+      "body": "Persecution scatters the church, Philip in Samaria, Saul's conversion, Peter and Cornelius, gospel reaches Antioch."
+    },
+    {
+      "title": "To the Ends of the Earth (13–28)",
+      "body": "Paul's missionary journeys, Jerusalem Council, churches planted throughout Asia Minor and Greece, arrest in Jerusalem, journey to Rome."
+    }
+  ],
+  "whyRead": "Acts is essential for understanding how the gospel moved from a Jewish sect to a global movement, and how the early church navigated theological and cultural challenges. It provides the historical context for reading Paul's epistles and shows the Spirit's work in forming multiethnic communities united in Christ."
+}

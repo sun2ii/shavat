@@ -185,7 +185,7 @@ export function parseDraft(text: string): ParsedDraft {
   const lines = text.replace(/\r\n?/g, '\n').split('\n');
   const { preamble, blocks } = splitBlocks(lines, HEADING);
 
-  const front = takeKeys(preamble, ['book', 'division', 'eyebrow', 'title']).values;
+  const front = takeKeys(preamble, ['book', 'division', 'eyebrow', 'title', 'description']).values;
   const declared = new Set(Object.keys(front));
 
   memorial.bookSlug = front.book ?? '';
@@ -193,6 +193,7 @@ export function parseDraft(text: string): ParsedDraft {
   memorial.bookName = getBookBySlug(memorial.bookSlug)?.name ?? '';
   memorial.eyebrow = front.eyebrow ?? '';
   memorial.title = front.title ?? '';
+  if (front.description) memorial.description = front.description;
 
   for (const block of blocks) {
     const [label, rest] = splitHeading(block.heading);
@@ -263,6 +264,7 @@ export function serializeDraft(memorial: DivisionMemorial): string {
     keyLine('division', memorial.divisionId),
     keyLine('eyebrow', memorial.eyebrow),
     keyLine('title', memorial.title),
+    ...(memorial.description ? [keyLine('description', memorial.description)] : []),
     '',
     '# Intro',
     ...memorial.intro.flatMap((paragraph, i) => (i === 0 ? [paragraph] : ['', paragraph])),

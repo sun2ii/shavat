@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { STUDIO_IS_LIVE, readRepoFile } from '@/lib/studio/files';
-import { draftFilePath, memorialFilePath } from '@/lib/studio/emitTypeScript';
+import { draftFilePath } from '@/lib/studio/paths';
 import { getDivisionById } from '@/lib/book-metadata-utils';
 
 export const runtime = 'nodejs';
@@ -25,8 +25,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: `Unknown division ${book}/${division}.` }, { status: 404 });
   }
 
-  return NextResponse.json({
-    draft: readRepoFile(draftFilePath(book, division)),
-    written: readRepoFile(memorialFilePath(book, division)) !== null,
-  });
+  const draft = readRepoFile(draftFilePath(book, division));
+  return NextResponse.json({ draft, written: draft !== null });
 }

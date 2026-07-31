@@ -1,0 +1,55 @@
+{
+  "slug": "romans",
+  "name": "Romans",
+  "description": "Romans - The righteousness of God revealed in the gospel",
+  "intro": "Romans is Paul's most systematic presentation of the gospel, demonstrating how God's righteousness is revealed in Christ for both Jews and Gentiles. This letter has shaped Christian theology more than any other New Testament book, grounding the church's understanding of sin, justification, sanctification, and God's faithfulness to his promises.",
+  "themes": [
+    {
+      "title": "The righteousness of God",
+      "body": "God's righteousness is both his covenant faithfulness and the status he grants to those who believe. The gospel reveals how God can be both just and the justifier of the ungodly through faith in Christ."
+    },
+    {
+      "title": "Justification by faith",
+      "body": "No one is justified by works of the law, for all have sinned. Justification comes through faith in Christ, who died for the ungodly and rose for our justification. Abraham believed God, and it was counted to him as righteousness."
+    },
+    {
+      "title": "Union with Christ",
+      "body": "Believers are united to Christ in his death and resurrection. This union means death to sin and life to God, freedom from condemnation, and assurance that nothing can separate us from God's love in Christ."
+    },
+    {
+      "title": "Israel and the Gentiles",
+      "body": "Chapters 9–11 address Israel's unbelief and God's faithfulness to his promises. God has not rejected his people; a remnant is saved by grace, and all Israel will be saved when the fullness of the Gentiles comes in."
+    },
+    {
+      "title": "The Christian life",
+      "body": "Chapters 12–16 ground ethics in gospel indicatives: present your bodies as living sacrifices, love genuinely, live at peace, welcome the weak, and pursue what builds up the church. Theology always serves doxology and obedience."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Introduction and Theme (1:1–17)",
+      "body": "The gospel as the power of God for salvation and the revelation of God's righteousness."
+    },
+    {
+      "title": "Sin and Judgment (1:18–3:20)",
+      "body": "All are under sin, both Gentiles and Jews, and accountable before God."
+    },
+    {
+      "title": "Justification by Faith (3:21–5:21)",
+      "body": "Righteousness through faith in Christ, peace with God, and grace reigning through righteousness."
+    },
+    {
+      "title": "Sanctification and Assurance (6–8)",
+      "body": "Death to sin, life in the Spirit, and the assurance of God's love in Christ."
+    },
+    {
+      "title": "Israel and God's Plan (9–11)",
+      "body": "God's sovereignty, Israel's unbelief, and the mystery of salvation history."
+    },
+    {
+      "title": "Christian Living (12–16)",
+      "body": "Living sacrifices, love, submission to authorities, welcoming the weak, and Paul's ministry plans."
+    }
+  ],
+  "whyRead": "Romans is foundational for Christian theology and has sparked every major reformation in church history. Its systematic treatment of sin, grace, faith, and the Christian life makes it essential for understanding the gospel and its implications for both doctrine and practice."
+}

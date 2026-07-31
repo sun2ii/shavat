@@ -1,0 +1,47 @@
+{
+  "slug": "deuteronomy",
+  "name": "Deuteronomy",
+  "description": "Deuteronomy - Moses' final charge to love and obey the Lord",
+  "intro": "Deuteronomy presents Moses' final sermons to Israel on the edge of the Promised Land, calling the new generation to covenant faithfulness. More than law, Deuteronomy is about loving God with wholehearted devotion, making it the most frequently quoted Old Testament book in the New Testament.",
+  "themes": [
+    {
+      "title": "The Shema and exclusive love",
+      "body": "\"Hear, O Israel: The LORD our God, the LORD is one. You shall love the LORD your God with all your heart and with all your soul and with all your might.\" Covenant relationship is grounded in love, not mere duty."
+    },
+    {
+      "title": "Covenant renewal",
+      "body": "Deuteronomy renews the Sinai covenant for the next generation, structured like ancient Near Eastern treaty documents. The pattern of law, blessing, curse, and renewal shapes how we read the entire Old Testament."
+    },
+    {
+      "title": "Remember and teach",
+      "body": "Israel must remember what God has done and teach it to their children. Memory guards against apostasy; forgetting leads to idolatry. The past becomes present through recitation and ritual."
+    },
+    {
+      "title": "Blessing and curse",
+      "body": "Obedience brings life and blessing in the land; disobedience brings curse and exile. This covenantal framework explains Israel's history and anticipates the one who would bear the curse to bring the blessing."
+    },
+    {
+      "title": "The prophet like Moses",
+      "body": "Moses promises a future prophet whom God will raise up, one who will speak God's words with authority. The New Testament identifies Jesus as this greater prophet who fulfills and surpasses Moses."
+    }
+  ],
+  "structure": [
+    {
+      "title": "First Sermon: Historical Review (1–4)",
+      "body": "Moses recounts the wilderness journey and God's faithfulness despite Israel's rebellion."
+    },
+    {
+      "title": "Second Sermon: The Law (5–26)",
+      "body": "The Ten Commandments repeated, the Shema, laws for life in the land, and worship regulations."
+    },
+    {
+      "title": "Third Sermon: Covenant Renewal (27–30)",
+      "body": "Blessings and curses, prophecy of exile and restoration, and the call to choose life."
+    },
+    {
+      "title": "Moses' Final Acts (31–34)",
+      "body": "Joshua commissioned, Song of Moses, Moses' blessing, and his death on Mount Nebo."
+    }
+  ],
+  "whyRead": "Deuteronomy shapes how Israel understood their identity and calling, and Jesus quotes it more than any other Old Testament book. Its emphasis on loving God wholeheartedly and its covenant framework are essential for reading both testaments."
+}

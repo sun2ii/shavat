@@ -2176,5 +2176,277 @@
       "medium",
       "long"
     ]
-  }
+  },
+  "divisions": [
+    {
+      "id": "praise",
+      "title": "Psalms of Praise",
+      "chapters": [
+        8,
+        19,
+        24,
+        29,
+        33,
+        45,
+        47,
+        48,
+        67,
+        68,
+        72,
+        76,
+        81,
+        87,
+        93,
+        95,
+        96,
+        97,
+        98,
+        99,
+        104,
+        105,
+        106,
+        110,
+        111,
+        113,
+        114,
+        115,
+        117,
+        132,
+        134,
+        135,
+        136,
+        139,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "theme": "Worship and adoration",
+      "summary": "Worship and adoration"
+    },
+    {
+      "id": "trust",
+      "title": "Psalms of Trust",
+      "chapters": [
+        11,
+        16,
+        17,
+        23,
+        36,
+        46,
+        62,
+        84,
+        91,
+        121,
+        125
+      ],
+      "theme": "Refuge and confidence",
+      "summary": "Refuge and confidence"
+    },
+    {
+      "id": "gratitude",
+      "title": "Psalms of Gratitude",
+      "chapters": [
+        9,
+        18,
+        21,
+        30,
+        34,
+        40,
+        65,
+        66,
+        75,
+        92,
+        103,
+        107,
+        116,
+        118,
+        124,
+        138
+      ],
+      "theme": "Thanksgiving and testimony",
+      "summary": "Thanksgiving and testimony"
+    },
+    {
+      "id": "wisdom",
+      "title": "Psalms of Wisdom",
+      "chapters": [
+        1,
+        14,
+        15,
+        37,
+        49,
+        50,
+        53,
+        78,
+        101,
+        112,
+        119,
+        127,
+        128,
+        133
+      ],
+      "theme": "Meditation and instruction",
+      "summary": "Meditation and instruction"
+    },
+    {
+      "id": "grief",
+      "title": "Psalms of Grief",
+      "chapters": [
+        6,
+        13,
+        22,
+        31,
+        39,
+        42,
+        43,
+        69,
+        71,
+        74,
+        79,
+        80,
+        85,
+        102,
+        126
+      ],
+      "theme": "Sorrow and lament",
+      "summary": "Sorrow and lament"
+    },
+    {
+      "id": "fear",
+      "title": "Psalms of Fear",
+      "chapters": [
+        3,
+        27,
+        28,
+        54,
+        56,
+        57,
+        64,
+        141
+      ],
+      "theme": "Anxiety and trembling",
+      "summary": "Anxiety and trembling"
+    },
+    {
+      "id": "anxiety",
+      "title": "Psalms of Anxiety",
+      "chapters": [
+        4,
+        5,
+        70,
+        120
+      ],
+      "theme": "Worry and unrest",
+      "summary": "Worry and unrest"
+    },
+    {
+      "id": "despair",
+      "title": "Psalms of Despair",
+      "chapters": [
+        10,
+        12,
+        41,
+        55,
+        60,
+        88,
+        142
+      ],
+      "theme": "Darkness and abandonment",
+      "summary": "Darkness and abandonment"
+    },
+    {
+      "id": "anger",
+      "title": "Psalms of Anger",
+      "chapters": [
+        7,
+        35,
+        52,
+        58,
+        59,
+        82,
+        83,
+        94,
+        109,
+        137,
+        140
+      ],
+      "theme": "Injustice and imprecation",
+      "summary": "Injustice and imprecation"
+    },
+    {
+      "id": "guilt",
+      "title": "Psalms of Guilt",
+      "chapters": [
+        32,
+        38,
+        51,
+        130
+      ],
+      "theme": "Confession and repentance",
+      "summary": "Confession and repentance"
+    },
+    {
+      "id": "confusion",
+      "title": "Psalms of Confusion",
+      "chapters": [
+        44,
+        73,
+        77,
+        89
+      ],
+      "theme": "Doubt and questioning",
+      "summary": "Doubt and questioning"
+    },
+    {
+      "id": "exhaustion",
+      "title": "Psalms of Exhaustion",
+      "chapters": [
+        25,
+        61,
+        63,
+        86,
+        90,
+        123,
+        131,
+        143
+      ],
+      "theme": "Weariness and waiting",
+      "summary": "Weariness and waiting"
+    },
+    {
+      "id": "joy",
+      "title": "Psalms of Joy",
+      "chapters": [
+        100,
+        122,
+        150
+      ],
+      "theme": "Gladness and celebration",
+      "summary": "Gladness and celebration"
+    },
+    {
+      "id": "confidence",
+      "title": "Psalms of Confidence",
+      "chapters": [
+        2,
+        20,
+        26,
+        108
+      ],
+      "theme": "Assurance and boldness",
+      "summary": "Assurance and boldness"
+    },
+    {
+      "id": "endurance",
+      "title": "Psalms of Endurance",
+      "chapters": [
+        129
+      ],
+      "theme": "Perseverance through trial",
+      "summary": "Perseverance through trial"
+    }
+  ]
 }

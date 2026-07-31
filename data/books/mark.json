@@ -1,0 +1,43 @@
+{
+  "slug": "mark",
+  "name": "Mark",
+  "description": "The Gospel of Mark - Jesus as the suffering Servant and Son of God",
+  "intro": "Mark presents Jesus as the suffering Servant who comes to give his life as a ransom for many. Fast-paced and action-oriented, Mark emphasizes what Jesus did more than what he said, moving quickly from exorcism to healing to conflict, always pressing toward the cross.",
+  "themes": [
+    {
+      "title": "The Messianic Secret",
+      "body": "Jesus repeatedly commands silence after miracles and revelations of his identity. The secret is not to hide who he is but to prevent misunderstanding: he is Messiah through suffering, not military triumph."
+    },
+    {
+      "title": "Authority and power",
+      "body": "Mark opens with Jesus teaching \"as one who had authority\" and demonstrates this authority over demons, disease, nature, and death. Yet this power culminates not in glory but in the cross."
+    },
+    {
+      "title": "The way of the cross",
+      "body": "\"The Son of Man came not to be served but to serve, and to give his life as a ransom for many.\" Discipleship means taking up one's cross and following Jesus in the path of suffering."
+    },
+    {
+      "title": "Blindness and sight",
+      "body": "The disciples consistently misunderstand Jesus' mission despite witnessing his works. Two blind men healed in chapters 8 and 10 frame the central section, symbolizing the spiritual sight needed to recognize the suffering Messiah."
+    },
+    {
+      "title": "Immediate action",
+      "body": "Mark's favorite word is \"immediately,\" appearing over 40 times. The urgent pace reflects both the intensity of Jesus' mission and the call to decisive response."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Galilee Ministry (1:1–8:26)",
+      "body": "Jesus demonstrates authority through miracles and teaching, but the disciples remain blind to his identity."
+    },
+    {
+      "title": "The Way to Jerusalem (8:27–10:52)",
+      "body": "Peter's confession, three passion predictions, and teaching on discipleship as the way of the cross."
+    },
+    {
+      "title": "Jerusalem and the Passion (11:1–16:8)",
+      "body": "Confrontation in the temple, apocalyptic teaching, betrayal, trial, crucifixion, and the empty tomb."
+    }
+  ],
+  "whyRead": "Mark is likely the earliest gospel and provides the template for Matthew and Luke. Its relentless focus on the cross makes it the most vivid presentation of Jesus as the suffering Servant who calls his followers to the same path of self-denial and sacrifice."
+}

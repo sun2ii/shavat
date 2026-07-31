@@ -59,7 +59,7 @@ export interface GenesisBook {
 }
 
 export interface GenesisMetadata {
-  books: GenesisBook[];
+  divisions: GenesisBook[];
   chapterSummaries?: { [chapterNum: string]: string };
 }
 
@@ -136,6 +136,7 @@ export interface DivisionMemorial {
   divisionId: string;
   eyebrow: string;         // e.g. "Joshua 9–12"
   title: string;
+  description?: string;    // page <meta> description
   intro: string[];
   memorialIntro: { heading: string; body: string[] };
   chapters: MemorialChapter[];

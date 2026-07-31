@@ -7,21 +7,21 @@ const metadata = genesisMetadata as GenesisMetadata;
  * Get all Genesis books (collections)
  */
 export function getAllBooks(): GenesisBook[] {
-  return metadata.books;
+  return metadata.divisions;
 }
 
 /**
  * Get a specific book by its slug ID
  */
 export function getBookById(id: string): GenesisBook | undefined {
-  return metadata.books.find(book => book.id === id);
+  return metadata.divisions.find(book => book.id === id);
 }
 
 /**
  * Get the book that contains a specific chapter
  */
 export function getBookByChapter(chapter: number): GenesisBook | undefined {
-  return metadata.books.find(book => book.chapters.includes(chapter));
+  return metadata.divisions.find(book => book.chapters.includes(chapter));
 }
 
 /**
@@ -70,18 +70,18 @@ export function getChapterPositionInBook(chapter: number): { position: number; t
  * Get the next book in the sequence
  */
 export function getNextBook(bookId: string): GenesisBook | undefined {
-  const currentIndex = metadata.books.findIndex(book => book.id === bookId);
-  if (currentIndex === -1 || currentIndex === metadata.books.length - 1) return undefined;
-  return metadata.books[currentIndex + 1];
+  const currentIndex = metadata.divisions.findIndex(book => book.id === bookId);
+  if (currentIndex === -1 || currentIndex === metadata.divisions.length - 1) return undefined;
+  return metadata.divisions[currentIndex + 1];
 }
 
 /**
  * Get the previous book in the sequence
  */
 export function getPreviousBook(bookId: string): GenesisBook | undefined {
-  const currentIndex = metadata.books.findIndex(book => book.id === bookId);
+  const currentIndex = metadata.divisions.findIndex(book => book.id === bookId);
   if (currentIndex === -1 || currentIndex === 0) return undefined;
-  return metadata.books[currentIndex - 1];
+  return metadata.divisions[currentIndex - 1];
 }
 
 /**

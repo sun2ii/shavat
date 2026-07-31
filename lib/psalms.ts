@@ -1,33 +1,6 @@
-import { Verse, BookJSON } from './types';
-import psalmsData from './psalms-data.json';
+import { Verse } from './types';
 import psalmsMetadata from './psalms-metadata.json';
-
-const data = psalmsData as BookJSON;
-
-// Get verses for a specific chapter (1-indexed)
-export function getChapter(chapterNum: number): Verse[] | null {
-  if (chapterNum < 1 || chapterNum > 150) {
-    return null;
-  }
-
-  const chapterData = data.chapters.find(
-    (c) => parseInt(c.chapter) === chapterNum
-  );
-
-  if (!chapterData) return null;
-
-  return chapterData.verses.map((v) => ({
-    book: 'Psalms',
-    chapter: chapterNum,
-    verse: parseInt(v.verse),
-    text: v.text,
-  }));
-}
-
-// Get total chapter count
-export function getChapterCount(): number {
-  return data.count;
-}
+import { createBookAccessor } from './book-accessor';
 
 // Get psalm metadata by category ID (e.g., "wisdom-1")
 export function getPsalmMetadataByCategoryId(categoryId: string) {
@@ -38,7 +11,7 @@ export function getPsalmMetadataByCategoryId(categoryId: string) {
 export function getChapterByCategoryId(categoryId: string): Verse[] | null {
   const metadata = getPsalmMetadataByCategoryId(categoryId);
   if (!metadata) return null;
-  return getChapter(metadata.number);
+  return createBookAccessor('psalms')!.getChapter(metadata.number);
 }
 
 // Get chapter number from category ID

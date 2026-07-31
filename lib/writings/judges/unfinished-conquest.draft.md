@@ -2,6 +2,7 @@ book: judges
 division: unfinished-conquest
 eyebrow: Judges 1–2
 title: The Unfinished Conquest
+description: Judges 1–2: compromise and forgetting.
 
 # Intro
 Joshua is buried and the land is not taken. The book opens by asking the right question — who shall go up first for us against the Canaanites? — and then answers it with a catalogue of what each tribe left undone.

@@ -1,0 +1,47 @@
+{
+  "slug": "luke",
+  "name": "Luke",
+  "description": "The Gospel of Luke - Jesus as the Savior of all people",
+  "intro": "Luke presents Jesus as the Savior of all people, emphasizing God's concern for the marginalized, the poor, and the outcast. Written for a Gentile audience, Luke traces Jesus' mission from his birth to his ascension as the fulfillment of God's plan to bring salvation to the ends of the earth.",
+  "themes": [
+    {
+      "title": "Universal salvation",
+      "body": "Luke emphasizes that Jesus came to save all people: Jews and Gentiles, rich and poor, men and women, insiders and outcasts. Simeon declares the infant Jesus as \"a light for revelation to the Gentiles.\""
+    },
+    {
+      "title": "The Holy Spirit",
+      "body": "The Spirit is active from the beginning, empowering Jesus' ministry and preparing for Pentecost in Acts. Luke uniquely shows Jesus rejoicing in the Holy Spirit and promising the Spirit to his disciples."
+    },
+    {
+      "title": "Prayer and worship",
+      "body": "Jesus prays at every turning point: baptism, before choosing the twelve, at the transfiguration, in Gethsemane. Luke includes more prayers, hymns, and scenes of worship than any other gospel."
+    },
+    {
+      "title": "Reversal and the kingdom",
+      "body": "Mary's Magnificat sets the tone: the proud scattered, the mighty brought down, the humble exalted, the hungry filled. Jesus' ministry embodies this great reversal, where the last become first."
+    },
+    {
+      "title": "Journey to Jerusalem",
+      "body": "Nearly half of Luke is set on the road to Jerusalem, where Jesus \"set his face\" to accomplish his exodus. This journey frames parables and teaching unique to Luke, including the Good Samaritan and the Prodigal Son."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Birth Narratives (1–2)",
+      "body": "Parallel stories of John and Jesus, emphasizing God's faithfulness to Israel and the fulfillment of promise."
+    },
+    {
+      "title": "Galilean Ministry (3–9:50)",
+      "body": "Baptism, temptation, teaching, miracles, calling of disciples, and the beginning of opposition."
+    },
+    {
+      "title": "Journey to Jerusalem (9:51–19:27)",
+      "body": "Extended travel narrative with parables, teaching on discipleship, and encounters with the marginalized."
+    },
+    {
+      "title": "Passion and Resurrection (19:28–24:53)",
+      "body": "Jerusalem ministry, Last Supper, crucifixion, resurrection appearances, and ascension."
+    }
+  ],
+  "whyRead": "Luke's emphasis on the marginalized and his careful historical grounding make this gospel essential for understanding Jesus' mission to all people. As the first volume of Luke-Acts, it establishes the foundation for how the gospel spreads from Jerusalem to the ends of the earth."
+}

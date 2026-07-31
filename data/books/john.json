@@ -1,0 +1,47 @@
+{
+  "slug": "john",
+  "name": "John",
+  "description": "The Gospel of John - Jesus as the eternal Son of God made flesh",
+  "intro": "John presents Jesus as the eternal Son of God made flesh, the one who reveals the Father and gives eternal life to those who believe. More explicitly than the Synoptic Gospels, John is written to establish the identity of Jesus and the meaning of faith in him: not mere agreement, but personal trust that leads to life.",
+  "themes": [
+    {
+      "title": "The identity of Jesus",
+      "body": "John is structured around the question of who Jesus is. He is not only the Messiah, but the preexistent Word, the Son sent from the Father, equal with God and the full disclosure of God's glory."
+    },
+    {
+      "title": "Belief and eternal life",
+      "body": "Belief is central in John, but it is never treated as bare intellectual assent. To believe in Jesus is to receive him, abide in him, and pass from death into life."
+    },
+    {
+      "title": "Signs and revelation",
+      "body": "John selects particular miracles as \"signs,\" not merely displays of power. Their function is revelatory: they disclose Jesus' identity and force a response of faith or unbelief."
+    },
+    {
+      "title": "Glory through the cross",
+      "body": "In John, Jesus' death is not presented mainly as defeat before vindication, but as the hour of his glorification. The cross, resurrection, and exaltation belong together as the climactic revelation of the Son's obedience and the Father's love."
+    },
+    {
+      "title": "Witness, truth, and testimony",
+      "body": "John repeatedly frames the gospel in legal and covenantal terms of testimony. John the Baptist, the works of Jesus, the Scriptures, the Father, and the Spirit all bear witness to Christ, leaving unbelief exposed as moral and spiritual refusal rather than lack of evidence."
+    }
+  ],
+  "structure": [
+    {
+      "title": "Prologue (1:1–18)",
+      "body": "The Word's eternal identity, incarnation, and revelation of the Father."
+    },
+    {
+      "title": "Book of Signs (1:19–12:50)",
+      "body": "Public ministry, selected signs, and growing division over Jesus' identity."
+    },
+    {
+      "title": "Book of Glory (13:1–20:31)",
+      "body": "Farewell discourse, passion, resurrection, and the meaning of Jesus' \"hour.\""
+    },
+    {
+      "title": "Epilogue (21:1–25)",
+      "body": "Post-resurrection appearance in Galilee and restoration of Peter."
+    }
+  ],
+  "whyRead": "John is the most theologically explicit Gospel in the New Testament. It gives sustained attention to Christ's divine identity, the inner relation between the Father and the Son, and the meaning of belief, making it especially useful as an orienting text for reading the whole New Testament."
+}

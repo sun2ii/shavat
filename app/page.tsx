@@ -34,10 +34,10 @@ export default function MarketingPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3.5 justify-center mt-9">
           <Link
-            href="/library"
+            href="/terrain"
             className="px-8 py-3.5 rounded-full bg-brand text-white font-sans text-[15px] font-semibold hover:opacity-90 transition-opacity"
           >
-            Enter the Library
+            Explore the Terrain
           </Link>
           <Link
             href="/genesis/creation/1"

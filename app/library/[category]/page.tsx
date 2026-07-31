@@ -85,15 +85,19 @@ const ACCENTS = [
   'oklch(55% 0.07 305)', // plum
 ];
 
-function Pill({ tone, children }: { tone: 'gold' | 'green'; children: React.ReactNode }) {
-  const cls =
-    tone === 'gold'
-      ? 'text-gold-ink bg-[rgba(201,162,75,0.14)] dark:bg-[rgba(216,179,74,0.16)] dark:text-[#e6c96f]'
-      : 'text-[#4a6b3a] bg-[rgba(122,153,90,0.16)] dark:bg-[rgba(138,154,91,0.2)] dark:text-[#a9c894]';
+/*
+  A card earns at most one mark: gold = commentary, green = reflections.
+  A dot instead of a labeled pill — at eight columns the word costs more
+  than the signal is worth.
+*/
+function Mark({ tone }: { tone: 'gold' | 'green' }) {
   return (
-    <span className={`font-sans text-[10px] font-semibold px-1.5 py-[2px] rounded-full ${cls}`}>
-      {children}
-    </span>
+    <span
+      title={tone === 'gold' ? 'Commentary' : 'Reflections'}
+      className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+        tone === 'gold' ? 'bg-gold' : 'bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]'
+      }`}
+    />
   );
 }
 
@@ -156,32 +160,26 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`block rounded-lg px-3.5 py-3 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] ${
+      className={`block rounded-lg px-2.5 py-2 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] ${
         focused
           ? 'border-gold ring-2 ring-gold'
           : 'border-hairline focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold'
       }`}
     >
       <div
-        className={`font-serif text-[16px] leading-tight ${
+        className={`font-serif text-[14px] leading-tight truncate ${
           instructional ? 'text-orange-500' : 'text-ink'
         }`}
       >
         {title}
       </div>
       {theme && (
-        <div className="font-serif italic text-[12.5px] text-muted leading-snug mt-1 line-clamp-1">
+        <div className="font-serif italic text-[11.5px] text-muted leading-snug mt-0.5 line-clamp-1">
           {theme}
         </div>
       )}
-      <div className="flex items-center justify-between mt-2">
-        {hasCommentary ? (
-          <Pill tone="gold">Commentary</Pill>
-        ) : hasWritings ? (
-          <Pill tone="green">Reflections</Pill>
-        ) : (
-          <span />
-        )}
+      <div className="flex items-center justify-between mt-1.5">
+        {hasCommentary ? <Mark tone="gold" /> : hasWritings ? <Mark tone="green" /> : <span />}
         <span className="font-sans text-[11px] text-faint">{count} ch</span>
       </div>
     </Link>
@@ -308,14 +306,14 @@ export default function LibraryPage() {
     focusedCardIndex !== null ? focusableCards[focusedCardIndex]?.id ?? null : null;
 
   // Must track the grid classes exactly, or arrow keys skip rows:
-  // grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4.
+  // grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6.
   const getGridColumns = () => {
-    if (typeof window === 'undefined') return 4;
+    if (typeof window === 'undefined') return 6;
     const width = window.innerWidth;
-    if (width < 640) return 1;
-    if (width < 768) return 2;
-    if (width < 1024) return 3;
-    return 4;
+    if (width < 640) return 2;
+    if (width < 768) return 3;
+    if (width < 1024) return 4;
+    return 6;
   };
   const [gridColumns, setGridColumns] = useState(getGridColumns);
 
@@ -451,7 +449,7 @@ export default function LibraryPage() {
     return (
       <section key={book.slug}>
         <SectionHeader number={number} name={book.name} sub={`${divisions.length} books · ${book.chapterCount} chapters`} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
           {filtered.map((division, i) => {
             const isInstructional = division.contentType === 'instructional';
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
@@ -499,7 +497,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -532,7 +530,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -553,7 +551,7 @@ export default function LibraryPage() {
         return (
           <div className="space-y-2">
             <SectionHeader name="Psalms" sub={`${psalmsCollections.length} collections`} />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
               {psalmsCollections.map((collection, i) => (
                 <DivisionCard
                   key={collection.id}
@@ -597,7 +595,7 @@ export default function LibraryPage() {
                 if (looseTiles.length === 0) return;
                 bookBlocks.push(
                   <div key={`tiles-${bookBlocks.length}`} className="pt-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                       {looseTiles}
                     </div>
                   </div>,
@@ -614,7 +612,7 @@ export default function LibraryPage() {
                   bookBlocks.push(
                     <div key={book.slug}>
                       <BookHeader name={book.name} sub={sub} accent={accent} />
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
                         {cards}
                       </div>
                     </div>,

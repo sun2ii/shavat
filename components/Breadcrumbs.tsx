@@ -62,9 +62,9 @@ export default function Breadcrumbs() {
       return breadcrumbs;
     }
 
-    // Handle /map
-    if (segments[0] === 'map') {
-      breadcrumbs.push({ label: 'Map', href: '/map' });
+    // Handle /terrain
+    if (segments[0] === 'terrain') {
+      breadcrumbs.push({ label: 'Terrain', href: '/terrain' });
       return breadcrumbs;
     }
 

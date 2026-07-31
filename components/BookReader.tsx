@@ -159,8 +159,8 @@ export default function BookReader({ verses, book, chapter, sections }: Props) {
                 key={daySection.title}
                 id={sectionId}
                 onClick={isCollapsed ? () => toggleSection(daySection.title) : undefined}
-                className={`rounded-2xl border-l-[3px] p-6 md:p-8 scroll-mt-24 ${
-                  isCollapsed ? 'cursor-pointer' : ''
+                className={`rounded-2xl border-l-[3px] px-6 md:px-8 scroll-mt-24 ${
+                  isCollapsed ? 'cursor-pointer py-5' : 'py-6 md:py-8'
                 } ${daySection.borderColor} ${daySection.color}`}
               >
                 <div
@@ -177,7 +177,7 @@ export default function BookReader({ verses, book, chapter, sections }: Props) {
                         handleCopySection(daySection.title, dayVerses);
                       }}
                       title="Copy section"
-                      className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center ${COPY_TRANSITION} ${
+                      className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
                         copiedSection === daySection.title
                           ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
                           : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`

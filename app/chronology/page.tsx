@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-// The chronology page was replaced by the Story Map.
+// The chronology page was replaced by the Terrain.
 export default function ChronologyPage() {
-  redirect('/map');
+  redirect('/terrain');
 }

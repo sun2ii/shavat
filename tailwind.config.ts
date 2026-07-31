@@ -8,6 +8,9 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     // section color classes (bg-*/border-*) live in data, not source
     "./data/sections/**/*.json",
+    // class strings extracted into lib (copy-glow's text-shadow utilities,
+    // highlight colors) must stay in the scan or Tailwind never emits them
+    "./lib/**/*.ts",
   ],
   theme: {
     extend: {

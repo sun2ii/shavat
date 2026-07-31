@@ -2,7 +2,8 @@
 
 import { Verse as VerseType, BookDivision } from '@/lib/types';
 import ChapterNav from './ChapterNav';
-import GenesisReader from './GenesisReader';
+import BookReader from './BookReader';
+import type { Section } from '@/lib/sections';
 
 interface Props {
   bookSlug: string;
@@ -12,6 +13,7 @@ interface Props {
   division: BookDivision;
   currentChapter: number;
   chapterSummary?: string;
+  sections?: Section[];
 }
 
 export default function BookPageClient({
@@ -21,7 +23,8 @@ export default function BookPageClient({
   verses,
   division,
   currentChapter,
-  chapterSummary
+  chapterSummary,
+  sections
 }: Props) {
   return (
     <main>
@@ -33,7 +36,7 @@ export default function BookPageClient({
         division={division}
         chapterSummary={chapterSummary}
       />
-      <GenesisReader verses={verses} book={bookSlug} chapter={currentChapter} />
+      <BookReader verses={verses} book={bookSlug} chapter={currentChapter} sections={sections} />
     </main>
   );
 }

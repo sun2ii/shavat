@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getNTSections } from '@/lib/extractSections';
+import { getAllSections } from '@/lib/sections';
 import { BIBLE_INDEX } from '@/lib/bible-index';
 import NTBookSection from '@/components/NTBookSection';
 
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function TorahTableOfContents() {
-  const allSections = getNTSections();
+  const allSections = getAllSections();
 
   // Get the 5 Torah books
   const torah = BIBLE_INDEX.filter(b => b.category === 'pentateuch');

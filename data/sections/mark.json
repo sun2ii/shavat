@@ -1,0 +1,712 @@
+{
+  "book": "mark",
+  "chapters": {
+    "1": [
+      {
+        "title": "John the Baptist",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Baptism and Temptation",
+        "verseRange": [
+          9,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Calling the Disciples",
+        "verseRange": [
+          14,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Authority Over Demons",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Healing Ministry",
+        "verseRange": [
+          29,
+          39
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Cleansing the Leper",
+        "verseRange": [
+          40,
+          45
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Paralytic Forgiven",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Calling Levi",
+        "verseRange": [
+          13,
+          17
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Questions About Fasting",
+        "verseRange": [
+          18,
+          22
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Lord of Sabbath",
+        "verseRange": [
+          23,
+          28
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Sabbath Healing",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Crowds and Twelve",
+        "verseRange": [
+          7,
+          19
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Beelzebul Accusation",
+        "verseRange": [
+          20,
+          30
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "True Family",
+        "verseRange": [
+          31,
+          35
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Parable of Sower",
+        "verseRange": [
+          1,
+          20
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Lamp and Measure",
+        "verseRange": [
+          21,
+          25
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Growing Seed",
+        "verseRange": [
+          26,
+          29
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Mustard Seed",
+        "verseRange": [
+          30,
+          34
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Calming the Storm",
+        "verseRange": [
+          35,
+          41
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Gerasene Demoniac",
+        "verseRange": [
+          1,
+          20
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Jairus' Plea",
+        "verseRange": [
+          21,
+          24
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Woman Healed",
+        "verseRange": [
+          25,
+          34
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Raising the Dead",
+        "verseRange": [
+          35,
+          43
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Rejection at Nazareth",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Sending the Twelve",
+        "verseRange": [
+          7,
+          13
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "John's Death",
+        "verseRange": [
+          14,
+          29
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Feeding Five Thousand",
+        "verseRange": [
+          30,
+          44
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Walking on Water",
+        "verseRange": [
+          45,
+          56
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Clean and Unclean",
+        "verseRange": [
+          1,
+          23
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Syrophoenician Woman",
+        "verseRange": [
+          24,
+          30
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Healing the Deaf",
+        "verseRange": [
+          31,
+          37
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Feeding Four Thousand",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Pharisees Demand Sign",
+        "verseRange": [
+          11,
+          21
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Blind Man Healed",
+        "verseRange": [
+          22,
+          26
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Peter's Confession",
+        "verseRange": [
+          27,
+          30
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "First Passion Prediction",
+        "verseRange": [
+          31,
+          38
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "The Transfiguration",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Healing Possessed Boy",
+        "verseRange": [
+          14,
+          29
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Second Passion Prediction",
+        "verseRange": [
+          30,
+          32
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "True Greatness",
+        "verseRange": [
+          33,
+          50
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Marriage and Divorce",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Blessing the Children",
+        "verseRange": [
+          13,
+          16
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Rich Young Man",
+        "verseRange": [
+          17,
+          31
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Third Passion Prediction",
+        "verseRange": [
+          32,
+          34
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Servant Leadership",
+        "verseRange": [
+          35,
+          45
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Blind Bartimaeus",
+        "verseRange": [
+          46,
+          52
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Triumphal Entry",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Cursing the Fig Tree",
+        "verseRange": [
+          12,
+          14
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Cleansing the Temple",
+        "verseRange": [
+          15,
+          19
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Faith and Prayer",
+        "verseRange": [
+          20,
+          26
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Authority Challenged",
+        "verseRange": [
+          27,
+          33
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Wicked Tenants",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Paying Taxes",
+        "verseRange": [
+          13,
+          17
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Marriage at Resurrection",
+        "verseRange": [
+          18,
+          27
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Greatest Commandment",
+        "verseRange": [
+          28,
+          34
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Questions About Messiah",
+        "verseRange": [
+          35,
+          40
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Widow's Offering",
+        "verseRange": [
+          41,
+          44
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Temple Destruction Foretold",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Signs Before End",
+        "verseRange": [
+          5,
+          13
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Great Tribulation",
+        "verseRange": [
+          14,
+          23
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Son of Man Coming",
+        "verseRange": [
+          24,
+          31
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Watch and Be Ready",
+        "verseRange": [
+          32,
+          37
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Plot and Anointing",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Last Supper",
+        "verseRange": [
+          12,
+          26
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Peter's Denial Predicted",
+        "verseRange": [
+          27,
+          31
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Gethsemane",
+        "verseRange": [
+          32,
+          42
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Arrest and Trial",
+        "verseRange": [
+          43,
+          65
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Peter Denies Jesus",
+        "verseRange": [
+          66,
+          72
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Jesus Before Pilate",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Soldiers Mock Jesus",
+        "verseRange": [
+          16,
+          20
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Crucifixion",
+        "verseRange": [
+          21,
+          32
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Death of Jesus",
+        "verseRange": [
+          33,
+          41
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Burial",
+        "verseRange": [
+          42,
+          47
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Empty Tomb",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Appearances and Commission",
+        "verseRange": [
+          9,
+          20
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ]
+  }
+}

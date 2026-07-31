@@ -1,0 +1,34 @@
+{
+  "book": "philemon",
+  "chapters": {
+    "1": [
+      {
+        "title": "Greeting and Thanksgiving",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Paul's Appeal for Onesimus",
+        "verseRange": [
+          8,
+          21
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Final Greetings",
+        "verseRange": [
+          22,
+          25
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ]
+  }
+}

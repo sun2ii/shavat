@@ -4,16 +4,18 @@ import { useState } from 'react';
 import { Verse as VerseType } from '@/lib/types';
 import { GenesisBook } from '@/lib/types';
 import ChapterNavBook from './ChapterNavBook';
-import GenesisReader from './GenesisReader';
+import type { Section } from '@/lib/sections';
+import BookReader from './BookReader';
 
 interface Props {
   verses: VerseType[];
   book: GenesisBook;
   currentChapter: number;
   chapterSummary?: string;
+  sections?: Section[];
 }
 
-export default function GenesisPageClient({ verses, book, currentChapter, chapterSummary }: Props) {
+export default function GenesisPageClient({ verses, book, currentChapter, chapterSummary, sections }: Props) {
   const [copied, setCopied] = useState(false);
 
   const handleCopyChapter = async () => {
@@ -32,7 +34,7 @@ export default function GenesisPageClient({ verses, book, currentChapter, chapte
         copied={copied}
         chapterSummary={chapterSummary}
       />
-      <GenesisReader verses={verses} />
+      <BookReader verses={verses} sections={sections} />
     </main>
   );
 }

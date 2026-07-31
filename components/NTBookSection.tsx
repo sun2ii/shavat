@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import ChapterSection from './ChapterSection';
-import { SectionData } from '@/lib/extractSections';
+import { SectionData } from '@/lib/sections';
 
 interface Props {
   bookName: string;

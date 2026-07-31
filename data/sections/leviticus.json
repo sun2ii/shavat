@@ -1,0 +1,743 @@
+{
+  "book": "leviticus",
+  "chapters": {
+    "1": [
+      {
+        "title": "Burnt Offering from Herd",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Burnt Offering from Flock or Birds",
+        "verseRange": [
+          10,
+          17
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Grain Offering Types",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Regulations for Grain Offerings",
+        "verseRange": [
+          11,
+          16
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Peace Offering from Herd",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Peace Offering from Flock",
+        "verseRange": [
+          6,
+          17
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Sin Offering for Priest",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Sin Offering for Community",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Sin Offering for Leader",
+        "verseRange": [
+          22,
+          26
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Sin Offering for Individual",
+        "verseRange": [
+          27,
+          35
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Cases Requiring Sin Offering",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Guilt Offering",
+        "verseRange": [
+          14,
+          19
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Guilt Offering for Deception",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Law of Burnt Offering",
+        "verseRange": [
+          8,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Law of Grain Offering",
+        "verseRange": [
+          14,
+          23
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Law of Sin Offering",
+        "verseRange": [
+          24,
+          30
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Law of Guilt Offering",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Law of Peace Offering",
+        "verseRange": [
+          11,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Prohibition of Fat and Blood",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Priests' Portion",
+        "verseRange": [
+          28,
+          38
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Consecration Ceremony Begins",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Offerings for Ordination",
+        "verseRange": [
+          14,
+          30
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Seven Days of Ordination",
+        "verseRange": [
+          31,
+          36
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "First Offerings by Aaron",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Offerings for the People",
+        "verseRange": [
+          15,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Glory of the Lord Appears",
+        "verseRange": [
+          22,
+          24
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Death of Nadab and Abihu",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Regulations for Priests",
+        "verseRange": [
+          8,
+          15
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "The Sin Offering Controversy",
+        "verseRange": [
+          16,
+          20
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Clean and Unclean Land Animals",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Water Creatures and Birds",
+        "verseRange": [
+          9,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Swarming Creatures",
+        "verseRange": [
+          24,
+          38
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Purpose of Dietary Laws",
+        "verseRange": [
+          39,
+          47
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Purification after Childbirth",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Laws about Skin Diseases",
+        "verseRange": [
+          1,
+          28
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Laws about Baldness",
+        "verseRange": [
+          29,
+          46
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Laws about Mildew in Fabric",
+        "verseRange": [
+          47,
+          59
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Cleansing from Skin Disease",
+        "verseRange": [
+          1,
+          32
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Laws about Mildew in Houses",
+        "verseRange": [
+          33,
+          57
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Male Discharges",
+        "verseRange": [
+          1,
+          18
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Female Discharges",
+        "verseRange": [
+          19,
+          33
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Preparation for Day of Atonement",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "The Atonement Ritual",
+        "verseRange": [
+          11,
+          22
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Annual Observance",
+        "verseRange": [
+          23,
+          34
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "One Place of Sacrifice",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Prohibition Against Eating Blood",
+        "verseRange": [
+          10,
+          16
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Introduction to Sexual Laws",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Unlawful Sexual Relations",
+        "verseRange": [
+          6,
+          23
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Warning Against Defilement",
+        "verseRange": [
+          24,
+          30
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Call to Holiness",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Various Moral and Social Laws",
+        "verseRange": [
+          5,
+          18
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "More Holiness Laws",
+        "verseRange": [
+          19,
+          37
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Penalties for Molech Worship",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Penalties for Sexual Sins",
+        "verseRange": [
+          6,
+          21
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Call to Separation",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Rules for Priests",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Rules for High Priest",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Priestly Qualifications",
+        "verseRange": [
+          16,
+          24
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Priests and Sacred Offerings",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Acceptable Offerings",
+        "verseRange": [
+          17,
+          33
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "The Sabbath",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Passover and Unleavened Bread",
+        "verseRange": [
+          4,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Firstfruits and Weeks",
+        "verseRange": [
+          9,
+          22
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Trumpets, Atonement, Booths",
+        "verseRange": [
+          23,
+          44
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Oil and Bread in the Tabernacle",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Blasphemy and Retaliation Laws",
+        "verseRange": [
+          10,
+          23
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "The Sabbath Year",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "The Jubilee Year",
+        "verseRange": [
+          8,
+          22
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Redemption of Property",
+        "verseRange": [
+          23,
+          34
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Treatment of the Poor",
+        "verseRange": [
+          35,
+          55
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Blessings for Obedience",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Curses for Disobedience",
+        "verseRange": [
+          14,
+          39
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Promise of Restoration",
+        "verseRange": [
+          40,
+          46
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "Vows and Valuations",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Redemption of Property",
+        "verseRange": [
+          14,
+          25
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Things Not Redeemable",
+        "verseRange": [
+          26,
+          34
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ]
+  }
+}

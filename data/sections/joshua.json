@@ -1,0 +1,530 @@
+{
+  "book": "joshua",
+  "chapters": {
+    "1": [
+      {
+        "title": "Be Strong and Courageous",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Orders to Cross",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The People Pledge",
+        "verseRange": [
+          16,
+          18
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Spies Sent to Jericho",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Rahab's Faith",
+        "verseRange": [
+          8,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Scarlet Cord",
+        "verseRange": [
+          15,
+          24
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "To the Jordan",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Waters Stop",
+        "verseRange": [
+          9,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Twelve Stones",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Memorial at Gilgal",
+        "verseRange": [
+          15,
+          24
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Circumcision at Gilgal",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "First Passover in the Land",
+        "verseRange": [
+          10,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Commander of the Army",
+        "verseRange": [
+          13,
+          15
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Marching Orders",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Walls Fall",
+        "verseRange": [
+          15,
+          21
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Rahab Spared",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Defeat at Ai",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Sin in the Camp",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Achan Exposed",
+        "verseRange": [
+          16,
+          26
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "The Ambush Plan",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Ai Destroyed",
+        "verseRange": [
+          14,
+          29
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Covenant at Mount Ebal",
+        "verseRange": [
+          30,
+          35
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "The Gibeonite Deception",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Treaty Stands",
+        "verseRange": [
+          16,
+          27
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "The Sun Stands Still",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Five Kings in a Cave",
+        "verseRange": [
+          16,
+          28
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Southern Campaign",
+        "verseRange": [
+          29,
+          43
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "The Northern Coalition",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Whole Land Taken",
+        "verseRange": [
+          10,
+          23
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Kings East of the Jordan",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Kings West of the Jordan",
+        "verseRange": [
+          7,
+          24
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Land Yet to Be Taken",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Eastern Inheritance",
+        "verseRange": [
+          8,
+          33
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Dividing the Inheritance",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Caleb's Mountain",
+        "verseRange": [
+          6,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Judah's Borders",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Caleb and Aksah",
+        "verseRange": [
+          13,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Judah's Towns",
+        "verseRange": [
+          20,
+          63
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Ephraim's Inheritance",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Manasseh's Inheritance",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Joseph Tribes Push Back",
+        "verseRange": [
+          14,
+          18
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "The Tent at Shiloh",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Benjamin's Territory",
+        "verseRange": [
+          11,
+          28
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "The Remaining Tribes",
+        "verseRange": [
+          1,
+          48
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Joshua's Own Town",
+        "verseRange": [
+          49,
+          51
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Cities of Refuge",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Towns for the Levites",
+        "verseRange": [
+          1,
+          42
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Not One Promise Failed",
+        "verseRange": [
+          43,
+          45
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "The Eastern Tribes Go Home",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Altar of Witness",
+        "verseRange": [
+          10,
+          34
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Joshua's Farewell",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "The Covenant at Shechem",
+        "verseRange": [
+          1,
+          28
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Three Burials",
+        "verseRange": [
+          29,
+          33
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ]
+  }
+}

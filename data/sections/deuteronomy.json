@@ -1,0 +1,991 @@
+{
+  "book": "deuteronomy",
+  "chapters": {
+    "1": [
+      {
+        "title": "Introduction",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Command to Leave Horeb",
+        "verseRange": [
+          6,
+          8
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Appointment of Leaders",
+        "verseRange": [
+          9,
+          18
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Failed Entry into Canaan",
+        "verseRange": [
+          19,
+          46
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Journey Through Edom and Moab",
+        "verseRange": [
+          1,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Defeat of Sihon",
+        "verseRange": [
+          24,
+          37
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Defeat of Og",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Land East of Jordan Divided",
+        "verseRange": [
+          12,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Moses Forbidden to Enter",
+        "verseRange": [
+          21,
+          29
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Obedience Commanded",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Warning Against Idolatry",
+        "verseRange": [
+          15,
+          31
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Lord Alone is God",
+        "verseRange": [
+          32,
+          40
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Cities of Refuge",
+        "verseRange": [
+          41,
+          43
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Introduction to the Law",
+        "verseRange": [
+          44,
+          49
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "The Ten Commandments",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Moses as Mediator",
+        "verseRange": [
+          22,
+          33
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "The Greatest Commandment",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Caution Against Forgetting",
+        "verseRange": [
+          10,
+          19
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Teaching Children",
+        "verseRange": [
+          20,
+          25
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Destroy the Nations",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Blessings for Obedience",
+        "verseRange": [
+          12,
+          26
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Remember the Wilderness",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Warning Against Pride",
+        "verseRange": [
+          11,
+          20
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Not Because of Righteousness",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Golden Calf Remembered",
+        "verseRange": [
+          7,
+          21
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Moses' Intercession",
+        "verseRange": [
+          22,
+          29
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "New Tablets and the Ark",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Fear and Love the Lord",
+        "verseRange": [
+          12,
+          22
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Love and Obey the Lord",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Blessings and Curses",
+        "verseRange": [
+          13,
+          25
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Blessings on Gerizim and Ebal",
+        "verseRange": [
+          26,
+          32
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "One Place of Worship",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Eating Meat",
+        "verseRange": [
+          15,
+          28
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Warning Against Idolatry",
+        "verseRange": [
+          29,
+          32
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "False Prophets",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Family Members Who Entice",
+        "verseRange": [
+          6,
+          11
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Apostate Cities",
+        "verseRange": [
+          12,
+          18
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Clean and Unclean Food",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Tithes",
+        "verseRange": [
+          22,
+          29
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Year of Release",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Hebrew Servants",
+        "verseRange": [
+          12,
+          18
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Firstborn Animals",
+        "verseRange": [
+          19,
+          23
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Passover",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Feast of Weeks and Booths",
+        "verseRange": [
+          9,
+          17
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Judges and Justice",
+        "verseRange": [
+          18,
+          20
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Forbidden Worship",
+        "verseRange": [
+          21,
+          22
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Acceptable Sacrifices",
+        "verseRange": [
+          1,
+          1
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Idolaters Must Die",
+        "verseRange": [
+          2,
+          7
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Hard Cases for Priests",
+        "verseRange": [
+          8,
+          13
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Laws Concerning Kings",
+        "verseRange": [
+          14,
+          20
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Provision for Levites",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Detestable Practices",
+        "verseRange": [
+          9,
+          14
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Prophet Like Moses",
+        "verseRange": [
+          15,
+          22
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Cities of Refuge",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Boundary Stones",
+        "verseRange": [
+          14,
+          14
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Witnesses",
+        "verseRange": [
+          15,
+          21
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Laws for Warfare",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Distant Cities",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Cities in Canaan",
+        "verseRange": [
+          16,
+          18
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Trees in Siege",
+        "verseRange": [
+          19,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Unsolved Murder",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Female Captives",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Rights of Firstborn",
+        "verseRange": [
+          15,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Rebellious Son",
+        "verseRange": [
+          18,
+          21
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Hanged on a Tree",
+        "verseRange": [
+          22,
+          23
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Various Laws",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Laws About Sexual Purity",
+        "verseRange": [
+          13,
+          30
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Exclusion from Assembly",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Cleanliness in Camp",
+        "verseRange": [
+          9,
+          14
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Miscellaneous Laws",
+        "verseRange": [
+          15,
+          25
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Laws About Divorce",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Miscellaneous Laws",
+        "verseRange": [
+          5,
+          22
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "Flogging",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Oxen and Levirate Marriage",
+        "verseRange": [
+          4,
+          10
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Various Laws",
+        "verseRange": [
+          11,
+          16
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Blot Out Amalek",
+        "verseRange": [
+          17,
+          19
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Firstfruits and Tithes",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Covenant Reaffirmed",
+        "verseRange": [
+          16,
+          19
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "The Altar on Mount Ebal",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Curses from Mount Ebal",
+        "verseRange": [
+          11,
+          26
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "Blessings for Obedience",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Curses for Disobedience",
+        "verseRange": [
+          15,
+          68
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "29": [
+      {
+        "title": "Review of God's Faithfulness",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Covenant in Moab",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Warning Against Idolatry",
+        "verseRange": [
+          16,
+          29
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "30": [
+      {
+        "title": "Restoration Promised",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Choice of Life or Death",
+        "verseRange": [
+          11,
+          20
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "31": [
+      {
+        "title": "Joshua Commissioned",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Reading of the Law",
+        "verseRange": [
+          9,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Israel's Rebellion Predicted",
+        "verseRange": [
+          14,
+          23
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Law Placed in the Ark",
+        "verseRange": [
+          24,
+          29
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "32": [
+      {
+        "title": "Song of Moses: Introduction",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "God's Care for Israel",
+        "verseRange": [
+          7,
+          14
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Israel's Rebellion",
+        "verseRange": [
+          15,
+          25
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "God's Judgment and Mercy",
+        "verseRange": [
+          26,
+          43
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Moses to Die on Mount Nebo",
+        "verseRange": [
+          44,
+          52
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "33": [
+      {
+        "title": "Introduction to Blessings",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Blessings on Tribes",
+        "verseRange": [
+          6,
+          25
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Conclusion",
+        "verseRange": [
+          26,
+          29
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "34": [
+      {
+        "title": "Moses Views the Promised Land",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Death of Moses",
+        "verseRange": [
+          5,
+          8
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Joshua Succeeds Moses",
+        "verseRange": [
+          9,
+          12
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ]
+  }
+}

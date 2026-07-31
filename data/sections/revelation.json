@@ -1,0 +1,607 @@
+{
+  "book": "revelation",
+  "chapters": {
+    "1": [
+      {
+        "title": "Prologue",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Greeting to Seven Churches",
+        "verseRange": [
+          4,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "John's Vision on Patmos",
+        "verseRange": [
+          9,
+          11
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Vision of the Son of Man",
+        "verseRange": [
+          12,
+          16
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Christ's Commission to John",
+        "verseRange": [
+          17,
+          20
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "To Ephesus: Lost First Love",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "To Smyrna: Faithful in Suffering",
+        "verseRange": [
+          8,
+          11
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "To Pergamum: Where Satan Dwells",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "To Thyatira: Tolerating Jezebel",
+        "verseRange": [
+          18,
+          29
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "To Sardis: Wake Up",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "To Philadelphia: Open Door",
+        "verseRange": [
+          7,
+          13
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "To Laodicea: Lukewarm",
+        "verseRange": [
+          14,
+          22
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "The Throne in Heaven",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "The Twenty-Four Elders",
+        "verseRange": [
+          4,
+          8
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Four Living Creatures",
+        "verseRange": [
+          9,
+          11
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "The Scroll and the Lamb",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The New Song",
+        "verseRange": [
+          8,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "First Four Seals: The Four Horsemen",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Fifth Seal: Souls Under the Altar",
+        "verseRange": [
+          9,
+          11
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Sixth Seal: Cosmic Upheaval",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "144,000 Sealed from Israel",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Great Multitude from Every Nation",
+        "verseRange": [
+          9,
+          17
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Seventh Seal: Silence in Heaven",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "First Four Trumpets",
+        "verseRange": [
+          6,
+          13
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Fifth Trumpet: Demonic Locusts",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Sixth Trumpet: Army from the Euphrates",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "The Angel and the Little Scroll",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "John Eats the Scroll",
+        "verseRange": [
+          8,
+          11
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "The Two Witnesses",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Death and Resurrection of Witnesses",
+        "verseRange": [
+          7,
+          14
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Seventh Trumpet: Kingdom Proclaimed",
+        "verseRange": [
+          15,
+          19
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "The Woman and the Dragon",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "War in Heaven",
+        "verseRange": [
+          7,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Dragon Persecutes the Woman",
+        "verseRange": [
+          13,
+          17
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "The Beast from the Sea",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "The Beast from the Earth",
+        "verseRange": [
+          11,
+          18
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "The Lamb and 144,000 on Mount Zion",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Three Angels' Messages",
+        "verseRange": [
+          6,
+          13
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Harvest of the Earth",
+        "verseRange": [
+          14,
+          20
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Seven Angels with Seven Last Plagues",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Temple Opened",
+        "verseRange": [
+          5,
+          8
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "First Four Bowls",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Fifth and Sixth Bowls",
+        "verseRange": [
+          10,
+          16
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Seventh Bowl: It Is Done",
+        "verseRange": [
+          17,
+          21
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "The Great Prostitute Babylon",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Mystery Explained",
+        "verseRange": [
+          7,
+          18
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Babylon's Fall Announced",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Lament for Babylon",
+        "verseRange": [
+          9,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Finality of Babylon's Fall",
+        "verseRange": [
+          20,
+          24
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Hallelujah Chorus",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "The Wedding Supper of the Lamb",
+        "verseRange": [
+          6,
+          10
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "The Rider on the White Horse",
+        "verseRange": [
+          11,
+          16
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Defeat of the Beast and False Prophet",
+        "verseRange": [
+          17,
+          21
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "The Thousand Year Reign",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Satan's Final Rebellion",
+        "verseRange": [
+          7,
+          10
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "The Great White Throne Judgment",
+        "verseRange": [
+          11,
+          15
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "A New Heaven and a New Earth",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "The New Jerusalem",
+        "verseRange": [
+          9,
+          21
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "The Glory of the New Jerusalem",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Eden Restored",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Jesus is Coming",
+        "verseRange": [
+          6,
+          16
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Invitation",
+        "verseRange": [
+          17,
+          21
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ]
+  }
+}

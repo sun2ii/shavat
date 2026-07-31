@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getNTSections } from '@/lib/extractSections';
+import { getAllSections } from '@/lib/sections';
 import { BIBLE_INDEX, getBooksByCategory } from '@/lib/bible-index';
 import NTBookSection from '@/components/NTBookSection';
 
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function NTTableOfContents() {
-  const allSections = getNTSections();
+  const allSections = getAllSections();
 
   // Group NT books by category (excluding Gospels - they have their own page)
   const acts = BIBLE_INDEX.filter(b => b.category === 'acts');

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getNTSections } from '@/lib/extractSections';
+import { getAllSections } from '@/lib/sections';
 import { BIBLE_INDEX } from '@/lib/bible-index';
 import NTBookSection from '@/components/NTBookSection';
 
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function GospelsTableOfContents() {
-  const allSections = getNTSections();
+  const allSections = getAllSections();
 
   // Get the 4 Gospels
   const gospels = BIBLE_INDEX.filter(b => b.category === 'gospels');

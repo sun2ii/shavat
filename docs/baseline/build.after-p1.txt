@@ -1,0 +1,147 @@
+
+> shavat@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+
+   Creating an optimized production build ...
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+
+./app/layout.tsx
+44:9  Warning: Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+
+./components/RoutePersistence.tsx
+24:6  Warning: React Hook useEffect has missing dependencies: 'pathname' and 'router'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/85) ...
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+   Generating static pages (21/85) 
+   Generating static pages (42/85) 
+   Generating static pages (63/85) 
+ ✓ Generating static pages (85/85)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                               Size     First Load JS
+┌ ○ /                                     367 B           100 kB
+├ ○ /_not-found                           883 B          92.1 kB
+├ ƒ /[book]/[...slug]                     160 B          91.4 kB
+├ ○ /1-chronicles                         369 B           100 kB
+├ ○ /1-corinthians                        368 B           100 kB
+├ ○ /1-john                               368 B           100 kB
+├ ○ /1-kings                              368 B           100 kB
+├ ○ /1-peter                              367 B           100 kB
+├ ○ /1-samuel                             368 B           100 kB
+├ ○ /1-thessalonians                      367 B           100 kB
+├ ○ /1-timothy                            367 B           100 kB
+├ ○ /2-chronicles                         367 B           100 kB
+├ ○ /2-corinthians                        368 B           100 kB
+├ ○ /2-john                               367 B           100 kB
+├ ○ /2-kings                              367 B           100 kB
+├ ○ /2-peter                              366 B           100 kB
+├ ○ /2-samuel                             367 B           100 kB
+├ ○ /2-thessalonians                      367 B           100 kB
+├ ○ /2-timothy                            367 B           100 kB
+├ ○ /3-john                               367 B           100 kB
+├ ○ /acts                                 367 B           100 kB
+├ ○ /amos                                 367 B           100 kB
+├ ƒ /api/bookmarks                        0 B                0 B
+├ ƒ /api/studio/commit                    0 B                0 B
+├ ƒ /api/studio/draft                     0 B                0 B
+├ ○ /chronology                           160 B          91.4 kB
+├ ○ /colossians                           368 B           100 kB
+├ ○ /daniel                               367 B           100 kB
+├ ○ /deuteronomy                          367 B           100 kB
+├ ○ /ecclesiastes                         368 B           100 kB
+├ ○ /ephesians                            369 B           100 kB
+├ ○ /esther                               368 B           100 kB
+├ ○ /exodus                               366 B           100 kB
+├ ○ /ezekiel                              367 B           100 kB
+├ ○ /ezra                                 367 B           100 kB
+├ ○ /galatians                            367 B           100 kB
+├ ƒ /genesis/[...slug]                    160 B          91.4 kB
+├ ○ /gospels-toc                          140 B           102 kB
+├ ○ /habakkuk                             368 B           100 kB
+├ ○ /haggai                               367 B           100 kB
+├ ○ /hebrews                              368 B           100 kB
+├ ○ /highlights                           1.82 kB         102 kB
+├ ○ /hosea                                368 B           100 kB
+├ ○ /isaiah                               367 B           100 kB
+├ ○ /james                                368 B           100 kB
+├ ○ /jeremiah                             368 B           100 kB
+├ ○ /job                                  367 B           100 kB
+├ ○ /joel                                 368 B           100 kB
+├ ○ /john                                 368 B           100 kB
+├ ○ /jonah                                367 B           100 kB
+├ ○ /joshua                               367 B           100 kB
+├ ○ /jude                                 367 B           100 kB
+├ ○ /judges                               368 B           100 kB
+├ ○ /lamentations                         368 B           100 kB
+├ ○ /leviticus                            367 B           100 kB
+├ ○ /library                              160 B          91.4 kB
+├ ƒ /library/[category]                   6.63 kB         140 kB
+├ ○ /luke                                 368 B           100 kB
+├ ○ /malachi                              367 B           100 kB
+├ ○ /map                                  368 B           100 kB
+├ ○ /mark                                 368 B           100 kB
+├ ○ /matthew                              367 B           100 kB
+├ ○ /micah                                367 B           100 kB
+├ ○ /nahum                                367 B           100 kB
+├ ○ /nehemiah                             367 B           100 kB
+├ ○ /nt-toc                               140 B           102 kB
+├ ƒ /nt/[book]/[[...slug]]                156 B           154 kB
+├ ○ /numbers                              367 B           100 kB
+├ ○ /obadiah                              368 B           100 kB
+├ ƒ /ot/[book]/[[...slug]]                156 B           154 kB
+├ ƒ /ot/genesis/[...slug]                 2.31 kB         111 kB
+├ ƒ /ot/psalms/[...slug]                  1.5 kB          107 kB
+├ ○ /philemon                             367 B           100 kB
+├ ○ /philippians                          367 B           100 kB
+├ ○ /proverbs                             368 B           100 kB
+├ ○ /psalms                               367 B           100 kB
+├ ƒ /psalms/[...slug]                     160 B          91.4 kB
+├ ○ /revelation                           367 B           100 kB
+├ ○ /romans                               368 B           100 kB
+├ ○ /ruth                                 366 B           100 kB
+├ ○ /song-of-solomon                      368 B           100 kB
+├ ƒ /studio                               9.82 kB         110 kB
+├ ○ /titus                                368 B           100 kB
+├ ○ /torah-toc                            140 B           102 kB
+├ ○ /writings                             369 B           100 kB
+├ ƒ /writings/[book]                      711 B           101 kB
+├ ƒ /writings/[book]/[division]           368 B           100 kB
+├ ○ /writings/joshua/first-tests          734 B           101 kB
+├ ○ /writings/joshua/formation            734 B           101 kB
+├ ○ /writings/joshua/inheritance          734 B           101 kB
+├ ○ /writings/joshua/legacy               735 B           101 kB
+├ ○ /writings/joshua/possess              734 B           101 kB
+├ ○ /writings/joshua/shiloh               734 B           101 kB
+├ ○ /writings/judges/unfinished-conquest  734 B           101 kB
+├ ○ /zechariah                            368 B           100 kB
+└ ○ /zephaniah                            368 B           100 kB
++ First Load JS shared by all             91.2 kB
+  ├ chunks/2117-554a6fde9f5b5fef.js       31.9 kB
+  ├ chunks/fd9d1056-d1b1716b4e5b25f7.js   53.7 kB
+  └ other shared chunks (total)           5.64 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

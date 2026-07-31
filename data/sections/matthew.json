@@ -1,0 +1,1195 @@
+{
+  "book": "matthew",
+  "chapters": {
+    "1": [
+      {
+        "title": "The Genealogy",
+        "verseRange": [
+          1,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Birth of Jesus",
+        "verseRange": [
+          18,
+          25
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "The Magi Visit",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Escape to Egypt",
+        "verseRange": [
+          13,
+          18
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Return to Nazareth",
+        "verseRange": [
+          19,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "John the Baptist Prepares the Way",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "The Baptism of Jesus",
+        "verseRange": [
+          13,
+          17
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "The Temptation",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Jesus Begins His Ministry",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Jesus Calls the First Disciples",
+        "verseRange": [
+          18,
+          22
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Jesus Heals the Sick",
+        "verseRange": [
+          23,
+          25
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Beatitudes",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Salt and Light",
+        "verseRange": [
+          13,
+          16
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Fulfilling the Law",
+        "verseRange": [
+          17,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Teaching on Anger",
+        "verseRange": [
+          21,
+          26
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Teaching on Adultery",
+        "verseRange": [
+          27,
+          30
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Teaching on Divorce",
+        "verseRange": [
+          31,
+          32
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Teaching on Oaths",
+        "verseRange": [
+          33,
+          37
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Eye for Eye",
+        "verseRange": [
+          38,
+          42
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Love for Enemies",
+        "verseRange": [
+          43,
+          48
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Giving to the Needy",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Teaching on Prayer",
+        "verseRange": [
+          5,
+          15
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Teaching on Fasting",
+        "verseRange": [
+          16,
+          18
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Treasures in Heaven",
+        "verseRange": [
+          19,
+          24
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Do Not Worry",
+        "verseRange": [
+          25,
+          34
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Judging Others",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Ask, Seek, Knock",
+        "verseRange": [
+          7,
+          12
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Narrow and Wide Gates",
+        "verseRange": [
+          13,
+          14
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "True and False Prophets",
+        "verseRange": [
+          15,
+          23
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Wise and Foolish Builders",
+        "verseRange": [
+          24,
+          29
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Jesus Heals a Leper",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "The Centurion's Faith",
+        "verseRange": [
+          5,
+          13
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Many Healed",
+        "verseRange": [
+          14,
+          17
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "The Cost of Following Jesus",
+        "verseRange": [
+          18,
+          22
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Jesus Calms the Storm",
+        "verseRange": [
+          23,
+          27
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Demon-Possessed Men",
+        "verseRange": [
+          28,
+          34
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Jesus Heals a Paralytic",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Call of Matthew",
+        "verseRange": [
+          9,
+          13
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Question About Fasting",
+        "verseRange": [
+          14,
+          17
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "A Dead Girl and a Sick Woman",
+        "verseRange": [
+          18,
+          26
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Jesus Heals the Blind and Mute",
+        "verseRange": [
+          27,
+          34
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "The Workers Are Few",
+        "verseRange": [
+          35,
+          38
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "The Twelve Apostles",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Jesus Sends Out the Twelve",
+        "verseRange": [
+          5,
+          15
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Sheep Among Wolves",
+        "verseRange": [
+          16,
+          23
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Do Not Fear",
+        "verseRange": [
+          24,
+          33
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Not Peace but a Sword",
+        "verseRange": [
+          34,
+          42
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "John the Baptist's Question",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jesus Testifies About John",
+        "verseRange": [
+          7,
+          19
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Woe to Unrepentant Cities",
+        "verseRange": [
+          20,
+          24
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Come to Me and Rest",
+        "verseRange": [
+          25,
+          30
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Lord of the Sabbath",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "God's Chosen Servant",
+        "verseRange": [
+          15,
+          21
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Jesus and Beelzebul",
+        "verseRange": [
+          22,
+          37
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Sign of Jonah",
+        "verseRange": [
+          38,
+          45
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Jesus' Mother and Brothers",
+        "verseRange": [
+          46,
+          50
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Parable of the Sower",
+        "verseRange": [
+          1,
+          23
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Parable of the Weeds",
+        "verseRange": [
+          24,
+          30
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Parables of Mustard Seed and Yeast",
+        "verseRange": [
+          31,
+          35
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Parable of the Weeds Explained",
+        "verseRange": [
+          36,
+          43
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Parables of Hidden Treasure, Pearl, and Net",
+        "verseRange": [
+          44,
+          52
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Prophet Without Honor",
+        "verseRange": [
+          53,
+          58
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "John the Baptist Beheaded",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Jesus Feeds the Five Thousand",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Jesus Walks on Water",
+        "verseRange": [
+          22,
+          36
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Clean and Unclean",
+        "verseRange": [
+          1,
+          20
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "The Canaanite Woman's Faith",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Jesus Feeds the Four Thousand",
+        "verseRange": [
+          29,
+          39
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "The Pharisees and Sadducees Demand a Sign",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Yeast of the Pharisees",
+        "verseRange": [
+          5,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Peter's Confession of Christ",
+        "verseRange": [
+          13,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jesus Predicts His Death",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "The Transfiguration",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Jesus Heals a Demon-Possessed Boy",
+        "verseRange": [
+          14,
+          21
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Jesus Predicts His Death Again",
+        "verseRange": [
+          22,
+          23
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Temple Tax",
+        "verseRange": [
+          24,
+          27
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "The Greatest in the Kingdom",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Parable of the Lost Sheep",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Dealing with Sin in the Church",
+        "verseRange": [
+          15,
+          20
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "The Parable of the Unmerciful Servant",
+        "verseRange": [
+          21,
+          35
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Divorce",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Jesus Blesses Little Children",
+        "verseRange": [
+          13,
+          15
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Rich Young Man",
+        "verseRange": [
+          16,
+          30
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "The Parable of the Workers in the Vineyard",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Jesus Predicts His Death a Third Time",
+        "verseRange": [
+          17,
+          19
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "The Request of James and John",
+        "verseRange": [
+          20,
+          28
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Two Blind Men Receive Sight",
+        "verseRange": [
+          29,
+          34
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "The Triumphal Entry",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jesus Clears the Temple",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Jesus Curses a Fig Tree",
+        "verseRange": [
+          18,
+          22
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "The Authority of Jesus Questioned",
+        "verseRange": [
+          23,
+          27
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "The Parable of the Two Sons",
+        "verseRange": [
+          28,
+          32
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Parable of the Tenants",
+        "verseRange": [
+          33,
+          46
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "The Parable of the Wedding Banquet",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Paying Taxes to Caesar",
+        "verseRange": [
+          15,
+          22
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Marriage at the Resurrection",
+        "verseRange": [
+          23,
+          33
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "The Greatest Commandment",
+        "verseRange": [
+          34,
+          40
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Whose Son is the Christ?",
+        "verseRange": [
+          41,
+          46
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Warning Against Hypocrisy",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Seven Woes to the Pharisees",
+        "verseRange": [
+          13,
+          36
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Lament Over Jerusalem",
+        "verseRange": [
+          37,
+          39
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Signs of the End",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Great Tribulation",
+        "verseRange": [
+          15,
+          28
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Coming of the Son of Man",
+        "verseRange": [
+          29,
+          35
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "No One Knows the Day",
+        "verseRange": [
+          36,
+          51
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "The Parable of the Ten Virgins",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "The Parable of the Talents",
+        "verseRange": [
+          14,
+          30
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Sheep and the Goats",
+        "verseRange": [
+          31,
+          46
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Plot to Kill Jesus",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Anointing at Bethany",
+        "verseRange": [
+          6,
+          13
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Judas Agrees to Betray",
+        "verseRange": [
+          14,
+          16
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "The Last Supper",
+        "verseRange": [
+          17,
+          30
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Jesus Predicts Peter's Denial",
+        "verseRange": [
+          31,
+          35
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Gethsemane",
+        "verseRange": [
+          36,
+          46
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Jesus Arrested",
+        "verseRange": [
+          47,
+          56
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Before the Sanhedrin",
+        "verseRange": [
+          57,
+          68
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Peter Denies Jesus",
+        "verseRange": [
+          69,
+          75
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "Judas Hangs Himself",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Jesus Before Pilate",
+        "verseRange": [
+          11,
+          26
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "The Soldiers Mock Jesus",
+        "verseRange": [
+          27,
+          31
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Crucifixion",
+        "verseRange": [
+          32,
+          44
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "The Death of Jesus",
+        "verseRange": [
+          45,
+          56
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Burial of Jesus",
+        "verseRange": [
+          57,
+          66
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "The Resurrection",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "The Guards' Report",
+        "verseRange": [
+          11,
+          15
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "The Great Commission",
+        "verseRange": [
+          16,
+          20
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ]
+  }
+}

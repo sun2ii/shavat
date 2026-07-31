@@ -6,6 +6,8 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    // section color classes (bg-*/border-*) live in data, not source
+    "./data/sections/**/*.json",
   ],
   theme: {
     extend: {

@@ -1,0 +1,808 @@
+{
+  "book": "acts",
+  "chapters": {
+    "1": [
+      {
+        "title": "Jesus Taken Up Into Heaven",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Apostles Wait in Prayer",
+        "verseRange": [
+          12,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Matthias Chosen to Replace Judas",
+        "verseRange": [
+          15,
+          26
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "The Holy Spirit Comes at Pentecost",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Peter's Sermon",
+        "verseRange": [
+          14,
+          36
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Fellowship of Believers",
+        "verseRange": [
+          37,
+          47
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Peter Heals a Lame Beggar",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Peter Speaks to the Onlookers",
+        "verseRange": [
+          11,
+          26
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Peter and John Before the Sanhedrin",
+        "verseRange": [
+          1,
+          22
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "The Believers' Prayer",
+        "verseRange": [
+          23,
+          31
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Believers Share Everything",
+        "verseRange": [
+          32,
+          37
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Ananias and Sapphira",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Apostles Heal Many",
+        "verseRange": [
+          12,
+          16
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "The Apostles Persecuted",
+        "verseRange": [
+          17,
+          42
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "The Choosing of the Seven",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Stephen Seized",
+        "verseRange": [
+          8,
+          15
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Stephen's Speech: The Patriarchs",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Moses and the Exodus",
+        "verseRange": [
+          17,
+          43
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "The Tabernacle and Solomon's Temple",
+        "verseRange": [
+          44,
+          50
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Israel's Resistance and Stephen's Martyrdom",
+        "verseRange": [
+          51,
+          60
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "The Church Persecuted and Scattered",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Philip in Samaria",
+        "verseRange": [
+          4,
+          8
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Simon the Sorcerer",
+        "verseRange": [
+          9,
+          25
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Philip and the Ethiopian",
+        "verseRange": [
+          26,
+          40
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Saul's Conversion on the Road to Damascus",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Ananias and Saul",
+        "verseRange": [
+          10,
+          19
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Saul in Damascus and Jerusalem",
+        "verseRange": [
+          20,
+          31
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Aeneas and Dorcas",
+        "verseRange": [
+          32,
+          43
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Cornelius Calls for Peter",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Peter's Vision",
+        "verseRange": [
+          9,
+          23
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Peter at Cornelius's House",
+        "verseRange": [
+          24,
+          33
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "The Gentiles Receive the Holy Spirit",
+        "verseRange": [
+          34,
+          48
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Peter Explains His Actions",
+        "verseRange": [
+          1,
+          18
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Church in Antioch",
+        "verseRange": [
+          19,
+          30
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Peter's Miraculous Escape from Prison",
+        "verseRange": [
+          1,
+          19
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Herod's Death",
+        "verseRange": [
+          20,
+          25
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Barnabas and Saul Sent Off",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "On Cyprus",
+        "verseRange": [
+          4,
+          12
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "In Pisidian Antioch",
+        "verseRange": [
+          13,
+          43
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Rejection and Turn to the Gentiles",
+        "verseRange": [
+          44,
+          52
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "In Iconium",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "In Lystra and Derbe",
+        "verseRange": [
+          8,
+          20
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Return to Antioch in Syria",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "The Debate in Jerusalem",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "James's Judgment",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "The Council's Letter to Gentile Believers",
+        "verseRange": [
+          22,
+          35
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Paul and Barnabas Separate",
+        "verseRange": [
+          36,
+          41
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Timothy Joins Paul and Silas",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Paul's Vision of the Man of Macedonia",
+        "verseRange": [
+          6,
+          10
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Lydia's Conversion in Philippi",
+        "verseRange": [
+          11,
+          15
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Paul and Silas in Prison",
+        "verseRange": [
+          16,
+          40
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "In Thessalonica",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "In Berea",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "In Athens",
+        "verseRange": [
+          16,
+          34
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "In Corinth",
+        "verseRange": [
+          1,
+          17
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Priscilla, Aquila and Apollos",
+        "verseRange": [
+          18,
+          28
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Paul in Ephesus",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "The Sons of Sceva",
+        "verseRange": [
+          11,
+          20
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "The Riot in Ephesus",
+        "verseRange": [
+          21,
+          41
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Through Macedonia and Greece",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Eutychus Raised from the Dead at Troas",
+        "verseRange": [
+          7,
+          12
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Paul's Farewell to the Ephesian Elders",
+        "verseRange": [
+          13,
+          38
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "On to Jerusalem",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Paul's Arrival at Jerusalem",
+        "verseRange": [
+          17,
+          26
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Paul Arrested",
+        "verseRange": [
+          27,
+          40
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Paul Speaks to the Crowd",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Paul the Roman Citizen",
+        "verseRange": [
+          22,
+          30
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Paul Before the Sanhedrin",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Plot to Kill Paul",
+        "verseRange": [
+          12,
+          22
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Paul Transferred to Caesarea",
+        "verseRange": [
+          23,
+          35
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Paul's Trial Before Felix",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Paul's Two Years in Caesarea",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "Paul's Trial Before Festus",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Festus Consults King Agrippa",
+        "verseRange": [
+          13,
+          27
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Paul Before Agrippa",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Paul Recounts His Conversion",
+        "verseRange": [
+          12,
+          18
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Paul's Defense and Appeal",
+        "verseRange": [
+          19,
+          32
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "Paul Sails for Rome",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "The Storm",
+        "verseRange": [
+          13,
+          26
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "The Shipwreck",
+        "verseRange": [
+          27,
+          44
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "Ashore on Malta",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Paul's Arrival at Rome",
+        "verseRange": [
+          11,
+          16
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Paul Preaches at Rome Under Guard",
+        "verseRange": [
+          17,
+          31
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ]
+  }
+}

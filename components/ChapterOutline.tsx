@@ -3,7 +3,7 @@
 import { getChapterTheme } from '@/lib/chapter-themes';
 
 interface Section {
-  day: string;
+  title: string;
   verseRange: [number, number];
 }
 

@@ -1,0 +1,34 @@
+{
+  "book": "2-john",
+  "chapters": {
+    "1": [
+      {
+        "title": "Greeting and Love Command",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Warning Against Deceivers",
+        "verseRange": [
+          7,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Final Words",
+        "verseRange": [
+          12,
+          13
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ]
+  }
+}

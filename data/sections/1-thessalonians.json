@@ -1,0 +1,96 @@
+{
+  "book": "1-thessalonians",
+  "chapters": {
+    "1": [
+      {
+        "title": "Thanksgiving for the Thessalonians",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Paul's Ministry in Thessalonica",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Reception of the Gospel",
+        "verseRange": [
+          13,
+          20
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Paul's Longing to Visit",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Timothy's Encouraging Report",
+        "verseRange": [
+          6,
+          13
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Living to Please God",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "The Coming of the Lord",
+        "verseRange": [
+          13,
+          18
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "The Day of the Lord",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Final Instructions",
+        "verseRange": [
+          12,
+          28
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ]
+  }
+}

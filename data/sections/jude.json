@@ -1,0 +1,52 @@
+{
+  "book": "jude",
+  "chapters": {
+    "1": [
+      {
+        "title": "Greeting and Purpose",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Historical Examples of Judgment",
+        "verseRange": [
+          5,
+          7
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "False Teachers Condemned",
+        "verseRange": [
+          8,
+          16
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Call to Persevere",
+        "verseRange": [
+          17,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Doxology",
+        "verseRange": [
+          24,
+          25
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ]
+  }
+}

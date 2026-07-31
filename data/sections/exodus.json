@@ -1,0 +1,1174 @@
+{
+  "book": "exodus",
+  "chapters": {
+    "1": [
+      {
+        "title": "Israel Multiplies in Egypt",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Oppression Under New Pharaoh",
+        "verseRange": [
+          8,
+          14
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Hebrew Midwives Defy Pharaoh",
+        "verseRange": [
+          15,
+          22
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Birth and Rescue of Moses",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Moses Flees to Midian",
+        "verseRange": [
+          11,
+          22
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "God Hears Israel's Groaning",
+        "verseRange": [
+          23,
+          25
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "The Burning Bush",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "God's Commission to Moses",
+        "verseRange": [
+          7,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Name \"I AM\"",
+        "verseRange": [
+          13,
+          15
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Instructions for Deliverance",
+        "verseRange": [
+          16,
+          22
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Three Signs for Moses",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Moses' Objections and Aaron",
+        "verseRange": [
+          10,
+          17
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Return to Egypt",
+        "verseRange": [
+          18,
+          26
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Meeting with Elders",
+        "verseRange": [
+          27,
+          31
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "First Encounter with Pharaoh",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Increased Burdens",
+        "verseRange": [
+          6,
+          14
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Complaints Against Moses",
+        "verseRange": [
+          15,
+          23
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "God Renews His Promise",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Genealogy of Moses and Aaron",
+        "verseRange": [
+          10,
+          27
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Aaron's Staff",
+        "verseRange": [
+          28,
+          30
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Moses and Aaron's Commission",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Staff Becomes Serpent",
+        "verseRange": [
+          8,
+          13
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "First Plague: Water to Blood",
+        "verseRange": [
+          14,
+          25
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Second Plague: Frogs",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Third Plague: Gnats",
+        "verseRange": [
+          16,
+          19
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Fourth Plague: Flies",
+        "verseRange": [
+          20,
+          32
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Fifth Plague: Livestock Disease",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Sixth Plague: Boils",
+        "verseRange": [
+          8,
+          12
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Seventh Plague: Hail",
+        "verseRange": [
+          13,
+          35
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Eighth Plague: Locusts",
+        "verseRange": [
+          1,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Ninth Plague: Darkness",
+        "verseRange": [
+          21,
+          29
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Announcement of Final Plague",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Institution of Passover",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Festival of Unleavened Bread",
+        "verseRange": [
+          14,
+          20
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Tenth Plague: Death of Firstborn",
+        "verseRange": [
+          21,
+          30
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Exodus Begins",
+        "verseRange": [
+          31,
+          42
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Passover Regulations",
+        "verseRange": [
+          43,
+          51
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Consecration of Firstborn",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Pillar of Cloud and Fire",
+        "verseRange": [
+          17,
+          22
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Pharaoh Pursues Israel",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Fear and Faith",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Crossing the Red Sea",
+        "verseRange": [
+          15,
+          25
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Destruction of Egyptian Army",
+        "verseRange": [
+          26,
+          31
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Song of Moses",
+        "verseRange": [
+          1,
+          18
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Song of Miriam",
+        "verseRange": [
+          19,
+          21
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Bitter Water Made Sweet",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Grumbling in the Wilderness",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Promise of Manna and Quail",
+        "verseRange": [
+          4,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Gathering Manna",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Sabbath Rest",
+        "verseRange": [
+          22,
+          30
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Manna Preserved",
+        "verseRange": [
+          31,
+          36
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Water from the Rock",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Victory over Amalek",
+        "verseRange": [
+          8,
+          16
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Jethro Visits Moses",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jethro's Counsel",
+        "verseRange": [
+          13,
+          27
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Arrival at Sinai",
+        "verseRange": [
+          1,
+          2
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Covenant Proposal",
+        "verseRange": [
+          3,
+          8
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Consecration of the People",
+        "verseRange": [
+          9,
+          15
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "The Lord Descends on Sinai",
+        "verseRange": [
+          16,
+          25
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "The Ten Commandments",
+        "verseRange": [
+          1,
+          17
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The People's Fear",
+        "verseRange": [
+          18,
+          21
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Laws about Worship",
+        "verseRange": [
+          22,
+          26
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Laws about Servants",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Laws about Violence",
+        "verseRange": [
+          12,
+          27
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Laws about Property Damage",
+        "verseRange": [
+          28,
+          36
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Laws about Theft and Restitution",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Social and Moral Laws",
+        "verseRange": [
+          16,
+          31
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Laws about Justice",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Sabbath and Festival Laws",
+        "verseRange": [
+          10,
+          19
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "The Angel and the Promise",
+        "verseRange": [
+          20,
+          33
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Covenant Ceremony",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Moses on the Mountain",
+        "verseRange": [
+          9,
+          18
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "Offerings for the Tabernacle",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "The Ark of the Covenant",
+        "verseRange": [
+          10,
+          22
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Table and Lampstand",
+        "verseRange": [
+          23,
+          40
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Tabernacle Curtains",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Framework and Veil",
+        "verseRange": [
+          15,
+          37
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "The Altar of Burnt Offering",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Courtyard",
+        "verseRange": [
+          9,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Oil for the Lampstand",
+        "verseRange": [
+          20,
+          21
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "Garments for the Priests",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "The Ephod",
+        "verseRange": [
+          6,
+          14
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "The Breastpiece",
+        "verseRange": [
+          15,
+          30
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Other Priestly Garments",
+        "verseRange": [
+          31,
+          43
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "29": [
+      {
+        "title": "Consecration of Priests",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Offerings for Ordination",
+        "verseRange": [
+          10,
+          28
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Daily Offerings",
+        "verseRange": [
+          29,
+          37
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "God's Promise to Dwell",
+        "verseRange": [
+          38,
+          46
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "30": [
+      {
+        "title": "Altar of Incense",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Census Tax",
+        "verseRange": [
+          11,
+          16
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Bronze Basin",
+        "verseRange": [
+          17,
+          21
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Anointing Oil and Incense",
+        "verseRange": [
+          22,
+          38
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "31": [
+      {
+        "title": "Craftsmen for the Tabernacle",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "The Sabbath Sign",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Two Tablets",
+        "verseRange": [
+          18,
+          18
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "32": [
+      {
+        "title": "The Golden Calf",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "God's Anger and Moses' Intercession",
+        "verseRange": [
+          7,
+          14
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Moses Destroys the Calf",
+        "verseRange": [
+          15,
+          24
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Levites' Zeal and Judgment",
+        "verseRange": [
+          25,
+          29
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Moses' Second Intercession",
+        "verseRange": [
+          30,
+          35
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "33": [
+      {
+        "title": "The Tent Outside the Camp",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Moses' Request for God's Presence",
+        "verseRange": [
+          12,
+          17
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "God's Glory Passes By",
+        "verseRange": [
+          18,
+          23
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "34": [
+      {
+        "title": "New Tablets",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Covenant Renewed",
+        "verseRange": [
+          10,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Moses' Radiant Face",
+        "verseRange": [
+          29,
+          35
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "35": [
+      {
+        "title": "Sabbath Regulations",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Offerings for the Tabernacle",
+        "verseRange": [
+          4,
+          29
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Bezalel and Oholiab",
+        "verseRange": [
+          30,
+          35
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "36": [
+      {
+        "title": "Abundant Contributions",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Construction of the Tabernacle",
+        "verseRange": [
+          8,
+          38
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "37": [
+      {
+        "title": "The Ark",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Table and Lampstand",
+        "verseRange": [
+          10,
+          24
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Altar of Incense and Anointing Oil",
+        "verseRange": [
+          25,
+          29
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "38": [
+      {
+        "title": "Altar and Basin",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "The Courtyard",
+        "verseRange": [
+          9,
+          20
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Materials Used",
+        "verseRange": [
+          21,
+          31
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "39": [
+      {
+        "title": "Priestly Garments",
+        "verseRange": [
+          1,
+          31
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Completion of the Tabernacle",
+        "verseRange": [
+          32,
+          43
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "40": [
+      {
+        "title": "Setting Up the Tabernacle",
+        "verseRange": [
+          1,
+          33
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "The Glory of the Lord Fills",
+        "verseRange": [
+          34,
+          38
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ]
+  }
+}

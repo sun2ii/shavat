@@ -2,7 +2,7 @@ import { notFound, redirect } from 'next/navigation';
 import { Metadata } from 'next';
 import { getChapter } from '@/lib/psalms';
 import { getCollectionById, getCollectionByPsalm } from '@/lib/psalms-collections';
-import GenesisReader from '@/components/GenesisReader';
+import BookReader from '@/components/BookReader';
 import ChapterNavPsalm from '@/components/ChapterNavPsalm';
 
 interface Props {
@@ -99,7 +99,7 @@ export default function PsalmsReadingPage({ params }: Props) {
           currentPsalm={psalmNum}
           collection={collection}
         />
-        <GenesisReader verses={verses} />
+        <BookReader verses={verses} />
       </main>
     );
   }

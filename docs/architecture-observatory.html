@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shavat — Architecture Observatory</title>
+<!--
+  ═══════════════════════════════════════════════════════════════════
+  BINARY1702 ARCHITECTURE OBSERVATORY · standard template
+
+  One file, three sections:
+    01 ARCHITECTURE  — what exists today          (changes infrequently)
+    02 EXECUTION     — what am I doing next        (checkboxes live here)
+    03 VERIFICATION  — has behavior changed        (it must not)
+
+  Names shown in the UI are free to change. localStorage keys
+  (shavat.map.*) and task ids are identity — never rename them.
+
+  To reuse in another repository: edit the DATA block at the top of
+  the <script>. The RENDER block below it should not need edits.
+  Update at brick boundaries. Values marked ⚙ are measured from the
+  repo — re-measure them, never hand-edit them.
+  ═══════════════════════════════════════════════════════════════════
+-->
+<style>
+  :root{
+    color-scheme:dark;
+    /* warm charcoal base — brown undertone, never blue-black */
+    --bg:#1F1E1B; --card:#262624; --ink:#F0EEE6; --muted:#A29E93;
+    --faint:#7D786D; --border:#3A3833; --border-soft:#302E2A;
+    --wash:#2E2C28;
+    /* semantic, warmed to sit on the palette */
+    --ok:#8AA372; --warn:#C79A4C; --bad:#C4644A; --info:#9AA6B4;
+    /* Claude terracotta — active nav, NEXT badge, links. Never large fills. */
+    --accent:#D97757; --on-accent:#1F1E1B;
+    --serif:"Copernicus","Tiempos Headline",Georgia,"Times New Roman",serif;
+    --sans:"Styrene B",-apple-system,system-ui,"Segoe UI",sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+    --lift:0 1px 2px rgba(0,0,0,.16);
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      color-scheme:light;
+      --bg:#FAF9F5; --card:#FFFFFF; --ink:#29261B; --muted:#6B6558;
+      --faint:#8B8477; --border:#E6E2D8; --border-soft:#EFECE4;
+      --wash:#F2EFE7;
+      --ok:#5E7A48; --warn:#8F6E1E; --bad:#B04A2C; --info:#5F7086;
+      --accent:#BC5A32; --on-accent:#FFFFFF;
+      --lift:0 1px 2px rgba(41,38,27,.06);
+    }
+  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:13.5px/1.6 var(--sans);padding:48px 28px 96px}
+  .wrap{max-width:1020px;margin:0 auto}
+  code{font-family:var(--mono);font-size:12px;background:var(--wash);padding:1px 6px;border-radius:6px}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(217,119,87,.35)}
+  a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  /* ── header ── */
+  h1{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:-.015em;line-height:1.2}
+  .sub{color:var(--muted);font-size:13px;margin-top:8px;max-width:70ch;text-wrap:pretty}
+  .constitution{margin-top:22px;padding:14px 0 0;border-top:1px solid var(--border);
+    font-size:12px;color:var(--muted);display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;align-items:baseline}
+  .constitution .ct{grid-column:1/-1;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .constitution span{color:var(--ink);opacity:.88;padding-left:14px;position:relative;text-wrap:pretty}
+  .constitution span::before{content:"·";position:absolute;left:2px;color:var(--accent)}
+  .constitution .ct::before{content:none}
+  @media(max-width:620px){.constitution{grid-template-columns:1fr}}
+
+  /* ── section nav (segmented) ── */
+  .secnav{display:flex;gap:4px;margin:32px 0 34px;border:1px solid var(--border);background:var(--card);border-radius:14px;padding:4px;width:fit-content}
+  .secnav button{border:0;background:transparent;border-radius:11px;padding:8px 18px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;display:flex;gap:8px;align-items:baseline;transition:color .15s}
+  .secnav button:hover{color:var(--ink)}
+  .secnav button .n{font-family:var(--mono);font-size:10px;color:var(--faint)}
+  .secnav button.on{background:var(--accent);color:var(--on-accent)}
+  .secnav button.on .n{color:inherit;opacity:.6}
+
+  section.map{display:none}
+  section.map.on{display:block}
+  .shead{margin-bottom:26px}
+  .shead h2{font-family:var(--serif);font-size:21px;font-weight:400;letter-spacing:-.01em;display:flex;gap:12px;align-items:baseline}
+  .shead h2 .n{font-family:var(--mono);font-size:11px;color:var(--faint)}
+  .shead .q{color:var(--muted);font-size:13px;margin-top:6px;max-width:78ch;text-wrap:pretty}
+
+  /* ── cards & micro-labels ── */
+  .card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--lift)}
+  .micro{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .note{font-size:12px;color:var(--muted);padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:var(--card);margin-bottom:18px;text-wrap:pretty}
+  .note b{color:var(--ink);font-weight:600}
+
+  /* ── scoreboard ── */
+  .score{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:12px}
+  .sc{border:1px solid var(--border);background:var(--card);border-radius:14px;padding:14px 16px;box-shadow:var(--lift)}
+  .sc .num{font:600 14px var(--mono)}
+  .sc .from{color:var(--bad)}.sc .to{color:var(--ok)}
+  .sc .lbl{font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:5px}
+  .gen{position:relative}
+  .gen::after{content:"⚙";font-size:9px;color:var(--faint);position:absolute;top:10px;right:12px}
+
+  /* ── health ── */
+  .health .hrow{display:flex;gap:14px;align-items:baseline;padding:9px 0;font-size:13px}
+  .health .hname{font-weight:600;min-width:190px}
+  .health .hwhy{color:var(--muted);font-size:12.5px;flex:1;text-wrap:pretty}
+  .health .flip{font-family:var(--mono);font-size:10.5px;color:var(--faint);white-space:nowrap}
+  .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:baseline}
+  .dot.g{background:var(--ok)}.dot.a{background:var(--warn)}.dot.r{background:var(--bad)}
+
+  /* ── sub-tabs inside Architecture ── */
+  .stabs{display:flex;gap:24px;border-bottom:1px solid var(--border);margin:30px 0 20px}
+  .stabs button{border:0;background:none;padding:0 2px 10px;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .stabs button:hover{color:var(--ink)}
+  .stabs button.on{color:var(--ink);border-bottom-color:var(--accent)}
+  .spane{display:none}.spane.on{display:block}
+
+  /* ── model cards ── */
+  .chain{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:18px 20px;margin-bottom:16px;font-family:var(--mono);font-size:12.5px;text-align:center;box-shadow:var(--lift)}
+  .chain .ov{color:var(--muted);font-size:12px;display:block;margin-top:9px;font-family:var(--sans);text-wrap:pretty}
+  .grid{column-width:255px;column-gap:14px}
+  .tbl{break-inside:avoid;margin-bottom:14px;border:1px solid var(--border);background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--lift)}
+  .tbl .hd{padding:10px 14px;font-weight:600;font-size:12.5px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .tbl .tag{font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .tbl .fields{padding:2px 14px 8px;font-size:10.5px;color:var(--muted);border-bottom:1px solid var(--border-soft);font-family:var(--mono)}
+  .rw{display:flex;justify-content:space-between;gap:10px;padding:6px 14px;font-size:11px;align-items:baseline}
+  .rw+.rw{border-top:1px solid var(--border-soft)}
+  .rw .addr{font-family:var(--mono);font-size:11px}
+  .rw .ty{color:var(--muted);font-size:10.5px;text-align:right;max-width:55%}
+  .rw.tgt{color:var(--muted);background:var(--wash)}
+  .rw.tgt .addr::before{content:"◌ "}
+
+  /* ── structure zones ── */
+  .zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .zone{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px 18px;box-shadow:var(--lift)}
+  .zt{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .it{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:6px 0;font-size:12px}
+  .it+.it{border-top:1px solid var(--border-soft)}
+  .it .nm{font-family:var(--mono);font-size:11.5px}
+  .it .why{color:var(--muted);font-size:10.5px;text-align:right;max-width:55%;text-wrap:pretty}
+  .it.fog{color:var(--muted)}
+  .it.fog .nm{color:var(--muted)}
+  .it.fog .nm::before{content:"◌ "}
+  .sec-lbl{margin-top:14px;padding-top:10px;border-top:1px solid var(--border);font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* ── flow ── */
+  .parallel{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:16px}
+  .parallel h3{font-family:var(--serif);font-size:15px;font-weight:400;margin-bottom:10px;text-align:center}
+  .fstrip{display:flex;flex-direction:column;gap:8px}
+  .stp{border:1px solid var(--border);background:var(--card);border-radius:12px;padding:9px 12px;cursor:pointer;text-align:center;transition:border-color .15s}
+  .stp:hover{border-color:var(--muted)}
+  .stp.on{border-color:var(--accent)}
+  .stp .n{font-family:var(--mono);font-size:9.5px;color:var(--faint)}
+  .stp .t{font-size:12px;font-weight:600;margin-top:2px}
+  .stp.fog{border-style:dashed;color:var(--muted)}
+  @media(max-width:768px){.parallel{grid-template-columns:1fr}}
+  .lanes{border:1px solid var(--border);background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--lift)}
+  .lane{display:grid;grid-template-columns:110px 1fr}
+  .lane+.lane{border-top:1px solid var(--border-soft)}
+  .lane .lt{padding:14px;font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-right:1px solid var(--border-soft);display:flex;align-items:center}
+  .lane .lc{padding:13px 16px;font-size:12.5px;min-height:52px;text-wrap:pretty}
+  .w{color:var(--bad);font-weight:600}.r{color:var(--ok);font-weight:600}.dim{color:var(--faint)}
+  .hint{margin-top:10px;font-size:11px;color:var(--faint);text-align:center}
+
+  /* ── execution: phases & tasks ── */
+  .exhead{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+  .exhead .leg{font-size:12px;color:var(--muted);max-width:60ch;text-wrap:pretty}
+  .filters{display:flex;gap:14px;font-size:11.5px;font-weight:500}
+  .filters label{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;color:var(--muted)}
+  .filters input{accent-color:var(--accent);cursor:pointer}
+  .phase{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:20px 22px;margin-bottom:16px;box-shadow:var(--lift)}
+  .ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .ph b{font-family:var(--serif);font-size:17px;font-weight:400;letter-spacing:-.01em}
+  .ph .pct{font-family:var(--mono);font-size:11px;color:var(--faint)}
+  .phase-note{font-size:12px;color:var(--muted);margin-top:5px;max-width:78ch;text-wrap:pretty}
+  .tasks{margin-top:14px}
+  .task{padding:10px 0;cursor:pointer}
+  .task+.task{border-top:1px solid var(--border-soft)}
+  .trow{display:flex;gap:10px;align-items:baseline}
+  .trow input{accent-color:var(--ok);pointer-events:none}
+  .trow .tx{font-size:13px}
+  .task.done .tx{color:var(--muted);text-decoration:line-through}
+  .task.done .tsub{display:none}
+  .who-tag{font-size:8.5px;font-weight:600;border-radius:999px;padding:3px 9px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;background:var(--wash);color:var(--muted)}
+  .who-tag.delete{color:var(--bad)}.who-tag.fix{color:var(--warn)}.who-tag.refactor{color:var(--info)}
+  .next{background:var(--accent);color:var(--on-accent);font-size:9px;font-weight:600;border-radius:999px;padding:3px 9px;letter-spacing:.04em}
+  .unlocks{margin-left:auto;font-size:10.5px;color:var(--faint);text-align:right;white-space:nowrap}
+  .tsub{margin:4px 0 0 26px;font-size:11.5px;color:var(--muted)}
+  .tsub .arr{color:var(--faint)}
+  .task.hidden{display:none}
+  details.risks{margin-top:16px}
+  details.risks summary{cursor:pointer;font-size:11px;color:var(--faint);list-style:none;user-select:none}
+  details.risks summary::before{content:"▸ "}
+  details.risks[open] summary::before{content:"▾ "}
+  details.risks summary::-webkit-details-marker{display:none}
+  details.risks ul{margin:8px 0 0 16px;font-size:11.5px;color:var(--muted)}
+  details.risks li{margin-bottom:4px}
+
+  /* ── verification ── */
+  details.ms{border:1px solid var(--border);background:var(--card);border-radius:16px;margin-bottom:14px;overflow:hidden;box-shadow:var(--lift)}
+  details.ms summary{cursor:pointer;padding:16px 20px;font-family:var(--serif);font-weight:400;font-size:16px;letter-spacing:-.01em;list-style:none;user-select:none}
+  details.ms summary::before{content:"▸ ";color:var(--faint);font-family:var(--sans)}
+  details.ms[open] summary::before{content:"▾ "}
+  details.ms summary::-webkit-details-marker{display:none}
+  details.ms[open] summary{padding-bottom:4px}
+  details.ms .zones{padding:8px 16px 16px}
+  details.ms .zone{border:none;padding:2px 8px;box-shadow:none;background:transparent}
+
+  /* ── end goal ── */
+  .ascii{font-family:var(--mono);font-size:11.5px;line-height:1.5;white-space:pre;overflow-x:auto;
+    border:1px solid var(--border);background:var(--card);border-radius:16px;padding:22px 26px;
+    margin-bottom:18px;box-shadow:var(--lift);color:var(--ink)}
+  body.print .ascii{font-size:9.5px}
+
+  /* ── print/PDF export mode (?print=1) — all sections stacked, static flow,
+       checkbox inputs replaced by markers that become real PDF form fields ── */
+  body.print{padding:24px 20px}
+  body.print .wrap{max-width:920px}
+  body.print .secnav, body.print .stabs, body.print .hint{display:none}
+  body.print section.map{display:block;margin-bottom:34px}
+  body.print .spane{display:block;margin-bottom:20px}
+  body.print .pane-lbl{font-size:12px;font-weight:600;margin:20px 0 10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+  body.print .phase, body.print .tbl, body.print .zone, body.print details.ms, body.print .card, body.print .fstep{break-inside:avoid;box-shadow:none}
+  body.print .shead{break-after:avoid}
+  .fstep{border:1px solid var(--border);background:var(--card);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  .fstep .fh{padding:10px 16px;font-weight:600;font-size:12.5px;border-bottom:1px solid var(--border-soft)}
+  .fstep .fh .n{font-family:var(--mono);font-size:10px;color:var(--faint);margin-right:8px}
+  .fstep .fl{display:grid;grid-template-columns:96px 1fr;font-size:11.5px}
+  .fstep .fl+.fl{border-top:1px solid var(--border-soft)}
+  .fstep .fl .lt{padding:9px 12px;border-right:1px solid var(--border-soft);font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .fstep .fl .lc{padding:8px 14px;min-height:0}
+  .cbm{display:inline-block;width:15px;height:15px;border:1px solid var(--faint);border-radius:4px;position:relative;top:3px;flex:none}
+  .cbm .tok{position:absolute;left:1px;top:1px;font-size:4px;line-height:4px;color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Shavat - Architecture Observatory</h1>
+    <p class="sub"><b>A living observation of the system’s current reality.</b><br>A demolition map: every feature exists — each concept just lives in too many places.<br>Progress is architectural convergence and deletion, not task count.<br>Updated at brick boundaries.</p>
+    <div class="constitution" id="constitution"></div>
+  </header>
+
+  <nav class="secnav" id="secnav"></nav>
+
+  <!-- ════════ 01 ARCHITECTURE ════════ -->
+  <section class="map" id="s-architecture">
+    <div class="shead">
+      <h2><span class="n">01</span>Terrain</h2>
+      <div class="q">Truth before action. This section changes only when reality changes.</div>
+    </div>
+
+    <div class="score" id="scoreboard"></div>
+    <div class="note">⚙ <b>Measured Reality</b><br>Marked values are <i>measured from the repo</i> (line counts, file counts, route counts) — never hand-edited. Last measured 2026-07-31 via shell.<br>Eventually a script (<code>npm run map:update</code>) regenerates every ⚙ value; until it exists, re-measure before touching them.<br>A hand-edited metric here would be this map committing the drift it documents.</div>
+
+    <div class="card health" id="health"></div>
+
+    <div class="stabs" id="stabs"></div>
+
+    <div class="spane" id="p-model">
+      <div class="chain">
+        Testament ──▶ Book ──▶ Division ──▶ Chapter ──▶ Section ──▶ Verse
+        <span class="ov" style="margin-top:4px">e.g. OT ──▶ Joshua ──▶ Formation ──▶ 1 ──▶ “Be Strong and Courageous” ──▶ 1:1–9</span>
+        <span class="ov">+ two orthogonal overlays: <b>Commentary</b> (per verse) · <b>Writing/Memorial</b> (per chapter or division). That is the whole model — everything else is presentation.</span>
+      </div>
+      <div class="grid" id="md-grid"></div>
+      <div class="note" style="margin-top:14px">One card per concept · each row is an address where it currently lives · <span class="dot g"></span>right address · <span class="dot a"></span>duplicate · <span class="dot r"></span>wrong address · ◌ its single future home. Every live bug found in the audit lives at a red address.</div>
+    </div>
+
+    <div class="spane" id="p-structure">
+      <div class="zones" id="st-zones"></div>
+      <div class="note" style="margin-top:14px"><b>The leak:</b> every violation is the same event — content crossed a layer boundary upward. The rule the cleanup restores: Presentation renders what Access hands it · Access reads Content · Content is the only layer that knows facts.</div>
+    </div>
+
+    <div class="spane" id="p-flow">
+      <div class="parallel">
+        <div><h3>Today — how a reader page renders</h3><div class="fstrip" id="today-flow"></div></div>
+        <div><h3>◌ Target — after Phases 1–3</h3><div class="fstrip" id="target-flow"></div></div>
+      </div>
+      <div class="lanes">
+        <div class="lane"><div class="lt">Presentation</div><div class="lc" id="ft-p"></div></div>
+        <div class="lane"><div class="lt">Access</div><div class="lc" id="ft-a"></div></div>
+        <div class="lane"><div class="lt">Content</div><div class="lc" id="ft-d"></div></div>
+      </div>
+      <div class="hint">click a step — <span class="r">CLEAN</span> / <span class="w">SMELL</span> / gray = nothing happens at that layer</div>
+    </div>
+  </section>
+
+  <!-- ════════ 02 EXECUTION ════════ -->
+  <section class="map" id="s-execution">
+    <div class="shead">
+      <h2><span class="n">02</span>Evolution</h2>
+      <div class="q">Reality suggests these next interventions.</div>
+    </div>
+    <div class="exhead">
+      <div class="leg">Click a task to toggle (saved in this browser). Canonical state is updated at brick boundaries. Each task: what's wrong <span style="font-family:var(--mono)">→</span> what true looks like after.</div>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div id="tk-list"></div>
+  </section>
+
+  <!-- ════════ 03 VERIFICATION ════════ -->
+  <section class="map" id="s-verification">
+    <div class="shead">
+      <h2><span class="n">03</span>Evidence</h2>
+      <div class="q">Claims require evidence.</div>
+    </div>
+    <div id="ver-list"></div>
+  </section>
+
+  <!-- ════════ 04 END GOAL ════════ -->
+  <section class="map" id="s-endgoal">
+    <div class="shead">
+      <h2><span class="n">04</span>End Goal</h2>
+      <div class="q">The finished shape. Phases 1–4 exist only to make the system match this picture — ◌ marks which phase delivers each piece.</div>
+    </div>
+    <pre class="ascii">   Testament ─▶ Book ─▶ Division ─▶ Chapter ─▶ Section ─▶ Verse
+   e.g.  OT ─▶ Joshua ─▶ Formation ─▶ 1 ─▶ “Be Strong and Courageous” ─▶ 1:1
+
+┌─ THE LIBRARY · where all the words live ─────────────────────────────────┐
+│ every fact is a plain file you could open and read — none of it is code  │
+│                                                                          │
+│   data/*.json                   the Bible text itself, verse by verse    │
+│   data/sections/*.json          the headings inside each chapter   ◌ P1  │
+│   writings/*.md                 your own essays & memorials        ◌ P3  │
+│   lib/commentary/*              your study notes, chapter by chapter     │
+└──────────────────────────────────────────────────────────────────────────┘
+                   │                              │
+                   │ fetches                      │ builds an index
+                   ▼                              ▼
+┌─ THE LIBRARIAN · one helper ───────┐
+│ ask for any book by name ◌ P2      │    an auto-made list of which
+│  it hands back that book's         │    chapters have study notes ◌ P2
+│  verses · headings · divisions     │    rebuilt fresh · can't go stale
+└────────────────────────────────────┘
+                   │ hands each page everything it needs
+                   ▼
+┌─ THE READING ROOM · the pages you actually see ──────────────────────────┐
+│   one reading page              serves all 66 books the same way   ◌ P3  │
+│   one essay page                shows any memorial you've written  ◌ P3  │
+│   one front porch               every book's landing, one design   ◌ P2  │
+│   a small reader                the words stay in the library, not in it │
+└──────────────────────────────────────────────────────────────────────────┘
+
+   the room asks the librarian · the librarian reads the library ·
+   never the other way around</pre>
+    <pre class="ascii">┌─ A REAL WALK · reading Joshua, address by address ───────────────────────┐
+│                                                                          │
+│ ① /ot/joshua                                                             │
+│      ot ......... the Old Testament shelf                                │
+│      joshua ..... the book you pulled down                               │
+│    you see  Joshua's front porch — six division cards:                   │
+│             Formation · First Tests · Possess · Inheritance ·            │
+│             Shiloh · Legacy                                              │
+│                                                                          │
+│ ② /ot/joshua/1                                                           │
+│      ot ......... same shelf                                             │
+│      joshua ..... same book                                              │
+│      1 .......... opened to chapter 1                                    │
+│    you see  the verses, gathered under their headings:                   │
+│             “Be Strong and Courageous”   1–9                             │
+│             “Orders to Cross”            10–15                           │
+│             “The People Pledge”          16–18                           │
+│                                                                          │
+│ ③ /ot/joshua/1  — then you tap a verse that has a note dot               │
+│      (the address doesn't change — your study note                       │
+│       slides in right where you are)                                     │
+│                                                                          │
+│ ④ /writings/joshua/formation                                             │
+│      writings ... your own essays, not the Bible text                    │
+│      joshua ..... which book the essay belongs to                        │
+│      formation .. which part of it — the Formation chapters, 1–5         │
+│    you see  your memorial essay for that stretch of the story            │
+│                                                                          │
+│ the same four moves open any of the 66 books — that is the whole point   │
+│                                                                          │
+└──────────────────────────────────────────────────────────────────────────┘</pre>
+    <div class="card">
+      <div class="micro">You have arrived when</div>
+      <div class="it"><span class="nm">a 67th book</span><span class="why">drop in one text file and the whole site knows it — no code touched</span></div>
+      <div class="it"><span class="nm">a design change</span><span class="why">edit one page and all 66 books follow</span></div>
+      <div class="it"><span class="nm">the words</span><span class="why">live in files you could open and read — never inside program code</span></div>
+      <div class="it"><span class="nm">a book's name</span><span class="why">written down in exactly one place — so it can never disagree with itself</span></div>
+      <div class="it"><span class="nm">a bookmark</span><span class="why">survives every update · yours alone to see (P4)</span></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   DATA — the only block you edit. Everything below RENDER is generic.
+   ═══════════════════════════════════════════════════════════════════ */
+var DATA = {
+
+constitution: [
+  "One concept has one home.",
+  "Content is data. Behavior is code.",
+  "Generate instead of duplicate.",
+  "Every abstraction earns its keep.",
+  "Measure convergence, not activity."
+],
+
+sections: [
+  {id:"architecture", n:"01", label:"Terrain"},
+  {id:"execution",    n:"02", label:"Evolution"},
+  {id:"verification", n:"03", label:"Evidence"},
+  {id:"endgoal",      n:"04", label:"End Goal"}
+],
+
+/* ⚙ = measured from the repo — re-measure, never hand-edit */
+scoreboard: [
+  {metric:"reader-loc",  num:"<span class='from'>4,924</span> → <span class='to'>267 ✓</span>", lbl:"BookReader lines", gen:true},
+  {metric:"wrappers",    num:"<span class='from'>66</span> → <span class='to'>1</span>",       lbl:"lib book wrappers",  gen:true},
+  {metric:"pages",       num:"<span class='from'>39</span> → <span class='to'>1</span>",       lbl:"landing pages",      gen:true},
+  {metric:"routing",     num:"<span class='from'>4</span> → <span class='to'>1</span>",        lbl:"routing schemes",    gen:true},
+  {metric:"loc-delete",  num:"<span class='from'>~6,000</span> LOC",                            lbl:"to delete",          gen:true},
+  {metric:"mb-delete",   num:"<span class='from'>1.1</span> MB",                                lbl:"superseded data",    gen:true}
+],
+
+/* qualitative health — tied to the constitution, flipped by phases, no percentages */
+health: [
+  {s:"g", name:"Truth has one home", why:"Sections live at data/sections/*.json — one data address", flip:"flipped at P1"},
+  {s:"g", name:"Content is data",        why:"The 496 constants are JSON now; BookReader is 267 lines", flip:"flipped at P1"},
+  {s:"g", name:"Dependency direction",   why:"extractSections deleted — nothing parses source; access reads data", flip:"flipped at P1"},
+  {s:"a", name:"One representation", why:"66 wrappers, 39 pages, 138 hand-maintained commentary ranges", flip:"flips at P2"},
+  {s:"a", name:"Navigation",                why:"Canonical routes exist; 2 bespoke bypasses + 7 hardcoded division routes remain", flip:"flips at P3"}
+],
+
+model: [
+  {n:"Book", tag:"invariant", f:"slug · name · chapterCount",
+   rows:[["g","data/*.json","canonical — already right"],
+         ["a","66× lib/&lt;book&gt;.ts","byte-identical wrappers"],
+         ["a","39× app/*/page.tsx","landing template per book"],
+         ["a","4 routing schemes","each spells slugs its own way"]],
+   tgt:"JSON + createBookAccessor(slug) — everything else derived"},
+  {n:"Division", tag:"invariant", f:"id · title · summary · chapters[]",
+   rows:[["g","data/*.json","canonical"],
+         ["r","DivisionMemorial TS objects","content as code"],
+         ["r","app/writings/joshua/* ×7","hardcoded route per division"]],
+   tgt:"JSON + one [book]/[division] route"},
+  {n:"Chapter", tag:"invariant", f:"number · theme",
+   rows:[["g","data/*.json","canonical"],
+         ["g","lib/sections.ts lookup","derived from JSON — chain deleted at P1"]],
+   tgt:"unchanged"},
+  {n:"Section", tag:"invariant", f:"title · verseRange · color",
+   rows:[["g","data/sections/&lt;book&gt;.json","canonical — the cut landed at P1"]],
+   tgt:"unchanged"},
+  {n:"Verse", tag:"invariant", f:"number · text",
+   rows:[["g","data/*.json","canonical — untouched by the cleanup"]],
+   tgt:"unchanged"},
+  {n:"Commentary", tag:"overlay · per verse", f:"verse ref → commentary body",
+   rows:[["g","lib/commentary/ · 259 files","the files are fine"],
+         ["r","hasCommentary.ts","138 hand ranges describing those same files — guaranteed drift"]],
+   tgt:"files + build-time manifest, generated not written"},
+  {n:"Writing / Memorial", tag:"overlay · per chapter/division", f:"title · body · attach point",
+   rows:[["a",".md files","representation #1 — the survivor"],
+         ["r","DivisionMemorial TS objects","representation #2"],
+         ["r","7 hardcoded route files","representation #3"]],
+   tgt:".md only — one pipeline, three deleted"}
+],
+
+structure: [
+  {t:"Presentation — app/ + components", items:[
+    {s:"g", nm:"/ot/[book] · /nt/[book]", why:"canonical readers — the keepers"},
+    {s:"r", nm:"/ot/genesis · /ot/psalms", why:"103 + 109-line bespoke bypasses of the shared route"},
+    {s:"a", nm:"39× app/*/page.tsx", why:"identical landing templates (26 shape A · 13 shape B)"},
+    {s:"r", nm:"app/writings/joshua/* ×7", why:"hardcoded routes duplicating [book]/[division]"},
+    {s:"r", nm:"/api/bookmarks", why:"cwd JSON · enumerable clientId — P4"},
+    {sec:"components"},
+    {s:"g", nm:"BookReader.tsx · 267 ln", why:"sections arrive as props · content-free (P1)"},
+    {s:"g", nm:"remaining components", why:"in real use — 7 dead ones deleted at P0"},
+    {sec:"target"},
+    {s:"fog", nm:"one reading route per testament", why:"generateStaticParams · zero bespoke doors"},
+    {s:"fog", nm:"one landing template", why:"a tweak = 1 edit, not 39"}
+  ]},
+  {t:"Access — lib/", items:[
+    {s:"a", nm:"66 per-book wrappers", why:"64 byte-identical modulo book name · ~1,780 ln"},
+    {s:"g", nm:"sections.ts", why:"loads data/sections/&lt;book&gt;.json — parser deleted (P1)"},
+    {s:"r", nm:"hasCommentary.ts", why:"138 hand-maintained ranges describing files already on disk"},
+    {s:"g", nm:"remaining lib", why:"real logic, keeps"},
+    {sec:"target"},
+    {s:"fog", nm:"createBookAccessor(slug)", why:"one factory replaces 66 files"},
+    {s:"fog", nm:"commentary manifest", why:"generated at build — cannot drift"}
+  ]},
+  {t:"Content — the only layer that knows facts", items:[
+    {s:"g", nm:"133 canonical data JSONs", why:"books, chapters, verses — already right"},
+    {s:"g", nm:"data/sections/ · 35 JSONs", why:"the one-line cut landed at P1 — 496 chapters, 1,498 sections"},
+    {s:"g", nm:"lib/commentary/ · 259 files", why:"the files themselves are fine"},
+    {s:"a", nm:"writings .md files", why:"one of three writing representations — the survivor"},
+    {s:"r", nm:"DivisionMemorial TS objects", why:"content as code again"},
+    {sec:"target"},
+    {s:"fog", nm:"commentary-manifest.json", why:"build artifact, derived, never edited"}
+  ]}
+],
+
+flowToday: [
+  {n:"T1", t:"URL",
+   p:"<code>/ot/genesis</code> hits <span class='w'>103 lines of bespoke redirect logic</span>; <code>/ot/psalms</code> has its own 109-line near-copy. Every other book walks through the shared <code>/ot/[book]</code>. Four routing schemes compete for one job.",
+   a:"<span class='dim'>Nothing — routing decisions are hand-inlined in the pages.</span>",
+   d:"<span class='dim'>Nothing. Content doesn't know it's being bypassed.</span>"},
+  {n:"T2", t:"Reader",
+   p:"The route renders <code>BookReader</code> — <span class='r'>267 lines</span> since P1. Sections arrive as props; the client bundle carries zero content (181 → 154 kB).",
+   a:"<span class='r'>READ</span> — the server route loads sections via <code>lib/sections</code> and passes them down.",
+   d:"<span class='dim'>Read at G2.</span>"},
+  {n:"T3", t:"Sections",
+   p:"<span class='r'>CLEAN</span> since P1 — the 496 constants moved to <code>data/sections/&lt;book&gt;.json</code>. Content became content.",
+   a:"<span class='r'>READ</span> via <code>lib/sections.ts</code>.",
+   d:"<span class='r'>READ</span> — sections finally live at a content address."},
+  {n:"T4", t:"Chapter lookup",
+   p:"<span class='r'>CLEAN</span> since P1 — the 35-clause chain is deleted. The reader shows whatever sections it is handed.",
+   a:"Chapter → section is <span class='r'>derived from the JSON</span> — one place a slug is ever spelled.",
+   d:"<span class='dim'>The data was always fine — the address book is now generated from it.</span>"},
+  {n:"T5", t:"TOC",
+   p:"Three TOC pages render from <code>lib/sections</code> — the same source as the reader.",
+   a:"<span class='r'>CLEAN</span> since P1 — <code>extractSections.ts</code> is deleted. Nothing parses source, ever.",
+   d:"<span class='r'>READ</span> the same JSON as everything else."}
+],
+flowTarget: [
+  {n:"G1", t:"URL", fog:true,
+   p:"Every book, both testaments: <code>/ot/[book]</code> · <code>/nt/[book]</code> via <code>generateStaticParams</code>. <span class='r'>One door per book.</span> Old bespoke URLs 301.",
+   a:"<span class='dim'>Routing is declarative — no logic to maintain.</span>",
+   d:"<span class='r'>READ</span> the book list from data. Adding book #67 = adding a JSON file."},
+  {n:"G2", t:"Load", fog:true,
+   p:"<span class='dim'>The server route asks, doesn't know.</span>",
+   a:"<code>createBookAccessor(slug)</code> loads <code>data/sections/&lt;book&gt;.json</code>. <span class='r'>One factory, 66 books.</span>",
+   d:"<span class='r'>READ</span> <code>sections/&lt;book&gt;.json</code> — sections finally live at a content address."},
+  {n:"G3", t:"Render", fog:true,
+   p:"<code>BookReader</code> ≈ 600 lines receives sections <b>as props</b>, server-side. <span class='r'>The client bundle carries zero content.</span>",
+   a:"<span class='dim'>Already done its job.</span>",
+   d:"<span class='dim'>Already read.</span>"},
+  {n:"G4", t:"Chapter lookup", fog:true,
+   p:"<span class='dim'>Asks the accessor.</span>",
+   a:"Chapter → section is <span class='r'>derived from the JSON</span> — one place a slug is ever spelled, so the 1-corinthians class of bug can't exist.",
+   d:"<span class='dim'>Same file as G2.</span>"},
+  {n:"G5", t:"TOC", fog:true,
+   p:"TOC pages render from the same accessor output as the reader. <span class='r'>One source, two views.</span>",
+   a:"<span class='r'>READ</span> via <code>createBookAccessor</code> — the regex parser is deleted.",
+   d:"<span class='r'>READ</span> the same JSON. Nothing is parsed, ever."}
+],
+
+tags: ["delete","fix","refactor","infra"],
+
+/* task ids are localStorage keys — never change them */
+phases: [
+  {name:"Phase 0 — Free wins, zero risk",
+   note:"Nothing here changes behavior except the slug fix — intended change #1. Run 03 · Baseline FIRST: the oracles must exist before anything is deleted.",
+   risks:["A “dead” component may be imported dynamically by string path — grep the filename, not just the symbol.",
+          "Oracles dumped after a deletion are stale — B4/B5 come before any rm."],
+   tasks:[
+    {id:"p0-baseline", tag:"infra", done:true, tx:"Baseline: tsc error count · build · <code>routes.before.txt</code> · dump B4/B5 oracles",
+     problem:"no known-good line exists", goal:"every later diff has an oracle", impact:"unblocks all deletion"},
+    {id:"p0-backup", tag:"delete", done:true, tx:"Delete <code>.backup/</code> — 127 superseded JSONs",
+     problem:"stale copies tracked in git", goal:"one copy of every fact", impact:"−1.1 MB"},
+    {id:"p0-strays", tag:"delete", done:true, tx:"Delete root strays: extract_verses.py · convert_emails.sh · emails.txt",
+     problem:"one-off scripts + addresses in git", goal:"clean root", impact:"hygiene"},
+    {id:"p0-dead", tag:"delete", done:true, tx:"Delete 6 unreferenced components + lib/psalms-utils.ts",
+     problem:"dead code reads as live surface area", goal:"everything present is used", impact:"−600 LOC"},
+    {id:"p0-slug", tag:"fix", done:true, tx:"Fix <code>'1corinthians'</code> → <code>'1-corinthians'</code> (+ 2 Cor) in GenesisReader — <b>4 sites</b>: ln 3179/3180 reachability chain, ln 4353/4404 section branch",
+     problem:"slug spelled two ways · every other numbered book is hyphenated", goal:"reader agrees with URL slugs", impact:"29 chapters reachable"},
+    {id:"p0-lint", tag:"infra", done:true, tx:"Install ESLint (absent entirely) + add <code>typecheck</code> / <code>lint</code> scripts",
+     problem:"package.json has only dev/build/start — no drift alarm exists", goal:"regressions surface at edit time", impact:"guards every later phase"}
+   ]},
+  {name:"Phase 1 — Extract the section data (the one-line cut)",
+   note:"Content becomes content. Three of five health items flip green when the 496 constants move to JSON.",
+   risks:["Parity diff can pass on subtly reordered data — canonicalize (sort keys) before diffing against B4.",
+          "A hidden consumer of extractSections.ts beyond the 3 known TOC pages."],
+   tasks:[
+    {id:"p1-json", done:true, tag:"refactor", tx:"Move 496 DaySection constants → <code>data/sections/&lt;book&gt;.json</code>",
+     problem:"content stored as code", goal:"sections live at one data address", impact:"the one-line cut"},
+    {id:"p1-parity", done:true, tag:"infra", tx:"Parity gate: new JSON diffed against the B4 oracle",
+     problem:"a refactor could silently change data", goal:"new JSON ≡ old parser output", impact:"proof, not hope"},
+    {id:"p1-props", done:true, tag:"refactor", tx:"Reader slims 4,924 → ~600 ln; sections server-loaded, passed as props",
+     problem:"content ships as client JS", goal:"client bundle carries zero content", impact:"−3,050 ln off the client"},
+    {id:"p1-chain", done:true, tag:"refactor", tx:"Replace the 35-clause chapter→section chain with a lookup derived from JSON",
+     problem:"35 hardcoded clauses, already wrong once", goal:"lookup derived from data", impact:"kills the bug class"},
+    {id:"p1-parser", done:true, tag:"delete", tx:"Delete <code>lib/extractSections.ts</code>; TOC pages read the JSON",
+     problem:"source code used as a database", goal:"nothing parses source, ever", impact:"dependency arrow restored"}
+   ]},
+  {name:"Phase 2 — Collapse the duplicates",
+   risks:["generateStaticParams misses one slug spelling → silent 404. Diff routes.after.txt against B3 — don't spot-check.",
+          "A build-time manifest that reads outside the repo differs across environments."],
+   tasks:[
+    {id:"p2-factory", tag:"refactor", tx:"66 lib/*.ts wrappers → one <code>createBookAccessor(slug)</code>",
+     problem:"one accessor change = 66 edits", goal:"one factory, books as data", impact:"−1,780 ln"},
+    {id:"p2-pages", tag:"refactor", tx:"39 identical app/*/page.tsx → one <code>generateStaticParams</code> route",
+     problem:"a landing tweak = 39 edits", goal:"one template + params", impact:"39 → 1"},
+    {id:"p2-manifest", tag:"refactor", tx:"hasCommentary.ts → manifest generated at build from <code>lib/commentary/</code>",
+     problem:"hand-ranges describe files on disk", goal:"derived at build, never written", impact:"cannot drift"}
+   ]},
+  {name:"Phase 3 — Unify routing",
+   risks:["An old URL shape (bookmarked or indexed) missing from the redirect map → dead link.",
+          "joshua/judges route files may bake in one-off content — diff rendered HTML before deleting."],
+   tasks:[
+    {id:"p3-bespoke", tag:"refactor", tx:"Fold /ot/genesis + /ot/psalms into the shared route; old URLs 301",
+     problem:"2 books bypass the shared route", goal:"one door per book", impact:"fixes reach every book"},
+    {id:"p3-writings", tag:"refactor", tx:"Collapse app/writings/joshua/* + judges/* into [book]/[division]",
+     problem:"3 representations of one concept", goal:".md in, page out", impact:"2 pipelines deleted"}
+   ]},
+  {name:"Phase 4 — Correctness (intended change #2)",
+   risks:["Existing bookmarks.json data lost in migration — export before switching storage."],
+   tasks:[
+    {id:"p4-storage", tag:"fix", tx:"Bookmarks → real storage (Neon / Upstash)",
+     problem:"writes die on serverless FS", goal:"storage that survives deploys", impact:"bookmarks persist"},
+    {id:"p4-identity", tag:"fix", tx:"Real client identity for bookmarks",
+     problem:"clientId is unauthenticated + enumerable", goal:"a privacy wall", impact:"no cross-client reads"}
+   ]}
+],
+
+verification: [
+  {name:"Baseline — run BEFORE Phase 0, keep the outputs", open:true, cols:[
+    {t:"Snapshots (the oracles)", items:[
+      ["B1","<code>npx tsc --noEmit</code> → record the error count (may not be zero — that's why it's recorded)"],
+      ["B2","<code>npm run build</code> → must pass; note the reader route's bundle size"],
+      ["B3","Route inventory: <code>find app -name page.tsx | sort &gt; routes.before.txt</code>"],
+      ["B4","Dump extractSections output for all books to JSON → this file IS Phase 1's parity oracle"],
+      ["B5","Dump hasCommentary(verse) over every verse → Phase 2's manifest oracle"],
+      ["B6","Spot-screenshot: Genesis reader · one TOC · one writings page"]]},
+    {t:"Expected exceptions", items:[
+      ["K1","1–2 Cor reader shows NO sections (slug bug) — the one red that turns green in P0"],
+      ["K2","Bookmarks: any clientId reads any other — stays red until P4"]]}
+  ]},
+  {name:"Phase 0 — free wins", cols:[
+    {t:"Walk-through", items:[
+      ["1","Build still passes after deletions"],
+      ["2","grep imports of the 6 deleted components + psalms-utils → 0 hits"],
+      ["3","1–2 Cor reader now shows sections — intended change #1"],
+      ["4","<code>npm run typecheck</code> + eslint exist and run"]]},
+    {t:"Guard", items:[
+      ["A1","tsc error count ≤ baseline (deletions only shrink it)"],
+      ["A2","<code>git ls-files</code> shows no .backup/ or emails.txt (design/ kept by decision)"]]}
+  ]},
+  {name:"Phase 1 — extract the section data", cols:[
+    {t:"Walk-through", items:[
+      ["1","Parity: data/sections/*.json ≡ B4 oracle (canonicalized diff) before the parser dies"],
+      ["2","Genesis 1 · Psalm 1 · John 1 render same as B6 screenshots"],
+      ["3","All 3 TOC pages show the same sections as before"],
+      ["4","Reader route client bundle shrinks vs B2"]]},
+    {t:"Guard", items:[
+      ["A1","extractSections.ts deleted → build still passes (nothing secretly imported it)"],
+      ["A2","Renaming a const in the reader breaks nothing — the old failure mode is gone"]]}
+  ]},
+  {name:"Phase 2 — collapse the duplicates", cols:[
+    {t:"Walk-through", items:[
+      ["1","Scripted crawl over all 66 book slugs → every TOC renders, no 404"],
+      ["2","routes.after.txt diff vs B3 → same URLs resolve (fewer files, same doors)"],
+      ["3","Commentary manifest output ≡ B5 oracle"]]},
+    {t:"Guard", items:[
+      ["A1","66 wrapper files deleted → 0 dangling imports"],
+      ["A2","Adding a fake 67th book = 1 JSON file + 0 TS edits — the whole point"]]}
+  ]},
+  {name:"Phase 3 — unify routing", cols:[
+    {t:"Walk-through", items:[
+      ["1","Every URL /ot/genesis and /ot/psalms served or redirected → lands in the same place"],
+      ["2","All writings URLs unchanged · joshua + judges pages render same as before"]]},
+    {t:"Guard", items:[
+      ["A1","A fix to the shared route now reaches Genesis and Psalms — the silent-miss class is dead"],
+      ["A2","One writings pipeline: .md in, page out — TS objects and hardcoded routes deleted"]]}
+  ]},
+  {name:"Phase 4 — bookmarks correctness (intended change #2)", cols:[
+    {t:"Walk-through", items:[
+      ["1","Bookmark → redeploy → bookmark survives"]]},
+    {t:"Abuse", items:[
+      ["A1","Client B requests client A's bookmarks → denied"],
+      ["A2","Enumerating clientIds returns nothing readable"]]}
+  ]}
+]
+};
+
+/* ═══════════════════════════════════════════════════════════════════
+   RENDER — generic. Should not need edits when reusing the template.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* helpers */
+function $(id){ return document.getElementById(id); }
+function elem(cls, html, tag){ var e = document.createElement(tag || "div"); if (cls) e.className = cls; e.innerHTML = html || ""; return e; }
+function store(key, fallback){ try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch(e){ return fallback; } }
+
+/* ── constitution ── */
+$("constitution").appendChild(elem("ct","LENS","span"));
+DATA.constitution.forEach(function(t){
+  $("constitution").appendChild(elem(null, t, "span"));
+});
+
+/* ── section nav (persisted) ── */
+var SEC_KEY = "shavat.map.section";
+var nav = $("secnav");
+DATA.sections.forEach(function(s){
+  var b = elem(null, "<span class='n'>"+s.n+"</span>"+s.label, "button");
+  b.dataset.s = s.id;
+  b.onclick = function(){ showSection(s.id); localStorage.setItem(SEC_KEY, s.id); };
+  nav.appendChild(b);
+});
+function showSection(id){
+  nav.querySelectorAll("button").forEach(function(b){ b.classList.toggle("on", b.dataset.s === id); });
+  document.querySelectorAll("section.map").forEach(function(v){ v.classList.toggle("on", v.id === "s-"+id); });
+}
+showSection(store(SEC_KEY, null) && localStorage.getItem(SEC_KEY) || "execution");
+
+/* ── scoreboard ── */
+DATA.scoreboard.forEach(function(s){
+  var e = elem("sc" + (s.gen ? " gen" : ""), "<div class='num'>"+s.num+"</div><div class='lbl'>"+s.lbl+"</div>");
+  e.dataset.metric = s.metric;   /* hook for a future map:update script */
+  $("scoreboard").appendChild(e);
+});
+
+/* ── health ── */
+$("health").appendChild(elem("micro","Current observations"));
+DATA.health.forEach(function(hh){
+  $("health").appendChild(elem("hrow",
+    "<span class='hname'><span class='dot "+hh.s+"'></span>"+hh.name+"</span>"+
+    "<span class='hwhy'>"+hh.why+"</span><span class='flip'>"+hh.flip+"</span>"));
+});
+
+/* ── architecture sub-tabs ── */
+var PANES = [["model","Concepts"],["structure","Relationships"],["flow","Behavior"]];
+PANES.forEach(function(p, i){
+  var b = elem(null, p[1], "button");
+  b.dataset.p = p[0];
+  b.onclick = function(){
+    $("stabs").querySelectorAll("button").forEach(function(x){ x.classList.toggle("on", x === b); });
+    PANES.forEach(function(q){ $("p-"+q[0]).classList.toggle("on", q[0] === p[0]); });
+  };
+  $("stabs").appendChild(b);
+  if (i === 0){ b.classList.add("on"); $("p-"+p[0]).classList.add("on"); }
+});
+
+/* ── model cards ── */
+DATA.model.forEach(function(t){
+  var rows = t.rows.map(function(c){
+    return "<div class='rw'><span class='addr'><span class='dot "+c[0]+"'></span>"+c[1]+"</span><span class='ty'>"+c[2]+"</span></div>";
+  }).join("") + "<div class='rw tgt'><span class='addr'>"+t.tgt+"</span></div>";
+  $("md-grid").appendChild(elem("tbl",
+    "<div class='hd'><span>"+t.n+"</span><span class='tag'>"+t.tag+"</span></div>"+
+    "<div class='fields'>"+t.f+"</div>"+rows));
+});
+
+/* ── structure zones ── */
+DATA.structure.forEach(function(z){
+  var html = "<div class='zt'>"+z.t+"</div>" + z.items.map(function(it){
+    if (it.sec) return "<div class='sec-lbl'>"+(it.sec === "target" ? "◌ target" : it.sec)+"</div>";
+    var dot = it.s === "fog" ? "" : "<span class='dot "+it.s+"'></span>";
+    return "<div class='it"+(it.s === "fog" ? " fog" : "")+"'><span class='nm'>"+dot+it.nm+"</span><span class='why'>"+it.why+"</span></div>";
+  }).join("");
+  $("st-zones").appendChild(elem("zone", html));
+});
+
+/* ── flow ── */
+function buildFlow(steps, mountId){
+  steps.forEach(function(s){
+    var e = elem("stp" + (s.fog ? " fog" : ""), "<div class='n'>"+s.n+"</div><div class='t'>"+s.t+"</div>");
+    s.el = e;
+    e.onclick = function(){ showStep(s); };
+    $(mountId).appendChild(e);
+  });
+}
+function showStep(step){
+  document.querySelectorAll(".stp").forEach(function(e){ e.classList.remove("on"); });
+  step.el.classList.add("on");
+  $("ft-p").innerHTML = step.p; $("ft-a").innerHTML = step.a; $("ft-d").innerHTML = step.d;
+}
+buildFlow(DATA.flowToday, "today-flow");
+buildFlow(DATA.flowTarget, "target-flow");
+showStep(DATA.flowToday[0]);
+
+/* ── execution: filters ── */
+var FK = "shavat.map.filters";
+var filters = store(FK, null) || {};
+DATA.tags.forEach(function(t){ if (filters[t] === undefined) filters[t] = true; });
+DATA.tags.forEach(function(t){
+  var lab = elem(null, "<input type='checkbox' data-filter='"+t+"'"+(filters[t] ? " checked" : "")+"> "+t, "label");
+  lab.querySelector("input").addEventListener("change", function(e){
+    filters[t] = e.target.checked; applyFilters();
+  });
+  $("filters").appendChild(lab);
+});
+function applyFilters(){
+  document.querySelectorAll(".task[data-tag]").forEach(function(task){
+    task.classList.toggle("hidden", !filters[task.dataset.tag]);
+  });
+  localStorage.setItem(FK, JSON.stringify(filters));
+}
+
+/* ── execution: tasks (ids are stable localStorage keys) ── */
+var TK = "shavat.map.tasks";
+var saved = store(TK, {});
+function isDone(t){ return saved[t.id] !== undefined ? saved[t.id] : !!t.done; }
+function renderTasks(){
+  var root = $("tk-list");
+  root.innerHTML = "";
+  var nextMarked = false;
+  DATA.phases.forEach(function(p){
+    var doneCt = p.tasks.filter(isDone).length;
+    var html = "<div class='ph'><b>"+p.name+"</b><span class='pct'>"+doneCt+" / "+p.tasks.length+"</span></div>";
+    if (p.note) html += "<div class='phase-note'>"+p.note+"</div>";
+    html += "<div class='tasks'>";
+    p.tasks.forEach(function(t){
+      var done = isDone(t);
+      var next = !done && !nextMarked;
+      if (next) nextMarked = true;
+      html += "<div class='task"+(done ? " done" : "")+"' data-id='"+t.id+"' data-tag='"+t.tag+"'>"
+        + "<div class='trow'><input type='checkbox'"+(done ? " checked" : "")+">"
+        + "<span class='tx'>"+t.tx+"</span>"
+        + "<span class='who-tag "+t.tag+"'>"+t.tag+"</span>"
+        + (next ? "<span class='next'>NEXT</span>" : "")
+        + "<span class='unlocks'>"+t.impact+"</span></div>"
+        + "<div class='tsub'>"+t.problem+" <span class='arr'>→</span> "+t.goal+"</div>"
+        + "</div>";
+    });
+    html += "</div>";
+    if (p.risks && p.risks.length){
+      html += "<details class='risks'><summary>What can go wrong?</summary><ul>"
+        + p.risks.map(function(r){ return "<li>"+r+"</li>"; }).join("") + "</ul></details>";
+    }
+    $("tk-list").appendChild(elem("phase", html));
+  });
+}
+$("tk-list").addEventListener("click", function(e){
+  if (e.target.closest("details")) return;      /* risk toggles don't check tasks */
+  var row = e.target.closest(".task");
+  if (!row) return;
+  saved[row.dataset.id] = !(saved[row.dataset.id] !== undefined ? saved[row.dataset.id] : false);
+  localStorage.setItem(TK, JSON.stringify(saved));
+  renderTasks(); applyFilters();
+});
+renderTasks(); applyFilters();
+
+/* ── print/PDF export mode (defined here, invoked at end of script) ──
+   ?print=1 renders everything stacked and static for print-to-PDF.
+   Task checkboxes become .cbm markers carrying an invisible token
+   (CBX<taskId>) whose printed position is used by the export script
+   to overlay a real, clickable PDF form field. */
+function printMode(){
+  document.body.classList.add("print");
+  var f = document.querySelector(".filters"); if (f) f.style.display = "none";
+  var leg = document.querySelector(".exhead .leg");
+  if (leg) leg.innerHTML = "The plan in dependency order. Checkboxes are live PDF form fields — tick them in any PDF editor. Canonical state is updated at brick boundaries. Each task: what's wrong → what true looks like after.";
+  document.querySelectorAll("section.map, .spane").forEach(function(s){ s.classList.add("on"); });
+  [["p-model","Architecture · Model"],["p-structure","Architecture · Structure"],["p-flow","Architecture · Flow"]].forEach(function(p){
+    $(p[0]).parentNode.insertBefore(elem("pane-lbl", p[1]), $(p[0]));
+  });
+  document.querySelectorAll("details").forEach(function(d){ d.setAttribute("open",""); });
+  /* static flow: every step × every lane, Today then Target */
+  var flowPane = $("p-flow");
+  flowPane.innerHTML = "";
+  [["Today — how a reader page renders", DATA.flowToday],
+   ["Target — after Phases 1–3", DATA.flowTarget]].forEach(function(group){
+    flowPane.appendChild(elem("pane-lbl", group[0]));
+    group[1].forEach(function(s){
+      flowPane.appendChild(elem("fstep",
+        "<div class='fh'><span class='n'>"+s.n+"</span>"+s.t+"</div>"+
+        "<div class='fl'><div class='lt'>Presentation</div><div class='lc'>"+s.p+"</div></div>"+
+        "<div class='fl'><div class='lt'>Access</div><div class='lc'>"+s.a+"</div></div>"+
+        "<div class='fl'><div class='lt'>Content</div><div class='lc'>"+s.d+"</div></div>"));
+    });
+  });
+  /* checkbox → positioned marker */
+  document.querySelectorAll(".task").forEach(function(t){
+    var inp = t.querySelector("input");
+    if (inp) inp.replaceWith(elem("cbm", "<span class='tok'>CBX"+t.dataset.id+"</span>", "span"));
+  });
+}
+
+/* ── verification ── */
+DATA.verification.forEach(function(v){
+  var cols = v.cols.map(function(c){
+    return "<div class='zone'><div class='zt'>"+c.t+"</div>" + c.items.map(function(it){
+      return "<div class='it'><span class='nm'>"+it[0]+"</span><span class='why' style='max-width:88%;text-align:left'>"+it[1]+"</span></div>";
+    }).join("") + "</div>";
+  }).join("");
+  var d = elem("ms", "<summary>"+v.name+"</summary><div class='zones'>"+cols+"</div>", "details");
+  if (v.open) d.setAttribute("open","");
+  $("ver-list").appendChild(d);
+});
+
+if (location.search.indexOf("print") > -1) printMode();
+</script>
+</body>
+</html>

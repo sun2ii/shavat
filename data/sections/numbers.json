@@ -1,0 +1,1031 @@
+{
+  "book": "numbers",
+  "chapters": {
+    "1": [
+      {
+        "title": "The Census Command",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Tribal Leaders",
+        "verseRange": [
+          5,
+          16
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Census Results",
+        "verseRange": [
+          17,
+          46
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Levites Exempted",
+        "verseRange": [
+          47,
+          54
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Camp Arrangement East",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Camp Arrangement South",
+        "verseRange": [
+          10,
+          16
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Camp Arrangement West and North",
+        "verseRange": [
+          17,
+          31
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Summary",
+        "verseRange": [
+          32,
+          34
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Aaron's Sons",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Duties of Levites",
+        "verseRange": [
+          5,
+          13
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Levite Clans Numbered",
+        "verseRange": [
+          14,
+          39
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Redemption of Firstborn",
+        "verseRange": [
+          40,
+          51
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Kohathites' Duties",
+        "verseRange": [
+          1,
+          20
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Gershonites' Duties",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Merarites' Duties",
+        "verseRange": [
+          29,
+          33
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Census of Levite Clans",
+        "verseRange": [
+          34,
+          49
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Purity of the Camp",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Restitution for Wrongs",
+        "verseRange": [
+          5,
+          10
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Test for Adultery",
+        "verseRange": [
+          11,
+          31
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Nazirite Vow",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Aaronic Blessing",
+        "verseRange": [
+          22,
+          27
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Wagons for Levites",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Tribal Offerings Days 1-6",
+        "verseRange": [
+          10,
+          47
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Tribal Offerings Days 7-12",
+        "verseRange": [
+          48,
+          83
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Summary and Voice from Ark",
+        "verseRange": [
+          84,
+          89
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Setting Up the Lamps",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      },
+      {
+        "title": "Consecration of Levites",
+        "verseRange": [
+          5,
+          22
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Levite Service Years",
+        "verseRange": [
+          23,
+          26
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Second Passover",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Cloud Guides Israel",
+        "verseRange": [
+          15,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Silver Trumpets",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-silver-50 dark:bg-gray-900/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Departure from Sinai",
+        "verseRange": [
+          11,
+          28
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Hobab and the Ark",
+        "verseRange": [
+          29,
+          36
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Complaints and Fire",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Craving for Meat",
+        "verseRange": [
+          4,
+          15
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Seventy Elders",
+        "verseRange": [
+          16,
+          30
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Quail and Plague",
+        "verseRange": [
+          31,
+          35
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Miriam and Aaron Oppose Moses",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "God Defends Moses",
+        "verseRange": [
+          4,
+          9
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Miriam's Leprosy",
+        "verseRange": [
+          10,
+          16
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Twelve Spies Sent",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Exploring Canaan",
+        "verseRange": [
+          17,
+          25
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Report of the Spies",
+        "verseRange": [
+          26,
+          33
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "People Rebel",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Moses Intercedes",
+        "verseRange": [
+          11,
+          19
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "God's Judgment",
+        "verseRange": [
+          20,
+          35
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Failed Attempt to Enter",
+        "verseRange": [
+          36,
+          45
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Offerings for the Future",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Sin Offerings",
+        "verseRange": [
+          17,
+          31
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Sabbath Breaker Stoned",
+        "verseRange": [
+          32,
+          36
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Tassels as Reminders",
+        "verseRange": [
+          37,
+          41
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Korah's Rebellion",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Dathan and Abiram",
+        "verseRange": [
+          12,
+          15
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "The Test",
+        "verseRange": [
+          16,
+          24
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Earth Swallows Rebels",
+        "verseRange": [
+          25,
+          35
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      },
+      {
+        "title": "Plague and Atonement",
+        "verseRange": [
+          36,
+          50
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Aaron's Staff Buds",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Duties of Priests and Levites",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Offerings for Priests",
+        "verseRange": [
+          8,
+          20
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Tithes for Levites",
+        "verseRange": [
+          21,
+          32
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Red Heifer Ritual",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Water of Purification",
+        "verseRange": [
+          11,
+          22
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Miriam Dies, Water from Rock",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Edom Refuses Passage",
+        "verseRange": [
+          14,
+          21
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Aaron's Death",
+        "verseRange": [
+          22,
+          29
+        ],
+        "color": "bg-gray-50 dark:bg-gray-800/20",
+        "borderColor": "border-gray-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Victory over Canaanites",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Bronze Serpent",
+        "verseRange": [
+          4,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Journey Continues",
+        "verseRange": [
+          10,
+          20
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Defeat of Sihon and Og",
+        "verseRange": [
+          21,
+          35
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Balak Summons Balaam",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Second Summons",
+        "verseRange": [
+          15,
+          21
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Balaam's Donkey Speaks",
+        "verseRange": [
+          22,
+          35
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Balaam Meets Balak",
+        "verseRange": [
+          36,
+          41
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "Balaam's First Oracle",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Balaam's Second Oracle",
+        "verseRange": [
+          13,
+          26
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Balaam's Third Oracle",
+        "verseRange": [
+          27,
+          30
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "Balaam's Fourth Oracle",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Balaam's Final Oracles",
+        "verseRange": [
+          10,
+          25
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "Moabite Women Seduce Israel",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Phinehas' Zeal",
+        "verseRange": [
+          6,
+          18
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "Second Census Begins",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Census of Tribes",
+        "verseRange": [
+          5,
+          51
+        ],
+        "color": "bg-slate-50 dark:bg-slate-950/20",
+        "borderColor": "border-slate-400"
+      },
+      {
+        "title": "Land Division Instructions",
+        "verseRange": [
+          52,
+          56
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Levites Counted Separately",
+        "verseRange": [
+          57,
+          65
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "Daughters of Zelophehad",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Joshua to Succeed Moses",
+        "verseRange": [
+          12,
+          23
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "Daily and Sabbath Offerings",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Monthly and Festival Offerings",
+        "verseRange": [
+          11,
+          31
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "29": [
+      {
+        "title": "Offerings for Seventh Month",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Offerings for Feast of Booths",
+        "verseRange": [
+          12,
+          40
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "30": [
+      {
+        "title": "Vows by Men and Unmarried Women",
+        "verseRange": [
+          1,
+          2
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Vows by Married Women",
+        "verseRange": [
+          3,
+          16
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "31": [
+      {
+        "title": "War Against Midian",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Purification After Battle",
+        "verseRange": [
+          13,
+          24
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Division of Plunder",
+        "verseRange": [
+          25,
+          54
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "32": [
+      {
+        "title": "Reuben and Gad Request Land",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Moses' Conditional Agreement",
+        "verseRange": [
+          16,
+          27
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Allocation East of Jordan",
+        "verseRange": [
+          28,
+          42
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "33": [
+      {
+        "title": "Journey from Egypt to Sinai",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Journey from Sinai to Canaan",
+        "verseRange": [
+          16,
+          49
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Instructions for Conquest",
+        "verseRange": [
+          50,
+          56
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "34": [
+      {
+        "title": "Boundaries of Canaan",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Leaders to Divide the Land",
+        "verseRange": [
+          16,
+          29
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "35": [
+      {
+        "title": "Cities for Levites",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Cities of Refuge",
+        "verseRange": [
+          9,
+          34
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "36": [
+      {
+        "title": "Inheritance for Women",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ]
+  }
+}

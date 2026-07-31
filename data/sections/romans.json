@@ -1,0 +1,397 @@
+{
+  "book": "romans",
+  "chapters": {
+    "1": [
+      {
+        "title": "Paul's Greeting and Gospel Theme",
+        "verseRange": [
+          1,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "God's Wrath Against Humanity",
+        "verseRange": [
+          18,
+          32
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "God's Righteous Judgment",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Jews and the Law",
+        "verseRange": [
+          17,
+          29
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "God's Faithfulness",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "No One Righteous",
+        "verseRange": [
+          9,
+          20
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Righteousness Through Faith",
+        "verseRange": [
+          21,
+          31
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Abraham Justified by Faith",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Faith and the Promise",
+        "verseRange": [
+          13,
+          25
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Peace with God Through Faith",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Death Through Adam, Life Through Christ",
+        "verseRange": [
+          12,
+          21
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Dead to Sin, Alive in Christ",
+        "verseRange": [
+          1,
+          14
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Slaves to Righteousness",
+        "verseRange": [
+          15,
+          23
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Released from the Law",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "The Law and Sin",
+        "verseRange": [
+          7,
+          13
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Struggle with Sin",
+        "verseRange": [
+          14,
+          25
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "No Condemnation in Christ",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Life by the Spirit",
+        "verseRange": [
+          5,
+          17
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Future Glory",
+        "verseRange": [
+          18,
+          27
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "More Than Conquerors",
+        "verseRange": [
+          28,
+          39
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Paul's Anguish for Israel",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "God's Sovereign Election",
+        "verseRange": [
+          6,
+          29
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Israel's Unbelief",
+        "verseRange": [
+          30,
+          33
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Christ the End of the Law",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Faith Comes from Hearing",
+        "verseRange": [
+          14,
+          21
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "The Remnant of Israel",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      },
+      {
+        "title": "Ingrafted Branches",
+        "verseRange": [
+          11,
+          24
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "All Israel Will Be Saved",
+        "verseRange": [
+          25,
+          36
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "A Living Sacrifice",
+        "verseRange": [
+          1,
+          2
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Humble Service in the Body of Christ",
+        "verseRange": [
+          3,
+          8
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Love in Action",
+        "verseRange": [
+          9,
+          21
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Submission to Governing Authorities",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Love Fulfills the Law",
+        "verseRange": [
+          8,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Day Is Near",
+        "verseRange": [
+          11,
+          14
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "The Weak and the Strong",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Do Not Cause Another to Stumble",
+        "verseRange": [
+          13,
+          23
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Bear One Another's Burdens",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Paul's Ministry and Plans",
+        "verseRange": [
+          14,
+          33
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Personal Greetings",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "Final Instructions and Doxology",
+        "verseRange": [
+          17,
+          27
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ]
+  }
+}

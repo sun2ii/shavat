@@ -10,7 +10,8 @@ import {
 } from '@/lib/book-metadata-utils';
 import { readingPath, resolveDivisionId, testamentPrefix, TestamentPrefix } from '@/lib/routes';
 import BookPageClient from '@/components/BookPageClient';
-import GenesisReader from '@/components/GenesisReader';
+import BookReader from '@/components/BookReader';
+import { getChapterSections } from '@/lib/sections';
 
 export interface BookReadingParams {
   book: string;
@@ -128,7 +129,7 @@ export default function BookReadingRoute({
             </div>
           </div>
         </div>
-        <GenesisReader verses={verses} book={book} chapter={chapterNum} />
+        <BookReader verses={verses} book={book} chapter={chapterNum} sections={getChapterSections(book, chapterNum) ?? undefined} />
       </main>
     );
   }
@@ -193,6 +194,7 @@ export default function BookReadingRoute({
         division={division}
         currentChapter={chapterNum}
         chapterSummary={chapterSummary}
+        sections={getChapterSections(book, chapterNum) ?? undefined}
       />
     );
   }

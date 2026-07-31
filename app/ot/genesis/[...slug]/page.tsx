@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { getChapter } from '@/lib/genesis';
 import { getBookById, getBookByChapter, getChapterSummary } from '@/lib/genesis-collections';
 import GenesisPageClient from '@/components/GenesisPageClient';
+import { getChapterSections } from '@/lib/sections';
 
 interface Props {
   params: {
@@ -94,6 +95,7 @@ export default function GenesisReadingPage({ params }: Props) {
         book={book}
         currentChapter={chapterNum}
         chapterSummary={chapterSummary}
+        sections={getChapterSections('genesis', chapterNum) ?? undefined}
       />
     );
   }

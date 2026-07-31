@@ -33,7 +33,6 @@ export interface EraGroup {
  */
 function readDivisions(bookSlug: string): BookDivision[] {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const metadata = require(`./${bookSlug}-metadata.json`);
     const divisions = metadata.divisions?.length
       ? metadata.divisions

@@ -1,0 +1,112 @@
+{
+  "book": "philippians",
+  "chapters": {
+    "1": [
+      {
+        "title": "Paul's Greeting and Prayer",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      },
+      {
+        "title": "Paul's Chains Advance the Gospel",
+        "verseRange": [
+          12,
+          26
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Stand Firm for the Gospel",
+        "verseRange": [
+          27,
+          30
+        ],
+        "color": "bg-yellow-50 dark:bg-yellow-950/20",
+        "borderColor": "border-yellow-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Imitating Christ's Humility",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Shine as Lights",
+        "verseRange": [
+          12,
+          18
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Timothy and Epaphroditus",
+        "verseRange": [
+          19,
+          30
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Righteousness Through Faith in Christ",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Pressing On Toward the Goal",
+        "verseRange": [
+          12,
+          21
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Stand Firm, Rejoice, and Think on Good Things",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Contentment in All Circumstances",
+        "verseRange": [
+          10,
+          20
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Final Greetings",
+        "verseRange": [
+          21,
+          23
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ]
+  }
+}

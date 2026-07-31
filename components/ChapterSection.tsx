@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SectionData } from '@/lib/extractSections';
+import { SectionData } from '@/lib/sections';
 import { readingPath } from '@/lib/routes';
 
 interface Props {

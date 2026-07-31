@@ -1,0 +1,94 @@
+{
+  "book": "2-timothy",
+  "chapters": {
+    "1": [
+      {
+        "title": "Thanksgiving and Encouragement",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      },
+      {
+        "title": "Not Ashamed of the Gospel",
+        "verseRange": [
+          8,
+          18
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Endure Hardship",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-emerald-50 dark:bg-emerald-950/20",
+        "borderColor": "border-emerald-400"
+      },
+      {
+        "title": "Approved Workman",
+        "verseRange": [
+          14,
+          26
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Godlessness in the Last Days",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "All Scripture is God-Breathed",
+        "verseRange": [
+          10,
+          17
+        ],
+        "color": "bg-pink-50 dark:bg-pink-950/20",
+        "borderColor": "border-pink-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Preach the Word",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-teal-50 dark:bg-teal-950/20",
+        "borderColor": "border-teal-400"
+      },
+      {
+        "title": "Paul's Final Testimony",
+        "verseRange": [
+          9,
+          18
+        ],
+        "color": "bg-sky-50 dark:bg-sky-950/20",
+        "borderColor": "border-sky-400"
+      },
+      {
+        "title": "Final Greetings",
+        "verseRange": [
+          19,
+          22
+        ],
+        "color": "bg-indigo-50 dark:bg-indigo-950/20",
+        "borderColor": "border-indigo-400"
+      }
+    ]
+  }
+}

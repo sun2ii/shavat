@@ -1,0 +1,544 @@
+{
+  "book": "1-samuel",
+  "chapters": {
+    "1": [
+      {
+        "title": "Hannah's Barrenness",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Hannah's Prayer at Shiloh",
+        "verseRange": [
+          9,
+          18
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Samuel's Birth",
+        "verseRange": [
+          19,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Samuel Given to the Lord",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Hannah's Song",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Eli's Wicked Sons",
+        "verseRange": [
+          11,
+          17
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Samuel's Growth",
+        "verseRange": [
+          18,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Judgment on Eli's House",
+        "verseRange": [
+          22,
+          36
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "The Lord Calls Samuel",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Message for Eli",
+        "verseRange": [
+          11,
+          18
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Samuel Confirmed as Prophet",
+        "verseRange": [
+          19,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Israel Defeated, Ark Captured",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "Eli's Death",
+        "verseRange": [
+          12,
+          22
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "The Ark in Philistine Territory",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "The Ark Returned to Israel",
+        "verseRange": [
+          1,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Samuel's Leadership",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Victory Over the Philistines",
+        "verseRange": [
+          7,
+          17
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Israel Demands a King",
+        "verseRange": [
+          1,
+          22
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Saul Meets Samuel",
+        "verseRange": [
+          1,
+          27
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Saul Anointed King",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Saul Chosen by Lot",
+        "verseRange": [
+          17,
+          27
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Saul Rescues Jabesh-gilead",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Saul Confirmed as King",
+        "verseRange": [
+          12,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Samuel's Farewell Address",
+        "verseRange": [
+          1,
+          25
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Saul's Unlawful Sacrifice",
+        "verseRange": [
+          1,
+          23
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Jonathan's Victory",
+        "verseRange": [
+          1,
+          23
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Saul's Rash Oath",
+        "verseRange": [
+          24,
+          46
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      },
+      {
+        "title": "Saul's Military Summary",
+        "verseRange": [
+          47,
+          52
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Saul Rejected as King",
+        "verseRange": [
+          1,
+          35
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "David Anointed",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "David Enters Saul's Service",
+        "verseRange": [
+          14,
+          23
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Goliath's Challenge",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      },
+      {
+        "title": "David Accepts the Challenge",
+        "verseRange": [
+          12,
+          40
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "David Defeats Goliath",
+        "verseRange": [
+          41,
+          58
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "David and Jonathan",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Saul's Jealousy",
+        "verseRange": [
+          5,
+          30
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Saul Tries to Kill David",
+        "verseRange": [
+          1,
+          24
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "David and Jonathan's Covenant",
+        "verseRange": [
+          1,
+          42
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "David at Nob",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "David at Gath",
+        "verseRange": [
+          10,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "David's Refuge",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Saul Kills the Priests",
+        "verseRange": [
+          6,
+          23
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "23": [
+      {
+        "title": "David Saves Keilah",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Saul Pursues David",
+        "verseRange": [
+          14,
+          29
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "24": [
+      {
+        "title": "David Spares Saul",
+        "verseRange": [
+          1,
+          22
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "25": [
+      {
+        "title": "Samuel's Death",
+        "verseRange": [
+          1,
+          1
+        ],
+        "color": "bg-violet-50 dark:bg-violet-950/20",
+        "borderColor": "border-violet-400"
+      },
+      {
+        "title": "David and Abigail",
+        "verseRange": [
+          2,
+          44
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "26": [
+      {
+        "title": "David Spares Saul Again",
+        "verseRange": [
+          1,
+          25
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "27": [
+      {
+        "title": "David Among the Philistines",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-orange-50 dark:bg-orange-950/20",
+        "borderColor": "border-orange-400"
+      }
+    ],
+    "28": [
+      {
+        "title": "Saul and the Medium",
+        "verseRange": [
+          1,
+          25
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ],
+    "29": [
+      {
+        "title": "David Sent Back from Battle",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "30": [
+      {
+        "title": "David Defeats the Amalekites",
+        "verseRange": [
+          1,
+          31
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "31": [
+      {
+        "title": "Saul's Death",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-red-50 dark:bg-red-950/20",
+        "borderColor": "border-red-400"
+      }
+    ]
+  }
+}

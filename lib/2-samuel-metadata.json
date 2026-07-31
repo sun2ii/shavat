@@ -79,5 +79,152 @@
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-10", "title": "News of Saul's death" },
+      { "verses": "11-16", "title": "Judgment on the messenger" },
+      { "verses": "17-27", "title": "Lament for Saul and Jonathan" }
+    ],
+    "2": [
+      { "verses": "1-7", "title": "David crowned in Hebron" },
+      { "verses": "8-11", "title": "Ish-Bosheth made king" },
+      { "verses": "12-32", "title": "Battle at Gibeon" }
+    ],
+    "3": [
+      { "verses": "1-5", "title": "David's house strengthens" },
+      { "verses": "6-11", "title": "Abner's defection" },
+      { "verses": "12-21", "title": "Abner's covenant with David" },
+      { "verses": "22-39", "title": "Joab murders Abner" }
+    ],
+    "4": [
+      { "verses": "1-4", "title": "Ish-Bosheth's fear" },
+      { "verses": "5-7", "title": "Murder of Ish-Bosheth" },
+      { "verses": "8-12", "title": "David executes the assassins" }
+    ],
+    "5": [
+      { "verses": "1-5", "title": "All Israel anoints David" },
+      { "verses": "6-16", "title": "Jerusalem conquered" },
+      { "verses": "17-25", "title": "Victories over Philistines" }
+    ],
+    "6": [
+      { "verses": "1-7", "title": "Uzzah struck down" },
+      { "verses": "8-11", "title": "Ark stays at Obed-Edom" },
+      { "verses": "12-19", "title": "Ark brought to Jerusalem" },
+      { "verses": "20-23", "title": "Michal's contempt" }
+    ],
+    "7": [
+      { "verses": "1-11", "title": "David's desire to build" },
+      { "verses": "12-16", "title": "The Davidic covenant" },
+      { "verses": "17-29", "title": "David's prayer" }
+    ],
+    "8": [
+      { "verses": "1-8", "title": "Military conquests" },
+      { "verses": "9-12", "title": "Tribute and dedication" },
+      { "verses": "13-14", "title": "Victory over Edom" },
+      { "verses": "15-18", "title": "David's officials" }
+    ],
+    "9": [
+      { "verses": "1-4", "title": "Seeking Saul's descendants" },
+      { "verses": "5-8", "title": "Mephibosheth summoned" },
+      { "verses": "9-13", "title": "Kindness for Jonathan's sake" }
+    ],
+    "10": [
+      { "verses": "1-5", "title": "Ammonite insult" },
+      { "verses": "6-12", "title": "Coalition armies" },
+      { "verses": "13-19", "title": "Israel victorious" }
+    ],
+    "11": [
+      { "verses": "1-5", "title": "David and Bathsheba" },
+      { "verses": "6-13", "title": "Failed cover-up" },
+      { "verses": "14-25", "title": "Murder of Uriah" },
+      { "verses": "26-27", "title": "Bathsheba becomes wife" }
+    ],
+    "12": [
+      { "verses": "1-6", "title": "Nathan's parable" },
+      { "verses": "7-14", "title": "You are the man" },
+      { "verses": "15-23", "title": "Death of the child" },
+      { "verses": "24-31", "title": "Solomon born" }
+    ],
+    "13": [
+      { "verses": "1-14", "title": "Amnon assaults Tamar" },
+      { "verses": "15-20", "title": "Amnon's hatred" },
+      { "verses": "21-22", "title": "David's anger, Absalom's silence" },
+      { "verses": "23-36", "title": "Amnon murdered" },
+      { "verses": "37-39", "title": "Absalom flees" }
+    ],
+    "14": [
+      { "verses": "1-3", "title": "Joab's scheme" },
+      { "verses": "4-11", "title": "Woman of Tekoa's plea" },
+      { "verses": "12-20", "title": "David sees through it" },
+      { "verses": "21-24", "title": "Absalom recalled but distant" },
+      { "verses": "25-33", "title": "Absalom's beauty and reconciliation" }
+    ],
+    "15": [
+      { "verses": "1-6", "title": "Absalom wins hearts" },
+      { "verses": "7-12", "title": "Conspiracy at Hebron" },
+      { "verses": "13-18", "title": "David flees Jerusalem" },
+      { "verses": "19-37", "title": "Loyal followers join" }
+    ],
+    "16": [
+      { "verses": "1-4", "title": "Ziba's provisions" },
+      { "verses": "5-13", "title": "Shimei's curses" },
+      { "verses": "14-15", "title": "Groups reach destinations" },
+      { "verses": "16-23", "title": "Hushai joins Absalom" }
+    ],
+    "17": [
+      { "verses": "1-4", "title": "Ahithophel's counsel" },
+      { "verses": "5-14", "title": "Hushai's counter-strategy" },
+      { "verses": "15-22", "title": "Warning reaches David" },
+      { "verses": "23-26", "title": "Ahithophel's suicide" },
+      { "verses": "27-29", "title": "Allies provide supplies" }
+    ],
+    "18": [
+      { "verses": "1-5", "title": "David organizes army" },
+      { "verses": "6-8", "title": "Battle in the forest" },
+      { "verses": "9-16", "title": "Absalom's death" },
+      { "verses": "17-18", "title": "Absalom buried" },
+      { "verses": "19-33", "title": "David's grief" }
+    ],
+    "19": [
+      { "verses": "1-8", "title": "Joab rebukes David" },
+      { "verses": "9-14", "title": "Call for David's return" },
+      { "verses": "15-30", "title": "Journey back to Jerusalem" },
+      { "verses": "31-39", "title": "Barzillai's farewell" },
+      { "verses": "40-43", "title": "Tribal dispute" }
+    ],
+    "20": [
+      { "verses": "1-3", "title": "Sheba's rebellion" },
+      { "verses": "4-10", "title": "Joab murders Amasa" },
+      { "verses": "11-13", "title": "Pursuit continues" },
+      { "verses": "14-22", "title": "Siege of Abel" },
+      { "verses": "23-26", "title": "David's officials" }
+    ],
+    "21": [
+      { "verses": "1-6", "title": "Famine and Gibeonite justice" },
+      { "verses": "7-14", "title": "Seven executed, bones buried" },
+      { "verses": "15-17", "title": "Abishai saves David" },
+      { "verses": "18-22", "title": "Four giants defeated" }
+    ],
+    "22": [
+      { "verses": "1-4", "title": "Song of deliverance begins" },
+      { "verses": "5-25", "title": "Rescued from distress" },
+      { "verses": "26-43", "title": "God's character and David's victories" },
+      { "verses": "44-51", "title": "Dominion and covenant" }
+    ],
+    "23": [
+      { "verses": "1-7", "title": "David's last words" },
+      { "verses": "8-12", "title": "Three mighty warriors" },
+      { "verses": "13-17", "title": "Water from Bethlehem" },
+      { "verses": "18-23", "title": "Abishai and Benaiah" },
+      { "verses": "24-39", "title": "The Thirty" }
+    ],
+    "24": [
+      { "verses": "1-4", "title": "Census ordered" },
+      { "verses": "5-9", "title": "Census conducted" },
+      { "verses": "10-14", "title": "David's repentance" },
+      { "verses": "15-17", "title": "Plague strikes" },
+      { "verses": "18-25", "title": "Altar and sacrifice" }
+    ]
+  }
 }

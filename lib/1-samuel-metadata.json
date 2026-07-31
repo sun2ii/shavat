@@ -62,14 +62,23 @@
         20,
         21,
         22,
-        23,
+        23
+      ],
+      "theme": "The anointed fugitive",
+      "summary": "Saul's jealousy erupts, Jonathan's covenant friendship, and David's desperate flight through the wilderness.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "davids-restraint",
+      "title": "David's Restraint",
+      "chapters": [
         24,
         25,
         26,
         27
       ],
-      "theme": "The anointed fugitive",
-      "summary": "Jonathan’s friendship, Saul’s spears, and David sparing the king’s life — twice.",
+      "theme": "Mercy and waiting",
+      "summary": "David spares Saul's life twice, Abigail intervenes, and despair drives David to the Philistines.",
       "contentType": "narrative"
     },
     {

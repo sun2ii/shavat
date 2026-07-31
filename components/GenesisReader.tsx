@@ -1671,6 +1671,176 @@ const SAMUEL_1_31_SECTIONS: DaySection[] = [
   { day: "Saul's Death", verseRange: [1, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
 ];
 
+// 2 SAMUEL SECTIONS
+const SAMUEL_2_1_SECTIONS: DaySection[] = [
+  { day: "News of Saul's death", verseRange: [1, 10], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Judgment on the messenger', verseRange: [11, 16], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Lament for Saul and Jonathan', verseRange: [17, 27], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_2_2_SECTIONS: DaySection[] = [
+  { day: 'David crowned in Hebron', verseRange: [1, 7], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Ish-Bosheth made king', verseRange: [8, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Battle at Gibeon', verseRange: [12, 32], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_2_3_SECTIONS: DaySection[] = [
+  { day: "David's house strengthens", verseRange: [1, 5], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: "Abner's defection", verseRange: [6, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Abner's covenant with David", verseRange: [12, 21], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Joab murders Abner', verseRange: [22, 39], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+];
+
+const SAMUEL_2_4_SECTIONS: DaySection[] = [
+  { day: "Ish-Bosheth's fear", verseRange: [1, 4], color:  'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Murder of Ish-Bosheth', verseRange: [5, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'David executes the assassins', verseRange: [8, 12], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_2_5_SECTIONS: DaySection[] = [
+  { day: 'All Israel anoints David', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Jerusalem conquered', verseRange: [6, 16], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Victories over Philistines', verseRange: [17, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_6_SECTIONS: DaySection[] = [
+  { day: 'Uzzah struck down', verseRange: [1, 7], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Ark stays at Obed-Edom', verseRange: [8, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Ark brought to Jerusalem', verseRange: [12, 19], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Michal's contempt", verseRange: [20, 23], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_2_7_SECTIONS: DaySection[] = [
+  { day: "David's desire to build", verseRange: [1, 11], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'The Davidic covenant', verseRange: [12, 16], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: "David's prayer", verseRange: [17, 29], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_2_8_SECTIONS: DaySection[] = [
+  { day: 'Military conquests', verseRange: [1, 8], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Tribute and dedication', verseRange: [9, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Victory over Edom', verseRange: [13, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "David's officials", verseRange: [15, 18], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const SAMUEL_2_9_SECTIONS: DaySection[] = [
+  { day: "Seeking Saul's descendants", verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Mephibosheth summoned', verseRange: [5, 8], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "Kindness for Jonathan's sake", verseRange: [9, 13], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_10_SECTIONS: DaySection[] = [
+  { day: 'Ammonite insult', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Coalition armies', verseRange: [6, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Israel victorious', verseRange: [13, 19], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_11_SECTIONS: DaySection[] = [
+  { day: 'David and Bathsheba', verseRange: [1, 5], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Failed cover-up', verseRange: [6, 13], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Murder of Uriah', verseRange: [14, 25], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Bathsheba becomes wife', verseRange: [26, 27], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+];
+
+const SAMUEL_2_12_SECTIONS: DaySection[] = [
+  { day: "Nathan's parable", verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'You are the man', verseRange: [7, 14], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Death of the child', verseRange: [15, 23], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Solomon born', verseRange: [24, 31], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_2_13_SECTIONS: DaySection[] = [
+  { day: 'Amnon assaults Tamar', verseRange: [1, 14], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: "Amnon's hatred", verseRange: [15, 20], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: "David's anger, Absalom's silence", verseRange: [21, 22], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Amnon murdered', verseRange: [23, 36], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Absalom flees', verseRange: [37, 39], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+];
+
+const SAMUEL_2_14_SECTIONS: DaySection[] = [
+  { day: "Joab's scheme", verseRange: [1, 3], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Woman of Tekoa's plea", verseRange: [4, 11], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'David sees through it', verseRange: [12, 20], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+  { day: 'Absalom recalled but distant', verseRange: [21, 24], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: "Absalom's beauty and reconciliation", verseRange: [25, 33], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_15_SECTIONS: DaySection[] = [
+  { day: 'Absalom wins hearts', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Conspiracy at Hebron', verseRange: [7, 12], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'David flees Jerusalem', verseRange: [13, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Loyal followers join', verseRange: [19, 37], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_16_SECTIONS: DaySection[] = [
+  { day: "Ziba's provisions", verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Shimei's curses", verseRange: [5, 13], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Groups reach destinations', verseRange: [14, 15], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Hushai joins Absalom', verseRange: [16, 23], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_2_17_SECTIONS: DaySection[] = [
+  { day: "Ahithophel's counsel", verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: "Hushai's counter-strategy", verseRange: [5, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Warning reaches David', verseRange: [15, 22], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: "Ahithophel's suicide", verseRange: [23, 26], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Allies provide supplies', verseRange: [27, 29], color: 'bg-cyan-50 dark:bg-cyan-950/20', borderColor: 'border-cyan-400' },
+];
+
+const SAMUEL_2_18_SECTIONS: DaySection[] = [
+  { day: 'David organizes army', verseRange: [1, 5], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Battle in the forest', verseRange: [6, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: "Absalom's death", verseRange: [9, 16], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Absalom buried', verseRange: [17, 18], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "David's grief", verseRange: [19, 33], color: 'bg-violet-50 dark:bg-violet-950/20', borderColor: 'border-violet-400' },
+];
+
+const SAMUEL_2_19_SECTIONS: DaySection[] = [
+  { day: 'Joab rebukes David', verseRange: [1, 8], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: "Call for David's return", verseRange: [9, 14], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Journey back to Jerusalem', verseRange: [15, 30], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: "Barzillai's farewell", verseRange: [31, 39], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Tribal dispute', verseRange: [40, 43], color: 'bg-orange-50 dark:bg-orange-950/20', borderColor: 'border-orange-400' },
+];
+
+const SAMUEL_2_20_SECTIONS: DaySection[] = [
+  { day: "Sheba's rebellion", verseRange: [1, 3], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Joab murders Amasa', verseRange: [4, 10], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Pursuit continues', verseRange: [11, 13], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Siege of Abel', verseRange: [14, 22], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "David's officials", verseRange: [23, 26], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const SAMUEL_2_21_SECTIONS: DaySection[] = [
+  { day: 'Famine and Gibeonite justice', verseRange: [1, 6], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Seven executed, bones buried', verseRange: [7, 14], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Abishai saves David', verseRange: [15, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Four giants defeated', verseRange: [18, 22], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
+const SAMUEL_2_22_SECTIONS: DaySection[] = [
+  { day: 'Song of deliverance begins', verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Rescued from distress', verseRange: [5, 25], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "God's character and David's victories", verseRange: [26, 43], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'Dominion and covenant', verseRange: [44, 51], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+];
+
+const SAMUEL_2_23_SECTIONS: DaySection[] = [
+  { day: "David's last words", verseRange: [1, 7], color: 'bg-purple-50 dark:bg-purple-950/20', borderColor: 'border-purple-400' },
+  { day: 'Three mighty warriors', verseRange: [8, 12], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Water from Bethlehem', verseRange: [13, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: 'Abishai and Benaiah', verseRange: [18, 23], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+  { day: 'The Thirty', verseRange: [24, 39], color: 'bg-slate-50 dark:bg-slate-950/20', borderColor: 'border-slate-400' },
+];
+
+const SAMUEL_2_24_SECTIONS: DaySection[] = [
+  { day: 'Census ordered', verseRange: [1, 4], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
+  { day: 'Census conducted', verseRange: [5, 9], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
+  { day: "David's repentance", verseRange: [10, 14], color: 'bg-red-50 dark:bg-red-950/20', borderColor: 'border-red-400' },
+  { day: 'Plague strikes', verseRange: [15, 17], color: 'bg-gray-50 dark:bg-gray-800/20', borderColor: 'border-gray-400' },
+  { day: 'Altar and sacrifice', verseRange: [18, 25], color: 'bg-green-50 dark:bg-green-950/20', borderColor: 'border-green-400' },
+];
+
 const MATTHEW_1_SECTIONS: DaySection[] = [
   { day: 'The Genealogy', verseRange: [1, 17], color: 'bg-blue-50 dark:bg-blue-950/20', borderColor: 'border-blue-400' },
   { day: 'The Birth of Jesus', verseRange: [18, 25], color: 'bg-amber-50 dark:bg-amber-950/20', borderColor: 'border-amber-400' },
@@ -3317,6 +3487,7 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
     (actualBook === 'judges' && actualChapter >= 1 && actualChapter <= 21) ||
     (actualBook === 'ruth' && actualChapter >= 1 && actualChapter <= 4) ||
     (actualBook === '1-samuel' && actualChapter >= 1 && actualChapter <= 31) ||
+    (actualBook === '2-samuel' && actualChapter >= 1 && actualChapter <= 24) ||
     (actualBook === 'mark' && actualChapter >= 1 && actualChapter <= 16) ||
     (actualBook === 'matthew' && actualChapter >= 1 && actualChapter <= 28) ||
     (actualBook === 'luke' && actualChapter >= 1 && actualChapter <= 24) ||
@@ -4225,6 +4396,81 @@ export default function GenesisReader({ verses, book, chapter }: Props) {
           break;
         case 31:
           sections = SAMUEL_1_31_SECTIONS;
+          break;
+      }
+    } else if (actualBook === '2-samuel') {
+      switch (actualChapter) {
+        case 1:
+          sections = SAMUEL_2_1_SECTIONS;
+          break;
+        case 2:
+          sections = SAMUEL_2_2_SECTIONS;
+          break;
+        case 3:
+          sections = SAMUEL_2_3_SECTIONS;
+          break;
+        case 4:
+          sections = SAMUEL_2_4_SECTIONS;
+          break;
+        case 5:
+          sections = SAMUEL_2_5_SECTIONS;
+          break;
+        case 6:
+          sections = SAMUEL_2_6_SECTIONS;
+          break;
+        case 7:
+          sections = SAMUEL_2_7_SECTIONS;
+          break;
+        case 8:
+          sections = SAMUEL_2_8_SECTIONS;
+          break;
+        case 9:
+          sections = SAMUEL_2_9_SECTIONS;
+          break;
+        case 10:
+          sections = SAMUEL_2_10_SECTIONS;
+          break;
+        case 11:
+          sections = SAMUEL_2_11_SECTIONS;
+          break;
+        case 12:
+          sections = SAMUEL_2_12_SECTIONS;
+          break;
+        case 13:
+          sections = SAMUEL_2_13_SECTIONS;
+          break;
+        case 14:
+          sections = SAMUEL_2_14_SECTIONS;
+          break;
+        case 15:
+          sections = SAMUEL_2_15_SECTIONS;
+          break;
+        case 16:
+          sections = SAMUEL_2_16_SECTIONS;
+          break;
+        case 17:
+          sections = SAMUEL_2_17_SECTIONS;
+          break;
+        case 18:
+          sections = SAMUEL_2_18_SECTIONS;
+          break;
+        case 19:
+          sections = SAMUEL_2_19_SECTIONS;
+          break;
+        case 20:
+          sections = SAMUEL_2_20_SECTIONS;
+          break;
+        case 21:
+          sections = SAMUEL_2_21_SECTIONS;
+          break;
+        case 22:
+          sections = SAMUEL_2_22_SECTIONS;
+          break;
+        case 23:
+          sections = SAMUEL_2_23_SECTIONS;
+          break;
+        case 24:
+          sections = SAMUEL_2_24_SECTIONS;
           break;
       }
     } else if (actualBook === 'matthew') {

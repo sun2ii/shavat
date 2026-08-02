@@ -29,5 +29,54 @@
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-4", "title": "Cyrus's decree" },
+      { "verses": "5-11", "title": "Preparations to return" }
+    ],
+    "2": [
+      { "verses": "1-35", "title": "List of returnees" },
+      { "verses": "36-63", "title": "Priests, Levites, and temple servants" },
+      { "verses": "64-70", "title": "Total and gifts" }
+    ],
+    "3": [
+      { "verses": "1-7", "title": "Altar rebuilt" },
+      { "verses": "8-13", "title": "Temple foundation laid" }
+    ],
+    "4": [
+      { "verses": "1-5", "title": "Opposition begins" },
+      { "verses": "6-16", "title": "Letter to Artaxerxes" },
+      { "verses": "17-24", "title": "Work stops" }
+    ],
+    "5": [
+      { "verses": "1-5", "title": "Prophets urge rebuilding" },
+      { "verses": "6-17", "title": "Tattenai's letter to Darius" }
+    ],
+    "6": [
+      { "verses": "1-12", "title": "Darius's decree" },
+      { "verses": "13-18", "title": "Temple completed" },
+      { "verses": "19-22", "title": "Passover celebrated" }
+    ],
+    "7": [
+      { "verses": "1-10", "title": "Ezra's arrival" },
+      { "verses": "11-26", "title": "Artaxerxes' letter" },
+      { "verses": "27-28", "title": "Ezra's praise" }
+    ],
+    "8": [
+      { "verses": "1-14", "title": "Those who returned with Ezra" },
+      { "verses": "15-20", "title": "Levites recruited" },
+      { "verses": "21-23", "title": "Fasting and prayer" },
+      { "verses": "24-36", "title": "Journey and arrival" }
+    ],
+    "9": [
+      { "verses": "1-4", "title": "Report of intermarriage" },
+      { "verses": "5-15", "title": "Ezra's prayer of confession" }
+    ],
+    "10": [
+      { "verses": "1-8", "title": "People's response" },
+      { "verses": "9-17", "title": "Assembly and investigation" },
+      { "verses": "18-44", "title": "List of guilty" }
+    ]
+  }
 }

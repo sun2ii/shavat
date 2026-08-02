@@ -77,5 +77,142 @@
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-4", "title": "David's old age" },
+      { "verses": "5-10", "title": "Adonijah exalts himself" },
+      { "verses": "11-31", "title": "Nathan and Bathsheba intervene" },
+      { "verses": "32-40", "title": "Solomon anointed king" },
+      { "verses": "41-53", "title": "Adonijah's fear" }
+    ],
+    "2": [
+      { "verses": "1-9", "title": "David's charge to Solomon" },
+      { "verses": "10-12", "title": "David's death" },
+      { "verses": "13-25", "title": "Adonijah executed" },
+      { "verses": "26-27", "title": "Abiathar exiled" },
+      { "verses": "28-35", "title": "Joab executed" },
+      { "verses": "36-46", "title": "Shimei executed" }
+    ],
+    "3": [
+      { "verses": "1-3", "title": "Solomon's high places" },
+      { "verses": "4-15", "title": "Wisdom requested and granted" },
+      { "verses": "16-28", "title": "Two mothers and a baby" }
+    ],
+    "4": [
+      { "verses": "1-6", "title": "Solomon's officials" },
+      { "verses": "7-19", "title": "Twelve district governors" },
+      { "verses": "20-28", "title": "Prosperity and provision" },
+      { "verses": "29-34", "title": "Solomon's wisdom" }
+    ],
+    "5": [
+      { "verses": "1-6", "title": "Alliance with Hiram" },
+      { "verses": "7-12", "title": "Timber from Lebanon" },
+      { "verses": "13-18", "title": "Labor force for the temple" }
+    ],
+    "6": [
+      { "verses": "1-10", "title": "Temple construction begins" },
+      { "verses": "11-13", "title": "God's covenant promise" },
+      { "verses": "14-22", "title": "Interior overlaid with gold" },
+      { "verses": "23-28", "title": "Cherubim in the inner sanctuary" },
+      { "verses": "29-38", "title": "Doors, walls, and completion" }
+    ],
+    "7": [
+      { "verses": "1-12", "title": "Solomon's palace" },
+      { "verses": "13-22", "title": "Two bronze pillars" },
+      { "verses": "23-26", "title": "The bronze Sea" },
+      { "verses": "27-39", "title": "Ten bronze stands" },
+      { "verses": "40-51", "title": "Furnishings completed" }
+    ],
+    "8": [
+      { "verses": "1-11", "title": "Ark brought to temple" },
+      { "verses": "12-21", "title": "Solomon's address" },
+      { "verses": "22-53", "title": "Solomon's dedicatory prayer" },
+      { "verses": "54-61", "title": "Blessing the assembly" },
+      { "verses": "62-66", "title": "Sacrifices and celebration" }
+    ],
+    "9": [
+      { "verses": "1-9", "title": "God's second appearance" },
+      { "verses": "10-14", "title": "Solomon's agreement with Hiram" },
+      { "verses": "15-24", "title": "Forced labor and building projects" },
+      { "verses": "25-28", "title": "Sacrifices and ships" }
+    ],
+    "10": [
+      { "verses": "1-10", "title": "Queen of Sheba visits" },
+      { "verses": "11-13", "title": "Gold, almug wood, and gifts" },
+      { "verses": "14-25", "title": "Solomon's wealth" },
+      { "verses": "26-29", "title": "Chariots and horses" }
+    ],
+    "11": [
+      { "verses": "1-8", "title": "Solomon's foreign wives" },
+      { "verses": "9-13", "title": "God's anger and judgment" },
+      { "verses": "14-22", "title": "Hadad the Edomite" },
+      { "verses": "23-25", "title": "Rezon of Damascus" },
+      { "verses": "26-40", "title": "Jeroboam's rebellion" },
+      { "verses": "41-43", "title": "Solomon's death" }
+    ],
+    "12": [
+      { "verses": "1-15", "title": "Rehoboam's harsh answer" },
+      { "verses": "16-20", "title": "Israel rebels" },
+      { "verses": "21-24", "title": "Shemaiah's prophecy" },
+      { "verses": "25-33", "title": "Jeroboam's golden calves" }
+    ],
+    "13": [
+      { "verses": "1-10", "title": "Man of God from Judah" },
+      { "verses": "11-19", "title": "Old prophet's deception" },
+      { "verses": "20-32", "title": "Judgment on disobedience" },
+      { "verses": "33-34", "title": "Jeroboam's persistence in sin" }
+    ],
+    "14": [
+      { "verses": "1-18", "title": "Ahijah's prophecy against Jeroboam" },
+      { "verses": "19-20", "title": "Jeroboam's death" },
+      { "verses": "21-31", "title": "Rehoboam's reign in Judah" }
+    ],
+    "15": [
+      { "verses": "1-8", "title": "Abijam's reign in Judah" },
+      { "verses": "9-24", "title": "Asa's reign in Judah" },
+      { "verses": "25-32", "title": "Nadab's reign in Israel" },
+      { "verses": "33-34", "title": "Baasha's reign begins" }
+    ],
+    "16": [
+      { "verses": "1-7", "title": "Prophecy against Baasha" },
+      { "verses": "8-14", "title": "Elah and Zimri" },
+      { "verses": "15-20", "title": "Zimri's seven-day reign" },
+      { "verses": "21-28", "title": "Omri establishes Samaria" },
+      { "verses": "29-34", "title": "Ahab's evil reign begins" }
+    ],
+    "17": [
+      { "verses": "1-7", "title": "Elijah predicts drought" },
+      { "verses": "8-16", "title": "Widow of Zarephath" },
+      { "verses": "17-24", "title": "Widow's son raised" }
+    ],
+    "18": [
+      { "verses": "1-15", "title": "Obadiah meets Elijah" },
+      { "verses": "16-19", "title": "Elijah confronts Ahab" },
+      { "verses": "20-40", "title": "Contest on Mount Carmel" },
+      { "verses": "41-46", "title": "Rain ends the drought" }
+    ],
+    "19": [
+      { "verses": "1-8", "title": "Elijah flees Jezebel" },
+      { "verses": "9-18", "title": "The still small voice" },
+      { "verses": "19-21", "title": "Call of Elisha" }
+    ],
+    "20": [
+      { "verses": "1-12", "title": "Ben-Hadad besieges Samaria" },
+      { "verses": "13-21", "title": "First victory over Aram" },
+      { "verses": "22-30", "title": "Second victory at Aphek" },
+      { "verses": "31-43", "title": "Ahab spares Ben-Hadad" }
+    ],
+    "21": [
+      { "verses": "1-16", "title": "Naboth's vineyard seized" },
+      { "verses": "17-29", "title": "Elijah pronounces doom" }
+    ],
+    "22": [
+      { "verses": "1-12", "title": "Alliance with Jehoshaphat" },
+      { "verses": "13-28", "title": "Micaiah's prophecy" },
+      { "verses": "29-40", "title": "Ahab killed in battle" },
+      { "verses": "41-50", "title": "Jehoshaphat's reign in Judah" },
+      { "verses": "51-53", "title": "Ahaziah's reign begins" }
+    ]
+  }
 }

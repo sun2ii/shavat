@@ -1,1 +1,137 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-27", "title": "Adam to Abraham" },
+      { "verses": "28-54", "title": "Abraham to Jacob's sons" }
+    ],
+    "2": [
+      { "verses": "1-17", "title": "Sons of Israel and Judah" },
+      { "verses": "18-55", "title": "Descendants of Caleb" }
+    ],
+    "3": [
+      { "verses": "1-9", "title": "David's sons in Hebron and Jerusalem" },
+      { "verses": "10-24", "title": "Kings of Judah and descendants" }
+    ],
+    "4": [
+      { "verses": "1-23", "title": "Descendants of Judah" },
+      { "verses": "24-43", "title": "Simeon's descendants and territory" }
+    ],
+    "5": [
+      { "verses": "1-10", "title": "Reuben's descendants" },
+      { "verses": "11-22", "title": "Gad's descendants" },
+      { "verses": "23-26", "title": "Half-tribe of Manasseh and exile" }
+    ],
+    "6": [
+      { "verses": "1-30", "title": "Levi's descendants" },
+      { "verses": "31-53", "title": "Temple musicians" },
+      { "verses": "54-81", "title": "Levitical cities" }
+    ],
+    "7": [
+      { "verses": "1-5", "title": "Issachar's descendants" },
+      { "verses": "6-12", "title": "Benjamin's descendants" },
+      { "verses": "13", "title": "Naphtali's descendants" },
+      { "verses": "14-19", "title": "Manasseh's descendants" },
+      { "verses": "20-29", "title": "Ephraim's descendants" },
+      { "verses": "30-40", "title": "Asher's descendants" }
+    ],
+    "8": [
+      { "verses": "1-28", "title": "Benjamin's descendants" },
+      { "verses": "29-40", "title": "Saul's family line" }
+    ],
+    "9": [
+      { "verses": "1-34", "title": "Returnees to Jerusalem" },
+      { "verses": "35-44", "title": "Saul's genealogy" }
+    ],
+    "10": [
+      { "verses": "1-7", "title": "Saul's death at Gilboa" },
+      { "verses": "8-14", "title": "Why Saul died" }
+    ],
+    "11": [
+      { "verses": "1-9", "title": "David anointed and takes Jerusalem" },
+      { "verses": "10-47", "title": "David's mighty warriors" }
+    ],
+    "12": [
+      { "verses": "1-22", "title": "Warriors join David" },
+      { "verses": "23-40", "title": "Army at Hebron" }
+    ],
+    "13": [
+      { "verses": "1-8", "title": "David brings the ark" },
+      { "verses": "9-14", "title": "Uzzah struck down" }
+    ],
+    "14": [
+      { "verses": "1-7", "title": "David's palace and family" },
+      { "verses": "8-17", "title": "Victories over Philistines" }
+    ],
+    "15": [
+      { "verses": "1-15", "title": "Preparing to move the ark" },
+      { "verses": "16-28", "title": "Bringing the ark to Jerusalem" },
+      { "verses": "29", "title": "Michal's contempt" }
+    ],
+    "16": [
+      { "verses": "1-6", "title": "Ark placed in tent" },
+      { "verses": "7-36", "title": "David's psalm of thanks" },
+      { "verses": "37-43", "title": "Worship arrangements" }
+    ],
+    "17": [
+      { "verses": "1-6", "title": "David's desire to build" },
+      { "verses": "7-15", "title": "God's covenant with David" },
+      { "verses": "16-27", "title": "David's prayer of thanks" }
+    ],
+    "18": [
+      { "verses": "1-13", "title": "David's military victories" },
+      { "verses": "14-17", "title": "David's officials" }
+    ],
+    "19": [
+      { "verses": "1-5", "title": "Ammonite insult" },
+      { "verses": "6-15", "title": "War with Ammon and Aram" },
+      { "verses": "16-19", "title": "Arameans defeated" }
+    ],
+    "20": [
+      { "verses": "1-3", "title": "Conquest of Rabbah" },
+      { "verses": "4-8", "title": "Wars with Philistine giants" }
+    ],
+    "21": [
+      { "verses": "1-6", "title": "David's census" },
+      { "verses": "7-17", "title": "Plague as judgment" },
+      { "verses": "18-30", "title": "Altar on threshing floor" }
+    ],
+    "22": [
+      { "verses": "1-5", "title": "Preparations for the temple" },
+      { "verses": "6-19", "title": "David's charge to Solomon" }
+    ],
+    "23": [
+      { "verses": "1-6", "title": "Levitical divisions" },
+      { "verses": "7-32", "title": "Descendants of Levi organized" }
+    ],
+    "24": [
+      { "verses": "1-19", "title": "Divisions of priests" },
+      { "verses": "20-31", "title": "Rest of the Levites" }
+    ],
+    "25": [
+      { "verses": "1-8", "title": "Musicians for temple service" },
+      { "verses": "9-31", "title": "Twenty-four divisions of musicians" }
+    ],
+    "26": [
+      { "verses": "1-19", "title": "Gatekeepers" },
+      { "verses": "20-28", "title": "Treasurers" },
+      { "verses": "29-32", "title": "Officials and judges" }
+    ],
+    "27": [
+      { "verses": "1-15", "title": "Army divisions" },
+      { "verses": "16-24", "title": "Officers of the tribes" },
+      { "verses": "25-34", "title": "Officials over David's property" }
+    ],
+    "28": [
+      { "verses": "1-8", "title": "David's address to the assembly" },
+      { "verses": "9-21", "title": "David's charge to Solomon" }
+    ],
+    "29": [
+      { "verses": "1-9", "title": "Gifts for the temple" },
+      { "verses": "10-20", "title": "David's prayer" },
+      { "verses": "21-25", "title": "Solomon crowned" },
+      { "verses": "26-30", "title": "David's death" }
+    ]
+  }
+}

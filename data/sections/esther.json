@@ -1,0 +1,268 @@
+{
+  "book": "esther",
+  "chapters": {
+    "1": [
+      {
+        "title": "King Xerxes' banquet",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Vashti refuses",
+        "verseRange": [
+          10,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Vashti deposed",
+        "verseRange": [
+          13,
+          22
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Search for new queen",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Esther brought to palace",
+        "verseRange": [
+          5,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Esther made queen",
+        "verseRange": [
+          12,
+          18
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Mordecai uncovers plot",
+        "verseRange": [
+          19,
+          23
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Haman's promotion and anger",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Plot to destroy the Jews",
+        "verseRange": [
+          7,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Decree of annihilation",
+        "verseRange": [
+          12,
+          15
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Mourning throughout provinces",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Esther learns of decree",
+        "verseRange": [
+          4,
+          9
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "For such a time as this",
+        "verseRange": [
+          10,
+          17
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Esther's banquet",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Haman's rage and gallows",
+        "verseRange": [
+          9,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Sleepless night",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Haman honors Mordecai",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Esther accuses Haman",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Haman hanged",
+        "verseRange": [
+          7,
+          10
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Esther receives Haman's estate",
+        "verseRange": [
+          1,
+          2
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "New decree allows self-defense",
+        "verseRange": [
+          3,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Joy in the city",
+        "verseRange": [
+          15,
+          17
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Jews defeat enemies",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Victory in Susa",
+        "verseRange": [
+          11,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Purim established",
+        "verseRange": [
+          20,
+          28
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Esther's letter",
+        "verseRange": [
+          29,
+          32
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Mordecai's greatness",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ]
+  }
+}

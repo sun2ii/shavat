@@ -1,0 +1,337 @@
+{
+  "book": "nehemiah",
+  "chapters": {
+    "1": [
+      {
+        "title": "News from Jerusalem",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Nehemiah's prayer",
+        "verseRange": [
+          5,
+          11
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Request to the king",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Arrival and inspection",
+        "verseRange": [
+          9,
+          16
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Call to rebuild",
+        "verseRange": [
+          17,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Builders of the wall",
+        "verseRange": [
+          1,
+          32
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Opposition and mockery",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Plot against Jerusalem",
+        "verseRange": [
+          7,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Work continues with guards",
+        "verseRange": [
+          15,
+          23
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Nehemiah's justice for the poor",
+        "verseRange": [
+          1,
+          13
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Nehemiah's generosity",
+        "verseRange": [
+          14,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Plots against Nehemiah",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "False prophecy",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Wall completed",
+        "verseRange": [
+          15,
+          19
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Guards appointed",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "List of returnees",
+        "verseRange": [
+          5,
+          73
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Ezra reads the Law",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Weeping turns to joy",
+        "verseRange": [
+          9,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Feast of Tabernacles",
+        "verseRange": [
+          13,
+          18
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "Confession and worship",
+        "verseRange": [
+          1,
+          5
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Prayer recounting history",
+        "verseRange": [
+          6,
+          37
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Binding agreement",
+        "verseRange": [
+          38,
+          38
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Those who sealed covenant",
+        "verseRange": [
+          1,
+          27
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Terms of the covenant",
+        "verseRange": [
+          28,
+          39
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Repopulating Jerusalem",
+        "verseRange": [
+          1,
+          2
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Leaders in Jerusalem",
+        "verseRange": [
+          3,
+          24
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Settlements outside Jerusalem",
+        "verseRange": [
+          25,
+          36
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Priests and Levites",
+        "verseRange": [
+          1,
+          26
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Dedication of the wall",
+        "verseRange": [
+          27,
+          43
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Provisions for worship",
+        "verseRange": [
+          44,
+          47
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Tobiah expelled",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Levites provided for",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Sabbath reforms",
+        "verseRange": [
+          15,
+          22
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Mixed marriages confronted",
+        "verseRange": [
+          23,
+          31
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ]
+  }
+}

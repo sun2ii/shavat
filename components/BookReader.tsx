@@ -1,18 +1,24 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION } from '@/lib/copy-glow';
 import ChapterOutline from './ChapterOutline';
 import type { Section } from '@/lib/sections';
+import { readingPath } from '@/lib/routes';
 
 interface Props {
   verses: VerseType[];
   book?: string;
   chapter?: number;
   sections?: Section[];
+  prevChapter?: number | null;
+  nextChapter?: number | null;
+  prevDivisionId?: string | null;
+  nextDivisionId?: string | null;
 }
 
 function slugify(text: string): string {
@@ -57,7 +63,7 @@ function copyFlashClass(borderColor: string): string {
   return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
 }
 
-export default function BookReader({ verses, book, chapter, sections }: Props) {
+export default function BookReader({ verses, book, chapter, sections, prevChapter, nextChapter, prevDivisionId, nextDivisionId }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
@@ -244,6 +250,32 @@ export default function BookReader({ verses, book, chapter, sections }: Props) {
             );
           })}
         </div>
+
+        {/* Navigation buttons below sections */}
+        {(prevChapter || nextChapter) && (
+          <div className="flex justify-between items-center mt-8 pt-6 border-t border-hairline">
+            {prevChapter && prevDivisionId && book ? (
+              <Link
+                href={readingPath(book, prevDivisionId, prevChapter)}
+                className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+              >
+                ← Previous
+              </Link>
+            ) : (
+              <div />
+            )}
+            {nextChapter && nextDivisionId && book ? (
+              <Link
+                href={readingPath(book, nextDivisionId, nextChapter)}
+                className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+              >
+                Next →
+              </Link>
+            ) : (
+              <div />
+            )}
+          </div>
+        )}
       </div>
     );
   }

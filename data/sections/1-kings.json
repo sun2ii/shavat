@@ -1,0 +1,868 @@
+{
+  "book": "1-kings",
+  "chapters": {
+    "1": [
+      {
+        "title": "David's old age",
+        "verseRange": [
+          1,
+          4
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Adonijah exalts himself",
+        "verseRange": [
+          5,
+          10
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Nathan and Bathsheba intervene",
+        "verseRange": [
+          11,
+          31
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Solomon anointed king",
+        "verseRange": [
+          32,
+          40
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Adonijah's fear",
+        "verseRange": [
+          41,
+          53
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "David's charge to Solomon",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "David's death",
+        "verseRange": [
+          10,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Adonijah executed",
+        "verseRange": [
+          13,
+          25
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Abiathar exiled",
+        "verseRange": [
+          26,
+          27
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Joab executed",
+        "verseRange": [
+          28,
+          35
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Shimei executed",
+        "verseRange": [
+          36,
+          46
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Solomon's high places",
+        "verseRange": [
+          1,
+          3
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Wisdom requested and granted",
+        "verseRange": [
+          4,
+          15
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Two mothers and a baby",
+        "verseRange": [
+          16,
+          28
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Solomon's officials",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Twelve district governors",
+        "verseRange": [
+          7,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Prosperity and provision",
+        "verseRange": [
+          20,
+          28
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Solomon's wisdom",
+        "verseRange": [
+          29,
+          34
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Alliance with Hiram",
+        "verseRange": [
+          1,
+          6
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Timber from Lebanon",
+        "verseRange": [
+          7,
+          12
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Labor force for the temple",
+        "verseRange": [
+          13,
+          18
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Temple construction begins",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "God's covenant promise",
+        "verseRange": [
+          11,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Interior overlaid with gold",
+        "verseRange": [
+          14,
+          22
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Cherubim in the inner sanctuary",
+        "verseRange": [
+          23,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Doors, walls, and completion",
+        "verseRange": [
+          29,
+          38
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Solomon's palace",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Two bronze pillars",
+        "verseRange": [
+          13,
+          22
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The bronze Sea",
+        "verseRange": [
+          23,
+          26
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Ten bronze stands",
+        "verseRange": [
+          27,
+          39
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Furnishings completed",
+        "verseRange": [
+          40,
+          51
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "Ark brought to temple",
+        "verseRange": [
+          1,
+          11
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Solomon's address",
+        "verseRange": [
+          12,
+          21
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Solomon's dedicatory prayer",
+        "verseRange": [
+          22,
+          53
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Blessing the assembly",
+        "verseRange": [
+          54,
+          61
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Sacrifices and celebration",
+        "verseRange": [
+          62,
+          66
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "God's second appearance",
+        "verseRange": [
+          1,
+          9
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Solomon's agreement with Hiram",
+        "verseRange": [
+          10,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Forced labor and building projects",
+        "verseRange": [
+          15,
+          24
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Sacrifices and ships",
+        "verseRange": [
+          25,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "Queen of Sheba visits",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Gold, almug wood, and gifts",
+        "verseRange": [
+          11,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Solomon's wealth",
+        "verseRange": [
+          14,
+          25
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Chariots and horses",
+        "verseRange": [
+          26,
+          29
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Solomon's foreign wives",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "God's anger and judgment",
+        "verseRange": [
+          9,
+          13
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Hadad the Edomite",
+        "verseRange": [
+          14,
+          22
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Rezon of Damascus",
+        "verseRange": [
+          23,
+          25
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Jeroboam's rebellion",
+        "verseRange": [
+          26,
+          40
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Solomon's death",
+        "verseRange": [
+          41,
+          43
+        ],
+        "color": "bg-cyan-50 dark:bg-cyan-950/20",
+        "borderColor": "border-cyan-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Rehoboam's harsh answer",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Israel rebels",
+        "verseRange": [
+          16,
+          20
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Shemaiah's prophecy",
+        "verseRange": [
+          21,
+          24
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jeroboam's golden calves",
+        "verseRange": [
+          25,
+          33
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "Man of God from Judah",
+        "verseRange": [
+          1,
+          10
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Old prophet's deception",
+        "verseRange": [
+          11,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Judgment on disobedience",
+        "verseRange": [
+          20,
+          32
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jeroboam's persistence in sin",
+        "verseRange": [
+          33,
+          34
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Ahijah's prophecy against Jeroboam",
+        "verseRange": [
+          1,
+          18
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Jeroboam's death",
+        "verseRange": [
+          19,
+          20
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Rehoboam's reign in Judah",
+        "verseRange": [
+          21,
+          31
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "15": [
+      {
+        "title": "Abijam's reign in Judah",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Asa's reign in Judah",
+        "verseRange": [
+          9,
+          24
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Nadab's reign in Israel",
+        "verseRange": [
+          25,
+          32
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Baasha's reign begins",
+        "verseRange": [
+          33,
+          34
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "16": [
+      {
+        "title": "Prophecy against Baasha",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Elah and Zimri",
+        "verseRange": [
+          8,
+          14
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Zimri's seven-day reign",
+        "verseRange": [
+          15,
+          20
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Omri establishes Samaria",
+        "verseRange": [
+          21,
+          28
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Ahab's evil reign begins",
+        "verseRange": [
+          29,
+          34
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "17": [
+      {
+        "title": "Elijah predicts drought",
+        "verseRange": [
+          1,
+          7
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Widow of Zarephath",
+        "verseRange": [
+          8,
+          16
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Widow's son raised",
+        "verseRange": [
+          17,
+          24
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "18": [
+      {
+        "title": "Obadiah meets Elijah",
+        "verseRange": [
+          1,
+          15
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Elijah confronts Ahab",
+        "verseRange": [
+          16,
+          19
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Contest on Mount Carmel",
+        "verseRange": [
+          20,
+          40
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Rain ends the drought",
+        "verseRange": [
+          41,
+          46
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "19": [
+      {
+        "title": "Elijah flees Jezebel",
+        "verseRange": [
+          1,
+          8
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The still small voice",
+        "verseRange": [
+          9,
+          18
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Call of Elisha",
+        "verseRange": [
+          19,
+          21
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "20": [
+      {
+        "title": "Ben-Hadad besieges Samaria",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "First victory over Aram",
+        "verseRange": [
+          13,
+          21
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Second victory at Aphek",
+        "verseRange": [
+          22,
+          30
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Ahab spares Ben-Hadad",
+        "verseRange": [
+          31,
+          43
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "21": [
+      {
+        "title": "Naboth's vineyard seized",
+        "verseRange": [
+          1,
+          16
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Elijah pronounces doom",
+        "verseRange": [
+          17,
+          29
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "22": [
+      {
+        "title": "Alliance with Jehoshaphat",
+        "verseRange": [
+          1,
+          12
+        ],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Micaiah's prophecy",
+        "verseRange": [
+          13,
+          28
+        ],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Ahab killed in battle",
+        "verseRange": [
+          29,
+          40
+        ],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Jehoshaphat's reign in Judah",
+        "verseRange": [
+          41,
+          50
+        ],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Ahaziah's reign begins",
+        "verseRange": [
+          51,
+          53
+        ],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ]
+  }
+}

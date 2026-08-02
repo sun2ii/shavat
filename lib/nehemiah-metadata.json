@@ -41,5 +41,67 @@
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-4", "title": "News from Jerusalem" },
+      { "verses": "5-11", "title": "Nehemiah's prayer" }
+    ],
+    "2": [
+      { "verses": "1-8", "title": "Request to the king" },
+      { "verses": "9-16", "title": "Arrival and inspection" },
+      { "verses": "17-20", "title": "Call to rebuild" }
+    ],
+    "3": [
+      { "verses": "1-32", "title": "Builders of the wall" }
+    ],
+    "4": [
+      { "verses": "1-6", "title": "Opposition and mockery" },
+      { "verses": "7-14", "title": "Plot against Jerusalem" },
+      { "verses": "15-23", "title": "Work continues with guards" }
+    ],
+    "5": [
+      { "verses": "1-13", "title": "Nehemiah's justice for the poor" },
+      { "verses": "14-19", "title": "Nehemiah's generosity" }
+    ],
+    "6": [
+      { "verses": "1-9", "title": "Plots against Nehemiah" },
+      { "verses": "10-14", "title": "False prophecy" },
+      { "verses": "15-19", "title": "Wall completed" }
+    ],
+    "7": [
+      { "verses": "1-4", "title": "Guards appointed" },
+      { "verses": "5-73", "title": "List of returnees" }
+    ],
+    "8": [
+      { "verses": "1-8", "title": "Ezra reads the Law" },
+      { "verses": "9-12", "title": "Weeping turns to joy" },
+      { "verses": "13-18", "title": "Feast of Tabernacles" }
+    ],
+    "9": [
+      { "verses": "1-5", "title": "Confession and worship" },
+      { "verses": "6-37", "title": "Prayer recounting history" },
+      { "verses": "38", "title": "Binding agreement" }
+    ],
+    "10": [
+      { "verses": "1-27", "title": "Those who sealed covenant" },
+      { "verses": "28-39", "title": "Terms of the covenant" }
+    ],
+    "11": [
+      { "verses": "1-2", "title": "Repopulating Jerusalem" },
+      { "verses": "3-24", "title": "Leaders in Jerusalem" },
+      { "verses": "25-36", "title": "Settlements outside Jerusalem" }
+    ],
+    "12": [
+      { "verses": "1-26", "title": "Priests and Levites" },
+      { "verses": "27-43", "title": "Dedication of the wall" },
+      { "verses": "44-47", "title": "Provisions for worship" }
+    ],
+    "13": [
+      { "verses": "1-9", "title": "Tobiah expelled" },
+      { "verses": "10-14", "title": "Levites provided for" },
+      { "verses": "15-22", "title": "Sabbath reforms" },
+      { "verses": "23-31", "title": "Mixed marriages confronted" }
+    ]
+  }
 }

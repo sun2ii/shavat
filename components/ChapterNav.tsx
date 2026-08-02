@@ -264,34 +264,6 @@ export default function ChapterNav({
           </div>
         </div>
       </nav>
-
-      {/* Fixed left navigation */}
-      {prevChapter && prevDivisionId && prevDivisionChapterNum !== null ? (
-        <Link
-          href={readingPath(bookSlug, prevDivisionId, prevChapter)}
-          className="fixed left-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-start pl-2 md:pl-4 group cursor-pointer"
-        >
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
-            ← <span className="hidden md:inline">{prevDivisionChapterNum}</span>
-          </div>
-        </Link>
-      ) : (
-        <div className="fixed left-0 top-80 bottom-0 w-12 md:w-20" />
-      )}
-
-      {/* Fixed right navigation */}
-      {nextChapter && nextDivisionId && nextDivisionChapterNum !== null ? (
-        <Link
-          href={readingPath(bookSlug, nextDivisionId, nextChapter)}
-          className="fixed right-0 top-80 bottom-0 w-12 md:w-20 flex items-center justify-end pr-2 md:pr-4 group cursor-pointer"
-        >
-          <div className="opacity-0 group-hover:opacity-100 transition-opacity text-muted group-hover:text-ink text-lg md:text-2xl">
-            <span className="hidden md:inline">{nextDivisionChapterNum}</span> →
-          </div>
-        </Link>
-      ) : (
-        <div className="fixed right-0 top-80 bottom-0 w-12 md:w-20" />
-      )}
     </>
   );
 }

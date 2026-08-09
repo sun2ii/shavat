@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
-import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION } from '@/lib/copy-glow';
+import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION, COPY_UNFOLD_DELAY_MS } from '@/lib/copy-glow';
 import ChapterOutline from './ChapterOutline';
 import SpeakerLegend from './SpeakerLegend';
 import type { Section } from '@/lib/sections';
@@ -74,6 +74,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // which is the resting state and needs no knowledge of a chapter's titles.
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const unfoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
@@ -95,6 +96,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       speakerColors[id] = def.color;
     }
   }
+
+  // Display name as printed in the text ("2 Kings"), not the route slug.
+  const bookLabel = verses[0]?.book || actualBook;
 
   // Each fold's legend lists only the characters speaking inside it.
   const sectionSpeakers = (range: [number, number]): Record<string, SpeakerDef> => {
@@ -144,11 +148,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     try {
       await navigator.clipboard.writeText(sectionText);
     } catch {
-      return;
+      return false;
     }
     if (copyTimer.current) clearTimeout(copyTimer.current);
     setCopiedSection(sectionName);
     copyTimer.current = setTimeout(() => setCopiedSection(null), COPY_FLASH_MS);
+    return true;
   };
 
   useEffect(() => {
@@ -195,6 +200,18 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   isCollapsed ? 'cursor-pointer py-5' : 'py-6 md:py-8'
                 } ${daySection.borderColor} ${daySection.color}`}
               >
+                {/*
+                  Voices bar scoped to this fold: sticky inside the card, so it
+                  rides the viewport top only while this section is on screen.
+                  Negative margins let it hug the card's edges.
+                */}
+                {!isCollapsed && chapterSpeakers && (
+                  <SpeakerLegend
+                    heading={`${bookLabel} ${actualChapter}:${daySection.verseRange[0]}–${daySection.verseRange[1]}`}
+                    speakers={sectionSpeakers(daySection.verseRange)}
+                    className="-mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-5 rounded-t-2xl"
+                  />
+                )}
                 <div
                   onClick={() => {
                     // Collapsed, this bubbles to the card, which owns the toggle.
@@ -204,12 +221,23 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 >
                   <h3 className={`relative text-center ${isCollapsed ? 'mb-0' : 'mb-4'}`}>
                     <button
-                      onClick={(e) => {
+                      onClick={async (e) => {
                         e.stopPropagation();
-                        handleCopySection(daySection.title, dayVerses);
-                        // Copying implies reading: unfold too. Never the reverse —
-                        // closing under a copy click would feel like a misfire.
-                        if (isCollapsed) toggleSection(daySection.title);
+                        // Copying implies reading: unfold too, but sequentially —
+                        // secure the copy, let the glow bloom, then open. Never
+                        // the reverse: closing under a copy click reads as a
+                        // misfire, and an instant unfold swallows the glow.
+                        const copied = await handleCopySection(daySection.title, dayVerses);
+                        if (!isCollapsed) return;
+                        if (unfoldTimer.current) clearTimeout(unfoldTimer.current);
+                        if (copied) {
+                          unfoldTimer.current = setTimeout(
+                            () => toggleSection(daySection.title),
+                            COPY_UNFOLD_DELAY_MS
+                          );
+                        } else {
+                          toggleSection(daySection.title);
+                        }
                       }}
                       title="Copy section"
                       className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
@@ -254,7 +282,6 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   )}
                 </div>
 
-                {!isCollapsed && <SpeakerLegend speakers={sectionSpeakers(daySection.verseRange)} />}
 
                 {/* 0fr → 1fr folds to the content's natural height without measuring it. */}
                 <div
@@ -315,20 +342,28 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   // Default rendering for other chapters
   return (
-    <div className="max-w-[760px] mx-auto">
-      {chapterSpeakers && <SpeakerLegend speakers={chapterSpeakers.speakers} />}
-      <div className="font-serif text-ink text-[21px] leading-[1.95]">
-        {verses.map((verse) => (
-          <Verse
-            key={verse.verse}
-            verse={verse}
-            isSelected={selectedVerses.has(verse.verse)}
-            onToggle={toggleVerse}
-            commentary={commentary.get(verse.verse)}
-            spans={spansByVerse.get(verse.verse)}
-            speakerColors={speakerColors}
-          />
-        ))}
+    <div>
+      {chapterSpeakers && (
+        <SpeakerLegend
+          heading={`${bookLabel} ${actualChapter}`}
+          detail={`${verses.length} verses`}
+          speakers={chapterSpeakers.speakers}
+        />
+      )}
+      <div className="max-w-[760px] mx-auto">
+        <div className="font-serif text-ink text-[21px] leading-[1.95]">
+          {verses.map((verse) => (
+            <Verse
+              key={verse.verse}
+              verse={verse}
+              isSelected={selectedVerses.has(verse.verse)}
+              onToggle={toggleVerse}
+              commentary={commentary.get(verse.verse)}
+              spans={spansByVerse.get(verse.verse)}
+              speakerColors={speakerColors}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

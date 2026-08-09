@@ -1,76 +1,88 @@
 {
   "book": "2-kings",
   "speakers": {
-    "eliakim": {
-      "name": "Eliakim",
+    "athaliah": {
+      "name": "Athaliah",
       "color": 1
     },
     "elijah": {
       "name": "Elijah",
       "color": 1
     },
-    "hilkiah": {
-      "name": "Hilkiah",
+    "hazael": {
+      "name": "Hazael",
       "color": 1
     },
-    "husband": {
-      "name": "Shunammite's Husband",
+    "hezekiah": {
+      "name": "Hezekiah",
       "color": 1
     },
-    "isaiah": {
-      "name": "Isaiah",
+    "huldah": {
+      "name": "Huldah",
       "color": 1
     },
     "jehoash": {
       "name": "Jehoash",
       "color": 1
     },
-    "jehoiada": {
-      "name": "Jehoiada",
+    "jehoshaphat": {
+      "name": "Jehoshaphat",
       "color": 1
     },
-    "jehoram": {
-      "name": "Joram King of Israel",
+    "jehu": {
+      "name": "Jehu",
       "color": 1
     },
-    "relatives-of-ahaziah": {
-      "name": "Relatives of Ahaziah",
+    "lepers": {
+      "name": "Lepers",
       "color": 1
     },
-    "widow-son": {
-      "name": "Widow's Son",
+    "naaman": {
+      "name": "Naaman",
+      "color": 1
+    },
+    "shunammite": {
+      "name": "Shunammite Woman",
+      "color": 1
+    },
+    "woman": {
+      "name": "Woman of Samaria",
+      "color": 1
+    },
+    "shunammite-son": {
+      "name": "Shunammite's Son",
       "color": 2
     },
     "ahaz": {
       "name": "Ahaz",
       "color": 3
     },
-    "ahaziah": {
-      "name": "Ahaziah",
-      "color": 3
-    },
     "amaziah": {
       "name": "Amaziah",
       "color": 3
     },
-    "athaliah": {
-      "name": "Athaliah",
+    "captains": {
+      "name": "The Captains",
       "color": 3
     },
     "elisha": {
       "name": "Elisha",
       "color": 3
     },
+    "field-commander": {
+      "name": "Field Commander",
+      "color": 3
+    },
     "gedaliah": {
       "name": "Gedaliah",
       "color": 3
     },
-    "hezekiah": {
-      "name": "Hezekiah",
+    "isaiah": {
+      "name": "Isaiah",
       "color": 3
     },
-    "jehonadab": {
-      "name": "Jehonadab",
+    "jehoiada": {
+      "name": "Jehoiada",
       "color": 3
     },
     "joash": {
@@ -85,124 +97,112 @@
       "name": "King of Assyria",
       "color": 3
     },
+    "relatives-of-ahaziah": {
+      "name": "Relatives of Ahaziah",
+      "color": 3
+    },
     "boys": {
       "name": "Boys",
       "color": 4
     },
-    "gehazi": {
-      "name": "Gehazi",
+    "husband": {
+      "name": "Shunammite's Husband",
       "color": 4
     },
-    "officers": {
-      "name": "Officers",
+    "messengers": {
+      "name": "The Messengers",
       "color": 4
     },
-    "officials": {
-      "name": "Officials of Samaria",
-      "color": 4
+    "ahaziah": {
+      "name": "Ahaziah",
+      "color": 5
     },
     "arameans": {
       "name": "Arameans",
       "color": 5
     },
-    "field-commander": {
-      "name": "Field Commander",
+    "eliakim": {
+      "name": "Eliakim",
       "color": 5
     },
-    "huldah": {
-      "name": "Huldah",
+    "moabites": {
+      "name": "Moabites",
       "color": 5
     },
-    "jehoshaphat": {
-      "name": "Jehoshaphat",
+    "officials": {
+      "name": "Officials of Samaria",
       "color": 5
     },
-    "messengers": {
-      "name": "The Messengers",
+    "prophets": {
+      "name": "Company of the Prophets",
       "color": 5
     },
-    "people": {
-      "name": "People",
+    "servant-girl": {
+      "name": "Servant Girl",
       "color": 5
     },
-    "sennacherib": {
-      "name": "Sennacherib",
+    "shaphan": {
+      "name": "Shaphan",
       "color": 5
     },
-    "shunammite": {
-      "name": "Shunammite Woman",
+    "young-prophet": {
+      "name": "Young Prophet",
       "color": 5
+    },
+    "ben-hadad": {
+      "name": "Ben-Hadad",
+      "color": 6
     },
     "lookout": {
       "name": "Lookout",
       "color": 6
     },
-    "servants": {
-      "name": "Servants",
+    "widow-son": {
+      "name": "Widow's Son",
       "color": 6
     },
-    "servant-girl": {
-      "name": "Servant Girl",
+    "jezebel": {
+      "name": "Jezebel",
       "color": 7
     },
-    "widow": {
-      "name": "Prophet's Widow",
-      "color": 7
-    },
-    "woman": {
-      "name": "Woman of Samaria",
-      "color": 7
-    },
-    "young-prophet": {
-      "name": "Young Prophet",
+    "servants": {
+      "name": "Servants",
       "color": 7
     },
     "the-lord": {
       "name": "The Lord",
       "color": 8
     },
-    "captains": {
-      "name": "The Captains",
+    "hilkiah": {
+      "name": "Hilkiah",
       "color": 9
     },
-    "hazael": {
-      "name": "Hazael",
+    "jehonadab": {
+      "name": "Jehonadab",
       "color": 9
     },
-    "jehu": {
-      "name": "Jehu",
+    "jehoram": {
+      "name": "Joram King of Israel",
       "color": 9
     },
-    "lepers": {
-      "name": "Lepers",
+    "people": {
+      "name": "People",
       "color": 9
     },
-    "moabites": {
-      "name": "Moabites",
+    "sennacherib": {
+      "name": "Sennacherib",
       "color": 9
     },
-    "naaman": {
-      "name": "Naaman",
+    "widow": {
+      "name": "Prophet's Widow",
       "color": 9
     },
-    "prophets": {
-      "name": "Company of the Prophets",
-      "color": 9
-    },
-    "shaphan": {
-      "name": "Shaphan",
-      "color": 9
-    },
-    "ben-hadad": {
-      "name": "Ben-Hadad",
+    "gehazi": {
+      "name": "Gehazi",
       "color": 10
     },
-    "jezebel": {
-      "name": "Jezebel",
-      "color": 10
-    },
-    "shunammite-son": {
-      "name": "Shunammite's Son",
+    "officers": {
+      "name": "Officers",
       "color": 10
     }
   },

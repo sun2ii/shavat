@@ -18,3 +18,10 @@ export const COPY_TRANSITION =
 
 /** How long a heading stays lit after a successful copy. */
 export const COPY_FLASH_MS = 1600;
+
+/*
+  When a copy click also unfolds a section, the unfold waits out the glow's
+  bloom (the 700ms text-shadow ramp above) so the two register as a sequence —
+  copied, then opened — rather than one ambiguous jump.
+*/
+export const COPY_UNFOLD_DELAY_MS = 700;

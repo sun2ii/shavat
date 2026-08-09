@@ -21,7 +21,9 @@ interface BookSpeakers {
 let cachedSpeakers: BookSpeakers | null = null;
 
 function getAllSpeakers(): BookSpeakers {
-  if (cachedSpeakers) {
+  // The JSON is fs-read, not imported, so the dev watcher can't invalidate
+  // this module when the data changes — re-read per request in development.
+  if (cachedSpeakers && process.env.NODE_ENV === 'production') {
     return cachedSpeakers;
   }
 

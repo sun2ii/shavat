@@ -9,7 +9,7 @@ import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION } from '@/lib/
 import ChapterOutline from './ChapterOutline';
 import SpeakerLegend from './SpeakerLegend';
 import type { Section } from '@/lib/sections';
-import type { ChapterSpeakers, QuoteSpan } from '@/lib/speaker-quotes';
+import type { ChapterSpeakers, QuoteSpan, SpeakerDef } from '@/lib/speaker-quotes';
 import { readingPath } from '@/lib/routes';
 
 interface Props {
@@ -96,6 +96,20 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     }
   }
 
+  // Each fold's legend lists only the characters speaking inside it.
+  const sectionSpeakers = (range: [number, number]): Record<string, SpeakerDef> => {
+    const result: Record<string, SpeakerDef> = {};
+    if (chapterSpeakers) {
+      for (const span of chapterSpeakers.spans) {
+        if (span.verse >= range[0] && span.verse <= range[1]) {
+          const def = chapterSpeakers.speakers[span.speaker];
+          if (def) result[span.speaker] = def;
+        }
+      }
+    }
+    return result;
+  };
+
   // Section titles are chapter-scoped, so a chapter change folds everything again.
   useEffect(() => {
     setExpandedSection(null);
@@ -160,7 +174,6 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     return (
       <div className="max-w-[760px] mx-auto">
         <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
-        {chapterSpeakers && <SpeakerLegend speakers={chapterSpeakers.speakers} />}
         <div className="space-y-4">
           {sections.map((daySection) => {
             const dayVerses = verses.filter(
@@ -194,6 +207,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                       onClick={(e) => {
                         e.stopPropagation();
                         handleCopySection(daySection.title, dayVerses);
+                        // Copying implies reading: unfold too. Never the reverse —
+                        // closing under a copy click would feel like a misfire.
+                        if (isCollapsed) toggleSection(daySection.title);
                       }}
                       title="Copy section"
                       className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
@@ -237,6 +253,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                     </p>
                   )}
                 </div>
+
+                {!isCollapsed && <SpeakerLegend speakers={sectionSpeakers(daySection.verseRange)} />}
 
                 {/* 0fr → 1fr folds to the content's natural height without measuring it. */}
                 <div

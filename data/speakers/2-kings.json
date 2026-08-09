@@ -1,0 +1,2315 @@
+{
+  "book": "2-kings",
+  "speakers": {
+    "ahaz": {
+      "name": "Ahaz",
+      "color": 1
+    },
+    "athaliah": {
+      "name": "Athaliah",
+      "color": 1
+    },
+    "elijah": {
+      "name": "Elijah",
+      "color": 1
+    },
+    "gedaliah": {
+      "name": "Gedaliah",
+      "color": 1
+    },
+    "hezekiah": {
+      "name": "Hezekiah",
+      "color": 1
+    },
+    "husband": {
+      "name": "Shunammite's Husband",
+      "color": 1
+    },
+    "jehoash": {
+      "name": "Jehoash",
+      "color": 1
+    },
+    "jehonadab": {
+      "name": "Jehonadab",
+      "color": 1
+    },
+    "jehoram": {
+      "name": "Joram King of Israel",
+      "color": 1
+    },
+    "joash": {
+      "name": "Joash",
+      "color": 1
+    },
+    "josiah": {
+      "name": "Josiah",
+      "color": 1
+    },
+    "king-of-assyria": {
+      "name": "King of Assyria",
+      "color": 1
+    },
+    "ahaziah": {
+      "name": "Ahaziah",
+      "color": 2
+    },
+    "amaziah": {
+      "name": "Amaziah",
+      "color": 2
+    },
+    "eliakim": {
+      "name": "Eliakim",
+      "color": 2
+    },
+    "elisha": {
+      "name": "Elisha",
+      "color": 2
+    },
+    "hilkiah": {
+      "name": "Hilkiah",
+      "color": 2
+    },
+    "isaiah": {
+      "name": "Isaiah",
+      "color": 2
+    },
+    "jehoiada": {
+      "name": "Jehoiada",
+      "color": 2
+    },
+    "relatives-of-ahaziah": {
+      "name": "Relatives of Ahaziah",
+      "color": 2
+    },
+    "arameans": {
+      "name": "Arameans",
+      "color": 3
+    },
+    "field-commander": {
+      "name": "Field Commander",
+      "color": 3
+    },
+    "huldah": {
+      "name": "Huldah",
+      "color": 3
+    },
+    "jehoshaphat": {
+      "name": "Jehoshaphat",
+      "color": 3
+    },
+    "messengers": {
+      "name": "The Messengers",
+      "color": 3
+    },
+    "people": {
+      "name": "People",
+      "color": 3
+    },
+    "sennacherib": {
+      "name": "Sennacherib",
+      "color": 3
+    },
+    "shunammite": {
+      "name": "Shunammite Woman",
+      "color": 3
+    },
+    "captains": {
+      "name": "The Captains",
+      "color": 4
+    },
+    "hazael": {
+      "name": "Hazael",
+      "color": 4
+    },
+    "jehu": {
+      "name": "Jehu",
+      "color": 4
+    },
+    "lepers": {
+      "name": "Lepers",
+      "color": 4
+    },
+    "moabites": {
+      "name": "Moabites",
+      "color": 4
+    },
+    "naaman": {
+      "name": "Naaman",
+      "color": 4
+    },
+    "prophets": {
+      "name": "Company of the Prophets",
+      "color": 4
+    },
+    "shaphan": {
+      "name": "Shaphan",
+      "color": 4
+    },
+    "boys": {
+      "name": "Boys",
+      "color": 5
+    },
+    "gehazi": {
+      "name": "Gehazi",
+      "color": 5
+    },
+    "officers": {
+      "name": "Officers",
+      "color": 5
+    },
+    "officials": {
+      "name": "Officials of Samaria",
+      "color": 5
+    },
+    "ben-hadad": {
+      "name": "Ben-Hadad",
+      "color": 6
+    },
+    "jezebel": {
+      "name": "Jezebel",
+      "color": 6
+    },
+    "shunammite-son": {
+      "name": "Shunammite's Son",
+      "color": 6
+    },
+    "lookout": {
+      "name": "Lookout",
+      "color": 7
+    },
+    "servants": {
+      "name": "Servants",
+      "color": 7
+    },
+    "the-lord": {
+      "name": "The Lord",
+      "color": 8
+    },
+    "servant-girl": {
+      "name": "Servant Girl",
+      "color": 9
+    },
+    "widow": {
+      "name": "Prophet's Widow",
+      "color": 9
+    },
+    "woman": {
+      "name": "Woman of Samaria",
+      "color": 9
+    },
+    "young-prophet": {
+      "name": "Young Prophet",
+      "color": 9
+    },
+    "widow-son": {
+      "name": "Widow's Son",
+      "color": 10
+    }
+  },
+  "chapters": {
+    "1": [
+      {
+        "verse": 2,
+        "speaker": "ahaziah",
+        "quote": "“Go and consult Baal-Zebub, the god of Ekron, to see if I will recover from this injury.”"
+      },
+      {
+        "verse": 3,
+        "speaker": "the-lord",
+        "quote": "“Go up and meet the messengers of the king of Samaria and ask them, ‘Is it because there is no God in Israel that you are going off to consult Baal-Zebub, the god of Ekron?`"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "Therefore this is what the Lord says: ‘You will not leave the bed you are lying on. You will certainly die!`”"
+      },
+      {
+        "verse": 5,
+        "speaker": "ahaziah",
+        "quote": "“Why have you come back?”"
+      },
+      {
+        "verse": 6,
+        "speaker": "messengers",
+        "quote": "“A man came to meet us,”"
+      },
+      {
+        "verse": 6,
+        "speaker": "messengers",
+        "quote": "“And he said to us, ‘Go back to the king who sent you and tell him, “This is what the Lord says: Is it because there is no God in Israel that you are sending messengers to consult Baal-Zebub, the god of Ekron? Therefore you will not leave the bed you are lying on. You will certainly die!”`”"
+      },
+      {
+        "verse": 7,
+        "speaker": "ahaziah",
+        "quote": "“What kind of man was it who came to meet you and told you this?”"
+      },
+      {
+        "verse": 8,
+        "speaker": "messengers",
+        "quote": "“He had a garment of hair and had a leather belt around his waist.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "ahaziah",
+        "quote": "“That was Elijah the Tishbite.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "captains",
+        "quote": "“Man of God, the king says, ‘Come down!`”"
+      },
+      {
+        "verse": 10,
+        "speaker": "elijah",
+        "quote": "“If I am a man of God, may fire come down from heaven and consume you and your fifty men!”"
+      },
+      {
+        "verse": 11,
+        "speaker": "captains",
+        "quote": "“Man of God, this is what the king says, ‘Come down at once!`”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elijah",
+        "quote": "“If I am a man of God,”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elijah",
+        "quote": "“may fire come down from heaven and consume you and your fifty men!”"
+      },
+      {
+        "verse": 13,
+        "speaker": "captains",
+        "quote": "“Man of God,”"
+      },
+      {
+        "verse": 13,
+        "speaker": "captains",
+        "quote": "“please have respect for my life and the lives of these fifty men, your servants!"
+      },
+      {
+        "verse": 14,
+        "speaker": "captains",
+        "quote": "See, fire has fallen from heaven and consumed the first two captains and all their men. But now have respect for my life!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "the-lord",
+        "quote": "“Go down with him; do not be afraid of him.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elijah",
+        "quote": "“This is what the Lord says: Is it because there is no God in Israel for you to consult that you have sent messengers to consult Baal-Zebub, the god of Ekron? Because you have done this, you will never leave the bed you are lying on. You will certainly die!”"
+      }
+    ],
+    "2": [
+      {
+        "verse": 2,
+        "speaker": "elijah",
+        "quote": "“Stay here; the Lord has sent me to Bethel.”"
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "“As surely as the Lord lives and as you live, I will not leave you.”"
+      },
+      {
+        "verse": 3,
+        "speaker": "prophets",
+        "quote": "“Do you know that the Lord is going to take your master from you today?”"
+      },
+      {
+        "verse": 3,
+        "speaker": "elisha",
+        "quote": "“Yes, I know,”"
+      },
+      {
+        "verse": 3,
+        "speaker": "elisha",
+        "quote": "“so be quiet.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "elijah",
+        "quote": "“Stay here, Elisha; the Lord has sent me to Jericho.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "elisha",
+        "quote": "“As surely as the Lord lives and as you live, I will not leave you.”"
+      },
+      {
+        "verse": 5,
+        "speaker": "prophets",
+        "quote": "“Do you know that the Lord is going to take your master from you today?”"
+      },
+      {
+        "verse": 5,
+        "speaker": "elisha",
+        "quote": "“Yes, I know,”"
+      },
+      {
+        "verse": 5,
+        "speaker": "elisha",
+        "quote": "“so be quiet.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "elijah",
+        "quote": "“Stay here; the Lord has sent me to the Jordan.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "elisha",
+        "quote": "“As surely as the Lord lives and as you live, I will not leave you.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "elijah",
+        "quote": "“Tell me, what can I do for you before I am taken from you?”"
+      },
+      {
+        "verse": 9,
+        "speaker": "elisha",
+        "quote": "“Let me inherit a double portion of your spirit,”"
+      },
+      {
+        "verse": 10,
+        "speaker": "elijah",
+        "quote": "“You have asked a difficult thing,”"
+      },
+      {
+        "verse": 10,
+        "speaker": "elijah",
+        "quote": "“yet if you see me when I am taken from you, it will be yours—otherwise, it will not.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elisha",
+        "quote": "“My father! My father! The chariots and horsemen of Israel!”"
+      },
+      {
+        "verse": 14,
+        "speaker": "elisha",
+        "quote": "“Where now is the Lord, the God of Elijah?”"
+      },
+      {
+        "verse": 15,
+        "speaker": "prophets",
+        "quote": "“The spirit of Elijah is resting on Elisha.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "prophets",
+        "quote": "“Look,”"
+      },
+      {
+        "verse": 16,
+        "speaker": "prophets",
+        "quote": "“we your servants have fifty able men. Let them go and look for your master. Perhaps the Spirit of the Lord has picked him up and set him down on some mountain or in some valley.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“No,”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“do not send them.”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“Send them.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "“Didn`t I tell you not to go?”"
+      },
+      {
+        "verse": 19,
+        "speaker": "people",
+        "quote": "“Look, our lord, this town is well situated, as you can see, but the water is bad and the land is unproductive.”"
+      },
+      {
+        "verse": 20,
+        "speaker": "elisha",
+        "quote": "“Bring me a new bowl,”"
+      },
+      {
+        "verse": 20,
+        "speaker": "elisha",
+        "quote": "“and put salt in it.”"
+      },
+      {
+        "verse": 21,
+        "speaker": "elisha",
+        "quote": "“This is what the Lord says: ‘I have healed this water. Never again will it cause death or make the land unproductive.`”"
+      },
+      {
+        "verse": 23,
+        "speaker": "boys",
+        "quote": "“Get out of here, baldy!”"
+      },
+      {
+        "verse": 23,
+        "speaker": "boys",
+        "quote": "“Get out of here, baldy!”"
+      }
+    ],
+    "3": [
+      {
+        "verse": 7,
+        "speaker": "jehoram",
+        "quote": "“The king of Moab has rebelled against me. Will you go with me to fight against Moab?”"
+      },
+      {
+        "verse": 7,
+        "speaker": "jehoshaphat",
+        "quote": "“I will go with you,”"
+      },
+      {
+        "verse": 7,
+        "speaker": "jehoshaphat",
+        "quote": "“I am as you are, my people as your people, my horses as your horses.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "jehoram",
+        "quote": "“By what route shall we attack?”"
+      },
+      {
+        "verse": 8,
+        "speaker": "jehoshaphat",
+        "quote": "“Through the Desert of Edom,”"
+      },
+      {
+        "verse": 10,
+        "speaker": "jehoram",
+        "quote": "“What!”"
+      },
+      {
+        "verse": 10,
+        "speaker": "jehoram",
+        "quote": "“Has the Lord called us three kings together only to deliver us into the hands of Moab?”"
+      },
+      {
+        "verse": 11,
+        "speaker": "jehoshaphat",
+        "quote": "“Is there no prophet of the Lord here, through whom we may inquire of the Lord?”"
+      },
+      {
+        "verse": 11,
+        "speaker": "officers",
+        "quote": "“Elisha son of Shaphat is here. He used to pour water on the hands of Elijah.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "jehoshaphat",
+        "quote": "“The word of the Lord is with him.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "elisha",
+        "quote": "“Why do you want to involve me? Go to the prophets of your father and the prophets of your mother.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "jehoram",
+        "quote": "“No,”"
+      },
+      {
+        "verse": 13,
+        "speaker": "jehoram",
+        "quote": "“because it was the Lord who called us three kings together to deliver us into the hands of Moab.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "elisha",
+        "quote": "“As surely as the Lord Almighty lives, whom I serve, if I did not have respect for the presence of Jehoshaphat king of Judah, I would not pay any attention to you."
+      },
+      {
+        "verse": 15,
+        "speaker": "elisha",
+        "quote": "But now bring me a harpist.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“This is what the Lord says: I will fill this valley with pools of water."
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "For this is what the Lord says: You will see neither wind nor rain, yet this valley will be filled with water, and you, your cattle and your other animals will drink."
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "This is an easy thing in the eyes of the Lord; he will also deliver Moab into your hands."
+      },
+      {
+        "verse": 19,
+        "speaker": "elisha",
+        "quote": "You will overthrow every fortified city and every major town. You will cut down every good tree, stop up all the springs, and ruin every good field with stones.”"
+      },
+      {
+        "verse": 23,
+        "speaker": "moabites",
+        "quote": "“That`s blood!”"
+      },
+      {
+        "verse": 23,
+        "speaker": "moabites",
+        "quote": "“Those kings must have fought and slaughtered each other. Now to the plunder, Moab!”"
+      }
+    ],
+    "4": [
+      {
+        "verse": 1,
+        "speaker": "widow",
+        "quote": "“Your servant my husband is dead, and you know that he revered the Lord. But now his creditor is coming to take my two boys as his slaves.”"
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "“How can I help you? Tell me, what do you have in your house?”"
+      },
+      {
+        "verse": 2,
+        "speaker": "widow",
+        "quote": "“Your servant has nothing there at all,”"
+      },
+      {
+        "verse": 2,
+        "speaker": "widow",
+        "quote": "“except a small jar of olive oil.”"
+      },
+      {
+        "verse": 3,
+        "speaker": "elisha",
+        "quote": "“Go around and ask all your neighbors for empty jars. Don`t ask for just a few."
+      },
+      {
+        "verse": 4,
+        "speaker": "elisha",
+        "quote": "Then go inside and shut the door behind you and your sons. Pour oil into all the jars, and as each is filled, put it to one side.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "widow",
+        "quote": "“Bring me another one.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "widow-son",
+        "quote": "“There is not a jar left.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "elisha",
+        "quote": "“Go, sell the oil and pay your debts. You and your sons can live on what is left.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "shunammite",
+        "quote": "“I know that this man who often comes our way is a holy man of God."
+      },
+      {
+        "verse": 10,
+        "speaker": "shunammite",
+        "quote": "Let`s make a small room on the roof and put in it a bed and a table, a chair and a lamp for him. Then he can stay there whenever he comes to us.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elisha",
+        "quote": "“Call the Shunammite.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "elisha",
+        "quote": "“Tell her, ‘You have gone to all this trouble for us. Now what can be done for you? Can we speak on your behalf to the king or the commander of the army?`”"
+      },
+      {
+        "verse": 13,
+        "speaker": "shunammite",
+        "quote": "“I have a home among my own people.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "elisha",
+        "quote": "“What can be done for her?”"
+      },
+      {
+        "verse": 14,
+        "speaker": "gehazi",
+        "quote": "“She has no son, and her husband is old.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "elisha",
+        "quote": "“Call her.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“About this time next year,”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“you will hold a son in your arms.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "shunammite",
+        "quote": "“No, my lord!”"
+      },
+      {
+        "verse": 16,
+        "speaker": "shunammite",
+        "quote": "“Please, man of God, don`t mislead your servant!”"
+      },
+      {
+        "verse": 19,
+        "speaker": "shunammite-son",
+        "quote": "“My head! My head!”"
+      },
+      {
+        "verse": 19,
+        "speaker": "husband",
+        "quote": "“Carry him to his mother.”"
+      },
+      {
+        "verse": 22,
+        "speaker": "shunammite",
+        "quote": "“Please send me one of the servants and a donkey so I can go to the man of God quickly and return.”"
+      },
+      {
+        "verse": 23,
+        "speaker": "husband",
+        "quote": "“Why go to him today?”"
+      },
+      {
+        "verse": 23,
+        "speaker": "husband",
+        "quote": "“It`s not the New Moon or the Sabbath.”"
+      },
+      {
+        "verse": 23,
+        "speaker": "shunammite",
+        "quote": "“That`s all right,”"
+      },
+      {
+        "verse": 24,
+        "speaker": "shunammite",
+        "quote": "“Lead on; don`t slow down for me unless I tell you.”"
+      },
+      {
+        "verse": 25,
+        "speaker": "elisha",
+        "quote": "“Look! There`s the Shunammite!"
+      },
+      {
+        "verse": 26,
+        "speaker": "elisha",
+        "quote": "Run to meet her and ask her, ‘Are you all right? Is your husband all right? Is your child all right?`”"
+      },
+      {
+        "verse": 26,
+        "speaker": "shunammite",
+        "quote": "“Everything is all right,”"
+      },
+      {
+        "verse": 27,
+        "speaker": "elisha",
+        "quote": "“Leave her alone! She is in bitter distress, but the Lord has hidden it from me and has not told me why.”"
+      },
+      {
+        "verse": 28,
+        "speaker": "shunammite",
+        "quote": "“Did I ask you for a son, my lord?”"
+      },
+      {
+        "verse": 28,
+        "speaker": "shunammite",
+        "quote": "“Didn`t I tell you, ‘Don`t raise my hopes`?”"
+      },
+      {
+        "verse": 29,
+        "speaker": "elisha",
+        "quote": "“Tuck your cloak into your belt, take my staff in your hand and run. Don`t greet anyone you meet, and if anyone greets you, do not answer. Lay my staff on the boy`s face.”"
+      },
+      {
+        "verse": 30,
+        "speaker": "shunammite",
+        "quote": "“As surely as the Lord lives and as you live, I will not leave you.”"
+      },
+      {
+        "verse": 31,
+        "speaker": "gehazi",
+        "quote": "“The boy has not awakened.”"
+      },
+      {
+        "verse": 36,
+        "speaker": "elisha",
+        "quote": "“Call the Shunammite.”"
+      },
+      {
+        "verse": 36,
+        "speaker": "elisha",
+        "quote": "“Take your son.”"
+      },
+      {
+        "verse": 38,
+        "speaker": "elisha",
+        "quote": "“Put on the large pot and cook some stew for these prophets.”"
+      },
+      {
+        "verse": 40,
+        "speaker": "prophets",
+        "quote": "“Man of God, there is death in the pot!”"
+      },
+      {
+        "verse": 41,
+        "speaker": "elisha",
+        "quote": "“Get some flour.”"
+      },
+      {
+        "verse": 41,
+        "speaker": "elisha",
+        "quote": "“Serve it to the people to eat.”"
+      },
+      {
+        "verse": 42,
+        "speaker": "elisha",
+        "quote": "“Give it to the people to eat,”"
+      },
+      {
+        "verse": 43,
+        "speaker": "servants",
+        "quote": "“How can I set this before a hundred men?”"
+      },
+      {
+        "verse": 43,
+        "speaker": "elisha",
+        "quote": "“Give it to the people to eat. For this is what the Lord says: ‘They will eat and have some left over.`”"
+      }
+    ],
+    "5": [
+      {
+        "verse": 3,
+        "speaker": "servant-girl",
+        "quote": "“If only my master would see the prophet who is in Samaria! He would cure him of his leprosy.”"
+      },
+      {
+        "verse": 5,
+        "speaker": "ben-hadad",
+        "quote": "“By all means, go,”"
+      },
+      {
+        "verse": 5,
+        "speaker": "ben-hadad",
+        "quote": "“I will send a letter to the king of Israel.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "ben-hadad",
+        "quote": "“With this letter I am sending my servant Naaman to you so that you may cure him of his leprosy.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "jehoram",
+        "quote": "“Am I God? Can I kill and bring back to life? Why does this fellow send someone to me to be cured of his leprosy? See how he is trying to pick a quarrel with me!”"
+      },
+      {
+        "verse": 8,
+        "speaker": "elisha",
+        "quote": "“Why have you torn your robes? Have the man come to me and he will know that there is a prophet in Israel.”"
+      },
+      {
+        "verse": 10,
+        "speaker": "messengers",
+        "quote": "“Go, wash yourself seven times in the Jordan, and your flesh will be restored and you will be cleansed.”"
+      },
+      {
+        "verse": 11,
+        "speaker": "naaman",
+        "quote": "“I thought that he would surely come out to me and stand and call on the name of the Lord his God, wave his hand over the spot and cure me of my leprosy."
+      },
+      {
+        "verse": 12,
+        "speaker": "naaman",
+        "quote": "Are not Abana and Pharpar, the rivers of Damascus, better than all the waters of Israel? Couldn`t I wash in them and be cleansed?”"
+      },
+      {
+        "verse": 13,
+        "speaker": "servants",
+        "quote": "“My father, if the prophet had told you to do some great thing, would you not have done it? How much more, then, when he tells you, ‘Wash and be cleansed`!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "naaman",
+        "quote": "“Now I know that there is no God in all the world except in Israel. So please accept a gift from your servant.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“As surely as the Lord lives, whom I serve, I will not accept a thing.”"
+      },
+      {
+        "verse": 17,
+        "speaker": "naaman",
+        "quote": "“If you will not,”"
+      },
+      {
+        "verse": 17,
+        "speaker": "naaman",
+        "quote": "“please let me, your servant, be given as much earth as a pair of mules can carry, for your servant will never again make burnt offerings and sacrifices to any other god but the Lord."
+      },
+      {
+        "verse": 18,
+        "speaker": "naaman",
+        "quote": "But may the Lord forgive your servant for this one thing: When my master enters the temple of Rimmon to bow down and he is leaning on my arm and I have to bow there also—when I bow down in the temple of Rimmon, may the Lord forgive your servant for this.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "elisha",
+        "quote": "“Go in peace,”"
+      },
+      {
+        "verse": 20,
+        "speaker": "gehazi",
+        "quote": "“My master was too easy on Naaman, this Aramean, by not accepting from him what he brought. As surely as the Lord lives, I will run after him and get something from him.”"
+      },
+      {
+        "verse": 21,
+        "speaker": "naaman",
+        "quote": "“Is everything all right?”"
+      },
+      {
+        "verse": 22,
+        "speaker": "gehazi",
+        "quote": "“Everything is all right,”"
+      },
+      {
+        "verse": 22,
+        "speaker": "gehazi",
+        "quote": "“My master sent me to say, ‘Two young men from the company of the prophets have just come to me from the hill country of Ephraim. Please give them a talent of silver and two sets of clothing.`”"
+      },
+      {
+        "verse": 23,
+        "speaker": "naaman",
+        "quote": "“By all means, take two talents,”"
+      },
+      {
+        "verse": 25,
+        "speaker": "elisha",
+        "quote": "“Where have you been, Gehazi?”"
+      },
+      {
+        "verse": 25,
+        "speaker": "gehazi",
+        "quote": "“Your servant didn`t go anywhere,”"
+      },
+      {
+        "verse": 26,
+        "speaker": "elisha",
+        "quote": "“Was not my spirit with you when the man got down from his chariot to meet you? Is this the time to take money or to accept clothes—or olive groves and vineyards, or flocks and herds, or male and female slaves?"
+      },
+      {
+        "verse": 27,
+        "speaker": "elisha",
+        "quote": "Naaman`s leprosy will cling to you and to your descendants forever.”"
+      }
+    ],
+    "6": [
+      {
+        "verse": 1,
+        "speaker": "prophets",
+        "quote": "“Look, the place where we meet with you is too small for us."
+      },
+      {
+        "verse": 2,
+        "speaker": "prophets",
+        "quote": "Let us go to the Jordan, where each of us can get a pole; and let us build a place there for us to meet.”"
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "“Go.”"
+      },
+      {
+        "verse": 3,
+        "speaker": "prophets",
+        "quote": "“Won`t you please come with your servants?”"
+      },
+      {
+        "verse": 3,
+        "speaker": "elisha",
+        "quote": "“I will,”"
+      },
+      {
+        "verse": 5,
+        "speaker": "prophets",
+        "quote": "“Oh no, my lord!”"
+      },
+      {
+        "verse": 5,
+        "speaker": "prophets",
+        "quote": "“It was borrowed!”"
+      },
+      {
+        "verse": 6,
+        "speaker": "elisha",
+        "quote": "“Where did it fall?”"
+      },
+      {
+        "verse": 7,
+        "speaker": "elisha",
+        "quote": "“Lift it out,”"
+      },
+      {
+        "verse": 8,
+        "speaker": "ben-hadad",
+        "quote": "“I will set up my camp in such and such a place.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "elisha",
+        "quote": "“Beware of passing that place, because the Arameans are going down there.”"
+      },
+      {
+        "verse": 11,
+        "speaker": "ben-hadad",
+        "quote": "“Tell me! Which of us is on the side of the king of Israel?”"
+      },
+      {
+        "verse": 12,
+        "speaker": "officers",
+        "quote": "“None of us, my lord the king,”"
+      },
+      {
+        "verse": 12,
+        "speaker": "officers",
+        "quote": "“but Elisha, the prophet who is in Israel, tells the king of Israel the very words you speak in your bedroom.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "ben-hadad",
+        "quote": "“Go, find out where he is,”"
+      },
+      {
+        "verse": 13,
+        "speaker": "ben-hadad",
+        "quote": "“so I can send men and capture him.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "messengers",
+        "quote": "“He is in Dothan.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "servants",
+        "quote": "“Oh no, my lord! What shall we do?”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“Don`t be afraid,”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“Those who are with us are more than those who are with them.”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“Open his eyes, Lord, so that he may see.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "“Strike this army with blindness.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "elisha",
+        "quote": "“This is not the road and this is not the city. Follow me, and I will lead you to the man you are looking for.”"
+      },
+      {
+        "verse": 20,
+        "speaker": "elisha",
+        "quote": "“Lord, open the eyes of these men so they can see.”"
+      },
+      {
+        "verse": 21,
+        "speaker": "jehoram",
+        "quote": "“Shall I kill them, my father? Shall I kill them?”"
+      },
+      {
+        "verse": 22,
+        "speaker": "elisha",
+        "quote": "“Do not kill them,”"
+      },
+      {
+        "verse": 22,
+        "speaker": "elisha",
+        "quote": "“Would you kill those you have captured with your own sword or bow? Set food and water before them so that they may eat and drink and then go back to their master.”"
+      },
+      {
+        "verse": 26,
+        "speaker": "woman",
+        "quote": "“Help me, my lord the king!”"
+      },
+      {
+        "verse": 27,
+        "speaker": "jehoram",
+        "quote": "“If the Lord does not help you, where can I get help for you? From the threshing floor? From the winepress?”"
+      },
+      {
+        "verse": 28,
+        "speaker": "jehoram",
+        "quote": "“What`s the matter?”"
+      },
+      {
+        "verse": 28,
+        "speaker": "woman",
+        "quote": "“This woman said to me, ‘Give up your son so we may eat him today, and tomorrow we`ll eat my son.`"
+      },
+      {
+        "verse": 29,
+        "speaker": "woman",
+        "quote": "So we cooked my son and ate him. The next day I said to her, ‘Give up your son so we may eat him,` but she had hidden him.”"
+      },
+      {
+        "verse": 31,
+        "speaker": "jehoram",
+        "quote": "“May God deal with me, be it ever so severely, if the head of Elisha son of Shaphat remains on his shoulders today!”"
+      },
+      {
+        "verse": 32,
+        "speaker": "elisha",
+        "quote": "“Don`t you see how this murderer is sending someone to cut off my head? Look, when the messenger comes, shut the door and hold it shut against him. Is not the sound of his master`s footsteps behind him?”"
+      },
+      {
+        "verse": 33,
+        "speaker": "jehoram",
+        "quote": "“This disaster is from the Lord. Why should I wait for the Lord any longer?”"
+      }
+    ],
+    "7": [
+      {
+        "verse": 1,
+        "speaker": "elisha",
+        "quote": "“Hear the word of the Lord. This is what the Lord says: About this time tomorrow, a seah of the finest flour will sell for a shekel and two seahs of barley for a shekel at the gate of Samaria.”"
+      },
+      {
+        "verse": 2,
+        "speaker": "officers",
+        "quote": "“Look, even if the Lord should open the floodgates of the heavens, could this happen?”"
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "“You will see it with your own eyes,”"
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "“but you will not eat any of it!”"
+      },
+      {
+        "verse": 3,
+        "speaker": "lepers",
+        "quote": "“Why stay here until we die?"
+      },
+      {
+        "verse": 4,
+        "speaker": "lepers",
+        "quote": "If we say, ‘We`ll go into the city`—the famine is there, and we will die. And if we stay here, we will die. So let`s go over to the camp of the Arameans and surrender. If they spare us, we live; if they kill us, then we die.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "arameans",
+        "quote": "“Look, the king of Israel has hired the Hittite and Egyptian kings to attack us!”"
+      },
+      {
+        "verse": 9,
+        "speaker": "lepers",
+        "quote": "“What we`re doing is not right. This is a day of good news and we are keeping it to ourselves. If we wait until daylight, punishment will overtake us. Let`s go at once and report this to the royal palace.”"
+      },
+      {
+        "verse": 10,
+        "speaker": "lepers",
+        "quote": "“We went into the Aramean camp and no one was there—not a sound of anyone—only tethered horses and donkeys, and the tents left just as they were.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "jehoram",
+        "quote": "“I will tell you what the Arameans have done to us. They know we are starving; so they have left the camp to hide in the countryside, thinking, ‘They will surely come out, and then we will take them alive and get into the city.`”"
+      },
+      {
+        "verse": 13,
+        "speaker": "officers",
+        "quote": "“Have some men take five of the horses that are left in the city. Their plight will be like that of all the Israelites left here—yes, they will only be like all these Israelites who are doomed. So let us send them to find out what happened.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "jehoram",
+        "quote": "“Go and find out what has happened.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "“About this time tomorrow, a seah of the finest flour will sell for a shekel and two seahs of barley for a shekel at the gate of Samaria.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "officers",
+        "quote": "“Look, even if the Lord should open the floodgates of the heavens, could this happen?”"
+      },
+      {
+        "verse": 19,
+        "speaker": "elisha",
+        "quote": "“You will see it with your own eyes, but you will not eat any of it!”"
+      }
+    ],
+    "8": [
+      {
+        "verse": 1,
+        "speaker": "elisha",
+        "quote": "“Go away with your family and stay for a while wherever you can, because the Lord has decreed a famine in the land that will last seven years.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "jehoram",
+        "quote": "“Tell me about all the great things Elisha has done.”"
+      },
+      {
+        "verse": 5,
+        "speaker": "gehazi",
+        "quote": "“This is the woman, my lord the king, and this is her son whom Elisha restored to life.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "jehoram",
+        "quote": "“Give back everything that belonged to her, including all the income from her land from the day she left the country until now.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "messengers",
+        "quote": "“The man of God has come all the way up here,”"
+      },
+      {
+        "verse": 8,
+        "speaker": "ben-hadad",
+        "quote": "“Take a gift with you and go to meet the man of God. Consult the Lord through him; ask him, ‘Will I recover from this illness?`”"
+      },
+      {
+        "verse": 9,
+        "speaker": "hazael",
+        "quote": "“Your son Ben-Hadad king of Aram has sent me to ask, ‘Will I recover from this illness?`”"
+      },
+      {
+        "verse": 10,
+        "speaker": "elisha",
+        "quote": "“Go and say to him, ‘You will certainly recover.` Nevertheless, the Lord has revealed to me that he will in fact die.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "hazael",
+        "quote": "“Why is my lord weeping?”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elisha",
+        "quote": "“Because I know the harm you will do to the Israelites,”"
+      },
+      {
+        "verse": 12,
+        "speaker": "elisha",
+        "quote": "“You will set fire to their fortified places, kill their young men with the sword, dash their little children to the ground, and rip open their pregnant women.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "hazael",
+        "quote": "“How could your servant, a mere dog, accomplish such a feat?”"
+      },
+      {
+        "verse": 13,
+        "speaker": "elisha",
+        "quote": "“The Lord has shown me that you will become king of Aram,”"
+      },
+      {
+        "verse": 14,
+        "speaker": "ben-hadad",
+        "quote": "“What did Elisha say to you?”"
+      },
+      {
+        "verse": 14,
+        "speaker": "hazael",
+        "quote": "“He told me that you would certainly recover.”"
+      }
+    ],
+    "9": [
+      {
+        "verse": 1,
+        "speaker": "elisha",
+        "quote": "“Tuck your cloak into your belt, take this flask of olive oil with you and go to Ramoth Gilead."
+      },
+      {
+        "verse": 2,
+        "speaker": "elisha",
+        "quote": "When you get there, look for Jehu son of Jehoshaphat, the son of Nimshi. Go to him, get him away from his companions and take him into an inner room."
+      },
+      {
+        "verse": 3,
+        "speaker": "elisha",
+        "quote": "Then take the flask and pour the oil on his head and declare, ‘This is what the Lord says: I anoint you king over Israel.` Then open the door and run; don`t delay!”"
+      },
+      {
+        "verse": 5,
+        "speaker": "young-prophet",
+        "quote": "“I have a message for you, commander,”"
+      },
+      {
+        "verse": 5,
+        "speaker": "jehu",
+        "quote": "“For which of us?”"
+      },
+      {
+        "verse": 5,
+        "speaker": "young-prophet",
+        "quote": "“For you, commander,”"
+      },
+      {
+        "verse": 6,
+        "speaker": "young-prophet",
+        "quote": "“This is what the Lord, the God of Israel, says: ‘I anoint you king over the Lord`s people Israel."
+      },
+      {
+        "verse": 7,
+        "speaker": "young-prophet",
+        "quote": "You are to destroy the house of Ahab your master, and I will avenge the blood of my servants the prophets and the blood of all the Lord`s servants shed by Jezebel."
+      },
+      {
+        "verse": 8,
+        "speaker": "young-prophet",
+        "quote": "The whole house of Ahab will perish. I will cut off from Ahab every last male in Israel—slave or free."
+      },
+      {
+        "verse": 9,
+        "speaker": "young-prophet",
+        "quote": "I will make the house of Ahab like the house of Jeroboam son of Nebat and like the house of Baasha son of Ahijah."
+      },
+      {
+        "verse": 10,
+        "speaker": "young-prophet",
+        "quote": "As for Jezebel, dogs will devour her on the plot of ground at Jezreel, and no one will bury her.`”"
+      },
+      {
+        "verse": 11,
+        "speaker": "officers",
+        "quote": "“Is everything all right? Why did this maniac come to you?”"
+      },
+      {
+        "verse": 11,
+        "speaker": "jehu",
+        "quote": "“You know the man and the sort of things he says,”"
+      },
+      {
+        "verse": 12,
+        "speaker": "officers",
+        "quote": "“That`s not true!”"
+      },
+      {
+        "verse": 12,
+        "speaker": "officers",
+        "quote": "“Tell us.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "jehu",
+        "quote": "“Here is what he told me: ‘This is what the Lord says: I anoint you king over Israel.`”"
+      },
+      {
+        "verse": 13,
+        "speaker": "officers",
+        "quote": "“Jehu is king!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehu",
+        "quote": "“If you desire to make me king, don`t let anyone slip out of the city to go and tell the news in Jezreel.”"
+      },
+      {
+        "verse": 17,
+        "speaker": "lookout",
+        "quote": "“I see some troops coming.”"
+      },
+      {
+        "verse": 17,
+        "speaker": "jehoram",
+        "quote": "“Get a horseman,”"
+      },
+      {
+        "verse": 17,
+        "speaker": "jehoram",
+        "quote": "“Send him to meet them and ask, ‘Do you come in peace?`”"
+      },
+      {
+        "verse": 18,
+        "speaker": "messengers",
+        "quote": "“This is what the king says: ‘Do you come in peace?`”"
+      },
+      {
+        "verse": 18,
+        "speaker": "jehu",
+        "quote": "“What do you have to do with peace?”"
+      },
+      {
+        "verse": 18,
+        "speaker": "jehu",
+        "quote": "“Fall in behind me.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "lookout",
+        "quote": "“The messenger has reached them, but he isn`t coming back.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "messengers",
+        "quote": "“This is what the king says: ‘Do you come in peace?`”"
+      },
+      {
+        "verse": 19,
+        "speaker": "jehu",
+        "quote": "“What do you have to do with peace? Fall in behind me.”"
+      },
+      {
+        "verse": 20,
+        "speaker": "lookout",
+        "quote": "“He has reached them, but he isn`t coming back either. The driving is like that of Jehu son of Nimshi—he drives like a maniac.”"
+      },
+      {
+        "verse": 21,
+        "speaker": "jehoram",
+        "quote": "“Hitch up my chariot,”"
+      },
+      {
+        "verse": 22,
+        "speaker": "jehoram",
+        "quote": "“Have you come in peace, Jehu?”"
+      },
+      {
+        "verse": 22,
+        "speaker": "jehu",
+        "quote": "“How can there be peace,”"
+      },
+      {
+        "verse": 22,
+        "speaker": "jehu",
+        "quote": "“as long as all the idolatry and witchcraft of your mother Jezebel abound?”"
+      },
+      {
+        "verse": 23,
+        "speaker": "jehoram",
+        "quote": "“Treachery, Ahaziah!”"
+      },
+      {
+        "verse": 25,
+        "speaker": "jehu",
+        "quote": "“Pick him up and throw him on the field that belonged to Naboth the Jezreelite. Remember how you and I were riding together in chariots behind Ahab his father when the Lord spoke this prophecy against him:"
+      },
+      {
+        "verse": 26,
+        "speaker": "jehu",
+        "quote": "‘Yesterday I saw the blood of Naboth and the blood of his sons, declares the Lord, and I will surely make you pay for it on this plot of ground, declares the Lord.` Now then, pick him up and throw him on that plot, in accordance with the word of the Lord.”"
+      },
+      {
+        "verse": 27,
+        "speaker": "jehu",
+        "quote": "“Kill him too!”"
+      },
+      {
+        "verse": 31,
+        "speaker": "jezebel",
+        "quote": "“Have you come in peace, you Zimri, you murderer of your master?”"
+      },
+      {
+        "verse": 32,
+        "speaker": "jehu",
+        "quote": "“Who is on my side? Who?”"
+      },
+      {
+        "verse": 33,
+        "speaker": "jehu",
+        "quote": "“Throw her down!”"
+      },
+      {
+        "verse": 34,
+        "speaker": "jehu",
+        "quote": "“Take care of that cursed woman,”"
+      },
+      {
+        "verse": 34,
+        "speaker": "jehu",
+        "quote": "“and bury her, for she was a king`s daughter.”"
+      },
+      {
+        "verse": 36,
+        "speaker": "jehu",
+        "quote": "“This is the word of the Lord that he spoke through his servant Elijah the Tishbite: On the plot of ground at Jezreel dogs will devour Jezebel`s flesh."
+      },
+      {
+        "verse": 37,
+        "speaker": "jehu",
+        "quote": "Jezebel`s body will be like dung on the ground in the plot at Jezreel, so that no one will be able to say, ‘This is Jezebel.`”"
+      }
+    ],
+    "10": [
+      {
+        "verse": 2,
+        "speaker": "jehu",
+        "quote": "“You have your master`s sons with you and you have chariots and horses, a fortified city and weapons. Now as soon as this letter reaches you,"
+      },
+      {
+        "verse": 3,
+        "speaker": "jehu",
+        "quote": "choose the best and most worthy of your master`s sons and set him on his father`s throne. Then fight for your master`s house.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "officials",
+        "quote": "“If two kings could not resist him, how can we?”"
+      },
+      {
+        "verse": 5,
+        "speaker": "officials",
+        "quote": "“We are your servants and we will do anything you say. We will not appoint anyone as king; you do whatever you think best.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "jehu",
+        "quote": "“If you are on my side and will obey me, take the heads of your master`s sons and come to me in Jezreel by this time tomorrow.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "messengers",
+        "quote": "“They have brought the heads of the princes.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "jehu",
+        "quote": "“Put them in two piles at the entrance of the city gate until morning.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "jehu",
+        "quote": "“You are innocent. It was I who conspired against my master and killed him, but who killed all these?"
+      },
+      {
+        "verse": 10,
+        "speaker": "jehu",
+        "quote": "Know, then, that not a word the Lord has spoken against the house of Ahab will fail. The Lord has done what he announced through his servant Elijah.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "jehu",
+        "quote": "“Who are you?”"
+      },
+      {
+        "verse": 13,
+        "speaker": "relatives-of-ahaziah",
+        "quote": "“We are relatives of Ahaziah, and we have come down to greet the families of the king and of the queen mother.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "jehu",
+        "quote": "“Take them alive!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehu",
+        "quote": "“Are you in accord with me, as I am with you?”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehonadab",
+        "quote": "“I am,”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehu",
+        "quote": "“If so,”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehu",
+        "quote": "“give me your hand.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "jehu",
+        "quote": "“Come with me and see my zeal for the Lord.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "jehu",
+        "quote": "“Ahab served Baal a little; Jehu will serve him much."
+      },
+      {
+        "verse": 19,
+        "speaker": "jehu",
+        "quote": "Now summon all the prophets of Baal, all his servants and all his priests. See that no one is missing, because I am going to hold a great sacrifice for Baal. Anyone who fails to come will no longer live.”"
+      },
+      {
+        "verse": 20,
+        "speaker": "jehu",
+        "quote": "“Call an assembly in honor of Baal.”"
+      },
+      {
+        "verse": 22,
+        "speaker": "jehu",
+        "quote": "“Bring robes for all the servants of Baal.”"
+      },
+      {
+        "verse": 23,
+        "speaker": "jehu",
+        "quote": "“Look around and see that no one who serves the Lord is here with you—only servants of Baal.”"
+      },
+      {
+        "verse": 24,
+        "speaker": "jehu",
+        "quote": "“If one of you lets any of the men I am placing in your hands escape, it will be your life for his life.”"
+      },
+      {
+        "verse": 25,
+        "speaker": "jehu",
+        "quote": "“Go in and kill them; let no one escape.”"
+      },
+      {
+        "verse": 30,
+        "speaker": "the-lord",
+        "quote": "“Because you have done well in accomplishing what is right in my eyes and have done to the house of Ahab all I had in mind to do, your descendants will sit on the throne of Israel to the fourth generation.”"
+      }
+    ],
+    "11": [
+      {
+        "verse": 5,
+        "speaker": "jehoiada",
+        "quote": "“This is what you are to do: You who are in the three companies that are going on duty on the Sabbath—a third of you guarding the royal palace,"
+      },
+      {
+        "verse": 6,
+        "speaker": "jehoiada",
+        "quote": "a third at the Sur Gate, and a third at the gate behind the guard, who take turns guarding the temple—"
+      },
+      {
+        "verse": 7,
+        "speaker": "jehoiada",
+        "quote": "and you who are in the other two companies that normally go off Sabbath duty are all to guard the temple for the king."
+      },
+      {
+        "verse": 8,
+        "speaker": "jehoiada",
+        "quote": "Station yourselves around the king, each of you with weapon in hand. Anyone who approaches your ranks is to be put to death. Stay close to the king wherever he goes.”"
+      },
+      {
+        "verse": 12,
+        "speaker": "people",
+        "quote": "“Long live the king!”"
+      },
+      {
+        "verse": 14,
+        "speaker": "athaliah",
+        "quote": "“Treason! Treason!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehoiada",
+        "quote": "“Bring her out between the ranks and put to the sword anyone who follows her.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "jehoiada",
+        "quote": "“She must not be put to death in the temple of the Lord.”"
+      }
+    ],
+    "12": [
+      {
+        "verse": 4,
+        "speaker": "joash",
+        "quote": "“Collect all the money that is brought as sacred offerings to the temple of the Lord—the money collected in the census, the money received from personal vows and the money brought voluntarily to the temple."
+      },
+      {
+        "verse": 5,
+        "speaker": "joash",
+        "quote": "Let every priest receive the money from one of the treasurers, then use it to repair whatever damage is found in the temple.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "joash",
+        "quote": "“Why aren`t you repairing the damage done to the temple? Take no more money from your treasurers, but hand it over for repairing the temple.”"
+      }
+    ],
+    "13": [
+      {
+        "verse": 14,
+        "speaker": "jehoash",
+        "quote": "“My father! My father!”"
+      },
+      {
+        "verse": 14,
+        "speaker": "jehoash",
+        "quote": "“The chariots and horsemen of Israel!”"
+      },
+      {
+        "verse": 15,
+        "speaker": "elisha",
+        "quote": "“Get a bow and some arrows,”"
+      },
+      {
+        "verse": 16,
+        "speaker": "elisha",
+        "quote": "“Take the bow in your hands,”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“Open the east window,”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“Shoot!”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“The Lord`s arrow of victory, the arrow of victory over Aram!”"
+      },
+      {
+        "verse": 17,
+        "speaker": "elisha",
+        "quote": "“You will completely destroy the Arameans at Aphek.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "“Take the arrows,”"
+      },
+      {
+        "verse": 18,
+        "speaker": "elisha",
+        "quote": "“Strike the ground.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "elisha",
+        "quote": "“You should have struck the ground five or six times; then you would have defeated Aram and completely destroyed it. But now you will defeat it only three times.”"
+      }
+    ],
+    "14": [
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "“Parents are not to be put to death for their children, nor children put to death for their parents; each will die for their own sin.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "amaziah",
+        "quote": "“Come, let us face each other in battle.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "jehoash",
+        "quote": "“A thistle in Lebanon sent a message to a cedar in Lebanon, ‘Give your daughter to my son in marriage.` Then a wild beast in Lebanon came along and trampled the thistle underfoot."
+      },
+      {
+        "verse": 10,
+        "speaker": "jehoash",
+        "quote": "You have indeed defeated Edom and now you are arrogant. Glory in your victory, but stay at home! Why ask for trouble and cause your own downfall and that of Judah also?”"
+      }
+    ],
+    "15": [
+      {
+        "verse": 12,
+        "speaker": "the-lord",
+        "quote": "“Your descendants will sit on the throne of Israel to the fourth generation.”"
+      }
+    ],
+    "16": [
+      {
+        "verse": 7,
+        "speaker": "ahaz",
+        "quote": "“I am your servant and vassal. Come up and save me out of the hand of the king of Aram and of the king of Israel, who are attacking me.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "ahaz",
+        "quote": "“On the large new altar, offer the morning burnt offering and the evening grain offering, the king`s burnt offering and his grain offering, and the burnt offering of all the people of the land, and their grain offering and their drink offering. Splash against this altar the blood of all the burnt offerings and sacrifices. But I will use the bronze altar for seeking guidance.”"
+      }
+    ],
+    "17": [
+      {
+        "verse": 12,
+        "speaker": "the-lord",
+        "quote": "“You shall not do this.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "prophets",
+        "quote": "“Turn from your evil ways. Observe my commands and decrees, in accordance with the entire Law that I commanded your ancestors to obey and that I delivered to you through my servants the prophets.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "the-lord",
+        "quote": "“Do not do as they do.”"
+      },
+      {
+        "verse": 26,
+        "speaker": "messengers",
+        "quote": "“The people you deported and resettled in the towns of Samaria do not know what the god of that country requires. He has sent lions among them, which are killing them off, because the people do not know what he requires.”"
+      },
+      {
+        "verse": 27,
+        "speaker": "king-of-assyria",
+        "quote": "“Have one of the priests you took captive from Samaria go back to live there and teach the people what the god of the land requires.”"
+      },
+      {
+        "verse": 35,
+        "speaker": "the-lord",
+        "quote": "“Do not worship any other gods or bow down to them, serve them or sacrifice to them."
+      },
+      {
+        "verse": 36,
+        "speaker": "the-lord",
+        "quote": "But the Lord, who brought you up out of Egypt with mighty power and outstretched arm, is the one you must worship. To him you shall bow down and to him offer sacrifices."
+      },
+      {
+        "verse": 37,
+        "speaker": "the-lord",
+        "quote": "You must always be careful to keep the decrees and regulations, the laws and commands he wrote for you. Do not worship other gods."
+      },
+      {
+        "verse": 38,
+        "speaker": "the-lord",
+        "quote": "Do not forget the covenant I have made with you, and do not worship other gods."
+      },
+      {
+        "verse": 39,
+        "speaker": "the-lord",
+        "quote": "Rather, worship the Lord your God; it is he who will deliver you from the hand of all your enemies.”"
+      }
+    ],
+    "18": [
+      {
+        "verse": 14,
+        "speaker": "hezekiah",
+        "quote": "“I have done wrong. Withdraw from me, and I will pay whatever you demand of me.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "field-commander",
+        "quote": "“Tell Hezekiah: “‘This is what the great king, the king of Assyria, says: On what are you basing this confidence of yours?"
+      },
+      {
+        "verse": 20,
+        "speaker": "field-commander",
+        "quote": "You say you have the counsel and the might for war—but you speak only empty words. On whom are you depending, that you rebel against me?"
+      },
+      {
+        "verse": 21,
+        "speaker": "field-commander",
+        "quote": "Look, I know you are depending on Egypt, that splintered reed of a staff, which pierces the hand of anyone who leans on it! Such is Pharaoh king of Egypt to all who depend on him."
+      },
+      {
+        "verse": 22,
+        "speaker": "field-commander",
+        "quote": "But if you say to me, “We are depending on the Lord our God”—isn`t he the one whose high places and altars Hezekiah removed, saying to Judah and Jerusalem, “You must worship before this altar in Jerusalem”?"
+      },
+      {
+        "verse": 23,
+        "speaker": "field-commander",
+        "quote": "“‘Come now, make a bargain with my master, the king of Assyria: I will give you two thousand horses—if you can put riders on them!"
+      },
+      {
+        "verse": 24,
+        "speaker": "field-commander",
+        "quote": "How can you repulse one officer of the least of my master`s officials, even though you are depending on Egypt for chariots and horsemen?"
+      },
+      {
+        "verse": 25,
+        "speaker": "field-commander",
+        "quote": "Furthermore, have I come to attack and destroy this place without word from the Lord? The Lord himself told me to march against this country and destroy it.`”"
+      },
+      {
+        "verse": 26,
+        "speaker": "eliakim",
+        "quote": "“Please speak to your servants in Aramaic, since we understand it. Don`t speak to us in Hebrew in the hearing of the people on the wall.”"
+      },
+      {
+        "verse": 27,
+        "speaker": "field-commander",
+        "quote": "“Was it only to your master and you that my master sent me to say these things, and not to the people sitting on the wall—who, like you, will have to eat their own excrement and drink their own urine?”"
+      },
+      {
+        "verse": 28,
+        "speaker": "field-commander",
+        "quote": "“Hear the word of the great king, the king of Assyria!"
+      },
+      {
+        "verse": 29,
+        "speaker": "field-commander",
+        "quote": "This is what the king says: Do not let Hezekiah deceive you. He cannot deliver you from my hand."
+      },
+      {
+        "verse": 30,
+        "speaker": "field-commander",
+        "quote": "Do not let Hezekiah persuade you to trust in the Lord when he says, ‘The Lord will surely deliver us; this city will not be given into the hand of the king of Assyria.`"
+      },
+      {
+        "verse": 31,
+        "speaker": "field-commander",
+        "quote": "“Do not listen to Hezekiah. This is what the king of Assyria says: Make peace with me and come out to me. Then each of you will eat fruit from your own vine and fig tree and drink water from your own cistern,"
+      },
+      {
+        "verse": 32,
+        "speaker": "field-commander",
+        "quote": "until I come and take you to a land like your own—a land of grain and new wine, a land of bread and vineyards, a land of olive trees and honey. Choose life and not death! “Do not listen to Hezekiah, for he is misleading you when he says, ‘The Lord will deliver us.`"
+      },
+      {
+        "verse": 33,
+        "speaker": "field-commander",
+        "quote": "Has the god of any nation ever delivered his land from the hand of the king of Assyria?"
+      },
+      {
+        "verse": 34,
+        "speaker": "field-commander",
+        "quote": "Where are the gods of Hamath and Arpad? Where are the gods of Sepharvaim, Hena and Ivvah? Have they rescued Samaria from my hand?"
+      },
+      {
+        "verse": 35,
+        "speaker": "field-commander",
+        "quote": "Who of all the gods of these countries has been able to save his land from me? How then can the Lord deliver Jerusalem from my hand?”"
+      },
+      {
+        "verse": 36,
+        "speaker": "hezekiah",
+        "quote": "“Do not answer him.”"
+      }
+    ],
+    "19": [
+      {
+        "verse": 3,
+        "speaker": "officials",
+        "quote": "“This is what Hezekiah says: This day is a day of distress and rebuke and disgrace, as when children come to the moment of birth and there is no strength to deliver them."
+      },
+      {
+        "verse": 4,
+        "speaker": "officials",
+        "quote": "It may be that the Lord your God will hear all the words of the field commander, whom his master, the king of Assyria, has sent to ridicule the living God, and that he will rebuke him for the words the Lord your God has heard. Therefore pray for the remnant that still survives.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "isaiah",
+        "quote": "“Tell your master, ‘This is what the Lord says: Do not be afraid of what you have heard—those words with which the underlings of the king of Assyria have blasphemed me."
+      },
+      {
+        "verse": 7,
+        "speaker": "isaiah",
+        "quote": "Listen! When he hears a certain report, I will make him want to return to his own country, and there I will have him cut down with the sword.`”"
+      },
+      {
+        "verse": 10,
+        "speaker": "sennacherib",
+        "quote": "“Say to Hezekiah king of Judah: Do not let the god you depend on deceive you when he says, ‘Jerusalem will not be given into the hands of the king of Assyria.`"
+      },
+      {
+        "verse": 11,
+        "speaker": "sennacherib",
+        "quote": "Surely you have heard what the kings of Assyria have done to all the countries, destroying them completely. And will you be delivered?"
+      },
+      {
+        "verse": 12,
+        "speaker": "sennacherib",
+        "quote": "Did the gods of the nations that were destroyed by my predecessors deliver them—the gods of Gozan, Harran, Rezeph and the people of Eden who were in Tel Assar?"
+      },
+      {
+        "verse": 13,
+        "speaker": "sennacherib",
+        "quote": "Where is the king of Hamath or the king of Arpad? Where are the kings of Lair, Sepharvaim, Hena and Ivvah?”"
+      },
+      {
+        "verse": 15,
+        "speaker": "hezekiah",
+        "quote": "“Lord, the God of Israel, enthroned between the cherubim, you alone are God over all the kingdoms of the earth. You have made heaven and earth."
+      },
+      {
+        "verse": 16,
+        "speaker": "hezekiah",
+        "quote": "Give ear, Lord, and hear; open your eyes, Lord, and see; listen to the words Sennacherib has sent to ridicule the living God."
+      },
+      {
+        "verse": 17,
+        "speaker": "hezekiah",
+        "quote": "“It is true, Lord, that the Assyrian kings have laid waste these nations and their lands."
+      },
+      {
+        "verse": 18,
+        "speaker": "hezekiah",
+        "quote": "They have thrown their gods into the fire and destroyed them, for they were not gods but only wood and stone, fashioned by human hands."
+      },
+      {
+        "verse": 19,
+        "speaker": "hezekiah",
+        "quote": "Now, Lord our God, deliver us from his hand, so that all the kingdoms of the earth may know that you alone, Lord, are God.”"
+      },
+      {
+        "verse": 20,
+        "speaker": "isaiah",
+        "quote": "“This is what the Lord, the God of Israel, says: I have heard your prayer concerning Sennacherib king of Assyria."
+      },
+      {
+        "verse": 21,
+        "speaker": "isaiah",
+        "quote": "This is the word that the Lord has spoken against him: “‘Virgin Daughter Zion despises you and mocks you. Daughter Jerusalem tosses her head as you flee."
+      },
+      {
+        "verse": 22,
+        "speaker": "isaiah",
+        "quote": "Who is it you have ridiculed and blasphemed? Against whom have you raised your voice and lifted your eyes in pride? Against the Holy One of Israel!"
+      },
+      {
+        "verse": 23,
+        "speaker": "isaiah",
+        "quote": "By your messengers you have ridiculed the Lord. And you have said, “With my many chariots I have ascended the heights of the mountains, the utmost heights of Lebanon. I have cut down its tallest cedars, the choicest of its junipers. I have reached its remotest parts, the finest of its forests."
+      },
+      {
+        "verse": 24,
+        "speaker": "isaiah",
+        "quote": "I have dug wells in foreign lands and drunk the water there. With the soles of my feet I have dried up all the streams of Egypt.”"
+      },
+      {
+        "verse": 25,
+        "speaker": "isaiah",
+        "quote": "“‘Have you not heard? Long ago I ordained it. In days of old I planned it; now I have brought it to pass, that you have turned fortified cities into piles of stone."
+      },
+      {
+        "verse": 26,
+        "speaker": "isaiah",
+        "quote": "Their people, drained of power, are dismayed and put to shame. They are like plants in the field, like tender green shoots, like grass sprouting on the roof, scorched before it grows up."
+      },
+      {
+        "verse": 27,
+        "speaker": "isaiah",
+        "quote": "“‘But I know where you are and when you come and go and how you rage against me."
+      },
+      {
+        "verse": 28,
+        "speaker": "isaiah",
+        "quote": "Because you rage against me and because your insolence has reached my ears, I will put my hook in your nose and my bit in your mouth, and I will make you return by the way you came.`"
+      },
+      {
+        "verse": 29,
+        "speaker": "isaiah",
+        "quote": "“This will be the sign for you, Hezekiah: “This year you will eat what grows by itself, and the second year what springs from that. But in the third year sow and reap, plant vineyards and eat their fruit."
+      },
+      {
+        "verse": 30,
+        "speaker": "isaiah",
+        "quote": "Once more a remnant of the kingdom of Judah will take root below and bear fruit above."
+      },
+      {
+        "verse": 31,
+        "speaker": "isaiah",
+        "quote": "For out of Jerusalem will come a remnant, and out of Mount Zion a band of survivors. “The zeal of the Lord Almighty will accomplish this."
+      },
+      {
+        "verse": 32,
+        "speaker": "isaiah",
+        "quote": "“Therefore this is what the Lord says concerning the king of Assyria: “‘He will not enter this city or shoot an arrow here. He will not come before it with shield or build a siege ramp against it."
+      },
+      {
+        "verse": 33,
+        "speaker": "isaiah",
+        "quote": "By the way that he came he will return; he will not enter this city, declares the Lord."
+      },
+      {
+        "verse": 34,
+        "speaker": "isaiah",
+        "quote": "I will defend this city and save it, for my sake and for the sake of David my servant.`”"
+      }
+    ],
+    "20": [
+      {
+        "verse": 1,
+        "speaker": "isaiah",
+        "quote": "“This is what the Lord says: Put your house in order, because you are going to die; you will not recover.”"
+      },
+      {
+        "verse": 3,
+        "speaker": "hezekiah",
+        "quote": "“Remember, Lord, how I have walked before you faithfully and with wholehearted devotion and have done what is good in your eyes.”"
+      },
+      {
+        "verse": 5,
+        "speaker": "the-lord",
+        "quote": "“Go back and tell Hezekiah, the ruler of my people, ‘This is what the Lord, the God of your father David, says: I have heard your prayer and seen your tears; I will heal you. On the third day from now you will go up to the temple of the Lord."
+      },
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "I will add fifteen years to your life. And I will deliver you and this city from the hand of the king of Assyria. I will defend this city for my sake and for the sake of my servant David.`”"
+      },
+      {
+        "verse": 7,
+        "speaker": "isaiah",
+        "quote": "“Prepare a poultice of figs.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "hezekiah",
+        "quote": "“What will be the sign that the Lord will heal me and that I will go up to the temple of the Lord on the third day from now?”"
+      },
+      {
+        "verse": 9,
+        "speaker": "isaiah",
+        "quote": "“This is the Lord`s sign to you that the Lord will do what he has promised: Shall the shadow go forward ten steps, or shall it go back ten steps?”"
+      },
+      {
+        "verse": 10,
+        "speaker": "hezekiah",
+        "quote": "“It is a simple matter for the shadow to go forward ten steps,”"
+      },
+      {
+        "verse": 10,
+        "speaker": "hezekiah",
+        "quote": "“Rather, have it go back ten steps.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "isaiah",
+        "quote": "“What did those men say, and where did they come from?”"
+      },
+      {
+        "verse": 14,
+        "speaker": "hezekiah",
+        "quote": "“From a distant land,”"
+      },
+      {
+        "verse": 14,
+        "speaker": "hezekiah",
+        "quote": "“They came from Babylon.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "isaiah",
+        "quote": "“What did they see in your palace?”"
+      },
+      {
+        "verse": 15,
+        "speaker": "hezekiah",
+        "quote": "“They saw everything in my palace,”"
+      },
+      {
+        "verse": 15,
+        "speaker": "hezekiah",
+        "quote": "“There is nothing among my treasures that I did not show them.”"
+      },
+      {
+        "verse": 16,
+        "speaker": "isaiah",
+        "quote": "“Hear the word of the Lord:"
+      },
+      {
+        "verse": 17,
+        "speaker": "isaiah",
+        "quote": "The time will surely come when everything in your palace, and all that your predecessors have stored up until this day, will be carried off to Babylon. Nothing will be left, says the Lord."
+      },
+      {
+        "verse": 18,
+        "speaker": "isaiah",
+        "quote": "And some of your descendants, your own flesh and blood who will be born to you, will be taken away, and they will become eunuchs in the palace of the king of Babylon.”"
+      },
+      {
+        "verse": 19,
+        "speaker": "hezekiah",
+        "quote": "“The word of the Lord you have spoken is good,”"
+      },
+      {
+        "verse": 19,
+        "speaker": "hezekiah",
+        "quote": "“Will there not be peace and security in my lifetime?”"
+      }
+    ],
+    "21": [
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "“In Jerusalem I will put my Name.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "the-lord",
+        "quote": "“In this temple and in Jerusalem, which I have chosen out of all the tribes of Israel, I will put my Name forever."
+      },
+      {
+        "verse": 8,
+        "speaker": "the-lord",
+        "quote": "I will not again make the feet of the Israelites wander from the land I gave their ancestors, if only they will be careful to do everything I commanded them and will keep the whole Law that my servant Moses gave them.”"
+      },
+      {
+        "verse": 11,
+        "speaker": "prophets",
+        "quote": "“Manasseh king of Judah has committed these detestable sins. He has done more evil than the Amorites who preceded him and has led Judah into sin with his idols."
+      },
+      {
+        "verse": 12,
+        "speaker": "prophets",
+        "quote": "Therefore this is what the Lord, the God of Israel, says: I am going to bring such disaster on Jerusalem and Judah that the ears of everyone who hears of it will tingle."
+      },
+      {
+        "verse": 13,
+        "speaker": "prophets",
+        "quote": "I will stretch out over Jerusalem the measuring line used against Samaria and the plumb line used against the house of Ahab. I will wipe out Jerusalem as one wipes a dish, wiping it and turning it upside down."
+      },
+      {
+        "verse": 14,
+        "speaker": "prophets",
+        "quote": "I will forsake the remnant of my inheritance and give them into the hands of enemies. They will be looted and plundered by all their enemies;"
+      },
+      {
+        "verse": 15,
+        "speaker": "prophets",
+        "quote": "they have done evil in my eyes and have aroused my anger from the day their ancestors came out of Egypt until this day.”"
+      }
+    ],
+    "22": [
+      {
+        "verse": 4,
+        "speaker": "josiah",
+        "quote": "“Go up to Hilkiah the high priest and have him get ready the money that has been brought into the temple of the Lord, which the doorkeepers have collected from the people."
+      },
+      {
+        "verse": 5,
+        "speaker": "josiah",
+        "quote": "Have them entrust it to the men appointed to supervise the work on the temple. And have these men pay the workers who repair the temple of the Lord—"
+      },
+      {
+        "verse": 6,
+        "speaker": "josiah",
+        "quote": "the carpenters, the builders and the masons. Also have them purchase timber and dressed stone to repair the temple."
+      },
+      {
+        "verse": 7,
+        "speaker": "josiah",
+        "quote": "But they need not account for the money entrusted to them, because they are honest in their dealings.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "hilkiah",
+        "quote": "“I have found the Book of the Law in the temple of the Lord.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "shaphan",
+        "quote": "“Your officials have paid out the money that was in the temple of the Lord and have entrusted it to the workers and supervisors at the temple.”"
+      },
+      {
+        "verse": 10,
+        "speaker": "shaphan",
+        "quote": "“Hilkiah the priest has given me a book.”"
+      },
+      {
+        "verse": 13,
+        "speaker": "josiah",
+        "quote": "“Go and inquire of the Lord for me and for the people and for all Judah about what is written in this book that has been found. Great is the Lord`s anger that burns against us because those who have gone before us have not obeyed the words of this book; they have not acted in accordance with all that is written there concerning us.”"
+      },
+      {
+        "verse": 15,
+        "speaker": "huldah",
+        "quote": "“This is what the Lord, the God of Israel, says: Tell the man who sent you to me,"
+      },
+      {
+        "verse": 16,
+        "speaker": "huldah",
+        "quote": "‘This is what the Lord says: I am going to bring disaster on this place and its people, according to everything written in the book the king of Judah has read."
+      },
+      {
+        "verse": 17,
+        "speaker": "huldah",
+        "quote": "Because they have forsaken me and burned incense to other gods and aroused my anger by all the idols their hands have made, my anger will burn against this place and will not be quenched.`"
+      },
+      {
+        "verse": 18,
+        "speaker": "huldah",
+        "quote": "Tell the king of Judah, who sent you to inquire of the Lord, ‘This is what the Lord, the God of Israel, says concerning the words you heard:"
+      },
+      {
+        "verse": 19,
+        "speaker": "huldah",
+        "quote": "Because your heart was responsive and you humbled yourself before the Lord when you heard what I have spoken against this place and its people—that they would become a curse and be laid waste—and because you tore your robes and wept in my presence, I also have heard you, declares the Lord."
+      },
+      {
+        "verse": 20,
+        "speaker": "huldah",
+        "quote": "Therefore I will gather you to your ancestors, and you will be buried in peace. Your eyes will not see all the disaster I am going to bring on this place.`”"
+      }
+    ],
+    "23": [
+      {
+        "verse": 17,
+        "speaker": "josiah",
+        "quote": "“What is that tombstone I see?”"
+      },
+      {
+        "verse": 17,
+        "speaker": "people",
+        "quote": "“It marks the tomb of the man of God who came from Judah and pronounced against the altar of Bethel the very things you have done to it.”"
+      },
+      {
+        "verse": 18,
+        "speaker": "josiah",
+        "quote": "“Leave it alone,”"
+      },
+      {
+        "verse": 18,
+        "speaker": "josiah",
+        "quote": "“Don`t let anyone disturb his bones.”"
+      },
+      {
+        "verse": 21,
+        "speaker": "josiah",
+        "quote": "“Celebrate the Passover to the Lord your God, as it is written in this Book of the Covenant.”"
+      },
+      {
+        "verse": 27,
+        "speaker": "the-lord",
+        "quote": "“I will remove Judah also from my presence as I removed Israel, and I will reject Jerusalem, the city I chose, and this temple, about which I said, ‘My Name shall be there.`”"
+      }
+    ],
+    "24": [],
+    "25": [
+      {
+        "verse": 24,
+        "speaker": "gedaliah",
+        "quote": "“Do not be afraid of the Babylonian officials,”"
+      },
+      {
+        "verse": 24,
+        "speaker": "gedaliah",
+        "quote": "“Settle down in the land and serve the king of Babylon, and it will go well with you.”"
+      }
+    ]
+  }
+}

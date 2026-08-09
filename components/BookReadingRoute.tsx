@@ -12,6 +12,7 @@ import { readingPath, resolveDivisionId, testamentPrefix, TestamentPrefix } from
 import BookPageClient from '@/components/BookPageClient';
 import BookReader from '@/components/BookReader';
 import { getChapterSections } from '@/lib/sections';
+import { getChapterSpeakers } from '@/lib/speakers';
 
 export interface BookReadingParams {
   book: string;
@@ -128,7 +129,13 @@ export default function BookReadingRoute({
             </div>
           </div>
         </div>
-        <BookReader verses={verses} book={book} chapter={chapterNum} sections={getChapterSections(book, chapterNum) ?? undefined} />
+        <BookReader
+          verses={verses}
+          book={book}
+          chapter={chapterNum}
+          sections={getChapterSections(book, chapterNum) ?? undefined}
+          chapterSpeakers={getChapterSpeakers(book, chapterNum) ?? undefined}
+        />
       </main>
     );
   }
@@ -194,6 +201,7 @@ export default function BookReadingRoute({
         currentChapter={chapterNum}
         chapterSummary={chapterSummary}
         sections={getChapterSections(book, chapterNum) ?? undefined}
+        chapterSpeakers={getChapterSpeakers(book, chapterNum) ?? undefined}
       />
     );
   }

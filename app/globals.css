@@ -29,6 +29,22 @@
     --highlight-rose: 242 206 218;
     --highlight-emerald: 202 229 212;
     --highlight-silver: 223 226 231;
+    /*
+      Speaker-dialogue palette (see data/speakers/). Slots hold hue pairs tuned
+      per theme: dark, saturated inks on warm paper; lifted tints on navy. No
+      golds or ambers — those belong to verse numbers and the selection wash.
+      Slot 8 (steel) is reserved for the Lord / the angel of the Lord.
+    */
+    --speaker-1: 37 99 168;    /* blue    */
+    --speaker-2: 174 52 62;    /* crimson */
+    --speaker-3: 22 112 78;    /* emerald */
+    --speaker-4: 121 80 180;   /* violet  */
+    --speaker-5: 13 116 128;   /* teal    */
+    --speaker-6: 176 58 116;   /* magenta */
+    --speaker-7: 160 82 45;    /* sienna  */
+    --speaker-8: 84 100 122;   /* steel   */
+    --speaker-9: 104 110 40;   /* olive   */
+    --speaker-10: 82 86 196;   /* indigo  */
   }
 
   .dark {
@@ -50,6 +66,16 @@
     --highlight-rose: 96 46 62;
     --highlight-emerald: 34 74 52;
     --highlight-silver: 58 64 74;
+    --speaker-1: 126 168 224;  /* blue    */
+    --speaker-2: 226 122 122;  /* crimson */
+    --speaker-3: 111 191 149;  /* emerald */
+    --speaker-4: 176 148 224;  /* violet  */
+    --speaker-5: 95 190 200;   /* teal    */
+    --speaker-6: 224 128 176;  /* magenta */
+    --speaker-7: 214 150 108;  /* sienna  */
+    --speaker-8: 148 163 184;  /* steel   */
+    --speaker-9: 176 182 106;  /* olive   */
+    --speaker-10: 158 163 235; /* indigo  */
   }
 }
 

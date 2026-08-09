@@ -7,7 +7,9 @@ import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION } from '@/lib/copy-glow';
 import ChapterOutline from './ChapterOutline';
+import SpeakerLegend from './SpeakerLegend';
 import type { Section } from '@/lib/sections';
+import type { ChapterSpeakers, QuoteSpan } from '@/lib/speaker-quotes';
 import { readingPath } from '@/lib/routes';
 
 interface Props {
@@ -15,6 +17,7 @@ interface Props {
   book?: string;
   chapter?: number;
   sections?: Section[];
+  chapterSpeakers?: ChapterSpeakers;
   prevChapter?: number | null;
   nextChapter?: number | null;
   prevDivisionId?: string | null;
@@ -63,34 +66,43 @@ function copyFlashClass(borderColor: string): string {
   return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
 }
 
-export default function BookReader({ verses, book, chapter, sections, prevChapter, nextChapter, prevDivisionId, nextDivisionId }: Props) {
+export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
-  // Tracked as the open set, not the closed one: empty means folded, which is
-  // the resting state, and needs no knowledge of a chapter's section titles.
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+  // Accordion: at most one section open at a time; null means everything folded,
+  // which is the resting state and needs no knowledge of a chapter's titles.
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
   const actualChapter = chapter || verses[0]?.chapter;
 
+  // Speaker spans indexed once per chapter, not re-filtered per verse render.
+  const spansByVerse = new Map<number, QuoteSpan[]>();
+  const speakerColors: Record<string, number> = {};
+  if (chapterSpeakers) {
+    for (const span of chapterSpeakers.spans) {
+      const existing = spansByVerse.get(span.verse);
+      if (existing) {
+        existing.push(span);
+      } else {
+        spansByVerse.set(span.verse, [span]);
+      }
+    }
+    for (const [id, def] of Object.entries(chapterSpeakers.speakers)) {
+      speakerColors[id] = def.color;
+    }
+  }
+
   // Section titles are chapter-scoped, so a chapter change folds everything again.
   useEffect(() => {
-    setExpandedSections(new Set());
+    setExpandedSection(null);
   }, [actualBook, actualChapter]);
 
   const toggleSection = (sectionName: string) => {
-    setExpandedSections(prev => {
-      const next = new Set(prev);
-      if (next.has(sectionName)) {
-        next.delete(sectionName);
-      } else {
-        next.add(sectionName);
-      }
-      return next;
-    });
+    setExpandedSection(prev => (prev === sectionName ? null : sectionName));
   };
 
   useEffect(() => {
@@ -148,13 +160,14 @@ export default function BookReader({ verses, book, chapter, sections, prevChapte
     return (
       <div className="max-w-[760px] mx-auto">
         <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
+        {chapterSpeakers && <SpeakerLegend speakers={chapterSpeakers.speakers} />}
         <div className="space-y-4">
           {sections.map((daySection) => {
             const dayVerses = verses.filter(
               (v) => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
             );
             const sectionId = slugify(daySection.title);
-            const isCollapsed = !expandedSections.has(daySection.title);
+            const isCollapsed = expandedSection !== daySection.title;
             return (
               /*
                 Folded, the whole card is the target. Open, only the header is —
@@ -200,7 +213,7 @@ export default function BookReader({ verses, book, chapter, sections, prevChapte
                       aria-expanded={!isCollapsed}
                       aria-controls={`${sectionId}-verses`}
                       title={isCollapsed ? 'Expand section' : 'Collapse section'}
-                      className="absolute right-0 top-1/2 -translate-y-1/2 p-1 text-faint hover:text-ink transition-colors"
+                      className="absolute -right-6 md:-right-8 inset-y-0 -my-3 w-20 flex items-center justify-end pr-5 cursor-pointer text-faint hover:text-ink transition-colors"
                     >
                       <svg
                         viewBox="0 0 20 20"
@@ -241,6 +254,8 @@ export default function BookReader({ verses, book, chapter, sections, prevChapte
                           isSelected={selectedVerses.has(verse.verse)}
                           onToggle={toggleVerse}
                           commentary={commentary.get(verse.verse)}
+                          spans={spansByVerse.get(verse.verse)}
+                          speakerColors={speakerColors}
                         />
                       ))}
                     </div>
@@ -283,6 +298,7 @@ export default function BookReader({ verses, book, chapter, sections, prevChapte
   // Default rendering for other chapters
   return (
     <div className="max-w-[760px] mx-auto">
+      {chapterSpeakers && <SpeakerLegend speakers={chapterSpeakers.speakers} />}
       <div className="font-serif text-ink text-[21px] leading-[1.95]">
         {verses.map((verse) => (
           <Verse
@@ -291,6 +307,8 @@ export default function BookReader({ verses, book, chapter, sections, prevChapte
             isSelected={selectedVerses.has(verse.verse)}
             onToggle={toggleVerse}
             commentary={commentary.get(verse.verse)}
+            spans={spansByVerse.get(verse.verse)}
+            speakerColors={speakerColors}
           />
         ))}
       </div>

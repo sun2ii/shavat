@@ -4,6 +4,7 @@ import { Verse as VerseType, BookDivision } from '@/lib/types';
 import ChapterNav from './ChapterNav';
 import BookReader from './BookReader';
 import type { Section } from '@/lib/sections';
+import type { ChapterSpeakers } from '@/lib/speaker-quotes';
 import { getNextDivision, getPreviousDivision } from '@/lib/book-metadata-utils';
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
   currentChapter: number;
   chapterSummary?: string;
   sections?: Section[];
+  chapterSpeakers?: ChapterSpeakers;
 }
 
 export default function BookPageClient({
@@ -25,7 +27,8 @@ export default function BookPageClient({
   division,
   currentChapter,
   chapterSummary,
-  sections
+  sections,
+  chapterSpeakers
 }: Props) {
   const chapterIndex = division.chapters.indexOf(currentChapter);
 
@@ -57,6 +60,7 @@ export default function BookPageClient({
         book={bookSlug}
         chapter={currentChapter}
         sections={sections}
+        chapterSpeakers={chapterSpeakers}
         prevChapter={prevChapter}
         nextChapter={nextChapter}
         prevDivisionId={prevDivisionId}

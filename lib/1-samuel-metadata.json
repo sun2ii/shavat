@@ -3,97 +3,91 @@
     {
       "id": "samuel",
       "title": "Samuel",
-      "chapters": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "theme": "A voice in the silence",
-      "summary": "Hannah’s prayer, the call in the night, and the ark among the Philistines.",
+      "chapters": [1, 2, 3, 4, 5, 6, 7],
+      "theme": "Hannah · Eli · Samuel hears God",
+      "summary": "Hannah's prayer, the call in the night, and the ark among the Philistines",
       "contentType": "narrative"
     },
     {
-      "id": "give-us-a-king",
-      "title": "Give Us a King",
-      "chapters": [
-        8,
-        9,
-        10,
-        11,
-        12
-      ],
-      "theme": "The people’s demand",
-      "summary": "Israel demands a king like the nations; Saul is chosen and crowned.",
+      "id": "saul-becomes-king",
+      "title": "Saul Becomes King",
+      "chapters": [8, 9, 10, 11, 12],
+      "theme": "Samuel anoints Israel's first king",
+      "summary": "Israel demands a king; Saul is chosen and crowned",
       "contentType": "narrative"
     },
     {
-      "id": "sauls-fall",
-      "title": "Saul’s Rise and Fall",
-      "chapters": [
-        13,
-        14,
-        15
-      ],
-      "theme": "Obedience over sacrifice",
-      "summary": "Saul’s impatience and half-obedience cost him the kingdom.",
+      "id": "sauls-rebellion",
+      "title": "Saul's Rebellion",
+      "chapters": [13, 14, 15],
+      "theme": "Saul disobeys; God rejects him",
+      "summary": "Saul's impatience and half-obedience cost him the kingdom",
       "contentType": "narrative"
     },
     {
-      "id": "david-and-goliath",
+      "id": "david-goliath",
       "title": "David & Goliath",
-      "chapters": [
-        16,
-        17
-      ],
-      "theme": "The heart, not the height",
-      "summary": "Samuel anoints the shepherd boy; a sling fells the giant.",
+      "chapters": [16, 17],
+      "theme": "Samuel anoints David",
+      "summary": "The shepherd boy is anointed; a sling fells the giant",
       "contentType": "narrative"
     },
     {
-      "id": "david-on-the-run",
-      "title": "David on the Run",
-      "chapters": [
-        18,
-        19,
-        20,
-        21,
-        22,
-        23
-      ],
-      "theme": "The anointed fugitive",
-      "summary": "Saul's jealousy erupts, Jonathan's covenant friendship, and David's desperate flight through the wilderness.",
+      "id": "saul-hunts-david",
+      "title": "Saul Hunts David",
+      "chapters": [18, 19, 20, 21, 22, 23],
+      "theme": "Jonathan protects his friend",
+      "summary": "Saul's jealousy erupts; Jonathan's covenant friendship; David flees",
       "contentType": "narrative"
     },
     {
-      "id": "davids-restraint",
-      "title": "David's Restraint",
-      "chapters": [
-        24,
-        25,
-        26,
-        27
-      ],
-      "theme": "Mercy and waiting",
-      "summary": "David spares Saul's life twice, Abigail intervenes, and despair drives David to the Philistines.",
+      "id": "david-spares-saul",
+      "title": "David Spares Saul",
+      "chapters": [24, 25, 26, 27],
+      "theme": "David refuses to kill the king",
+      "summary": "David spares Saul's life twice; Abigail intervenes",
       "contentType": "narrative"
     },
     {
-      "id": "the-death-of-saul",
-      "title": "The Death of Saul",
-      "chapters": [
-        28,
-        29,
-        30,
-        31
-      ],
-      "theme": "A kingdom’s end",
-      "summary": "The medium at Endor, the battle at Gilboa, and Saul’s fall.",
+      "id": "death-of-saul",
+      "title": "Death of Saul",
+      "chapters": [28, 29, 30, 31],
+      "theme": "Saul's reign comes to an end",
+      "summary": "The medium at Endor, the battle at Gilboa, and Saul's fall",
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {
+    "1": "Hannah's prayer for a son; Samuel is born",
+    "2": "Hannah's song; Eli's wicked sons",
+    "3": "The LORD calls Samuel in the night",
+    "4": "The ark is captured by the Philistines; Eli dies",
+    "5": "The ark in the temple of Dagon; plagues on the Philistines",
+    "6": "The Philistines return the ark",
+    "7": "Samuel leads Israel to victory at Mizpah",
+    "8": "Israel demands a king like the nations",
+    "9": "Saul meets Samuel while searching for donkeys",
+    "10": "Samuel anoints Saul; the Spirit comes upon him",
+    "11": "Saul defeats the Ammonites at Jabesh-gilead",
+    "12": "Samuel's farewell speech to Israel",
+    "13": "Saul's unlawful sacrifice; his kingdom will not endure",
+    "14": "Jonathan's victory at Michmash; Saul's rash oath",
+    "15": "Saul spares Agag; the LORD rejects him as king",
+    "16": "Samuel anoints David; David plays the lyre for Saul",
+    "17": "David defeats Goliath with a sling and a stone",
+    "18": "Jonathan's covenant with David; Saul's jealousy begins",
+    "19": "Saul tries to kill David; Michal helps him escape",
+    "20": "Jonathan warns David; they part in tears",
+    "21": "David flees to Nob and then to Gath",
+    "22": "Saul kills the priests of Nob; David gathers his men",
+    "23": "David rescues Keilah; Jonathan visits him at Horesh",
+    "24": "David spares Saul in the cave at En-gedi",
+    "25": "Nabal's insult; Abigail's wisdom; David marries her",
+    "26": "David spares Saul a second time in the wilderness",
+    "27": "David dwells among the Philistines at Ziklag",
+    "28": "Saul consults the medium at Endor",
+    "29": "The Philistines send David away before battle",
+    "30": "David defeats the Amalekites and recovers all",
+    "31": "Saul and his sons die on Mount Gilboa"
+  }
 }

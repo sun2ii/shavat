@@ -1,30 +1,26 @@
 {
   "divisions": [
     {
-      "id": "the-first-return",
-      "title": "The First Return",
-      "chapters": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "theme": "Home to rebuild",
-      "summary": "Cyrus sends the exiles home; against opposition, the temple rises again.",
+      "id": "return-to-jerusalem",
+      "title": "Return to Jerusalem",
+      "chapters": [1, 2, 3],
+      "theme": "Cyrus sends the exiles home",
+      "summary": "Cyrus's decree, the list of returnees, and the altar rebuilt.",
       "contentType": "narrative"
     },
     {
-      "id": "ezras-reform",
-      "title": "Ezra’s Reform",
-      "chapters": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "theme": "The law comes home",
+      "id": "temple-rebuilt",
+      "title": "Temple Rebuilt",
+      "chapters": [4, 5, 6],
+      "theme": "Opposition delays the work",
+      "summary": "Opposition halts progress; prophets urge rebuilding; temple completed under Darius.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "ezra-returns",
+      "title": "Ezra Returns",
+      "chapters": [7, 8, 9, 10],
+      "theme": "Ezra brings the Law to Jerusalem",
       "summary": "Ezra arrives to teach the law and calls the people back to covenant faithfulness.",
       "contentType": "narrative"
     }

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { BookDivision } from '@/lib/types';
@@ -308,6 +308,64 @@ export default function ChapterNav({
               );
             })}
           </div>
+
+          {/* Prophets active during this chapter */}
+          {(() => {
+            const activeProphets = division.prophets?.filter(p => p.chapters.includes(currentChapter)) ?? [];
+            if (activeProphets.length === 0) return null;
+
+            const northProphets = activeProphets.filter(p => p.region === 'north');
+            const southProphets = activeProphets.filter(p => p.region === 'south');
+
+            const prophetColors: Record<string, string> = {
+              jonah: 'rgb(var(--speaker-1))',
+              amos: 'rgb(var(--speaker-2))',
+              hosea: 'rgb(var(--speaker-3))',
+              isaiah: 'rgb(var(--speaker-4))',
+              micah: 'rgb(var(--speaker-5))',
+              nahum: 'rgb(var(--speaker-6))',
+              zephaniah: 'rgb(var(--speaker-7))',
+              jeremiah: 'rgb(var(--speaker-8))',
+              habakkuk: 'rgb(var(--speaker-9))',
+              daniel: 'rgb(var(--speaker-10))',
+              ezekiel: 'rgb(var(--speaker-11))',
+              obadiah: 'rgb(var(--speaker-12))',
+            };
+
+            const renderProphets = (prophets: typeof activeProphets) => (
+              <div className="flex items-center gap-1">
+                {prophets.map((p, i) => (
+                  <Fragment key={p.id}>
+                    {i > 0 && <span className="text-faint">·</span>}
+                    <Link
+                      href={`/${p.id}`}
+                      className="font-sans text-xs transition-opacity hover:opacity-70"
+                      style={{ color: prophetColors[p.id] || 'rgb(var(--text-secondary))' }}
+                    >
+                      {p.name}
+                    </Link>
+                  </Fragment>
+                ))}
+              </div>
+            );
+
+            return (
+              <div className="mt-3 flex flex-col items-center gap-2">
+                {northProphets.length > 0 && (
+                  <div className="flex flex-col items-center gap-0.5">
+                    <span className="font-sans text-[10px] text-faint uppercase tracking-wider">Northern Prophets</span>
+                    {renderProphets(northProphets)}
+                  </div>
+                )}
+                {southProphets.length > 0 && (
+                  <div className="flex flex-col items-center gap-0.5">
+                    <span className="font-sans text-[10px] text-faint uppercase tracking-wider">Southern Prophets</span>
+                    {renderProphets(southProphets)}
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
       </nav>
     </>

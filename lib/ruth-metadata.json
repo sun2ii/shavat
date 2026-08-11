@@ -1,42 +1,26 @@
 {
   "divisions": [
     {
-      "id": "emptied",
-      "title": "Emptied",
-      "chapters": [1],
-      "theme": "Where you go, I will go",
-      "summary": "Famine, three graves, and a Moabite widow who refuses to let go of Naomi’s God.",
+      "id": "ruth-naomi",
+      "title": "Ruth & Naomi",
+      "chapters": [1, 2],
+      "theme": "Ruth meets Boaz in Bethlehem",
+      "summary": "A Moabite widow clings to Naomi and gleans in the field of Boaz",
       "contentType": "narrative"
     },
     {
-      "id": "gleaning",
-      "title": "Gleaning",
-      "chapters": [2],
-      "theme": "Chance falls on Boaz",
-      "summary": "Ruth gathers barley in the field of a kinsman who covers her with deliberate kindness.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "threshing-floor",
-      "title": "The Threshing Floor",
-      "chapters": [3],
-      "theme": "Spread your wing over me",
-      "summary": "At midnight Naomi’s plan puts the claim of redemption in Boaz’s hands.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "redeemed",
-      "title": "Redeemed",
-      "chapters": [4],
-      "theme": "A name in Bethlehem",
-      "summary": "At the gate the nearer kinsman steps aside; Ruth becomes the great-grandmother of David.",
+      "id": "ruth-boaz",
+      "title": "Ruth & Boaz",
+      "chapters": [3, 4],
+      "theme": "Redemption leads to David",
+      "summary": "At the threshing floor and the gate, Ruth is redeemed and becomes David's great-grandmother",
       "contentType": "narrative"
     }
   ],
   "chapterSummaries": {
-    "1": "Famine drives Naomi to Moab, three widows on the road back, Orpah turns and Ruth clings",
-    "2": "Ruth gleans in the field of Boaz, favor at the meal, Naomi hears the redeemer’s name",
-    "3": "Naomi’s instruction, midnight at the threshing floor, six measures of barley",
-    "4": "The nearer kinsman declines, the sandal at the gate, Obed born and the line to David"
+    "1": "Famine drives Naomi to Moab; Ruth clings to her on the road back to Bethlehem",
+    "2": "Ruth gleans in the field of Boaz; he shows her favor",
+    "3": "At midnight on the threshing floor, Ruth asks Boaz to redeem her",
+    "4": "The nearer kinsman declines; Boaz redeems Ruth; Obed born in the line to David"
   }
 }

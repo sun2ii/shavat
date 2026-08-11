@@ -1,62 +1,50 @@
 {
   "divisions": [
     {
-      "id": "call-and-early-prophecies",
-      "title": "Call & Early Prophecies",
-      "chapters": [
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
-      ],
-      "theme": "Weeping prophet confronts sin",
+      "id": "jeremiah-and-judah",
+      "title": "Jeremiah & Judah",
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+      "theme": "Jeremiah warns a nation that will not listen",
       "summary": "From the almond rod to the broken flask, Jeremiah declares Judah's coming judgment.",
       "contentType": "prophecy"
     },
     {
-      "id": "judgment-on-judah",
-      "title": "Judgment on Judah",
-      "chapters": [
-        21, 22, 23, 24, 25, 26, 27, 28, 29
-      ],
-      "theme": "False prophets and true exile",
+      "id": "babylon-is-coming",
+      "title": "Babylon Is Coming",
+      "chapters": [21, 22, 23, 24, 25, 26, 27, 28, 29],
+      "theme": "False prophets promise peace",
       "summary": "Kings condemned, shepherds scattered, and seventy years in Babylon decreed.",
       "contentType": "prophecy"
     },
     {
-      "id": "book-of-consolation",
-      "title": "Book of Consolation",
-      "chapters": [
-        30, 31, 32, 33
-      ],
-      "theme": "New covenant written on hearts",
+      "id": "the-new-covenant",
+      "title": "The New Covenant",
+      "chapters": [30, 31, 32, 33],
+      "theme": "God promises restoration and a new heart",
       "summary": "Everlasting love, Rachel's weeping ends, and a field purchased in hope.",
       "contentType": "prophecy"
     },
     {
       "id": "fall-of-jerusalem",
       "title": "Fall of Jerusalem",
-      "chapters": [
-        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45
-      ],
-      "theme": "City besieged, prophet vindicated",
+      "chapters": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+      "theme": "Jerusalem falls; Jeremiah remains",
       "summary": "Scroll burned, cistern prison, walls breached, and stubborn flight to Egypt.",
       "contentType": "narrative"
     },
     {
-      "id": "oracles-against-nations",
-      "title": "Oracles Against Nations",
-      "chapters": [
-        46, 47, 48, 49, 50, 51
-      ],
-      "theme": "Babylon's pride will fall",
+      "id": "judgment-on-the-nations",
+      "title": "Judgment on the Nations",
+      "chapters": [46, 47, 48, 49, 50, 51],
+      "theme": "Egypt, Babylon, and the nations judged",
       "summary": "Egypt, Philistia, Moab, and the great destroyer herself judged by the LORD.",
       "contentType": "prophecy"
     },
     {
-      "id": "historical-appendix",
-      "title": "Historical Appendix",
-      "chapters": [
-        52
-      ],
-      "theme": "Judgment remembered",
+      "id": "jerusalem-falls",
+      "title": "Jerusalem Falls",
+      "chapters": [52],
+      "theme": "The Temple burns and Judah goes into exile",
       "summary": "Zedekiah's eyes put out, temple burned, and Jehoiachin lifted from prison.",
       "contentType": "narrative"
     }

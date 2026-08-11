@@ -1,6 +1,14 @@
 {
   "slug": "amos",
   "name": "Amos",
-  "description": "Amos",
-  "intro": "Read Amos."
+  "description": "A prophet from Judah sent to warn Israel before its fall.",
+  "intro": "A prophet from Judah sent to warn Israel before its fall.",
+  "timeline": {
+    "setting": "Northern Kingdom of Israel",
+    "kings": "Jeroboam II of Israel, Uzziah of Judah",
+    "kingsConnection": "2 Kings 14–15",
+    "before": "Israel's fall to Assyria (2 Kings 17)",
+    "approximate": "Around 760 BC"
+  },
+  "whereFits": "Amos belongs in the 2 Kings story, after the kingdom has split and before Israel falls to Assyria. It fits near 2 Kings 14–15 and points ahead to 2 Kings 17."
 }

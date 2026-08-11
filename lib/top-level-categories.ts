@@ -10,7 +10,7 @@ export interface TopLevelCategory {
   bookCount: number;
 }
 
-// 5 mutually exclusive top-level categories
+// 7 mutually exclusive top-level categories
 export const TOP_LEVEL_CATEGORIES = {
   TORAH: {
     id: 'torah',
@@ -19,26 +19,26 @@ export const TOP_LEVEL_CATEGORIES = {
     description: 'The Five Books of Moses',
     bookCount: 5,
   },
-  OLD_TESTAMENT: {
-    id: 'old-testament',
-    slug: 'old-testament',
-    name: 'Old Testament',
-    description: 'Historical Books, Wisdom, and Prophets',
-    bookCount: 33,
+  HISTORICAL: {
+    id: 'historical',
+    slug: 'historical',
+    name: 'Historical',
+    description: 'Joshua through Esther',
+    bookCount: 12,
   },
-  PSALMS: {
-    id: 'psalms',
-    slug: 'psalms',
-    name: 'Psalms',
-    description: 'The Book of Psalms',
-    bookCount: 1,
+  WISDOM: {
+    id: 'wisdom',
+    slug: 'wisdom',
+    name: 'Wisdom & Poetry',
+    description: 'Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon',
+    bookCount: 5,
   },
-  NEW_TESTAMENT: {
-    id: 'new-testament',
-    slug: 'new-testament',
-    name: 'New Testament',
-    description: 'Acts, Epistles, and Revelation',
-    bookCount: 23,
+  PROPHETS: {
+    id: 'prophets',
+    slug: 'prophets',
+    name: 'Prophets',
+    description: 'Major and Minor Prophets',
+    bookCount: 17,
   },
   GOSPELS: {
     id: 'gospels',
@@ -46,6 +46,13 @@ export const TOP_LEVEL_CATEGORIES = {
     name: 'Gospels',
     description: 'The Four Gospels',
     bookCount: 4,
+  },
+  APOSTOLIC: {
+    id: 'apostolic',
+    slug: 'apostolic',
+    name: 'Apostolic',
+    description: 'Acts, Epistles, and Revelation',
+    bookCount: 23,
   },
 } as const;
 
@@ -56,28 +63,31 @@ export function getBooksByTopLevelCategory(categoryId: string): BibleBookEntry[]
       // Pentateuch books (Genesis through Deuteronomy)
       return BIBLE_INDEX.filter(book => book.category === 'pentateuch');
 
-    case 'old-testament':
-      // All OT books except Torah and Psalms
-      return BIBLE_INDEX.filter(book =>
-        book.testament === 'old' &&
-        book.category !== 'pentateuch' &&
-        book.slug !== 'psalms'
-      );
+    case 'historical':
+      // Historical books: Joshua through Esther
+      return BIBLE_INDEX.filter(book => book.category === 'historical');
 
-    case 'psalms':
-      // Just Psalms
-      return BIBLE_INDEX.filter(book => book.slug === 'psalms');
+    case 'wisdom':
+      // Wisdom & Poetry: Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon
+      return BIBLE_INDEX.filter(book => book.category === 'wisdom');
 
-    case 'new-testament':
-      // All NT books except Gospels
+    case 'prophets':
+      // Major and Minor Prophets
       return BIBLE_INDEX.filter(book =>
-        book.testament === 'new' &&
-        book.category !== 'gospels'
+        book.category === 'major-prophets' ||
+        book.category === 'minor-prophets'
       );
 
     case 'gospels':
       // Gospel books
       return BIBLE_INDEX.filter(book => book.category === 'gospels');
+
+    case 'apostolic':
+      // All NT books except Gospels
+      return BIBLE_INDEX.filter(book =>
+        book.testament === 'new' &&
+        book.category !== 'gospels'
+      );
 
     default:
       return [];

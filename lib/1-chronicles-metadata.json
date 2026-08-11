@@ -1,6 +1,85 @@
 {
-  "books": [],
-  "chapterSummaries": {},
+  "divisions": [
+    {
+      "id": "adam-to-david",
+      "title": "Adam to David",
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "theme": "The family line of Israel",
+      "summary": "Genealogies from Adam through the twelve tribes to the returnees",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-becomes-king",
+      "title": "David Becomes King",
+      "chapters": [10, 11, 12],
+      "theme": "Saul falls; Israel gathers to David",
+      "summary": "Saul's death, David anointed at Hebron, mighty warriors join him",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-and-the-ark",
+      "title": "David & the Ark",
+      "chapters": [13, 14, 15, 16],
+      "theme": "The Ark comes to Jerusalem",
+      "summary": "The ark's journey to Jerusalem with celebration and worship",
+      "contentType": "narrative"
+    },
+    {
+      "id": "gods-promise-to-david",
+      "title": "God's Promise to David",
+      "chapters": [17, 18, 19, 20],
+      "theme": "Covenant, kingdom, and victories",
+      "summary": "The Davidic covenant, David's prayer, and military conquests",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-and-the-temple",
+      "title": "David & the Temple",
+      "chapters": [21, 22],
+      "theme": "David prepares a house for God",
+      "summary": "The census, plague, altar, and preparations for the temple",
+      "contentType": "narrative"
+    },
+    {
+      "id": "david-and-solomon",
+      "title": "David & Solomon",
+      "chapters": [23, 24, 25, 26, 27, 28, 29],
+      "theme": "David prepares Solomon to build",
+      "summary": "Organization of Levites, priests, musicians; Solomon crowned",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Genealogy from Adam to Abraham to Esau and Edom",
+    "2": "Descendants of Israel through Judah and Caleb",
+    "3": "David's sons and the royal line of Judah",
+    "4": "More descendants of Judah and Simeon",
+    "5": "Descendants of Reuben, Gad, and half-tribe of Manasseh",
+    "6": "Descendants of Levi, temple musicians, and Levitical cities",
+    "7": "Descendants of Issachar, Benjamin, Naphtali, Manasseh, Ephraim, and Asher",
+    "8": "Descendants of Benjamin and Saul's family line",
+    "9": "Returnees to Jerusalem after exile; Saul's genealogy",
+    "10": "Saul's death on Mount Gilboa",
+    "11": "David anointed king; Jerusalem conquered; mighty warriors",
+    "12": "Warriors who joined David at Ziklag and Hebron",
+    "13": "David attempts to bring the ark; Uzzah struck down",
+    "14": "David's house, family, and victories over Philistines",
+    "15": "The ark brought to Jerusalem properly by the Levites",
+    "16": "The ark placed in the tent; David's psalm of thanksgiving",
+    "17": "God's covenant with David; David's prayer",
+    "18": "David's military victories and officials",
+    "19": "War with Ammon and Aram",
+    "20": "Conquest of Rabbah; wars with Philistine giants",
+    "21": "David's census and the plague; altar on Ornan's threshing floor",
+    "22": "David's preparations and charge to Solomon for the temple",
+    "23": "Organization of the Levites for temple service",
+    "24": "Divisions of the priests",
+    "25": "Divisions of the musicians",
+    "26": "Gatekeepers, treasurers, and other officials",
+    "27": "Army divisions and tribal officers",
+    "28": "David's address to the assembly and charge to Solomon",
+    "29": "Gifts for the temple; David's prayer; Solomon crowned; David dies"
+  },
   "chapterSections": {
     "1": [
       { "verses": "1-27", "title": "Adam to Abraham" },

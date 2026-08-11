@@ -1,30 +1,39 @@
 {
   "divisions": [
     {
-      "id": "oracles-against-the-nations",
-      "title": "Oracles Against the Nations",
+      "id": "judgment-on-nations",
+      "title": "Judgment on the Nations",
       "chapters": [1, 2],
-      "theme": "God judges all peoples, including Israel",
-      "summary": "The lion roars from Zion. Damascus, Gaza, Tyre, Edom, Ammon, Moab, Judah, and finally Israel stand condemned for covenant violations and crimes against humanity.",
+      "theme": "God turns His judgment toward Israel",
+      "summary": "Damascus, Gaza, Tyre, Edom, Ammon, Moab, Judah, and finally Israel itself stand condemned",
       "contentType": "prophecy"
     },
     {
-      "id": "judgment-against-israel",
-      "title": "Judgment Against Israel",
+      "id": "amos-confronts-israel",
+      "title": "Amos Confronts Israel",
       "chapters": [3, 4, 5, 6],
-      "theme": "Privilege brings greater accountability",
-      "summary": "You only have I known of all the families of the earth. Israel's election intensifies her guilt. Religious ritual without justice is an abomination. Prepare to meet your God.",
+      "theme": "Prosperity, injustice, empty worship",
+      "summary": "Amos condemns oppression of the poor, dishonest merchants, and religious ritual without justice",
       "contentType": "prophecy"
     },
     {
-      "id": "visions-and-hope",
-      "title": "Visions and Hope",
+      "id": "amos-visions",
+      "title": "Amos's Visions",
       "chapters": [7, 8, 9],
-      "theme": "Judgment is certain, but restoration awaits",
-      "summary": "Five visions of doom: locusts, fire, plumb line, summer fruit, altar struck. Amaziah confronts Amos. Yet the book closes with David's fallen tent raised and abundance overflowing.",
+      "theme": "Judgment comes; restoration remains",
+      "summary": "Five visions of doom; Amaziah opposes Amos; yet David's fallen tent will be raised",
       "contentType": "prophecy"
     }
   ],
-  "books": [],
-  "chapterSummaries": {}
+  "chapterSummaries": {
+    "1": "Judgment on Damascus, Gaza, Tyre, and Edom",
+    "2": "Judgment on Ammon, Moab, Judah, and Israel",
+    "3": "Israel's privilege brings accountability",
+    "4": "Israel's refusal to return to God",
+    "5": "Seek the LORD and live; the Day of the LORD",
+    "6": "Woe to those at ease in Zion",
+    "7": "Visions of locusts, fire, and the plumb line; Amaziah opposes Amos",
+    "8": "Vision of summer fruit; famine of the word",
+    "9": "Vision of the altar struck; restoration of David's tent"
+  }
 }

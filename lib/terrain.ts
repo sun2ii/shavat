@@ -25,7 +25,7 @@ import { getBookBySlug } from './bible-index';
 // Dimensions
 // ---------------------------------------------------------------------------
 
-export type DimensionId = 'story' | 'characters' | 'places' | 'timeline';
+export type DimensionId = 'torah' | 'historical' | 'wisdom' | 'prophets' | 'gospels' | 'apostolic';
 
 export interface Dimension {
   id: DimensionId;
@@ -35,10 +35,12 @@ export interface Dimension {
 }
 
 export const DIMENSIONS: Dimension[] = [
-  { id: 'story', label: 'Story', status: 'live', tagline: 'One storyline, beginning to end' },
-  { id: 'characters', label: 'Characters', status: 'live', tagline: 'The lives the story follows' },
-  { id: 'places', label: 'Places', status: 'live', tagline: 'The ground it happened on' },
-  { id: 'timeline', label: 'Timeline', status: 'coming-soon', tagline: 'The centuries it spans' },
+  { id: 'torah', label: 'Torah', status: 'live', tagline: 'The five books of Moses' },
+  { id: 'historical', label: 'Historical', status: 'live', tagline: 'Joshua through Esther' },
+  { id: 'prophets', label: 'Prophets', status: 'live', tagline: 'Major and minor prophets' },
+  { id: 'gospels', label: 'Gospels', status: 'live', tagline: 'The four gospels' },
+  { id: 'apostolic', label: 'Apostolic', status: 'live', tagline: 'Acts, epistles, and Revelation' },
+  { id: 'wisdom', label: 'Wisdom', status: 'live', tagline: 'Poetry and wisdom literature' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -256,10 +258,11 @@ export const ORIGINS_CONTENT: EraContent = {
     },
     {
       number: '03',
-      title: 'The Spread',
-      scripture: 'Genesis 4–5',
+      title: 'Cain & Abel',
+      scripture: 'Genesis 4',
       people: [
-        { id: 'cain-abel', name: 'Cain · Abel' },
+        { id: 'cain', name: 'Cain' },
+        { id: 'abel', name: 'Abel' },
       ],
       places: [
         { id: 'east-of-eden', name: 'East of Eden', precision: 'traditional' },
@@ -274,10 +277,12 @@ export const ORIGINS_CONTENT: EraContent = {
     {
       number: '04',
       title: 'The Flood',
-      scripture: 'Genesis 6–9',
+      scripture: 'Genesis 5–9',
       people: [
         { id: 'noah', name: 'Noah' },
-        { id: 'noahs-sons', name: 'Shem · Ham · Japheth' },
+        { id: 'shem', name: 'Shem' },
+        { id: 'ham', name: 'Ham' },
+        { id: 'japheth', name: 'Japheth' },
       ],
       places: [
         { id: 'ararat-region', name: 'Ararat Region', precision: 'region' },
@@ -291,11 +296,13 @@ export const ORIGINS_CONTENT: EraContent = {
     },
     {
       number: '05',
-      title: 'Babel',
+      title: 'Babel & the Nations',
       scripture: 'Genesis 10–11',
       people: [
-        { id: 'noahs-sons', name: 'Shem · Ham · Japheth' },
-        { id: 'nations', name: 'The Nations' },
+        { id: 'shem', name: 'Shem' },
+        { id: 'ham', name: 'Ham' },
+        { id: 'japheth', name: 'Japheth' },
+        { id: 'nations', name: 'Nations' },
       ],
       places: [
         { id: 'shinar', name: 'Shinar', precision: 'region' },
@@ -1906,6 +1913,13 @@ export interface TerrainBranch {
   bookSlugs: string[];
 }
 
+/** A sub-group within a stop (e.g., Israel/Judah within Before Exile) */
+export interface TerrainSubGroup {
+  id: string;
+  title: string;
+  bookSlugs: string[];
+}
+
 export interface TerrainStopDef {
   id: string;
   title: string;
@@ -1915,6 +1929,8 @@ export interface TerrainStopDef {
   branch?: TerrainBranch;
   // Era-specific data for progressive disclosure
   eraId?: EraId;
+  // Sub-groups shown on expansion (e.g., Israel/Judah for Before Exile)
+  subGroups?: TerrainSubGroup[];
 }
 
 export type TerrainSegmentDef =
@@ -2019,6 +2035,132 @@ const STORY_JOURNEY: TerrainSegmentDef[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// Category-specific journeys (matching library tabs)
+// ---------------------------------------------------------------------------
+
+/** Torah: Origins → Patriarchs → Exodus */
+const TORAH_JOURNEY: TerrainSegmentDef[] = OT_ERAS
+  .filter((era) => ['origins', 'patriarchs', 'exodus'].includes(era.id))
+  .map((era) => ({
+    kind: 'stop' as const,
+    stop: {
+      id: era.id,
+      title: era.name,
+      bookSlugs: era.primaryBooks,
+      bookNote: era.bookNote,
+      eraId: era.id,
+    },
+  }));
+
+/** Historical: Tribes → Kingdom → Return (with Chronicles branch on Kingdom) */
+const HISTORICAL_JOURNEY: TerrainSegmentDef[] = OT_ERAS
+  .filter((era) => ['tribes', 'kingdom', 'return'].includes(era.id))
+  .map((era) => ({
+    kind: 'stop' as const,
+    stop: {
+      id: era.id,
+      title: era.name,
+      bookSlugs: era.primaryBooks,
+      bookNote: era.bookNote,
+      eraId: era.id,
+      branch:
+        era.id === 'kingdom'
+          ? {
+              id: 'chronicles',
+              title: 'Chronicles',
+              relation: 'A parallel retelling',
+              bookSlugs: PARALLEL_BOOKS.kingdom.books,
+            }
+          : undefined,
+    },
+  }));
+
+/** Wisdom: Job → Psalms → Proverbs → Ecclesiastes → Song of Solomon */
+const WISDOM_JOURNEY: TerrainSegmentDef[] = [
+  {
+    kind: 'stop',
+    stop: { id: 'job', title: 'Job', bookSlugs: ['job'] },
+  },
+  {
+    kind: 'stop',
+    stop: { id: 'psalms', title: 'Psalms', bookSlugs: ['psalms'] },
+  },
+  {
+    kind: 'stop',
+    stop: { id: 'proverbs', title: 'Proverbs', bookSlugs: ['proverbs'] },
+  },
+  {
+    kind: 'stop',
+    stop: { id: 'ecclesiastes', title: 'Ecclesiastes', bookSlugs: ['ecclesiastes'] },
+  },
+  {
+    kind: 'stop',
+    stop: { id: 'song-of-solomon', title: 'Song of Solomon', bookSlugs: ['song-of-solomon'] },
+  },
+];
+
+/**
+ * Prophets journey organized by historical context:
+ * 1. Divided Kingdom (Warning) - 1 Kings 12 – 2 Kings 17/25
+ *    - Israel (North): Amos, Hosea, Jonah
+ *    - Judah (South): Isaiah, Micah, Jeremiah, Zephaniah, Habakkuk, Joel, Nahum, Obadiah
+ * 2. During Exile (Hope) - Babylonian captivity
+ * 3. After Exile (Rebuild) - Persian period restoration
+ */
+const PROPHETS_JOURNEY: TerrainSegmentDef[] = [
+  {
+    kind: 'stop',
+    stop: {
+      id: 'divided-kingdom',
+      title: 'Divided Kingdom',
+      bookNote: '1 Kings 12 – 2 Kings 25',
+      bookSlugs: ['1-kings', '2-kings'],
+      subGroups: [
+        {
+          id: 'israel-north',
+          title: 'Israel (North)',
+          bookSlugs: ['amos', 'hosea', 'jonah'],
+        },
+        {
+          id: 'judah-south',
+          title: 'Judah (South)',
+          bookSlugs: ['isaiah', 'micah', 'jeremiah', 'zephaniah', 'habakkuk', 'joel', 'nahum', 'obadiah'],
+        },
+      ],
+    },
+  },
+  {
+    kind: 'stop',
+    stop: {
+      id: 'during-exile',
+      title: 'Exile',
+      bookNote: 'Ezekiel, Daniel, Lamentations',
+      bookSlugs: ['jeremiah', 'lamentations', 'ezekiel', 'daniel'],
+    },
+  },
+  {
+    kind: 'stop',
+    stop: {
+      id: 'after-exile',
+      title: 'Restoration',
+      bookNote: 'Ezra, Nehemiah',
+      bookSlugs: ['haggai', 'zechariah', 'malachi'],
+    },
+  },
+];
+
+/** Gospels: Matthew → Mark → Luke → John */
+const GOSPELS_JOURNEY: TerrainSegmentDef[] = [
+  { kind: 'stop', stop: { id: 'matthew', title: 'Matthew', bookSlugs: ['matthew'] } },
+  { kind: 'stop', stop: { id: 'mark', title: 'Mark', bookSlugs: ['mark'] } },
+  { kind: 'stop', stop: { id: 'luke', title: 'Luke', bookSlugs: ['luke'] } },
+  { kind: 'stop', stop: { id: 'john', title: 'John', bookSlugs: ['john'] } },
+];
+
+/** NT (excluding Gospels): Acts → Letters → Revelation */
+const NT_ONLY_JOURNEY: TerrainSegmentDef[] = NT_JOURNEY.slice(1); // Skip gospels stop
+
+// ---------------------------------------------------------------------------
 // Resolution — serializable shapes the client components render directly
 // ---------------------------------------------------------------------------
 
@@ -2067,6 +2209,13 @@ export interface ResolvedEraContext {
   parallel?: ResolvedBranch;
 }
 
+/** Resolved sub-group for rendering */
+export interface ResolvedSubGroup {
+  id: string;
+  title: string;
+  books: TerrainBook[];
+}
+
 export interface ResolvedStop {
   id: string;
   title: string;
@@ -2076,6 +2225,8 @@ export interface ResolvedStop {
   // Era-specific context for progressive disclosure
   eraId?: EraId;
   eraContext?: ResolvedEraContext;
+  // Sub-groups shown on expansion
+  subGroups?: ResolvedSubGroup[];
 }
 
 export type ResolvedSegment =
@@ -2175,9 +2326,9 @@ function resolveEraContext(eraId: EraId): ResolvedEraContext | undefined {
   return result;
 }
 
-/** The Story dimension's journey, resolved and ready to render. */
-export function getStoryTerrain(): ResolvedSegment[] {
-  return STORY_JOURNEY.map((segment) => {
+/** Resolve a journey array into renderable segments. */
+function resolveJourney(journey: TerrainSegmentDef[]): ResolvedSegment[] {
+  return journey.map((segment) => {
     if (segment.kind === 'gap') return segment;
     const { stop } = segment;
     return {
@@ -2197,7 +2348,61 @@ export function getStoryTerrain(): ResolvedSegment[] {
           : undefined,
         eraId: stop.eraId,
         eraContext: stop.eraId ? resolveEraContext(stop.eraId) : undefined,
+        subGroups: stop.subGroups?.map((sg) => ({
+          id: sg.id,
+          title: sg.title,
+          books: resolveBooks(sg.bookSlugs),
+        })),
       },
     };
   });
+}
+
+/** The full Story dimension's journey (OT + gap + NT), resolved and ready to render. */
+export function getStoryTerrain(): ResolvedSegment[] {
+  return resolveJourney(STORY_JOURNEY);
+}
+
+/** Old Testament journey only (7 eras). */
+export function getOTTerrain(): ResolvedSegment[] {
+  return resolveJourney(OT_JOURNEY);
+}
+
+/** New Testament journey only (4 stops). */
+export function getNTTerrain(): ResolvedSegment[] {
+  return resolveJourney(NT_JOURNEY);
+}
+
+// ---------------------------------------------------------------------------
+// Category-specific terrain getters (matching library tabs)
+// ---------------------------------------------------------------------------
+
+/** Torah journey: Origins → Patriarchs → Exodus */
+export function getTorahTerrain(): ResolvedSegment[] {
+  return resolveJourney(TORAH_JOURNEY);
+}
+
+/** Historical journey: Tribes → Kingdom → Return */
+export function getHistoricalTerrain(): ResolvedSegment[] {
+  return resolveJourney(HISTORICAL_JOURNEY);
+}
+
+/** Wisdom journey: Job → Psalms → Proverbs → Ecclesiastes → Song of Solomon */
+export function getWisdomTerrain(): ResolvedSegment[] {
+  return resolveJourney(WISDOM_JOURNEY);
+}
+
+/** Prophets journey: Major Prophets → Minor Prophets */
+export function getProphetsTerrain(): ResolvedSegment[] {
+  return resolveJourney(PROPHETS_JOURNEY);
+}
+
+/** Gospels journey: Matthew → Mark → Luke → John */
+export function getGospelsTerrain(): ResolvedSegment[] {
+  return resolveJourney(GOSPELS_JOURNEY);
+}
+
+/** NT journey (excluding Gospels): Acts → Letters → Revelation */
+export function getNTOnlyTerrain(): ResolvedSegment[] {
+  return resolveJourney(NT_ONLY_JOURNEY);
 }

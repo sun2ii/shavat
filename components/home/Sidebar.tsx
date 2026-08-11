@@ -11,6 +11,8 @@ const navLinks = [
   { href: '/', label: 'Home', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><path d="M2 8.5 L9 2.5 L16 8.5 M4 7.5 V15.5 H14 V7.5 M7.5 15.5 V11 H10.5 V15.5"/></svg> },
   { href: '/library', label: 'Library', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><path d="M9 4 C7.2 2.9 4.6 2.6 2 3.2 V14.5 C4.6 13.9 7.2 14.2 9 15.3 C10.8 14.2 13.4 13.9 16 14.5 V3.2 C13.4 2.6 10.8 2.9 9 4 Z M9 4 V15.3"/></svg> },
   { href: '/terrain', label: 'Terrain', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><path d="M2 6 C4 4 6 4 8 6 C10 8 12 8 14 6 M2 12 C4 10 6 10 8 12 C10 14 12 14 14 12" transform="translate(1 0)"/></svg> },
+  { href: '/characters', label: 'Characters', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><circle cx="9" cy="5" r="3"/><path d="M3 16 C3 12 6 10 9 10 C12 10 15 12 15 16"/></svg> },
+  { href: '/places', label: 'Places', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><path d="M9 2 C6 2 4 4.5 4 7 C4 11 9 16 9 16 C9 16 14 11 14 7 C14 4.5 12 2 9 2 Z"/><circle cx="9" cy="7" r="2"/></svg> },
   { href: '/writings', label: 'Writings', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#C8A248" strokeWidth="1.5" style={svgDebugStyle}><path d="M3 3 H15 V15 H3 Z M6 6 H12 M6 9 H12 M6 12 H10"/></svg> },
 ];
 

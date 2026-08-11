@@ -1,53 +1,27 @@
 {
   "divisions": [
     {
-      "id": "first-lament",
-      "title": "First Lament",
-      "chapters": [
-        1
-      ],
-      "theme": "How lonely sits the city",
-      "summary": "Jerusalem personified weeps over her desolation and asks if any sorrow matches hers.",
+      "id": "jerusalem-destroyed",
+      "title": "Jerusalem Destroyed",
+      "chapters": [1, 2],
+      "theme": "The city mourns under God's judgment",
+      "summary": "Jerusalem personified weeps over her desolation. God's anger described in vivid detail as elders sit silent in the dust.",
       "contentType": "poetry"
     },
     {
-      "id": "second-lament",
-      "title": "Second Lament",
-      "chapters": [
-        2
-      ],
-      "theme": "The Lord has swallowed up without mercy",
-      "summary": "God's anger described in vivid detail as elders sit silent in the dust.",
-      "contentType": "poetry"
-    },
-    {
-      "id": "third-lament",
-      "title": "Third Lament",
-      "chapters": [
-        3
-      ],
-      "theme": "His mercies never come to an end",
+      "id": "hope-in-the-ruins",
+      "title": "Hope in the Ruins",
+      "chapters": [3],
+      "theme": "His mercies are new every morning",
       "summary": "The man who has seen affliction finds hope in God's steadfast love and faithfulness.",
       "contentType": "poetry"
     },
     {
-      "id": "fourth-lament",
-      "title": "Fourth Lament",
-      "chapters": [
-        4
-      ],
-      "theme": "Gold has grown dim",
-      "summary": "Precious sons of Zion now valued as clay pots, their beauty and nobility gone.",
-      "contentType": "poetry"
-    },
-    {
-      "id": "fifth-lament",
-      "title": "Fifth Lament",
-      "chapters": [
-        5
-      ],
-      "theme": "But you, O LORD, reign forever",
-      "summary": "A final plea asking God to remember and restore his people from their shame.",
+      "id": "jerusalems-lament",
+      "title": "Jerusalem's Lament",
+      "chapters": [4, 5],
+      "theme": "Remember us, O LORD",
+      "summary": "Precious sons of Zion now valued as clay pots. A final plea asking God to remember and restore his people.",
       "contentType": "poetry"
     }
   ],

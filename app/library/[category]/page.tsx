@@ -13,8 +13,9 @@ import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { divisionHasCommentary } from '@/lib/hasCommentary';
 import { divisionHasWritings } from '@/lib/hasWritings';
 import { getBookTheme } from '@/lib/getBookThemes';
+import { GENESIS_SECTIONS } from '@/lib/genesis-views';
 
-type TabId = 'torah' | 'psalms' | 'old-testament' | 'new-testament' | 'gospels';
+type TabId = 'torah' | 'conquest' | 'kingdom' | 'return' | 'wisdom' | 'prophets' | 'gospels' | 'apostolic';
 
 type FocusableCard = {
   id: string;
@@ -24,18 +25,16 @@ type FocusableCard = {
 };
 
 const TABS = [
-  { id: 'torah' as TabId, label: 'Torah' },
-  { id: 'old-testament' as TabId, label: 'Old Testament' },
-  { id: 'new-testament' as TabId, label: 'New Testament' },
+  { id: 'torah' as TabId, label: 'Law' },
+  { id: 'conquest' as TabId, label: 'Judges' },
+  { id: 'kingdom' as TabId, label: 'Kings' },
+  { id: 'prophets' as TabId, label: 'Prophets' },
+  { id: 'return' as TabId, label: 'Exile' },
   { id: 'gospels' as TabId, label: 'Gospels' },
-  { id: 'psalms' as TabId, label: 'Psalms' },
+  { id: 'apostolic' as TabId, label: 'Apostolic' },
+  { id: 'wisdom' as TabId, label: 'Wisdom' },
 ];
 
-const TOC_LINKS: Partial<Record<TabId, string>> = {
-  torah: '/torah-toc',
-  'new-testament': '/nt-toc',
-  gospels: '/gospels-toc',
-};
 
 // Acts reads as two books split at Saul's conversion (ch 9); the fine-grained
 // divisions in acts-metadata.json still drive the reader once inside.
@@ -43,25 +42,62 @@ const ACTS_BOOKS = [
   {
     id: 'acts:before-paul',
     title: 'Before Paul',
-    theme: 'The Spirit births the church — Jerusalem to Samaria',
+    theme: 'Spirit births the church',
     href: '/acts/birth-of-the-church/1',
-    count: 8,
+    scripture: 'Acts 1–8',
   },
   {
     id: 'acts:after-paul',
     title: 'After Paul',
-    theme: "From Saul's conversion to the ends of the earth",
+    theme: 'To the ends of the earth',
     href: '/acts/sauls-conversion/9',
-    count: 20,
+    scripture: 'Acts 9–28',
   },
 ];
 
 const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
-  torah: { kicker: 'The Five Books of Moses', title: 'Torah' },
-  'old-testament': { kicker: 'Historical, Wisdom & Prophets', title: 'Old Testament' },
-  'new-testament': { kicker: 'Acts, Epistles & Revelation', title: 'New Testament' },
+  torah: { kicker: 'The Five Books of Moses', title: 'Law' },
+  conquest: { kicker: 'Joshua, Judges, Ruth', title: 'Judges' },
+  kingdom: { kicker: 'Samuel & Kings', title: 'Kings' },
+  return: { kicker: 'Chronicles, Ezra, Nehemiah, Esther', title: 'Exile' },
+  wisdom: { kicker: 'Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon', title: 'Wisdom & Poetry' },
+  prophets: { kicker: 'Major & Minor Prophets', title: 'Prophets' },
   gospels: { kicker: 'The Four Gospels', title: 'Gospels' },
-  psalms: { kicker: 'The Book of Psalms', title: 'Psalms' },
+  apostolic: { kicker: 'Acts, Epistles & Revelation', title: 'Apostolic' },
+};
+
+// Prophet historical eras and anchors
+type ProphetEra = 'north-south' | 'judahs-fall' | 'exile' | 'return-era';
+
+const PROPHET_ERAS: { id: ProphetEra; label: string }[] = [
+  { id: 'north-south', label: 'North & South' },
+  { id: 'judahs-fall', label: 'Fall of the South' },
+  { id: 'exile', label: 'Exile' },
+  { id: 'return-era', label: 'Return' },
+];
+
+const PROPHET_DATA: Record<string, { era: ProphetEra; anchor: string }> = {
+  // North & South - divided kingdoms still exist
+  'jonah': { era: 'north-south', anchor: 'North · 2 Kings 14:23–29' },
+  'amos': { era: 'north-south', anchor: 'North · 2 Kings 14:23–29' },
+  'hosea': { era: 'north-south', anchor: 'North · 2 Kings 14–17' },
+  'isaiah': { era: 'north-south', anchor: 'South · 2 Kings 15–20' },
+  'micah': { era: 'north-south', anchor: 'South · 2 Kings 15:32–20' },
+  // Judah's Fall - North has fallen, Judah approaches Babylon
+  'nahum': { era: 'judahs-fall', anchor: 'South · ~2 Kings 21–23' },
+  'zephaniah': { era: 'judahs-fall', anchor: 'South · 2 Kings 22–23' },
+  'jeremiah': { era: 'judahs-fall', anchor: 'South · 2 Kings 22–25' },
+  'habakkuk': { era: 'judahs-fall', anchor: 'South · ~2 Kings 23–24' },
+  // Exile - Jerusalem has fallen, God's people in exile
+  'lamentations': { era: 'exile', anchor: 'After · 2 Kings 25' },
+  'ezekiel': { era: 'exile', anchor: 'Exile · 2 Kings 24–25' },
+  'daniel': { era: 'exile', anchor: 'Exile · 2 Kings 24' },
+  'obadiah': { era: 'exile', anchor: '~2 Kings 25' },
+  // Return - exiles return and rebuild
+  'haggai': { era: 'return-era', anchor: 'Return · Ezra 4–6' },
+  'zechariah': { era: 'return-era', anchor: 'Return · Ezra 5–6' },
+  'malachi': { era: 'return-era', anchor: 'Return · Ezra–Nehemiah Era' },
+  'joel': { era: 'return-era', anchor: 'Date uncertain' },
 };
 
 /*
@@ -90,6 +126,14 @@ const ACCENTS = [
   A dot instead of a labeled pill — at eight columns the word costs more
   than the signal is worth.
 */
+// Format scripture range like "Genesis 1–3" or "Exodus 5–11"
+function formatScripture(bookName: string, chapters: number[]): string {
+  if (chapters.length === 0) return bookName;
+  const first = chapters[0];
+  const last = chapters[chapters.length - 1];
+  return first === last ? `${bookName} ${first}` : `${bookName} ${first}–${last}`;
+}
+
 function Mark({ tone }: { tone: 'gold' | 'green' }) {
   return (
     <span
@@ -101,30 +145,16 @@ function Mark({ tone }: { tone: 'gold' | 'green' }) {
   );
 }
 
-/*
-  One book inside a category. Lighter than SectionHeader on purpose — the
-  category is the chapter of the page, the book is the paragraph inside it.
-*/
-function BookHeader({ name, sub, accent }: { name: string; sub?: string; accent: string }) {
+function BookHeader({ number, name, sub, anchor }: { number?: string; name: string; sub?: string; anchor?: string }) {
   return (
-    <div className="flex items-baseline gap-3 pt-7 pb-3.5">
-      <h3 className="font-serif text-xl font-bold text-ink leading-none whitespace-nowrap">
-        {name}
-      </h3>
-      {sub && <span className="font-sans text-[12px] text-faint whitespace-nowrap">{sub}</span>}
-      {/* The book's one line of color. */}
-      <span className="flex-1 h-px" style={{ backgroundColor: accent }} />
-    </div>
-  );
-}
-
-function SectionHeader({ number, name, sub }: { number?: string; name: string; sub?: string }) {
-  return (
-    <div className="flex items-baseline gap-4 pt-6 pb-4 border-t-2 border-ink">
-      {number && <span className="font-serif text-[15px] font-bold text-gold">{number}</span>}
+    <div className="flex items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline">
+      {number && <span className="font-serif text-[11px] font-bold text-gold">{number}</span>}
       <div className="flex-1">
-        <div className="font-serif text-3xl font-bold text-ink leading-none">{name}</div>
-        {sub && <div className="font-sans text-[13px] text-muted mt-1">{sub}</div>}
+        <div className="flex items-baseline gap-2">
+          <span className="font-serif text-base font-bold text-ink leading-none">{name}</span>
+          {anchor && <span className="font-sans text-[10px] text-gold/80">{anchor}</span>}
+        </div>
+        {sub && <div className="font-sans text-[10px] text-muted">{sub}</div>}
       </div>
     </div>
   );
@@ -133,7 +163,7 @@ function SectionHeader({ number, name, sub }: { number?: string; name: string; s
 function DivisionCard({
   href,
   title,
-  count,
+  scripture,
   theme,
   hasCommentary,
   hasWritings,
@@ -143,7 +173,7 @@ function DivisionCard({
 }: {
   href: string;
   title: string;
-  count: number;
+  scripture: string;
   theme?: string;
   hasCommentary?: boolean;
   hasWritings?: boolean;
@@ -160,38 +190,45 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`block rounded-lg px-2.5 py-2 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] ${
+      className={`block rounded px-2 py-1.5 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
         focused
           ? 'border-gold ring-2 ring-gold'
           : 'border-hairline focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold'
       }`}
     >
-      <div
-        className={`font-serif text-[14px] leading-tight truncate ${
-          instructional ? 'text-orange-500' : 'text-ink'
-        }`}
-      >
-        {title}
-      </div>
-      {theme && (
-        <div className="font-serif italic text-[11.5px] text-muted leading-snug mt-0.5 line-clamp-1">
-          {theme}
+      <div>
+        <div
+          className={`font-serif text-[12px] leading-tight ${
+            instructional ? 'text-orange-500' : 'text-ink'
+          }`}
+        >
+          {title}
         </div>
-      )}
-      <div className="flex items-center justify-between mt-1.5">
-        {hasCommentary ? <Mark tone="gold" /> : hasWritings ? <Mark tone="green" /> : <span />}
-        <span className="font-sans text-[11px] text-faint">{count} ch</span>
+        {theme && (
+          <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2 whitespace-pre-line">
+            {theme}
+          </div>
+        )}
+      </div>
+      <div className="flex items-center justify-center gap-1">
+        {(hasCommentary || hasWritings) && (
+          <Mark tone={hasCommentary ? 'gold' : 'green'} />
+        )}
+        <span className="font-sans text-[10px] text-gold">{scripture}</span>
       </div>
     </Link>
   );
 }
 
+const VALID_TABS: TabId[] = ['torah', 'conquest', 'kingdom', 'return', 'wisdom', 'prophets', 'gospels', 'apostolic'];
+
 export default function LibraryPage() {
   const params = useParams();
   const router = useRouter();
-  const activeTab = (params.category as TabId) || 'torah';
-  const [hideInstructional, setHideInstructional] = useState(true);
+  const rawTab = params.category as string;
+  const activeTab: TabId = VALID_TABS.includes(rawTab as TabId) ? (rawTab as TabId) : 'torah';
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
+  const [prophetEra, setProphetEra] = useState<ProphetEra>('north-south');
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -207,10 +244,7 @@ export default function LibraryPage() {
       routePrefix: string,
       categoryId?: string,
     ) => {
-      const filtered = hideInstructional
-        ? divisions.filter((d) => d.contentType !== 'instructional')
-        : divisions;
-      filtered.forEach((division) => {
+      divisions.forEach((division) => {
         cards.push({
           id: `${bookSlug}:${division.id}`,
           href: readingPath(routePrefix, division.id, division.chapters[0]),
@@ -249,23 +283,33 @@ export default function LibraryPage() {
         });
         break;
       }
-      case 'psalms': {
-        psalmsCollections.forEach((collection) => {
-          cards.push({
-            id: collection.id,
-            href: `/psalms/${collection.id}/${collection.psalms[0]}`,
-            bookSlug: 'psalms',
-          });
+      case 'wisdom':
+      case 'prophets': {
+        const books = getBooksByTopLevelCategory(activeTab);
+        books.forEach((book) => {
+          if (book.slug === 'psalms') {
+            // Psalms uses collections
+            psalmsCollections.forEach((collection) => {
+              cards.push({
+                id: collection.id,
+                href: `/psalms/${collection.id}/${collection.psalms[0]}`,
+                bookSlug: 'psalms',
+              });
+            });
+            return;
+          }
+          const divisions = getAllDivisions(book.slug);
+          if (divisions.length > 0) {
+            pushDivided(book.slug, divisions, book.slug);
+          } else {
+            cards.push({ id: book.slug, href: readingPath(book.slug, 1), bookSlug: book.slug });
+          }
         });
         break;
       }
-      case 'old-testament':
-      case 'new-testament': {
-        const isOT = activeTab === 'old-testament';
+      case 'apostolic': {
         const books = getBooksByTopLevelCategory(activeTab);
-        const cats = isOT
-          ? [CATEGORIES.HISTORICAL, CATEGORIES.WISDOM, CATEGORIES.MAJOR_PROPHETS, CATEGORIES.MINOR_PROPHETS]
-          : [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
+        const cats = [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
         cats.forEach((category) => {
           books
             .filter((b) => b.category === category.id)
@@ -281,17 +325,12 @@ export default function LibraryPage() {
                 });
                 return;
               }
-              const divisions = isOT ? getAllDivisions(book.slug) : [];
-              if (divisions.length > 0) {
-                pushDivided(book.slug, divisions, book.slug, category.id);
-              } else {
-                cards.push({
-                  id: book.slug,
-                  href: readingPath(book.slug, 1),
-                  bookSlug: book.slug,
-                  categoryId: category.id,
-                });
-              }
+              cards.push({
+                id: book.slug,
+                href: readingPath(book.slug, 1),
+                bookSlug: book.slug,
+                categoryId: category.id,
+              });
             });
         });
         break;
@@ -306,14 +345,14 @@ export default function LibraryPage() {
     focusedCardIndex !== null ? focusableCards[focusedCardIndex]?.id ?? null : null;
 
   // Must track the grid classes exactly, or arrow keys skip rows:
-  // grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6.
+  // grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7.
   const getGridColumns = () => {
-    if (typeof window === 'undefined') return 6;
+    if (typeof window === 'undefined') return 7;
     const width = window.innerWidth;
     if (width < 640) return 2;
     if (width < 768) return 3;
     if (width < 1024) return 4;
-    return 6;
+    return 7;
   };
   const [gridColumns, setGridColumns] = useState(getGridColumns);
 
@@ -326,7 +365,7 @@ export default function LibraryPage() {
   // Reset focus when the visible card set changes.
   useEffect(() => {
     setFocusedCardIndex(null);
-  }, [activeTab, hideInstructional]);
+  }, [activeTab]);
 
   // Keep the focused card in view.
   useEffect(() => {
@@ -409,28 +448,33 @@ export default function LibraryPage() {
         return;
       }
 
-      switch (e.key) {
-        case '1':
-          router.push('/library/torah');
-          break;
-        case '2':
-          router.push('/library/old-testament');
-          break;
-        case '3':
-          router.push('/library/new-testament');
-          break;
-        case '4':
-          router.push('/library/gospels');
-          break;
-        case '5':
-          router.push('/library/psalms');
-          break;
+      // Number keys 1-9 navigate to tabs dynamically based on TABS array
+      const numKey = parseInt(e.key, 10);
+      if (numKey >= 1 && numKey <= TABS.length) {
+        const tab = TABS[numKey - 1];
+        if (tab) {
+          router.push(`/library/${tab.id}`);
+        }
+      }
+
+      // Prophet era shortcuts: q, w, e, r (only on prophets tab)
+      if (activeTab === 'prophets') {
+        const eraKeys: Record<string, ProphetEra> = {
+          'q': 'north-south',
+          'w': 'judahs-fall',
+          'e': 'exile',
+          'r': 'return-era',
+        };
+        const era = eraKeys[e.key.toLowerCase()];
+        if (era) {
+          setProphetEra(era);
+        }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [router, focusableCards, focusedCardIndex, gridColumns]);
+  }, [router, focusableCards, focusedCardIndex, gridColumns, activeTab]);
 
   // Render a whole "book" that has thematic divisions (Genesis, Mark, ...).
   const renderDividedBook = (
@@ -439,18 +483,15 @@ export default function LibraryPage() {
     divisions: ReturnType<typeof getAllDivisions>,
     routePrefix?: string,
   ) => {
-    const filtered = hideInstructional
-      ? divisions.filter((d) => d.contentType !== 'instructional')
-      : divisions;
-    if (filtered.length === 0) return null;
+    if (divisions.length === 0) return null;
     const prefix = routePrefix ?? book.slug;
     // One accent for the whole book; `number` is its 1-based position.
     const accent = ACCENTS[(parseInt(number, 10) - 1) % ACCENTS.length];
     return (
       <section key={book.slug}>
-        <SectionHeader number={number} name={book.name} sub={`${divisions.length} books · ${book.chapterCount} chapters`} />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-          {filtered.map((division, i) => {
+        <BookHeader number={number} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} chapters`} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+          {divisions.map((division, i) => {
             const isInstructional = division.contentType === 'instructional';
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
             const hasWritings = divisionHasWritings(book.slug, division.chapters);
@@ -459,7 +500,7 @@ export default function LibraryPage() {
                 key={division.id}
                 href={readingPath(prefix, division.id, division.chapters[0])}
                 title={division.title.replace('The Book of ', '').replace(/^The /, '')}
-                count={division.chapters.length}
+                scripture={formatScripture(book.name, division.chapters)}
                 theme={division.theme}
                 hasCommentary={hasCommentary}
                 hasWritings={hasWritings}
@@ -481,29 +522,55 @@ export default function LibraryPage() {
         return (
           <div className="space-y-2">
             {torahBooks.map((book, idx) => {
-              const divisions =
-                book.slug === 'genesis'
-                  ? (genesisBooks as unknown as ReturnType<typeof getAllDivisions>)
-                  : getAllDivisions(book.slug);
               const number = String(idx + 1).padStart(2, '0');
-              if (divisions.length > 0) {
-                return renderDividedBook(
-                  book,
-                  number,
-                  divisions,
-                  book.slug === 'genesis' ? 'genesis' : book.slug,
+              const accent = ACCENTS[idx % ACCENTS.length];
+
+              // Genesis uses section views
+              if (book.slug === 'genesis') {
+                return (
+                  <section key={book.slug}>
+                    <BookHeader number={number} name={book.name} sub={`${GENESIS_SECTIONS.length} sections · 50 chapters`} />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                      {GENESIS_SECTIONS.map((item) => (
+                        <Link
+                          key={item.title}
+                          href={readingPath('genesis', item.startChapter)}
+                          className="block rounded px-2 py-1.5 bg-surface border border-l-2 border-hairline transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold text-center h-[72px] flex flex-col justify-between"
+                          style={{ '--accent': accent } as React.CSSProperties}
+                        >
+                          <div>
+                            <div className="font-serif text-[12px] leading-tight text-ink">
+                              {item.title}
+                            </div>
+                            <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2">
+                              {item.theme}
+                            </div>
+                          </div>
+                          <div className="font-sans text-[10px] text-gold">
+                            {item.scripture}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </section>
                 );
+              }
+
+              // Other Torah books use the standard divisions
+              const divisions = getAllDivisions(book.slug);
+              if (divisions.length > 0) {
+                return renderDividedBook(book, number, divisions, book.slug);
               }
               return (
                 <section key={book.slug}>
-                  <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
-                      count={book.chapterCount}
+                      scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       theme={getBookTheme(book.slug)}
-                      accent={ACCENTS[idx % ACCENTS.length]}
+                      accent={accent}
                       focused={focusedCardId === book.slug}
                     />
                   </div>
@@ -529,12 +596,12 @@ export default function LibraryPage() {
               }
               return (
                 <section key={book.slug}>
-                  <SectionHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
-                      count={book.chapterCount}
+                      scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       theme={getBookTheme(book.slug)}
                       accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
@@ -547,55 +614,326 @@ export default function LibraryPage() {
         );
       }
 
-      case 'psalms':
+      case 'conquest': {
+        // Joshua, Judges, Ruth
+        const conquestSlugs = ['joshua', 'judges', 'ruth'];
+        const conquestBooks = getBooksByTopLevelCategory('historical').filter(b => conquestSlugs.includes(b.slug));
+
         return (
           <div className="space-y-2">
-            <SectionHeader name="Psalms" sub={`${psalmsCollections.length} collections`} />
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-              {psalmsCollections.map((collection, i) => (
-                <DivisionCard
-                  key={collection.id}
-                  href={`/psalms/${collection.id}/${collection.psalms[0]}`}
-                  title={collection.title.replace('Psalms of ', '')}
-                  count={collection.psalms.length}
-                  theme={collection.theme}
-                  accent={ACCENTS[i % ACCENTS.length]}
-                  focused={focusedCardId === collection.id}
-                />
-              ))}
-            </div>
+            {conquestBooks.map((book, idx) => {
+              const number = String(idx + 1).padStart(2, '0');
+              const accent = ACCENTS[idx % ACCENTS.length];
+              const divisions = getAllDivisions(book.slug);
+
+              if (divisions.length > 0) {
+                return renderDividedBook(book, number, divisions, book.slug);
+              }
+
+              const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+              return (
+                <section key={book.slug}>
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <DivisionCard
+                      href={readingPath(book.slug, 1)}
+                      title={`Read ${book.name}`}
+                      scripture={formatScripture(book.name, allChapters)}
+                      theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      accent={accent}
+                      focused={focusedCardId === book.slug}
+                    />
+                  </div>
+                </section>
+              );
+            })}
           </div>
         );
+      }
 
-      case 'old-testament':
-      case 'new-testament': {
-        const isOT = activeTab === 'old-testament';
+      case 'kingdom': {
+        // 1-2 Samuel, 1-2 Kings
+        const kingdomSlugs = ['1-samuel', '2-samuel', '1-kings', '2-kings'];
+        const kingdomBooks = getBooksByTopLevelCategory('historical').filter(b => kingdomSlugs.includes(b.slug));
+
+        return (
+          <div className="space-y-2">
+            {kingdomBooks.map((book, idx) => {
+              const number = String(idx + 1).padStart(2, '0');
+              const accent = ACCENTS[idx % ACCENTS.length];
+              const divisions = getAllDivisions(book.slug);
+
+              if (divisions.length > 0) {
+                return renderDividedBook(book, number, divisions, book.slug);
+              }
+
+              const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+              return (
+                <section key={book.slug}>
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <DivisionCard
+                      href={readingPath(book.slug, 1)}
+                      title={`Read ${book.name}`}
+                      scripture={formatScripture(book.name, allChapters)}
+                      theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      accent={accent}
+                      focused={focusedCardId === book.slug}
+                    />
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        );
+      }
+
+      case 'return': {
+        // 1-2 Chronicles (retelling leading to exile), then Ezra, Nehemiah, Esther
+        const exileSlugs = ['1-chronicles', '2-chronicles', 'ezra', 'nehemiah', 'esther'];
+        const exileBooks = getBooksByTopLevelCategory('historical').filter(b => exileSlugs.includes(b.slug));
+        // Sort to ensure correct order
+        const sortedExileBooks = exileBooks.sort((a, b) => exileSlugs.indexOf(a.slug) - exileSlugs.indexOf(b.slug));
+
+        return (
+          <div className="space-y-2">
+            {sortedExileBooks.map((book, idx) => {
+              const number = String(idx + 1).padStart(2, '0');
+              const accent = ACCENTS[idx % ACCENTS.length];
+              const divisions = getAllDivisions(book.slug);
+
+              if (divisions.length > 0) {
+                return renderDividedBook(book, number, divisions, book.slug);
+              }
+
+              const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+              return (
+                <section key={book.slug}>
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <DivisionCard
+                      href={readingPath(book.slug, 1)}
+                      title={`Read ${book.name}`}
+                      scripture={formatScripture(book.name, allChapters)}
+                      theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      accent={accent}
+                      focused={focusedCardId === book.slug}
+                    />
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        );
+      }
+
+      case 'prophets': {
+        const allProphetBooks = getBooksByTopLevelCategory('prophets');
+        // Filter books by selected era
+        const books = allProphetBooks.filter((book) => {
+          const prophetData = PROPHET_DATA[book.slug];
+          return prophetData && prophetData.era === prophetEra;
+        });
+        // Sort to ensure consistent order within each era
+        const eraOrder: Record<ProphetEra, string[]> = {
+          'north-south': ['jonah', 'amos', 'hosea', 'isaiah', 'micah'],
+          'judahs-fall': ['nahum', 'zephaniah', 'jeremiah', 'habakkuk'],
+          'exile': ['lamentations', 'ezekiel', 'daniel', 'obadiah'],
+          'return-era': ['haggai', 'zechariah', 'malachi', 'joel'],
+        };
+        const sortedBooks = books.sort((a, b) => {
+          const order = eraOrder[prophetEra];
+          return order.indexOf(a.slug) - order.indexOf(b.slug);
+        });
+
+        const bookBlocks: React.ReactNode[] = [];
+
+        sortedBooks.forEach((book, i) => {
+          const accent = ACCENTS[i % ACCENTS.length];
+          const prophetData = PROPHET_DATA[book.slug];
+          const divisions = getAllDivisions(book.slug);
+
+          if (divisions.length > 0) {
+            bookBlocks.push(
+              <div key={book.slug}>
+                <BookHeader
+                  number={String(i + 1).padStart(2, '0')}
+                  name={book.name}
+                  anchor={prophetData?.anchor}
+                  sub={`${divisions.length} sections · ${book.chapterCount} ch`}
+                />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  {divisions.map((division) => (
+                    <DivisionCard
+                      key={division.id}
+                      href={readingPath(book.slug, division.id, division.chapters[0])}
+                      title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                      scripture={formatScripture(book.name, division.chapters)}
+                      theme={division.theme}
+                      instructional={division.contentType === 'instructional'}
+                      hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                      hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                      accent={accent}
+                      focused={focusedCardId === `${book.slug}:${division.id}`}
+                    />
+                  ))}
+                </div>
+              </div>,
+            );
+          } else {
+            const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+            bookBlocks.push(
+              <div key={book.slug}>
+                <BookHeader
+                  number={String(i + 1).padStart(2, '0')}
+                  name={book.name}
+                  anchor={prophetData?.anchor}
+                  sub={`${book.chapterCount} chapters`}
+                />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  <DivisionCard
+                    href={readingPath(book.slug, 1)}
+                    title={book.name}
+                    scripture={formatScripture(book.name, allChapters)}
+                    theme={getBookTheme(book.slug)}
+                    hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                    hasWritings={divisionHasWritings(book.slug, allChapters)}
+                    accent={accent}
+                    focused={focusedCardId === book.slug}
+                  />
+                </div>
+              </div>,
+            );
+          }
+        });
+
+        return (
+          <div className="space-y-2">
+            {bookBlocks}
+          </div>
+        );
+      }
+
+      case 'wisdom': {
         const books = getBooksByTopLevelCategory(activeTab);
-        const cats = isOT
-          ? [CATEGORIES.HISTORICAL, CATEGORIES.WISDOM, CATEGORIES.MAJOR_PROPHETS, CATEGORIES.MINOR_PROPHETS]
-          : [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
+        const bookBlocks: React.ReactNode[] = [];
+        let looseTiles: React.ReactNode[] = [];
+
+        const flushLooseTiles = () => {
+          if (looseTiles.length === 0) return;
+          bookBlocks.push(
+            <div key={`tiles-${bookBlocks.length}`} className="pt-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                {looseTiles}
+              </div>
+            </div>,
+          );
+          looseTiles = [];
+        };
+
+        books.forEach((book, i) => {
+          const accent = ACCENTS[i % ACCENTS.length];
+
+          // Psalms uses collections
+          if (book.slug === 'psalms') {
+            flushLooseTiles();
+            bookBlocks.push(
+              <div key="psalms">
+                <BookHeader number={String(i + 1).padStart(2, '0')} name="Psalms" sub={`${psalmsCollections.length} collections`} />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  {psalmsCollections.map((collection, j) => {
+                    const first = collection.psalms[0];
+                    const last = collection.psalms[collection.psalms.length - 1];
+                    const scripture = first === last ? `Psalm ${first}` : `Psalms ${first}–${last}`;
+                    return (
+                      <DivisionCard
+                        key={collection.id}
+                        href={`/psalms/${collection.id}/${collection.psalms[0]}`}
+                        title={collection.title.replace('Psalms of ', '')}
+                        scripture={scripture}
+                        theme={collection.theme}
+                        accent={ACCENTS[j % ACCENTS.length]}
+                        focused={focusedCardId === collection.id}
+                      />
+                    );
+                  })}
+                </div>
+              </div>,
+            );
+            return;
+          }
+
+          const divisions = getAllDivisions(book.slug);
+
+          if (divisions.length > 0) {
+            flushLooseTiles();
+            bookBlocks.push(
+              <div key={book.slug}>
+                <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} ch`} />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  {divisions.map((division) => (
+                    <DivisionCard
+                      key={division.id}
+                      href={readingPath(book.slug, division.id, division.chapters[0])}
+                      title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                      scripture={formatScripture(book.name, division.chapters)}
+                      theme={division.theme}
+                      instructional={division.contentType === 'instructional'}
+                      hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                      hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                      accent={accent}
+                      focused={focusedCardId === `${book.slug}:${division.id}`}
+                    />
+                  ))}
+                </div>
+              </div>,
+            );
+            return;
+          }
+
+          const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+          looseTiles.push(
+            <DivisionCard
+              key={book.slug}
+              href={readingPath(book.slug, 1)}
+              title={book.name}
+              scripture={formatScripture(book.name, allChapters)}
+              theme={getBookTheme(book.slug)}
+              hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+              hasWritings={divisionHasWritings(book.slug, allChapters)}
+              accent={accent}
+              focused={focusedCardId === book.slug}
+            />,
+          );
+        });
+
+        flushLooseTiles();
+
+        return <div className="space-y-2">{bookBlocks}</div>;
+      }
+
+      case 'apostolic': {
+        const books = getBooksByTopLevelCategory(activeTab);
+        const cats = [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
 
         return (
           <div className="space-y-2">
             {cats.map((category) => {
               const categoryBooks = books.filter((b) => b.category === category.id);
-
-              /*
-                A book that breaks into movements earns its own heading, so you
-                can see where Joshua ends and Judges begins. A book that is one
-                undivided read — Ruth, every minor prophet — is just a tile; a
-                heading over a single card only says the title twice. Undivided
-                books that sit next to each other in the canon share one grid,
-                which keeps them in order instead of exiling them to the end.
-              */
               const bookBlocks: React.ReactNode[] = [];
               let looseTiles: React.ReactNode[] = [];
 
               const flushLooseTiles = () => {
                 if (looseTiles.length === 0) return;
                 bookBlocks.push(
-                  <div key={`tiles-${bookBlocks.length}`} className="pt-4">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                  <div key={`tiles-${bookBlocks.length}`} className="pt-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
                       {looseTiles}
                     </div>
                   </div>,
@@ -604,61 +942,27 @@ export default function LibraryPage() {
               };
 
               categoryBooks.forEach((book, i) => {
-                // One accent per book: its heading rule and its cards agree.
                 const accent = ACCENTS[i % ACCENTS.length];
 
-                const pushBookSection = (cards: React.ReactNode[], sub: string) => {
+                if (book.slug === 'acts') {
                   flushLooseTiles();
                   bookBlocks.push(
                     <div key={book.slug}>
-                      <BookHeader name={book.name} sub={sub} accent={accent} />
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
-                        {cards}
+                      <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${ACTS_BOOKS.length} sections · ${book.chapterCount} ch`} />
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                        {ACTS_BOOKS.map((actsBook) => (
+                          <DivisionCard
+                            key={actsBook.id}
+                            href={actsBook.href}
+                            title={actsBook.title}
+                            scripture={actsBook.scripture}
+                            theme={actsBook.theme}
+                            accent={accent}
+                            focused={focusedCardId === actsBook.id}
+                          />
+                        ))}
                       </div>
                     </div>,
-                  );
-                };
-
-                if (book.slug === 'acts') {
-                  pushBookSection(
-                    ACTS_BOOKS.map((actsBook) => (
-                      <DivisionCard
-                        key={actsBook.id}
-                        href={actsBook.href}
-                        title={actsBook.title}
-                        count={actsBook.count}
-                        theme={actsBook.theme}
-                        accent={accent}
-                        focused={focusedCardId === actsBook.id}
-                      />
-                    )),
-                    `${ACTS_BOOKS.length} movements · ${book.chapterCount} chapters`,
-                  );
-                  return;
-                }
-
-                const divisions = isOT ? getAllDivisions(book.slug) : [];
-                const filtered = hideInstructional
-                  ? divisions.filter((d) => d.contentType !== 'instructional')
-                  : divisions;
-
-                if (filtered.length > 0) {
-                  pushBookSection(
-                    filtered.map((division) => (
-                      <DivisionCard
-                        key={division.id}
-                        href={readingPath(book.slug, division.id, division.chapters[0])}
-                        title={division.title.replace('The Book of ', '').replace(/^The /, '')}
-                        count={division.chapters.length}
-                        theme={division.theme}
-                        instructional={division.contentType === 'instructional'}
-                        hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
-                        hasWritings={divisionHasWritings(book.slug, division.chapters)}
-                        accent={accent}
-                        focused={focusedCardId === `${book.slug}:${division.id}`}
-                      />
-                    )),
-                    `${filtered.length} movements · ${book.chapterCount} chapters`,
                   );
                   return;
                 }
@@ -669,7 +973,7 @@ export default function LibraryPage() {
                     key={book.slug}
                     href={readingPath(book.slug, 1)}
                     title={book.name}
-                    count={book.chapterCount}
+                    scripture={formatScripture(book.name, allChapters)}
                     theme={getBookTheme(book.slug)}
                     hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                     hasWritings={divisionHasWritings(book.slug, allChapters)}
@@ -682,9 +986,15 @@ export default function LibraryPage() {
               flushLooseTiles();
 
               if (bookBlocks.length === 0) return null;
+
+              // Skip section header for Acts (single book, already has BookHeader)
+              if (category.id === 'acts') {
+                return <div key={category.id} className="space-y-2">{bookBlocks}</div>;
+              }
+
               return (
                 <section key={category.id}>
-                  <SectionHeader
+                  <BookHeader
                     name={category.name}
                     sub={`${categoryBooks.length} ${categoryBooks.length === 1 ? 'book' : 'books'}`}
                   />
@@ -699,57 +1009,61 @@ export default function LibraryPage() {
   };
 
   const mast = MASTHEAD[activeTab];
-  const tocHref = TOC_LINKS[activeTab];
 
   return (
-    <main className="max-w-6xl mx-auto">
-      {/* Masthead */}
-      <div className="pt-2 pb-5">
-        <p className="font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold mb-2">
-          {mast.kicker}
-        </p>
-        <h1 className="font-serif font-bold text-5xl md:text-6xl text-ink leading-none tracking-tight">
-          {mast.title}
-        </h1>
-      </div>
-
-      {/* Tabs + Law toggle */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-        <div className="inline-flex bg-paper-2 rounded-full p-1 font-sans text-[13px] font-medium overflow-x-auto max-w-full">
-          {TABS.map((tab) => {
-            const active = activeTab === tab.id;
-            return (
-              <Link
-                key={tab.id}
-                href={`/library/${tab.id}`}
-                className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                  active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
-                }`}
-              >
-                {tab.label}
-              </Link>
-            );
-          })}
+    <main className="max-w-6xl mx-auto md:select-text pb-8">
+      {/* Header: Title + Tabs in one row */}
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 pt-1 pb-2">
+        <div>
+          <h1 className="font-serif font-bold text-xl md:text-2xl text-ink leading-none tracking-tight">
+            {mast.title}
+          </h1>
+          <span className="font-sans text-[10px] text-muted">
+            {mast.kicker}
+          </span>
         </div>
 
-        <div className="flex items-center gap-5">
-          {tocHref && (
-            <Link
-              href={tocHref}
-              className="font-sans text-xs text-muted hover:text-ink transition-colors whitespace-nowrap"
-            >
-              Contents
-            </Link>
+        <div className="flex flex-col items-end gap-1">
+          <div className="inline-flex bg-paper-2 rounded-full p-0.5 font-sans text-[10px] font-medium overflow-x-auto max-w-full">
+            {TABS.map((tab, idx) => {
+              const active = activeTab === tab.id;
+              // Dividers: Kings|Prophets (narrative vs prophetic) and Exile|Gospels (OT/NT)
+              const showDivider = tab.id === 'prophets' || tab.id === 'gospels';
+              return (
+                <span key={tab.id} className="flex items-center">
+                  {showDivider && (
+                    <span className="mx-2 h-4 w-px bg-hairline" />
+                  )}
+                  <Link
+                    href={`/library/${tab.id}`}
+                    className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${
+                      active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
+                    }`}
+                  >
+                    {tab.label}
+                  </Link>
+                </span>
+              );
+            })}
+          </div>
+          {/* Prophet era sub-navigation */}
+          {activeTab === 'prophets' && (
+            <div className="flex gap-1">
+              {PROPHET_ERAS.map((era) => (
+                <button
+                  key={era.id}
+                  onClick={() => setProphetEra(era.id)}
+                  className={`px-2 py-0.5 rounded text-[10px] font-sans transition-colors ${
+                    prophetEra === era.id
+                      ? 'bg-gold/20 text-gold font-medium'
+                      : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  {era.label}
+                </button>
+              ))}
+            </div>
           )}
-          <label className="flex items-center gap-2 font-sans text-xs text-muted cursor-pointer whitespace-nowrap">
-            <input
-              type="checkbox"
-              checked={hideInstructional}
-              onChange={(e) => setHideInstructional(e.target.checked)}
-              className="accent-[rgb(var(--gold))] cursor-pointer"
-            />
-            Hide the Law
-          </label>
         </div>
       </div>
 

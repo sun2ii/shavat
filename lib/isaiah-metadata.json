@@ -1,123 +1,59 @@
 {
   "divisions": [
     {
-      "id": "the-case-against-judah",
-      "title": "The Case Against Judah",
-      "chapters": [1, 2, 3, 4, 5],
-      "theme": "Rebellion, corruption, and coming judgment",
-      "summary": "God lays out Judah's unfaithfulness through woes, vineyard songs, and indictment.",
+      "id": "isaiah-and-judah",
+      "title": "Isaiah & Judah",
+      "chapters": [1, 2, 3, 4, 5, 6],
+      "theme": "Judgment, holiness, and Isaiah's calling",
+      "summary": "God lays out Judah's unfaithfulness through woes, vineyard songs, and indictment. Isaiah sees the LORD in the throne-room vision and is commissioned.",
       "contentType": "prophecy"
     },
     {
-      "id": "isaiahs-calling",
-      "title": "Isaiah's Calling",
-      "chapters": [6],
-      "theme": "Holy, holy, holy",
-      "summary": "The throne-room vision — Isaiah sees the LORD and is commissioned.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "the-immanuel-crisis",
-      "title": "The Immanuel Crisis",
+      "id": "ahaz-and-immanuel",
+      "title": "Ahaz & Immanuel",
       "chapters": [7, 8, 9, 10, 11, 12],
-      "theme": "God with us in the face of fear",
+      "theme": "Judah faces Assyria; God promises Immanuel",
       "summary": "Ahaz, Assyria, political fear, the sign of Immanuel, and the promised righteous King.",
       "contentType": "prophecy"
     },
     {
-      "id": "babylon-and-the-east",
-      "title": "Babylon & the East",
-      "chapters": [13, 14, 15, 16, 17, 18],
-      "theme": "Empires judged",
-      "summary": "Babylon falls, Moab mourns, Damascus destroyed — the LORD humbles the proud.",
+      "id": "judgment-of-the-nations",
+      "title": "Judgment of the Nations",
+      "chapters": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+      "theme": "Babylon, Egypt, and the kingdoms of the world",
+      "summary": "Babylon falls, Moab mourns, Damascus destroyed, Egypt judged — the LORD humbles the proud. Worldwide judgment, victory over death, the great feast.",
       "contentType": "prophecy"
     },
     {
-      "id": "egypt-and-the-west",
-      "title": "Egypt & the West",
-      "chapters": [19, 20, 21, 22, 23],
-      "theme": "No nation escapes",
-      "summary": "Egypt, Edom, Arabia, Jerusalem, Tyre — God's sovereignty extends to every corner.",
+      "id": "judah-and-assyria",
+      "title": "Judah & Assyria",
+      "chapters": [28, 29, 30, 31, 32, 33, 34, 35],
+      "theme": "Don't trust Egypt; trust God",
+      "summary": "Ephraim's crown fades, Egypt is worthless — only the cornerstone endures. Righteous King reigns, Edom judged, desert blooms — the ransomed walk home.",
       "contentType": "prophecy"
     },
     {
-      "id": "the-world-judged-and-restored",
-      "title": "The World Judged & Restored",
-      "chapters": [24, 25, 26, 27],
-      "theme": "Cosmic judgment and resurrection hope",
-      "summary": "Worldwide judgment, victory over death, the great feast, and the city of chaos broken.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "woe-to-false-alliances",
-      "title": "Woe to False Alliances",
-      "chapters": [28, 29, 30, 31],
-      "theme": "Trust God, not Egypt",
-      "summary": "Ephraim's crown fades, Egypt is worthless — only the cornerstone endures.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "the-highway-of-holiness",
-      "title": "The Highway of Holiness",
-      "chapters": [32, 33, 34, 35],
-      "theme": "Judgment gives way to restoration",
-      "summary": "Righteous King reigns, Edom judged, desert blooms — the ransomed walk home.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "hezekiah-the-historical-hinge",
-      "title": "Hezekiah: The Historical Hinge",
+      "id": "hezekiah-and-isaiah",
+      "title": "Hezekiah & Isaiah",
       "chapters": [36, 37, 38, 39],
-      "theme": "From Assyria's threat to Babylon's arrival",
+      "theme": "Assyria threatens Jerusalem",
       "summary": "Sennacherib, Hezekiah's prayer, healing, then the Babylonian envoys — the bridge to exile.",
       "contentType": "narrative"
     },
     {
-      "id": "comfort-for-the-exiles",
-      "title": "Comfort for the Exiles",
-      "chapters": [40, 41, 42, 43, 44],
-      "theme": "Comfort, comfort my people",
-      "summary": "Tender words in the wilderness, the Servant introduced, idols mocked, Israel redeemed.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "deliverance-from-babylon",
-      "title": "Deliverance from Babylon",
-      "chapters": [45, 46, 47, 48],
-      "theme": "Cyrus, God's anointed shepherd",
-      "summary": "Cyrus conquers, Babylon falls, gods carried away — go out from Babylon with joy.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "the-servants-mission",
-      "title": "The Servant's Mission",
-      "chapters": [49, 50, 51, 52],
-      "theme": "Light to the nations",
-      "summary": "Servant called from the womb, sets his face like flint, arm of the LORD revealed.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "the-servants-salvation",
-      "title": "The Servant's Salvation",
-      "chapters": [53, 54, 55],
-      "theme": "He was pierced for our transgressions",
-      "summary": "Suffering Servant bears sin, barren woman sings, all invited to the waters freely.",
+      "id": "comfort-and-the-servant",
+      "title": "Comfort & the Servant",
+      "chapters": [40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55],
+      "theme": "Exile, Cyrus, and the suffering servant",
+      "summary": "Comfort, comfort my people. Cyrus conquers, Babylon falls. The Servant called from the womb, pierced for our transgressions, all invited to the waters freely.",
       "contentType": "prophecy"
     },
     {
       "id": "zion-restored",
       "title": "Zion Restored",
-      "chapters": [56, 57, 58, 59, 60, 61],
-      "theme": "Arise, shine, your light has come",
-      "summary": "True worship, justice for the oppressed, nations stream to Zion's everlasting light.",
-      "contentType": "prophecy"
-    },
-    {
-      "id": "all-things-made-new",
-      "title": "All Things Made New",
-      "chapters": [62, 63, 64, 65, 66],
-      "theme": "New heavens and new earth",
-      "summary": "Watchmen on the walls, the trampling in Edom, longing for God — creation reborn.",
+      "chapters": [56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66],
+      "theme": "Salvation, justice, and a new creation",
+      "summary": "True worship, justice for the oppressed, nations stream to Zion's everlasting light. Watchmen on the walls, new heavens and new earth — creation reborn.",
       "contentType": "prophecy"
     }
   ],

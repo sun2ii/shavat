@@ -1,10 +1,10 @@
 {
   "divisions": [
     {
-      "id": "day-of-the-lord-against-judah",
-      "title": "Day of the LORD Against Judah",
+      "id": "day-of-the-lord",
+      "title": "Day of the LORD",
       "chapters": [1],
-      "theme": "Total judgment sweeping all creation",
+      "theme": "Judgment is coming upon Judah",
       "summary": "God announces cosmic judgment beginning with Judah: idolatry, complacency, and violence will be consumed in the great day of the LORD.",
       "contentType": "prophecy"
     },
@@ -12,15 +12,15 @@
       "id": "judgment-on-the-nations",
       "title": "Judgment on the Nations",
       "chapters": [2],
-      "theme": "No nation escapes the LORD's justice",
+      "theme": "Philistia · Moab · Cush · Assyria",
       "summary": "Philistia, Moab, Ammon, Cush, and Assyria face destruction, yet the humble who seek the LORD may find shelter.",
       "contentType": "prophecy"
     },
     {
-      "id": "woe-and-restoration",
-      "title": "Woe and Restoration",
+      "id": "jerusalem-and-restoration",
+      "title": "Jerusalem & Restoration",
       "chapters": [3],
-      "theme": "From oppression to rejoicing",
+      "theme": "Judgment gives way to rejoicing",
       "summary": "Jerusalem's corrupt leaders condemned, then purified. The LORD removes judgment, gathers the outcasts, and rejoices over his people with singing.",
       "contentType": "prophecy"
     }

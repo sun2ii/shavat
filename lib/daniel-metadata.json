@@ -1,32 +1,34 @@
 {
   "divisions": [
     {
-      "id": "stories-in-babylon",
-      "title": "Stories in Babylon",
-      "chapters": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "theme": "Heaven rules over kingdoms",
-      "summary": "Faithful exiles, dreaming kings, fiery furnace, and lions' den prove God's sovereignty.",
+      "id": "daniel-and-nebuchadnezzar",
+      "title": "Daniel & Nebuchadnezzar",
+      "chapters": [1, 2],
+      "theme": "Four exiles enter Babylon",
+      "summary": "Faithful exiles refuse the king's food; Daniel interprets the dream of the great statue.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "fiery-furnace",
+      "title": "Fiery Furnace",
+      "chapters": [3, 4],
+      "theme": "Shadrach · Meshach · Abednego",
+      "summary": "Three men face the flames and a fourth appears; Nebuchadnezzar is humbled like an ox.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "writing-and-lions",
+      "title": "Writing & Lions",
+      "chapters": [5, 6],
+      "theme": "Babylon falls; Daniel faces the lions",
+      "summary": "Belshazzar sees the writing on the wall; Daniel survives the lions' den under Darius.",
       "contentType": "narrative"
     },
     {
       "id": "daniels-visions",
       "title": "Daniel's Visions",
-      "chapters": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ],
-      "theme": "Empires rise and fall",
+      "chapters": [7, 8, 9, 10, 11, 12],
+      "theme": "Kingdoms rise; God's kingdom remains",
       "summary": "Beasts, rams, goats, and the Son of Man reveal God's plan from exile to the end.",
       "contentType": "prophecy"
     }

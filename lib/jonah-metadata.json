@@ -1,22 +1,26 @@
 {
   "divisions": [
     {
-      "id": "flight-and-deliverance",
-      "title": "Flight and Deliverance",
+      "id": "the-great-fish",
+      "title": "The Great Fish",
       "chapters": [1, 2],
-      "theme": "Running from God into the depths",
-      "summary": "Jonah flees from the Lord's call, is swallowed by the great fish, and prays from the belly of Sheol.",
+      "theme": "Jonah runs from God",
+      "summary": "Jonah flees from the Lord's call, is swallowed by the great fish, and prays from the belly of Sheol",
       "contentType": "narrative"
     },
     {
-      "id": "mission-and-gods-compassion",
-      "title": "Mission and God's Compassion",
+      "id": "nineveh",
+      "title": "Nineveh",
       "chapters": [3, 4],
-      "theme": "Nineveh repents, God relents",
-      "summary": "Jonah preaches judgment, the city turns, and God reveals his heart for the nations against Jonah's anger.",
+      "theme": "Nineveh repents; Jonah wrestles with mercy",
+      "summary": "Jonah preaches judgment, the city turns, and God reveals his heart for the nations",
       "contentType": "narrative"
     }
   ],
-  "books": [],
-  "chapterSummaries": {}
+  "chapterSummaries": {
+    "1": "Jonah flees to Tarshish; a storm threatens the ship; Jonah thrown overboard",
+    "2": "Jonah prays from the belly of the fish; the fish vomits him onto dry land",
+    "3": "Jonah preaches to Nineveh; the city repents; God relents",
+    "4": "Jonah is angry; God teaches him through a plant and a worm"
+  }
 }

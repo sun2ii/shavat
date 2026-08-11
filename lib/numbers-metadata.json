@@ -1,50 +1,58 @@
 {
   "divisions": [
     {
-      "id": "preparation-at-sinai",
-      "title": "Preparation at Sinai",
+      "id": "israel-at-sinai",
+      "title": "Israel at Sinai",
       "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      "theme": "Organizing the camp",
+      "theme": "Moses prepares Israel",
       "summary": "Census, camp arrangement, Levitical duties, and departure from Sinai",
       "contentType": "instructional"
     },
     {
-      "id": "wilderness-rebellion",
-      "title": "Wilderness Rebellion",
+      "id": "12-spies",
+      "title": "12 Spies",
       "chapters": [11, 12, 13, 14],
-      "theme": "Complaints and unbelief",
+      "theme": "Joshua & Caleb trust God",
       "summary": "Grumbling, Miriam's rebellion, the spies, and refusal to enter Canaan",
       "contentType": "narrative"
     },
     {
-      "id": "laws-and-offerings",
-      "title": "Laws & Offerings",
+      "id": "korahs-rebellion",
+      "title": "Korah's Rebellion",
       "chapters": [15, 16, 17, 18, 19],
-      "theme": "Regulations and Korah's revolt",
+      "theme": "Korah challenges Moses & Aaron",
       "summary": "Various laws, Korah's rebellion, and purification rituals",
       "contentType": "mixed"
     },
     {
-      "id": "journey-to-moab",
-      "title": "Journey to Moab",
-      "chapters": [20, 21, 22, 23, 24, 25],
-      "theme": "From Kadesh to the plains of Moab",
-      "summary": "Water from the rock, bronze serpent, Balaam's oracles, and Moab's seduction",
+      "id": "moses-bronze-serpent",
+      "title": "Moses & Bronze Serpent",
+      "chapters": [20, 21],
+      "theme": "Rebellion, failure, healing",
+      "summary": "Water from the rock, Aaron's death, and the bronze serpent",
       "contentType": "narrative"
     },
     {
-      "id": "second-census-and-laws",
-      "title": "Second Census & Laws",
+      "id": "balaam-balak",
+      "title": "Balaam & Balak",
+      "chapters": [22, 23, 24, 25],
+      "theme": "Balak hires Balaam",
+      "summary": "Balaam's oracles and Moab's seduction",
+      "contentType": "narrative"
+    },
+    {
+      "id": "joshua-next-generation",
+      "title": "Joshua & Israel",
       "chapters": [26, 27, 28, 29, 30],
       "theme": "Preparing the next generation",
       "summary": "New census, inheritance laws, offerings calendar, and vows",
       "contentType": "instructional"
     },
     {
-      "id": "conquest-and-settlement",
-      "title": "Conquest & Settlement",
+      "id": "ready-for-canaan",
+      "title": "Ready for Canaan",
       "chapters": [31, 32, 33, 34, 35, 36],
-      "theme": "Victory and land division",
+      "theme": "Israel prepares to enter",
       "summary": "Midianite war, tribal territories, and inheritance regulations",
       "contentType": "mixed"
     }

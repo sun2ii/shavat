@@ -1,107 +1,83 @@
 {
   "divisions": [
     {
-      "id": "foundations",
-      "title": "Foundations",
-      "chapters": [
-        1,
-        2
-      ],
-      "theme": "Compromise plants the seed",
-      "summary": "Israel fails to drive out the nations; a generation forgets the LORD.",
+      "id": "othniel-ehud",
+      "title": "Othniel & Ehud",
+      "chapters": [1, 2, 3],
+      "theme": "Israel enters the cycle of rebellion",
+      "summary": "The pattern begins: sin, oppression, crying out, deliverance",
       "contentType": "narrative"
     },
     {
-      "id": "othniel",
-      "title": "Othniel",
-      "chapters": [
-        3
-      ],
-      "theme": "The first judge",
-      "summary": "Othniel delivers Israel from Cushan-Rishathaim.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "ehud",
-      "title": "Ehud",
-      "chapters": [
-        4
-      ],
-      "theme": "Left-handed deliverance",
-      "summary": "Ehud assassinates Eglon and delivers Israel from Moab.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "deborah",
-      "title": "Deborah",
-      "chapters": [
-        5
-      ],
-      "theme": "A woman leads",
-      "summary": "Deborah and Barak defeat Sisera; Jael drives the tent peg.",
+      "id": "deborah-barak",
+      "title": "Deborah & Barak",
+      "chapters": [4, 5],
+      "theme": "Jael defeats Sisera",
+      "summary": "A prophetess leads Israel; Jael drives the tent peg",
       "contentType": "narrative"
     },
     {
       "id": "gideon",
       "title": "Gideon",
-      "chapters": [
-        6,
-        7,
-        8
-      ],
-      "theme": "Strength in weakness",
-      "summary": "Three hundred men, torches, and trumpets rout Midian.",
+      "chapters": [6, 7, 8],
+      "theme": "God uses the unlikely",
+      "summary": "Three hundred men with torches and trumpets rout Midian",
       "contentType": "narrative"
     },
     {
       "id": "abimelech",
       "title": "Abimelech",
-      "chapters": [
-        9
-      ],
-      "theme": "Grasping for power",
-      "summary": "Abimelech murders his brothers and establishes himself as king.",
+      "chapters": [9],
+      "theme": "Gideon's son seizes power",
+      "summary": "Abimelech murders his brothers and establishes himself as king",
       "contentType": "narrative"
     },
     {
       "id": "jephthah",
       "title": "Jephthah",
-      "chapters": [
-        10,
-        11,
-        12
-      ],
-      "theme": "A rash vow",
-      "summary": "Jephthah defeats Ammon but his vow costs him everything.",
+      "chapters": [10, 11, 12],
+      "theme": "A warrior makes a tragic vow",
+      "summary": "Jephthah defeats Ammon but his vow costs him everything",
       "contentType": "narrative"
     },
     {
-      "id": "samson",
-      "title": "Samson",
-      "chapters": [
-        13,
-        14,
-        15,
-        16
-      ],
-      "theme": "Gifted and wasted",
-      "summary": "The strongest judge, undone by his own appetites, wins his greatest victory in death.",
+      "id": "samson-delilah",
+      "title": "Samson & Delilah",
+      "chapters": [13, 14, 15, 16],
+      "theme": "Strength undone by desire",
+      "summary": "The strongest judge, undone by his appetites, wins his greatest victory in death",
       "contentType": "narrative"
     },
     {
-      "id": "collapse",
-      "title": "Collapse",
-      "chapters": [
-        17,
-        18,
-        19,
-        20,
-        21
-      ],
-      "theme": "The spiral hits bottom",
-      "summary": "Idolatry and atrocity: everyone does what is right in their own eyes.",
+      "id": "israels-collapse",
+      "title": "Israel's Collapse",
+      "chapters": [17, 18, 19, 20, 21],
+      "theme": "Idolatry, violence & civil war",
+      "summary": "Everyone does what is right in their own eyes",
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {
+    "1": "Israel fails to drive out the Canaanites completely",
+    "2": "The angel of the LORD rebukes Israel; the cycle of judges begins",
+    "3": "Othniel, Ehud, and Shamgar deliver Israel",
+    "4": "Deborah and Barak defeat Sisera; Jael kills him with a tent peg",
+    "5": "The Song of Deborah celebrates the victory",
+    "6": "Gideon called while hiding from Midian; destroys the altar of Baal",
+    "7": "God reduces Gideon's army to 300; Midian routed",
+    "8": "Gideon pursues the Midianite kings; makes an ephod that becomes a snare",
+    "9": "Abimelech kills his brothers and becomes king; killed by a millstone",
+    "10": "Israel oppressed by Ammon; they cry out to the LORD",
+    "11": "Jephthah defeats Ammon; his tragic vow",
+    "12": "Jephthah and the Ephraimites; minor judges",
+    "13": "Samson's birth announced to Manoah and his wife",
+    "14": "Samson's riddle at his wedding feast",
+    "15": "Samson defeats the Philistines with a donkey's jawbone",
+    "16": "Delilah betrays Samson; his death brings down the Philistine temple",
+    "17": "Micah sets up his own shrine and priest",
+    "18": "The Danites steal Micah's idols and priest",
+    "19": "The Levite's concubine and the atrocity at Gibeah",
+    "20": "Israel's civil war against Benjamin",
+    "21": "Wives found for the surviving Benjamites"
+  }
 }

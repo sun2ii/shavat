@@ -1,18 +1,18 @@
 {
   "divisions": [
     {
-      "id": "call-to-rebuild",
-      "title": "Call to Rebuild",
+      "id": "rebuild-the-temple",
+      "title": "Rebuild the Temple",
       "chapters": [1],
-      "theme": "Priorities realigned",
+      "theme": "Haggai calls Israel back to God's house",
       "summary": "The people neglect God's house while living in paneled homes; drought and want follow.",
       "contentType": "prophecy"
     },
     {
-      "id": "glory-of-the-temple",
-      "title": "Glory of the Temple",
+      "id": "zerubbabel-and-the-temple",
+      "title": "Zerubbabel & the Temple",
       "chapters": [2],
-      "theme": "Greater glory and Zerubbabel's signet",
+      "theme": "God promises a greater glory",
       "summary": "The latter glory will surpass the former; Zerubbabel chosen as God's signet ring.",
       "contentType": "prophecy"
     }

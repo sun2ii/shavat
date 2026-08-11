@@ -99,6 +99,7 @@ export interface BookDivision {
   // People and places for this division
   people?: { id: string; name: string }[];   // Key figures in this division
   places?: { id: string; name: string }[];   // Key locations in this division
+  prophets?: { id: string; name: string; chapters: number[]; region: 'north' | 'south' }[]; // Prophets active during specific chapters
 
   // Story Map extension (all optional — map degrades gracefully when absent)
   era?: string;            // grouping band id, e.g. "primeval", "patriarchs"

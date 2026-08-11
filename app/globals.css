@@ -86,10 +86,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Let readers select scripture (needed for copy / study); keep chrome unselectable. */
+/* Keep UI chrome unselectable everywhere. */
 .select-none-ui {
   -webkit-user-select: none;
   user-select: none;
+}
+
+/* Allow text selection on desktop only (md breakpoint = 768px). */
+@media (min-width: 768px) {
+  .select-none-ui .md\:select-text {
+    -webkit-user-select: text;
+    user-select: text;
+  }
 }
 
 /*

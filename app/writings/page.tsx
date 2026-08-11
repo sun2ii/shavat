@@ -21,19 +21,21 @@ export const metadata = {
 // Same partition the Library tabs use, resolved from the canonical index.
 function collectionFor(slug: string): TopLevelCategory {
   const book = getBookBySlug(slug);
-  if (slug === 'psalms') return TOP_LEVEL_CATEGORIES.PSALMS;
   if (book?.category === 'pentateuch') return TOP_LEVEL_CATEGORIES.TORAH;
+  if (book?.category === 'historical') return TOP_LEVEL_CATEGORIES.HISTORICAL;
+  if (book?.category === 'wisdom') return TOP_LEVEL_CATEGORIES.WISDOM;
+  if (book?.category === 'major-prophets' || book?.category === 'minor-prophets') return TOP_LEVEL_CATEGORIES.PROPHETS;
   if (book?.category === 'gospels') return TOP_LEVEL_CATEGORIES.GOSPELS;
-  if (book?.testament === 'new') return TOP_LEVEL_CATEGORIES.NEW_TESTAMENT;
-  return TOP_LEVEL_CATEGORIES.OLD_TESTAMENT;
+  return TOP_LEVEL_CATEGORIES.APOSTOLIC;
 }
 
 const COLLECTION_ORDER = [
   TOP_LEVEL_CATEGORIES.TORAH,
-  TOP_LEVEL_CATEGORIES.OLD_TESTAMENT,
-  TOP_LEVEL_CATEGORIES.PSALMS,
+  TOP_LEVEL_CATEGORIES.HISTORICAL,
+  TOP_LEVEL_CATEGORIES.WISDOM,
+  TOP_LEVEL_CATEGORIES.PROPHETS,
   TOP_LEVEL_CATEGORIES.GOSPELS,
-  TOP_LEVEL_CATEGORIES.NEW_TESTAMENT,
+  TOP_LEVEL_CATEGORIES.APOSTOLIC,
 ];
 
 interface DivisionGroup {

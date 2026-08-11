@@ -1,18 +1,18 @@
 {
   "divisions": [
     {
-      "id": "the-lord-avenges",
-      "title": "The LORD Avenges",
+      "id": "the-lord-against-nineveh",
+      "title": "The LORD Against Nineveh",
       "chapters": [1],
-      "theme": "Divine jealousy and consuming wrath",
+      "theme": "God declares judgment on Assyria",
       "summary": "God's character revealed as jealous avenger who reserves wrath for enemies while sheltering those who trust him.",
       "contentType": "prophecy"
     },
     {
-      "id": "the-fall-of-nineveh",
-      "title": "The Fall of Nineveh",
+      "id": "fall-of-nineveh",
+      "title": "Fall of Nineveh",
       "chapters": [2, 3],
-      "theme": "Assyria's capital besieged and destroyed",
+      "theme": "Assyria's capital is destroyed",
       "summary": "Vivid imagery of Nineveh's siege, plunder, and total devastation as divine judgment against the bloody city of lions.",
       "contentType": "prophecy"
     }

@@ -3,38 +3,33 @@
     {
       "id": "esther-becomes-queen",
       "title": "Esther Becomes Queen",
-      "chapters": [
-        1,
-        2
-      ],
-      "theme": "Positioned in the palace",
+      "chapters": [1, 2],
+      "theme": "Esther enters the palace",
       "summary": "Vashti deposed; a Jewish orphan becomes queen of Persia.",
       "contentType": "narrative"
     },
     {
       "id": "hamans-plot",
-      "title": "Haman’s Plot",
-      "chapters": [
-        3,
-        4,
-        5
-      ],
-      "theme": "For such a time as this",
-      "summary": "A decree of annihilation — and Esther risks death to approach the king.",
+      "title": "Haman's Plot",
+      "chapters": [3, 4],
+      "theme": "Mordecai asks Esther to act",
+      "summary": "A decree of annihilation; Mordecai urges Esther to act.",
       "contentType": "narrative"
     },
     {
-      "id": "the-great-reversal",
-      "title": "The Great Reversal",
-      "chapters": [
-        6,
-        7,
-        8,
-        9,
-        10
-      ],
-      "theme": "The gallows turned",
-      "summary": "A sleepless night flips everything; Haman falls, and Purim is born.",
+      "id": "esther-confronts-haman",
+      "title": "Esther Confronts Haman",
+      "chapters": [5, 6, 7],
+      "theme": "The plot turns against him",
+      "summary": "Esther risks death to approach the king; a sleepless night flips everything.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "purim-and-the-great-reversal",
+      "title": "Purim & the Great Reversal",
+      "chapters": [8, 9, 10],
+      "theme": "The Jews are delivered",
+      "summary": "Haman falls; the Jews defend themselves; Purim is born.",
       "contentType": "narrative"
     }
   ],

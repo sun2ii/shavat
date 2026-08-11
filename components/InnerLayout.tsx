@@ -8,7 +8,7 @@ import { AppShell } from './home/AppShell';
 // Marketing pages that should render without the app header/breadcrumbs
 const MARKETING_ROUTES = ['/about', '/features', '/how-it-works', '/pricing', '/resources'];
 // Routes that get the sidebar layout
-const SIDEBAR_ROUTE_PREFIXES = ['/library', '/terrain', '/writings'];
+const SIDEBAR_ROUTE_PREFIXES = ['/library', '/terrain', '/writings', '/ot', '/nt'];
 
 export default function InnerLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

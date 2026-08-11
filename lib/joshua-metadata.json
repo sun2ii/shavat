@@ -1,83 +1,78 @@
 {
   "divisions": [
     {
-      "id": "formation",
-      "title": "Formation",
-      "chapters": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "theme": "Into the land at last",
-      "summary": "Joshua takes command; Israel crosses the Jordan on dry ground and camps at Gilgal.",
+      "id": "joshua-rahab",
+      "title": "Joshua & Rahab",
+      "chapters": [1, 2, 3, 4, 5],
+      "theme": "Israel crosses the Jordan",
+      "summary": "Joshua leads Israel across the Jordan with Rahab's faith",
       "contentType": "narrative"
     },
     {
-      "id": "first-tests",
-      "title": "First Tests",
-      "chapters": [
-        6,
-        7,
-        8
-      ],
-      "theme": "Walls fall, sin costs",
-      "summary": "Jericho collapses; Achan’s hidden sin brings defeat at Ai, then victory after honesty.",
+      "id": "jericho-ai",
+      "title": "Jericho & Ai",
+      "chapters": [6, 7, 8],
+      "theme": "Walls fall; Achan rebels",
+      "summary": "The fall of Jericho, Achan's sin, and the defeat and victory at Ai",
       "contentType": "narrative"
     },
     {
-      "id": "possess",
-      "title": "Possess",
-      "chapters": [
-        9,
-        10,
-        11,
-        12
-      ],
-      "theme": "The land is taken",
-      "summary": "The Gibeonite trick, the sun stands still, and the kings of the land fall.",
+      "id": "the-conquest",
+      "title": "The Conquest",
+      "chapters": [9, 10, 11, 12],
+      "theme": "Joshua battles for Canaan",
+      "summary": "Gibeonite deception, southern and northern campaigns, list of defeated kings",
       "contentType": "narrative"
     },
     {
-      "id": "inheritance",
-      "title": "Inheritance",
-      "chapters": [
-        13,
-        14,
-        15,
-        16,
-        17
-      ],
-      "theme": "The first allotments",
-      "summary": "The land east of the Jordan is confirmed, Caleb claims Hebron, and Judah and the sons of Joseph receive their portions.",
+      "id": "promised-land",
+      "title": "The Promised Land",
+      "chapters": [13, 14, 15, 16, 17],
+      "theme": "Joshua divides the inheritance",
+      "summary": "Land allotments for Judah, Ephraim, and Manasseh",
       "contentType": "narrative"
     },
     {
       "id": "shiloh",
       "title": "Shiloh",
-      "chapters": [
-        18,
-        19,
-        20,
-        21
-      ],
-      "theme": "The rest of the land divided",
-      "summary": "At the tent of meeting the remaining seven tribes are surveyed and given their lots; cities of refuge and Levite towns are set apart.",
+      "chapters": [18, 19, 20, 21],
+      "theme": "Israel receives the remaining land",
+      "summary": "Remaining tribal allotments, cities of refuge, and Levitical cities",
       "contentType": "narrative"
     },
     {
-      "id": "legacy",
-      "title": "Legacy",
-      "chapters": [
-        22,
-        23,
-        24
-      ],
-      "theme": "Covenant renewed",
-      "summary": "Joshua’s farewell: \"as for me and my house, we will serve the LORD.\"",
+      "id": "joshuas-farewell",
+      "title": "Joshua's Farewell",
+      "chapters": [22, 23, 24],
+      "theme": "Choose whom you will serve",
+      "summary": "Eastern tribes return, Joshua's final charge, covenant renewal at Shechem",
       "contentType": "narrative"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {
+    "1": "God commissions Joshua to lead Israel into the promised land",
+    "2": "Rahab hides the spies and confesses faith in the God of Israel",
+    "3": "Israel crosses the Jordan on dry ground",
+    "4": "Twelve stones set up as a memorial at Gilgal",
+    "5": "Circumcision at Gilgal and the manna ceases",
+    "6": "The walls of Jericho fall; Rahab and her family are spared",
+    "7": "Achan's sin brings defeat at Ai",
+    "8": "Victory at Ai and the covenant renewal at Mount Ebal",
+    "9": "The Gibeonites deceive Israel into a treaty",
+    "10": "The sun stands still; southern kings defeated",
+    "11": "Northern kings defeated; the land has rest from war",
+    "12": "List of the thirty-one kings defeated by Israel",
+    "13": "Land still to be conquered; Transjordan allotments",
+    "14": "Caleb receives Hebron as his inheritance",
+    "15": "The allotment for the tribe of Judah",
+    "16": "The allotment for Ephraim",
+    "17": "The allotment for Manasseh",
+    "18": "The tabernacle at Shiloh; Benjamin's allotment",
+    "19": "Allotments for the remaining six tribes",
+    "20": "Cities of refuge designated",
+    "21": "Cities given to the Levites",
+    "22": "The eastern tribes build an altar; conflict and resolution",
+    "23": "Joshua's farewell address to the leaders",
+    "24": "Covenant renewal at Shechem; Joshua's death"
+  }
 }

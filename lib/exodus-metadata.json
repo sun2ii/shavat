@@ -1,58 +1,58 @@
 {
   "divisions": [
     {
-      "id": "slavery-in-egypt",
+      "id": "moses",
       "title": "Moses",
-      "chapters": [1, 2, 3, 4, 5, 6],
-      "theme": "Oppression and the call",
+      "chapters": [1, 2, 3, 4],
+      "theme": "Called to confront Pharaoh",
       "summary": "Israel's enslavement in Egypt and Moses' call to deliver them",
       "contentType": "narrative"
     },
     {
       "id": "plagues",
-      "title": "The 10 Plagues",
-      "chapters": [7, 8, 9, 10, 11, 12],
-      "theme": "Judgment on Egypt",
+      "title": "10 Plagues",
+      "chapters": [5, 6, 7, 8, 9, 10, 11],
+      "theme": "Moses confronts Pharaoh",
       "summary": "God demonstrates His power through ten plagues on Egypt",
       "contentType": "narrative"
     },
     {
-      "id": "exodus-and-wilderness",
-      "title": "The Exodus",
-      "chapters": [13, 14, 15, 16, 17, 18],
-      "theme": "Deliverance and journey",
-      "summary": "Red Sea crossing and wilderness journey to Mount Sinai",
+      "id": "passover-red-sea",
+      "title": "Passover & Red Sea",
+      "chapters": [12, 13, 14, 15, 16, 17, 18],
+      "theme": "Moses leads Israel out of Egypt",
+      "summary": "The Passover, Red Sea crossing, and wilderness journey to Sinai",
       "contentType": "narrative"
     },
     {
-      "id": "covenant-and-law",
-      "title": "The Law at Sinai",
+      "id": "ten-commandments",
+      "title": "Ten Commandments",
       "chapters": [19, 20, 21, 22, 23, 24],
-      "theme": "Covenant relationship",
+      "theme": "Moses receives God's Law",
       "summary": "Ten Commandments and covenant laws given at Mount Sinai",
       "contentType": "mixed"
     },
     {
-      "id": "tabernacle-instructions",
-      "title": "Tabernacle Instructions",
+      "id": "tabernacle",
+      "title": "Tabernacle",
       "chapters": [25, 26, 27, 28, 29, 30, 31],
-      "theme": "Plans for God's dwelling",
+      "theme": "God gives Moses the design",
       "summary": "Detailed instructions for building the tabernacle and priestly garments",
       "contentType": "instructional"
     },
     {
       "id": "golden-calf",
-      "title": "Golden Calf & Renewal",
+      "title": "Golden Calf",
       "chapters": [32, 33, 34],
-      "theme": "Rebellion and restoration",
+      "theme": "Moses intercedes for Israel",
       "summary": "Golden calf incident and covenant renewal",
       "contentType": "narrative"
     },
     {
-      "id": "tabernacle-construction",
-      "title": "Tabernacle Construction",
+      "id": "tabernacle-built",
+      "title": "Tabernacle Built",
       "chapters": [35, 36, 37, 38, 39, 40],
-      "theme": "God's dwelling completed",
+      "theme": "Israel prepares God's dwelling",
       "summary": "Construction and consecration of the tabernacle",
       "contentType": "instructional"
     }

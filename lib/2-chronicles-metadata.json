@@ -1,6 +1,100 @@
 {
-  "books": [],
-  "chapterSummaries": {},
+  "divisions": [
+    {
+      "id": "solomon-and-the-temple",
+      "title": "Solomon & the Temple",
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "theme": "Solomon builds and dedicates God's house",
+      "summary": "Solomon builds the temple; God's glory fills it; the Queen of Sheba visits",
+      "contentType": "narrative"
+    },
+    {
+      "id": "north-and-south",
+      "title": "North & South",
+      "chapters": [10, 11, 12],
+      "theme": "Rehoboam loses the northern tribes",
+      "summary": "The kingdom divides; Shishak invades Judah",
+      "contentType": "narrative"
+    },
+    {
+      "id": "judahs-kings",
+      "title": "Judah's Kings",
+      "chapters": [13, 14, 15, 16, 17, 18, 19, 20],
+      "theme": "Asa & Jehoshaphat seek God",
+      "summary": "Faithful kings bring reform and victory to Judah",
+      "contentType": "narrative"
+    },
+    {
+      "id": "judahs-decline",
+      "title": "Judah's Decline",
+      "chapters": [21, 22, 23, 24, 25, 26, 27, 28],
+      "theme": "Kings lead Judah away from God",
+      "summary": "Wicked kings and unfaithfulness bring judgment",
+      "contentType": "narrative"
+    },
+    {
+      "id": "hezekiah",
+      "title": "Hezekiah",
+      "chapters": [29, 30, 31, 32],
+      "theme": "Hezekiah restores worship and trusts God",
+      "summary": "Temple cleansed, Passover celebrated, Assyria defeated",
+      "contentType": "narrative"
+    },
+    {
+      "id": "manasseh-josiah",
+      "title": "Manasseh & Josiah",
+      "chapters": [33, 34, 35],
+      "theme": "Repentance and Judah's final reform",
+      "summary": "Manasseh repents; Josiah finds the Book of the Law",
+      "contentType": "narrative"
+    },
+    {
+      "id": "exile-and-return",
+      "title": "Exile & Return",
+      "chapters": [36],
+      "theme": "Jerusalem falls; Cyrus opens the way home",
+      "summary": "The last kings fall; Babylon conquers; Cyrus decrees return",
+      "contentType": "narrative"
+    }
+  ],
+  "chapterSummaries": {
+    "1": "Solomon asks for wisdom at Gibeon",
+    "2": "Preparations for building the temple",
+    "3": "Construction of the temple begins",
+    "4": "Temple furnishings",
+    "5": "The ark brought to the temple; glory fills it",
+    "6": "Solomon's dedicatory prayer",
+    "7": "Fire from heaven; God's response to Solomon",
+    "8": "Solomon's building projects and worship",
+    "9": "The Queen of Sheba visits; Solomon's splendor and death",
+    "10": "Rehoboam's harsh answer; Israel rebels",
+    "11": "Rehoboam fortifies Judah; priests and Levites support him",
+    "12": "Shishak invades; Rehoboam's reign",
+    "13": "Abijah defeats Jeroboam",
+    "14": "Asa's early reforms and victory over Cushites",
+    "15": "Asa's covenant renewal",
+    "16": "Asa's alliance with Aram; his disease and death",
+    "17": "Jehoshaphat strengthens Judah and teaches the law",
+    "18": "Jehoshaphat and Ahab; Micaiah's prophecy",
+    "19": "Jehoshaphat appoints judges",
+    "20": "Jehoshaphat's prayer and victory without fighting",
+    "21": "Jehoram's wicked reign; Elijah's letter",
+    "22": "Ahaziah's reign; Athaliah seizes the throne",
+    "23": "Joash crowned; Athaliah executed",
+    "24": "Joash repairs the temple but turns wicked",
+    "25": "Amaziah's idolatry after victory over Edom",
+    "26": "Uzziah's prosperity and pride; struck with leprosy",
+    "27": "Jotham's reign",
+    "28": "Ahaz's wickedness and unfaithfulness",
+    "29": "Hezekiah purifies and rededicates the temple",
+    "30": "Hezekiah celebrates Passover",
+    "31": "Hezekiah organizes contributions for priests and Levites",
+    "32": "Sennacherib threatens; God delivers Jerusalem; Hezekiah dies",
+    "33": "Manasseh's evil, repentance, and restoration; Amon's reign",
+    "34": "Josiah's reforms; Book of the Law found",
+    "35": "Josiah celebrates Passover; killed at Megiddo",
+    "36": "The last kings; Jerusalem falls; Cyrus's decree"
+  },
   "chapterSections": {
     "1": [
       { "verses": "1-6", "title": "Solomon at Gibeon" },

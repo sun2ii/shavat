@@ -1,1 +1,29 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-locust-plague",
+      "title": "The Locust Plague",
+      "chapters": [1],
+      "theme": "Devastation as divine wake-up call",
+      "summary": "Locusts strip the land bare. Drunkards weep, priests mourn, grain and wine fail. A call to lament and return.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-day-of-the-lord",
+      "title": "The Day of the LORD",
+      "chapters": [2],
+      "theme": "Judgment, repentance, and the Spirit poured out",
+      "summary": "Locust army becomes apocalyptic invasion. Rend your hearts, not garments. The LORD relents and pours out his Spirit on all flesh.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "judgment-and-restoration",
+      "title": "Judgment and Restoration",
+      "chapters": [3],
+      "theme": "Nations judged, Zion restored",
+      "summary": "Valley of Decision. Nations gathered for judgment while Judah receives living waters and eternal dwelling.",
+      "contentType": "prophecy"
+    }
+  ],
+  "chapterSummaries": {}
+}

@@ -1,1 +1,21 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "covenant-unfaithfulness",
+      "title": "Covenant Unfaithfulness",
+      "chapters": [1, 2],
+      "theme": "Priests and people have dishonored God",
+      "summary": "God confronts Israel's contempt: defiled sacrifices, faithless priests, broken marriage covenants.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "coming-judgment-and-elijah",
+      "title": "Coming Judgment and Elijah",
+      "chapters": [3, 4],
+      "theme": "The Lord is coming to purify and restore",
+      "summary": "The messenger prepares the way, tithes are tested, the faithful are recorded, and Elijah will return before the great day.",
+      "contentType": "prophecy"
+    }
+  ],
+  "chapterSummaries": {}
+}

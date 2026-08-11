@@ -1,0 +1,145 @@
+{
+  "book": "micah",
+  "chapters": {
+    "1": [
+      {
+        "title": "The Lord comes down in judgment",
+        "verseRange": [1, 7],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Lament over the cities of Judah",
+        "verseRange": [8, 16],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Woe to those who devise wickedness",
+        "verseRange": [1, 5],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "False prophets and the people's rebellion",
+        "verseRange": [6, 11],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Promise to gather the remnant",
+        "verseRange": [12, 13],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Leaders who devour the people",
+        "verseRange": [1, 4],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Prophets who lead astray",
+        "verseRange": [5, 8],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Zion shall be plowed as a field",
+        "verseRange": [9, 12],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Mountain of the Lord above all hills",
+        "verseRange": [1, 5],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Gathering the lame and afflicted",
+        "verseRange": [6, 8],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "From Babylon to restoration",
+        "verseRange": [9, 13],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Ruler from Bethlehem",
+        "verseRange": [1, 6],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Remnant like dew and lion",
+        "verseRange": [7, 9],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Purging idols and strongholds",
+        "verseRange": [10, 15],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "The Lord's case against Israel",
+        "verseRange": [1, 5],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "What does the Lord require",
+        "verseRange": [6, 8],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Dishonest scales and desolation",
+        "verseRange": [9, 16],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Woe is me for the faithful have vanished",
+        "verseRange": [1, 7],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "I will look to the Lord",
+        "verseRange": [8, 13],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Shepherd your people with your staff",
+        "verseRange": [14, 17],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      },
+      {
+        "title": "Who is a God like you",
+        "verseRange": [18, 20],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      }
+    ]
+  }
+}

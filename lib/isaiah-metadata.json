@@ -1,1 +1,457 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-case-against-judah",
+      "title": "The Case Against Judah",
+      "chapters": [1, 2, 3, 4, 5],
+      "theme": "Rebellion, corruption, and coming judgment",
+      "summary": "God lays out Judah's unfaithfulness through woes, vineyard songs, and indictment.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "isaiahs-calling",
+      "title": "Isaiah's Calling",
+      "chapters": [6],
+      "theme": "Holy, holy, holy",
+      "summary": "The throne-room vision — Isaiah sees the LORD and is commissioned.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-immanuel-crisis",
+      "title": "The Immanuel Crisis",
+      "chapters": [7, 8, 9, 10, 11, 12],
+      "theme": "God with us in the face of fear",
+      "summary": "Ahaz, Assyria, political fear, the sign of Immanuel, and the promised righteous King.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "babylon-and-the-east",
+      "title": "Babylon & the East",
+      "chapters": [13, 14, 15, 16, 17, 18],
+      "theme": "Empires judged",
+      "summary": "Babylon falls, Moab mourns, Damascus destroyed — the LORD humbles the proud.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "egypt-and-the-west",
+      "title": "Egypt & the West",
+      "chapters": [19, 20, 21, 22, 23],
+      "theme": "No nation escapes",
+      "summary": "Egypt, Edom, Arabia, Jerusalem, Tyre — God's sovereignty extends to every corner.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-world-judged-and-restored",
+      "title": "The World Judged & Restored",
+      "chapters": [24, 25, 26, 27],
+      "theme": "Cosmic judgment and resurrection hope",
+      "summary": "Worldwide judgment, victory over death, the great feast, and the city of chaos broken.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "woe-to-false-alliances",
+      "title": "Woe to False Alliances",
+      "chapters": [28, 29, 30, 31],
+      "theme": "Trust God, not Egypt",
+      "summary": "Ephraim's crown fades, Egypt is worthless — only the cornerstone endures.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-highway-of-holiness",
+      "title": "The Highway of Holiness",
+      "chapters": [32, 33, 34, 35],
+      "theme": "Judgment gives way to restoration",
+      "summary": "Righteous King reigns, Edom judged, desert blooms — the ransomed walk home.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "hezekiah-the-historical-hinge",
+      "title": "Hezekiah: The Historical Hinge",
+      "chapters": [36, 37, 38, 39],
+      "theme": "From Assyria's threat to Babylon's arrival",
+      "summary": "Sennacherib, Hezekiah's prayer, healing, then the Babylonian envoys — the bridge to exile.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "comfort-for-the-exiles",
+      "title": "Comfort for the Exiles",
+      "chapters": [40, 41, 42, 43, 44],
+      "theme": "Comfort, comfort my people",
+      "summary": "Tender words in the wilderness, the Servant introduced, idols mocked, Israel redeemed.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "deliverance-from-babylon",
+      "title": "Deliverance from Babylon",
+      "chapters": [45, 46, 47, 48],
+      "theme": "Cyrus, God's anointed shepherd",
+      "summary": "Cyrus conquers, Babylon falls, gods carried away — go out from Babylon with joy.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-servants-mission",
+      "title": "The Servant's Mission",
+      "chapters": [49, 50, 51, 52],
+      "theme": "Light to the nations",
+      "summary": "Servant called from the womb, sets his face like flint, arm of the LORD revealed.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-servants-salvation",
+      "title": "The Servant's Salvation",
+      "chapters": [53, 54, 55],
+      "theme": "He was pierced for our transgressions",
+      "summary": "Suffering Servant bears sin, barren woman sings, all invited to the waters freely.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "zion-restored",
+      "title": "Zion Restored",
+      "chapters": [56, 57, 58, 59, 60, 61],
+      "theme": "Arise, shine, your light has come",
+      "summary": "True worship, justice for the oppressed, nations stream to Zion's everlasting light.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "all-things-made-new",
+      "title": "All Things Made New",
+      "chapters": [62, 63, 64, 65, 66],
+      "theme": "New heavens and new earth",
+      "summary": "Watchmen on the walls, the trampling in Edom, longing for God — creation reborn.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1", "title": "Isaiah's commission" },
+      { "verses": "2-9", "title": "Rebellious children judged" },
+      { "verses": "10-17", "title": "True worship versus ritual" },
+      { "verses": "18-20", "title": "Invitation to reason" },
+      { "verses": "21-31", "title": "Faithful city become a harlot" }
+    ],
+    "2": [
+      { "verses": "1-5", "title": "Mountain of the Lord exalted" },
+      { "verses": "6-11", "title": "Pride and idolatry condemned" },
+      { "verses": "12-22", "title": "Day of the Lord coming" }
+    ],
+    "3": [
+      { "verses": "1-7", "title": "Leaders removed in judgment" },
+      { "verses": "8-15", "title": "Jerusalem's sin and punishment" },
+      { "verses": "16-26", "title": "Daughters of Zion humbled" }
+    ],
+    "4": [
+      { "verses": "1", "title": "Women desperate for protection" },
+      { "verses": "2-6", "title": "Branch of the Lord beautiful" }
+    ],
+    "5": [
+      { "verses": "1-7", "title": "Song of the vineyard" },
+      { "verses": "8-25", "title": "Six woes on Israel" },
+      { "verses": "26-30", "title": "Nations summoned for judgment" }
+    ],
+    "6": [
+      { "verses": "1-4", "title": "Vision of God's throne" },
+      { "verses": "5-7", "title": "Isaiah cleansed" },
+      { "verses": "8-13", "title": "Commission to harden hearts" }
+    ],
+    "7": [
+      { "verses": "1-9", "title": "Ahaz threatened by Aram" },
+      { "verses": "10-17", "title": "Sign of Immanuel" },
+      { "verses": "18-25", "title": "Assyria will invade" }
+    ],
+    "8": [
+      { "verses": "1-4", "title": "Witness of Maher-Shalal-Hash-Baz" },
+      { "verses": "5-10", "title": "Waters of Shiloah refused" },
+      { "verses": "11-15", "title": "Fear God not conspiracy" },
+      { "verses": "16-22", "title": "Bind up the testimony" }
+    ],
+    "9": [
+      { "verses": "1-7", "title": "Light dawns, child given" },
+      { "verses": "8-12", "title": "Hand stretched out in anger" },
+      { "verses": "13-17", "title": "Leaders mislead the people" },
+      { "verses": "18-21", "title": "Wickedness burns like fire" }
+    ],
+    "10": [
+      { "verses": "1-4", "title": "Woe to unjust lawmakers" },
+      { "verses": "5-19", "title": "Assyria rod of God's anger" },
+      { "verses": "20-27", "title": "Remnant will return" },
+      { "verses": "28-34", "title": "Assyrian invasion described" }
+    ],
+    "11": [
+      { "verses": "1-5", "title": "Shoot from Jesse's stump" },
+      { "verses": "6-9", "title": "Peaceable kingdom established" },
+      { "verses": "10-16", "title": "Remnant gathered from nations" }
+    ],
+    "12": [
+      { "verses": "1-3", "title": "Thanksgiving for salvation" },
+      { "verses": "4-6", "title": "Sing praises to the Lord" }
+    ],
+    "13": [
+      { "verses": "1-5", "title": "Army gathered against Babylon" },
+      { "verses": "6-16", "title": "Day of the Lord terrifying" },
+      { "verses": "17-22", "title": "Medes will destroy Babylon" }
+    ],
+    "14": [
+      { "verses": "1-3", "title": "Israel's return from exile" },
+      { "verses": "4-21", "title": "Taunt against king of Babylon" },
+      { "verses": "22-27", "title": "Babylon utterly destroyed" },
+      { "verses": "28-32", "title": "Oracle against Philistia" }
+    ],
+    "15": [
+      { "verses": "1-4", "title": "Moab's cities destroyed" },
+      { "verses": "5-9", "title": "Fugitives flee to Zoar" }
+    ],
+    "16": [
+      { "verses": "1-5", "title": "Moab seeks refuge in Judah" },
+      { "verses": "6-12", "title": "Moab's pride brings judgment" },
+      { "verses": "13-14", "title": "Three years until fulfillment" }
+    ],
+    "17": [
+      { "verses": "1-3", "title": "Damascus will fall" },
+      { "verses": "4-8", "title": "Jacob's glory will fade" },
+      { "verses": "9-11", "title": "Forsaking God brings ruin" },
+      { "verses": "12-14", "title": "Nations roar but vanish" }
+    ],
+    "18": [
+      { "verses": "1-3", "title": "Land beyond the rivers" },
+      { "verses": "4-7", "title": "Lord watches then acts" }
+    ],
+    "19": [
+      { "verses": "1-15", "title": "Egypt's gods and leaders fail" },
+      { "verses": "16-25", "title": "Egypt will worship the Lord" }
+    ],
+    "20": [
+      { "verses": "1-6", "title": "Sign against Egypt and Cush" }
+    ],
+    "21": [
+      { "verses": "1-10", "title": "Fall of Babylon prophesied" },
+      { "verses": "11-12", "title": "Oracle concerning Dumah" },
+      { "verses": "13-17", "title": "Oracle concerning Arabia" }
+    ],
+    "22": [
+      { "verses": "1-14", "title": "Valley of Vision judged" },
+      { "verses": "15-25", "title": "Shebna replaced by Eliakim" }
+    ],
+    "23": [
+      { "verses": "1-14", "title": "Tyre's commerce will cease" },
+      { "verses": "15-18", "title": "Tyre restored after seventy years" }
+    ],
+    "24": [
+      { "verses": "1-13", "title": "Earth laid waste by judgment" },
+      { "verses": "14-16", "title": "Songs from the ends of earth" },
+      { "verses": "17-23", "title": "Terror and the Lord's reign" }
+    ],
+    "25": [
+      { "verses": "1-5", "title": "Praise for God's faithfulness" },
+      { "verses": "6-8", "title": "Feast and death swallowed up" },
+      { "verses": "9-12", "title": "Salvation and Moab's humiliation" }
+    ],
+    "26": [
+      { "verses": "1-6", "title": "Song of the strong city" },
+      { "verses": "7-15", "title": "Waiting for God's justice" },
+      { "verses": "16-21", "title": "Dead will live again" }
+    ],
+    "27": [
+      { "verses": "1-6", "title": "Leviathan slain, vineyard tended" },
+      { "verses": "7-13", "title": "Jacob's guilt atoned for" }
+    ],
+    "28": [
+      { "verses": "1-6", "title": "Woe to Ephraim's drunkards" },
+      { "verses": "7-13", "title": "Priests and prophets reel" },
+      { "verses": "14-22", "title": "Cornerstone in Zion" },
+      { "verses": "23-29", "title": "Farmer's wisdom from God" }
+    ],
+    "29": [
+      { "verses": "1-8", "title": "Ariel besieged then delivered" },
+      { "verses": "9-16", "title": "Blind leaders and clay questioning" },
+      { "verses": "17-24", "title": "Lebanon turned to fruitful field" }
+    ],
+    "30": [
+      { "verses": "1-7", "title": "Woe to those trusting Egypt" },
+      { "verses": "8-17", "title": "Rebellion recorded as witness" },
+      { "verses": "18-26", "title": "Lord waits to be gracious" },
+      { "verses": "27-33", "title": "Assyria struck down by voice" }
+    ],
+    "31": [
+      { "verses": "1-3", "title": "Egypt is flesh not spirit" },
+      { "verses": "4-9", "title": "Lord will defend Jerusalem" }
+    ],
+    "32": [
+      { "verses": "1-8", "title": "Righteous king will reign" },
+      { "verses": "9-14", "title": "Complacent women warned" },
+      { "verses": "15-20", "title": "Spirit poured out from above" }
+    ],
+    "33": [
+      { "verses": "1-6", "title": "Woe to destroyer" },
+      { "verses": "7-12", "title": "Envoys weep, covenant broken" },
+      { "verses": "13-16", "title": "Who can dwell with fire" },
+      { "verses": "17-24", "title": "King in beauty, Jerusalem secure" }
+    ],
+    "34": [
+      { "verses": "1-4", "title": "Nations summoned to judgment" },
+      { "verses": "5-15", "title": "Edom utterly destroyed" },
+      { "verses": "16-17", "title": "Written in the Lord's book" }
+    ],
+    "35": [
+      { "verses": "1-7", "title": "Desert will blossom abundantly" },
+      { "verses": "8-10", "title": "Highway of holiness established" }
+    ],
+    "36": [
+      { "verses": "1-10", "title": "Rabshakeh's first speech" },
+      { "verses": "11-22", "title": "Do not trust Hezekiah" }
+    ],
+    "37": [
+      { "verses": "1-7", "title": "Hezekiah seeks Isaiah's counsel" },
+      { "verses": "8-13", "title": "Sennacherib's threatening letter" },
+      { "verses": "14-20", "title": "Hezekiah's prayer" },
+      { "verses": "21-35", "title": "Isaiah's prophecy of deliverance" },
+      { "verses": "36-38", "title": "Angel strikes Assyrian army" }
+    ],
+    "38": [
+      { "verses": "1-8", "title": "Hezekiah's illness and healing" },
+      { "verses": "9-20", "title": "Hezekiah's thanksgiving psalm" },
+      { "verses": "21-22", "title": "Fig poultice applied" }
+    ],
+    "39": [
+      { "verses": "1-4", "title": "Envoys from Babylon visit" },
+      { "verses": "5-8", "title": "Babylonian exile predicted" }
+    ],
+    "40": [
+      { "verses": "1-11", "title": "Comfort and the voice crying" },
+      { "verses": "12-26", "title": "Who has measured the waters" },
+      { "verses": "27-31", "title": "They who wait will soar" }
+    ],
+    "41": [
+      { "verses": "1-7", "title": "Who raised up victor" },
+      { "verses": "8-20", "title": "Fear not Israel my servant" },
+      { "verses": "21-29", "title": "Idols cannot predict future" }
+    ],
+    "42": [
+      { "verses": "1-9", "title": "Behold my servant" },
+      { "verses": "10-17", "title": "Sing a new song" },
+      { "verses": "18-25", "title": "Blind servant robbed and plundered" }
+    ],
+    "43": [
+      { "verses": "1-7", "title": "You are mine through fire" },
+      { "verses": "8-13", "title": "You are my witnesses" },
+      { "verses": "14-21", "title": "New thing in the wilderness" },
+      { "verses": "22-28", "title": "Not called on me Jacob" }
+    ],
+    "44": [
+      { "verses": "1-5", "title": "Spirit poured on your offspring" },
+      { "verses": "6-8", "title": "I am first and last" },
+      { "verses": "9-20", "title": "Folly of idol makers" },
+      { "verses": "21-28", "title": "I have swept away transgressions" }
+    ],
+    "45": [
+      { "verses": "1-7", "title": "Cyrus my anointed shepherd" },
+      { "verses": "8-13", "title": "Does clay question potter" },
+      { "verses": "14-17", "title": "Nations will come to you" },
+      { "verses": "18-25", "title": "Turn to me and be saved" }
+    ],
+    "46": [
+      { "verses": "1-4", "title": "Bel bows down carried away" },
+      { "verses": "5-11", "title": "I have made and I will carry" },
+      { "verses": "12-13", "title": "Listen stubborn-hearted" }
+    ],
+    "47": [
+      { "verses": "1-7", "title": "Virgin Babylon sit in dust" },
+      { "verses": "8-15", "title": "Sorceries will not save you" }
+    ],
+    "48": [
+      { "verses": "1-11", "title": "Declared things from the beginning" },
+      { "verses": "12-16", "title": "I am he, I am first" },
+      { "verses": "17-22", "title": "No peace for the wicked" }
+    ],
+    "49": [
+      { "verses": "1-7", "title": "Servant called from the womb" },
+      { "verses": "8-13", "title": "Light to the nations" },
+      { "verses": "14-21", "title": "Zion says I am forsaken" },
+      { "verses": "22-26", "title": "Kings will be your foster fathers" }
+    ],
+    "50": [
+      { "verses": "1-3", "title": "Where is divorce certificate" },
+      { "verses": "4-9", "title": "Servant's tongue and back" },
+      { "verses": "10-11", "title": "Who walks in darkness" }
+    ],
+    "51": [
+      { "verses": "1-8", "title": "Look to the rock" },
+      { "verses": "9-16", "title": "Awake arm of the Lord" },
+      { "verses": "17-23", "title": "Awake Jerusalem drunk on wrath" }
+    ],
+    "52": [
+      { "verses": "1-6", "title": "Awake put on strength Zion" },
+      { "verses": "7-12", "title": "How beautiful the feet" },
+      { "verses": "13-15", "title": "Servant exalted and marred" }
+    ],
+    "53": [
+      { "verses": "1-3", "title": "Who has believed our report" },
+      { "verses": "4-6", "title": "Pierced for our transgressions" },
+      { "verses": "7-9", "title": "Led like lamb to slaughter" },
+      { "verses": "10-12", "title": "Made himself an offering" }
+    ],
+    "54": [
+      { "verses": "1-8", "title": "Sing O barren one" },
+      { "verses": "9-17", "title": "Like days of Noah covenant" }
+    ],
+    "55": [
+      { "verses": "1-5", "title": "Come buy wine and milk" },
+      { "verses": "6-9", "title": "Seek the Lord while near" },
+      { "verses": "10-13", "title": "Word accomplishes my purpose" }
+    ],
+    "56": [
+      { "verses": "1-8", "title": "Foreigners and eunuchs welcomed" },
+      { "verses": "9-12", "title": "Watchmen blind and greedy" }
+    ],
+    "57": [
+      { "verses": "1-13", "title": "Righteous perish, idolatry condemned" },
+      { "verses": "14-21", "title": "I dwell with the contrite" }
+    ],
+    "58": [
+      { "verses": "1-5", "title": "False fasting exposed" },
+      { "verses": "6-12", "title": "True fast frees oppressed" },
+      { "verses": "13-14", "title": "Honor the Sabbath" }
+    ],
+    "59": [
+      { "verses": "1-8", "title": "Your sins have separated you" },
+      { "verses": "9-15", "title": "We look for light but darkness" },
+      { "verses": "16-21", "title": "Redeemer will come to Zion" }
+    ],
+    "60": [
+      { "verses": "1-9", "title": "Arise shine your light has come" },
+      { "verses": "10-18", "title": "Foreigners will rebuild your walls" },
+      { "verses": "19-22", "title": "Lord will be everlasting light" }
+    ],
+    "61": [
+      { "verses": "1-3", "title": "Spirit anoints to proclaim liberty" },
+      { "verses": "4-9", "title": "Rebuild ancient ruins" },
+      { "verses": "10-11", "title": "Clothed with salvation and righteousness" }
+    ],
+    "62": [
+      { "verses": "1-5", "title": "Zion called by new name" },
+      { "verses": "6-9", "title": "Watchmen never silent" },
+      { "verses": "10-12", "title": "Prepare the way for the people" }
+    ],
+    "63": [
+      { "verses": "1-6", "title": "Who is this from Edom" },
+      { "verses": "7-14", "title": "Remembering God's past mercies" },
+      { "verses": "15-19", "title": "Look down from heaven" }
+    ],
+    "64": [
+      { "verses": "1-5", "title": "Oh that you would rend heavens" },
+      { "verses": "6-12", "title": "We are the clay you are potter" }
+    ],
+    "65": [
+      { "verses": "1-7", "title": "Sought by those not asking" },
+      { "verses": "8-16", "title": "Servants will eat you will hunger" },
+      { "verses": "17-25", "title": "New heavens and new earth" }
+    ],
+    "66": [
+      { "verses": "1-4", "title": "Heaven is my throne" },
+      { "verses": "5-14", "title": "Zion gives birth before labor" },
+      { "verses": "15-18", "title": "Lord will come in fire" },
+      { "verses": "19-24", "title": "Nations will see my glory" }
+    ]
+  }
+}

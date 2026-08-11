@@ -1,1 +1,354 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "call-and-early-prophecies",
+      "title": "Call & Early Prophecies",
+      "chapters": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20
+      ],
+      "theme": "Weeping prophet confronts sin",
+      "summary": "From the almond rod to the broken flask, Jeremiah declares Judah's coming judgment.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "judgment-on-judah",
+      "title": "Judgment on Judah",
+      "chapters": [
+        21, 22, 23, 24, 25, 26, 27, 28, 29
+      ],
+      "theme": "False prophets and true exile",
+      "summary": "Kings condemned, shepherds scattered, and seventy years in Babylon decreed.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "book-of-consolation",
+      "title": "Book of Consolation",
+      "chapters": [
+        30, 31, 32, 33
+      ],
+      "theme": "New covenant written on hearts",
+      "summary": "Everlasting love, Rachel's weeping ends, and a field purchased in hope.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "fall-of-jerusalem",
+      "title": "Fall of Jerusalem",
+      "chapters": [
+        34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45
+      ],
+      "theme": "City besieged, prophet vindicated",
+      "summary": "Scroll burned, cistern prison, walls breached, and stubborn flight to Egypt.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "oracles-against-nations",
+      "title": "Oracles Against Nations",
+      "chapters": [
+        46, 47, 48, 49, 50, 51
+      ],
+      "theme": "Babylon's pride will fall",
+      "summary": "Egypt, Philistia, Moab, and the great destroyer herself judged by the LORD.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "historical-appendix",
+      "title": "Historical Appendix",
+      "chapters": [
+        52
+      ],
+      "theme": "Judgment remembered",
+      "summary": "Zedekiah's eyes put out, temple burned, and Jehoiachin lifted from prison.",
+      "contentType": "narrative"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-3", "title": "Jeremiah's call" },
+      { "verses": "4-10", "title": "Before birth I knew you" },
+      { "verses": "11-16", "title": "Almond rod and boiling pot" },
+      { "verses": "17-19", "title": "Stand up and speak" }
+    ],
+    "2": [
+      { "verses": "1-8", "title": "Bride's devotion forgotten" },
+      { "verses": "9-19", "title": "Two evils forsaking living water" },
+      { "verses": "20-28", "title": "Israel's shameless idolatry" },
+      { "verses": "29-37", "title": "Why do you contend with me" }
+    ],
+    "3": [
+      { "verses": "1-5", "title": "Faithless wife returns" },
+      { "verses": "6-11", "title": "Judah worse than Israel" },
+      { "verses": "12-18", "title": "Return faithless Israel" },
+      { "verses": "19-25", "title": "How gladly would I treat you" }
+    ],
+    "4": [
+      { "verses": "1-4", "title": "Circumcise your hearts" },
+      { "verses": "5-18", "title": "Disaster from the north" },
+      { "verses": "19-31", "title": "My anguish my anguish" }
+    ],
+    "5": [
+      { "verses": "1-6", "title": "Search for one righteous person" },
+      { "verses": "7-13", "title": "Why should I forgive you" },
+      { "verses": "14-19", "title": "Words become fire in your mouth" },
+      { "verses": "20-31", "title": "Prophets prophesy lies" }
+    ],
+    "6": [
+      { "verses": "1-8", "title": "Flee from Jerusalem" },
+      { "verses": "9-15", "title": "From least to greatest all greedy" },
+      { "verses": "16-21", "title": "Stand at the crossroads" },
+      { "verses": "22-30", "title": "Army from the north" }
+    ],
+    "7": [
+      { "verses": "1-15", "title": "Temple sermon trust not in lying words" },
+      { "verses": "16-20", "title": "Do not pray for this people" },
+      { "verses": "21-28", "title": "Obedience better than sacrifice" },
+      { "verses": "29-34", "title": "Valley of Slaughter" }
+    ],
+    "8": [
+      { "verses": "1-3", "title": "Bones brought out of tombs" },
+      { "verses": "4-12", "title": "Why does this people turn away" },
+      { "verses": "13-17", "title": "No grapes on the vine" },
+      { "verses": "18-22", "title": "Is there no balm in Gilead" }
+    ],
+    "9": [
+      { "verses": "1-9", "title": "Oh that my head were waters" },
+      { "verses": "10-16", "title": "Death has climbed through windows" },
+      { "verses": "17-22", "title": "Call for wailing women" },
+      { "verses": "23-26", "title": "Let him who boasts boast in this" }
+    ],
+    "10": [
+      { "verses": "1-10", "title": "Idols are like scarecrows" },
+      { "verses": "11-16", "title": "Gods who did not make heavens will perish" },
+      { "verses": "17-22", "title": "Gather your bundle from the land" },
+      { "verses": "23-25", "title": "Correct me Lord but with justice" }
+    ],
+    "11": [
+      { "verses": "1-8", "title": "Covenant cursed if disobeyed" },
+      { "verses": "9-17", "title": "Conspiracy among the men of Judah" },
+      { "verses": "18-23", "title": "Plot against Jeremiah's life" }
+    ],
+    "12": [
+      { "verses": "1-6", "title": "Why does the way of wicked prosper" },
+      { "verses": "7-13", "title": "I have forsaken my house" },
+      { "verses": "14-17", "title": "Uproot my evil neighbors" }
+    ],
+    "13": [
+      { "verses": "1-11", "title": "Linen loincloth ruined" },
+      { "verses": "12-14", "title": "Every jar filled with wine" },
+      { "verses": "15-21", "title": "Give glory before darkness comes" },
+      { "verses": "22-27", "title": "Can Ethiopian change his skin" }
+    ],
+    "14": [
+      { "verses": "1-9", "title": "Drought and plea for mercy" },
+      { "verses": "10-16", "title": "Do not pray for this people" },
+      { "verses": "17-22", "title": "Let my eyes run down with tears" }
+    ],
+    "15": [
+      { "verses": "1-9", "title": "Even Moses and Samuel could not intercede" },
+      { "verses": "10-14", "title": "Woe is me my mother" },
+      { "verses": "15-21", "title": "Take out the precious from the vile" }
+    ],
+    "16": [
+      { "verses": "1-9", "title": "Do not marry or have children" },
+      { "verses": "10-13", "title": "Why has the Lord decreed disaster" },
+      { "verses": "14-21", "title": "Send for many fishermen" }
+    ],
+    "17": [
+      { "verses": "1-4", "title": "Sin of Judah engraved with iron pen" },
+      { "verses": "5-11", "title": "Cursed is man who trusts in man" },
+      { "verses": "12-18", "title": "Heal me O Lord" },
+      { "verses": "19-27", "title": "Keep the Sabbath holy" }
+    ],
+    "18": [
+      { "verses": "1-12", "title": "Potter and the clay" },
+      { "verses": "13-17", "title": "Has a nation changed its gods" },
+      { "verses": "18-23", "title": "They have dug a pit for me" }
+    ],
+    "19": [
+      { "verses": "1-9", "title": "Earthenware flask and Topheth" },
+      { "verses": "10-15", "title": "Break the flask before the elders" }
+    ],
+    "20": [
+      { "verses": "1-6", "title": "Pashhur beats and imprisons Jeremiah" },
+      { "verses": "7-13", "title": "You deceived me O Lord" },
+      { "verses": "14-18", "title": "Cursed be the day I was born" }
+    ],
+    "21": [
+      { "verses": "1-7", "title": "Zedekiah's inquiry about Nebuchadnezzar" },
+      { "verses": "8-14", "title": "Way of life and way of death" }
+    ],
+    "22": [
+      { "verses": "1-9", "title": "Execute justice and righteousness" },
+      { "verses": "10-12", "title": "Weep for him who goes away" },
+      { "verses": "13-19", "title": "Woe to him who builds palace unjustly" },
+      { "verses": "20-23", "title": "Lebanon will be made a desert" },
+      { "verses": "24-30", "title": "Coniah signet ring cast off" }
+    ],
+    "23": [
+      { "verses": "1-8", "title": "Woe to shepherds who scatter sheep" },
+      { "verses": "9-15", "title": "Concerning the prophets" },
+      { "verses": "16-22", "title": "Do not listen to false prophets" },
+      { "verses": "23-32", "title": "What is the burden of the Lord" },
+      { "verses": "33-40", "title": "You are the burden" }
+    ],
+    "24": [
+      { "verses": "1-10", "title": "Vision of two baskets of figs" }
+    ],
+    "25": [
+      { "verses": "1-11", "title": "Seventy years of captivity" },
+      { "verses": "12-14", "title": "Babylon will be punished" },
+      { "verses": "15-29", "title": "Cup of wrath for all nations" },
+      { "verses": "30-38", "title": "Lord roars from on high" }
+    ],
+    "26": [
+      { "verses": "1-6", "title": "Stand in court and speak all words" },
+      { "verses": "7-15", "title": "Priests and prophets demand death" },
+      { "verses": "16-24", "title": "Officials acquit Jeremiah" }
+    ],
+    "27": [
+      { "verses": "1-11", "title": "Yoke of Nebuchadnezzar" },
+      { "verses": "12-15", "title": "Serve king of Babylon and live" },
+      { "verses": "16-22", "title": "Do not listen to false prophets" }
+    ],
+    "28": [
+      { "verses": "1-9", "title": "Hananiah breaks the yoke" },
+      { "verses": "10-17", "title": "Iron yoke replaces wooden yoke" }
+    ],
+    "29": [
+      { "verses": "1-9", "title": "Letter to the exiles" },
+      { "verses": "10-14", "title": "After seventy years I will visit you" },
+      { "verses": "15-23", "title": "Ahab and Zedekiah roasted in fire" },
+      { "verses": "24-32", "title": "Shemaiah's false prophecy" }
+    ],
+    "30": [
+      { "verses": "1-3", "title": "Write all the words in a book" },
+      { "verses": "4-11", "title": "Time of Jacob's trouble" },
+      { "verses": "12-17", "title": "Your wound is incurable" },
+      { "verses": "18-24", "title": "Restore the fortunes of Jacob's tents" }
+    ],
+    "31": [
+      { "verses": "1-6", "title": "I have loved you with everlasting love" },
+      { "verses": "7-14", "title": "Sing aloud with gladness for Jacob" },
+      { "verses": "15-22", "title": "Rachel weeping for her children" },
+      { "verses": "23-30", "title": "Sour grapes and sour teeth" },
+      { "verses": "31-37", "title": "New covenant written on hearts" },
+      { "verses": "38-40", "title": "City shall be rebuilt for the Lord" }
+    ],
+    "32": [
+      { "verses": "1-5", "title": "Jeremiah imprisoned by Zedekiah" },
+      { "verses": "6-15", "title": "Purchase of field at Anathoth" },
+      { "verses": "16-25", "title": "Jeremiah's prayer of confusion" },
+      { "verses": "26-44", "title": "Nothing is too hard for me" }
+    ],
+    "33": [
+      { "verses": "1-9", "title": "Call to me and I will answer" },
+      { "verses": "10-13", "title": "Voice of joy and gladness" },
+      { "verses": "14-18", "title": "Righteous Branch for David" },
+      { "verses": "19-26", "title": "Covenant with day and night" }
+    ],
+    "34": [
+      { "verses": "1-7", "title": "Zedekiah will be captured" },
+      { "verses": "8-22", "title": "Breaking covenant to free slaves" }
+    ],
+    "35": [
+      { "verses": "1-11", "title": "Rechabites obey their ancestor" },
+      { "verses": "12-19", "title": "Why do you not obey me" }
+    ],
+    "36": [
+      { "verses": "1-8", "title": "Write all the words in a scroll" },
+      { "verses": "9-19", "title": "Baruch reads scroll to the people" },
+      { "verses": "20-26", "title": "King Jehoiakim burns the scroll" },
+      { "verses": "27-32", "title": "Write again all the former words" }
+    ],
+    "37": [
+      { "verses": "1-10", "title": "Zedekiah sends for Jeremiah" },
+      { "verses": "11-16", "title": "Jeremiah imprisoned as deserter" },
+      { "verses": "17-21", "title": "Secret inquiry from the king" }
+    ],
+    "38": [
+      { "verses": "1-6", "title": "Jeremiah cast into cistern" },
+      { "verses": "7-13", "title": "Ebed-melech rescues Jeremiah" },
+      { "verses": "14-28", "title": "Zedekiah's secret conference" }
+    ],
+    "39": [
+      { "verses": "1-10", "title": "Fall of Jerusalem" },
+      { "verses": "11-14", "title": "Nebuchadnezzar commands Jeremiah's safety" },
+      { "verses": "15-18", "title": "Promise to Ebed-melech" }
+    ],
+    "40": [
+      { "verses": "1-6", "title": "Jeremiah released at Ramah" },
+      { "verses": "7-12", "title": "Gedaliah made governor" },
+      { "verses": "13-16", "title": "Plot against Gedaliah" }
+    ],
+    "41": [
+      { "verses": "1-10", "title": "Ishmael murders Gedaliah" },
+      { "verses": "11-18", "title": "Johanan rescues the captives" }
+    ],
+    "42": [
+      { "verses": "1-6", "title": "Remnant asks for Jeremiah's counsel" },
+      { "verses": "7-22", "title": "Do not go to Egypt" }
+    ],
+    "43": [
+      { "verses": "1-7", "title": "Remnant goes to Egypt anyway" },
+      { "verses": "8-13", "title": "Nebuchadnezzar will strike Egypt" }
+    ],
+    "44": [
+      { "verses": "1-14", "title": "Why commit this great evil" },
+      { "verses": "15-19", "title": "We will burn incense to queen of heaven" },
+      { "verses": "20-30", "title": "Your words or my words which will stand" }
+    ],
+    "45": [
+      { "verses": "1-5", "title": "Word to Baruch" }
+    ],
+    "46": [
+      { "verses": "1-12", "title": "Concerning Egypt at Carchemish" },
+      { "verses": "13-24", "title": "Nebuchadnezzar will strike Egypt" },
+      { "verses": "25-28", "title": "Fear not O Jacob my servant" }
+    ],
+    "47": [
+      { "verses": "1-7", "title": "Concerning the Philistines" }
+    ],
+    "48": [
+      { "verses": "1-10", "title": "Concerning Moab destroyed" },
+      { "verses": "11-17", "title": "Moab at ease destroyed" },
+      { "verses": "18-28", "title": "Come down from your glory" },
+      { "verses": "29-39", "title": "We have heard of Moab's pride" },
+      { "verses": "40-47", "title": "I will restore Moab's fortunes" }
+    ],
+    "49": [
+      { "verses": "1-6", "title": "Concerning Ammon" },
+      { "verses": "7-22", "title": "Concerning Edom" },
+      { "verses": "23-27", "title": "Concerning Damascus" },
+      { "verses": "28-33", "title": "Concerning Kedar and Hazor" },
+      { "verses": "34-39", "title": "Concerning Elam" }
+    ],
+    "50": [
+      { "verses": "1-3", "title": "Babylon will be captured" },
+      { "verses": "4-10", "title": "Israel and Judah will seek the Lord" },
+      { "verses": "11-16", "title": "Babylon plundered" },
+      { "verses": "17-20", "title": "Israel will be brought back" },
+      { "verses": "21-28", "title": "Attack Merathaim and Pekod" },
+      { "verses": "29-34", "title": "Their Redeemer is strong" },
+      { "verses": "35-40", "title": "Sword against the Chaldeans" },
+      { "verses": "41-46", "title": "Nation from the north" }
+    ],
+    "51": [
+      { "verses": "1-5", "title": "Destroying wind against Babylon" },
+      { "verses": "6-10", "title": "Flee from the midst of Babylon" },
+      { "verses": "11-14", "title": "Lord has stirred up Medes" },
+      { "verses": "15-23", "title": "You are my hammer and weapon" },
+      { "verses": "24-33", "title": "I will repay Babylon" },
+      { "verses": "34-40", "title": "Nebuchadnezzar has swallowed me" },
+      { "verses": "41-48", "title": "Babylon has fallen" },
+      { "verses": "49-58", "title": "Come out of her my people" },
+      { "verses": "59-64", "title": "Scroll thrown into Euphrates" }
+    ],
+    "52": [
+      { "verses": "1-11", "title": "Zedekiah's rebellion and fall" },
+      { "verses": "12-23", "title": "Temple burned and plundered" },
+      { "verses": "24-30", "title": "People carried into exile" },
+      { "verses": "31-34", "title": "Jehoiachin released from prison" }
+    ]
+  }
+}

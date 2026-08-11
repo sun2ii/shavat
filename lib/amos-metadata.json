@@ -1,1 +1,30 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "oracles-against-the-nations",
+      "title": "Oracles Against the Nations",
+      "chapters": [1, 2],
+      "theme": "God judges all peoples, including Israel",
+      "summary": "The lion roars from Zion. Damascus, Gaza, Tyre, Edom, Ammon, Moab, Judah, and finally Israel stand condemned for covenant violations and crimes against humanity.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "judgment-against-israel",
+      "title": "Judgment Against Israel",
+      "chapters": [3, 4, 5, 6],
+      "theme": "Privilege brings greater accountability",
+      "summary": "You only have I known of all the families of the earth. Israel's election intensifies her guilt. Religious ritual without justice is an abomination. Prepare to meet your God.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "visions-and-hope",
+      "title": "Visions and Hope",
+      "chapters": [7, 8, 9],
+      "theme": "Judgment is certain, but restoration awaits",
+      "summary": "Five visions of doom: locusts, fire, plumb line, summer fruit, altar struck. Amaziah confronts Amos. Yet the book closes with David's fallen tent raised and abundance overflowing.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {}
+}

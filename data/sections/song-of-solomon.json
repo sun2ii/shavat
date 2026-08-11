@@ -1,0 +1,201 @@
+{
+  "book": "song-of-solomon",
+  "chapters": {
+    "1": [
+      {
+        "title": "The Song of Songs",
+        "verseRange": [1, 1],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Longing for the Beloved",
+        "verseRange": [2, 4],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Dark but Lovely",
+        "verseRange": [5, 6],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Where Do You Pasture Your Flock",
+        "verseRange": [7, 8],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Mutual Admiration",
+        "verseRange": [9, 17],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Rose of Sharon, Lily of the Valleys",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Faint with Love",
+        "verseRange": [4, 7],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Beloved Comes Leaping",
+        "verseRange": [8, 13],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Catch the Little Foxes",
+        "verseRange": [14, 15],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "My Beloved Is Mine",
+        "verseRange": [16, 17],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Seeking by Night",
+        "verseRange": [1, 5],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Solomon's Royal Procession",
+        "verseRange": [6, 11],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "Your Beauty, My Bride",
+        "verseRange": [1, 7],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Come with Me from Lebanon",
+        "verseRange": [8, 11],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "A Garden Locked",
+        "verseRange": [12, 15],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Awake, North Wind",
+        "verseRange": [16, 16],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "I Came to My Garden",
+        "verseRange": [1, 1],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Knocking at Night",
+        "verseRange": [2, 8],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Describing the Beloved",
+        "verseRange": [9, 16],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Where Has Your Beloved Gone",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Beautiful as Tirzah",
+        "verseRange": [4, 10],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Return, O Shulammite",
+        "verseRange": [11, 13],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Praise of the Bride",
+        "verseRange": [1, 9],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "I Belong to My Beloved",
+        "verseRange": [10, 10],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Come to the Countryside",
+        "verseRange": [11, 13],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "If Only You Were My Brother",
+        "verseRange": [1, 4],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Love Strong as Death",
+        "verseRange": [5, 7],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Little Sister",
+        "verseRange": [8, 10],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Solomon's Vineyard and Mine",
+        "verseRange": [11, 12],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      },
+      {
+        "title": "Come Away, My Beloved",
+        "verseRange": [13, 14],
+        "color": "bg-rose-50 dark:bg-rose-950/20",
+        "borderColor": "border-rose-400"
+      }
+    ]
+  }
+}

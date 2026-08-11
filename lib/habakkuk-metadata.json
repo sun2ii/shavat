@@ -1,1 +1,50 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-prophets-complaint",
+      "title": "The Prophet's Complaint",
+      "chapters": [1],
+      "theme": "How long, O LORD?",
+      "summary": "Habakkuk wrestles with God over injustice in Judah and the shocking answer: Babylon is coming.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-vision-and-the-woes",
+      "title": "The Vision and the Woes",
+      "chapters": [2],
+      "theme": "The righteous shall live by faith",
+      "summary": "God gives a vision for the appointed time, then pronounces five woes against Babylon's arrogance.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-prophets-prayer",
+      "title": "The Prophet's Prayer",
+      "chapters": [3],
+      "theme": "Yet I will rejoice in the LORD",
+      "summary": "A theophanic psalm recounting God's mighty acts, ending in radical trust despite devastation.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-4", "title": "How long will you ignore injustice?" },
+      { "verses": "5-11", "title": "God raises up the Babylonians" },
+      { "verses": "12-17", "title": "Why use the wicked to judge?" }
+    ],
+    "2": [
+      { "verses": "1-5", "title": "The righteous shall live by faith" },
+      { "verses": "6-8", "title": "Woe to the plunderer" },
+      { "verses": "9-11", "title": "Woe to unjust gain" },
+      { "verses": "12-14", "title": "Woe to bloodshed builders" },
+      { "verses": "15-17", "title": "Woe to those who degrade" },
+      { "verses": "18-20", "title": "Woe to idolaters" }
+    ],
+    "3": [
+      { "verses": "1-2", "title": "Prayer for revival" },
+      { "verses": "3-15", "title": "Theophany: God comes in power" },
+      { "verses": "16-19", "title": "Yet I will rejoice" }
+    ]
+  }
+}

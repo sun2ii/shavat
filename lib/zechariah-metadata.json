@@ -1,1 +1,30 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-night-visions",
+      "title": "The Night Visions",
+      "chapters": [1, 2, 3, 4, 5, 6],
+      "theme": "Eight visions of restoration and judgment",
+      "summary": "Horsemen among the myrtles, horns and craftsmen, the measuring line, Joshua the high priest, the lampstand and olive trees, flying scroll, woman in the basket, four chariots.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "fasting-and-future",
+      "title": "Fasting and Future",
+      "chapters": [7, 8],
+      "theme": "From ritual fasting to genuine obedience",
+      "summary": "Should we keep fasting? Justice and mercy matter more. Jerusalem will be called the faithful city, old men and children will fill her streets.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "two-oracles",
+      "title": "Two Oracles",
+      "chapters": [9, 10, 11, 12, 13, 14],
+      "theme": "Messianic prophecies and the Day of the Lord",
+      "summary": "King comes humble on a donkey, the good shepherd rejected for thirty silver, they will look on him whom they pierced, living waters from Jerusalem, the Lord will be king over all the earth.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {}
+}

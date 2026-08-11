@@ -14,7 +14,7 @@ export default function Header() {
     <header className="mb-6 pb-3 border-b border-hairline">
       <div className="flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="w-[30px] h-[30px] rounded-lg bg-brand text-gold flex items-center justify-center font-serif text-[17px] leading-none">
+          <span className="w-[30px] h-[30px] rounded-lg bg-shavat-darkest dark:bg-shavat-dark text-shavat-gold flex items-center justify-center font-serif text-[17px] leading-none">
             ש
           </span>
           <span className="font-sans text-base font-bold tracking-tight text-ink">Shavat</span>

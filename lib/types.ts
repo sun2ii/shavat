@@ -96,6 +96,10 @@ export interface BookDivision {
   contentType?: 'instructional' | 'narrative' | 'mixed';  // Content classification for visual differentiation
   lettersWritten?: { slug: string; title: string; note?: string }[];  // Epistles connected to this stretch of narrative
 
+  // People and places for this division
+  people?: { id: string; name: string }[];   // Key figures in this division
+  places?: { id: string; name: string }[];   // Key locations in this division
+
   // Story Map extension (all optional — map degrades gracefully when absent)
   era?: string;            // grouping band id, e.g. "primeval", "patriarchs"
   characters?: string[];   // main figures

@@ -1,1 +1,53 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "wisdoms-call",
+      "title": "Wisdom's Call",
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "theme": "The fear of the Lord is the beginning of knowledge",
+      "summary": "A father's instructions and Lady Wisdom's public appeal: choose the path of wisdom over folly, life over death.",
+      "contentType": "instructional"
+    },
+    {
+      "id": "proverbs-of-solomon",
+      "title": "Proverbs of Solomon",
+      "chapters": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22],
+      "theme": "Wisdom for daily life",
+      "summary": "Short, sharp contrasts between the wise and the foolish, the righteous and the wicked, covering work, speech, wealth, and relationships.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "sayings-of-the-wise",
+      "title": "Sayings of the Wise",
+      "chapters": [23, 24],
+      "theme": "Thirty sayings of counsel and knowledge",
+      "summary": "Extended wisdom instructions warning against excess, laziness, and injustice, with practical guidance for navigating the world.",
+      "contentType": "instructional"
+    },
+    {
+      "id": "hezekiahs-collection",
+      "title": "Hezekiah's Collection",
+      "chapters": [25, 26, 27, 28, 29],
+      "theme": "More proverbs of Solomon, copied by Hezekiah's men",
+      "summary": "A second anthology from Solomon's legacy, preserved by royal scribes: kings, fools, sluggards, and the power of words.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "words-of-agur",
+      "title": "Words of Agur",
+      "chapters": [30],
+      "theme": "The limits of human wisdom",
+      "summary": "Numerical sayings and humble confession from an outsider: every word of God proves true, and human understanding has boundaries.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "words-of-lemuel",
+      "title": "Words of Lemuel",
+      "chapters": [31],
+      "theme": "Royal instruction and the excellent wife",
+      "summary": "A queen mother's counsel to her son on justice and sobriety, concluding with the portrait of wisdom embodied in a noble woman.",
+      "contentType": "instructional"
+    }
+  ],
+  "chapterSummaries": {}
+}

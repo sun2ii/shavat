@@ -52,17 +52,63 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
               const title = div.title
                 .replace('The Book of ', '')
                 .replace(/^The /, '');
+
+              // Color map for people (consistent with terrain modal)
+              const peopleColorMap: Record<string, string> = {
+                'adam-eve': 'text-[rgb(var(--speaker-3))]',      // emerald
+                'cain-abel': 'text-[rgb(var(--speaker-2))]',     // crimson
+                'serpent': 'text-[rgb(var(--speaker-7))]',       // sienna
+                'noah': 'text-[rgb(var(--speaker-1))]',          // blue
+                'noahs-sons': 'text-[rgb(var(--speaker-4))]',    // violet
+                'abraham': 'text-[rgb(var(--speaker-1))]',       // blue
+                'lot': 'text-[rgb(var(--speaker-5))]',           // teal
+                'hagar-ishmael': 'text-[rgb(var(--speaker-6))]', // magenta
+                'isaac': 'text-[rgb(var(--speaker-3))]',         // emerald
+                'esau-jacob': 'text-[rgb(var(--speaker-4))]',    // violet
+                'jacob': 'text-[rgb(var(--speaker-1))]',         // blue
+                'rachel-leah': 'text-[rgb(var(--speaker-6))]',   // magenta
+                'laban': 'text-[rgb(var(--speaker-7))]',         // sienna
+                'joseph': 'text-[rgb(var(--speaker-3))]',        // emerald
+                'judah': 'text-[rgb(var(--speaker-2))]',         // crimson
+                'pharaoh': 'text-[rgb(var(--speaker-4))]',       // violet
+              };
+
               return (
-                <div key={div.id}>
+                <div key={div.id} className="space-y-1">
                   <Link
                     href={writingPath(bookSlug, div.id)}
                     onClick={() => setOpen(false)}
-                    className={`block font-sans text-[10px] tracking-[0.16em] uppercase font-bold mb-1 transition-colors ${
+                    className={`block font-sans text-[10px] tracking-[0.16em] uppercase font-bold transition-colors ${
                       isCurrentDivision ? 'text-gold-ink hover:text-gold' : 'text-faint hover:text-ink'
                     }`}
                   >
                     {title}
                   </Link>
+
+                  {/* People */}
+                  {div.people && div.people.length > 0 && (
+                    <p className="font-serif text-[11px] leading-tight">
+                      {div.people.map((p, idx) => (
+                        <span key={p.id}>
+                          <span className={peopleColorMap[p.id] || 'text-muted'}>{p.name}</span>
+                          {idx < div.people!.length - 1 && <span className="text-faint"> · </span>}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+
+                  {/* Places */}
+                  {div.places && div.places.length > 0 && (
+                    <p className="font-serif text-[11px] leading-tight text-[rgb(var(--speaker-9))]">
+                      {div.places.map((place, idx) => (
+                        <span key={place.id}>
+                          {place.name}
+                          {idx < div.places!.length - 1 && <span className="text-faint"> · </span>}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+
                   <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
                     {div.chapters.map((chapter) => {
                       const isCurrent = isCurrentDivision && chapter === currentChapter;

@@ -15,13 +15,8 @@ export default function RoutePersistence() {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    // On initial load, redirect to last route if we're on home page
-    const lastRoute = getLastRoute();
-    if (pathname === '/' && lastRoute) {
-      router.replace(lastRoute);
-    }
-  }, []); // Only run once on mount
+  // Removed auto-redirect from home page - we now have a real home page to show
+  // Users can navigate to their bookmarks manually from the navigation
 
   return null; // This component doesn't render anything
 }

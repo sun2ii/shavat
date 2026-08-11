@@ -1,1 +1,38 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-quest-for-meaning",
+      "title": "The Quest for Meaning",
+      "chapters": [1, 2],
+      "theme": "Vanity of vanities, all is vanity",
+      "summary": "The Teacher examines pleasure, wisdom, toil, and achievement, finding all meaningless under the sun.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "time-justice-and-god",
+      "title": "Time, Justice, and God",
+      "chapters": [3, 4, 5],
+      "theme": "A time for everything under heaven",
+      "summary": "Seasons of life, oppression observed, the folly of vows, and the fear of God as anchor.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "wisdoms-limits",
+      "title": "Wisdom's Limits",
+      "chapters": [6, 7, 8],
+      "theme": "Who knows what is good for man?",
+      "summary": "Wealth without enjoyment, wisdom better than folly yet limited, injustice and mystery persist.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "life-death-and-conclusion",
+      "title": "Life, Death, and Conclusion",
+      "chapters": [9, 10, 11, 12],
+      "theme": "Remember your Creator in the days of your youth",
+      "summary": "Enjoy life while you can, wisdom and folly contrasted, youth fades, dust returns, fear God and keep his commandments.",
+      "contentType": "wisdom"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {}
+}

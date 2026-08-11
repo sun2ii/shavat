@@ -1,1 +1,23 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "judgment-against-edom",
+      "title": "Judgment Against Edom",
+      "chapters": [1],
+      "theme": "Pride brought low, betrayal repaid",
+      "summary": "Edom's arrogance in their mountain fortress condemned; their violence against Jacob during Jerusalem's fall will be returned on their own head.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-4", "title": "Edom's pride will be humbled" },
+      { "verses": "5-9", "title": "Edom plundered and destroyed" },
+      { "verses": "10-14", "title": "Violence against Jacob condemned" },
+      { "verses": "15-18", "title": "Day of the Lord on all nations" },
+      { "verses": "19-21", "title": "Kingdom belongs to the Lord" }
+    ]
+  }
+}

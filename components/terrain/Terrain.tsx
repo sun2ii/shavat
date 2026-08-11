@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { DIMENSIONS, Dimension, DimensionId, ResolvedSegment } from '@/lib/terrain';
+import { useState, Suspense } from 'react';
+import Link from 'next/link';
+import { DIMENSIONS, Dimension, DimensionId, ResolvedSegment, getAllPeople, getAllPlaces } from '@/lib/terrain';
 import StoryTerrain from './StoryTerrain';
 
 /*
@@ -61,6 +62,62 @@ function ComingSoon({ dimension }: { dimension: Dimension }) {
   );
 }
 
+function CharactersIndex() {
+  const characters = getAllPeople();
+
+  return (
+    <div className="py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {characters.map((character) => (
+          <Link
+            key={character.id}
+            href={`/characters/${character.id}`}
+            className="group block p-5 rounded-xl border border-hairline hover:border-gold/40 transition-colors"
+          >
+            <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-faint mb-1">
+              {character.scripture}
+            </p>
+            <h3 className="font-serif text-xl font-light text-[rgb(var(--speaker-1))] group-hover:text-gold-ink transition-colors">
+              {character.name}
+            </h3>
+            <p className="font-serif text-sm text-muted mt-2 line-clamp-2">
+              {character.description}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PlacesIndex() {
+  const places = getAllPlaces();
+
+  return (
+    <div className="py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {places.map((place) => (
+          <Link
+            key={place.id}
+            href={`/places/${place.id}`}
+            className="group block p-5 rounded-xl border border-hairline hover:border-gold/40 transition-colors"
+          >
+            <p className="font-sans text-[9px] uppercase tracking-[0.2em] text-faint mb-1">
+              {place.scripture}
+            </p>
+            <h3 className="font-serif text-xl font-light text-[rgb(var(--speaker-9))] group-hover:text-gold-ink transition-colors">
+              {place.name}
+            </h3>
+            <p className="font-serif text-sm text-muted mt-2 line-clamp-2">
+              {place.description}
+            </p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Terrain({ segments }: { segments: ResolvedSegment[] }) {
   const [active, setActive] = useState<DimensionId>('story');
   const dimension = DIMENSIONS.find((d) => d.id === active) ?? DIMENSIONS[0];
@@ -78,12 +135,37 @@ export default function Terrain({ segments }: { segments: ResolvedSegment[] }) {
         <p className="mx-auto mt-1.5 max-w-md font-serif text-sm italic text-muted">
           One story, from creation to all things new.
         </p>
+
+        {/* Stats bar */}
+        <div className="flex justify-center gap-8 mt-5">
+          <div className="text-center">
+            <span className="font-serif text-2xl font-light text-ink">66</span>
+            <span className="block font-sans text-[9px] uppercase tracking-wider text-faint">Books</span>
+          </div>
+          <div className="text-center">
+            <span className="font-serif text-2xl font-light text-gold">39</span>
+            <span className="block font-sans text-[9px] uppercase tracking-wider text-faint">Old Testament</span>
+          </div>
+          <div className="text-center">
+            <span className="font-serif text-2xl font-light text-gold">27</span>
+            <span className="block font-sans text-[9px] uppercase tracking-wider text-faint">New Testament</span>
+          </div>
+        </div>
+
         <DimensionTabs active={active} onSelect={setActive} />
       </header>
 
       <section id={`terrain-panel-${dimension.id}`} role="tabpanel" aria-label={dimension.label}>
-        {dimension.status === 'live' ? (
-          <StoryTerrain segments={segments} />
+        {dimension.status === 'coming-soon' ? (
+          <ComingSoon dimension={dimension} />
+        ) : dimension.id === 'story' ? (
+          <Suspense fallback={<div className="py-24 text-center text-muted">Loading...</div>}>
+            <StoryTerrain segments={segments} />
+          </Suspense>
+        ) : dimension.id === 'characters' ? (
+          <CharactersIndex />
+        ) : dimension.id === 'places' ? (
+          <PlacesIndex />
         ) : (
           <ComingSoon dimension={dimension} />
         )}

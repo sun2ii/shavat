@@ -1,1 +1,22 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "call-to-rebuild",
+      "title": "Call to Rebuild",
+      "chapters": [1],
+      "theme": "Priorities realigned",
+      "summary": "The people neglect God's house while living in paneled homes; drought and want follow.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "glory-of-the-temple",
+      "title": "Glory of the Temple",
+      "chapters": [2],
+      "theme": "Greater glory and Zerubbabel's signet",
+      "summary": "The latter glory will surpass the former; Zerubbabel chosen as God's signet ring.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {}
+}

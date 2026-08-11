@@ -1,1 +1,29 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "courtship-and-longing",
+      "title": "Courtship and Longing",
+      "chapters": [1, 2, 3],
+      "theme": "The awakening of love",
+      "summary": "The beloved and her lover meet, exchange praises, and she searches for him through the night streets.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "the-wedding",
+      "title": "The Wedding",
+      "chapters": [4, 5],
+      "theme": "Union and consummation",
+      "summary": "The bridegroom praises his bride, the garden is entered, and love is celebrated in full covenant commitment.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "mature-love",
+      "title": "Mature Love",
+      "chapters": [6, 7, 8],
+      "theme": "Love as strong as death",
+      "summary": "The lovers grow in mutual admiration and devotion, culminating in the seal of unbreakable love.",
+      "contentType": "poetry"
+    }
+  ],
+  "chapterSummaries": {}
+}

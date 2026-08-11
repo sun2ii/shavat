@@ -1,0 +1,71 @@
+{
+  "book": "joel",
+  "chapters": {
+    "1": [
+      {
+        "title": "The locust plague beyond memory",
+        "verseRange": [1, 4],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Wake up, drunkards, and weep",
+        "verseRange": [5, 12],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Call a solemn assembly",
+        "verseRange": [13, 20],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Sound the alarm in Zion",
+        "verseRange": [1, 11],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Return to me with all your heart",
+        "verseRange": [12, 17],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The LORD becomes jealous for his land",
+        "verseRange": [18, 27],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "I will pour out my Spirit on all flesh",
+        "verseRange": [28, 32],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "I will gather all nations for judgment",
+        "verseRange": [1, 8],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Valley of Decision",
+        "verseRange": [9, 16],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Judah shall be inhabited forever",
+        "verseRange": [17, 21],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ]
+  }
+}

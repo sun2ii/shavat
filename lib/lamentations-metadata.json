@@ -1,1 +1,85 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "first-lament",
+      "title": "First Lament",
+      "chapters": [
+        1
+      ],
+      "theme": "How lonely sits the city",
+      "summary": "Jerusalem personified weeps over her desolation and asks if any sorrow matches hers.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "second-lament",
+      "title": "Second Lament",
+      "chapters": [
+        2
+      ],
+      "theme": "The Lord has swallowed up without mercy",
+      "summary": "God's anger described in vivid detail as elders sit silent in the dust.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "third-lament",
+      "title": "Third Lament",
+      "chapters": [
+        3
+      ],
+      "theme": "His mercies never come to an end",
+      "summary": "The man who has seen affliction finds hope in God's steadfast love and faithfulness.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "fourth-lament",
+      "title": "Fourth Lament",
+      "chapters": [
+        4
+      ],
+      "theme": "Gold has grown dim",
+      "summary": "Precious sons of Zion now valued as clay pots, their beauty and nobility gone.",
+      "contentType": "poetry"
+    },
+    {
+      "id": "fifth-lament",
+      "title": "Fifth Lament",
+      "chapters": [
+        5
+      ],
+      "theme": "But you, O LORD, reign forever",
+      "summary": "A final plea asking God to remember and restore his people from their shame.",
+      "contentType": "poetry"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-6", "title": "How lonely sits the city" },
+      { "verses": "7-11", "title": "Jerusalem remembers her affliction" },
+      { "verses": "12-16", "title": "Is it nothing to you" },
+      { "verses": "17-22", "title": "Zion stretches out her hands" }
+    ],
+    "2": [
+      { "verses": "1-9", "title": "Lord has swallowed up without mercy" },
+      { "verses": "10-17", "title": "Elders sit in silence" },
+      { "verses": "18-22", "title": "Cry aloud to the Lord" }
+    ],
+    "3": [
+      { "verses": "1-18", "title": "I am the man who has seen affliction" },
+      { "verses": "19-39", "title": "His mercies never come to an end" },
+      { "verses": "40-54", "title": "Let us test and examine our ways" },
+      { "verses": "55-66", "title": "I called on your name O Lord" }
+    ],
+    "4": [
+      { "verses": "1-10", "title": "Gold has grown dim" },
+      { "verses": "11-16", "title": "Lord gave full vent to his wrath" },
+      { "verses": "17-22", "title": "Our pursuers were swifter than eagles" }
+    ],
+    "5": [
+      { "verses": "1-10", "title": "Remember O Lord what has befallen us" },
+      { "verses": "11-18", "title": "Women raped, princes hanged" },
+      { "verses": "19-22", "title": "But you O Lord reign forever" }
+    ]
+  }
+}

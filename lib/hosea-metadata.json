@@ -1,1 +1,37 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "hoseas-marriage",
+      "title": "Hosea's Marriage",
+      "chapters": [1, 2, 3],
+      "theme": "Living parable of covenant betrayal and redemption",
+      "summary": "God commands Hosea to marry Gomer, an unfaithful woman, enacting Israel's spiritual adultery. Children named Jezreel, Lo-Ruhamah, and Lo-Ammi prophesy judgment, yet restoration follows: 'Not My People' becomes 'My People' again.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "israels-sin-exposed",
+      "title": "Israel's Sin Exposed",
+      "chapters": [4, 5, 6, 7, 8],
+      "theme": "The divine lawsuit against covenant-breakers",
+      "summary": "God brings charges against Israel: no faithfulness, no knowledge of God in the land. Priests fail, prophets stumble, kings conspire. Ephraim mixes with nations like half-baked bread. They sow wind and reap whirlwind.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "coming-judgment",
+      "title": "Coming Judgment",
+      "chapters": [9, 10],
+      "theme": "Harvest time brings reckoning",
+      "summary": "The festival joy turns to mourning. Israel's glory flies away like a bird. Altars become ruins, high places overgrown with thorns. They have plowed wickedness and reaped injustice; now the calf of Beth-aven will be carried to Assyria.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "gods-love-persists",
+      "title": "God's Love Persists",
+      "chapters": [11, 12, 13, 14],
+      "theme": "Judgment swallowed by relentless love",
+      "summary": "When Israel was a child, I loved him. God's heart churns: 'How can I give you up, Ephraim?' Judgment remains inevitable, death and Sheol approach, yet the book ends with invitation: 'Return, O Israel.' Those who respond find dew, lily, cedar, olive.",
+      "contentType": "prophecy"
+    }
+  ],
+  "chapterSummaries": {}
+}

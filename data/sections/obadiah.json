@@ -1,0 +1,25 @@
+{
+  "book": "obadiah",
+  "chapters": {
+    "1": [
+      {
+        "title": "The Pride of Edom Judged",
+        "verseRange": [1, 9],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The Violence Against Jacob",
+        "verseRange": [10, 14],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The Kingdom Belongs to the LORD",
+        "verseRange": [15, 21],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ]
+  }
+}

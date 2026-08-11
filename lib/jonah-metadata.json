@@ -1,1 +1,22 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "flight-and-deliverance",
+      "title": "Flight and Deliverance",
+      "chapters": [1, 2],
+      "theme": "Running from God into the depths",
+      "summary": "Jonah flees from the Lord's call, is swallowed by the great fish, and prays from the belly of Sheol.",
+      "contentType": "narrative"
+    },
+    {
+      "id": "mission-and-gods-compassion",
+      "title": "Mission and God's Compassion",
+      "chapters": [3, 4],
+      "theme": "Nineveh repents, God relents",
+      "summary": "Jonah preaches judgment, the city turns, and God reveals his heart for the nations against Jonah's anger.",
+      "contentType": "narrative"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {}
+}

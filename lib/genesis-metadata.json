@@ -8,7 +8,13 @@
         2
       ],
       "theme": "Order from chaos",
-      "summary": "Creation of the heavens and the earth; order, purpose, blessing"
+      "summary": "Creation of the heavens and the earth; order, purpose, blessing",
+      "people": [
+        { "id": "adam-eve", "name": "Adam · Eve" }
+      ],
+      "places": [
+        { "id": "eden", "name": "Eden" }
+      ]
     },
     {
       "id": "adam-and-eve",
@@ -19,7 +25,16 @@
         5
       ],
       "theme": "Fall and its spread",
-      "summary": "Humanity, the Fall, exile, the spread of sin and consequence"
+      "summary": "Humanity, the Fall, exile, the spread of sin and consequence",
+      "people": [
+        { "id": "adam-eve", "name": "Adam · Eve" },
+        { "id": "cain-abel", "name": "Cain · Abel" },
+        { "id": "serpent", "name": "Serpent" }
+      ],
+      "places": [
+        { "id": "eden", "name": "Eden" },
+        { "id": "nod", "name": "Land of Nod" }
+      ]
     },
     {
       "id": "noah",
@@ -33,7 +48,16 @@
         11
       ],
       "theme": "Judgment, reset, scattering",
-      "summary": "Judgment, preservation, covenant, renewal, and the scattering at Babel"
+      "summary": "Judgment, preservation, covenant, renewal, and the scattering at Babel",
+      "people": [
+        { "id": "noah", "name": "Noah" },
+        { "id": "noahs-sons", "name": "Shem · Ham · Japheth" }
+      ],
+      "places": [
+        { "id": "ararat", "name": "Ararat" },
+        { "id": "shinar", "name": "Shinar" },
+        { "id": "babel", "name": "Babel" }
+      ]
     },
     {
       "id": "abraham",
@@ -55,7 +79,19 @@
         25
       ],
       "theme": "Call, promise, tested faith",
-      "summary": "The call of Abram, covenant promises, and the testing of faith"
+      "summary": "The call of Abram, covenant promises, and the testing of faith",
+      "people": [
+        { "id": "abraham", "name": "Abraham · Sarah" },
+        { "id": "lot", "name": "Lot" },
+        { "id": "hagar-ishmael", "name": "Hagar · Ishmael" }
+      ],
+      "places": [
+        { "id": "ur", "name": "Ur" },
+        { "id": "haran", "name": "Haran" },
+        { "id": "canaan", "name": "Canaan" },
+        { "id": "sodom", "name": "Sodom" },
+        { "id": "moriah", "name": "Moriah" }
+      ]
     },
     {
       "id": "isaac",
@@ -65,7 +101,15 @@
         27
       ],
       "theme": "Inheritance and blessing",
-      "summary": "The inheritance of promise and the contested blessing"
+      "summary": "The inheritance of promise and the contested blessing",
+      "people": [
+        { "id": "isaac", "name": "Isaac · Rebekah" },
+        { "id": "esau-jacob", "name": "Esau · Jacob" }
+      ],
+      "places": [
+        { "id": "gerar", "name": "Gerar" },
+        { "id": "beersheba", "name": "Beersheba" }
+      ]
     },
     {
       "id": "jacob",
@@ -82,7 +126,18 @@
         36
       ],
       "theme": "Struggle and transformation",
-      "summary": "Wrestling with God and man, transformation from Jacob to Israel"
+      "summary": "Wrestling with God and man, transformation from Jacob to Israel",
+      "people": [
+        { "id": "jacob", "name": "Jacob" },
+        { "id": "rachel-leah", "name": "Rachel · Leah" },
+        { "id": "laban", "name": "Laban" }
+      ],
+      "places": [
+        { "id": "bethel", "name": "Bethel" },
+        { "id": "haran", "name": "Haran" },
+        { "id": "peniel", "name": "Peniel" },
+        { "id": "shechem", "name": "Shechem" }
+      ]
     },
     {
       "id": "joseph",
@@ -104,7 +159,17 @@
         50
       ],
       "theme": "Providence and reconciliation",
-      "summary": "What man meant for evil, God meant for good"
+      "summary": "What man meant for evil, God meant for good",
+      "people": [
+        { "id": "joseph", "name": "Joseph" },
+        { "id": "judah", "name": "Judah" },
+        { "id": "pharaoh", "name": "Pharaoh" }
+      ],
+      "places": [
+        { "id": "dothan", "name": "Dothan" },
+        { "id": "egypt", "name": "Egypt" },
+        { "id": "goshen", "name": "Goshen" }
+      ]
     }
   ],
   "chapterSummaries": {

@@ -1,1 +1,26 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "the-lord-avenges",
+      "title": "The LORD Avenges",
+      "chapters": [1],
+      "theme": "Divine jealousy and consuming wrath",
+      "summary": "God's character revealed as jealous avenger who reserves wrath for enemies while sheltering those who trust him.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "the-fall-of-nineveh",
+      "title": "The Fall of Nineveh",
+      "chapters": [2, 3],
+      "theme": "Assyria's capital besieged and destroyed",
+      "summary": "Vivid imagery of Nineveh's siege, plunder, and total devastation as divine judgment against the bloody city of lions.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {
+    "1": "God's jealous vengeance against Nineveh declared through theophanic imagery of storm and earthquake, contrasted with refuge for those who trust.",
+    "2": "The siege of Nineveh depicted with chariots, scarlet warriors, and flooding gates as the lion's den is emptied and plundered.",
+    "3": "Woe to the bloody city full of lies and plunder, compared to fallen Thebes, destined for disgrace with no healing for her wound."
+  }
+}

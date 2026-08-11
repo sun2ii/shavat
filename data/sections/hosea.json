@@ -1,0 +1,285 @@
+{
+  "book": "hosea",
+  "chapters": {
+    "1": [
+      {
+        "title": "Hosea commanded to marry Gomer",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Children named for judgment",
+        "verseRange": [4, 9],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Not my people shall become my people",
+        "verseRange": [10, 11],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "2": [
+      {
+        "title": "Plead with your mother",
+        "verseRange": [1, 5],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "She did not know I gave her grain and wine",
+        "verseRange": [6, 13],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "I will allure her into the wilderness",
+        "verseRange": [14, 17],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "Betrothed to me forever",
+        "verseRange": [18, 23],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "3": [
+      {
+        "title": "Love her as the LORD loves Israel",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Many days without king or sacrifice",
+        "verseRange": [4, 5],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "4": [
+      {
+        "title": "The LORD has a case against Israel",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "My people destroyed for lack of knowledge",
+        "verseRange": [4, 10],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "A spirit of whoredom leads them astray",
+        "verseRange": [11, 19],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "5": [
+      {
+        "title": "Judgment on priests and king",
+        "verseRange": [1, 7],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Ephraim shall become a desolation",
+        "verseRange": [8, 15],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      }
+    ],
+    "6": [
+      {
+        "title": "Come, let us return to the LORD",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "I desire steadfast love, not sacrifice",
+        "verseRange": [4, 6],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Bloodshed from Gilead to Shechem",
+        "verseRange": [7, 11],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "7": [
+      {
+        "title": "Thieves and bandits within",
+        "verseRange": [1, 7],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Ephraim a cake not turned",
+        "verseRange": [8, 12],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "They do not cry to me from the heart",
+        "verseRange": [13, 16],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "8": [
+      {
+        "title": "They have broken my covenant",
+        "verseRange": [1, 6],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "They sow the wind and reap the whirlwind",
+        "verseRange": [7, 10],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Israel has forgotten his Maker",
+        "verseRange": [11, 14],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "9": [
+      {
+        "title": "No rejoicing like the peoples",
+        "verseRange": [1, 6],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "The prophet is a fool",
+        "verseRange": [7, 9],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "From Baal Peor to Gilgal",
+        "verseRange": [10, 17],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "10": [
+      {
+        "title": "A luxuriant vine that yields bad fruit",
+        "verseRange": [1, 8],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Sow righteousness, reap steadfast love",
+        "verseRange": [9, 12],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Destruction comes at dawn",
+        "verseRange": [13, 15],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "11": [
+      {
+        "title": "Out of Egypt I called my son",
+        "verseRange": [1, 4],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "They shall return to Egypt",
+        "verseRange": [5, 7],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "How can I give you up, Ephraim?",
+        "verseRange": [8, 12],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "12": [
+      {
+        "title": "Ephraim feeds on wind",
+        "verseRange": [1, 6],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "Jacob strove with the angel",
+        "verseRange": [7, 11],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "By a prophet the LORD brought Israel up",
+        "verseRange": [12, 14],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ],
+    "13": [
+      {
+        "title": "When Ephraim spoke, there was trembling",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "I am the LORD your God from Egypt",
+        "verseRange": [4, 8],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "Give me a king in my anger",
+        "verseRange": [9, 11],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      },
+      {
+        "title": "O Death, where are your plagues?",
+        "verseRange": [12, 16],
+        "color": "bg-purple-50 dark:bg-purple-950/20",
+        "borderColor": "border-purple-400"
+      }
+    ],
+    "14": [
+      {
+        "title": "Return, O Israel, to the LORD",
+        "verseRange": [1, 3],
+        "color": "bg-amber-50 dark:bg-amber-950/20",
+        "borderColor": "border-amber-400"
+      },
+      {
+        "title": "I will heal their apostasy",
+        "verseRange": [4, 7],
+        "color": "bg-blue-50 dark:bg-blue-950/20",
+        "borderColor": "border-blue-400"
+      },
+      {
+        "title": "The ways of the LORD are right",
+        "verseRange": [8, 9],
+        "color": "bg-green-50 dark:bg-green-950/20",
+        "borderColor": "border-green-400"
+      }
+    ]
+  }
+}

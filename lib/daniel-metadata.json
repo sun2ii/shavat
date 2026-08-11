@@ -1,32 +1,23 @@
 {
   "divisions": [
     {
-      "id": "faithful-in-babylon",
-      "title": "Faithful in Babylon",
+      "id": "stories-in-babylon",
+      "title": "Stories in Babylon",
       "chapters": [
         1,
         2,
-        3
-      ],
-      "theme": "Unbowed in exile",
-      "summary": "The king’s food refused, the dream of the statue, and the fiery furnace.",
-      "contentType": "narrative"
-    },
-    {
-      "id": "kings-humbled",
-      "title": "Kings Humbled",
-      "chapters": [
+        3,
         4,
         5,
         6
       ],
-      "theme": "Heaven rules",
-      "summary": "Nebuchadnezzar’s madness, the writing on the wall, and the lions’ den.",
+      "theme": "Heaven rules over kingdoms",
+      "summary": "Faithful exiles, dreaming kings, fiery furnace, and lions' den prove God's sovereignty.",
       "contentType": "narrative"
     },
     {
       "id": "daniels-visions",
-      "title": "Daniel’s Visions",
+      "title": "Daniel's Visions",
       "chapters": [
         7,
         8,
@@ -35,10 +26,75 @@
         11,
         12
       ],
-      "theme": "History from above",
-      "summary": "Beasts, kingdoms, and the Son of Man — the sweep of empires foretold.",
-      "contentType": "mixed"
+      "theme": "Empires rise and fall",
+      "summary": "Beasts, rams, goats, and the Son of Man reveal God's plan from exile to the end.",
+      "contentType": "prophecy"
     }
   ],
-  "chapterSummaries": {}
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-7", "title": "Daniel and friends taken to Babylon" },
+      { "verses": "8-16", "title": "Refusing the king's food" },
+      { "verses": "17-21", "title": "Ten times better than all" }
+    ],
+    "2": [
+      { "verses": "1-13", "title": "Nebuchadnezzar's dream forgotten" },
+      { "verses": "14-23", "title": "Daniel seeks the God of heaven" },
+      { "verses": "24-30", "title": "There is a God in heaven" },
+      { "verses": "31-45", "title": "The great statue and the rock" },
+      { "verses": "46-49", "title": "King worships and promotes Daniel" }
+    ],
+    "3": [
+      { "verses": "1-7", "title": "Golden image on the plain of Dura" },
+      { "verses": "8-18", "title": "Our God is able to deliver" },
+      { "verses": "19-27", "title": "Fourth man in the fire" },
+      { "verses": "28-30", "title": "Nebuchadnezzar blesses the Most High" }
+    ],
+    "4": [
+      { "verses": "1-18", "title": "Nebuchadnezzar's dream of a great tree" },
+      { "verses": "19-27", "title": "Daniel interprets the tree cut down" },
+      { "verses": "28-37", "title": "King driven to eat grass like an ox" }
+    ],
+    "5": [
+      { "verses": "1-9", "title": "Belshazzar's feast and the writing" },
+      { "verses": "10-16", "title": "Queen remembers Daniel" },
+      { "verses": "17-28", "title": "Mene mene tekel upharsin" },
+      { "verses": "29-31", "title": "That very night Belshazzar was killed" }
+    ],
+    "6": [
+      { "verses": "1-9", "title": "Decree to pray to no one but king" },
+      { "verses": "10-15", "title": "Daniel prays three times a day" },
+      { "verses": "16-24", "title": "Lions' den and God's deliverance" },
+      { "verses": "25-28", "title": "Darius honors the living God" }
+    ],
+    "7": [
+      { "verses": "1-8", "title": "Vision of four beasts" },
+      { "verses": "9-14", "title": "Ancient of Days and Son of Man" },
+      { "verses": "15-28", "title": "Interpretation of the beasts" }
+    ],
+    "8": [
+      { "verses": "1-14", "title": "Vision of ram and goat" },
+      { "verses": "15-27", "title": "Gabriel interprets the vision" }
+    ],
+    "9": [
+      { "verses": "1-3", "title": "Daniel understands the seventy years" },
+      { "verses": "4-19", "title": "Daniel's prayer of confession" },
+      { "verses": "20-27", "title": "Seventy weeks decreed" }
+    ],
+    "10": [
+      { "verses": "1-9", "title": "Vision of the man clothed in linen" },
+      { "verses": "10-21", "title": "Gabriel strengthens Daniel" }
+    ],
+    "11": [
+      { "verses": "1-4", "title": "Kings of Persia and Greece" },
+      { "verses": "5-20", "title": "Kings of south and north" },
+      { "verses": "21-35", "title": "Contemptible person and the sanctuary" },
+      { "verses": "36-45", "title": "King who exalts himself" }
+    ],
+    "12": [
+      { "verses": "1-4", "title": "Michael stands up for your people" },
+      { "verses": "5-13", "title": "How long till the end of these wonders" }
+    ]
+  }
 }

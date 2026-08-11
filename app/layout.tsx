@@ -1,10 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import Header from '@/components/Header';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import RoutePersistence from '@/components/RoutePersistence';
 import ScrollToTop from '@/components/ScrollToTop';
 import GlobalKeyboardNav from '@/components/GlobalKeyboardNav';
+import InnerLayout from '@/components/InnerLayout';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -42,16 +41,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="max-w-4xl lg:max-w-6xl mx-auto px-4 md:px-16 py-6 select-none-ui">
+      <body className="select-none-ui">
         <RoutePersistence />
         <GlobalKeyboardNav />
-        <Header />
-        <Breadcrumbs />
-        {children}
+        <InnerLayout>{children}</InnerLayout>
         <ScrollToTop />
       </body>
     </html>

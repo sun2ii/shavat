@@ -1,1 +1,287 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "judgment-on-judah",
+      "title": "Judgment on Judah",
+      "chapters": [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+      ],
+      "theme": "Glory departs from the temple",
+      "summary": "Visions, sign-acts, and parables expose Jerusalem's abominations and coming destruction.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "oracles-against-nations",
+      "title": "Oracles Against Nations",
+      "chapters": [
+        25, 26, 27, 28, 29, 30, 31, 32
+      ],
+      "theme": "Surrounding nations judged",
+      "summary": "Ammon, Moab, Edom, Philistia, Tyre, Sidon, and Egypt all fall under God's wrath.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "restoration-promises",
+      "title": "Restoration Promises",
+      "chapters": [
+        33, 34, 35, 36, 37, 38, 39
+      ],
+      "theme": "New heart and new spirit",
+      "summary": "Watchman's call, shepherds replaced, dry bones live, and Gog destroyed on the mountains.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "vision-of-new-temple",
+      "title": "Vision of New Temple",
+      "chapters": [
+        40, 41, 42, 43, 44, 45, 46, 47, 48
+      ],
+      "theme": "The LORD is there",
+      "summary": "Detailed measurements of a holy house, river flowing from the threshold, and land divided.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {},
+  "chapterSections": {
+    "1": [
+      { "verses": "1-3", "title": "Ezekiel among the exiles" },
+      { "verses": "4-14", "title": "Vision of four living creatures" },
+      { "verses": "15-21", "title": "Wheels within wheels" },
+      { "verses": "22-28", "title": "Throne above the expanse" }
+    ],
+    "2": [
+      { "verses": "1-5", "title": "Son of man stand on your feet" },
+      { "verses": "6-10", "title": "Do not be afraid of them" }
+    ],
+    "3": [
+      { "verses": "1-15", "title": "Eat this scroll" },
+      { "verses": "16-21", "title": "Watchman for the house of Israel" },
+      { "verses": "22-27", "title": "Shut yourself inside your house" }
+    ],
+    "4": [
+      { "verses": "1-8", "title": "Siege on a brick" },
+      { "verses": "9-17", "title": "Bread baked over dung" }
+    ],
+    "5": [
+      { "verses": "1-4", "title": "Razor on your head and beard" },
+      { "verses": "5-17", "title": "Jerusalem at the center of nations" }
+    ],
+    "6": [
+      { "verses": "1-7", "title": "Prophecy against mountains of Israel" },
+      { "verses": "8-14", "title": "Remnant will remember me" }
+    ],
+    "7": [
+      { "verses": "1-9", "title": "The end has come" },
+      { "verses": "10-22", "title": "Rod has budded, violence has grown" },
+      { "verses": "23-27", "title": "Make a chain for the land" }
+    ],
+    "8": [
+      { "verses": "1-6", "title": "Image of jealousy at the gate" },
+      { "verses": "7-13", "title": "Abominations in the temple" },
+      { "verses": "14-18", "title": "Women weeping for Tammuz" }
+    ],
+    "9": [
+      { "verses": "1-7", "title": "Mark on foreheads of those who sigh" },
+      { "verses": "8-11", "title": "Ezekiel's intercession" }
+    ],
+    "10": [
+      { "verses": "1-8", "title": "Coals of fire scattered over city" },
+      { "verses": "9-17", "title": "Wheels and cherubim described" },
+      { "verses": "18-22", "title": "Glory of the Lord departs" }
+    ],
+    "11": [
+      { "verses": "1-13", "title": "Caldron and the meat" },
+      { "verses": "14-21", "title": "New heart and new spirit" },
+      { "verses": "22-25", "title": "Glory departs to the mountain" }
+    ],
+    "12": [
+      { "verses": "1-16", "title": "Exile's baggage through the wall" },
+      { "verses": "17-20", "title": "Eat your bread with quaking" },
+      { "verses": "21-28", "title": "The days are near" }
+    ],
+    "13": [
+      { "verses": "1-16", "title": "Prophets who prophesy from their own hearts" },
+      { "verses": "17-23", "title": "Women who sew magic bands" }
+    ],
+    "14": [
+      { "verses": "1-11", "title": "Elders with idols in their hearts" },
+      { "verses": "12-23", "title": "Even Noah Daniel and Job could not save" }
+    ],
+    "15": [
+      { "verses": "1-8", "title": "Vine wood good for nothing" }
+    ],
+    "16": [
+      { "verses": "1-14", "title": "Abandoned infant became beautiful" },
+      { "verses": "15-34", "title": "You trusted in your beauty" },
+      { "verses": "35-52", "title": "Sodom was more righteous than you" },
+      { "verses": "53-63", "title": "I will establish my covenant with you" }
+    ],
+    "17": [
+      { "verses": "1-10", "title": "Parable of two eagles and vine" },
+      { "verses": "11-21", "title": "Interpretation king of Babylon and Zedekiah" },
+      { "verses": "22-24", "title": "Sprig from the top of cedar" }
+    ],
+    "18": [
+      { "verses": "1-9", "title": "Fathers eat sour grapes" },
+      { "verses": "10-20", "title": "Son shall not suffer for father's iniquity" },
+      { "verses": "21-32", "title": "When wicked turns from sin he will live" }
+    ],
+    "19": [
+      { "verses": "1-9", "title": "Lamentation for the princes lions" },
+      { "verses": "10-14", "title": "Your mother was like a vine" }
+    ],
+    "20": [
+      { "verses": "1-9", "title": "Elders inquire, Lord recalls rebellion in Egypt" },
+      { "verses": "10-26", "title": "Rebellions in the wilderness" },
+      { "verses": "27-32", "title": "Provocation in the land" },
+      { "verses": "33-44", "title": "I will bring you into the bond of the covenant" },
+      { "verses": "45-49", "title": "Fire in the south" }
+    ],
+    "21": [
+      { "verses": "1-7", "title": "Sword against Jerusalem and sanctuary" },
+      { "verses": "8-17", "title": "Song of the sword" },
+      { "verses": "18-27", "title": "King of Babylon at the parting" },
+      { "verses": "28-32", "title": "Sword against Ammon" }
+    ],
+    "22": [
+      { "verses": "1-16", "title": "Bloody city full of abominations" },
+      { "verses": "17-22", "title": "Dross in the furnace" },
+      { "verses": "23-31", "title": "Prophets princes priests and people all corrupt" }
+    ],
+    "23": [
+      { "verses": "1-10", "title": "Oholah and Oholibah two sisters" },
+      { "verses": "11-21", "title": "Oholibah more corrupt than Oholah" },
+      { "verses": "22-35", "title": "Lovers will come against you" },
+      { "verses": "36-49", "title": "Declare to them their abominations" }
+    ],
+    "24": [
+      { "verses": "1-14", "title": "Parable of the rusty pot" },
+      { "verses": "15-27", "title": "Death of Ezekiel's wife a sign" }
+    ],
+    "25": [
+      { "verses": "1-7", "title": "Judgment on Ammon" },
+      { "verses": "8-11", "title": "Judgment on Moab" },
+      { "verses": "12-14", "title": "Judgment on Edom" },
+      { "verses": "15-17", "title": "Judgment on Philistia" }
+    ],
+    "26": [
+      { "verses": "1-6", "title": "Tyre will be scraped bare" },
+      { "verses": "7-14", "title": "Nebuchadnezzar will destroy Tyre" },
+      { "verses": "15-21", "title": "Lament for Tyre" }
+    ],
+    "27": [
+      { "verses": "1-11", "title": "Tyre a beautiful ship" },
+      { "verses": "12-25", "title": "Tyre's extensive trade" },
+      { "verses": "26-36", "title": "Ship wrecked in the heart of the seas" }
+    ],
+    "28": [
+      { "verses": "1-10", "title": "Prince of Tyre claims to be god" },
+      { "verses": "11-19", "title": "Lament for the king of Tyre" },
+      { "verses": "20-24", "title": "Judgment on Sidon" },
+      { "verses": "25-26", "title": "Israel will dwell securely" }
+    ],
+    "29": [
+      { "verses": "1-7", "title": "Pharaoh a great dragon" },
+      { "verses": "8-16", "title": "Egypt will be a lowly kingdom" },
+      { "verses": "17-21", "title": "Egypt given to Nebuchadnezzar as wages" }
+    ],
+    "30": [
+      { "verses": "1-9", "title": "Wail for the day" },
+      { "verses": "10-19", "title": "I will put an end to Egypt" },
+      { "verses": "20-26", "title": "I will break Pharaoh's arms" }
+    ],
+    "31": [
+      { "verses": "1-9", "title": "Assyria was a cedar in Lebanon" },
+      { "verses": "10-18", "title": "Because it towered high I gave it over" }
+    ],
+    "32": [
+      { "verses": "1-16", "title": "Lamentation over Pharaoh and Egypt" },
+      { "verses": "17-32", "title": "Egypt will lie among the uncircumcised" }
+    ],
+    "33": [
+      { "verses": "1-9", "title": "Watchman's responsibility" },
+      { "verses": "10-20", "title": "Why should you die O house of Israel" },
+      { "verses": "21-29", "title": "Fugitive reports Jerusalem has fallen" },
+      { "verses": "30-33", "title": "People treat you like a singer" }
+    ],
+    "34": [
+      { "verses": "1-10", "title": "Shepherds who feed themselves" },
+      { "verses": "11-16", "title": "I myself will search for my sheep" },
+      { "verses": "17-24", "title": "I will set up one shepherd" },
+      { "verses": "25-31", "title": "Covenant of peace" }
+    ],
+    "35": [
+      { "verses": "1-9", "title": "Mount Seir will be desolate" },
+      { "verses": "10-15", "title": "You said these two nations are mine" }
+    ],
+    "36": [
+      { "verses": "1-15", "title": "Mountains of Israel will bear fruit" },
+      { "verses": "16-21", "title": "I had concern for my holy name" },
+      { "verses": "22-32", "title": "New heart and new spirit" },
+      { "verses": "33-38", "title": "Ruined places shall be rebuilt" }
+    ],
+    "37": [
+      { "verses": "1-14", "title": "Valley of dry bones" },
+      { "verses": "15-28", "title": "Two sticks become one" }
+    ],
+    "38": [
+      { "verses": "1-9", "title": "Gog of Magog summoned" },
+      { "verses": "10-16", "title": "You will devise an evil scheme" },
+      { "verses": "17-23", "title": "I will rain upon him fire and brimstone" }
+    ],
+    "39": [
+      { "verses": "1-16", "title": "Gog's hordes destroyed" },
+      { "verses": "17-24", "title": "Sacrifice on the mountains of Israel" },
+      { "verses": "25-29", "title": "I will restore the fortunes of Jacob" }
+    ],
+    "40": [
+      { "verses": "1-4", "title": "Vision of the temple" },
+      { "verses": "5-16", "title": "East gate measured" },
+      { "verses": "17-27", "title": "Outer court and gates" },
+      { "verses": "28-47", "title": "Inner court and gates" },
+      { "verses": "48-49", "title": "Vestibule of the temple" }
+    ],
+    "41": [
+      { "verses": "1-4", "title": "Nave and inner room measured" },
+      { "verses": "5-11", "title": "Side chambers around the temple" },
+      { "verses": "12-15", "title": "Building on the west side" },
+      { "verses": "16-26", "title": "Interior decorations" }
+    ],
+    "42": [
+      { "verses": "1-14", "title": "Priests' chambers measured" },
+      { "verses": "15-20", "title": "Outer wall around the temple" }
+    ],
+    "43": [
+      { "verses": "1-5", "title": "Glory of the Lord enters temple" },
+      { "verses": "6-12", "title": "This is the place of my throne" },
+      { "verses": "13-27", "title": "Altar and its consecration" }
+    ],
+    "44": [
+      { "verses": "1-3", "title": "East gate shall remain shut" },
+      { "verses": "4-14", "title": "Levites bear their punishment" },
+      { "verses": "15-31", "title": "Rules for Levitical priests" }
+    ],
+    "45": [
+      { "verses": "1-8", "title": "Holy portion of the land" },
+      { "verses": "9-12", "title": "Prince must stop oppression" },
+      { "verses": "13-25", "title": "Offerings for festivals" }
+    ],
+    "46": [
+      { "verses": "1-8", "title": "Prince's worship on Sabbaths" },
+      { "verses": "9-15", "title": "People's worship and daily offerings" },
+      { "verses": "16-18", "title": "Prince's inheritance laws" },
+      { "verses": "19-24", "title": "Kitchens for boiling sacrifices" }
+    ],
+    "47": [
+      { "verses": "1-12", "title": "Water flowing from the temple" },
+      { "verses": "13-23", "title": "Boundaries of the land" }
+    ],
+    "48": [
+      { "verses": "1-7", "title": "Northern tribal portions" },
+      { "verses": "8-22", "title": "Portion for the sanctuary and city" },
+      { "verses": "23-29", "title": "Southern tribal portions" },
+      { "verses": "30-35", "title": "Gates of the city, the Lord is there" }
+    ]
+  }
+}

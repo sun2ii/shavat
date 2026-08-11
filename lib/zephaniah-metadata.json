@@ -1,1 +1,56 @@
-{"books":[],"chapterSummaries":{}}
+{
+  "divisions": [
+    {
+      "id": "day-of-the-lord-against-judah",
+      "title": "Day of the LORD Against Judah",
+      "chapters": [1],
+      "theme": "Total judgment sweeping all creation",
+      "summary": "God announces cosmic judgment beginning with Judah: idolatry, complacency, and violence will be consumed in the great day of the LORD.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "judgment-on-the-nations",
+      "title": "Judgment on the Nations",
+      "chapters": [2],
+      "theme": "No nation escapes the LORD's justice",
+      "summary": "Philistia, Moab, Ammon, Cush, and Assyria face destruction, yet the humble who seek the LORD may find shelter.",
+      "contentType": "prophecy"
+    },
+    {
+      "id": "woe-and-restoration",
+      "title": "Woe and Restoration",
+      "chapters": [3],
+      "theme": "From oppression to rejoicing",
+      "summary": "Jerusalem's corrupt leaders condemned, then purified. The LORD removes judgment, gathers the outcasts, and rejoices over his people with singing.",
+      "contentType": "prophecy"
+    }
+  ],
+  "books": [],
+  "chapterSummaries": {
+    "1": "The Day of the LORD sweeps away everything in Judah",
+    "2": "Judgment pronounced on surrounding nations",
+    "3": "Jerusalem condemned then restored with joy"
+  },
+  "chapterSections": {
+    "1": [
+      { "verses": "1", "title": "Superscription" },
+      { "verses": "2-6", "title": "Total destruction announced" },
+      { "verses": "7-13", "title": "Day of the LORD near" },
+      { "verses": "14-18", "title": "Great day of wrath" }
+    ],
+    "2": [
+      { "verses": "1-3", "title": "Seek the LORD before wrath" },
+      { "verses": "4-7", "title": "Judgment on Philistia" },
+      { "verses": "8-11", "title": "Judgment on Moab and Ammon" },
+      { "verses": "12", "title": "Judgment on Cush" },
+      { "verses": "13-15", "title": "Judgment on Assyria" }
+    ],
+    "3": [
+      { "verses": "1-5", "title": "Woe to oppressing city" },
+      { "verses": "6-8", "title": "Nations cut off as warning" },
+      { "verses": "9-13", "title": "Purified remnant preserved" },
+      { "verses": "14-17", "title": "Sing, the LORD rejoices over you" },
+      { "verses": "18-20", "title": "Gathering and restoration" }
+    ]
+  }
+}

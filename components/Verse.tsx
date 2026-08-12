@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Verse as VerseType } from '@/lib/types';
 import { tokenizeVerse, type QuoteSpan } from '@/lib/speaker-quotes';
 
@@ -6,12 +7,13 @@ interface Props {
   isSelected?: boolean;
   onToggle?: (verseNum: number) => void;
   commentary?: string;
+  showCommentaryGate?: boolean;
   spans?: Pick<QuoteSpan, 'speaker' | 'quote'>[];
   /* Speaker id → palette slot (1–10), resolved against the --speaker-N vars. */
   speakerColors?: Record<string, number>;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, spans, speakerColors }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -57,6 +59,20 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
           <span className="block font-serif text-[16.5px] leading-relaxed text-muted">
             {commentary}
           </span>
+        </span>
+      )}
+
+      {isSelected && !commentary && showCommentaryGate && (
+        <span className="block my-5 pl-5 border-l-2 border-hairline">
+          <span className="block font-sans text-[13px] text-muted mb-2">
+            Sign up to view verse commentary
+          </span>
+          <Link
+            href="/signup"
+            className="inline-block font-sans text-[11px] tracking-[0.12em] uppercase font-semibold text-gold hover:text-gold-ink transition-colors"
+          >
+            Create free account →
+          </Link>
         </span>
       )}
     </>

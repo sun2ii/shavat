@@ -13,6 +13,7 @@ import BookPageClient from '@/components/BookPageClient';
 import BookReader from '@/components/BookReader';
 import { getChapterSections } from '@/lib/sections';
 import { getChapterSpeakers } from '@/lib/speakers';
+import { getCurrentUser } from '@/lib/auth';
 
 export interface BookReadingParams {
   book: string;
@@ -40,11 +41,15 @@ export function bookReadingMetadata(book: string): Metadata {
  * prefix the request arrived on; a book reached through the wrong one is
  * redirected to its canonical path rather than rendered twice.
  */
-export default function BookReadingRoute({
+export default async function BookReadingRoute({
   book,
   slug = [],
   testament,
 }: BookReadingParams & { testament: TestamentPrefix }) {
+  // Check auth for gating extras like commentary (not the text itself)
+  const user = await getCurrentUser();
+  const isAuthenticated = !!user;
+
   const bookEntry = getBookBySlug(book);
   if (!bookEntry) {
     notFound();
@@ -135,6 +140,7 @@ export default function BookReadingRoute({
           chapter={chapterNum}
           sections={getChapterSections(book, chapterNum) ?? undefined}
           chapterSpeakers={getChapterSpeakers(book, chapterNum) ?? undefined}
+          isAuthenticated={isAuthenticated}
         />
       </main>
     );
@@ -202,6 +208,7 @@ export default function BookReadingRoute({
         chapterSummary={chapterSummary}
         sections={getChapterSections(book, chapterNum) ?? undefined}
         chapterSpeakers={getChapterSpeakers(book, chapterNum) ?? undefined}
+        isAuthenticated={isAuthenticated}
       />
     );
   }

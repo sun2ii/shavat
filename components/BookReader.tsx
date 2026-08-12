@@ -22,6 +22,7 @@ interface Props {
   nextChapter?: number | null;
   prevDivisionId?: string | null;
   nextDivisionId?: string | null;
+  isAuthenticated?: boolean;
 }
 
 function slugify(text: string): string {
@@ -66,7 +67,7 @@ function copyFlashClass(borderColor: string): string {
   return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
 }
 
-export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId }: Props) {
+export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, isAuthenticated = false }: Props) {
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
@@ -123,13 +124,14 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     setExpandedSection(prev => (prev === sectionName ? null : sectionName));
   };
 
+  // Only load commentary for authenticated users
   useEffect(() => {
-    if (actualBook && actualChapter) {
+    if (isAuthenticated && actualBook && actualChapter) {
       loadCommentary(actualBook, actualChapter).then(() => {
         setCommentary(getCommentary(actualBook, actualChapter));
       });
     }
-  }, [actualBook, actualChapter]);
+  }, [isAuthenticated, actualBook, actualChapter]);
 
   const toggleVerse = (verseNum: number) => {
     setSelectedVerses(prev => {
@@ -177,7 +179,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   if (sections && sections.length > 0) {
     return (
-      <div className="max-w-[760px] mx-auto">
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6">
         <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
         <div className="space-y-4">
           {sections.map((daySection) => {
@@ -298,7 +300,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                           verse={verse}
                           isSelected={selectedVerses.has(verse.verse)}
                           onToggle={toggleVerse}
-                          commentary={commentary.get(verse.verse)}
+                          commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
+                          showCommentaryGate={!isAuthenticated}
                           spans={spansByVerse.get(verse.verse)}
                           speakerColors={speakerColors}
                         />
@@ -350,7 +353,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           speakers={chapterSpeakers.speakers}
         />
       )}
-      <div className="max-w-[760px] mx-auto">
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6">
         <div className="font-serif text-ink text-[21px] leading-[1.95]">
           {verses.map((verse) => (
             <Verse
@@ -358,7 +361,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               verse={verse}
               isSelected={selectedVerses.has(verse.verse)}
               onToggle={toggleVerse}
-              commentary={commentary.get(verse.verse)}
+              commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
+              showCommentaryGate={!isAuthenticated}
               spans={spansByVerse.get(verse.verse)}
               speakerColors={speakerColors}
             />

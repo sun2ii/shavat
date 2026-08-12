@@ -1,5 +1,5 @@
-import { ClientLayout } from '@/components/home/ClientLayout';
+import { HomeContent } from '@/components/home/HomeContent';
 
 export default function Home() {
-  return <ClientLayout />;
+  return <HomeContent />;
 }

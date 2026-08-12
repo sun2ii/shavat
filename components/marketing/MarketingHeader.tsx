@@ -2,9 +2,6 @@
 
 import Link from 'next/link';
 
-// Debug: Add red border to highlight manually created SVGs
-const svgDebugStyle = { border: '2px solid red' };
-
 type PageId = 'home' | 'features' | 'how-it-works' | 'about' | 'pricing' | 'resources';
 
 interface MarketingHeaderProps {
@@ -53,8 +50,7 @@ export function MarketingHeader({ activePage }: MarketingHeaderProps) {
           fill="none"
           stroke="#C8A248"
           strokeWidth="1.6"
-          style={svgDebugStyle}
-        >
+                 >
           <path d="M4 28 C14 24 24 16 36 4" />
           <path d="M12 22 C11 17 13 14 17 13 C17 18 16 21 12 22 Z M20 15 C19 10 21 7 25 6 C25 11 24 14 20 15 Z M15 26 C19 23 23 23 26 25 C22 28 18 28 15 26 Z" />
         </svg>
@@ -114,8 +110,7 @@ export function MarketingHeader({ activePage }: MarketingHeaderProps) {
             fill="none"
             stroke="#1F2E24"
             strokeWidth="1.7"
-            style={svgDebugStyle}
-          >
+                     >
             <circle cx="8" cy="8" r="5.5" />
             <path d="M12 12 L16 16" />
           </svg>

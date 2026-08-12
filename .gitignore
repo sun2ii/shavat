@@ -9,3 +9,6 @@ out
 
 # Written at runtime by app/api/bookmarks.
 bookmarks.json
+
+# Generated speaker audit reports (diagnostic, not production data)
+reports/

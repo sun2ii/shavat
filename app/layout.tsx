@@ -4,6 +4,8 @@ import RoutePersistence from '@/components/RoutePersistence';
 import ScrollToTop from '@/components/ScrollToTop';
 import GlobalKeyboardNav from '@/components/GlobalKeyboardNav';
 import InnerLayout from '@/components/InnerLayout';
+import DebugModeSync from '@/components/SvgDebugMode';
+import { getCurrentUser } from '@/lib/auth';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -29,11 +31,14 @@ export const viewport: Viewport = {
 // No-flash theme init: reads saved choice, falls back to system preference.
 const themeScript = `(function(){try{var t=localStorage.getItem('shavat-theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.classList.add(d?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();`;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const user = await getCurrentUser();
+  const isAuthenticated = !!user;
+
   return (
     <html lang="en">
       <head>
@@ -48,7 +53,8 @@ export default function RootLayout({
       <body className="select-none-ui">
         <RoutePersistence />
         <GlobalKeyboardNav />
-        <InnerLayout>{children}</InnerLayout>
+        <DebugModeSync />
+        <InnerLayout isAuthenticated={isAuthenticated}>{children}</InnerLayout>
         <ScrollToTop />
       </body>
     </html>

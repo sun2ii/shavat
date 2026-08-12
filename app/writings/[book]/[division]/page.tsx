@@ -217,7 +217,7 @@ function WritingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="max-w-3xl lg:max-w-none mx-auto select-text">
+    <main className="max-w-3xl lg:max-w-none mx-auto select-text px-4 sm:px-6 md:px-8 py-6">
       <div className="mb-6">
         <Link
           href={backHref}

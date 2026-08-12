@@ -230,9 +230,9 @@ export default function ChapterNav({
 
   return (
     <>
-      <nav className="relative flex flex-col items-center justify-center mb-8 pb-5 border-b border-hairline">
+      <nav className="relative flex flex-col items-center justify-center mb-8 pt-6 pb-5 border-b border-hairline px-4 sm:px-6">
         {/* Left: canonical reference + bookmark */}
-        <div className="absolute left-0 top-0 flex flex-col items-start gap-2.5">
+        <div className="absolute left-4 sm:left-6 top-6 flex flex-col items-start gap-2.5">
           <BookMap
             label={`${bookAbbreviation} ${currentChapter}`}
             divisions={getAllDivisions(bookSlug)}

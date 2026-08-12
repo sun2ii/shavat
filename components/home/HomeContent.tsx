@@ -1,161 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Sidebar } from './Sidebar';
+import { MarketingNav } from '@/components/marketing/MarketingNav';
 
-const mobileNavLinks = [
-  { href: '/', label: 'Home', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 8.5 L9 2.5 L16 8.5 M4 7.5 V15.5 H14 V7.5 M7.5 15.5 V11 H10.5 V15.5"/></svg> },
-  { href: '/library', label: 'Library', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 4 C7.2 2.9 4.6 2.6 2 3.2 V14.5 C4.6 13.9 7.2 14.2 9 15.3 C10.8 14.2 13.4 13.9 16 14.5 V3.2 C13.4 2.6 10.8 2.9 9 4 Z M9 4 V15.3"/></svg> },
-  { href: '/terrain', label: 'Terrain', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 6 C4 4 6 4 8 6 C10 8 12 8 14 6 M2 12 C4 10 6 10 8 12 C10 14 12 14 14 12" transform="translate(1 0)"/></svg> },
-  { href: '/characters', label: 'Characters', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="9" cy="5" r="3"/><path d="M3 16 C3 12 6 10 9 10 C12 10 15 12 15 16"/></svg> },
-  { href: '/places', label: 'Places', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 2 C6 2 4 4.5 4 7 C4 11 9 16 9 16 C9 16 14 11 14 7 C14 4.5 12 2 9 2 Z"/><circle cx="9" cy="7" r="2"/></svg> },
-  { href: '/timeline', label: 'Timeline', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 2 V16 M5 5 H13 M5 9 H13 M5 13 H13"/></svg> },
-  { href: '/writings', label: 'Writings', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3 H15 V15 H3 Z M6 6 H12 M6 9 H12 M6 12 H10"/></svg> },
-];
-
-export function ClientLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+export function HomeContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  return (
-    <div className="min-h-screen font-inter bg-paper text-ink">
-      {/* Mobile: no sidebar, Desktop: sidebar */}
-      <div className="hidden lg:block">
-        <div
-          className="min-h-screen"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: sidebarOpen ? '222px 1fr' : '64px 1fr',
-            transition: 'grid-template-columns 0.3s ease'
-          }}
-        >
-          <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
-          <MainContent mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-        </div>
-      </div>
-
-      {/* Mobile/Tablet: no sidebar */}
-      <div className="lg:hidden">
-        <MainContent mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-      </div>
-
-      {/* Mobile menu overlay */}
-      {mobileMenuOpen && (
-        <MobileMenu onClose={() => setMobileMenuOpen(false)} />
-      )}
-    </div>
-  );
-}
-
-function MobileMenu({ onClose }: { onClose: () => void }) {
-  const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  const toggleTheme = () => {
-    const root = document.documentElement;
-    const next = !root.classList.contains('dark');
-    root.classList.toggle('dark', next);
-    root.classList.toggle('light', !next);
-    try {
-      localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
-    } catch {}
-    setIsDark(next);
-  };
-
-  return (
-    <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-        onClick={onClose}
-      />
-
-      {/* Drawer */}
-      <div className="fixed top-0 left-0 bottom-0 w-[280px] bg-sidebar-bg z-50 lg:hidden flex flex-col">
-        {/* Header */}
-        <div className="p-5 border-b border-sidebar-border">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <svg width="32" height="38" viewBox="0 0 72 86" fill="none" className="stroke-gold" strokeWidth="1.6">
-                <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
-                <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
-                <path d="M36 30 V58 M26 40 H46" />
-              </svg>
-              <div>
-                <div className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</div>
-                <div className="text-[9px] tracking-[1.5px] text-sidebar-text-muted">KNOW WHERE YOU ARE</div>
-              </div>
-            </div>
-            <button
-              onClick={onClose}
-              className="p-2 text-sidebar-text-muted hover:text-sidebar-text"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 6 L18 18 M18 6 L6 18" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Nav links */}
-        <nav className="flex-1 overflow-y-auto p-4">
-          <div className="flex flex-col gap-1">
-            {mobileNavLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={onClose}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    isActive
-                      ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
-                      : 'text-sidebar-text hover:bg-sidebar-hover-bg'
-                  }`}
-                >
-                  <span className={isActive ? 'text-sidebar-active-text' : 'text-gold'}>{link.icon}</span>
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
-
-        {/* Footer with Settings (theme toggle) */}
-        <div className="p-4 border-t border-sidebar-border">
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
-            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDark ? (
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="9" cy="9" r="4"/>
-                <path d="M9 1V3M9 15V17M1 9H3M15 9H17M3.5 3.5L5 5M13 13L14.5 14.5M14.5 3.5L13 5M5 13L3.5 14.5"/>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M15.5 10.5C14.5 11.5 13 12.2 11.5 12.2C8 12.2 5.5 9.5 5.5 6C5.5 4.5 6 3.2 7 2.2C3.5 3 1 6.2 1 10C1 14.4 4.6 18 9 18C12.8 18 16 15.5 16.8 12C16.4 11.5 16 11 15.5 10.5Z"/>
-              </svg>
-            )}
-            <span className="text-sm">Settings</span>
-          </button>
-          <div className="text-[10px] text-sidebar-text-muted text-center mt-3">
-            Stay oriented in Scripture.
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-function MainContent({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolean; setMobileMenuOpen: (open: boolean) => void }) {
   return (
     <main className="min-w-0">
       {/* HERO */}
@@ -164,41 +15,8 @@ function MainContent({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: bo
         {/* Dark mode overlay for hero image */}
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
-        {/* Mobile nav with hamburger */}
-        <header className="relative z-10 flex lg:hidden items-center justify-between px-4 pt-3">
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="p-2 -ml-2 text-white/90 hover:text-white"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 6 H20 M4 12 H20 M4 18 H20" />
-            </svg>
-          </button>
-          <nav className="flex items-center gap-3 text-[9px] tracking-[1.5px] text-white/90 font-medium">
-            <Link href="/" className="text-white font-bold border-b border-gold pb-0.5">HOME</Link>
-            <Link href="/features">FEATURES</Link>
-            <Link href="/about">ABOUT</Link>
-            <Link href="/pricing">PRICING</Link>
-          </nav>
-        </header>
-
-        {/* Desktop nav (when sidebar is present, this shows in the main content area) */}
-        <header className="relative z-10 hidden lg:flex items-center justify-between gap-7 px-8 pt-5">
-          <nav className="flex items-center gap-7 text-[12.5px] tracking-[2px] text-white/85 font-medium whitespace-nowrap">
-            <Link href="/" className="text-white font-bold border-b-2 border-gold pb-1">HOME</Link>
-            <Link href="/features" className="hover:text-gold">FEATURES</Link>
-            <Link href="/how-it-works" className="hover:text-gold">HOW IT WORKS</Link>
-            <Link href="/about" className="hover:text-gold">ABOUT</Link>
-            <Link href="/pricing" className="hover:text-gold">PRICING</Link>
-            <Link href="/resources" className="hover:text-gold">RESOURCES</Link>
-          </nav>
-          <div className="flex items-center gap-3">
-            <label className="flex items-center gap-2.5 bg-white/90 dark:bg-surface/90 border border-hairline rounded-lg px-3 py-2 w-[220px]">
-              <svg width="15" height="15" viewBox="0 0 18 18" fill="none" className="stroke-muted" strokeWidth="1.6"><circle cx="8" cy="8" r="5.5"/><path d="M12 12 L16 16"/></svg>
-              <input type="text" placeholder="Search..." className="border-none outline-none bg-transparent font-inter text-xs text-ink w-full"/>
-            </label>
-          </div>
-        </header>
+        {/* Unified navbar - uses MarketingNav for consistency */}
+        <MarketingNav variant="dark" onHamburgerClick={() => setMobileMenuOpen(true)} />
 
         {/* Hero copy */}
         <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-11 pt-8 sm:pt-6 md:pt-6 max-w-[560px]">

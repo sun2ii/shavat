@@ -17,6 +17,7 @@ interface Props {
   chapterSummary?: string;
   sections?: Section[];
   chapterSpeakers?: ChapterSpeakers;
+  isAuthenticated?: boolean;
 }
 
 export default function BookPageClient({
@@ -28,7 +29,8 @@ export default function BookPageClient({
   currentChapter,
   chapterSummary,
   sections,
-  chapterSpeakers
+  chapterSpeakers,
+  isAuthenticated = false
 }: Props) {
   const chapterIndex = division.chapters.indexOf(currentChapter);
 
@@ -65,6 +67,7 @@ export default function BookPageClient({
         nextChapter={nextChapter}
         prevDivisionId={prevDivisionId}
         nextDivisionId={nextDivisionId}
+        isAuthenticated={isAuthenticated}
       />
     </main>
   );

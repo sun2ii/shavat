@@ -33,9 +33,14 @@ export function Header() {
 
       {/* Right Section */}
       <div className="flex items-center gap-3.5 whitespace-nowrap">
-        {/* Get Started Button */}
         <a
-          href="/terrain"
+          href="/signin"
+          className="text-[12.5px] tracking-wide-1 text-shavat-dark dark:text-shavat-text-light hover:text-shavat-gold transition-colors"
+        >
+          SIGN IN
+        </a>
+        <a
+          href="/signup"
           className="bg-shavat-darkest dark:bg-shavat-dark text-shavat-cream dark:text-shavat-cream px-6 py-3.5 rounded-md text-[12.5px] tracking-wide-1 hover:bg-shavat-dark dark:hover:bg-shavat-mid transition-colors"
         >
           GET STARTED

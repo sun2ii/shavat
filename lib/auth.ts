@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { sql } from './db';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
 
 const SALT_ROUNDS = 10;

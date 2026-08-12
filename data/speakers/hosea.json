@@ -1,0 +1,336 @@
+{
+  "book": "hosea",
+  "speakers": {
+    "the-lord": {
+      "name": "The Lord",
+      "color": 8
+    },
+    "israel": {
+      "name": "Israel/Gomer",
+      "color": 2
+    },
+    "hosea": {
+      "name": "Hosea",
+      "color": 1
+    },
+    "the-people": {
+      "name": "The People",
+      "color": 5
+    }
+  },
+  "chapters": {
+    "1": [
+      {
+        "verse": 2,
+        "speaker": "the-lord",
+        "quote": "\u201cGo, marry a promiscuous woman and have children with her, for like an adulterous wife this land is guilty of unfaithfulness to the Lord.\u201d"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "\u201cCall him Jezreel, because I will soon punish the house of Jehu for the massacre at Jezreel, and I will put an end to the kingdom of Israel.\u201d"
+      },
+      {
+        "verse": 5,
+        "speaker": "the-lord",
+        "quote": "\u201cIn that day I will break Israel\u0060s bow in the Valley of Jezreel.\u201d"
+      },
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "\u201cCall her Lo-Ruhamah (which means \u0060not loved\u0060), for I will no longer show love to Israel, that I should at all forgive them.\u201d"
+      },
+      {
+        "verse": 7,
+        "speaker": "the-lord",
+        "quote": "\u201cYet I will show love to Judah; and I will save them\u2014not by bow, sword or battle, or by horses and horsemen, but I, the Lord their God, will save them.\u201d"
+      },
+      {
+        "verse": 9,
+        "speaker": "the-lord",
+        "quote": "\u201cCall him Lo-Ammi (which means \u0060not my people\u0060), for you are not my people, and I am not your God.\u201d"
+      },
+      {
+        "verse": 10,
+        "speaker": "the-lord",
+        "quote": "\u201cYet the Israelites will be like the sand on the seashore, which cannot be measured or counted. In the place where it was said to them, \u0060You are not my people,\u0060 they will be called \u0060children of the living God.\u0060\u201d"
+      }
+    ],
+    "2": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cSay of your brothers, \u0060My people,\u0060 and of your sisters, \u0060My loved one.\u0060\u201d"
+      },
+      {
+        "verse": 2,
+        "speaker": "the-lord",
+        "quote": "\u201cRebuke your mother, rebuke her, for she is not my wife, and I am not her husband. Let her remove the adulterous look from her face and the unfaithfulness from between her breasts.\u201d"
+      },
+      {
+        "verse": 5,
+        "speaker": "israel",
+        "quote": "\u201cI will go after my lovers, who give me my food and my water, my wool and my linen, my olive oil and my drink.\u201d"
+      },
+      {
+        "verse": 7,
+        "speaker": "israel",
+        "quote": "\u201cI will go back to my husband as at first, for then I was better off than now.\u201d"
+      },
+      {
+        "verse": 14,
+        "speaker": "the-lord",
+        "quote": "\u201cTherefore I am now going to allure her; I will lead her into the wilderness and speak tenderly to her.\u201d"
+      },
+      {
+        "verse": 16,
+        "speaker": "the-lord",
+        "quote": "\u201cIn that day,\u201d declares the Lord, \u201cyou will call me \u0060my husband\u0060; you will no longer call me \u0060my master.\u0060\u201d"
+      },
+      {
+        "verse": 19,
+        "speaker": "the-lord",
+        "quote": "\u201cI will betroth you to me forever; I will betroth you in righteousness and justice, in love and compassion.\u201d"
+      },
+      {
+        "verse": 21,
+        "speaker": "the-lord",
+        "quote": "\u201cIn that day I will respond,\u201d declares the Lord\u2014 \u201cI will respond to the skies, and they will respond to the earth.\u201d"
+      },
+      {
+        "verse": 23,
+        "speaker": "the-lord",
+        "quote": "\u201cI will plant her for myself in the land; I will show my love to the one I called \u0060Not my loved one.\u0060 I will say to those called \u0060Not my people,\u0060 \u0060You are my people\u0060; and they will say, \u0060You are my God.\u0060\u201d"
+      }
+    ],
+    "3": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cGo, show your love to your wife again, though she is loved by another man and is an adulteress. Love her as the Lord loves the Israelites, though they turn to other gods and love the sacred raisin cakes.\u201d"
+      },
+      {
+        "verse": 3,
+        "speaker": "hosea",
+        "quote": "\u201cYou are to live with me many days; you must not be a prostitute or be intimate with any man, and I will behave the same way toward you.\u201d"
+      }
+    ],
+    "4": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cThere is no faithfulness, no love, no acknowledgment of God in the land.\u201d"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "\u201cBut let no one bring a charge, let no one accuse another, for your people are like those who bring charges against a priest.\u201d"
+      },
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "\u201cBecause you have rejected knowledge, I also reject you as my priests; because you have ignored the law of your God, I also will ignore your children.\u201d"
+      },
+      {
+        "verse": 15,
+        "speaker": "the-lord",
+        "quote": "\u201cThough you, Israel, commit adultery, do not let Judah become guilty. Do not go to Gilgal; do not go up to Beth Aven. And do not swear, \u0060As surely as the Lord lives!\u0060\u201d"
+      }
+    ],
+    "5": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cHear this, you priests! Pay attention, you Israelites! Listen, royal house! This judgment is against you: You have been a snare at Mizpah, a net spread out on Tabor.\u201d"
+      },
+      {
+        "verse": 8,
+        "speaker": "the-lord",
+        "quote": "\u201cSound the trumpet in Gibeah, the horn in Ramah. Raise the battle cry in Beth Aven; lead on, Benjamin.\u201d"
+      },
+      {
+        "verse": 14,
+        "speaker": "the-lord",
+        "quote": "\u201cFor I will be like a lion to Ephraim, like a great lion to Judah. I will tear them to pieces and go away; I will carry them off, with no one to rescue them.\u201d"
+      },
+      {
+        "verse": 15,
+        "speaker": "the-lord",
+        "quote": "\u201cThen I will return to my lair until they have borne their guilt and seek my face\u2014 in their misery they will earnestly seek me.\u201d"
+      }
+    ],
+    "6": [
+      {
+        "verse": 1,
+        "speaker": "the-people",
+        "quote": "\u201cCome, let us return to the Lord. He has torn us to pieces but he will heal us; he has injured us but he will bind up our wounds.\u201d"
+      },
+      {
+        "verse": 2,
+        "speaker": "the-people",
+        "quote": "\u201cAfter two days he will revive us; on the third day he will restore us, that we may live in his presence.\u201d"
+      },
+      {
+        "verse": 3,
+        "speaker": "the-people",
+        "quote": "\u201cLet us acknowledge the Lord; let us press on to acknowledge him. As surely as the sun rises, he will appear; he will come to us like the winter rains, like the spring rains that water the earth.\u201d"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "\u201cWhat can I do with you, Ephraim? What can I do with you, Judah? Your love is like the morning mist, like the early dew that disappears.\u201d"
+      },
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "\u201cFor I desire mercy, not sacrifice, and acknowledgment of God rather than burnt offerings.\u201d"
+      }
+    ],
+    "7": [
+      {
+        "verse": 13,
+        "speaker": "the-lord",
+        "quote": "\u201cWoe to them, because they have strayed from me! Destruction to them, because they have rebelled against me! I long to redeem them but they speak about me falsely.\u201d"
+      }
+    ],
+    "8": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cPut the trumpet to your lips! An eagle is over the house of the Lord because the people have broken my covenant and rebelled against my law.\u201d"
+      },
+      {
+        "verse": 2,
+        "speaker": "israel",
+        "quote": "\u201cOur God, we acknowledge you!\u201d"
+      },
+      {
+        "verse": 5,
+        "speaker": "the-lord",
+        "quote": "\u201cSamaria, throw out your calf-idol! My anger burns against them. How long will they be incapable of purity?\u201d"
+      }
+    ],
+    "9": [
+      {
+        "verse": 7,
+        "speaker": "the-lord",
+        "quote": "\u201cThe days of punishment are coming, the days of reckoning are at hand. Let Israel know this.\u201d"
+      },
+      {
+        "verse": 10,
+        "speaker": "the-lord",
+        "quote": "\u201cWhen I found Israel, it was like finding grapes in the desert; when I saw your ancestors, it was like seeing the early fruit on the fig tree.\u201d"
+      },
+      {
+        "verse": 15,
+        "speaker": "the-lord",
+        "quote": "\u201cBecause of all their wickedness in Gilgal, I hated them there. Because of their sinful deeds, I will drive them out of my house. I will no longer love them; all their leaders are rebellious.\u201d"
+      }
+    ],
+    "10": [
+      {
+        "verse": 3,
+        "speaker": "israel",
+        "quote": "\u201cWe have no king because we did not revere the Lord. But even if we had a king, what could he do for us?\u201d"
+      },
+      {
+        "verse": 8,
+        "speaker": "israel",
+        "quote": "\u201cCover us!\u201d and to the hills, \u201cFall on us!\u201d"
+      },
+      {
+        "verse": 12,
+        "speaker": "the-lord",
+        "quote": "\u201cSow righteousness for yourselves, reap the fruit of unfailing love, and break up your unplowed ground; for it is time to seek the Lord, until he comes and showers his righteousness on you.\u201d"
+      }
+    ],
+    "11": [
+      {
+        "verse": 1,
+        "speaker": "the-lord",
+        "quote": "\u201cWhen Israel was a child, I loved him, and out of Egypt I called my son.\u201d"
+      },
+      {
+        "verse": 8,
+        "speaker": "the-lord",
+        "quote": "\u201cHow can I give you up, Ephraim? How can I hand you over, Israel? How can I treat you like Admah? How can I make you like Zeboyim? My heart is changed within me; all my compassion is aroused.\u201d"
+      },
+      {
+        "verse": 9,
+        "speaker": "the-lord",
+        "quote": "\u201cI will not carry out my fierce anger, nor will I devastate Ephraim again. For I am God, and not a man\u2014 the Holy One among you. I will not come against their cities.\u201d"
+      }
+    ],
+    "12": [
+      {
+        "verse": 6,
+        "speaker": "the-lord",
+        "quote": "\u201cBut you must return to your God; maintain love and justice, and wait for your God always.\u201d"
+      },
+      {
+        "verse": 8,
+        "speaker": "israel",
+        "quote": "\u201cI am very rich; I have become wealthy. With all my wealth they will not find in me any iniquity or sin.\u201d"
+      },
+      {
+        "verse": 9,
+        "speaker": "the-lord",
+        "quote": "\u201cI have been the Lord your God ever since you came out of Egypt; I will make you live in tents again, as in the days of your appointed festivals.\u201d"
+      }
+    ],
+    "13": [
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "\u201cBut I have been the Lord your God ever since you came out of Egypt. You shall acknowledge no God but me, no Savior except me.\u201d"
+      },
+      {
+        "verse": 9,
+        "speaker": "the-lord",
+        "quote": "\u201cYou are destroyed, Israel, because you are against me, against your helper.\u201d"
+      },
+      {
+        "verse": 10,
+        "speaker": "the-lord",
+        "quote": "\u201cWhere is your king, that he may save you? Where are your rulers in all your towns, of whom you said, \u0060Give me a king and princes\u0060?\u201d"
+      },
+      {
+        "verse": 14,
+        "speaker": "the-lord",
+        "quote": "\u201cI will deliver this people from the power of the grave; I will redeem them from death. Where, O death, are your plagues? Where, O grave, is your destruction?\u201d"
+      }
+    ],
+    "14": [
+      {
+        "verse": 1,
+        "speaker": "hosea",
+        "quote": "\u201cReturn, Israel, to the Lord your God. Your sins have been your downfall!\u201d"
+      },
+      {
+        "verse": 2,
+        "speaker": "hosea",
+        "quote": "\u201cTake words with you and return to the Lord. Say to him: \u0060Forgive all our sins and receive us graciously, that we may offer the fruit of our lips.\u201d"
+      },
+      {
+        "verse": 3,
+        "speaker": "the-people",
+        "quote": "\u201cAssyria cannot save us; we will not mount warhorses. We will never again say \u0060Our gods\u0060 to what our own hands have made, for in you the fatherless find compassion.\u201d"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "\u201cI will heal their waywardness and love them freely, for my anger has turned away from them.\u201d"
+      },
+      {
+        "verse": 5,
+        "speaker": "the-lord",
+        "quote": "\u201cI will be like the dew to Israel; he will blossom like a lily. Like a cedar of Lebanon he will send down his roots.\u201d"
+      },
+      {
+        "verse": 8,
+        "speaker": "the-lord",
+        "quote": "\u201cEphraim, what more have I to do with idols? I will answer him and care for him. I am like a flourishing juniper; your fruitfulness comes from me.\u201d"
+      }
+    ]
+  }
+}

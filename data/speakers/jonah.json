@@ -1,0 +1,195 @@
+{
+  "book": "jonah",
+  "speakers": {
+    "the-lord": {
+      "name": "The Lord",
+      "color": 8
+    },
+    "jonah": {
+      "name": "Jonah",
+      "color": 1
+    },
+    "captain": {
+      "name": "The Captain",
+      "color": 3
+    },
+    "sailors": {
+      "name": "Sailors",
+      "color": 5
+    },
+    "king-of-nineveh": {
+      "name": "King of Nineveh",
+      "color": 6
+    }
+  },
+  "chapters": {
+    "1": [
+      {
+        "verse": 2,
+        "speaker": "the-lord",
+        "quote": "“Go to the great city of Nineveh and preach against it, because its wickedness has come up before me.”"
+      },
+      {
+        "verse": 6,
+        "speaker": "captain",
+        "quote": "“How can you sleep? Get up and call on your god! Maybe he will take notice of us so that we will not perish.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "sailors",
+        "quote": "“Come, let us cast lots to find out who is responsible for this calamity.”"
+      },
+      {
+        "verse": 8,
+        "speaker": "sailors",
+        "quote": "“Tell us, who is responsible for making all this trouble for us? What kind of work do you do? Where do you come from? What is your country? From what people are you?”"
+      },
+      {
+        "verse": 9,
+        "speaker": "jonah",
+        "quote": "“I am a Hebrew and I worship the Lord, the God of heaven, who made the sea and the dry land.”"
+      },
+      {
+        "verse": 10,
+        "speaker": "sailors",
+        "quote": "“What have you done?”"
+      },
+      {
+        "verse": 11,
+        "speaker": "sailors",
+        "quote": "“What should we do to you to make the sea calm down for us?”"
+      },
+      {
+        "verse": 12,
+        "speaker": "jonah",
+        "quote": "“Pick me up and throw me into the sea,”"
+      },
+      {
+        "verse": 12,
+        "speaker": "jonah",
+        "quote": "“and it will become calm. I know that it is my fault that this great storm has come upon you.”"
+      },
+      {
+        "verse": 14,
+        "speaker": "sailors",
+        "quote": "“Please, Lord, do not let us die for taking this man`s life. Do not hold us accountable for killing an innocent man, for you, Lord, have done as you pleased.”"
+      }
+    ],
+    "2": [
+      {
+        "verse": 2,
+        "speaker": "jonah",
+        "quote": "“In my distress I called to the Lord, and he answered me. From deep in the realm of the dead I called for help, and you listened to my cry."
+      },
+      {
+        "verse": 3,
+        "speaker": "jonah",
+        "quote": "You hurled me into the depths, into the very heart of the seas, and the currents swirled about me; all your waves and breakers swept over me."
+      },
+      {
+        "verse": 4,
+        "speaker": "jonah",
+        "quote": "I said, ‘I have been banished from your sight; yet I will look again toward your holy temple.’"
+      },
+      {
+        "verse": 5,
+        "speaker": "jonah",
+        "quote": "The engulfing waters threatened me, the deep surrounded me; seaweed was wrapped around my head."
+      },
+      {
+        "verse": 6,
+        "speaker": "jonah",
+        "quote": "To the roots of the mountains I sank down; the earth beneath barred me in forever. But you, Lord my God, brought my life up from the pit."
+      },
+      {
+        "verse": 7,
+        "speaker": "jonah",
+        "quote": "“When my life was ebbing away, I remembered you, Lord, and my prayer rose to you, to your holy temple."
+      },
+      {
+        "verse": 8,
+        "speaker": "jonah",
+        "quote": "“Those who cling to worthless idols turn away from God`s love for them."
+      },
+      {
+        "verse": 9,
+        "speaker": "jonah",
+        "quote": "But I, with shouts of grateful praise, will sacrifice to you. What I have vowed I will make good. I will say, ‘Salvation comes from the Lord.’”"
+      }
+    ],
+    "3": [
+      {
+        "verse": 2,
+        "speaker": "the-lord",
+        "quote": "“Go to the great city of Nineveh and proclaim to it the message I give you.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "jonah",
+        "quote": "“Forty more days and Nineveh will be overthrown.”"
+      },
+      {
+        "verse": 7,
+        "speaker": "king-of-nineveh",
+        "quote": "“By the decree of the king and his nobles: Do not let people or animals, herds or flocks, taste anything; do not let them eat or drink."
+      },
+      {
+        "verse": 8,
+        "speaker": "king-of-nineveh",
+        "quote": "But let people and animals be covered with sackcloth. Let everyone call urgently on God. Let them give up their evil ways and their violence."
+      },
+      {
+        "verse": 9,
+        "speaker": "king-of-nineveh",
+        "quote": "Who knows? God may yet relent and with compassion turn from his fierce anger so that we will not perish.”"
+      }
+    ],
+    "4": [
+      {
+        "verse": 2,
+        "speaker": "jonah",
+        "quote": "“Isn`t this what I said, Lord, when I was still at home? That is what I tried to forestall by fleeing to Tarshish. I knew that you are a gracious and compassionate God, slow to anger and abounding in love, a God who relents from sending calamity."
+      },
+      {
+        "verse": 3,
+        "speaker": "jonah",
+        "quote": "Now, Lord, take away my life, for it is better for me to die than to live.”"
+      },
+      {
+        "verse": 4,
+        "speaker": "the-lord",
+        "quote": "“Is it right for you to be angry?”"
+      },
+      {
+        "verse": 8,
+        "speaker": "jonah",
+        "quote": "“It would be better for me to die than to live.”"
+      },
+      {
+        "verse": 9,
+        "speaker": "the-lord",
+        "quote": "“Is it right for you to be angry about the plant?”"
+      },
+      {
+        "verse": 9,
+        "speaker": "jonah",
+        "quote": "“It is,”"
+      },
+      {
+        "verse": 9,
+        "speaker": "jonah",
+        "quote": "“And I`m so angry I wish I were dead.”"
+      },
+      {
+        "verse": 10,
+        "speaker": "the-lord",
+        "quote": "“You have been concerned about this plant, though you did not tend it or make it grow. It sprang up overnight and died overnight."
+      },
+      {
+        "verse": 11,
+        "speaker": "the-lord",
+        "quote": "And should I not have concern for the great city of Nineveh, in which there are more than a hundred and twenty thousand people who cannot tell their right hand from their left—and also many animals?”"
+      }
+    ]
+  }
+}

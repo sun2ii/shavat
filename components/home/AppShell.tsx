@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
@@ -24,7 +24,7 @@ export function AppShell({ children }: AppShellProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen light font-inter bg-[#F7F5F1] text-[#1F2E24]">
+    <div className="min-h-screen font-inter bg-paper text-ink">
       {/* Desktop: sidebar layout */}
       <div className="hidden lg:block">
         <div
@@ -45,22 +45,22 @@ export function AppShell({ children }: AppShellProps) {
       {/* Mobile/Tablet: no sidebar, hamburger menu */}
       <div className="lg:hidden">
         {/* Mobile header */}
-        <header className="sticky top-0 z-30 bg-[#1F2E24] px-4 py-3 flex items-center gap-4">
+        <header className="sticky top-0 z-30 bg-sidebar-bg px-4 py-3 flex items-center gap-4">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="p-1 text-[#B8C0AE] hover:text-[#F7F5F1]"
+            className="p-1 text-sidebar-text-muted hover:text-sidebar-text"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M4 6 H20 M4 12 H20 M4 18 H20" />
             </svg>
           </button>
           <div className="flex items-center gap-2">
-            <svg width="24" height="28" viewBox="0 0 72 86" fill="none" stroke="#C8A248" strokeWidth="1.6">
-              <circle cx="36" cy="6" r="2.4" fill="#C8A248" stroke="none" />
+            <svg width="24" height="28" viewBox="0 0 72 86" fill="none" className="stroke-gold" strokeWidth="1.6">
+              <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
               <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
               <path d="M36 30 V58 M26 40 H46" />
             </svg>
-            <span className="font-playfair text-lg font-semibold text-[#F7F5F1] tracking-wider">SHAVAT</span>
+            <span className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</span>
           </div>
         </header>
 
@@ -80,6 +80,22 @@ export function AppShell({ children }: AppShellProps) {
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const pathname = usePathname();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const next = !root.classList.contains('dark');
+    root.classList.toggle('dark', next);
+    root.classList.toggle('light', !next);
+    try {
+      localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
+    } catch {}
+    setIsDark(next);
+  };
 
   return (
     <>
@@ -90,24 +106,24 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       />
 
       {/* Drawer */}
-      <div className="fixed top-0 left-0 bottom-0 w-[280px] bg-[#1F2E24] z-50 lg:hidden flex flex-col">
+      <div className="fixed top-0 left-0 bottom-0 w-[280px] bg-sidebar-bg z-50 lg:hidden flex flex-col">
         {/* Header */}
-        <div className="p-5 border-b border-[#33422F]">
+        <div className="p-5 border-b border-sidebar-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <svg width="32" height="38" viewBox="0 0 72 86" fill="none" stroke="#C8A248" strokeWidth="1.6">
-                <circle cx="36" cy="6" r="2.4" fill="#C8A248" stroke="none" />
+              <svg width="32" height="38" viewBox="0 0 72 86" fill="none" className="stroke-gold" strokeWidth="1.6">
+                <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
                 <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
                 <path d="M36 30 V58 M26 40 H46" />
               </svg>
               <div>
-                <div className="font-playfair text-lg font-semibold text-[#F7F5F1] tracking-wider">SHAVAT</div>
-                <div className="text-[9px] tracking-[1.5px] text-[#B8C0AE]">KNOW WHERE YOU ARE</div>
+                <div className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</div>
+                <div className="text-[9px] tracking-[1.5px] text-sidebar-text-muted">KNOW WHERE YOU ARE</div>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="p-2 text-[#B8C0AE] hover:text-[#F7F5F1]"
+              className="p-2 text-sidebar-text-muted hover:text-sidebar-text"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M6 6 L18 18 M18 6 L6 18" />
@@ -128,11 +144,11 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
                   onClick={onClose}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-[#F7F5F1] text-[#1F2E24] font-semibold'
-                      : 'text-[#E8E5DC] hover:bg-[#2A3D2F]'
+                      ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
+                      : 'text-sidebar-text hover:bg-sidebar-hover-bg'
                   }`}
                 >
-                  <span className={isActive ? 'text-[#1F2E24]' : 'text-[#C8A248]'}>{link.icon}</span>
+                  <span className={isActive ? 'text-sidebar-active-text' : 'text-gold'}>{link.icon}</span>
                   {link.label}
                 </Link>
               );
@@ -140,9 +156,26 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           </div>
         </nav>
 
-        {/* Footer */}
-        <div className="p-4 border-t border-[#33422F]">
-          <div className="text-[10px] text-[#B8C0AE] text-center">
+        {/* Footer with Settings (theme toggle) */}
+        <div className="p-4 border-t border-sidebar-border">
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
+            title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDark ? (
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="9" cy="9" r="4"/>
+                <path d="M9 1V3M9 15V17M1 9H3M15 9H17M3.5 3.5L5 5M13 13L14.5 14.5M14.5 3.5L13 5M5 13L3.5 14.5"/>
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M15.5 10.5C14.5 11.5 13 12.2 11.5 12.2C8 12.2 5.5 9.5 5.5 6C5.5 4.5 6 3.2 7 2.2C3.5 3 1 6.2 1 10C1 14.4 4.6 18 9 18C12.8 18 16 15.5 16.8 12C16.4 11.5 16 11 15.5 10.5Z"/>
+              </svg>
+            )}
+            <span className="text-sm">Settings</span>
+          </button>
+          <div className="text-[10px] text-sidebar-text-muted text-center mt-3">
             Stay oriented in Scripture.
           </div>
         </div>

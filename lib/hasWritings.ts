@@ -147,6 +147,36 @@ const WRITINGS: Writing[] = [
   { book: 'luke', chapter: 22, division: 'passion', divisionIndex: 1, title: 'The Savior for All: Not My Will, but Yours', path: '/writings/luke/passion-1' },
   { book: 'luke', chapter: 23, division: 'passion', divisionIndex: 2, title: 'The Savior for All: Today You Will Be With Me in Paradise', path: '/writings/luke/passion-2' },
   { book: 'luke', chapter: 24, division: 'resurrection-and-ascension', divisionIndex: 1, title: 'The Savior for All: He Opened the Scriptures', path: '/writings/luke/resurrection-and-ascension-1' },
+  // Jonah
+  { book: 'jonah', chapter: 1, division: 'the-great-fish', divisionIndex: 1, title: 'Running from God: The Prophet Who Fled', path: '/writings/jonah/the-great-fish-1' },
+  { book: 'jonah', chapter: 2, division: 'the-great-fish', divisionIndex: 2, title: 'Running from God: Prayer from the Depths', path: '/writings/jonah/the-great-fish-2' },
+  { book: 'jonah', chapter: 3, division: 'nineveh', divisionIndex: 1, title: 'Mercy for the Enemy: A City Repents', path: '/writings/jonah/nineveh-1' },
+  { book: 'jonah', chapter: 4, division: 'nineveh', divisionIndex: 2, title: 'Mercy for the Enemy: The Heart of God', path: '/writings/jonah/nineveh-2' },
+  // Amos
+  { book: 'amos', chapter: 1, division: 'judgment-on-nations', divisionIndex: 1, title: 'The Lion Roars: Judgment Begins with the Nations', path: '/writings/amos/judgment-on-nations-1' },
+  { book: 'amos', chapter: 2, division: 'judgment-on-nations', divisionIndex: 2, title: 'The Lion Roars: The Net Tightens on Israel', path: '/writings/amos/judgment-on-nations-2' },
+  { book: 'amos', chapter: 3, division: 'amos-confronts-israel', divisionIndex: 1, title: 'Justice and Privilege: Election Means Accountability', path: '/writings/amos/amos-confronts-israel-1' },
+  { book: 'amos', chapter: 4, division: 'amos-confronts-israel', divisionIndex: 2, title: 'Justice and Privilege: Yet You Did Not Return', path: '/writings/amos/amos-confronts-israel-2' },
+  { book: 'amos', chapter: 5, division: 'amos-confronts-israel', divisionIndex: 3, title: 'Justice and Privilege: Let Justice Roll Like a River', path: '/writings/amos/amos-confronts-israel-3' },
+  { book: 'amos', chapter: 6, division: 'amos-confronts-israel', divisionIndex: 4, title: 'Justice and Privilege: Woe to the Complacent', path: '/writings/amos/amos-confronts-israel-4' },
+  { book: 'amos', chapter: 7, division: 'amos-visions', divisionIndex: 1, title: 'Visions of the End: Locusts, Fire, and the Plumb Line', path: '/writings/amos/amos-visions-1' },
+  { book: 'amos', chapter: 8, division: 'amos-visions', divisionIndex: 2, title: 'Visions of the End: Famine of the Word', path: '/writings/amos/amos-visions-2' },
+  { book: 'amos', chapter: 9, division: 'amos-visions', divisionIndex: 3, title: 'Visions of the End: David\'s Fallen Tent Restored', path: '/writings/amos/amos-visions-3' },
+  // Hosea
+  { book: 'hosea', chapter: 1, division: 'hosea-and-gomer', divisionIndex: 1, title: 'A Marriage of Sorrow: Children of Judgment', path: '/writings/hosea/hosea-and-gomer-1' },
+  { book: 'hosea', chapter: 2, division: 'hosea-and-gomer', divisionIndex: 2, title: 'A Marriage of Sorrow: Divorce and Renewal', path: '/writings/hosea/hosea-and-gomer-2' },
+  { book: 'hosea', chapter: 3, division: 'hosea-and-gomer', divisionIndex: 3, title: 'A Marriage of Sorrow: Bought Back', path: '/writings/hosea/hosea-and-gomer-3' },
+  { book: 'hosea', chapter: 4, division: 'israels-unfaithfulness', divisionIndex: 1, title: 'Spiritual Adultery: No Knowledge of God', path: '/writings/hosea/israels-unfaithfulness-1' },
+  { book: 'hosea', chapter: 5, division: 'israels-unfaithfulness', divisionIndex: 2, title: 'Spiritual Adultery: The Lion Waits', path: '/writings/hosea/israels-unfaithfulness-2' },
+  { book: 'hosea', chapter: 6, division: 'israels-unfaithfulness', divisionIndex: 3, title: 'Spiritual Adultery: Mercy Not Sacrifice', path: '/writings/hosea/israels-unfaithfulness-3' },
+  { book: 'hosea', chapter: 7, division: 'israels-unfaithfulness', divisionIndex: 4, title: 'Spiritual Adultery: Half-Baked Bread', path: '/writings/hosea/israels-unfaithfulness-4' },
+  { book: 'hosea', chapter: 8, division: 'israels-unfaithfulness', divisionIndex: 5, title: 'Spiritual Adultery: Sowing Wind, Reaping Whirlwind', path: '/writings/hosea/israels-unfaithfulness-5' },
+  { book: 'hosea', chapter: 9, division: 'judgment-on-israel', divisionIndex: 1, title: 'Reaping What Was Sown: Glory Flies Away', path: '/writings/hosea/judgment-on-israel-1' },
+  { book: 'hosea', chapter: 10, division: 'judgment-on-israel', divisionIndex: 2, title: 'Reaping What Was Sown: Thorns Cover the Altars', path: '/writings/hosea/judgment-on-israel-2' },
+  { book: 'hosea', chapter: 11, division: 'god-calls-israel-home', divisionIndex: 1, title: 'The Father\'s Heart: When Israel Was a Child', path: '/writings/hosea/god-calls-israel-home-1' },
+  { book: 'hosea', chapter: 12, division: 'god-calls-israel-home', divisionIndex: 2, title: 'The Father\'s Heart: Jacob\'s Story', path: '/writings/hosea/god-calls-israel-home-2' },
+  { book: 'hosea', chapter: 13, division: 'god-calls-israel-home', divisionIndex: 3, title: 'The Father\'s Heart: Death, Where Is Your Sting?', path: '/writings/hosea/god-calls-israel-home-3' },
+  { book: 'hosea', chapter: 14, division: 'god-calls-israel-home', divisionIndex: 4, title: 'The Father\'s Heart: Return, O Israel', path: '/writings/hosea/god-calls-israel-home-4' },
 ];
 
 export function hasWriting(book: string, chapter: number): boolean {

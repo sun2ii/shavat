@@ -12,6 +12,7 @@ import { getAllDivisions as getMarkDivisions } from '@/lib/mark-collections';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { divisionHasCommentary } from '@/lib/hasCommentary';
 import { divisionHasWritings } from '@/lib/hasWritings';
+import { divisionHasSpeakers } from '@/lib/hasSpeakers';
 import { getBookTheme } from '@/lib/getBookThemes';
 import { GENESIS_SECTIONS } from '@/lib/genesis-views';
 
@@ -67,36 +68,38 @@ const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
 };
 
 // Prophet historical eras and anchors
-type ProphetEra = 'north-south' | 'judahs-fall' | 'exile' | 'return-era';
+type ProphetEra = 'north' | 'south' | 'judahs-fall' | 'exile' | 'return-era';
 
 const PROPHET_ERAS: { id: ProphetEra; label: string }[] = [
-  { id: 'north-south', label: 'North & South' },
+  { id: 'north', label: 'North' },
+  { id: 'south', label: 'South' },
   { id: 'judahs-fall', label: 'Fall of the South' },
   { id: 'exile', label: 'Exile' },
   { id: 'return-era', label: 'Return' },
 ];
 
 const PROPHET_DATA: Record<string, { era: ProphetEra; anchor: string }> = {
-  // North & South - divided kingdoms still exist
-  'jonah': { era: 'north-south', anchor: 'North · 2 Kings 14:23–29' },
-  'amos': { era: 'north-south', anchor: 'North · 2 Kings 14:23–29' },
-  'hosea': { era: 'north-south', anchor: 'North · 2 Kings 14–17' },
-  'isaiah': { era: 'north-south', anchor: 'South · 2 Kings 15–20' },
-  'micah': { era: 'north-south', anchor: 'South · 2 Kings 15:32–20' },
+  // North - prophets to the northern kingdom (Israel)
+  'jonah': { era: 'north', anchor: '2 Kings 14:23–29' },
+  'amos': { era: 'north', anchor: '2 Kings 14:23–29' },
+  'hosea': { era: 'north', anchor: '2 Kings 14–17' },
+  // South - prophets to the southern kingdom (Judah) while North still exists
+  'isaiah': { era: 'south', anchor: '2 Kings 15–20' },
+  'micah': { era: 'south', anchor: '2 Kings 15:32–20' },
   // Judah's Fall - North has fallen, Judah approaches Babylon
-  'nahum': { era: 'judahs-fall', anchor: 'South · ~2 Kings 21–23' },
-  'zephaniah': { era: 'judahs-fall', anchor: 'South · 2 Kings 22–23' },
-  'jeremiah': { era: 'judahs-fall', anchor: 'South · 2 Kings 22–25' },
-  'habakkuk': { era: 'judahs-fall', anchor: 'South · ~2 Kings 23–24' },
+  'nahum': { era: 'judahs-fall', anchor: '~2 Kings 21–23' },
+  'zephaniah': { era: 'judahs-fall', anchor: '2 Kings 22–23' },
+  'jeremiah': { era: 'judahs-fall', anchor: '2 Kings 22–25' },
+  'habakkuk': { era: 'judahs-fall', anchor: '~2 Kings 23–24' },
   // Exile - Jerusalem has fallen, God's people in exile
-  'lamentations': { era: 'exile', anchor: 'After · 2 Kings 25' },
-  'ezekiel': { era: 'exile', anchor: 'Exile · 2 Kings 24–25' },
-  'daniel': { era: 'exile', anchor: 'Exile · 2 Kings 24' },
+  'lamentations': { era: 'exile', anchor: '2 Kings 25' },
+  'ezekiel': { era: 'exile', anchor: '2 Kings 24–25' },
+  'daniel': { era: 'exile', anchor: '2 Kings 24' },
   'obadiah': { era: 'exile', anchor: '~2 Kings 25' },
   // Return - exiles return and rebuild
-  'haggai': { era: 'return-era', anchor: 'Return · Ezra 4–6' },
-  'zechariah': { era: 'return-era', anchor: 'Return · Ezra 5–6' },
-  'malachi': { era: 'return-era', anchor: 'Return · Ezra–Nehemiah Era' },
+  'haggai': { era: 'return-era', anchor: 'Ezra 4–6' },
+  'zechariah': { era: 'return-era', anchor: 'Ezra 5–6' },
+  'malachi': { era: 'return-era', anchor: 'Ezra–Nehemiah' },
   'joel': { era: 'return-era', anchor: 'Date uncertain' },
 };
 
@@ -134,13 +137,19 @@ function formatScripture(bookName: string, chapters: number[]): string {
   return first === last ? `${bookName} ${first}` : `${bookName} ${first}–${last}`;
 }
 
-function Mark({ tone }: { tone: 'gold' | 'green' }) {
+function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' }) {
+  const titles = { red: 'Commentary', green: 'Writings', blue: 'Voices', orange: 'Places', purple: 'People' };
+  const colors = {
+    red: 'bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]',
+    green: 'bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]',
+    blue: 'bg-[rgb(25,70,135)] dark:bg-[rgb(130,170,230)]',
+    orange: 'bg-[rgb(180,100,40)] dark:bg-[rgb(230,160,100)]',
+    purple: 'bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]',
+  };
   return (
     <span
-      title={tone === 'gold' ? 'Commentary' : 'Reflections'}
-      className={`h-1.5 w-1.5 shrink-0 rounded-full ${
-        tone === 'gold' ? 'bg-gold' : 'bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]'
-      }`}
+      title={titles[tone]}
+      className={`h-1 w-1 shrink-0 rounded-full ${colors[tone]}`}
     />
   );
 }
@@ -167,6 +176,9 @@ function DivisionCard({
   theme,
   hasCommentary,
   hasWritings,
+  hasSpeakers,
+  hasPlaces,
+  hasPeople,
   accent,
   instructional,
   focused,
@@ -177,10 +189,14 @@ function DivisionCard({
   theme?: string;
   hasCommentary?: boolean;
   hasWritings?: boolean;
+  hasSpeakers?: boolean;
+  hasPlaces?: boolean;
+  hasPeople?: boolean;
   accent: string;
   instructional?: boolean;
   focused?: boolean;
 }) {
+  const showDots = hasCommentary || hasWritings || hasSpeakers || hasPlaces || hasPeople;
   return (
     /*
       One surface, one hairline, on every card in the app. The left border is
@@ -190,7 +206,7 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`block rounded px-2 py-1.5 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
+      className={`relative block rounded px-2 py-1.5 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
         focused
           ? 'border-gold ring-2 ring-gold'
           : 'border-hairline focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold'
@@ -210,12 +226,19 @@ function DivisionCard({
           </div>
         )}
       </div>
-      <div className="flex items-center justify-center gap-1">
-        {(hasCommentary || hasWritings) && (
-          <Mark tone={hasCommentary ? 'gold' : 'green'} />
-        )}
+      <div className="flex items-center justify-center">
         <span className="font-sans text-[10px] text-gold">{scripture}</span>
       </div>
+      {/* Dots in bottom-right corner */}
+      {showDots && (
+        <div className="absolute bottom-1 right-1 flex items-center gap-0.5">
+          {hasCommentary && <Mark tone="red" />}
+          {hasWritings && <Mark tone="green" />}
+          {hasSpeakers && <Mark tone="blue" />}
+          {hasPlaces && <Mark tone="orange" />}
+          {hasPeople && <Mark tone="purple" />}
+        </div>
+      )}
     </Link>
   );
 }
@@ -228,7 +251,9 @@ export default function LibraryPage() {
   const rawTab = params.category as string;
   const activeTab: TabId = VALID_TABS.includes(rawTab as TabId) ? (rawTab as TabId) : 'torah';
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
-  const [prophetEra, setProphetEra] = useState<ProphetEra>('north-south');
+  const [prophetEra, setProphetEra] = useState<ProphetEra>('north');
+  const [showShortcuts, setShowShortcuts] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -457,18 +482,31 @@ export default function LibraryPage() {
         }
       }
 
-      // Prophet era shortcuts: q, w, e, r (only on prophets tab)
+      // Prophet era shortcuts: qwerty keys map to PROPHET_ERAS dynamically
       if (activeTab === 'prophets') {
-        const eraKeys: Record<string, ProphetEra> = {
-          'q': 'north-south',
-          'w': 'judahs-fall',
-          'e': 'exile',
-          'r': 'return-era',
-        };
-        const era = eraKeys[e.key.toLowerCase()];
-        if (era) {
-          setProphetEra(era);
+        const qwertyKeys = ['q', 'w', 'e', 'r', 't', 'y'];
+        const keyIndex = qwertyKeys.indexOf(e.key.toLowerCase());
+        if (keyIndex !== -1 && keyIndex < PROPHET_ERAS.length) {
+          setProphetEra(PROPHET_ERAS[keyIndex].id);
         }
+      }
+
+      // ? opens shortcuts modal
+      if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+        e.preventDefault();
+        setShowShortcuts((prev) => !prev);
+      }
+
+      // / opens search modal
+      if (e.key === '/' && !e.shiftKey) {
+        e.preventDefault();
+        setShowSearch(true);
+      }
+
+      // Escape closes modals
+      if (e.key === 'Escape') {
+        setShowShortcuts(false);
+        setShowSearch(false);
       }
     };
 
@@ -495,6 +533,7 @@ export default function LibraryPage() {
             const isInstructional = division.contentType === 'instructional';
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
             const hasWritings = divisionHasWritings(book.slug, division.chapters);
+            const hasSpeakers = divisionHasSpeakers(book.slug, division.chapters);
             return (
               <DivisionCard
                 key={division.id}
@@ -504,6 +543,7 @@ export default function LibraryPage() {
                 theme={division.theme}
                 hasCommentary={hasCommentary}
                 hasWritings={hasWritings}
+                hasSpeakers={hasSpeakers}
                 accent={accent}
                 instructional={isInstructional}
                 focused={focusedCardId === `${book.slug}:${division.id}`}
@@ -570,6 +610,9 @@ export default function LibraryPage() {
                       title={`Read ${book.name}`}
                       scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasWritings={divisionHasWritings(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       accent={accent}
                       focused={focusedCardId === book.slug}
                     />
@@ -603,6 +646,9 @@ export default function LibraryPage() {
                       title={`Read ${book.name}`}
                       scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasWritings={divisionHasWritings(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
                     />
@@ -642,6 +688,7 @@ export default function LibraryPage() {
                       theme={getBookTheme(book.slug)}
                       hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                       hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
                     />
@@ -681,6 +728,7 @@ export default function LibraryPage() {
                       theme={getBookTheme(book.slug)}
                       hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                       hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
                     />
@@ -722,6 +770,7 @@ export default function LibraryPage() {
                       theme={getBookTheme(book.slug)}
                       hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                       hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
                     />
@@ -742,7 +791,8 @@ export default function LibraryPage() {
         });
         // Sort to ensure consistent order within each era
         const eraOrder: Record<ProphetEra, string[]> = {
-          'north-south': ['jonah', 'amos', 'hosea', 'isaiah', 'micah'],
+          'north': ['jonah', 'amos', 'hosea'],
+          'south': ['isaiah', 'micah'],
           'judahs-fall': ['nahum', 'zephaniah', 'jeremiah', 'habakkuk'],
           'exile': ['lamentations', 'ezekiel', 'daniel', 'obadiah'],
           'return-era': ['haggai', 'zechariah', 'malachi', 'joel'],
@@ -779,6 +829,7 @@ export default function LibraryPage() {
                       instructional={division.contentType === 'instructional'}
                       hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                       hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
                       accent={accent}
                       focused={focusedCardId === `${book.slug}:${division.id}`}
                     />
@@ -804,6 +855,7 @@ export default function LibraryPage() {
                     theme={getBookTheme(book.slug)}
                     hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                     hasWritings={divisionHasWritings(book.slug, allChapters)}
+                    hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                     accent={accent}
                     focused={focusedCardId === book.slug}
                   />
@@ -858,6 +910,9 @@ export default function LibraryPage() {
                         title={collection.title.replace('Psalms of ', '')}
                         scripture={scripture}
                         theme={collection.theme}
+                        hasCommentary={divisionHasCommentary('psalms', collection.psalms)}
+                        hasWritings={divisionHasWritings('psalms', collection.psalms)}
+                        hasSpeakers={divisionHasSpeakers('psalms', collection.psalms)}
                         accent={ACCENTS[j % ACCENTS.length]}
                         focused={focusedCardId === collection.id}
                       />
@@ -887,6 +942,7 @@ export default function LibraryPage() {
                       instructional={division.contentType === 'instructional'}
                       hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                       hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
                       accent={accent}
                       focused={focusedCardId === `${book.slug}:${division.id}`}
                     />
@@ -907,6 +963,7 @@ export default function LibraryPage() {
               theme={getBookTheme(book.slug)}
               hasCommentary={divisionHasCommentary(book.slug, allChapters)}
               hasWritings={divisionHasWritings(book.slug, allChapters)}
+              hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
               accent={accent}
               focused={focusedCardId === book.slug}
             />,
@@ -950,17 +1007,25 @@ export default function LibraryPage() {
                     <div key={book.slug}>
                       <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${ACTS_BOOKS.length} sections · ${book.chapterCount} ch`} />
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                        {ACTS_BOOKS.map((actsBook) => (
-                          <DivisionCard
-                            key={actsBook.id}
-                            href={actsBook.href}
-                            title={actsBook.title}
-                            scripture={actsBook.scripture}
-                            theme={actsBook.theme}
-                            accent={accent}
-                            focused={focusedCardId === actsBook.id}
-                          />
-                        ))}
+                        {ACTS_BOOKS.map((actsBook) => {
+                          const chapters = actsBook.id === 'acts:before-paul'
+                            ? Array.from({ length: 8 }, (_, i) => i + 1)
+                            : Array.from({ length: 20 }, (_, i) => i + 9);
+                          return (
+                            <DivisionCard
+                              key={actsBook.id}
+                              href={actsBook.href}
+                              title={actsBook.title}
+                              scripture={actsBook.scripture}
+                              theme={actsBook.theme}
+                              hasCommentary={divisionHasCommentary('acts', chapters)}
+                              hasWritings={divisionHasWritings('acts', chapters)}
+                              hasSpeakers={divisionHasSpeakers('acts', chapters)}
+                              accent={accent}
+                              focused={focusedCardId === actsBook.id}
+                            />
+                          );
+                        })}
                       </div>
                     </div>,
                   );
@@ -977,6 +1042,7 @@ export default function LibraryPage() {
                     theme={getBookTheme(book.slug)}
                     hasCommentary={divisionHasCommentary(book.slug, allChapters)}
                     hasWritings={divisionHasWritings(book.slug, allChapters)}
+                    hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                     accent={accent}
                     focused={focusedCardId === book.slug}
                   />,
@@ -1021,6 +1087,29 @@ export default function LibraryPage() {
           <span className="font-sans text-[10px] text-muted">
             {mast.kicker}
           </span>
+          {/* Color legend */}
+          <div className="flex items-center gap-3 mt-1.5 font-sans text-[10px] text-muted">
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]" />
+              Commentary
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]" />
+              Writings
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(25,70,135)] dark:bg-[rgb(130,170,230)]" />
+              Voices
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(180,100,40)] dark:bg-[rgb(230,160,100)]" />
+              Places
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]" />
+              People
+            </span>
+          </div>
         </div>
 
         <div className="flex flex-col items-end gap-1">
@@ -1068,6 +1157,98 @@ export default function LibraryPage() {
       </div>
 
       {renderTabContent()}
+
+      {/* Help button - desktop only */}
+      <button
+        onClick={() => setShowShortcuts(true)}
+        className="hidden md:flex fixed bottom-4 right-4 h-8 w-8 items-center justify-center rounded-full bg-surface border border-hairline text-muted hover:text-ink hover:border-gold/50 transition-colors font-sans text-sm"
+        title="Keyboard shortcuts (?)"
+      >
+        ?
+      </button>
+
+      {/* Shortcuts Modal */}
+      {showShortcuts && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+          onClick={() => setShowShortcuts(false)}
+        >
+          <div
+            className="bg-surface border border-hairline rounded-lg shadow-xl max-w-md w-full mx-4 p-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="font-serif font-bold text-lg text-ink">Keyboard Shortcuts</h2>
+              <button
+                onClick={() => setShowShortcuts(false)}
+                className="text-muted hover:text-ink text-xl leading-none"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="space-y-3 font-sans text-sm">
+              <div>
+                <div className="text-muted text-xs uppercase tracking-wide mb-1">Navigation</div>
+                <div className="space-y-1">
+                  <div className="flex justify-between"><span className="text-ink">Navigate tabs</span><span className="text-muted">1 &ndash; {TABS.length}</span></div>
+                  <div className="flex justify-between"><span className="text-ink">Move selection</span><span className="text-muted">&larr; &rarr; &uarr; &darr;</span></div>
+                  <div className="flex justify-between"><span className="text-ink">Open selected</span><span className="text-muted">Enter</span></div>
+                </div>
+              </div>
+              {activeTab === 'prophets' && (
+                <div>
+                  <div className="text-muted text-xs uppercase tracking-wide mb-1">Prophet Eras</div>
+                  <div className="space-y-1">
+                    {PROPHET_ERAS.map((era, i) => (
+                      <div key={era.id} className="flex justify-between">
+                        <span className="text-ink">{era.label}</span>
+                        <span className="text-muted">{['Q', 'W', 'E', 'R', 'T', 'Y'][i]}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              <div>
+                <div className="text-muted text-xs uppercase tracking-wide mb-1">Actions</div>
+                <div className="space-y-1">
+                  <div className="flex justify-between"><span className="text-ink">Search</span><span className="text-muted">/</span></div>
+                  <div className="flex justify-between"><span className="text-ink">Show shortcuts</span><span className="text-muted">?</span></div>
+                  <div className="flex justify-between"><span className="text-ink">Close modal</span><span className="text-muted">Esc</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Search Modal */}
+      {showSearch && (
+        <div
+          className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/40"
+          onClick={() => setShowSearch(false)}
+        >
+          <div
+            className="bg-surface border border-hairline rounded-lg shadow-xl max-w-lg w-full mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center gap-2 p-3 border-b border-hairline">
+              <span className="text-muted">/</span>
+              <input
+                type="text"
+                autoFocus
+                placeholder="Search books, divisions..."
+                className="flex-1 bg-transparent outline-none font-sans text-sm text-ink placeholder:text-muted"
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') setShowSearch(false);
+                }}
+              />
+            </div>
+            <div className="p-3 text-center text-muted text-sm font-sans">
+              Start typing to search
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

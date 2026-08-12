@@ -7,6 +7,10 @@
   Theme is class-based: <html> gets `light` or `dark` (set by the no-flash
   script in layout.tsx). Retuning these variables reskins most of the app;
   components add the editorial layout (numbered books, tints, pills).
+
+  Dark mode: Sophisticated computational infrastructure aesthetic.
+  Inspired by private financial terminals and early computing.
+  Calm first, digital second. No neon, no Matrix.
 */
 @layer base {
   :root,
@@ -14,14 +18,18 @@
     --bg-primary: 247 245 241;   /* #F7F5F1 shavat-cream  */
     --bg-secondary: 238 235 230; /* #EEEBE6 shavat-pale   */
     --surface: 255 255 255;      /* cards                 */
+    --surface-elevated: 253 252 249; /* raised cards       */
     --tint-warm: 238 235 230;    /* #EEEBE6 book tint     */
     --text-primary: 31 46 36;    /* #1F2E24 shavat-darkest */
     --text-secondary: 74 74 69;  /* #4A4A45 shavat-charcoal */
     --text-tertiary: 122 122 116; /* #7A7A74 shavat-gray   */
+    --text-disabled: 170 168 162; /* atmospheric           */
     --border: 217 209 181;       /* #D9D1B5 shavat-sand   */
+    --border-subtle: 229 224 211; /* lighter border        */
     --gold: 200 162 72;          /* #C8A248 shavat-gold   */
     --gold-ink: 160 130 58;      /* darker gold for text  */
     --brand: 31 46 36;           /* #1F2E24 shavat-darkest */
+    --brand-hover: 58 74 60;     /* hover state           */
     --blue-ref: 107 127 105;     /* #6B7F69 shavat-mid    */
     --highlight-yellow: 240 226 189;
     --highlight-blue: 188 208 234;
@@ -29,53 +37,104 @@
     --highlight-rose: 242 206 218;
     --highlight-emerald: 202 229 212;
     --highlight-silver: 223 226 231;
+    /* Sidebar colors (light mode uses same dark sidebar) */
+    --sidebar-bg: 31 46 36;
+    --sidebar-border: 51 66 47;
+    --sidebar-text: 247 245 241;
+    --sidebar-text-muted: 184 192 174;
+    --sidebar-active-bg: 247 245 241;
+    --sidebar-active-text: 31 46 36;
+    --sidebar-hover-bg: 42 61 47;
     /*
       Speaker-dialogue palette (see data/speakers/). Slots hold hue pairs tuned
       per theme: dark, saturated inks on warm paper; lifted tints on navy. No
       golds or ambers — those belong to verse numbers and the selection wash.
-      Slot 8 (steel) is reserved for the Lord / the angel of the Lord.
+      Slot 8 (golden) is reserved for the Lord / the angel of the Lord.
     */
-    --speaker-1: 37 99 168;    /* blue    */
-    --speaker-2: 174 52 62;    /* crimson */
-    --speaker-3: 22 112 78;    /* emerald */
-    --speaker-4: 121 80 180;   /* violet  */
-    --speaker-5: 13 116 128;   /* teal    */
-    --speaker-6: 176 58 116;   /* magenta */
-    --speaker-7: 160 82 45;    /* sienna  */
-    --speaker-8: 84 100 122;   /* steel   */
-    --speaker-9: 104 110 40;   /* olive   */
-    --speaker-10: 82 86 196;   /* indigo  */
+    --speaker-1: 25 70 135;    /* deep blue    */
+    --speaker-2: 155 30 40;    /* deep crimson */
+    --speaker-3: 130 50 20;    /* burnt orange */
+    --speaker-4: 100 50 160;   /* deep violet  */
+    --speaker-5: 160 60 90;    /* rose         */
+    --speaker-6: 140 40 100;   /* plum         */
+    --speaker-7: 130 60 30;    /* sienna       */
+    --speaker-8: 170 120 0;    /* deep gold    */
+    --speaker-9: 80 90 30;     /* olive        */
+    --speaker-10: 70 60 150;   /* indigo       */
+    /* Digital accent (restrained) */
+    --accent-terminal: 72 187 120;   /* soft phosphor green */
+    --accent-terminal-muted: 72 187 120 / 0.15;
   }
 
   .dark {
-    --bg-primary: 28 28 28;      /* #1C1C1C shavat-black  */
-    --bg-secondary: 31 46 36;    /* #1F2E24 shavat-darkest */
-    --surface: 58 74 60;         /* #3A4A3C shavat-dark   */
-    --tint-warm: 31 46 36;       /* #1F2E24               */
-    --text-primary: 247 245 241; /* #F7F5F1 shavat-cream  */
-    --text-secondary: 183 182 175; /* #B7B6AF shavat-silver */
-    --text-tertiary: 122 122 116;  /* #7A7A74 shavat-gray */
-    --border: 74 74 69;          /* #4A4A45 shavat-charcoal */
-    --gold: 200 162 72;          /* #C8A248 shavat-gold   */
-    --gold-ink: 200 162 72;      /* #C8A248               */
-    --brand: 58 74 60;           /* #3A4A3C shavat-dark   */
-    --blue-ref: 166 179 158;     /* #A6B39E shavat-light  */
-    --highlight-yellow: 90 75 35;
-    --highlight-blue: 30 58 138;
-    --highlight-purple: 66 52 98;
-    --highlight-rose: 96 46 62;
-    --highlight-emerald: 34 74 52;
-    --highlight-silver: 58 64 74;
-    --speaker-1: 126 168 224;  /* blue    */
-    --speaker-2: 226 122 122;  /* crimson */
-    --speaker-3: 111 191 149;  /* emerald */
-    --speaker-4: 176 148 224;  /* violet  */
-    --speaker-5: 95 190 200;   /* teal    */
-    --speaker-6: 224 128 176;  /* magenta */
-    --speaker-7: 214 150 108;  /* sienna  */
-    --speaker-8: 148 163 184;  /* steel   */
-    --speaker-9: 176 182 106;  /* olive   */
-    --speaker-10: 158 163 235; /* indigo  */
+    /*
+      Dark mode palette: institutional technology, terminal phosphor influence.
+      Depth from subtle luminance shifts, not heavy shadows.
+      Background: #0B0C0D to #0E0F10 range
+      Surfaces: #121416 to #1C1F21 range
+    */
+    --bg-primary: 11 12 13;        /* #0B0C0D deep dark base */
+    --bg-secondary: 18 20 22;      /* #121416 primary surface */
+    --surface: 23 25 27;           /* #17191B elevated */
+    --surface-elevated: 28 31 33;  /* #1C1F21 interactive/raised */
+    --tint-warm: 18 20 22;         /* subtle warm shift */
+
+    /*
+      Typography hierarchy (treat brightness as scarce):
+      Exceptional:  #F2F2EF  242 242 239
+      Primary head: #E5E5E1  229 229 225
+      Primary body: #B8B8B3  184 184 179
+      Secondary:    #91928D  145 146 141
+      Tertiary:     #6D6F6B  109 111 107
+      Disabled:     #4B4D4A  75 77 74
+    */
+    --text-primary: 229 229 225;     /* #E5E5E1 headings */
+    --text-secondary: 184 184 179;   /* #B8B8B3 body */
+    --text-tertiary: 145 146 141;    /* #91928D labels */
+    --text-disabled: 75 77 74;       /* #4B4D4A atmospheric */
+
+    /* Borders: barely perceptible, rgba(255,255,255,0.05-0.10) */
+    --border: 38 40 42;              /* ~rgba(255,255,255,0.08) */
+    --border-subtle: 30 32 34;       /* ~rgba(255,255,255,0.05) */
+
+    --gold: 200 162 72;              /* #C8A248 preserved */
+    --gold-ink: 200 162 72;          /* same in dark */
+    --brand: 23 25 27;               /* #17191B */
+    --brand-hover: 28 31 33;         /* slightly elevated */
+    --blue-ref: 145 156 140;         /* muted green-gray */
+
+    /* Highlights: embedded in darkness, low contrast */
+    --highlight-yellow: 50 45 25;
+    --highlight-blue: 20 35 55;
+    --highlight-purple: 35 30 50;
+    --highlight-rose: 50 30 35;
+    --highlight-emerald: 25 45 35;
+    --highlight-silver: 35 38 42;
+
+    /* Sidebar in dark mode */
+    --sidebar-bg: 14 15 16;          /* #0E0F10 */
+    --sidebar-border: 30 32 34;      /* subtle */
+    --sidebar-text: 229 229 225;     /* primary text */
+    --sidebar-text-muted: 109 111 107; /* tertiary */
+    --sidebar-active-bg: 28 31 33;   /* elevated surface */
+    --sidebar-active-text: 242 242 239; /* exceptional */
+    --sidebar-hover-bg: 23 25 27;    /* surface */
+
+    /* Speakers: lifted but controlled saturation */
+    --speaker-1: 110 150 200;  /* muted blue */
+    --speaker-2: 200 120 120;  /* muted crimson */
+    --speaker-3: 200 145 95;   /* muted orange */
+    --speaker-4: 160 140 200;  /* muted violet */
+    --speaker-5: 200 130 155;  /* muted rose */
+    --speaker-6: 190 130 170;  /* muted plum */
+    --speaker-7: 190 145 110;  /* muted sienna */
+    --speaker-8: 220 185 75;   /* gold (Lord) */
+    --speaker-9: 160 170 110;  /* muted olive */
+    --speaker-10: 145 150 210; /* muted indigo */
+
+    /* Digital accent: restrained terminal phosphor */
+    --accent-terminal: 72 160 100;   /* desaturated phosphor */
+    --accent-terminal-muted: 72 160 100 / 0.12;
   }
 }
 

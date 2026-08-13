@@ -1,11 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
-import type { AuditReport, VerseReview } from '@/lib/speaker-review-types';
+import type { AuditReport, VerseReview, VerseAudit } from '@/lib/speaker-review-types';
 import { getCurrentUser } from '@/lib/auth';
 import { sql } from '@/lib/db';
-
-const REPORTS_DIR = path.join(process.cwd(), 'reports', 'speaker-audit');
 
 // GET: Load audit report and review state for a book
 export async function GET(request: NextRequest) {
@@ -18,67 +14,94 @@ export async function GET(request: NextRequest) {
   const book = searchParams.get('book');
 
   if (!book) {
-    // Return list of available audited books
+    // Return list of available audited books from database
     try {
-      const files = fs.existsSync(REPORTS_DIR)
-        ? fs.readdirSync(REPORTS_DIR).filter((f) => f.endsWith('.json'))
-        : [];
-      const books = files.map((f) => f.replace('.json', ''));
+      const rows = await sql`SELECT book FROM speaker_audits ORDER BY book`;
+      const books = rows.map((r) => r.book as string);
       return NextResponse.json({ books });
-    } catch {
+    } catch (err) {
+      console.error('Error fetching books:', err);
       return NextResponse.json({ books: [] });
     }
   }
 
-  // Load audit report
-  const reportPath = path.join(REPORTS_DIR, `${book}.json`);
-  if (!fs.existsSync(reportPath)) {
-    return NextResponse.json({ error: 'Audit report not found' }, { status: 404 });
-  }
-
-  let report: AuditReport;
+  // Load audit from database
   try {
-    report = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
-  } catch {
-    return NextResponse.json({ error: 'Invalid audit report' }, { status: 500 });
-  }
+    const auditRows = await sql`
+      SELECT id, book, timestamp, summary
+      FROM speaker_audits
+      WHERE book = ${book}
+    `;
 
-  // Load speaker data for colors
-  const speakerPath = path.join(process.cwd(), 'data', 'speakers', `${book}.json`);
-  let speakers: Record<string, { name: string; color: number }> = {};
-  if (fs.existsSync(speakerPath)) {
-    try {
-      const speakerData = JSON.parse(fs.readFileSync(speakerPath, 'utf-8'));
-      speakers = speakerData.speakers || {};
-    } catch {
-      // Ignore errors
+    if (auditRows.length === 0) {
+      return NextResponse.json({ error: 'Audit report not found' }, { status: 404 });
     }
-  }
 
-  // Load reviews from database for current user
-  const reviews: Record<string, VerseReview> = {};
-  try {
-    const rows = await sql`
+    const audit = auditRows[0];
+
+    // Load verses
+    const verseRows = await sql`
+      SELECT chapter, verse, canonical_text, previous_verse, next_verse,
+             spans, classification, reasons, current_segments, proposed_segments
+      FROM speaker_audit_verses
+      WHERE book = ${book}
+      ORDER BY chapter, verse
+    `;
+
+    const verses: VerseAudit[] = verseRows.map((row) => ({
+      chapter: row.chapter as number,
+      verse: row.verse as number,
+      canonicalText: row.canonical_text as string,
+      previousVerse: row.previous_verse as string | null,
+      nextVerse: row.next_verse as string | null,
+      spans: row.spans as VerseAudit['spans'],
+      classification: row.classification as VerseAudit['classification'],
+      reasons: row.reasons as string[],
+      currentSegments: row.current_segments as VerseAudit['currentSegments'],
+      proposedSegments: row.proposed_segments as VerseAudit['proposedSegments'],
+    }));
+
+    const report: AuditReport = {
+      book: audit.book as string,
+      timestamp: audit.timestamp as string,
+      summary: audit.summary as AuditReport['summary'],
+      verses,
+    };
+
+    // Load speaker data for colors (still from filesystem for now)
+    let speakers: Record<string, { name: string; color: number }> = {};
+    try {
+      // Dynamic import for speaker data
+      const speakerModule = await import(`@/data/speakers/${book}.json`);
+      speakers = speakerModule.default?.speakers || speakerModule.speakers || {};
+    } catch {
+      // No speaker data available
+    }
+
+    // Load reviews from database for current user
+    const reviews: Record<string, VerseReview> = {};
+    const reviewRows = await sql`
       SELECT chapter, verse, status, comment, classification_at_review, proposed_segments, reviewed_at
       FROM speaker_reviews
       WHERE user_email = ${user.email} AND book = ${book}
     `;
-    for (const row of rows) {
+
+    for (const row of reviewRows) {
       const key = `${row.chapter}:${row.verse}`;
       reviews[key] = {
         status: row.status as VerseReview['status'],
-        comment: row.comment,
-        classificationAtReview: row.classification_at_review,
-        proposedSegments: row.proposed_segments,
-        reviewedAt: row.reviewed_at,
+        comment: row.comment as string | undefined,
+        classificationAtReview: row.classification_at_review as VerseReview['classificationAtReview'],
+        proposedSegments: row.proposed_segments as VerseReview['proposedSegments'],
+        reviewedAt: row.reviewed_at as string,
       };
     }
-  } catch (err) {
-    console.error('Error loading reviews from database:', err);
-    // Continue with empty reviews
-  }
 
-  return NextResponse.json({ report, speakers, reviews });
+    return NextResponse.json({ report, speakers, reviews });
+  } catch (err) {
+    console.error('Error loading audit:', err);
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
+  }
 }
 
 // POST: Save review for a verse

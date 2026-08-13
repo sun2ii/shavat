@@ -4,40 +4,48 @@
       "id": "authority-revealed",
       "title": "Authority Revealed",
       "chapters": [1, 2, 3],
-      "theme": "The beginning of Jesus' ministry",
+      "theme": "Jesus announces the kingdom and acts with authority",
       "summary": "Jesus is baptized, calls disciples, demonstrates authority through miracles and teaching, and faces early conflicts with religious leaders",
       "contentType": "narrative"
     },
     {
-      "id": "power-and-identity",
-      "title": "Power and Identity",
-      "chapters": [4, 5, 6, 7, 8],
-      "theme": "Revelation of Jesus' true nature",
-      "summary": "Parables of the kingdom, mighty works of power, feeding thousands, and Peter's confession that Jesus is the Christ",
+      "id": "signs-and-opposition",
+      "title": "Signs & Opposition",
+      "chapters": [4, 5, 6],
+      "theme": "Jesus reveals his power as opposition grows",
+      "summary": "Parables of the kingdom, mighty works of power, feeding thousands",
+      "contentType": "narrative"
+    },
+    {
+      "id": "who-is-jesus",
+      "title": "Who Is Jesus?",
+      "chapters": [7, 8],
+      "theme": "Peter confesses the Messiah",
+      "summary": "Teaching on what defiles, healings, and Peter's confession that Jesus is the Christ",
       "contentType": "narrative"
     },
     {
       "id": "the-way-of-the-cross",
       "title": "The Way of the Cross",
       "chapters": [9, 10],
-      "theme": "Discipleship and suffering",
+      "theme": "The Messiah leads his disciples toward suffering",
       "summary": "The transfiguration, teaching on servanthood and sacrifice, predictions of death, and the journey toward Jerusalem",
       "contentType": "narrative"
     },
     {
-      "id": "confrontation-in-jerusalem",
-      "title": "Confrontation in Jerusalem",
+      "id": "final-confrontation",
+      "title": "Final Confrontation",
       "chapters": [11, 12, 13],
-      "theme": "Authority challenged and judgment pronounced",
-      "summary": "Triumphal entry, temple cleansing, debates with religious leaders, and the Olivet Discourse on the last days",
+      "theme": "Jesus enters Jerusalem",
+      "summary": "Triumphal entry, temple cleansing, debates, and Olivet Discourse",
       "contentType": "narrative"
     },
     {
-      "id": "passion-and-victory",
-      "title": "Passion and Victory",
+      "id": "passion-and-resurrection",
+      "title": "Passion & Resurrection",
       "chapters": [14, 15, 16],
-      "theme": "Death and resurrection",
-      "summary": "The Last Supper, betrayal and arrest, trial before Pilate, crucifixion, burial, and resurrection",
+      "theme": "The King dies and rises",
+      "summary": "Last Supper, crucifixion, and resurrection",
       "contentType": "narrative"
     }
   ],

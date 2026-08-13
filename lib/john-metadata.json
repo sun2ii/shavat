@@ -1,43 +1,43 @@
 {
   "divisions": [
     {
-      "id": "prologue-and-witness",
-      "title": "Prologue and Witness",
+      "id": "the-word-and-the-witness",
+      "title": "The Word & the Witness",
       "chapters": [1],
-      "theme": "The Word became flesh",
+      "theme": "The Word becomes flesh",
       "summary": "The eternal Word, John the Baptist's testimony, and the calling of the first disciples",
       "contentType": "narrative"
     },
     {
-      "id": "discourses",
-      "title": "Discourses",
-      "chapters": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-      "theme": "Revelation through signs",
-      "summary": "Water to wine, cleansing temple, Nicodemus, Samaritan woman, healings, bread of life, light of the world, good shepherd, raising Lazarus",
+      "id": "signs-and-revelation",
+      "title": "Signs & Revelation",
+      "chapters": [2, 3, 4, 5, 6],
+      "theme": "Jesus reveals who he is through signs and teaching",
+      "summary": "Water to wine, cleansing temple, Nicodemus, Samaritan woman, healings, bread of life",
       "contentType": "narrative"
     },
     {
-      "id": "final-week-and-teaching",
-      "title": "Final Week and Teaching",
+      "id": "conflict-and-the-great-sign",
+      "title": "Conflict & the Great Sign",
+      "chapters": [7, 8, 9, 10, 11],
+      "theme": "Opposition grows; Lazarus is raised",
+      "summary": "Light of the world, good shepherd, raising Lazarus",
+      "contentType": "narrative"
+    },
+    {
+      "id": "the-farewell",
+      "title": "The Farewell",
       "chapters": [12, 13, 14, 15, 16, 17],
-      "theme": "Preparing the disciples",
+      "theme": "Jesus prepares his disciples for his departure",
       "summary": "Triumphal entry, foot washing, farewell discourse, the vine and branches, and the high priestly prayer",
       "contentType": "narrative"
     },
     {
-      "id": "passion",
-      "title": "Passion",
-      "chapters": [18, 19],
-      "theme": "Death and glorification",
-      "summary": "Arrest in the garden, trials before Annas, Caiaphas, and Pilate, and crucifixion",
-      "contentType": "narrative"
-    },
-    {
-      "id": "resurrection",
-      "title": "Resurrection",
-      "chapters": [20, 21],
-      "theme": "Victory and restoration",
-      "summary": "Empty tomb, appearances to Mary and disciples, doubting Thomas, and restoration of Peter",
+      "id": "death-and-resurrection",
+      "title": "Death & Resurrection",
+      "chapters": [18, 19, 20, 21],
+      "theme": "The King is glorified and rises",
+      "summary": "Arrest, trials, crucifixion, empty tomb, appearances, and restoration of Peter",
       "contentType": "narrative"
     }
   ],

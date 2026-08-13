@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -36,7 +36,7 @@ export default function ScrollToTop() {
       className="fixed bottom-6 left-1/2 lg:left-[calc(50%+111px)] -translate-x-1/2 p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-lg cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 z-50"
       aria-label="Return to top"
     >
-      <Image src="/icons/general/arrowup.png" alt="Return to top" width={24} height={24} />
+      <NormalizedIcon src="/icons/general/arrowup.png" alt="Return to top" width={24} height={24} />
     </button>
   );
 }

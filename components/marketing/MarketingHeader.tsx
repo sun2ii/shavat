@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 
 type PageId = 'home' | 'features' | 'how-it-works' | 'about' | 'pricing' | 'resources';
 
@@ -104,7 +104,7 @@ export function MarketingHeader({ activePage }: MarketingHeaderProps) {
             width: '220px',
           }}
         >
-<Image src="/icons/general/search.png" alt="Search" width={18} height={18} />
+<NormalizedIcon src="/icons/general/search.png" alt="Search" width={18} height={18} />
           <input
             type="text"
             placeholder="Search Scripture or topics..."

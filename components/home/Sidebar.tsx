@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
+import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 const staticNavLinks = [
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.png' },
@@ -14,13 +16,12 @@ const homeIconSrc = '/icons/sidebar/home.png';
 
 function SidebarIcon({ src, alt, size = 24 }: { src: string; alt: string; size?: number }) {
   return (
-    <Image
+    <NormalizedIcon
       src={src}
       alt={alt}
       width={size}
       height={size}
       className="flex-shrink-0"
-      style={{ transform: 'scale(1.2)' }}
     />
   );
 }
@@ -131,11 +132,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
-          {isDark ? (
-            <SidebarIcon src="/icons/sidebar/LightMode.png" alt="Light Mode" />
-          ) : (
-            <SidebarIcon src="/icons/sidebar/DarkMode.png" alt="Dark Mode" />
-          )}
+          <ThemeToggleIcon isDark={isDark} size={24} />
           {isOpen && (isDark ? 'Light Mode' : 'Dark Mode')}
         </button>
 

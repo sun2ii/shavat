@@ -2,73 +2,49 @@
   "divisions": [
     {
       "id": "birth-and-preparation",
-      "title": "Birth and Preparation",
+      "title": "Birth & Preparation",
       "chapters": [1, 2, 3, 4],
-      "theme": "The arrival of the Messiah",
+      "theme": "Messiah arrives; baptism, temptation, ministry begins",
       "summary": "Genealogy, birth narratives, baptism by John, and temptation in the wilderness",
       "contentType": "narrative"
     },
     {
-      "id": "sermon-on-the-mount",
-      "title": "Sermon on the Mount",
-      "chapters": [5, 6, 7],
-      "theme": "Kingdom ethics and teaching",
-      "summary": "Jesus teaches the Beatitudes, the Law fulfilled, prayer, worry, and judging others",
+      "id": "kingdom-and-authority",
+      "title": "Kingdom & Authority",
+      "chapters": [5, 6, 7, 8, 9, 10],
+      "theme": "Sermon on Mount + miracles + sending the Twelve",
+      "summary": "Jesus teaches the Beatitudes, demonstrates authority through miracles, and sends out the twelve disciples",
       "contentType": "narrative"
     },
     {
-      "id": "authority-in-action",
-      "title": "Authority in Action",
-      "chapters": [8, 9, 10],
-      "theme": "Healing power and mission",
-      "summary": "Jesus demonstrates authority through miracles, healings, and sending out the twelve disciples",
+      "id": "parables-and-identity",
+      "title": "Parables & Identity",
+      "chapters": [11, 12, 13, 14, 15, 16, 17],
+      "theme": "Opposition grows; kingdom parables; Peter's confession; Transfiguration",
+      "summary": "John's question, Sabbath controversies, kingdom parables, feeding thousands, and the transfiguration",
       "contentType": "narrative"
     },
     {
-      "id": "parables-of-the-kingdom",
-      "title": "Parables of the Kingdom",
-      "chapters": [11, 12, 13],
-      "theme": "Kingdom revealed in parables",
-      "summary": "John's question, Sabbath controversies, and parables of the sower, weeds, mustard seed, and more",
-      "contentType": "narrative"
-    },
-    {
-      "id": "discipleship-and-identity",
-      "title": "Discipleship and Identity",
-      "chapters": [14, 15, 16, 17],
-      "theme": "Who is Jesus?",
-      "summary": "Feeding of five thousand, walking on water, Peter's confession, and the transfiguration",
-      "contentType": "narrative"
-    },
-    {
-      "id": "teaching-on-community",
-      "title": "Teaching on Community",
+      "id": "the-way-of-the-kingdom",
+      "title": "The Way of the Kingdom",
       "chapters": [18, 19, 20],
-      "theme": "Life together in the kingdom",
+      "theme": "Community, forgiveness, discipleship, service",
       "summary": "Humility, forgiveness, marriage, children, wealth, and the vineyard workers",
       "contentType": "narrative"
     },
     {
-      "id": "confrontation-in-jerusalem",
-      "title": "Confrontation in Jerusalem",
-      "chapters": [21, 22, 23],
-      "theme": "Authority challenged",
-      "summary": "Triumphal entry, temple cleansing, debates with Pharisees, and woes pronounced",
+      "id": "jerusalem-and-the-end",
+      "title": "Jerusalem & the End",
+      "chapters": [21, 22, 23, 24, 25],
+      "theme": "Triumphal entry, confrontation, judgment, Olivet discourse",
+      "summary": "Triumphal entry, temple cleansing, debates, woes pronounced, and parables of readiness",
       "contentType": "narrative"
     },
     {
-      "id": "olivet-discourse",
-      "title": "Olivet Discourse",
-      "chapters": [24, 25],
-      "theme": "The end times",
-      "summary": "Signs of the end, the coming of the Son of Man, and parables of readiness",
-      "contentType": "narrative"
-    },
-    {
-      "id": "passion-and-resurrection",
-      "title": "Passion and Resurrection",
+      "id": "death-and-resurrection",
+      "title": "Death & Resurrection",
       "chapters": [26, 27, 28],
-      "theme": "Death and victory",
+      "theme": "Last Supper, crucifixion, resurrection, Great Commission",
       "summary": "The Last Supper, betrayal and arrest, trial, crucifixion, burial, and resurrection",
       "contentType": "narrative"
     }

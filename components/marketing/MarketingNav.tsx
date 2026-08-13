@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 
 interface MarketingNavProps {
   variant?: 'light' | 'dark'; // light = dark text on light bg, dark = white text on dark/image bg
@@ -82,7 +82,7 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
       <div className="flex items-center gap-2 sm:gap-4">
         {/* Search - hidden on mobile */}
         <label className="hidden md:flex items-center gap-2.5 bg-white/90 dark:bg-surface/90 border border-hairline rounded-lg px-3 py-2 w-[220px]">
-<Image src="/icons/general/search.png" alt="Search" width={18} height={18} />
+<NormalizedIcon src="/icons/general/search.png" alt="Search" width={18} height={18} />
           <input
             type="text"
             placeholder="Search..."

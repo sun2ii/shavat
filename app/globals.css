@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth theme transition - only for backgrounds and text, not transforms */
+*,
+*::before,
+*::after {
+  transition-property: background-color, background, border-color, color, fill, stroke, box-shadow, opacity !important;
+  transition-duration: 0.8s !important;
+  transition-timing-function: ease-in-out !important;
+}
+
+/* Exclude images and icons from theme transition */
+img,
+svg,
+img *,
+svg * {
+  transition: none !important;
+}
+
 /*
   Shavat — "2c Editorial" design tokens.
   Theme is class-based: <html> gets `light` or `dark` (set by the no-flash

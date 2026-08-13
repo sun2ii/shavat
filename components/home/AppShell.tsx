@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
+import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -12,9 +14,9 @@ interface AppShellProps {
 }
 
 const mobileNavLinks = [
-  { href: '/', label: 'Home', iconSrc: '/icons/01_home.png' },
-  { href: '/library', label: 'Library', iconSrc: '/icons/Library.png' },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/Writings.png' },
+  { href: '/', label: 'Home', iconSrc: '/icons/sidebar/home.png' },
+  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.png' },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.png' },
 ];
 
 export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
@@ -48,9 +50,7 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
             onClick={() => setMobileMenuOpen(true)}
             className="p-1 text-sidebar-text-muted hover:text-sidebar-text"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M4 6 H20 M4 12 H20 M4 18 H20" />
-            </svg>
+            <NormalizedIcon src="/icons/sidebar/menu.png" alt="Menu" width={24} height={24} />
           </button>
           <div className="flex items-center gap-2">
             <Image src="/logo.png" alt="Shavat" width={36} height={36} />
@@ -66,13 +66,13 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
 
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
-        <MobileMenu onClose={() => setMobileMenuOpen(false)} />
+        <MobileMenu onClose={() => setMobileMenuOpen(false)} isAuthenticated={isAuthenticated} />
       )}
     </div>
   );
 }
 
-function MobileMenu({ onClose }: { onClose: () => void }) {
+function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void; isAuthenticated?: boolean }) {
   const pathname = usePathname();
   const [isDark, setIsDark] = useState(false);
 
@@ -138,7 +138,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
                       : 'text-sidebar-text hover:bg-sidebar-hover-bg'
                   }`}
                 >
-                  <Image src={link.iconSrc} alt={link.label} width={28} height={28} className="dark:invert" />
+                  <NormalizedIcon src={link.iconSrc} alt={link.label} width={24} height={24} />
                   {link.label}
                 </Link>
               );
@@ -146,25 +146,37 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           </div>
         </nav>
 
-        {/* Footer with Settings (theme toggle) */}
-        <div className="p-4 border-t border-sidebar-border">
+        {/* Footer with theme toggle and Review */}
+        <div className="p-4 border-t border-sidebar-border flex flex-col gap-1">
           <button
             onClick={toggleTheme}
             className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
             title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            {isDark ? (
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <circle cx="9" cy="9" r="4"/>
-                <path d="M9 1V3M9 15V17M1 9H3M15 9H17M3.5 3.5L5 5M13 13L14.5 14.5M14.5 3.5L13 5M5 13L3.5 14.5"/>
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M15.5 10.5C14.5 11.5 13 12.2 11.5 12.2C8 12.2 5.5 9.5 5.5 6C5.5 4.5 6 3.2 7 2.2C3.5 3 1 6.2 1 10C1 14.4 4.6 18 9 18C12.8 18 16 15.5 16.8 12C16.4 11.5 16 11 15.5 10.5Z"/>
-              </svg>
-            )}
-            <span className="text-sm">Settings</span>
+            <ThemeToggleIcon isDark={isDark} size={24} />
+            <span className="text-sm">{isDark ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
+
+          {/* Review link - only shown when authenticated */}
+          {isAuthenticated && (
+            <Link
+              href="/review"
+              onClick={onClose}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
+                pathname.startsWith('/review')
+                  ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
+                  : 'text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg'
+              }`}
+            >
+              <span className={pathname.startsWith('/review') ? 'text-sidebar-active-text' : 'text-gold'}>
+                <svg width="24" height="24" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M9 2 L11 6 L15.5 6.5 L12 10 L13 14.5 L9 12 L5 14.5 L6 10 L2.5 6.5 L7 6 Z" />
+                </svg>
+              </span>
+              <span className="text-sm text-blue-500">Review</span>
+            </Link>
+          )}
+
           <div className="text-[10px] text-sidebar-text-muted text-center mt-3">
             Stay oriented in Scripture.
           </div>

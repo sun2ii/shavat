@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 
@@ -11,9 +12,9 @@ interface AppShellProps {
 }
 
 const mobileNavLinks = [
-  { href: '/', label: 'Home', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 8.5 L9 2.5 L16 8.5 M4 7.5 V15.5 H14 V7.5 M7.5 15.5 V11 H10.5 V15.5"/></svg> },
-  { href: '/library', label: 'Library', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 4 C7.2 2.9 4.6 2.6 2 3.2 V14.5 C4.6 13.9 7.2 14.2 9 15.3 C10.8 14.2 13.4 13.9 16 14.5 V3.2 C13.4 2.6 10.8 2.9 9 4 Z M9 4 V15.3"/></svg> },
-  { href: '/writings', label: 'Writings', icon: <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3 H15 V15 H3 Z M6 6 H12 M6 9 H12 M6 12 H10"/></svg> },
+  { href: '/', label: 'Home', iconSrc: '/icons/01_home.png' },
+  { href: '/library', label: 'Library', iconSrc: '/icons/Library.png' },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/Writings.png' },
 ];
 
 export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
@@ -28,7 +29,7 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
           className="min-h-screen"
           style={{
             display: 'grid',
-            gridTemplateColumns: sidebarOpen ? '222px 1fr' : '64px 1fr',
+            gridTemplateColumns: sidebarOpen ? '222px 1fr' : '110px 1fr',
             transition: 'grid-template-columns 0.3s ease'
           }}
         >
@@ -52,11 +53,7 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
             </svg>
           </button>
           <div className="flex items-center gap-2">
-            <svg width="24" height="28" viewBox="0 0 72 86" fill="none" className="stroke-gold" strokeWidth="1.6">
-              <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
-              <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
-              <path d="M36 30 V58 M26 40 H46" />
-            </svg>
+            <Image src="/logo.png" alt="Shavat" width={36} height={36} />
             <span className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</span>
           </div>
         </header>
@@ -108,11 +105,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <div className="p-5 border-b border-sidebar-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <svg width="32" height="38" viewBox="0 0 72 86" fill="none" className="stroke-gold" strokeWidth="1.6">
-                <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
-                <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
-                <path d="M36 30 V58 M26 40 H46" />
-              </svg>
+              <Image src="/logo.png" alt="Shavat" width={48} height={48} />
               <div>
                 <div className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</div>
                 <div className="text-[9px] tracking-[1.5px] text-sidebar-text-muted">KNOW WHERE YOU ARE</div>
@@ -145,7 +138,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
                       : 'text-sidebar-text hover:bg-sidebar-hover-bg'
                   }`}
                 >
-                  <span className={isActive ? 'text-sidebar-active-text' : 'text-gold'}>{link.icon}</span>
+                  <Image src={link.iconSrc} alt={link.label} width={28} height={28} className="dark:invert" />
                   {link.label}
                 </Link>
               );

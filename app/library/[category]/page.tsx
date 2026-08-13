@@ -31,9 +31,9 @@ const TABS = [
   { id: 'kingdom' as TabId, label: 'Kings' },
   { id: 'prophets' as TabId, label: 'Prophets' },
   { id: 'return' as TabId, label: 'Exile' },
+  { id: 'wisdom' as TabId, label: 'Wisdom' },
   { id: 'gospels' as TabId, label: 'Gospels' },
   { id: 'apostolic' as TabId, label: 'Apostolic' },
-  { id: 'wisdom' as TabId, label: 'Wisdom' },
 ];
 
 
@@ -1077,9 +1077,9 @@ export default function LibraryPage() {
   const mast = MASTHEAD[activeTab];
 
   return (
-    <main className="max-w-6xl mx-auto md:select-text pb-8">
+    <main className="max-w-6xl mx-auto md:select-text pb-8 px-4">
       {/* Header: Title + Tabs in one row */}
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 pt-1 pb-2">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 pt-6 pb-3">
         <div>
           <h1 className="font-serif font-bold text-xl md:text-2xl text-ink leading-none tracking-tight">
             {mast.title}
@@ -1112,17 +1112,20 @@ export default function LibraryPage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-1">
+        <div className="flex flex-col items-end gap-0.5 md:pt-1">
+          {/* OT / NT labels - 3 columns matching divider sections */}
+          <div className="grid grid-cols-3 w-full font-sans text-[9px] tracking-wider text-gold">
+            <span className="col-span-2 text-center">OLD TESTAMENT</span>
+            <span className="text-center">NEW TESTAMENT</span>
+          </div>
+          {/* Tabs */}
           <div className="inline-flex bg-paper-2 rounded-full p-0.5 font-sans text-[10px] font-medium overflow-x-auto max-w-full">
-            {TABS.map((tab, idx) => {
+            {TABS.map((tab) => {
               const active = activeTab === tab.id;
-              // Dividers: Kings|Prophets (narrative vs prophetic) and Exile|Gospels (OT/NT)
               const showDivider = tab.id === 'prophets' || tab.id === 'gospels';
               return (
                 <span key={tab.id} className="flex items-center">
-                  {showDivider && (
-                    <span className="mx-2 h-4 w-px bg-hairline" />
-                  )}
+                  {showDivider && <span className="mx-2 h-4 w-px bg-hairline" />}
                   <Link
                     href={`/library/${tab.id}`}
                     className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${

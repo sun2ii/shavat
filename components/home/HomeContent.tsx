@@ -1,12 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { MarketingNav } from '@/components/marketing/MarketingNav';
 
 export function HomeContent() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <main className="min-w-0">
       {/* HERO */}
@@ -16,7 +13,7 @@ export function HomeContent() {
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
         {/* Unified navbar - uses MarketingNav for consistency */}
-        <MarketingNav variant="dark" onHamburgerClick={() => setMobileMenuOpen(true)} />
+        <MarketingNav variant="dark" />
 
         {/* Hero copy */}
         <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-11 pt-8 sm:pt-6 md:pt-6 max-w-[560px]">

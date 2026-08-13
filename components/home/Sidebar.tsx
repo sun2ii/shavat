@@ -2,14 +2,48 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const staticNavLinks = [
-  { href: '/library', label: 'Library', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 4 C7.2 2.9 4.6 2.6 2 3.2 V14.5 C4.6 13.9 7.2 14.2 9 15.3 C10.8 14.2 13.4 13.9 16 14.5 V3.2 C13.4 2.6 10.8 2.9 9 4 Z M9 4 V15.3"/></svg> },
-  { href: '/writings', label: 'Writings', icon: <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3 H15 V15 H3 Z M6 6 H12 M6 9 H12 M6 12 H10"/></svg> },
+  { href: '/library', label: 'Library', iconSrc: '/icons/Library.png', scale: 1.6 },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/Writings.png', scale: 1.6 },
 ];
 
-const homeIcon = <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 8.5 L9 2.5 L16 8.5 M4 7.5 V15.5 H14 V7.5 M7.5 15.5 V11 H10.5 V15.5"/></svg>;
+const homeIconSrc = '/icons/01_home.png';
+const homeIconScale = 2.8;
+
+// Reusable icon component for padded PNGs (dark icons that need invert for white)
+function NavIcon({ src, alt, size = 32, scale = 2.8, active = false }: { src: string; alt: string; size?: number; scale?: number; active?: boolean }) {
+  const activeScale = scale * 1.15;
+  return (
+    <div className="overflow-hidden flex items-center justify-center flex-shrink-0" style={{ width: size, height: size }}>
+      <Image
+        src={src}
+        alt={alt}
+        width={size * 4}
+        height={size * 4}
+        className="invert brightness-200"
+        style={{ transform: `scale(${active ? activeScale : scale})` }}
+      />
+    </div>
+  );
+}
+
+// Icon component for gold icons (no color transformation needed)
+function GoldIcon({ src, alt, size = 32, scale = 1.6 }: { src: string; alt: string; size?: number; scale?: number }) {
+  return (
+    <div className="overflow-hidden flex items-center justify-center flex-shrink-0" style={{ width: size, height: size }}>
+      <Image
+        src={src}
+        alt={alt}
+        width={size * 4}
+        height={size * 4}
+        style={{ transform: `scale(${scale})` }}
+      />
+    </div>
+  );
+}
 
 interface SidebarProps {
   isOpen: boolean;
@@ -41,27 +75,26 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
       style={{ padding: isOpen ? '36px 20px 28px' : '36px 12px 28px' }}
     >
       {/* Logo */}
-      <div className="text-center px-1.5">
-        <svg
-          width={isOpen ? 72 : 40}
-          height={isOpen ? 86 : 48}
-          viewBox="0 0 72 86"
-          fill="none"
-          className="stroke-gold block mx-auto transition-all duration-300"
-          strokeWidth="1.6"
-                 >
-          <circle cx="36" cy="6" r="2.4" className="fill-gold" stroke="none" />
-          <path d="M14 82 V38 C14 20 24 12 36 12 C48 12 58 20 58 38 V82" />
-          <path d="M36 30 V58 M26 40 H46" />
-        </svg>
-        {isOpen && (
-          <>
-            <div className="font-playfair text-[27px] font-semibold tracking-[7px] mt-3.5">SHAVAT</div>
-            <div className="text-[10px] tracking-[2.4px] text-sidebar-text-muted leading-[1.7] mt-2.5">
-              KNOW WHERE YOU ARE<br/>IN SCRIPTURE.
-            </div>
-          </>
-        )}
+      <div className="text-center">
+        <div
+          className="overflow-hidden mx-auto transition-all duration-300"
+          style={{ width: isOpen ? 85 : 60, height: isOpen ? 95 : 66 }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Shavat"
+            width={isOpen ? 110 : 78}
+            height={isOpen ? 110 : 78}
+            className="block mx-auto transition-all duration-300"
+            style={{ transform: 'scale(1.2)', transformOrigin: 'top center' }}
+          />
+        </div>
+        <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-40 opacity-100 mt-3.5' : 'max-h-0 opacity-0 mt-0'}`}>
+          <div className="font-playfair text-[27px] font-semibold tracking-[7px]">SHAVAT</div>
+          <div className="text-[10px] tracking-[2.4px] text-sidebar-text-muted leading-[1.7] mt-2.5">
+            KNOW WHERE YOU ARE<br/>IN SCRIPTURE.
+          </div>
+        </div>
       </div>
 
       {/* Nav */}
@@ -79,13 +112,13 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
                   : 'text-sidebar-text hover:bg-sidebar-hover-bg'
               } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
             >
-              <span className={isHomeActive ? 'text-sidebar-active-text' : 'text-gold'}>{homeIcon}</span>
+              <NavIcon src={homeIconSrc} alt="Home" active={isHomeActive} />
               {isOpen && 'Home'}
             </Link>
           );
         })()}
         {staticNavLinks.map((link) => {
-          const isActive = pathname === link.href;
+          const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
           return (
             <Link
               key={link.href}
@@ -96,7 +129,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
                   : 'text-sidebar-text hover:bg-sidebar-hover-bg'
               } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
             >
-              <span className={isActive ? 'text-sidebar-active-text' : 'text-gold'}>{link.icon}</span>
+              <NavIcon src={link.iconSrc} alt={link.label} scale={link.scale} active={isActive} />
               {isOpen && link.label}
             </Link>
           );
@@ -137,14 +170,9 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {isDark ? (
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="9" cy="9" r="4"/>
-              <path d="M9 1V3M9 15V17M1 9H3M15 9H17M3.5 3.5L5 5M13 13L14.5 14.5M14.5 3.5L13 5M5 13L3.5 14.5"/>
-            </svg>
+            <GoldIcon src="/icons/LightMode.png" alt="Light Mode" />
           ) : (
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M15.5 10.5C14.5 11.5 13 12.2 11.5 12.2C8 12.2 5.5 9.5 5.5 6C5.5 4.5 6 3.2 7 2.2C3.5 3 1 6.2 1 10C1 14.4 4.6 18 9 18C12.8 18 16 15.5 16.8 12C16.4 11.5 16 11 15.5 10.5Z"/>
-            </svg>
+            <GoldIcon src="/icons/DarkMode.png" alt="Dark Mode" />
           )}
           {isOpen && (isDark ? 'Light Mode' : 'Dark Mode')}
         </button>
@@ -156,18 +184,9 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
             isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'
           }`}
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="transition-transform duration-300"
-            style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}
-          >
-            <path d="M10 4L6 8L10 12"/>
-          </svg>
+          <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
+            <GoldIcon src="/icons/Collapse.png" alt="Collapse" />
+          </div>
           {isOpen && 'Collapse'}
         </button>
       </div>

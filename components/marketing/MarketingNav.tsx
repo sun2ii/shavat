@@ -29,10 +29,9 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
   const navLinks = [
     { href: '/', label: 'HOME' },
     { href: '/features', label: 'FEATURES' },
-    { href: '/how-it-works', label: 'HOW IT WORKS', hideOnMobile: true },
     { href: '/about', label: 'ABOUT' },
     { href: '/pricing', label: 'PRICING' },
-    { href: '/resources', label: 'RESOURCES', hideOnMobile: true },
+    { href: '/resources', label: 'RESOURCES' },
   ];
 
   const isActive = (href: string) => pathname === href;
@@ -67,11 +66,10 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
           <Link
             key={link.href}
             href={link.href}
-            className={`${link.hideOnMobile ? 'hidden sm:inline' : ''} ${
-              isActive(link.href)
-                ? `${activeTextColor} font-bold border-b-2 border-gold pb-1`
-                : 'hover:text-gold'
-            }`}
+            className={isActive(link.href)
+              ? `${activeTextColor} font-bold border-b-2 border-gold pb-1`
+              : 'hover:text-gold'
+            }
           >
             {link.label}
           </Link>
@@ -97,13 +95,13 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
           <>
             <Link
               href="/dashboard"
-              className={`text-[9px] sm:text-[12px] tracking-[1.5px] ${textColor} hover:text-gold transition-colors font-medium`}
+              className={`whitespace-nowrap text-[9px] sm:text-[12px] tracking-[1.5px] ${textColor} hover:text-gold transition-colors font-medium`}
             >
               DASHBOARD
             </Link>
             <button
               onClick={handleLogout}
-              className="bg-white/95 text-shavat-darkest px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-lg text-[9px] sm:text-[11px] tracking-[1.5px] font-semibold hover:bg-white transition-colors cursor-pointer"
+              className="whitespace-nowrap bg-white/95 text-shavat-darkest px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-lg text-[9px] sm:text-[11px] tracking-[1.5px] font-semibold hover:bg-white transition-colors cursor-pointer"
             >
               LOG OUT
             </button>
@@ -112,13 +110,13 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
           <>
             <Link
               href="/login"
-              className={`text-[9px] sm:text-[12px] tracking-[1.5px] ${textColor} hover:text-gold transition-colors font-medium`}
+              className={`whitespace-nowrap text-[9px] sm:text-[12px] tracking-[1.5px] ${textColor} hover:text-gold transition-colors font-medium`}
             >
               SIGN IN
             </Link>
             <Link
               href="/signup"
-              className="bg-white/95 text-shavat-darkest px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-lg text-[9px] sm:text-[11px] tracking-[1.5px] font-semibold hover:bg-white transition-colors"
+              className="whitespace-nowrap bg-white/95 text-shavat-darkest px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-lg text-[9px] sm:text-[11px] tracking-[1.5px] font-semibold hover:bg-white transition-colors"
             >
               GET STARTED
             </Link>

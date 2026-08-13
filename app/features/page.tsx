@@ -9,19 +9,19 @@ export default function FeaturesPage() {
     <div className="font-inter bg-paper text-ink">
       {/* HERO - matching home page structure exactly */}
       <section className="relative h-[280px] sm:h-[320px] md:h-[340px]">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/heirloom-farms-2.png)' }} />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/heirloom-farms-2.webp)' }} />
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
         <MarketingNav variant="dark" />
 
         {/* Hero content */}
-        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-11 pt-8 sm:pt-6 md:pt-6 max-w-[560px]">
-          <h1 className="font-playfair text-3xl sm:text-[36px] md:text-[42px] leading-tight font-semibold text-white m-0" style={{ textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}>
+        <div className="relative z-10 px-6 sm:px-10 md:px-[70px] pt-6 sm:pt-8 md:pt-10 max-w-[500px]">
+          <h1 className="font-playfair text-3xl sm:text-4xl md:text-[56px] font-medium text-white m-0" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
             Features
           </h1>
-          <div className="text-sm sm:text-[15px] leading-relaxed text-white mt-2 sm:mt-2.5" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.55)' }}>
+          <p className="font-playfair italic font-semibold text-sm sm:text-base md:text-[17px] leading-relaxed text-gold mt-3 sm:mt-4 max-w-[380px]" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
             The core tools you need to stay oriented in Scripture.
-          </div>
+          </p>
         </div>
       </section>
 
@@ -39,7 +39,7 @@ export default function FeaturesPage() {
             {/* Bible */}
             <div className="flex flex-col items-center">
               <span className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-shavat-darkest border-2 border-gold flex items-center justify-center">
-                <NormalizedIcon src="/icons/features/bible.png" alt="Bible" width={32} height={32} />
+                <NormalizedIcon src="/icons/features/bible.webp" alt="Bible" width={32} height={32} />
               </span>
               <div className="font-playfair text-lg sm:text-[22px] font-semibold mt-2.5">Bible</div>
               <span className="h-0.5 w-8 bg-gold my-1.5" />
@@ -51,7 +51,7 @@ export default function FeaturesPage() {
             {/* Timeline */}
             <div className="flex flex-col items-center">
               <span className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-shavat-darkest border-2 border-gold flex items-center justify-center">
-                <NormalizedIcon src="/icons/features/timeline.png" alt="Timeline" width={32} height={32} />
+                <NormalizedIcon src="/icons/features/timeline.webp" alt="Timeline" width={32} height={32} />
               </span>
               <div className="font-playfair text-lg sm:text-[22px] font-semibold mt-2.5">Timeline</div>
               <span className="h-0.5 w-8 bg-gold my-1.5" />
@@ -63,7 +63,7 @@ export default function FeaturesPage() {
             {/* Spine */}
             <div className="flex flex-col items-center">
               <span className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-shavat-darkest border-2 border-gold flex items-center justify-center">
-                <NormalizedIcon src="/icons/features/spine.png" alt="Spine" width={32} height={32} />
+                <NormalizedIcon src="/icons/features/spine.webp" alt="Spine" width={32} height={32} />
               </span>
               <div className="font-playfair text-lg sm:text-[22px] font-semibold mt-2.5">Spine</div>
               <span className="h-0.5 w-8 bg-gold my-1.5" />
@@ -77,7 +77,7 @@ export default function FeaturesPage() {
         {/* PREMIUM BAND */}
         <section className="mt-8">
           <div className="bg-surface border border-hairline rounded-lg flex flex-col sm:flex-row items-center gap-4 sm:gap-5 p-4 sm:p-5 md:px-7">
-            <NormalizedIcon src="/icons/general/laurel.png" alt="" width={32} height={28} className="flex-none hidden sm:block" />
+            <NormalizedIcon src="/icons/general/laurel.webp" alt="" width={32} height={28} className="flex-none hidden sm:block" />
             <div className="flex-1 text-xs sm:text-sm leading-relaxed text-muted text-center sm:text-left">
               More tools and deeper insights are available with <strong className="text-ink">Shavat Premium</strong>. Upgrade anytime to unlock the full experience.
             </div>

@@ -104,7 +104,7 @@ export function MarketingHeader({ activePage }: MarketingHeaderProps) {
             width: '220px',
           }}
         >
-<NormalizedIcon src="/icons/general/search.png" alt="Search" width={18} height={18} />
+<NormalizedIcon src="/icons/general/search.webp" alt="Search" width={18} height={18} />
           <input
             type="text"
             placeholder="Search Scripture or topics..."

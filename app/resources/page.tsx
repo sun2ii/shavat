@@ -1,29 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { MarketingNav } from '@/components/marketing/MarketingNav';
-
-// Icon component for gold icons (no color transformation needed)
-function GoldIcon({ src, alt, size = 28, scale = 1.5 }: { src: string; alt: string; size?: number; scale?: number }) {
-  return (
-    <div className="overflow-hidden flex items-center justify-center" style={{ width: size, height: size }}>
-      <Image
-        src={src}
-        alt={alt}
-        width={size * 4}
-        height={size * 4}
-        style={{ transform: `scale(${scale})` }}
-      />
-    </div>
-  );
-}
+import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 
 const CATEGORIES = [
-  { title: 'Reading Plans', description: 'Paths through Scripture for steady daily reading.', iconSrc: '/icons/02_bible_read.png' },
-  { title: 'Study Guides', description: 'Structured helps for deeper understanding.', iconSrc: '/icons/03_study.png' },
-  { title: 'Theme Collections', description: 'Grouped passages connecting the bigger story.', iconSrc: '/icons/12_themes.png' },
-  { title: 'Getting Started', description: 'Introductions for new readers.', iconSrc: '/icons/GettingStarted.png' },
+  { title: 'Reading Plans', description: 'Paths through Scripture for steady daily reading.', iconSrc: '/icons/resources/readingplan.webp' },
+  { title: 'Study Guides', description: 'Structured helps for deeper understanding.', iconSrc: '/icons/resources/studyguides.webp' },
+  { title: 'Theme Collections', description: 'Grouped passages connecting the bigger story.', iconSrc: '/icons/resources/themecollections.webp' },
+  { title: 'Getting Started', description: 'Introductions for new readers.', iconSrc: '/icons/resources/gettingstarted.webp' },
 ];
 
 const FEATURED = [
@@ -37,14 +22,14 @@ export default function ResourcesPage() {
     <div className="font-inter min-h-screen flex flex-col bg-paper text-ink">
       {/* HERO */}
       <section className="relative h-[240px] sm:h-[280px] md:h-[340px]">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/sunset.png)' }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/images/sunset.webp)' }} />
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
         <MarketingNav variant="dark" />
 
         <div className="relative z-10 px-6 sm:px-10 md:px-[70px] pt-6 sm:pt-8 md:pt-10 max-w-[500px]">
-          <h1 className="font-playfair text-3xl sm:text-4xl md:text-[56px] font-medium text-white m-0" style={{ textShadow: '0 2px 20px rgba(15,20,12,.5)' }}>Resources</h1>
-          <p className="text-sm sm:text-base md:text-[17px] leading-relaxed text-white mt-3 sm:mt-4 max-w-[380px]" style={{ textShadow: '0 1px 14px rgba(15,20,12,.55)' }}>
+          <h1 className="font-playfair text-3xl sm:text-4xl md:text-[56px] font-medium text-white m-0" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>Resources</h1>
+          <p className="font-playfair italic font-semibold text-sm sm:text-base md:text-[17px] leading-relaxed text-gold mt-3 sm:mt-4 max-w-[380px]" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
             Guides, tools, and curated helps to keep you oriented in Scripture.
           </p>
         </div>
@@ -53,8 +38,8 @@ export default function ResourcesPage() {
       {/* CATEGORY CARDS */}
       <section className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 px-4 sm:px-8 md:px-12 py-5 sm:py-6">
         {CATEGORIES.map((cat) => (
-          <div key={cat.title} className="bg-surface dark:bg-surface border border-hairline rounded-lg p-3 sm:p-4 flex gap-2.5 sm:gap-3 items-start">
-            <span className="flex-none"><GoldIcon src={cat.iconSrc} alt={cat.title} /></span>
+          <div key={cat.title} className="bg-surface dark:bg-surface border border-hairline rounded-lg p-3 sm:p-4 flex gap-2.5 sm:gap-3 items-center">
+            <span className="flex-none"><NormalizedIcon src={cat.iconSrc} alt={cat.title} width={28} height={28} /></span>
             <div>
               <div className="font-playfair text-sm sm:text-base font-medium">{cat.title}</div>
               <div className="text-[10px] sm:text-[11px] leading-snug text-muted mt-1">{cat.description}</div>
@@ -96,7 +81,7 @@ export default function ResourcesPage() {
       <section className="px-4 sm:px-8 md:px-12 pb-6 sm:pb-7">
         <div className="bg-surface dark:bg-surface border-t border-hairline rounded-lg flex flex-col sm:flex-row items-center gap-4 sm:gap-5 p-4 sm:p-5 md:px-8">
           <span className="flex-none">
-            <GoldIcon src="/icons/StayRooted.png" alt="Stay rooted" size={48} scale={1.6} />
+            <NormalizedIcon src="/icons/resources/stayrooted.webp" alt="Stay rooted" width={48} height={48} />
           </span>
           <div className="flex-1 text-center sm:text-left">
             <div className="font-playfair text-lg sm:text-xl md:text-[22px] font-medium text-ink">Stay rooted in the Word.</div>

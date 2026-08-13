@@ -47,7 +47,7 @@ export function ThemeToggleIcon({ isDark, size = 24 }: ThemeToggleIconProps) {
       }}
     >
       <NormalizedIcon
-        src={displayIcon ? '/icons/sidebar/lightmode.png' : '/icons/sidebar/darkmode.png'}
+        src={displayIcon ? '/icons/sidebar/lightmode.webp' : '/icons/sidebar/darkmode.webp'}
         alt={displayIcon ? 'Light Mode' : 'Dark Mode'}
         width={size}
         height={size}

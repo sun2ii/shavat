@@ -15,19 +15,19 @@ export default function HowItWorksPage() {
     <div className="font-inter bg-paper text-ink">
       {/* HERO - matching home page structure exactly */}
       <section className="relative h-[280px] sm:h-[320px] md:h-[340px]">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/davis.png)' }} />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/davis.webp)' }} />
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
         <MarketingNav variant="dark" />
 
         {/* Hero content */}
-        <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-11 pt-8 sm:pt-6 md:pt-6 max-w-[560px]">
-          <h1 className="font-playfair text-3xl sm:text-[36px] md:text-[42px] leading-tight font-semibold text-white m-0" style={{ textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}>
+        <div className="relative z-10 px-6 sm:px-10 md:px-[70px] pt-6 sm:pt-8 md:pt-10 max-w-[500px]">
+          <h1 className="font-playfair text-3xl sm:text-4xl md:text-[56px] font-medium text-white m-0" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.4)' }}>
             How It Works
           </h1>
-          <div className="text-sm sm:text-[15px] leading-relaxed text-white mt-2 sm:mt-2.5" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.55)' }}>
+          <p className="font-playfair italic font-semibold text-sm sm:text-base md:text-[17px] leading-relaxed text-gold mt-3 sm:mt-4 max-w-[380px]" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.4)' }}>
             Shavat helps you engage with Scripture in a clear, meaningful, and connected way.
-          </div>
+          </p>
         </div>
       </section>
 

@@ -14,9 +14,9 @@ interface AppShellProps {
 }
 
 const mobileNavLinks = [
-  { href: '/', label: 'Home', iconSrc: '/icons/sidebar/home.png' },
-  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.png' },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.png' },
+  { href: '/', label: 'Home', iconSrc: '/icons/sidebar/home.webp' },
+  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.webp' },
 ];
 
 export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
@@ -50,10 +50,10 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
             onClick={() => setMobileMenuOpen(true)}
             className="p-1 text-sidebar-text-muted hover:text-sidebar-text"
           >
-            <NormalizedIcon src="/icons/sidebar/menu.png" alt="Menu" width={24} height={24} />
+            <NormalizedIcon src="/icons/sidebar/menu.webp" alt="Menu" width={24} height={24} />
           </button>
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="Shavat" width={36} height={36} />
+            <Image src="/logo.webp" alt="Shavat" width={36} height={36} />
             <span className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</span>
           </div>
         </header>
@@ -105,7 +105,7 @@ function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void;
         <div className="p-5 border-b border-sidebar-border">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Image src="/logo.png" alt="Shavat" width={48} height={48} />
+              <Image src="/logo.webp" alt="Shavat" width={48} height={48} />
               <div>
                 <div className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</div>
                 <div className="text-[9px] tracking-[1.5px] text-sidebar-text-muted">KNOW WHERE YOU ARE</div>

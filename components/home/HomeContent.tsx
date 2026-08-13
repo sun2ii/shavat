@@ -9,7 +9,7 @@ export function HomeContent() {
     <main className="min-w-0">
       {/* HERO */}
       <section className="relative h-[280px] sm:h-[320px] md:h-[340px]">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/river.png)' }} />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/river.webp)' }} />
         {/* Dark mode overlay for hero image */}
         <div className="absolute inset-0 bg-black/0 dark:bg-black/40 transition-colors" />
 
@@ -21,11 +21,11 @@ export function HomeContent() {
           <div className="font-playfair text-lg sm:text-xl md:text-2xl text-gold mb-1">Good morning.</div>
           <h1 className="font-playfair text-3xl sm:text-[36px] md:text-[42px] leading-tight font-semibold text-white m-0" style={{ textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}>
             Welcome to Shavat
-            <NormalizedIcon src="/icons/general/laurel.png" alt="" width={44} height={30} className="hidden sm:inline-block align-baseline ml-1.5" />
+            <NormalizedIcon src="/icons/general/laurel.webp" alt="" width={44} height={30} className="hidden sm:inline-block align-baseline ml-1.5" />
           </h1>
           <div className="text-sm sm:text-[15px] leading-relaxed text-white mt-2 sm:mt-2.5" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.55)' }}>Stay oriented in Scripture.<br />See the big picture.<br />Read with confidence.</div>
           <label className="flex items-center gap-3 bg-surface/95 dark:bg-surface-elevated/95 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 w-full sm:w-[300px] mt-4 shadow-lg">
-            <NormalizedIcon src="/icons/general/search.png" alt="Search" width={18} height={18} />
+            <NormalizedIcon src="/icons/general/search.webp" alt="Search" width={18} height={18} />
             <input type="text" placeholder="Search Scripture or topics..." className="border-none outline-none bg-transparent font-inter text-sm text-ink w-full"/>
           </label>
         </div>
@@ -37,11 +37,11 @@ export function HomeContent() {
         <div className="text-[10px] tracking-[2.4px] font-bold text-muted mb-3">EXPLORE SHAVAT</div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
           {[
-            { icon: <NormalizedIcon src="/icons/home/orientation.png" alt="Orientation" width={24} height={24} />, title: 'Orientation View', desc: 'See where you are in the book and the bigger story.', link: '/terrain', linkText: 'OPEN VIEW' },
-            { icon: <NormalizedIcon src="/icons/home/read.png" alt="Read" width={24} height={24} />, title: 'Read Scripture', desc: 'Read and understand Scripture with clarity.', link: '/library', linkText: 'START READING' },
-            { icon: <NormalizedIcon src="/icons/home/timeline.png" alt="Timeline" width={24} height={24} />, title: 'Timeline', desc: 'See events in historical order and context.', link: '/timeline', linkText: 'VIEW TIMELINE' },
-            { icon: <NormalizedIcon src="/icons/home/terrain.png" alt="Terrain" width={24} height={24} />, title: 'Terrain', desc: 'Follow the main storyline of Scripture.', link: '/terrain', linkText: 'VIEW TERRAIN' },
-            { icon: <NormalizedIcon src="/icons/general/search.png" alt="Search" width={24} height={24} />, title: 'Search Scripture', desc: 'Find passages, themes, and topics quickly.', link: '/search', linkText: 'SEARCH' },
+            { icon: <NormalizedIcon src="/icons/home/orientation.webp" alt="Orientation" width={24} height={24} />, title: 'Orientation View', desc: 'See where you are in the book and the bigger story.', link: '/terrain', linkText: 'OPEN VIEW' },
+            { icon: <NormalizedIcon src="/icons/home/read.webp" alt="Read" width={24} height={24} />, title: 'Read Scripture', desc: 'Read and understand Scripture with clarity.', link: '/library', linkText: 'START READING' },
+            { icon: <NormalizedIcon src="/icons/home/timeline.webp" alt="Timeline" width={24} height={24} />, title: 'Timeline', desc: 'See events in historical order and context.', link: '/timeline', linkText: 'VIEW TIMELINE' },
+            { icon: <NormalizedIcon src="/icons/home/terrain.webp" alt="Terrain" width={24} height={24} />, title: 'Terrain', desc: 'Follow the main storyline of Scripture.', link: '/terrain', linkText: 'VIEW TERRAIN' },
+            { icon: <NormalizedIcon src="/icons/general/search.webp" alt="Search" width={24} height={24} />, title: 'Search Scripture', desc: 'Find passages, themes, and topics quickly.', link: '/search', linkText: 'SEARCH' },
           ].map((card, i) => (
             <div key={i} className="bg-surface dark:bg-surface border border-hairline-subtle dark:border-hairline rounded-lg p-3 sm:p-4 flex flex-col items-center text-center">
               <span className="w-10 h-10 sm:w-11 sm:h-11 border border-hairline rounded-full flex items-center justify-center flex-shrink-0">{card.icon}</span>
@@ -60,7 +60,7 @@ export function HomeContent() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-surface dark:bg-surface border border-hairline-subtle dark:border-hairline rounded-lg p-4">
                 <div className="flex items-center gap-2 text-[10px] tracking-[2px] font-bold text-muted">
-                  <NormalizedIcon src="/icons/home/dailyinsight.png" alt="Daily Insight" width={14} height={14} />
+                  <NormalizedIcon src="/icons/home/dailyinsight.webp" alt="Daily Insight" width={14} height={14} />
                   DAILY INSIGHT
                 </div>
                 <div className="text-[13px] leading-relaxed text-muted mt-2.5">In every season, God raises up people who are willing to say yes. He can use you right where you are.</div>
@@ -94,7 +94,7 @@ export function HomeContent() {
             <div className="bg-surface dark:bg-surface border border-hairline-subtle dark:border-hairline rounded-lg p-3.5">
               <div className="text-[10px] tracking-[2px] font-bold text-muted">READING PROGRESS</div>
               <div className="flex items-center gap-3 mt-3">
-                <NormalizedIcon src="/icons/home/readingprogress.png" alt="Reading Progress" width={56} height={56} scale={1} />
+                <NormalizedIcon src="/icons/home/readingprogress.webp" alt="Reading Progress" width={56} height={56} scale={1} />
                 <div>
                   <div className="font-playfair text-base font-semibold">Judges</div>
                   <div className="text-[11px] text-faint leading-snug mt-0.5">6 of 21 chapters</div>
@@ -108,7 +108,7 @@ export function HomeContent() {
               <div className="flex flex-col">
                 {['Judges 5', 'Judges 4', 'Judges 3'].map((ch, i) => (
                   <Link key={ch} href={`/judges/${5-i}`} className="hover:text-gold flex items-center gap-2.5 py-2 border-b border-hairline-subtle last:border-b-0">
-                    <NormalizedIcon src="/icons/home/read.png" alt="" width={14} height={14} />
+                    <NormalizedIcon src="/icons/home/read.webp" alt="" width={14} height={14} />
                     <span className="flex-1">
                       <span className="block text-xs font-semibold">{ch}</span>
                       <span className="block text-[10px] text-faint mt-0.5">May {14-i}, 2024</span>
@@ -124,7 +124,7 @@ export function HomeContent() {
         {/* Mobile-only: Reading Progress compact */}
         <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
           <div className="bg-surface dark:bg-surface border border-hairline-subtle dark:border-hairline rounded-lg p-3.5 flex items-center gap-3">
-            <NormalizedIcon src="/icons/home/readingprogress.png" alt="Reading Progress" width={48} height={48} />
+            <NormalizedIcon src="/icons/home/readingprogress.webp" alt="Reading Progress" width={48} height={48} />
             <div className="flex-1 min-w-0">
               <div className="text-[10px] tracking-[2px] font-bold text-muted">READING PROGRESS</div>
               <div className="font-playfair text-sm font-semibold mt-1">Judges</div>
@@ -156,10 +156,10 @@ export function HomeContent() {
           {/* Values - horizontal on desktop, 2x2 grid on mobile */}
           <div className="bg-paper-2 dark:bg-surface border border-hairline-subtle dark:border-hairline rounded-lg p-5 sm:p-6 grid grid-cols-4 items-center">
             {[
-              { icon: <NormalizedIcon src="/icons/home/wholestory.png" alt="Whole story" width={40} height={40} />, text: 'Whole story' },
-              { icon: <NormalizedIcon src="/icons/home/growdaily.png" alt="Grow daily" width={40} height={40} />, text: 'Grow daily' },
-              { icon: <NormalizedIcon src="/icons/home/withcare.png" alt="With care" width={40} height={40} />, text: 'With care' },
-              { icon: <NormalizedIcon src="/icons/home/private.png" alt="Private" width={40} height={40} />, text: 'Private' },
+              { icon: <NormalizedIcon src="/icons/home/wholestory.webp" alt="Whole story" width={40} height={40} />, text: 'Whole story' },
+              { icon: <NormalizedIcon src="/icons/home/growdaily.webp" alt="Grow daily" width={40} height={40} />, text: 'Grow daily' },
+              { icon: <NormalizedIcon src="/icons/home/withcare.webp" alt="With care" width={40} height={40} />, text: 'With care' },
+              { icon: <NormalizedIcon src="/icons/home/private.webp" alt="Private" width={40} height={40} />, text: 'Private' },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-2 px-2 sm:px-4 border-r border-hairline-subtle last:border-r-0">
                 {item.icon}
@@ -175,7 +175,7 @@ export function HomeContent() {
               <div className="text-[10px] sm:text-[11px] leading-snug text-muted mt-1">Unlock devotionals, journals, and more.</div>
               <Link href="#" className="hover:bg-brand-hover inline-flex items-center gap-1.5 bg-brand text-paper px-3 py-2 rounded text-[9px] sm:text-[10px] tracking-[1.5px] font-semibold mt-2.5 dark:bg-surface-elevated dark:hover:bg-hairline dark:text-ink">PREMIUM →</Link>
             </div>
-            <NormalizedIcon src="/icons/general/laurel.png" alt="" width={50} height={42} className="flex-none hidden sm:block" />
+            <NormalizedIcon src="/icons/general/laurel.webp" alt="" width={50} height={42} className="flex-none hidden sm:block" />
           </div>
         </div>
       </div>

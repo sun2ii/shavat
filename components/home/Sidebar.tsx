@@ -8,11 +8,11 @@ import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 const staticNavLinks = [
-  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.png' },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.png' },
+  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.webp' },
 ];
 
-const homeIconSrc = '/icons/sidebar/home.png';
+const homeIconSrc = '/icons/sidebar/home.webp';
 
 function SidebarIcon({ src, alt, size = 24 }: { src: string; alt: string; size?: number }) {
   return (
@@ -62,7 +62,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           style={{ width: isOpen ? 85 : 60, height: isOpen ? 95 : 66 }}
         >
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Shavat"
             width={isOpen ? 110 : 78}
             height={isOpen ? 110 : 78}
@@ -163,7 +163,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           }`}
         >
           <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
-            <SidebarIcon src="/icons/sidebar/Collapse.png" alt="Collapse" />
+            <SidebarIcon src="/icons/sidebar/Collapse.webp" alt="Collapse" />
           </div>
           {isOpen && 'Collapse'}
         </button>

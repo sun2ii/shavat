@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
+import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { readingPath } from '@/lib/routes';
 import { CATEGORIES } from '@/lib/bible-metadata';
@@ -16,7 +17,7 @@ import { divisionHasSpeakers } from '@/lib/hasSpeakers';
 import { getBookTheme } from '@/lib/getBookThemes';
 import { GENESIS_SECTIONS } from '@/lib/genesis-views';
 
-type TabId = 'torah' | 'conquest' | 'kingdom' | 'return' | 'wisdom' | 'prophets' | 'gospels' | 'apostolic';
+type TabId = 'torah' | 'judges' | 'kingdom' | 'return' | 'wisdom' | 'prophets' | 'gospels' | 'apostolic';
 
 type FocusableCard = {
   id: string;
@@ -27,7 +28,7 @@ type FocusableCard = {
 
 const TABS = [
   { id: 'torah' as TabId, label: 'Law' },
-  { id: 'conquest' as TabId, label: 'Judges' },
+  { id: 'judges' as TabId, label: 'Judges' },
   { id: 'kingdom' as TabId, label: 'Kings' },
   { id: 'prophets' as TabId, label: 'Prophets' },
   { id: 'return' as TabId, label: 'Exile' },
@@ -58,7 +59,7 @@ const ACTS_BOOKS = [
 
 const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
   torah: { kicker: 'The Five Books of Moses', title: 'Law' },
-  conquest: { kicker: 'Joshua, Judges, Ruth', title: 'Judges' },
+  judges: { kicker: 'Joshua, Judges, Ruth', title: 'Judges' },
   kingdom: { kicker: 'Samuel & Kings', title: 'Kings' },
   return: { kicker: 'Chronicles, Ezra, Nehemiah, Esther', title: 'Exile' },
   wisdom: { kicker: 'Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon', title: 'Wisdom & Poetry' },
@@ -158,12 +159,10 @@ function BookHeader({ number, name, sub, anchor }: { number?: string; name: stri
   return (
     <div className="flex items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline">
       {number && <span className="font-serif text-[11px] font-bold text-gold">{number}</span>}
-      <div className="flex-1">
-        <div className="flex items-baseline gap-2">
-          <span className="font-serif text-base font-bold text-ink leading-none">{name}</span>
-          {anchor && <span className="font-sans text-[10px] text-gold/80">{anchor}</span>}
-        </div>
-        {sub && <div className="font-sans text-[10px] text-muted">{sub}</div>}
+      <div className="flex items-baseline gap-2.5">
+        <span className="font-serif text-lg font-bold text-ink leading-none">{name}</span>
+        {anchor && <span className="font-sans text-[10px] text-gold/80">{anchor}</span>}
+        {sub && <span className="font-serif italic text-[11px] text-muted">{sub}</span>}
       </div>
     </div>
   );
@@ -180,8 +179,8 @@ function DivisionCard({
   hasPlaces,
   hasPeople,
   accent,
-  instructional,
   focused,
+  isComplete,
 }: {
   href: string;
   title: string;
@@ -193,8 +192,8 @@ function DivisionCard({
   hasPlaces?: boolean;
   hasPeople?: boolean;
   accent: string;
-  instructional?: boolean;
   focused?: boolean;
+  isComplete?: boolean;
 }) {
   const showDots = hasCommentary || hasWritings || hasSpeakers || hasPlaces || hasPeople;
   return (
@@ -206,18 +205,18 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`relative block rounded px-2 py-1.5 bg-surface border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
+      className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
+        isComplete
+          ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
+          : 'bg-surface border-hairline'
+      } ${
         focused
-          ? 'border-gold ring-2 ring-gold'
-          : 'border-hairline focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold'
+          ? 'ring-2 ring-gold'
+          : 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold'
       }`}
     >
       <div>
-        <div
-          className={`font-serif text-[12px] leading-tight ${
-            instructional ? 'text-orange-500' : 'text-ink'
-          }`}
-        >
+        <div className="font-serif text-[12px] leading-tight text-ink">
           {title}
         </div>
         {theme && (
@@ -243,7 +242,7 @@ function DivisionCard({
   );
 }
 
-const VALID_TABS: TabId[] = ['torah', 'conquest', 'kingdom', 'return', 'wisdom', 'prophets', 'gospels', 'apostolic'];
+const VALID_TABS: TabId[] = ['torah', 'judges', 'kingdom', 'return', 'wisdom', 'prophets', 'gospels', 'apostolic'];
 
 export default function LibraryPage() {
   const params = useParams();
@@ -254,6 +253,143 @@ export default function LibraryPage() {
   const [prophetEra, setProphetEra] = useState<ProphetEra>('north');
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  // Get reading progress from context (server-side fetched, no delay)
+  const { isDivisionComplete } = useReadingProgress();
+
+  // Calculate progress stats for the current tab
+  const tabProgress = useMemo(() => {
+    let totalDivisions = 0;
+    let completedDivisions = 0;
+
+    const countDivisions = (bookSlug: string, divisions: { chapters: number[] }[]) => {
+      divisions.forEach((div) => {
+        totalDivisions++;
+        if (isDivisionComplete(bookSlug, div.chapters)) {
+          completedDivisions++;
+        }
+      });
+    };
+
+    const countSingleBook = (bookSlug: string, chapterCount: number) => {
+      const allChapters = Array.from({ length: chapterCount }, (_, i) => i + 1);
+      totalDivisions++;
+      if (isDivisionComplete(bookSlug, allChapters)) {
+        completedDivisions++;
+      }
+    };
+
+    switch (activeTab) {
+      case 'torah':
+        getBooksByTopLevelCategory('torah').forEach((book) => {
+          if (book.slug === 'genesis') {
+            GENESIS_SECTIONS.forEach((sec) => {
+              const chapters = Array.from(
+                { length: sec.endChapter - sec.startChapter + 1 },
+                (_, i) => sec.startChapter + i
+              );
+              totalDivisions++;
+              if (isDivisionComplete('genesis', chapters)) completedDivisions++;
+            });
+          } else {
+            const divisions = getAllDivisions(book.slug);
+            if (divisions.length > 0) {
+              countDivisions(book.slug, divisions);
+            } else {
+              countSingleBook(book.slug, book.chapterCount);
+            }
+          }
+        });
+        break;
+      case 'gospels':
+        getBooksByTopLevelCategory('gospels').forEach((book) => {
+          const divisions = book.slug === 'mark' ? getMarkDivisions() : getAllDivisions(book.slug);
+          if (divisions.length > 0) {
+            countDivisions(book.slug, divisions as { chapters: number[] }[]);
+          } else {
+            countSingleBook(book.slug, book.chapterCount);
+          }
+        });
+        break;
+      case 'judges':
+        ['joshua', 'judges', 'ruth'].forEach((slug) => {
+          const book = getBooksByTopLevelCategory('historical').find(b => b.slug === slug);
+          if (!book) return;
+          const divisions = getAllDivisions(slug);
+          if (divisions.length > 0) {
+            countDivisions(slug, divisions);
+          } else {
+            countSingleBook(slug, book.chapterCount);
+          }
+        });
+        break;
+      case 'kingdom':
+        ['1-samuel', '2-samuel', '1-kings', '2-kings'].forEach((slug) => {
+          const book = getBooksByTopLevelCategory('historical').find(b => b.slug === slug);
+          if (!book) return;
+          const divisions = getAllDivisions(slug);
+          if (divisions.length > 0) {
+            countDivisions(slug, divisions);
+          } else {
+            countSingleBook(slug, book.chapterCount);
+          }
+        });
+        break;
+      case 'return':
+        ['1-chronicles', '2-chronicles', 'ezra', 'nehemiah', 'esther'].forEach((slug) => {
+          const book = getBooksByTopLevelCategory('historical').find(b => b.slug === slug);
+          if (!book) return;
+          const divisions = getAllDivisions(slug);
+          if (divisions.length > 0) {
+            countDivisions(slug, divisions);
+          } else {
+            countSingleBook(slug, book.chapterCount);
+          }
+        });
+        break;
+      case 'prophets':
+        getBooksByTopLevelCategory('prophets').forEach((book) => {
+          const divisions = getAllDivisions(book.slug);
+          if (divisions.length > 0) {
+            countDivisions(book.slug, divisions);
+          } else {
+            countSingleBook(book.slug, book.chapterCount);
+          }
+        });
+        break;
+      case 'wisdom':
+        getBooksByTopLevelCategory('wisdom').forEach((book) => {
+          if (book.slug === 'psalms') {
+            getAllCollections().forEach((col) => {
+              totalDivisions++;
+              if (isDivisionComplete('psalms', col.psalms)) completedDivisions++;
+            });
+          } else {
+            const divisions = getAllDivisions(book.slug);
+            if (divisions.length > 0) {
+              countDivisions(book.slug, divisions);
+            } else {
+              countSingleBook(book.slug, book.chapterCount);
+            }
+          }
+        });
+        break;
+      case 'apostolic':
+        getBooksByTopLevelCategory('apostolic').forEach((book) => {
+          if (book.slug === 'acts') {
+            // Acts has 2 sections
+            totalDivisions += 2;
+            if (isDivisionComplete('acts', Array.from({ length: 8 }, (_, i) => i + 1))) completedDivisions++;
+            if (isDivisionComplete('acts', Array.from({ length: 20 }, (_, i) => i + 9))) completedDivisions++;
+          } else {
+            countSingleBook(book.slug, book.chapterCount);
+          }
+        });
+        break;
+    }
+
+    const percentage = totalDivisions > 0 ? Math.round((completedDivisions / totalDivisions) * 100) : 0;
+    return { completed: completedDivisions, total: totalDivisions, percentage };
+  }, [activeTab, isDivisionComplete]);
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -529,8 +665,7 @@ export default function LibraryPage() {
       <section key={book.slug}>
         <BookHeader number={number} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} chapters`} />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-          {divisions.map((division, i) => {
-            const isInstructional = division.contentType === 'instructional';
+          {divisions.map((division) => {
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
             const hasWritings = divisionHasWritings(book.slug, division.chapters);
             const hasSpeakers = divisionHasSpeakers(book.slug, division.chapters);
@@ -545,8 +680,8 @@ export default function LibraryPage() {
                 hasWritings={hasWritings}
                 hasSpeakers={hasSpeakers}
                 accent={accent}
-                instructional={isInstructional}
                 focused={focusedCardId === `${book.slug}:${division.id}`}
+                isComplete={isDivisionComplete(book.slug, division.chapters)}
               />
             );
           })}
@@ -571,26 +706,37 @@ export default function LibraryPage() {
                   <section key={book.slug}>
                     <BookHeader number={number} name={book.name} sub={`${GENESIS_SECTIONS.length} sections · 50 chapters`} />
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                      {GENESIS_SECTIONS.map((item) => (
-                        <Link
-                          key={item.title}
-                          href={readingPath('genesis', item.startChapter)}
-                          className="block rounded px-2 py-1.5 bg-surface border border-l-2 border-hairline transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] focus-visible:outline-none focus-visible:border-gold focus-visible:ring-2 focus-visible:ring-gold text-center h-[72px] flex flex-col justify-between"
-                          style={{ '--accent': accent } as React.CSSProperties}
-                        >
-                          <div>
-                            <div className="font-serif text-[12px] leading-tight text-ink">
-                              {item.title}
+                      {GENESIS_SECTIONS.map((item) => {
+                        const chapters = Array.from(
+                          { length: item.endChapter - item.startChapter + 1 },
+                          (_, i) => item.startChapter + i
+                        );
+                        const isComplete = isDivisionComplete('genesis', chapters);
+                        return (
+                          <Link
+                            key={item.title}
+                            href={readingPath('genesis', item.startChapter)}
+                            className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold text-center h-[72px] flex flex-col justify-between ${
+                              isComplete
+                                ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
+                                : 'bg-surface border-hairline'
+                            }`}
+                            style={{ '--accent': accent } as React.CSSProperties}
+                          >
+                            <div>
+                              <div className="font-serif text-[12px] leading-tight text-ink">
+                                {item.title}
+                              </div>
+                              <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2">
+                                {item.theme}
+                              </div>
                             </div>
-                            <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2">
-                              {item.theme}
+                            <div className="font-sans text-[10px] text-gold">
+                              {item.scripture}
                             </div>
-                          </div>
-                          <div className="font-sans text-[10px] text-gold">
-                            {item.scripture}
-                          </div>
-                        </Link>
-                      ))}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </section>
                 );
@@ -615,6 +761,7 @@ export default function LibraryPage() {
                       hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       accent={accent}
                       focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                     />
                   </div>
                 </section>
@@ -651,6 +798,7 @@ export default function LibraryPage() {
                       hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                       accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
                     />
                   </div>
                 </section>
@@ -660,14 +808,14 @@ export default function LibraryPage() {
         );
       }
 
-      case 'conquest': {
+      case 'judges': {
         // Joshua, Judges, Ruth
-        const conquestSlugs = ['joshua', 'judges', 'ruth'];
-        const conquestBooks = getBooksByTopLevelCategory('historical').filter(b => conquestSlugs.includes(b.slug));
+        const judgesSlugs = ['joshua', 'judges', 'ruth'];
+        const judgesBooks = getBooksByTopLevelCategory('historical').filter(b => judgesSlugs.includes(b.slug));
 
         return (
           <div className="space-y-2">
-            {conquestBooks.map((book, idx) => {
+            {judgesBooks.map((book, idx) => {
               const number = String(idx + 1).padStart(2, '0');
               const accent = ACCENTS[idx % ACCENTS.length];
               const divisions = getAllDivisions(book.slug);
@@ -691,6 +839,7 @@ export default function LibraryPage() {
                       hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
                     />
                   </div>
                 </section>
@@ -731,6 +880,7 @@ export default function LibraryPage() {
                       hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
                     />
                   </div>
                 </section>
@@ -773,6 +923,7 @@ export default function LibraryPage() {
                       hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
                     />
                   </div>
                 </section>
@@ -826,12 +977,12 @@ export default function LibraryPage() {
                       title={division.title.replace('The Book of ', '').replace(/^The /, '')}
                       scripture={formatScripture(book.name, division.chapters)}
                       theme={division.theme}
-                      instructional={division.contentType === 'instructional'}
-                      hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                                            hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                       hasWritings={divisionHasWritings(book.slug, division.chapters)}
                       hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
                       accent={accent}
                       focused={focusedCardId === `${book.slug}:${division.id}`}
+                      isComplete={isDivisionComplete(book.slug, division.chapters)}
                     />
                   ))}
                 </div>
@@ -858,6 +1009,7 @@ export default function LibraryPage() {
                     hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                     accent={accent}
                     focused={focusedCardId === book.slug}
+                    isComplete={isDivisionComplete(book.slug, allChapters)}
                   />
                 </div>
               </div>,
@@ -915,6 +1067,7 @@ export default function LibraryPage() {
                         hasSpeakers={divisionHasSpeakers('psalms', collection.psalms)}
                         accent={ACCENTS[j % ACCENTS.length]}
                         focused={focusedCardId === collection.id}
+                        isComplete={isDivisionComplete('psalms', collection.psalms)}
                       />
                     );
                   })}
@@ -939,12 +1092,12 @@ export default function LibraryPage() {
                       title={division.title.replace('The Book of ', '').replace(/^The /, '')}
                       scripture={formatScripture(book.name, division.chapters)}
                       theme={division.theme}
-                      instructional={division.contentType === 'instructional'}
-                      hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                                            hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                       hasWritings={divisionHasWritings(book.slug, division.chapters)}
                       hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
                       accent={accent}
                       focused={focusedCardId === `${book.slug}:${division.id}`}
+                      isComplete={isDivisionComplete(book.slug, division.chapters)}
                     />
                   ))}
                 </div>
@@ -966,6 +1119,7 @@ export default function LibraryPage() {
               hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
               accent={accent}
               focused={focusedCardId === book.slug}
+              isComplete={isDivisionComplete(book.slug, allChapters)}
             />,
           );
         });
@@ -1023,6 +1177,7 @@ export default function LibraryPage() {
                               hasSpeakers={divisionHasSpeakers('acts', chapters)}
                               accent={accent}
                               focused={focusedCardId === actsBook.id}
+                              isComplete={isDivisionComplete('acts', chapters)}
                             />
                           );
                         })}
@@ -1045,6 +1200,7 @@ export default function LibraryPage() {
                     hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                     accent={accent}
                     focused={focusedCardId === book.slug}
+                    isComplete={isDivisionComplete(book.slug, allChapters)}
                   />,
                 );
               });
@@ -1138,6 +1294,17 @@ export default function LibraryPage() {
               );
             })}
           </div>
+          {/* Progress indicator - below tabs */}
+          {tabProgress.total > 0 && (
+            <div className="flex items-center gap-2 font-sans text-[11px] mt-1">
+              <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-muted'}>
+                {tabProgress.completed} / {tabProgress.total}
+              </span>
+              <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-gold'}>
+                {tabProgress.percentage}%
+              </span>
+            </div>
+          )}
           {/* Prophet era sub-navigation */}
           {activeTab === 'prophets' && (
             <div className="flex gap-1">

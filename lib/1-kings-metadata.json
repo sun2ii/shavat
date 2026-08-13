@@ -25,10 +25,10 @@
       "contentType": "narrative"
     },
     {
-      "id": "north-south",
-      "title": "North & South",
+      "id": "kingdom-divides",
+      "title": "The Kingdom Divides",
       "chapters": [12, 13, 14, 15, 16],
-      "theme": "Jeroboam · Israel\nRehoboam · Judah",
+      "theme": "Jeroboam · Israel / Rehoboam · Judah",
       "summary": "Rehoboam's arrogance splits Israel from Judah; golden calves rise in the north",
       "contentType": "narrative"
     },

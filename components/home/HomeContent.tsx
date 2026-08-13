@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { MarketingNav } from '@/components/marketing/MarketingNav';
 
 export function HomeContent() {
@@ -27,7 +28,7 @@ export function HomeContent() {
           </h1>
           <div className="text-sm sm:text-[15px] leading-relaxed text-white mt-2 sm:mt-2.5" style={{ textShadow: '0 1px 14px rgba(0,0,0,0.55)' }}>Stay oriented in Scripture. See the big picture. Read with confidence.</div>
           <label className="flex items-center gap-3 bg-surface/95 dark:bg-surface-elevated/95 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 w-full sm:w-[300px] mt-4 shadow-lg">
-            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" className="stroke-muted" strokeWidth="1.6"><circle cx="8" cy="8" r="5.5"/><path d="M12 12 L16 16"/></svg>
+            <Image src="/icons/general/search.png" alt="Search" width={18} height={18} />
             <input type="text" placeholder="Search Scripture or topics..." className="border-none outline-none bg-transparent font-inter text-sm text-ink w-full"/>
           </label>
         </div>

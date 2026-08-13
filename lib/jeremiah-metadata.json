@@ -25,8 +25,8 @@
       "contentType": "prophecy"
     },
     {
-      "id": "fall-of-jerusalem",
-      "title": "Fall of Jerusalem",
+      "id": "jerusalems-final-days",
+      "title": "Jerusalem's Final Days",
       "chapters": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
       "theme": "Jerusalem falls; Jeremiah remains",
       "summary": "Scroll burned, cistern prison, walls breached, and stubborn flight to Egypt.",
@@ -44,7 +44,7 @@
       "id": "jerusalem-falls",
       "title": "Jerusalem Falls",
       "chapters": [52],
-      "theme": "The Temple burns and Judah goes into exile",
+      "theme": "The temple burns and Judah goes into exile",
       "summary": "Zedekiah's eyes put out, temple burned, and Jehoiachin lifted from prison.",
       "contentType": "narrative"
     }

@@ -38,16 +38,16 @@ export default async function ReviewPage() {
         </Link>
 
         <Link
-          href="/review/icons-and-links"
+          href="/review/roadmap"
           className="block bg-[rgb(var(--surface))] rounded-lg border border-hairline p-5 hover:border-gold transition-colors"
         >
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-sans text-sm font-semibold text-[rgb(var(--text-primary))]">
-                Icons & Links
+                Project Roadmap
               </h2>
               <p className="font-sans text-xs text-[rgb(var(--text-tertiary))] mt-1">
-                Debug SVGs (red border) and placeholder links (purple border)
+                Feature milestones and book status tracking
               </p>
             </div>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="stroke-faint" strokeWidth="1.5">

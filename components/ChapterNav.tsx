@@ -10,6 +10,7 @@ import { hasWriting, getWriting } from '@/lib/hasWritings';
 import { hasBookWriting } from '@/lib/writings/bookWritings';
 import { readingPath, writingPath } from '@/lib/routes';
 import BookMap from './BookMap';
+import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 
 interface Props {
   bookSlug: string;
@@ -18,6 +19,7 @@ interface Props {
   currentChapter: number;
   division: BookDivision;
   chapterSummary?: string;
+  isAuthenticated?: boolean;
 }
 
 function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }: {
@@ -145,16 +147,21 @@ export default function ChapterNav({
   currentChapter,
   division,
   chapterSummary,
+  isAuthenticated = false,
 }: Props) {
   const router = useRouter();
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
 
+  // Use reading progress from context (loaded server-side, no delay)
+  const { isChapterComplete, toggleChapterComplete } = useReadingProgress();
+  const isCurrentComplete = isChapterComplete(bookSlug, currentChapter);
+  const [isToggling, setIsToggling] = useState(false);
+  const [justCompleted, setJustCompleted] = useState(false);
+
   const chapterIndex = division.chapters.indexOf(currentChapter);
 
-  const isInstructional = division.contentType === 'instructional';
-  // Instructional passages read in a warm orange; everything else in gold.
-  const titleColor = isInstructional ? 'text-orange-500' : 'text-gold';
+  const titleColor = 'text-gold';
 
   const hasPrevInDivision = chapterIndex > 0;
   const hasNextInDivision = chapterIndex < division.chapters.length - 1;
@@ -219,20 +226,41 @@ export default function ChapterNav({
   const handleBookmark = () => {
     if (typeof window === 'undefined') return;
     try {
-      storage.setBookmark({ book: bookName, chapter: currentChapter, verse: 1 });
-      setIsBookmarked(true);
-      setShowSaved(true);
-      setTimeout(() => setShowSaved(false), 2000);
+      if (isBookmarked) {
+        storage.clearBookmark();
+        setIsBookmarked(false);
+      } else {
+        storage.setBookmark({ book: bookName, chapter: currentChapter, verse: 1 });
+        setIsBookmarked(true);
+        setShowSaved(true);
+        setTimeout(() => setShowSaved(false), 1500);
+      }
     } catch (error) {
       console.error('Failed to save bookmark', error);
+    }
+  };
+
+  const handleToggleComplete = async () => {
+    if (!isAuthenticated || isToggling) return;
+    const wasComplete = isCurrentComplete;
+    setIsToggling(true);
+    try {
+      await toggleChapterComplete(bookSlug, currentChapter);
+      // Trigger animation when marking as complete (not when unmarking)
+      if (!wasComplete) {
+        setJustCompleted(true);
+        setTimeout(() => setJustCompleted(false), 1500);
+      }
+    } finally {
+      setIsToggling(false);
     }
   };
 
   return (
     <>
       <nav className="relative flex flex-col items-center justify-center mb-8 pt-6 pb-5 border-b border-hairline px-4 sm:px-6">
-        {/* Left: canonical reference + bookmark */}
-        <div className="absolute left-4 sm:left-6 top-6 flex flex-col items-start gap-2.5">
+        {/* Left: canonical reference */}
+        <div className="absolute left-4 sm:left-6 top-6">
           <BookMap
             label={`${bookAbbreviation} ${currentChapter}`}
             divisions={getAllDivisions(bookSlug)}
@@ -240,13 +268,6 @@ export default function ChapterNav({
             currentChapter={currentChapter}
             currentDivisionId={division.id}
           />
-          <button
-            onClick={handleBookmark}
-            className="text-lg text-faint hover:text-gold transition-colors leading-none"
-            title={showSaved ? 'Saved!' : isBookmarked ? 'Bookmarked' : 'Bookmark this chapter'}
-          >
-            {showSaved ? '✓' : isBookmarked ? '★' : '☆'}
-          </button>
         </div>
 
         {/* The book's name is the way up to its overview, when one is recorded. */}
@@ -295,18 +316,70 @@ export default function ChapterNav({
           <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
             {division.chapters.map((ch) => {
               const isActive = ch === currentChapter;
+              const isCompleted = isChapterComplete(bookSlug, ch);
               return (
                 <Link
                   key={ch}
                   href={readingPath(bookSlug, division.id, ch)}
-                  className={`transition-colors ${
-                    isActive ? `${titleColor} font-bold` : 'text-faint hover:text-ink'
+                  className={`transition-colors relative ${
+                    isActive && isCompleted
+                      ? 'text-blue-600 dark:text-blue-400 font-bold'
+                      : isActive
+                      ? `${titleColor} font-bold`
+                      : isCompleted
+                      ? 'text-green-600 dark:text-green-400'
+                      : 'text-faint hover:text-ink'
                   }`}
+                  title={isCompleted ? 'Completed' : undefined}
                 >
                   {ch}
+                  {isCompleted && (
+                    <span className={`absolute -top-1 -right-1.5 text-[8px] ${
+                      isActive ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
+                    }`}>✓</span>
+                  )}
                 </Link>
               );
             })}
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <button
+              onClick={handleBookmark}
+              className={`font-sans text-[11px] font-medium px-3 py-1.5 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
+                showSaved
+                  ? 'bg-gold/20 text-gold scale-105 shadow-lg shadow-gold/20'
+                  : isBookmarked
+                  ? 'bg-gold/10 text-gold hover:bg-gold/20'
+                  : 'bg-surface text-muted hover:text-ink hover:bg-gold/10'
+              }`}
+              title={isBookmarked ? 'Remove bookmark' : 'Bookmark this chapter'}
+            >
+              <span className={`transition-transform duration-300 ${showSaved ? 'scale-125' : ''}`}>
+                {isBookmarked ? '★' : '☆'}
+              </span>
+              <span>{isBookmarked ? 'Bookmarked' : 'Bookmark'}</span>
+            </button>
+            {isAuthenticated && (
+              <button
+                onClick={handleToggleComplete}
+                disabled={isToggling}
+                className={`font-sans text-[11px] font-medium px-3 py-1.5 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
+                  justCompleted
+                    ? 'bg-green-500/20 text-green-500 scale-105 shadow-lg shadow-green-500/20'
+                    : isCurrentComplete
+                    ? 'bg-green-500/10 text-green-600 dark:text-green-400 hover:bg-green-500/20'
+                    : 'bg-surface text-muted hover:text-ink hover:bg-gold/10'
+                } ${isToggling ? 'opacity-50' : ''}`}
+                title={isCurrentComplete ? 'Mark as unread' : 'Mark as read'}
+              >
+                <span className={`transition-transform duration-300 ${justCompleted ? 'scale-125' : ''}`}>
+                  {isCurrentComplete ? '✓' : '○'}
+                </span>
+                <span>{isCurrentComplete ? 'Read' : 'Mark as Read'}</span>
+              </button>
+            )}
           </div>
 
           {/* Prophets active during this chapter */}

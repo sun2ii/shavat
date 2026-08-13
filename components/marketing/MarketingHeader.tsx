@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 type PageId = 'home' | 'features' | 'how-it-works' | 'about' | 'pricing' | 'resources';
 
@@ -103,17 +104,7 @@ export function MarketingHeader({ activePage }: MarketingHeaderProps) {
             width: '220px',
           }}
         >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 18 18"
-            fill="none"
-            stroke="#1F2E24"
-            strokeWidth="1.7"
-                     >
-            <circle cx="8" cy="8" r="5.5" />
-            <path d="M12 12 L16 16" />
-          </svg>
+<Image src="/icons/general/search.png" alt="Search" width={18} height={18} />
           <input
             type="text"
             placeholder="Search Scripture or topics..."

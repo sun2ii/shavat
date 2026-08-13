@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Verse as VerseType } from '@/lib/types';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
@@ -11,6 +12,9 @@ import SpeakerLegend from './SpeakerLegend';
 import type { Section } from '@/lib/sections';
 import type { ChapterSpeakers, QuoteSpan, SpeakerDef } from '@/lib/speaker-quotes';
 import { readingPath } from '@/lib/routes';
+import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
+import { usePathname } from 'next/navigation';
+import ScrollToTop from './ScrollToTop';
 
 interface Props {
   verses: VerseType[];
@@ -68,6 +72,8 @@ function copyFlashClass(borderColor: string): string {
 }
 
 export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, isAuthenticated = false }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
   const [commentary, setCommentary] = useState<Map<number, string>>(new Map());
   const [copiedSection, setCopiedSection] = useState<string | null>(null);
@@ -76,6 +82,32 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const unfoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Get the context to update progress optimistically
+  const { markChapterComplete } = useReadingProgress();
+
+  // Track reading progress when navigating to next chapter
+  const handleNextClick = async () => {
+    if (isAuthenticated && book && chapter) {
+      // Optimistically update context (instant UI feedback)
+      markChapterComplete(book, chapter);
+
+      // Persist to database
+      try {
+        await fetch('/api/reading-progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ book, chapter }),
+        });
+      } catch (err) {
+        console.error('Failed to save reading progress:', err);
+      }
+    }
+    // Navigate to next chapter
+    if (nextChapter && nextDivisionId && book) {
+      router.push(readingPath(book, nextDivisionId, nextChapter));
+    }
+  };
 
   // Extract book and chapter from verses if not provided
   const actualBook = book || verses[0]?.book.toLowerCase();
@@ -314,29 +346,68 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           })}
         </div>
 
+        {/* Floating scroll to top button */}
+        <ScrollToTop />
+
         {/* Navigation buttons below sections */}
         {(prevChapter || nextChapter) && (
-          <div className="flex justify-between items-center mt-8 pt-6 border-t border-hairline">
-            {prevChapter && prevDivisionId && book ? (
-              <Link
-                href={readingPath(book, prevDivisionId, prevChapter)}
-                className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+          <div className="mt-8 pt-6 border-t border-hairline">
+            {/* Bookmark and Mark as Read */}
+            <div className="flex justify-center gap-4 mb-6">
+              <button
+                onClick={() => {
+                  if (!isAuthenticated) {
+                    router.push(`/signup?returnTo=${encodeURIComponent(pathname)}`);
+                  } else {
+                    // TODO: Implement bookmark functionality
+                  }
+                }}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-sans font-medium border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors cursor-pointer"
               >
-                ← Previous
-              </Link>
-            ) : (
-              <div />
-            )}
-            {nextChapter && nextDivisionId && book ? (
-              <Link
-                href={readingPath(book, nextDivisionId, nextChapter)}
-                className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                </svg>
+                Bookmark
+              </button>
+              <button
+                onClick={() => {
+                  if (!isAuthenticated) {
+                    router.push(`/signup?returnTo=${encodeURIComponent(pathname)}`);
+                  } else {
+                    // TODO: Implement mark as read functionality
+                  }
+                }}
+                className="flex items-center gap-2 px-4 py-2 text-sm font-sans font-medium border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors cursor-pointer"
               >
-                Next →
-              </Link>
-            ) : (
-              <div />
-            )}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Mark as Read
+              </button>
+            </div>
+            {/* Prev / Next */}
+            <div className="flex justify-between items-center">
+              {prevChapter && prevDivisionId && book ? (
+                <Link
+                  href={readingPath(book, prevDivisionId, prevChapter)}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                >
+                  ← Previous
+                </Link>
+              ) : (
+                <div />
+              )}
+              {nextChapter && nextDivisionId && book ? (
+                <button
+                  onClick={handleNextClick}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors cursor-pointer"
+                >
+                  Next →
+                </button>
+              ) : (
+                <div />
+              )}
+            </div>
           </div>
         )}
       </div>

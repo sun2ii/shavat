@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import RoutePersistence from '@/components/RoutePersistence';
-import ScrollToTop from '@/components/ScrollToTop';
 import GlobalKeyboardNav from '@/components/GlobalKeyboardNav';
 import InnerLayout from '@/components/InnerLayout';
 import DebugModeSync from '@/components/SvgDebugMode';
 import { getCurrentUser } from '@/lib/auth';
+import { sql } from '@/lib/db';
+import { ReadingProgressProvider } from '@/components/providers/ReadingProgressProvider';
 
 export const metadata: Metadata = {
   title: 'Shavat',
   description: 'A Sabbath for reading scripture with emotional context',
   icons: {
-    icon: '/shavat.ico',
+    icon: '/favicon/favicon.ico',
+    apple: '/favicon/apple-touch-icon.png',
   },
   openGraph: {
     title: 'Shavat',
@@ -31,6 +33,28 @@ export const viewport: Viewport = {
 // No-flash theme init: reads saved choice, falls back to system preference.
 const themeScript = `(function(){try{var t=localStorage.getItem('shavat-theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme:dark)').matches;document.documentElement.classList.add(d?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();`;
 
+// Fetch reading progress for authenticated user
+async function getReadingProgress(userEmail: string | null): Promise<Record<string, number[]>> {
+  if (!userEmail) return {};
+
+  try {
+    const rows = await sql`
+      SELECT book, array_agg(chapter ORDER BY chapter) as chapters
+      FROM reading_progress
+      WHERE user_email = ${userEmail}
+      GROUP BY book
+    `;
+
+    const progress: Record<string, number[]> = {};
+    for (const row of rows) {
+      progress[row.book as string] = row.chapters as number[];
+    }
+    return progress;
+  } catch {
+    return {};
+  }
+}
+
 export default async function RootLayout({
   children,
 }: {
@@ -38,6 +62,7 @@ export default async function RootLayout({
 }) {
   const user = await getCurrentUser();
   const isAuthenticated = !!user;
+  const readingProgress = await getReadingProgress(user?.email ?? null);
 
   return (
     <html lang="en">
@@ -54,8 +79,9 @@ export default async function RootLayout({
         <RoutePersistence />
         <GlobalKeyboardNav />
         <DebugModeSync />
-        <InnerLayout isAuthenticated={isAuthenticated}>{children}</InnerLayout>
-        <ScrollToTop />
+        <ReadingProgressProvider initialProgress={readingProgress}>
+          <InnerLayout isAuthenticated={isAuthenticated}>{children}</InnerLayout>
+        </ReadingProgressProvider>
       </body>
     </html>
   );

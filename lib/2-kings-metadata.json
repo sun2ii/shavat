@@ -1,10 +1,10 @@
 {
   "divisions": [
     {
-      "id": "elijah-elisha",
-      "title": "Elijah & Elisha",
+      "id": "elijah-to-elisha",
+      "title": "Elijah to Elisha",
       "chapters": [1, 2, 3, 4, 5, 6, 7, 8],
-      "theme": "Elijah departs; Elisha takes his place",
+      "theme": "Elijah departs; Elisha carries the mantle",
       "summary": "Chariots of fire, Naaman's healing, and miracles among ordinary people",
       "contentType": "narrative"
     },
@@ -20,7 +20,7 @@
       "id": "fall-of-the-north",
       "title": "Fall of the North",
       "chapters": [13, 14, 15, 16, 17],
-      "theme": "Israel falls to Assyria",
+      "theme": "Israel declines and falls to Assyria",
       "summary": "Kings rise and fall until Assyria carries the ten tribes away",
       "contentType": "narrative"
     },
@@ -36,7 +36,7 @@
       "id": "manasseh-josiah",
       "title": "Manasseh & Josiah",
       "chapters": [21, 22, 23],
-      "theme": "Judah falls, then reforms",
+      "theme": "Judah's darkest king and greatest reformer",
       "summary": "Manasseh fills Jerusalem with blood; Josiah finds the lost Book of the Law",
       "contentType": "narrative"
     },

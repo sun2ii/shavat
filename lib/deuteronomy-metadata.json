@@ -17,10 +17,10 @@
       "contentType": "mixed"
     },
     {
-      "id": "the-law",
-      "title": "The Law",
+      "id": "covenant-laws",
+      "title": "Covenant Laws",
       "chapters": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26],
-      "theme": "Moses prepares Israel for Canaan",
+      "theme": "Moses teaches Israel how to live in the land",
       "summary": "Laws governing worship, justice, war, family life, and social order",
       "contentType": "instructional"
     },

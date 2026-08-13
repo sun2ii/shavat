@@ -6,7 +6,7 @@
       "chapters": [1, 2, 3, 4, 5, 6, 7],
       "theme": "Israel approaches a holy God",
       "summary": "Instructions for burnt, grain, peace, sin, and guilt offerings",
-      "contentType": "instructional"
+      "contentType": "mixed"
     },
     {
       "id": "aaron-priests",
@@ -38,7 +38,7 @@
       "chapters": [17, 18, 19, 20, 21, 22],
       "theme": "Holiness in everyday life",
       "summary": "Laws for holy living in community and worship",
-      "contentType": "instructional"
+      "contentType": "mixed"
     },
     {
       "id": "feasts-jubilee",
@@ -46,7 +46,7 @@
       "chapters": [23, 24, 25],
       "theme": "Sacred time, land, freedom",
       "summary": "The appointed festivals, Sabbath year, and Jubilee",
-      "contentType": "instructional"
+      "contentType": "mixed"
     },
     {
       "id": "covenant-vows",

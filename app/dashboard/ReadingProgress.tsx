@@ -77,9 +77,6 @@ export default function ReadingProgress({ books }: ReadingProgressProps) {
                 <span className="font-playfair font-semibold text-[rgb(var(--text-primary))]">
                   {book.book}
                 </span>
-                <span className="font-sans text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 uppercase">
-                  Mock
-                </span>
               </div>
               <span className="font-sans text-xs text-faint">
                 {completedSections} / {book.sections.length}

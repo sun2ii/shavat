@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -32,22 +33,10 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-lg cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 z-50"
+      className="fixed bottom-6 left-1/2 lg:left-[calc(50%+111px)] -translate-x-1/2 p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-lg cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 z-50"
       aria-label="Return to top"
     >
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 10l7-7m0 0l7 7m-7-7v18"
-        />
-      </svg>
+      <Image src="/icons/general/arrowup.png" alt="Return to top" width={24} height={24} />
     </button>
   );
 }

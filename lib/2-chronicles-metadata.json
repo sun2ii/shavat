@@ -9,16 +9,16 @@
       "contentType": "narrative"
     },
     {
-      "id": "north-and-south",
-      "title": "North & South",
+      "id": "kingdom-divides",
+      "title": "The Kingdom Divides",
       "chapters": [10, 11, 12],
       "theme": "Rehoboam loses the northern tribes",
       "summary": "The kingdom divides; Shishak invades Judah",
       "contentType": "narrative"
     },
     {
-      "id": "judahs-kings",
-      "title": "Judah's Kings",
+      "id": "judahs-reformers",
+      "title": "Judah's Reformers",
       "chapters": [13, 14, 15, 16, 17, 18, 19, 20],
       "theme": "Asa & Jehoshaphat seek God",
       "summary": "Faithful kings bring reform and victory to Judah",

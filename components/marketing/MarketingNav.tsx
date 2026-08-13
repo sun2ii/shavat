@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 interface MarketingNavProps {
@@ -81,10 +82,7 @@ export function MarketingNav({ variant = 'dark', onHamburgerClick }: MarketingNa
       <div className="flex items-center gap-2 sm:gap-4">
         {/* Search - hidden on mobile */}
         <label className="hidden md:flex items-center gap-2.5 bg-white/90 dark:bg-surface/90 border border-hairline rounded-lg px-3 py-2 w-[220px]">
-          <svg width="15" height="15" viewBox="0 0 18 18" fill="none" className="stroke-muted" strokeWidth="1.6">
-            <circle cx="8" cy="8" r="5.5"/>
-            <path d="M12 12 L16 16"/>
-          </svg>
+<Image src="/icons/general/search.png" alt="Search" width={18} height={18} />
           <input
             type="text"
             placeholder="Search..."

@@ -107,7 +107,7 @@ export default function WritingsPage() {
   const groups = buildGroups();
 
   return (
-    <main className="max-w-3xl mx-auto select-text">
+    <main className="max-w-3xl mx-auto px-6 py-12 select-text">
       <div className="mb-8">
         <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-gold">
           Essays &amp; Devotionals

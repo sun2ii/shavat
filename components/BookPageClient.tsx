@@ -56,6 +56,7 @@ export default function BookPageClient({
         currentChapter={currentChapter}
         division={division}
         chapterSummary={chapterSummary}
+        isAuthenticated={isAuthenticated}
       />
       <BookReader
         verses={verses}

@@ -6,42 +6,22 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const staticNavLinks = [
-  { href: '/library', label: 'Library', iconSrc: '/icons/Library.png', scale: 1.6 },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/Writings.png', scale: 1.6 },
+  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.png' },
+  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.png' },
 ];
 
-const homeIconSrc = '/icons/01_home.png';
-const homeIconScale = 2.8;
+const homeIconSrc = '/icons/sidebar/home.png';
 
-// Reusable icon component for padded PNGs (dark icons that need invert for white)
-function NavIcon({ src, alt, size = 32, scale = 2.8, active = false }: { src: string; alt: string; size?: number; scale?: number; active?: boolean }) {
-  const activeScale = scale * 1.15;
+function SidebarIcon({ src, alt, size = 24 }: { src: string; alt: string; size?: number }) {
   return (
-    <div className="overflow-hidden flex items-center justify-center flex-shrink-0" style={{ width: size, height: size }}>
-      <Image
-        src={src}
-        alt={alt}
-        width={size * 4}
-        height={size * 4}
-        className="invert brightness-200"
-        style={{ transform: `scale(${active ? activeScale : scale})` }}
-      />
-    </div>
-  );
-}
-
-// Icon component for gold icons (no color transformation needed)
-function GoldIcon({ src, alt, size = 32, scale = 1.6 }: { src: string; alt: string; size?: number; scale?: number }) {
-  return (
-    <div className="overflow-hidden flex items-center justify-center flex-shrink-0" style={{ width: size, height: size }}>
-      <Image
-        src={src}
-        alt={alt}
-        width={size * 4}
-        height={size * 4}
-        style={{ transform: `scale(${scale})` }}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+      className="flex-shrink-0"
+      style={{ transform: 'scale(1.2)' }}
+    />
   );
 }
 
@@ -112,8 +92,8 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
                   : 'text-sidebar-text hover:bg-sidebar-hover-bg'
               } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
             >
-              <NavIcon src={homeIconSrc} alt="Home" active={isHomeActive} />
-              {isOpen && 'Home'}
+              <SidebarIcon src={homeIconSrc} alt={isAuthenticated ? 'Dashboard' : 'Home'} />
+              {isOpen && (isAuthenticated ? 'Dashboard' : 'Home')}
             </Link>
           );
         })()}
@@ -129,30 +109,12 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
                   : 'text-sidebar-text hover:bg-sidebar-hover-bg'
               } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
             >
-              <NavIcon src={link.iconSrc} alt={link.label} scale={link.scale} active={isActive} />
+              <SidebarIcon src={link.iconSrc} alt={link.label} />
               {isOpen && link.label}
             </Link>
           );
         })}
 
-        {/* Review link - only shown when authenticated */}
-        {isAuthenticated && (
-          <Link
-            href="/review"
-            className={`flex items-center rounded-lg py-3 px-4 transition-colors ${
-              pathname.startsWith('/review')
-                ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
-                : 'text-sidebar-text hover:bg-sidebar-hover-bg'
-            } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
-          >
-            <span className={pathname.startsWith('/review') ? 'text-sidebar-active-text' : 'text-gold'}>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M9 2 L11 6 L15.5 6.5 L12 10 L13 14.5 L9 12 L5 14.5 L6 10 L2.5 6.5 L7 6 Z" />
-              </svg>
-            </span>
-            {isOpen && <span className="text-blue-500">Review</span>}
-          </Link>
-        )}
       </nav>
 
       {/* Spacer to push bottom items down */}
@@ -170,12 +132,31 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           {isDark ? (
-            <GoldIcon src="/icons/LightMode.png" alt="Light Mode" />
+            <SidebarIcon src="/icons/sidebar/LightMode.png" alt="Light Mode" />
           ) : (
-            <GoldIcon src="/icons/DarkMode.png" alt="Dark Mode" />
+            <SidebarIcon src="/icons/sidebar/DarkMode.png" alt="Dark Mode" />
           )}
           {isOpen && (isDark ? 'Light Mode' : 'Dark Mode')}
         </button>
+
+        {/* Review link - only shown when authenticated */}
+        {isAuthenticated && (
+          <Link
+            href="/review"
+            className={`flex items-center py-3 px-4 transition-colors ${
+              pathname.startsWith('/review')
+                ? 'text-sidebar-active-text font-semibold'
+                : 'text-sidebar-text-muted hover:text-sidebar-text'
+            } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
+          >
+            <span className={pathname.startsWith('/review') ? 'text-sidebar-active-text' : 'text-gold'}>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 2 L11 6 L15.5 6.5 L12 10 L13 14.5 L9 12 L5 14.5 L6 10 L2.5 6.5 L7 6 Z" />
+              </svg>
+            </span>
+            {isOpen && <span className="text-blue-500">Review</span>}
+          </Link>
+        )}
 
         {/* Toggle sidebar */}
         <button
@@ -185,7 +166,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           }`}
         >
           <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
-            <GoldIcon src="/icons/Collapse.png" alt="Collapse" />
+            <SidebarIcon src="/icons/sidebar/Collapse.png" alt="Collapse" />
           </div>
           {isOpen && 'Collapse'}
         </button>

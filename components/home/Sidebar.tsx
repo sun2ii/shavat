@@ -163,7 +163,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           }`}
         >
           <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
-            <SidebarIcon src="/icons/sidebar/Collapse.webp" alt="Collapse" />
+            <SidebarIcon src="/icons/sidebar/collapse.webp" alt="Collapse" />
           </div>
           {isOpen && 'Collapse'}
         </button>

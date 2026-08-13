@@ -17,8 +17,8 @@ d Shavat Roadmap
 - [ ] Writings
 
 ## Design Work
-- [ ] Logos for all pages
-- [ ] Logos png > webp
+- [x] Logos png > webp
+- [x] Logos for all pages
 - [ ] Hero Videos
 - [ ] Polish animations
 

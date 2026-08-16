@@ -16,8 +16,12 @@ export default function ThemeToggle() {
   const toggle = () => {
     const root = document.documentElement;
     const next = !root.classList.contains('dark');
+    // Enable theme transition temporarily
+    root.classList.add('theme-transition');
     root.classList.toggle('dark', next);
     root.classList.toggle('light', !next);
+    // Remove after transition completes
+    setTimeout(() => root.classList.remove('theme-transition'), 800);
     try {
       localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
     } catch {}

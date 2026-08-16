@@ -1,29 +1,47 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPlaceById, getAllPlaces } from '@/lib/terrain';
+import { getPlaceById as getTerrainPlace, getAllPlaces as getTerrainPlaces } from '@/lib/terrain';
+import { getPlaceById as getSimplePlace, getAllPlacesSimple } from '@/lib/places';
+import BackButton from '@/components/BackButton';
+import ScrollToTopOnMount from '@/components/ScrollToTopOnMount';
 
 interface Props {
   params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
-  const places = getAllPlaces();
-  return places.map((place) => ({
-    id: place.id,
-  }));
+  // Combine terrain places (rich data) with simple places list
+  const terrainPlaces = getTerrainPlaces();
+  const simplePlaces = getAllPlacesSimple();
+
+  const allIds = new Set<string>();
+  terrainPlaces.forEach(p => allIds.add(p.id));
+  simplePlaces.forEach(p => allIds.add(p.id));
+
+  return Array.from(allIds).map(id => ({ id }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const place = getPlaceById(id);
-  if (!place) {
-    return { title: 'Place Not Found | Shavat' };
+
+  // Try terrain first (has descriptions), then simple places
+  const terrainPlace = getTerrainPlace(id);
+  if (terrainPlace) {
+    return {
+      title: `${terrainPlace.name} | Shavat`,
+      description: terrainPlace.description,
+    };
   }
-  return {
-    title: `${place.name} | Shavat`,
-    description: place.description,
-  };
+
+  const simplePlace = getSimplePlace(id);
+  if (simplePlace) {
+    return {
+      title: `${simplePlace.name} | Shavat`,
+      description: `${simplePlace.name} - a biblical location`,
+    };
+  }
+
+  return { title: 'Place Not Found | Shavat' };
 }
 
 // Precision labels
@@ -36,46 +54,58 @@ const precisionLabels: Record<string, string> = {
 
 export default async function PlacePage({ params }: Props) {
   const { id } = await params;
-  const place = getPlaceById(id);
 
-  if (!place) {
-    notFound();
+  // Try terrain first (has rich data)
+  const terrainPlace = getTerrainPlace(id);
+  if (terrainPlace) {
+    return (
+      <div className="min-h-screen bg-paper">
+        <ScrollToTopOnMount />
+        <div className="max-w-2xl mx-auto px-6 py-12">
+          <BackButton label="Back" className="mb-8" />
+
+          <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-gold mb-2">
+            {terrainPlace.scripture}
+          </p>
+
+          <h1 className="font-serif text-4xl font-light text-amber-900 dark:text-amber-600 mb-2">
+            {terrainPlace.name}
+          </h1>
+
+          {terrainPlace.precision && (
+            <p className="font-sans text-xs text-faint mb-6">
+              {precisionLabels[terrainPlace.precision] || terrainPlace.precision}
+            </p>
+          )}
+
+          <p className="font-serif text-lg text-ink leading-relaxed">
+            {terrainPlace.description}
+          </p>
+        </div>
+      </div>
+    );
   }
 
-  return (
-    <div className="min-h-screen bg-paper">
-      <div className="max-w-2xl mx-auto px-6 py-12">
-        {/* Back link */}
-        <Link
-          href="/terrain?era=origins"
-          className="inline-flex items-center gap-2 font-sans text-sm text-faint hover:text-ink transition-colors mb-8"
-        >
-          <span>←</span>
-          <span>Back to Origins</span>
-        </Link>
+  // Fall back to simple place (just name, no description yet)
+  const simplePlace = getSimplePlace(id);
+  if (simplePlace) {
+    return (
+      <div className="min-h-screen bg-paper">
+        <ScrollToTopOnMount />
+        <div className="max-w-2xl mx-auto px-6 py-12">
+          <BackButton label="Back" className="mb-8" />
 
-        {/* Scripture reference */}
-        <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-gold mb-2">
-          {place.scripture}
-        </p>
+          <h1 className="font-serif text-4xl font-light text-amber-900 dark:text-amber-600 mb-6">
+            {simplePlace.name}
+          </h1>
 
-        {/* Name */}
-        <h1 className="font-serif text-4xl font-light text-[rgb(var(--speaker-9))] mb-2">
-          {place.name}
-        </h1>
-
-        {/* Precision */}
-        {place.precision && (
-          <p className="font-sans text-xs text-faint mb-6">
-            {precisionLabels[place.precision] || place.precision}
+          <p className="font-serif text-lg text-muted italic">
+            Description coming soon.
           </p>
-        )}
-
-        {/* Description */}
-        <p className="font-serif text-lg text-ink leading-relaxed">
-          {place.description}
-        </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  notFound();
 }

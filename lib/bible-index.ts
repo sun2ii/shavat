@@ -60,20 +60,20 @@ export const BIBLE_INDEX: BibleBookEntry[] = [
   // NEW TESTAMENT - Acts (1)
   { slug: 'acts', name: 'Acts', testament: 'new', category: 'acts', order: 44, chapterCount: 28, abbreviation: 'Acts' },
 
-  // NEW TESTAMENT - Pauline Epistles (13)
-  { slug: 'romans', name: 'Romans', testament: 'new', category: 'pauline', order: 45, chapterCount: 16, abbreviation: 'Rom' },
-  { slug: '1-corinthians', name: '1 Corinthians', testament: 'new', category: 'pauline', order: 46, chapterCount: 16, abbreviation: '1 Cor' },
-  { slug: '2-corinthians', name: '2 Corinthians', testament: 'new', category: 'pauline', order: 47, chapterCount: 13, abbreviation: '2 Cor' },
-  { slug: 'galatians', name: 'Galatians', testament: 'new', category: 'pauline', order: 48, chapterCount: 6, abbreviation: 'Gal' },
-  { slug: 'ephesians', name: 'Ephesians', testament: 'new', category: 'pauline', order: 49, chapterCount: 6, abbreviation: 'Eph' },
-  { slug: 'philippians', name: 'Philippians', testament: 'new', category: 'pauline', order: 50, chapterCount: 4, abbreviation: 'Phil' },
-  { slug: 'colossians', name: 'Colossians', testament: 'new', category: 'pauline', order: 51, chapterCount: 4, abbreviation: 'Col' },
-  { slug: '1-thessalonians', name: '1 Thessalonians', testament: 'new', category: 'pauline', order: 52, chapterCount: 5, abbreviation: '1 Thess' },
-  { slug: '2-thessalonians', name: '2 Thessalonians', testament: 'new', category: 'pauline', order: 53, chapterCount: 3, abbreviation: '2 Thess' },
-  { slug: '1-timothy', name: '1 Timothy', testament: 'new', category: 'pauline', order: 54, chapterCount: 6, abbreviation: '1 Tim' },
-  { slug: '2-timothy', name: '2 Timothy', testament: 'new', category: 'pauline', order: 55, chapterCount: 4, abbreviation: '2 Tim' },
-  { slug: 'titus', name: 'Titus', testament: 'new', category: 'pauline', order: 56, chapterCount: 3, abbreviation: 'Titus' },
-  { slug: 'philemon', name: 'Philemon', testament: 'new', category: 'pauline', order: 57, chapterCount: 1, abbreviation: 'Phlm' },
+  // NEW TESTAMENT - Pauline Epistles (13) - Chronological order by writing date
+  { slug: 'galatians', name: 'Galatians', testament: 'new', category: 'pauline', order: 45, chapterCount: 6, abbreviation: 'Gal' },           // AD 48-49
+  { slug: '1-thessalonians', name: '1 Thessalonians', testament: 'new', category: 'pauline', order: 46, chapterCount: 5, abbreviation: '1 Thess' }, // AD 50-51
+  { slug: '2-thessalonians', name: '2 Thessalonians', testament: 'new', category: 'pauline', order: 47, chapterCount: 3, abbreviation: '2 Thess' }, // AD 51-52
+  { slug: '1-corinthians', name: '1 Corinthians', testament: 'new', category: 'pauline', order: 48, chapterCount: 16, abbreviation: '1 Cor' }, // AD 53-55
+  { slug: '2-corinthians', name: '2 Corinthians', testament: 'new', category: 'pauline', order: 49, chapterCount: 13, abbreviation: '2 Cor' }, // AD 55-56
+  { slug: 'romans', name: 'Romans', testament: 'new', category: 'pauline', order: 50, chapterCount: 16, abbreviation: 'Rom' },               // AD 56-57
+  { slug: 'philippians', name: 'Philippians', testament: 'new', category: 'pauline', order: 51, chapterCount: 4, abbreviation: 'Phil' },     // AD 60-62
+  { slug: 'philemon', name: 'Philemon', testament: 'new', category: 'pauline', order: 52, chapterCount: 1, abbreviation: 'Phlm' },           // AD 60-62
+  { slug: 'colossians', name: 'Colossians', testament: 'new', category: 'pauline', order: 53, chapterCount: 4, abbreviation: 'Col' },         // AD 60-62
+  { slug: 'ephesians', name: 'Ephesians', testament: 'new', category: 'pauline', order: 54, chapterCount: 6, abbreviation: 'Eph' },           // AD 60-62
+  { slug: '1-timothy', name: '1 Timothy', testament: 'new', category: 'pauline', order: 55, chapterCount: 6, abbreviation: '1 Tim' },         // AD 62-65
+  { slug: 'titus', name: 'Titus', testament: 'new', category: 'pauline', order: 56, chapterCount: 3, abbreviation: 'Titus' },                 // AD 62-65
+  { slug: '2-timothy', name: '2 Timothy', testament: 'new', category: 'pauline', order: 57, chapterCount: 4, abbreviation: '2 Tim' },         // AD 64-67
 
   // NEW TESTAMENT - General Epistles (8)
   { slug: 'hebrews', name: 'Hebrews', testament: 'new', category: 'general', order: 58, chapterCount: 13, abbreviation: 'Heb' },

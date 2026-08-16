@@ -38,22 +38,105 @@ const TABS = [
 ];
 
 
-// Acts reads as two books split at Saul's conversion (ch 9); the fine-grained
-// divisions in acts-metadata.json still drive the reader once inside.
-const ACTS_BOOKS = [
+// Acts in three phases matching the geographical/structural flow of the book.
+// The fine-grained divisions in acts-metadata.json still drive the reader once inside.
+const ACTS_SECTIONS = [
   {
-    id: 'acts:before-paul',
-    title: 'Before Paul',
-    theme: 'Spirit births the church',
+    id: 'acts:early-church',
+    title: 'Early Church',
+    theme: 'Jerusalem → Judea → Samaria',
     href: '/acts/birth-of-the-church/1',
-    scripture: 'Acts 1–8',
+    scripture: 'Acts 1–12',
+    chapters: Array.from({ length: 12 }, (_, i) => i + 1),
   },
   {
-    id: 'acts:after-paul',
-    title: 'After Paul',
-    theme: 'To the ends of the earth',
-    href: '/acts/sauls-conversion/9',
-    scripture: 'Acts 9–28',
+    id: 'acts:pauls-journeys',
+    title: "Paul's Journeys",
+    theme: 'Antioch → Asia Minor → Greece',
+    href: '/acts/first-missionary-journey/13',
+    scripture: 'Acts 13–20',
+    chapters: Array.from({ length: 8 }, (_, i) => i + 13),
+  },
+  {
+    id: 'acts:to-rome',
+    title: 'To Rome',
+    theme: 'Arrest → Trials → Rome',
+    href: '/acts/pauls-arrest/21',
+    scripture: 'Acts 21–28',
+    chapters: Array.from({ length: 8 }, (_, i) => i + 21),
+  },
+];
+
+/*
+  Pauline Epistles organized chronologically by journey/era.
+
+  DURING ACTS (Paul's letters written during the events recorded in Acts):
+  - First Journey: Galatians
+  - Second Journey: 1-2 Thessalonians
+  - Third Journey: 1-2 Corinthians, Romans
+  - Rome: Philippians, Philemon, Colossians, Ephesians (prison epistles)
+
+  AFTER ACTS (Paul's letters written after Acts 28 ends):
+  - Later Ministry: 1 Timothy, Titus
+  - Final Imprisonment: 2 Timothy
+*/
+type PaulineEra = {
+  id: string;
+  number: string;
+  title: string;
+  subtitle?: string;
+  books: string[];
+  duringActs: boolean;
+};
+
+const PAULINE_ERAS: PaulineEra[] = [
+  {
+    id: 'first-journey',
+    number: '01',
+    title: 'First Journey',
+    subtitle: 'Acts 13–15 · ~AD 48–49',
+    books: ['galatians'],
+    duringActs: true,
+  },
+  {
+    id: 'second-journey',
+    number: '02',
+    title: 'Second Journey',
+    subtitle: 'Acts 15–18 · ~AD 49–52',
+    books: ['1-thessalonians', '2-thessalonians'],
+    duringActs: true,
+  },
+  {
+    id: 'third-journey',
+    number: '03',
+    title: 'Third Journey',
+    subtitle: 'Acts 18–21 · ~AD 53–57',
+    books: ['1-corinthians', '2-corinthians', 'romans'],
+    duringActs: true,
+  },
+  {
+    id: 'rome',
+    number: '04',
+    title: 'Rome',
+    subtitle: 'Acts 28 · ~AD 60–62',
+    books: ['philippians', 'philemon', 'colossians', 'ephesians'],
+    duringActs: true,
+  },
+  {
+    id: 'later-ministry',
+    number: '05',
+    title: 'Later Ministry',
+    subtitle: '~AD 62–65',
+    books: ['1-timothy', 'titus'],
+    duringActs: false,
+  },
+  {
+    id: 'final-imprisonment',
+    number: '06',
+    title: 'Final Imprisonment',
+    subtitle: '~AD 64–67',
+    books: ['2-timothy'],
+    duringActs: false,
   },
 ];
 
@@ -376,10 +459,11 @@ export default function LibraryPage() {
       case 'apostolic':
         getBooksByTopLevelCategory('apostolic').forEach((book) => {
           if (book.slug === 'acts') {
-            // Acts has 2 sections
-            totalDivisions += 2;
-            if (isDivisionComplete('acts', Array.from({ length: 8 }, (_, i) => i + 1))) completedDivisions++;
-            if (isDivisionComplete('acts', Array.from({ length: 20 }, (_, i) => i + 9))) completedDivisions++;
+            // Acts has 3 sections now
+            ACTS_SECTIONS.forEach((section) => {
+              totalDivisions++;
+              if (isDivisionComplete('acts', section.chapters)) completedDivisions++;
+            });
           } else {
             countSingleBook(book.slug, book.chapterCount);
           }
@@ -470,30 +554,56 @@ export default function LibraryPage() {
       }
       case 'apostolic': {
         const books = getBooksByTopLevelCategory(activeTab);
-        const cats = [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
-        cats.forEach((category) => {
-          books
-            .filter((b) => b.category === category.id)
-            .forEach((book) => {
-              if (book.slug === 'acts') {
-                ACTS_BOOKS.forEach((actsBook) => {
-                  cards.push({
-                    id: actsBook.id,
-                    href: actsBook.href,
-                    bookSlug: 'acts',
-                    categoryId: category.id,
-                  });
-                });
-                return;
-              }
+
+        // Acts sections
+        ACTS_SECTIONS.forEach((section) => {
+          cards.push({
+            id: section.id,
+            href: section.href,
+            bookSlug: 'acts',
+            categoryId: 'acts',
+          });
+        });
+
+        // Pauline epistles in chronological order
+        PAULINE_ERAS.forEach((era) => {
+          era.books.forEach((slug) => {
+            const book = books.find((b) => b.slug === slug);
+            if (book) {
               cards.push({
                 id: book.slug,
                 href: readingPath(book.slug, 1),
                 bookSlug: book.slug,
-                categoryId: category.id,
+                categoryId: 'pauline',
               });
-            });
+            }
+          });
         });
+
+        // General epistles
+        books
+          .filter((b) => b.category === 'general')
+          .forEach((book) => {
+            cards.push({
+              id: book.slug,
+              href: readingPath(book.slug, 1),
+              bookSlug: book.slug,
+              categoryId: 'general',
+            });
+          });
+
+        // Revelation
+        books
+          .filter((b) => b.category === 'apocalypse')
+          .forEach((book) => {
+            cards.push({
+              id: book.slug,
+              href: readingPath(book.slug, 1),
+              bookSlug: book.slug,
+              categoryId: 'apocalypse',
+            });
+          });
+
         break;
       }
     }
@@ -1131,99 +1241,145 @@ export default function LibraryPage() {
 
       case 'apostolic': {
         const books = getBooksByTopLevelCategory(activeTab);
-        const cats = [CATEGORIES.ACTS, CATEGORIES.PAULINE, CATEGORIES.GENERAL, CATEGORIES.APOCALYPSE];
+        const paulineBooks = books.filter((b) => b.category === 'pauline');
+        const generalBooks = books.filter((b) => b.category === 'general');
+        const apocalypseBooks = books.filter((b) => b.category === 'apocalypse');
+        const actsBook = books.find((b) => b.slug === 'acts');
+
+        // Helper to render a book card
+        const renderBookCard = (book: typeof books[0], accent: string) => {
+          const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+          return (
+            <DivisionCard
+              key={book.slug}
+              href={readingPath(book.slug, 1)}
+              title={book.name}
+              scripture={formatScripture(book.name, allChapters)}
+              theme={getBookTheme(book.slug)}
+              hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+              hasWritings={divisionHasWritings(book.slug, allChapters)}
+              hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
+              accent={accent}
+              focused={focusedCardId === book.slug}
+              isComplete={isDivisionComplete(book.slug, allChapters)}
+            />
+          );
+        };
 
         return (
-          <div className="space-y-2">
-            {cats.map((category) => {
-              const categoryBooks = books.filter((b) => b.category === category.id);
-              const bookBlocks: React.ReactNode[] = [];
-              let looseTiles: React.ReactNode[] = [];
+          <div className="space-y-6">
+            {/* ACTS - The Historical Spine */}
+            {actsBook && (
+              <section>
+                <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  {ACTS_SECTIONS.map((section, i) => (
+                    <DivisionCard
+                      key={section.id}
+                      href={section.href}
+                      title={section.title}
+                      scripture={section.scripture}
+                      theme={section.theme}
+                      hasCommentary={divisionHasCommentary('acts', section.chapters)}
+                      hasWritings={divisionHasWritings('acts', section.chapters)}
+                      hasSpeakers={divisionHasSpeakers('acts', section.chapters)}
+                      accent={ACCENTS[i % ACCENTS.length]}
+                      focused={focusedCardId === section.id}
+                      isComplete={isDivisionComplete('acts', section.chapters)}
+                    />
+                  ))}
+                </div>
+              </section>
+            )}
 
-              const flushLooseTiles = () => {
-                if (looseTiles.length === 0) return;
-                bookBlocks.push(
-                  <div key={`tiles-${bookBlocks.length}`} className="pt-2">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                      {looseTiles}
-                    </div>
-                  </div>,
-                );
-                looseTiles = [];
-              };
+            {/* PAULINE EPISTLES - Chronologically nested into Acts */}
+            <section>
+              <div className="flex items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline">
+                <span className="font-serif text-lg font-bold text-ink leading-none">Pauline Epistles</span>
+                <span className="font-serif italic text-[11px] text-muted">13 books</span>
+              </div>
 
-              categoryBooks.forEach((book, i) => {
-                const accent = ACCENTS[i % ACCENTS.length];
+              {/* Two main columns: During Acts | After Acts */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mt-2">
+                {/* Left: During Acts */}
+                <div>
+                  <div className="font-sans text-[9px] tracking-wider text-gold/70 uppercase mb-2">
+                    During Acts
+                  </div>
+                  {/* 2 sub-columns for eras */}
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                    {PAULINE_ERAS.filter(era => era.duringActs).map((era, eraIdx) => {
+                      const eraBooks = era.books
+                        .map(slug => paulineBooks.find(b => b.slug === slug))
+                        .filter((b): b is typeof paulineBooks[0] => b !== undefined);
 
-                if (book.slug === 'acts') {
-                  flushLooseTiles();
-                  bookBlocks.push(
-                    <div key={book.slug}>
-                      <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${ACTS_BOOKS.length} sections · ${book.chapterCount} ch`} />
-                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                        {ACTS_BOOKS.map((actsBook) => {
-                          const chapters = actsBook.id === 'acts:before-paul'
-                            ? Array.from({ length: 8 }, (_, i) => i + 1)
-                            : Array.from({ length: 20 }, (_, i) => i + 9);
-                          return (
-                            <DivisionCard
-                              key={actsBook.id}
-                              href={actsBook.href}
-                              title={actsBook.title}
-                              scripture={actsBook.scripture}
-                              theme={actsBook.theme}
-                              hasCommentary={divisionHasCommentary('acts', chapters)}
-                              hasWritings={divisionHasWritings('acts', chapters)}
-                              hasSpeakers={divisionHasSpeakers('acts', chapters)}
-                              accent={accent}
-                              focused={focusedCardId === actsBook.id}
-                              isComplete={isDivisionComplete('acts', chapters)}
-                            />
-                          );
-                        })}
-                      </div>
-                    </div>,
-                  );
-                  return;
-                }
+                      return (
+                        <div key={era.id}>
+                          <div className="flex items-baseline gap-1 mb-1 flex-wrap">
+                            <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
+                            <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
+                            {era.subtitle && (
+                              <span className="font-sans text-[8px] text-muted italic">{era.subtitle}</span>
+                            )}
+                          </div>
+                          <div className="grid grid-cols-2 gap-1">
+                            {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
-                const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
-                looseTiles.push(
-                  <DivisionCard
-                    key={book.slug}
-                    href={readingPath(book.slug, 1)}
-                    title={book.name}
-                    scripture={formatScripture(book.name, allChapters)}
-                    theme={getBookTheme(book.slug)}
-                    hasCommentary={divisionHasCommentary(book.slug, allChapters)}
-                    hasWritings={divisionHasWritings(book.slug, allChapters)}
-                    hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
-                    accent={accent}
-                    focused={focusedCardId === book.slug}
-                    isComplete={isDivisionComplete(book.slug, allChapters)}
-                  />,
-                );
-              });
+                {/* Right: After Acts */}
+                <div>
+                  <div className="font-sans text-[9px] tracking-wider text-gold/70 uppercase mb-2">
+                    After Acts
+                  </div>
+                  {/* 2 sub-columns for eras */}
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                    {PAULINE_ERAS.filter(era => !era.duringActs).map((era, eraIdx) => {
+                      const eraBooks = era.books
+                        .map(slug => paulineBooks.find(b => b.slug === slug))
+                        .filter((b): b is typeof paulineBooks[0] => b !== undefined);
 
-              flushLooseTiles();
+                      return (
+                        <div key={era.id}>
+                          <div className="flex items-baseline gap-1 mb-1 flex-wrap">
+                            <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
+                            <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
+                            {era.subtitle && (
+                              <span className="font-sans text-[8px] text-muted italic">{era.subtitle}</span>
+                            )}
+                          </div>
+                          <div className="grid grid-cols-2 gap-1">
+                            {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + 4 + i) % ACCENTS.length]))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </section>
 
-              if (bookBlocks.length === 0) return null;
+            {/* GENERAL EPISTLES - Keep flat, no chronological structure */}
+            <section>
+              <BookHeader name="General Epistles" sub={`${generalBooks.length} books`} />
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                {generalBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
+              </div>
+            </section>
 
-              // Skip section header for Acts (single book, already has BookHeader)
-              if (category.id === 'acts') {
-                return <div key={category.id} className="space-y-2">{bookBlocks}</div>;
-              }
-
-              return (
-                <section key={category.id}>
-                  <BookHeader
-                    name={category.name}
-                    sub={`${categoryBooks.length} ${categoryBooks.length === 1 ? 'book' : 'books'}`}
-                  />
-                  <div className="space-y-2">{bookBlocks}</div>
-                </section>
-              );
-            })}
+            {/* REVELATION - Isolated at the end */}
+            {apocalypseBooks.length > 0 && (
+              <section>
+                <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} />
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
+                </div>
+              </section>
+            )}
           </div>
         );
       }

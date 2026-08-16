@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllWritings, Writing } from '@/lib/hasWritings';
-import { hasBookWriting } from '@/lib/writings/bookWritings';
+import { hasBookWriting, getAllBookWritingSlugs } from '@/lib/writings/bookWritings';
 import { getBookBySlug } from '@/lib/bible-index';
 import { getAllDivisions } from '@/lib/book-metadata-utils';
 import { TOP_LEVEL_CATEGORIES, TopLevelCategory } from '@/lib/top-level-categories';
@@ -67,6 +67,13 @@ function buildGroups(): BookGroup[] {
     const list = byBook.get(writing.book) ?? [];
     list.push(writing);
     byBook.set(writing.book, list);
+  }
+
+  // Also include books that only have an overview (no chapter writings)
+  for (const slug of getAllBookWritingSlugs()) {
+    if (!byBook.has(slug)) {
+      byBook.set(slug, []);
+    }
   }
 
   const groups: BookGroup[] = [];
@@ -145,7 +152,9 @@ export default function WritingsPage() {
                       <summary className="flex items-baseline gap-3 rounded-lg px-4 py-3 list-none transition-colors duration-150 hover:bg-paper-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 [&::-webkit-details-marker]:hidden">
                         <span className="font-serif text-xl font-light text-ink">{book.name}</span>
                         <span className="font-sans text-[11px] text-faint">
-                          {book.count} {book.count === 1 ? 'writing' : 'writings'}
+                          {book.count > 0
+                            ? `${book.count} ${book.count === 1 ? 'writing' : 'writings'}`
+                            : 'overview'}
                         </span>
                         <span
                           aria-hidden

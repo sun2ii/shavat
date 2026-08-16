@@ -1,6 +1,11 @@
 import { BookMemorial, BookOrientation } from '@/lib/types';
 import { JOSHUA } from './joshua/book';
 import { RUTH } from './ruth/book';
+import { ACTS } from './acts/book';
+import { HOSEA } from './hosea/book';
+import { GALATIANS } from './galatians/book';
+import { FIRST_THESSALONIANS } from './1-thessalonians/book';
+import { SECOND_THESSALONIANS } from './2-thessalonians/book';
 
 /**
  * Books with a writing at /writings/<slug>. Two kinds live here:
@@ -17,6 +22,11 @@ const BOOK_MEMORIALS: Record<string, BookMemorial> = {
 
 const BOOK_ORIENTATIONS: Record<string, BookOrientation> = {
   ruth: RUTH,
+  acts: ACTS,
+  hosea: HOSEA,
+  galatians: GALATIANS,
+  '1-thessalonians': FIRST_THESSALONIANS,
+  '2-thessalonians': SECOND_THESSALONIANS,
 };
 
 export function getBookMemorial(bookSlug: string): BookMemorial | undefined {
@@ -30,4 +40,9 @@ export function getBookOrientation(bookSlug: string): BookOrientation | undefine
 /** Whether /writings/<slug> resolves — the test every link into it should use. */
 export function hasBookWriting(bookSlug: string): boolean {
   return bookSlug in BOOK_MEMORIALS || bookSlug in BOOK_ORIENTATIONS;
+}
+
+/** All book slugs that have a memorial or orientation. */
+export function getAllBookWritingSlugs(): string[] {
+  return [...new Set([...Object.keys(BOOK_MEMORIALS), ...Object.keys(BOOK_ORIENTATIONS)])];
 }

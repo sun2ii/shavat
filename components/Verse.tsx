@@ -1,6 +1,38 @@
 import Link from 'next/link';
 import { Verse as VerseType } from '@/lib/types';
 import { tokenizeVerse, type QuoteSpan } from '@/lib/speaker-quotes';
+import { tokenizePlaces } from '@/lib/places';
+
+// Save scroll position before navigating to place page
+function saveScrollPosition() {
+  const scrollKey = `scroll-${window.location.pathname}${window.location.hash}`;
+  sessionStorage.setItem(scrollKey, String(window.scrollY));
+}
+
+// Render text with place names as clickable links (underlined brown)
+function renderWithPlaces(text: string): React.ReactNode {
+  const segments = tokenizePlaces(text);
+  if (segments.length === 1 && !segments[0].isPlace) {
+    return text;
+  }
+  return segments.map((seg, i) =>
+    seg.isPlace && seg.placeId ? (
+      <Link
+        key={i}
+        href={`/places/${seg.placeId}`}
+        className="underline text-amber-900 dark:text-amber-600 hover:text-amber-700 dark:hover:text-amber-400"
+        onClick={(e) => {
+          e.stopPropagation();
+          saveScrollPosition();
+        }}
+      >
+        {seg.text}
+      </Link>
+    ) : (
+      seg.text
+    )
+  );
+}
 
 interface Props {
   verse: VerseType;
@@ -42,13 +74,13 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
                   className="font-bold italic"
                   style={{ color: `rgb(var(--speaker-${speakerColors[run.speaker]}))` }}
                 >
-                  {run.text}
+                  {renderWithPlaces(run.text)}
                 </span>
               ) : (
-                run.text
+                <span key={i}>{renderWithPlaces(run.text)}</span>
               )
             )
-          : verse.text}
+          : renderWithPlaces(verse.text)}
       </span>
 
       {isSelected && commentary && (

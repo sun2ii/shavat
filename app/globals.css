@@ -2,21 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth theme transition - only for backgrounds and text, not transforms */
-*,
-*::before,
-*::after {
-  transition-property: background-color, background, border-color, color, fill, stroke, box-shadow, opacity !important;
-  transition-duration: 0.8s !important;
-  transition-timing-function: ease-in-out !important;
+/*
+  Smooth theme transition: scoped to .theme-transition class.
+  Add this class to <html> temporarily when changing themes,
+  so component-level Tailwind transitions work normally.
+*/
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition-property: background-color, background, border-color, color, fill, stroke, box-shadow, opacity;
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
 }
 
 /* Exclude images and icons from theme transition */
-img,
-svg,
-img *,
-svg * {
-  transition: none !important;
+.theme-transition img,
+.theme-transition svg,
+.theme-transition img *,
+.theme-transition svg * {
+  transition: none;
 }
 
 /*

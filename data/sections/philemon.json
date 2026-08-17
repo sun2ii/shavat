@@ -9,7 +9,7 @@
           7
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Paul's Appeal for Onesimus",
@@ -18,7 +18,7 @@
           21
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Final Greetings",
@@ -27,7 +27,7 @@
           25
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ]
   }

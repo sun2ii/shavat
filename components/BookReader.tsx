@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Verse as VerseType } from '@/lib/types';
@@ -26,6 +26,7 @@ interface Props {
   nextChapter?: number | null;
   prevDivisionId?: string | null;
   nextDivisionId?: string | null;
+  bookCategory?: string;
   isAuthenticated?: boolean;
 }
 
@@ -35,6 +36,7 @@ function slugify(text: string): string {
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-');
 }
+
 
 /*
   Copy-confirmation flash. Each section is tinted with its own hue, so a single
@@ -71,62 +73,38 @@ function copyFlashClass(borderColor: string): string {
   return (family && COPY_FLASH[family]) || FALLBACK_FLASH;
 }
 
-/** Collapsible content with measured height for smooth curtain reveal */
+/*
+  Collapsible content that opens INSTANTLY. No height animation: an animating
+  height means the layout is mid-flight when we scroll to the section, and on
+  iOS the browser's scroll anchoring fights scripted scrolling during layout
+  changes — the root cause of sections landing mid-page. With an instant
+  open, layout is final before the (equally instant) scroll fires, so the
+  tapped section lands at the top every time. A layout-neutral opacity fade
+  keeps the reveal gentle.
+*/
 function CollapsibleVerses({
   id,
   isCollapsed,
   children,
-  onExpanded,
 }: {
   id: string;
   isCollapsed: boolean;
   children: React.ReactNode;
-  onExpanded?: () => void;
 }) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [contentHeight, setContentHeight] = useState(0);
-  // Track if we're in the initial expansion (from collapsed to expanded)
-  const wasCollapsed = useRef(true);
-
-  useLayoutEffect(() => {
-    if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
-    }
-  }, [children]);
-
-  // Track collapsed state changes
-  useEffect(() => {
-    if (isCollapsed) {
-      wasCollapsed.current = true;
-    }
-  }, [isCollapsed]);
-
   return (
-    <div
-      id={id}
-      className="overflow-hidden transition-[height] duration-500 ease-out"
-      style={{ height: isCollapsed ? 0 : contentHeight }}
-      onTransitionEnd={(e) => {
-        // Only fire onExpanded for the initial expansion, not for content changes
-        if (
-          e.target === e.currentTarget &&
-          e.propertyName === 'height' &&
-          !isCollapsed &&
-          wasCollapsed.current
-        ) {
-          wasCollapsed.current = false;
-          onExpanded?.();
-        }
-      }}
-    >
-      <div ref={contentRef} className="font-serif text-ink text-[21px] leading-[1.95]">
+    <div id={id} className="overflow-hidden" style={{ height: isCollapsed ? 0 : 'auto' }}>
+      <div
+        className={`font-serif text-ink text-[21px] leading-[1.95] transition-opacity duration-300 ${
+          isCollapsed ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         {children}
       </div>
     </div>
   );
 }
 
-export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, isAuthenticated = false }: Props) {
+export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, bookCategory, isAuthenticated = false }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
@@ -239,17 +217,29 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     }
   }, [actualBook, actualChapter]);
 
-  const toggleSection = (sectionName: string) => {
-    setExpandedSection(prev => {
-      const newSection = prev === sectionName ? null : sectionName;
-      // Update URL hash only - scrolling happens in onExpanded callback
-      if (newSection) {
-        window.history.replaceState(null, '', `#${slugify(newSection)}`);
-      } else {
-        window.history.replaceState(null, '', window.location.pathname);
-      }
-      return newSection;
-    });
+  /*
+    SIMPLE by design, after much pain: the section opens instantly (no height
+    animation — see CollapsibleVerses), then ONE instant scroll puts the card
+    at the top. Crucially we scroll the card the user actually touched:
+    the app shell renders the page twice (desktop + mobile layout branches),
+    so document.getElementById can return the HIDDEN twin — the root cause of
+    every "lands anywhere but the top" bug. closest() walks up from the real
+    tapped element, so it can only find the visible copy.
+  */
+  const toggleSection = (sectionName: string, origin?: HTMLElement | null) => {
+    const newSection = expandedSection === sectionName ? null : sectionName;
+    setExpandedSection(newSection);
+    if (newSection) {
+      const id = slugify(newSection);
+      window.history.replaceState(null, '', `#${id}`);
+      const card =
+        origin?.closest<HTMLElement>(`[id="${id}"]`) ?? document.getElementById(id);
+      requestAnimationFrame(() => {
+        card?.scrollIntoView({ block: 'start' });
+      });
+    } else {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
   };
 
   // Only load commentary for authenticated users
@@ -325,8 +315,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               <div
                 key={daySection.title}
                 id={sectionId}
-                onClick={isCollapsed ? () => toggleSection(daySection.title) : undefined}
-                className={`rounded-2xl border-l-[3px] px-6 md:px-8 ${
+                onClick={isCollapsed ? (e) => toggleSection(daySection.title, e.currentTarget) : undefined}
+                className={`scroll-mt-16 rounded-r-2xl rounded-bl-2xl border-l-4 px-6 md:px-8 ${
                   isCollapsed ? 'cursor-pointer py-5' : 'py-6 md:py-8'
                 } ${daySection.borderColor} ${daySection.color}`}
               >
@@ -334,7 +324,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 <SpeakerLegend
                   heading={`${actualChapter}:${daySection.verseRange[0]}–${daySection.verseRange[1]}`}     
                   speakers={chapterSpeakers ? sectionSpeakers(daySection.verseRange) : {}}
-                  className="-mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-5 rounded-t-2xl"
+                  className="-mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-5 rounded-tr-2xl"
                 />
                 <div
                   id={`${sectionId}-header`}
@@ -344,10 +334,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   }}
                   className="cursor-pointer"
                 >
-                  <h3 className={`relative text-center ${isCollapsed ? 'mb-0' : 'mb-4'}`}>
+                  <h3 className={`relative text-center px-10 md:px-0 ${isCollapsed ? 'mb-0' : 'mb-4'}`}>
                     <button
                       onClick={async (e) => {
                         e.stopPropagation();
+                        // Capture before the await — React nulls currentTarget after.
+                        const origin = e.currentTarget as HTMLElement;
                         // Copying implies reading: unfold too, but sequentially —
                         // secure the copy, let the glow bloom, then open. Never
                         // the reverse: closing under a copy click reads as a
@@ -357,15 +349,15 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         if (unfoldTimer.current) clearTimeout(unfoldTimer.current);
                         if (copied) {
                           unfoldTimer.current = setTimeout(
-                            () => toggleSection(daySection.title),
+                            () => toggleSection(daySection.title, origin),
                             COPY_UNFOLD_DELAY_MS
                           );
                         } else {
-                          toggleSection(daySection.title);
+                          toggleSection(daySection.title, origin);
                         }
                       }}
                       title="Copy section"
-                      className={`font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
+                      className={`py-2 -my-2 px-1 font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
                         copiedSection === daySection.title
                           ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
                           : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`
@@ -377,12 +369,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleSection(daySection.title);
+                        toggleSection(daySection.title, e.currentTarget);
                       }}
                       aria-expanded={!isCollapsed}
                       aria-controls={`${sectionId}-verses`}
                       title={isCollapsed ? 'Expand section' : 'Collapse section'}
-                      className="absolute -right-6 md:-right-8 inset-y-0 -my-3 w-20 flex items-center justify-end pr-5 cursor-pointer text-faint hover:text-ink transition-colors"
+                      className="absolute -right-6 md:-right-8 inset-y-0 -my-3 w-14 md:w-20 flex items-center justify-end pr-5 cursor-pointer text-faint hover:text-ink active:text-ink transition-colors"
                     >
                       <svg
                         viewBox="0 0 20 20"
@@ -408,29 +400,10 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 </div>
 
 
+                {/* Scrolling on expand is handled by toggleSection's timer. */}
                 <CollapsibleVerses
                   id={`${sectionId}-verses`}
                   isCollapsed={isCollapsed}
-                  onExpanded={() => {
-                    // Scroll after expansion animation completes
-                    const sectionCard = document.getElementById(sectionId);
-                    if (sectionCard) {
-                      // Find the scrollable ancestor (main with overflow-auto, or window)
-                      const scrollContainer = sectionCard.closest('main');
-                      if (scrollContainer && scrollContainer.scrollHeight > scrollContainer.clientHeight) {
-                        // Scroll the container
-                        const rect = sectionCard.getBoundingClientRect();
-                        const containerRect = scrollContainer.getBoundingClientRect();
-                        scrollContainer.scrollTo({
-                          top: scrollContainer.scrollTop + rect.top - containerRect.top,
-                          behavior: 'smooth'
-                        });
-                      } else {
-                        // Fallback to window scroll
-                        sectionCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }
-                  }}
                 >
                   {dayVerses.map((verse) => (
                     <Verse
@@ -454,7 +427,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
         <ScrollToTop />
 
         {/* Navigation buttons below sections */}
-        {(prevChapter || nextChapter) && (
+        {(prevChapter || nextChapter || bookCategory) && (
           <div className="mt-8 pt-6 pb-6 border-t border-hairline">
             {/* Prev / Next */}
             <div className="flex justify-between items-center">
@@ -475,6 +448,13 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 >
                   Next →
                 </button>
+              ) : bookCategory ? (
+                <Link
+                  href={`/library/${bookCategory}`}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                >
+                  Return to Library →
+                </Link>
               ) : (
                 <div />
               )}

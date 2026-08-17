@@ -69,7 +69,7 @@ function BookTile({
   return (
     <Link
       href={`/${book.slug}/${targetChapter}`}
-      className={`relative flex items-center justify-center w-20 rounded px-2 py-2.5 border transition-colors ${
+      className={`relative flex min-h-[44px] items-center justify-center w-20 rounded px-2 py-2.5 border transition-colors ${
         isComplete
           ? 'bg-emerald-500/10 border-emerald-500/40'
           : isInProgress
@@ -77,8 +77,9 @@ function BookTile({
           : 'bg-[rgb(var(--surface))] border-hairline hover:border-gold/50'
       }`}
       title={`${book.name}: ${completed}/${total} chapters`}
+      aria-label={`${book.name}: ${completed} of ${total} chapters`}
     >
-      <span className={`font-sans text-[11px] font-medium ${
+      <span className={`font-sans text-[11px] font-medium whitespace-nowrap ${
         isComplete ? 'text-emerald-500' : isInProgress ? 'text-gold' : 'text-muted'
       }`}>
         {isInProgress ? `${book.abbreviation} ${percentage}%` : book.abbreviation}
@@ -202,8 +203,8 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
               const books = era.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
 
               return (
-                <div key={era.id} className="flex items-start gap-1">
-                  <span className={`font-sans text-[10px] w-20 flex-shrink-0 py-2.5 flex items-center gap-1 ${
+                <div key={era.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-1">
+                  <span className={`font-sans text-[10px] w-auto sm:w-20 flex-shrink-0 py-0 sm:py-2.5 flex items-center gap-1 ${
                     eraComplete ? 'text-emerald-500' : 'text-faint'
                   }`}>
                     <span className="text-faint">›</span>
@@ -262,8 +263,8 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
               const books = div.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
 
               return (
-                <div key={div.id} className="flex items-start gap-1">
-                  <span className={`font-sans text-[10px] w-20 flex-shrink-0 py-2.5 flex items-center gap-1 ${
+                <div key={div.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-1">
+                  <span className={`font-sans text-[10px] w-auto sm:w-20 flex-shrink-0 py-0 sm:py-2.5 flex items-center gap-1 ${
                     divComplete ? 'text-emerald-500' : 'text-faint'
                   }`}>
                     {div.label && <><span className="text-faint">›</span><span>{div.label}</span></>}
@@ -319,8 +320,10 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
     );
   };
 
-  const [otOpen, setOtOpen] = useState(true);
-  const [ntOpen, setNtOpen] = useState(true);
+  // Collapsed by default on mobile so Today/dashboard open clean; the
+  // md:hidden fallback keeps desktop always expanded regardless of state.
+  const [otOpen, setOtOpen] = useState(false);
+  const [ntOpen, setNtOpen] = useState(false);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -329,7 +332,7 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
         <div className="flex items-center justify-between mb-3">
           <button
             onClick={() => setOtOpen(v => !v)}
-            className="md:pointer-events-none flex items-center gap-2 font-sans text-[10px] font-semibold uppercase tracking-wider text-gold cursor-pointer md:cursor-default"
+            className="md:pointer-events-none flex items-center gap-2 py-3 -my-3 px-2 -mx-2 md:p-0 md:m-0 font-sans text-[10px] font-semibold uppercase tracking-wider text-gold cursor-pointer md:cursor-default"
           >
             <span className={`md:hidden transition-transform ${otOpen ? 'rotate-90' : ''}`}>›</span>
             Old Testament
@@ -348,7 +351,7 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
         <div className="flex items-center justify-between mb-3">
           <button
             onClick={() => setNtOpen(v => !v)}
-            className="md:pointer-events-none flex items-center gap-2 font-sans text-[10px] font-semibold uppercase tracking-wider text-gold cursor-pointer md:cursor-default"
+            className="md:pointer-events-none flex items-center gap-2 py-3 -my-3 px-2 -mx-2 md:p-0 md:m-0 font-sans text-[10px] font-semibold uppercase tracking-wider text-gold cursor-pointer md:cursor-default"
           >
             <span className={`md:hidden transition-transform ${ntOpen ? 'rotate-90' : ''}`}>›</span>
             New Testament

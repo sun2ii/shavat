@@ -9,7 +9,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Wisdom granted",
@@ -18,7 +18,7 @@
           13
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Solomon's wealth",
@@ -27,7 +27,7 @@
           17
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "2": [
@@ -38,7 +38,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Alliance with Hiram",
@@ -47,7 +47,7 @@
           18
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "3": [
@@ -58,7 +58,7 @@
           7
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Most Holy Place",
@@ -67,7 +67,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Two pillars",
@@ -76,7 +76,7 @@
           17
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "4": [
@@ -87,7 +87,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Huram's work completed",
@@ -96,7 +96,7 @@
           22
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "5": [
@@ -107,7 +107,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Glory of the LORD fills temple",
@@ -116,7 +116,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "6": [
@@ -127,7 +127,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Solomon's dedicatory prayer",
@@ -136,7 +136,7 @@
           42
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "7": [
@@ -147,7 +147,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God's response to Solomon",
@@ -156,7 +156,7 @@
           22
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "8": [
@@ -167,7 +167,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Worship and trade",
@@ -176,7 +176,7 @@
           18
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "9": [
@@ -187,7 +187,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Solomon's splendor",
@@ -196,7 +196,7 @@
           28
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Solomon's death",
@@ -205,7 +205,7 @@
           31
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "10": [
@@ -216,7 +216,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Israel rebels",
@@ -225,7 +225,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "11": [
@@ -236,7 +236,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Rehoboam fortifies cities",
@@ -245,7 +245,7 @@
           12
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Priests and Levites support Rehoboam",
@@ -254,7 +254,7 @@
           17
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Rehoboam's family",
@@ -263,7 +263,7 @@
           23
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "12": [
@@ -274,7 +274,7 @@
           8
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Rehoboam's reign",
@@ -283,7 +283,7 @@
           16
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "13": [
@@ -294,7 +294,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Judah victorious",
@@ -303,7 +303,7 @@
           22
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "14": [
@@ -314,7 +314,7 @@
           8
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Victory over Cushites",
@@ -323,7 +323,7 @@
           15
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "15": [
@@ -334,7 +334,7 @@
           7
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Asa's reforms",
@@ -343,7 +343,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "16": [
@@ -354,7 +354,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Hanani's rebuke",
@@ -363,7 +363,7 @@
           10
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Asa's disease and death",
@@ -372,7 +372,7 @@
           14
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "17": [
@@ -383,7 +383,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Teaching the law and military strength",
@@ -392,7 +392,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "18": [
@@ -403,7 +403,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Micaiah's prophecy",
@@ -412,7 +412,7 @@
           27
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Ahab killed in battle",
@@ -421,7 +421,7 @@
           34
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "19": [
@@ -432,7 +432,7 @@
           3
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jehoshaphat appoints judges",
@@ -441,7 +441,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "20": [
@@ -452,7 +452,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jahaziel's prophecy",
@@ -461,7 +461,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Victory without fighting",
@@ -470,7 +470,7 @@
           30
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "End of Jehoshaphat's reign",
@@ -479,7 +479,7 @@
           37
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "21": [
@@ -490,7 +490,7 @@
           7
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Revolts against Jehoram",
@@ -499,7 +499,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Elijah's letter and Jehoram's death",
@@ -508,7 +508,7 @@
           20
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "22": [
@@ -519,7 +519,7 @@
           9
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Athaliah seizes throne",
@@ -528,7 +528,7 @@
           12
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "23": [
@@ -539,7 +539,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Athaliah executed",
@@ -548,7 +548,7 @@
           21
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "24": [
@@ -559,7 +559,7 @@
           14
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Wickedness of Joash",
@@ -568,7 +568,7 @@
           22
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Joash assassinated",
@@ -577,7 +577,7 @@
           27
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "25": [
@@ -588,7 +588,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Idolatry after Edom victory",
@@ -597,7 +597,7 @@
           16
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "War with Israel and death",
@@ -606,7 +606,7 @@
           28
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "26": [
@@ -617,7 +617,7 @@
           15
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Uzziah's pride and leprosy",
@@ -626,7 +626,7 @@
           23
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "27": [
@@ -637,7 +637,7 @@
           9
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "28": [
@@ -648,7 +648,7 @@
           8
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Oded's prophecy",
@@ -657,7 +657,7 @@
           15
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Ahaz's increasing unfaithfulness",
@@ -666,7 +666,7 @@
           27
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "29": [
@@ -677,7 +677,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Levites cleanse temple",
@@ -686,7 +686,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Temple rededicated",
@@ -695,7 +695,7 @@
           36
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "30": [
@@ -706,7 +706,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Passover celebrated",
@@ -715,7 +715,7 @@
           27
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "31": [
@@ -726,7 +726,7 @@
           1
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Contributions for priests and Levites",
@@ -735,7 +735,7 @@
           21
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "32": [
@@ -746,7 +746,7 @@
           8
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Deliverance from Assyria",
@@ -755,7 +755,7 @@
           23
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Hezekiah's illness and death",
@@ -764,7 +764,7 @@
           33
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "33": [
@@ -775,7 +775,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Manasseh's repentance",
@@ -784,7 +784,7 @@
           20
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Amon's reign",
@@ -793,7 +793,7 @@
           25
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "34": [
@@ -804,7 +804,7 @@
           7
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Temple repairs begin",
@@ -813,7 +813,7 @@
           13
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Book of the Law found",
@@ -822,7 +822,7 @@
           21
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Huldah's prophecy and covenant",
@@ -831,7 +831,7 @@
           33
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "35": [
@@ -842,7 +842,7 @@
           19
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Josiah killed at Megiddo",
@@ -851,7 +851,7 @@
           27
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "36": [
@@ -862,7 +862,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jehoiakim's reign",
@@ -871,7 +871,7 @@
           8
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Jehoiachin's reign",
@@ -880,7 +880,7 @@
           10
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Fall of Jerusalem",
@@ -889,7 +889,7 @@
           21
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Cyrus's decree",
@@ -898,7 +898,7 @@
           23
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       }
     ]
   }

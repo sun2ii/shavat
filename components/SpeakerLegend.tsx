@@ -20,17 +20,21 @@ interface Props {
 export default function SpeakerLegend({ heading, detail, speakers, className = '' }: Props) {
   const entries = Object.entries(speakers).sort(([, a], [, b]) => a.color - b.color);
 
+  // Dark walnut band, both themes. The bar is dark regardless of theme, so
+  // every color inside is chosen FOR the brown: gold reference, warm-cream
+  // names, and a faint ring around the speaker dots (the light theme's
+  // speaker colors are dark inks that would otherwise sink into the brown).
   return (
     <div
-      className={`sticky top-0 z-30 border-b border-hairline bg-[rgb(var(--bg-primary))]/90 backdrop-blur-sm ${className}`}
+      className={`sticky top-0 z-30 border-b border-black/20 bg-[#3B3226] dark:bg-[#2E2820] ${className}`}
     >
       <div className="px-6 md:px-8 py-2.5 flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
         <div className="flex items-baseline gap-3 min-w-0">
-          <span className="font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-gold-ink truncate">
+          <span className="font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-[#C8A248] truncate">
             {heading}
           </span>
           {detail && (
-            <span className="font-sans text-[10px] tracking-[0.16em] uppercase text-faint whitespace-nowrap">
+            <span className="font-sans text-[10px] tracking-[0.16em] uppercase text-[#D9D1B5]/70 whitespace-nowrap">
               {detail}
             </span>
           )}
@@ -41,10 +45,10 @@ export default function SpeakerLegend({ heading, detail, speakers, className = '
               <span key={id} className="flex items-center gap-1.5">
                 <span
                   aria-hidden
-                  className="h-2 w-2 rounded-full"
+                  className="h-2 w-2 rounded-full ring-1 ring-[#F7F5F1]/35"
                   style={{ backgroundColor: `rgb(var(--speaker-${def.color}))` }}
                 />
-                <span className="font-sans text-[10px] tracking-[0.14em] uppercase text-muted">
+                <span className="font-sans text-[10px] tracking-[0.14em] uppercase text-[#EEEBE6]/85">
                   {def.name}
                 </span>
               </span>

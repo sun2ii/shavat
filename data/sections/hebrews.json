@@ -9,7 +9,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The Son Superior to Angels",
@@ -18,7 +18,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "2": [
@@ -29,7 +29,7 @@
           4
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Jesus Made Fully Human",
@@ -38,7 +38,7 @@
           9
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Jesus the Merciful High Priest",
@@ -47,7 +47,7 @@
           18
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "3": [
@@ -58,7 +58,7 @@
           6
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Warning Against Unbelief",
@@ -67,7 +67,7 @@
           19
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "4": [
@@ -78,7 +78,7 @@
           11
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "The Living Word of God",
@@ -87,7 +87,7 @@
           13
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Jesus the Great High Priest",
@@ -96,7 +96,7 @@
           16
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "5": [
@@ -107,7 +107,7 @@
           4
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Christ's Priestly Appointment",
@@ -116,7 +116,7 @@
           10
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Warning Against Falling Away",
@@ -125,7 +125,7 @@
           14
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "6": [
@@ -136,7 +136,7 @@
           3
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Warning of Apostasy",
@@ -145,7 +145,7 @@
           8
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Encouragement and Hope",
@@ -154,7 +154,7 @@
           12
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Certainty of God's Promise",
@@ -163,7 +163,7 @@
           20
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "7": [
@@ -174,7 +174,7 @@
           10
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Jesus Like Melchizedek",
@@ -183,7 +183,7 @@
           22
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Superiority of Christ's Priesthood",
@@ -192,7 +192,7 @@
           28
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "8": [
@@ -203,7 +203,7 @@
           6
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The New Covenant",
@@ -212,7 +212,7 @@
           13
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "9": [
@@ -223,7 +223,7 @@
           10
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "The Blood of Christ",
@@ -232,7 +232,7 @@
           22
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Christ's Sacrifice Once for All",
@@ -241,7 +241,7 @@
           28
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "10": [
@@ -252,7 +252,7 @@
           18
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Draw Near to God",
@@ -261,7 +261,7 @@
           25
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Warning of Judgment",
@@ -270,7 +270,7 @@
           31
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Call to Persevere in Faith",
@@ -279,7 +279,7 @@
           39
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "11": [
@@ -290,7 +290,7 @@
           3
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Examples of Faith: Abel to Noah",
@@ -299,7 +299,7 @@
           7
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Abraham's Faith",
@@ -308,7 +308,7 @@
           19
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Faith of the Patriarchs",
@@ -317,7 +317,7 @@
           22
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Moses's Faith",
@@ -326,7 +326,7 @@
           29
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Faith's Hall of Fame",
@@ -335,7 +335,7 @@
           40
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "12": [
@@ -346,7 +346,7 @@
           3
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "God Disciplines His Children",
@@ -355,7 +355,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Warning Against Refusing God",
@@ -364,7 +364,7 @@
           17
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "The Kingdom That Cannot Be Shaken",
@@ -373,7 +373,7 @@
           29
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "13": [
@@ -384,7 +384,7 @@
           6
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Spiritual Leadership",
@@ -393,7 +393,7 @@
           19
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Benediction and Greetings",
@@ -402,7 +402,7 @@
           25
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ]
   }

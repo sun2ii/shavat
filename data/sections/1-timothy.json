@@ -9,7 +9,7 @@
           11
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Paul's Testimony of Mercy",
@@ -18,7 +18,7 @@
           20
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "2": [
@@ -29,7 +29,7 @@
           15
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "3": [
@@ -40,7 +40,7 @@
           7
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Qualifications for Deacons",
@@ -49,7 +49,7 @@
           13
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "The Mystery of Godliness",
@@ -58,7 +58,7 @@
           16
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       }
     ],
     "4": [
@@ -69,7 +69,7 @@
           5
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Train Yourself in Godliness",
@@ -78,7 +78,7 @@
           16
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "5": [
@@ -89,7 +89,7 @@
           16
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Honor for Elders",
@@ -98,7 +98,7 @@
           25
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "6": [
@@ -109,7 +109,7 @@
           2
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "False Teachers and Love of Money",
@@ -118,7 +118,7 @@
           10
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Fight the Good Fight",
@@ -127,7 +127,7 @@
           21
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ]
   }

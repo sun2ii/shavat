@@ -9,7 +9,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Judgment on the messenger",
@@ -18,7 +18,7 @@
           16
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Lament for Saul and Jonathan",
@@ -27,7 +27,7 @@
           27
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "2": [
@@ -38,7 +38,7 @@
           7
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Ish-Bosheth made king",
@@ -47,7 +47,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Battle at Gibeon",
@@ -56,7 +56,7 @@
           32
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "3": [
@@ -67,7 +67,7 @@
           5
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Abner's defection",
@@ -76,7 +76,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Abner's covenant with David",
@@ -85,7 +85,7 @@
           21
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Joab murders Abner",
@@ -94,7 +94,7 @@
           39
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "4": [
@@ -105,7 +105,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Murder of Ish-Bosheth",
@@ -114,7 +114,7 @@
           7
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "David executes the assassins",
@@ -123,7 +123,7 @@
           12
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "5": [
@@ -134,7 +134,7 @@
           5
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jerusalem conquered",
@@ -143,7 +143,7 @@
           16
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Victories over Philistines",
@@ -152,7 +152,7 @@
           25
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "6": [
@@ -163,7 +163,7 @@
           7
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Ark stays at Obed-Edom",
@@ -172,7 +172,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Ark brought to Jerusalem",
@@ -181,7 +181,7 @@
           19
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Michal's contempt",
@@ -190,7 +190,7 @@
           23
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "7": [
@@ -201,7 +201,7 @@
           11
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The Davidic covenant",
@@ -210,7 +210,7 @@
           16
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "David's prayer",
@@ -219,7 +219,7 @@
           29
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "8": [
@@ -230,7 +230,7 @@
           8
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Tribute and dedication",
@@ -239,7 +239,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Victory over Edom",
@@ -248,7 +248,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "David's officials",
@@ -257,7 +257,7 @@
           18
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "9": [
@@ -268,7 +268,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Mephibosheth summoned",
@@ -277,7 +277,7 @@
           8
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Kindness for Jonathan's sake",
@@ -286,7 +286,7 @@
           13
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "10": [
@@ -297,7 +297,7 @@
           5
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Coalition armies",
@@ -306,7 +306,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Israel victorious",
@@ -315,7 +315,7 @@
           19
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "11": [
@@ -326,7 +326,7 @@
           5
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Failed cover-up",
@@ -335,7 +335,7 @@
           13
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Murder of Uriah",
@@ -344,7 +344,7 @@
           25
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Bathsheba becomes wife",
@@ -353,7 +353,7 @@
           27
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "12": [
@@ -364,7 +364,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "You are the man",
@@ -373,7 +373,7 @@
           14
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Death of the child",
@@ -382,7 +382,7 @@
           23
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Solomon born",
@@ -391,7 +391,7 @@
           31
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "13": [
@@ -402,7 +402,7 @@
           14
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Amnon's hatred",
@@ -411,7 +411,7 @@
           20
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "David's anger, Absalom's silence",
@@ -420,7 +420,7 @@
           22
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Amnon murdered",
@@ -429,7 +429,7 @@
           36
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Absalom flees",
@@ -438,7 +438,7 @@
           39
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "14": [
@@ -449,7 +449,7 @@
           3
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Woman of Tekoa's plea",
@@ -458,7 +458,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "David sees through it",
@@ -467,7 +467,7 @@
           20
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Absalom recalled but distant",
@@ -476,7 +476,7 @@
           24
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Absalom's beauty and reconciliation",
@@ -485,7 +485,7 @@
           33
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "15": [
@@ -496,7 +496,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Conspiracy at Hebron",
@@ -505,7 +505,7 @@
           12
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "David flees Jerusalem",
@@ -514,7 +514,7 @@
           18
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Loyal followers join",
@@ -523,7 +523,7 @@
           37
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "16": [
@@ -534,7 +534,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Shimei's curses",
@@ -543,7 +543,7 @@
           13
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Groups reach destinations",
@@ -552,7 +552,7 @@
           15
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Hushai joins Absalom",
@@ -561,7 +561,7 @@
           23
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "17": [
@@ -572,7 +572,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Hushai's counter-strategy",
@@ -581,7 +581,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Warning reaches David",
@@ -590,7 +590,7 @@
           22
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Ahithophel's suicide",
@@ -599,7 +599,7 @@
           26
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Allies provide supplies",
@@ -608,7 +608,7 @@
           29
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "18": [
@@ -619,7 +619,7 @@
           5
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Battle in the forest",
@@ -628,7 +628,7 @@
           8
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Absalom's death",
@@ -637,7 +637,7 @@
           16
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Absalom buried",
@@ -646,7 +646,7 @@
           18
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "David's grief",
@@ -655,7 +655,7 @@
           33
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "19": [
@@ -666,7 +666,7 @@
           8
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Call for David's return",
@@ -675,7 +675,7 @@
           14
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Journey back to Jerusalem",
@@ -684,7 +684,7 @@
           30
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Barzillai's farewell",
@@ -693,7 +693,7 @@
           39
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Tribal dispute",
@@ -702,7 +702,7 @@
           43
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "20": [
@@ -713,7 +713,7 @@
           3
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Joab murders Amasa",
@@ -722,7 +722,7 @@
           10
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Pursuit continues",
@@ -731,7 +731,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Siege of Abel",
@@ -740,7 +740,7 @@
           22
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "David's officials",
@@ -749,7 +749,7 @@
           26
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "21": [
@@ -760,7 +760,7 @@
           6
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Seven executed, bones buried",
@@ -769,7 +769,7 @@
           14
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Abishai saves David",
@@ -778,7 +778,7 @@
           17
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Four giants defeated",
@@ -787,7 +787,7 @@
           22
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "22": [
@@ -798,7 +798,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Rescued from distress",
@@ -807,7 +807,7 @@
           25
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God's character and David's victories",
@@ -816,7 +816,7 @@
           43
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Dominion and covenant",
@@ -825,7 +825,7 @@
           51
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "23": [
@@ -836,7 +836,7 @@
           7
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Three mighty warriors",
@@ -845,7 +845,7 @@
           12
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Water from Bethlehem",
@@ -854,7 +854,7 @@
           17
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Abishai and Benaiah",
@@ -863,7 +863,7 @@
           23
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Thirty",
@@ -872,7 +872,7 @@
           39
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "24": [
@@ -883,7 +883,7 @@
           4
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Census conducted",
@@ -892,7 +892,7 @@
           9
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "David's repentance",
@@ -901,7 +901,7 @@
           14
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Plague strikes",
@@ -910,7 +910,7 @@
           17
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Altar and sacrifice",
@@ -919,7 +919,7 @@
           25
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ]
   }

@@ -11,6 +11,7 @@ interface Props {
   bookSlug: string;
   bookName: string;
   bookAbbreviation: string;
+  bookCategory: string;
   verses: VerseType[];
   division: BookDivision;
   currentChapter: number;
@@ -24,6 +25,7 @@ export default function BookPageClient({
   bookSlug,
   bookName,
   bookAbbreviation,
+  bookCategory,
   verses,
   division,
   currentChapter,
@@ -68,6 +70,7 @@ export default function BookPageClient({
         nextChapter={nextChapter}
         prevDivisionId={prevDivisionId}
         nextDivisionId={nextDivisionId}
+        bookCategory={bookCategory}
         isAuthenticated={isAuthenticated}
       />
     </main>

@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
+import PageHeader from '@/components/PageHeader';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { readingPath } from '@/lib/routes';
 import { CATEGORIES } from '@/lib/bible-metadata';
@@ -233,20 +234,39 @@ function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' }
   return (
     <span
       title={titles[tone]}
-      className={`h-1 w-1 shrink-0 rounded-full ${colors[tone]}`}
+      aria-label={titles[tone]}
+      className={`h-1.5 w-1.5 shrink-0 rounded-full ${colors[tone]}`}
     />
   );
 }
 
 function BookHeader({ number, name, sub, anchor }: { number?: string; name: string; sub?: string; anchor?: string }) {
+  // On phones every book starts collapsed to just this header row — tap to
+  // unfold its cards. The `book-collapsed` class hides all following siblings
+  // in the section via a media-scoped rule in globals.css, so desktop stays
+  // fully expanded regardless of state (pointer disabled there too).
+  const [open, setOpen] = useState(false);
   return (
-    <div className="flex items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline">
+    <div
+      onClick={() => setOpen((v) => !v)}
+      role="button"
+      aria-expanded={open}
+      className={`flex flex-wrap items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline cursor-pointer select-none md:pointer-events-none md:cursor-auto ${
+        open ? '' : 'book-collapsed'
+      }`}
+    >
       {number && <span className="font-serif text-[11px] font-bold text-gold">{number}</span>}
-      <div className="flex items-baseline gap-2.5">
+      <div className="flex flex-wrap items-baseline gap-2.5">
         <span className="font-serif text-lg font-bold text-ink leading-none">{name}</span>
         {anchor && <span className="font-sans text-[10px] text-gold/80">{anchor}</span>}
         {sub && <span className="font-serif italic text-[11px] text-muted">{sub}</span>}
       </div>
+      <span
+        aria-hidden="true"
+        className={`ml-auto md:hidden font-sans text-faint transition-transform ${open ? 'rotate-90' : ''}`}
+      >
+        ›
+      </span>
     </div>
   );
 }
@@ -288,7 +308,7 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] text-center h-[72px] flex flex-col justify-between ${
+      className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] active:bg-paper-2 active:border-l-[var(--accent)] text-center min-h-[72px] flex flex-col justify-between ${
         isComplete
           ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
           : 'bg-surface border-hairline'
@@ -826,7 +846,7 @@ export default function LibraryPage() {
                           <Link
                             key={item.title}
                             href={readingPath('genesis', item.startChapter)}
-                            className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold text-center h-[72px] flex flex-col justify-between ${
+                            className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] active:bg-paper-2 active:border-l-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold text-center min-h-[72px] flex flex-col justify-between ${
                               isComplete
                                 ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
                                 : 'bg-surface border-hairline'
@@ -1294,20 +1314,17 @@ export default function LibraryPage() {
 
             {/* PAULINE EPISTLES - Chronologically nested into Acts */}
             <section>
-              <div className="flex items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline">
-                <span className="font-serif text-lg font-bold text-ink leading-none">Pauline Epistles</span>
-                <span className="font-serif italic text-[11px] text-muted">13 books</span>
-              </div>
+              <BookHeader name="Pauline Epistles" sub="13 books" />
 
               {/* Two main columns: During Acts | After Acts */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mt-2">
                 {/* Left: During Acts */}
                 <div>
-                  <div className="font-sans text-[9px] tracking-wider text-gold/70 uppercase mb-2">
+                  <div className="font-sans text-[10px] tracking-wider text-gold/70 uppercase mb-2">
                     During Acts
                   </div>
                   {/* 2 sub-columns for eras */}
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                     {PAULINE_ERAS.filter(era => era.duringActs).map((era, eraIdx) => {
                       const eraBooks = era.books
                         .map(slug => paulineBooks.find(b => b.slug === slug))
@@ -1319,7 +1336,7 @@ export default function LibraryPage() {
                             <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
                             <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
                             {era.subtitle && (
-                              <span className="font-sans text-[8px] text-muted italic">{era.subtitle}</span>
+                              <span className="font-sans text-[10px] text-muted italic">{era.subtitle}</span>
                             )}
                           </div>
                           <div className="grid grid-cols-2 gap-1">
@@ -1333,11 +1350,11 @@ export default function LibraryPage() {
 
                 {/* Right: After Acts */}
                 <div>
-                  <div className="font-sans text-[9px] tracking-wider text-gold/70 uppercase mb-2">
+                  <div className="font-sans text-[10px] tracking-wider text-gold/70 uppercase mb-2">
                     After Acts
                   </div>
                   {/* 2 sub-columns for eras */}
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                     {PAULINE_ERAS.filter(era => !era.duringActs).map((era, eraIdx) => {
                       const eraBooks = era.books
                         .map(slug => paulineBooks.find(b => b.slug === slug))
@@ -1349,7 +1366,7 @@ export default function LibraryPage() {
                             <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
                             <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
                             {era.subtitle && (
-                              <span className="font-sans text-[8px] text-muted italic">{era.subtitle}</span>
+                              <span className="font-sans text-[10px] text-muted italic">{era.subtitle}</span>
                             )}
                           </div>
                           <div className="grid grid-cols-2 gap-1">
@@ -1390,17 +1407,17 @@ export default function LibraryPage() {
 
   return (
     <main className="max-w-6xl mx-auto md:select-text pb-8 px-4">
-      {/* Header: Title + Tabs in one row */}
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 pt-6 pb-3">
+      {/* Header: the shared PageHeader recipe (same as Map and Saved),
+          then the legend + tabs row beneath it. */}
+      <PageHeader
+        kicker={activeTab === 'gospels' || activeTab === 'apostolic' ? 'New Testament' : 'Old Testament'}
+        title={mast.title}
+        subtitle={mast.kicker}
+      />
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 pb-3">
         <div>
-          <h1 className="font-serif font-bold text-xl md:text-2xl text-ink leading-none tracking-tight">
-            {mast.title}
-          </h1>
-          <span className="font-sans text-[10px] text-muted">
-            {mast.kicker}
-          </span>
-          {/* Color legend */}
-          <div className="flex items-center gap-3 mt-1.5 font-sans text-[10px] text-muted">
+          {/* Color legend — desktop only; on the phone the dots speak for themselves */}
+          <div className="hidden md:flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[10px] text-muted">
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]" />
               Commentary
@@ -1424,31 +1441,72 @@ export default function LibraryPage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-0.5 md:pt-1">
-          {/* OT / NT labels - 3 columns matching divider sections */}
-          <div className="grid grid-cols-3 w-full font-sans text-[9px] tracking-wider text-gold">
-            <span className="col-span-2 text-center">OLD TESTAMENT</span>
-            <span className="text-center">NEW TESTAMENT</span>
+        <div className="flex w-full flex-col items-stretch gap-0.5 md:w-auto md:items-end md:pt-1">
+          {/* Mobile: grouped wrapping pills — nothing scrolls horizontally */}
+          <div className="flex flex-col gap-2.5 md:hidden">
+            {[
+              // Fixed 3-column grids → OT: Law/Judges/Kings, Prophets/Exile/Wisdom.
+              // NT: Gospels/Apostolic in the same 3-col grid so pills match OT sizing.
+              { label: 'OLD TESTAMENT', tabs: TABS.slice(0, 6), grid: true },
+              { label: 'NEW TESTAMENT', tabs: TABS.slice(6), grid: true },
+            ].map((group) => (
+              <div key={group.label}>
+                <div className="mb-1 font-sans text-[10px] tracking-wider text-gold">
+                  {group.label}
+                </div>
+                <div
+                  className={`${
+                    group.grid ? 'grid grid-cols-3 gap-1.5' : 'flex flex-wrap gap-1.5'
+                  } font-sans text-xs font-medium`}
+                >
+                  {group.tabs.map((tab) => {
+                    const active = activeTab === tab.id;
+                    return (
+                      <Link
+                        key={tab.id}
+                        href={`/library/${tab.id}`}
+                        className={`rounded-full px-3 py-2 whitespace-nowrap text-center transition-colors ${
+                          active
+                            ? 'bg-surface text-ink shadow-sm border border-hairline'
+                            : 'bg-paper-2 text-muted active:text-ink'
+                        }`}
+                      >
+                        {tab.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
-          {/* Tabs */}
-          <div className="inline-flex bg-paper-2 rounded-full p-0.5 font-sans text-[10px] font-medium overflow-x-auto max-w-full">
-            {TABS.map((tab) => {
-              const active = activeTab === tab.id;
-              const showDivider = tab.id === 'prophets' || tab.id === 'gospels';
-              return (
-                <span key={tab.id} className="flex items-center">
-                  {showDivider && <span className="mx-2 h-4 w-px bg-hairline" />}
-                  <Link
-                    href={`/library/${tab.id}`}
-                    className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${
-                      active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
-                    }`}
-                  >
-                    {tab.label}
-                  </Link>
-                </span>
-              );
-            })}
+
+          {/* Desktop: original capsule with OT/NT labels above */}
+          <div className="hidden md:flex md:flex-col md:items-end md:gap-0.5">
+            {/* OT / NT labels - 3 columns matching divider sections */}
+            <div className="grid grid-cols-3 w-full font-sans text-[10px] tracking-wider text-gold">
+              <span className="col-span-2 text-center">OLD TESTAMENT</span>
+              <span className="text-center">NEW TESTAMENT</span>
+            </div>
+            {/* Tabs */}
+            <div className="inline-flex bg-paper-2 rounded-full p-0.5 font-sans text-[10px] font-medium">
+              {TABS.map((tab) => {
+                const active = activeTab === tab.id;
+                const showDivider = tab.id === 'prophets' || tab.id === 'gospels';
+                return (
+                  <span key={tab.id} className="flex items-center">
+                    {showDivider && <span className="mx-2 h-4 w-px bg-hairline" />}
+                    <Link
+                      href={`/library/${tab.id}`}
+                      className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${
+                        active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
+                      }`}
+                    >
+                      {tab.label}
+                    </Link>
+                  </span>
+                );
+              })}
+            </div>
           </div>
           {/* Progress indicator - below tabs */}
           {tabProgress.total > 0 && (
@@ -1463,15 +1521,15 @@ export default function LibraryPage() {
           )}
           {/* Prophet era sub-navigation */}
           {activeTab === 'prophets' && (
-            <div className="flex gap-1">
+            <div className="flex flex-wrap justify-start md:justify-end gap-1">
               {PROPHET_ERAS.map((era) => (
                 <button
                   key={era.id}
                   onClick={() => setProphetEra(era.id)}
-                  className={`px-2 py-0.5 rounded text-[10px] font-sans transition-colors ${
+                  className={`px-3 py-1.5 md:px-2 md:py-0.5 rounded text-[11px] md:text-[10px] font-sans transition-colors ${
                     prophetEra === era.id
                       ? 'bg-gold/20 text-gold font-medium'
-                      : 'text-muted hover:text-ink'
+                      : 'text-muted hover:text-ink active:text-ink'
                   }`}
                 >
                   {era.label}
@@ -1500,14 +1558,14 @@ export default function LibraryPage() {
           onClick={() => setShowShortcuts(false)}
         >
           <div
-            className="bg-surface border border-hairline rounded-lg shadow-xl max-w-md w-full mx-4 p-5"
+            className="bg-surface border border-hairline rounded-lg shadow-xl max-w-md w-full mx-4 p-5 max-h-[80dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
               <h2 className="font-serif font-bold text-lg text-ink">Keyboard Shortcuts</h2>
               <button
                 onClick={() => setShowShortcuts(false)}
-                className="text-muted hover:text-ink text-xl leading-none"
+                className="h-11 w-11 -m-2 flex items-center justify-center text-muted hover:text-ink active:text-ink text-xl leading-none"
               >
                 &times;
               </button>
@@ -1550,7 +1608,7 @@ export default function LibraryPage() {
       {/* Search Modal */}
       {showSearch && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] bg-black/40"
+          className="fixed inset-0 z-50 flex items-start justify-center pt-[10dvh] bg-black/40"
           onClick={() => setShowSearch(false)}
         >
           <div
@@ -1563,7 +1621,7 @@ export default function LibraryPage() {
                 type="text"
                 autoFocus
                 placeholder="Search books, divisions..."
-                className="flex-1 bg-transparent outline-none font-sans text-sm text-ink placeholder:text-muted"
+                className="flex-1 bg-transparent outline-none font-sans text-base sm:text-sm text-ink placeholder:text-muted"
                 onKeyDown={(e) => {
                   if (e.key === 'Escape') setShowSearch(false);
                 }}

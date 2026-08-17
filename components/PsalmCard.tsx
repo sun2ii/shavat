@@ -13,7 +13,7 @@ export default function PsalmCard({ number, categoryId, categoryNumber, emotiona
   return (
     <Link
       href={`/psalms/${categoryId}`}
-      className="text-[rgb(var(--text-secondary))] hover:text-gold transition-colors text-lg"
+      className="inline-flex min-h-[44px] items-center justify-center rounded text-[rgb(var(--text-secondary))] hover:text-gold active:text-gold transition-colors text-lg"
       title={`${emotional_state} ${categoryNumber} (Psalm ${number})`}
     >
       {categoryNumber}

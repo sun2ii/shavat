@@ -44,8 +44,9 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
 
       {/* Mobile/Tablet: no sidebar, hamburger menu */}
       <div className="lg:hidden">
-        {/* Mobile header */}
-        <header className="sticky top-0 z-30 bg-sidebar-bg px-4 py-3 flex items-center gap-4">
+        {/* Mobile header — hidden inside the Capacitor iOS shell, where the
+            bottom tab bar is the navigation and the header would waste space. */}
+        <header className="sticky top-0 z-30 bg-sidebar-bg px-4 py-3 flex items-center gap-4 [.native-app_&]:hidden">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-1 text-sidebar-text-muted hover:text-sidebar-text"

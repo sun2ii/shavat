@@ -28,14 +28,14 @@ export default function CategorySection({ category, psalms, defaultExpanded = fa
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full flex items-center justify-center mb-4 p-4 bg-[rgb(var(--bg-secondary))] border border-[rgb(var(--border))] rounded hover:bg-gold/10 transition-colors"
       >
-        <span className="text-2xl font-semibold text-gold capitalize">
+        <span className="text-xl sm:text-2xl font-semibold text-gold capitalize">
           {category}
         </span>
       </button>
 
       {/* Psalms List */}
       {isExpanded && (
-        <div className="grid grid-cols-7 gap-4">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-2 sm:gap-4">
           {psalms.map((psalm) => (
             <PsalmCard
               key={psalm.category_id}

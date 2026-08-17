@@ -9,7 +9,7 @@
           4
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Birth of John Foretold",
@@ -18,7 +18,7 @@
           25
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Birth of Jesus Foretold",
@@ -27,7 +27,7 @@
           38
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Mary Visits Elizabeth",
@@ -36,7 +36,7 @@
           56
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Birth of John the Baptist",
@@ -45,7 +45,7 @@
           66
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Zechariah's Prophecy",
@@ -54,7 +54,7 @@
           80
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       }
     ],
     "2": [
@@ -65,7 +65,7 @@
           7
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "The Shepherds",
@@ -74,7 +74,7 @@
           20
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Presentation in the Temple",
@@ -83,7 +83,7 @@
           40
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Boy Jesus at the Temple",
@@ -92,7 +92,7 @@
           52
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "3": [
@@ -103,7 +103,7 @@
           20
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "The Baptism of Jesus",
@@ -112,7 +112,7 @@
           22
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "The Genealogy of Jesus",
@@ -121,7 +121,7 @@
           38
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "4": [
@@ -132,7 +132,7 @@
           13
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Jesus Rejected at Nazareth",
@@ -141,7 +141,7 @@
           30
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Jesus Drives Out an Impure Spirit",
@@ -150,7 +150,7 @@
           37
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Jesus Heals Many",
@@ -159,7 +159,7 @@
           44
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       }
     ],
     "5": [
@@ -170,7 +170,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Jesus Cleanses a Leper",
@@ -179,7 +179,7 @@
           16
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jesus Heals a Paralytic",
@@ -188,7 +188,7 @@
           26
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Calling of Levi",
@@ -197,7 +197,7 @@
           32
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Questions About Fasting",
@@ -206,7 +206,7 @@
           39
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "6": [
@@ -217,7 +217,7 @@
           11
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The Twelve Apostles",
@@ -226,7 +226,7 @@
           16
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Blessings and Woes",
@@ -235,7 +235,7 @@
           26
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Love for Enemies",
@@ -244,7 +244,7 @@
           36
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Judging Others",
@@ -253,7 +253,7 @@
           42
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "A Tree and Its Fruit",
@@ -262,7 +262,7 @@
           49
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "7": [
@@ -273,7 +273,7 @@
           10
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Jesus Raises a Widow's Son",
@@ -282,7 +282,7 @@
           17
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "John the Baptist's Question",
@@ -291,7 +291,7 @@
           35
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "A Sinful Woman Forgiven",
@@ -300,7 +300,7 @@
           50
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       }
     ],
     "8": [
@@ -311,7 +311,7 @@
           3
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Parable of the Sower",
@@ -320,7 +320,7 @@
           15
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "A Lamp on a Stand",
@@ -329,7 +329,7 @@
           18
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jesus' Mother and Brothers",
@@ -338,7 +338,7 @@
           21
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Jesus Calms the Storm",
@@ -347,7 +347,7 @@
           25
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "The Gerasene Demoniac",
@@ -356,7 +356,7 @@
           39
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "A Dead Girl and a Sick Woman",
@@ -365,7 +365,7 @@
           56
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       }
     ],
     "9": [
@@ -376,7 +376,7 @@
           9
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Jesus Feeds the Five Thousand",
@@ -385,7 +385,7 @@
           17
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Peter's Confession of Christ",
@@ -394,7 +394,7 @@
           27
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Transfiguration",
@@ -403,7 +403,7 @@
           36
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Jesus Heals a Demon-Possessed Boy",
@@ -412,7 +412,7 @@
           45
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Who Will Be the Greatest?",
@@ -421,7 +421,7 @@
           50
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Samaritan Opposition",
@@ -430,7 +430,7 @@
           56
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "The Cost of Following Jesus",
@@ -439,7 +439,7 @@
           62
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "10": [
@@ -450,7 +450,7 @@
           24
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "The Parable of the Good Samaritan",
@@ -459,7 +459,7 @@
           37
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "At the Home of Martha and Mary",
@@ -468,7 +468,7 @@
           42
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "11": [
@@ -479,7 +479,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jesus and Beelzebul",
@@ -488,7 +488,7 @@
           28
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Sign of Jonah",
@@ -497,7 +497,7 @@
           36
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Woes to Pharisees and Lawyers",
@@ -506,7 +506,7 @@
           54
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "12": [
@@ -517,7 +517,7 @@
           12
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The Parable of the Rich Fool",
@@ -526,7 +526,7 @@
           21
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Do Not Worry",
@@ -535,7 +535,7 @@
           34
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Watchfulness",
@@ -544,7 +544,7 @@
           48
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Not Peace but Division",
@@ -553,7 +553,7 @@
           53
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Interpreting the Times",
@@ -562,7 +562,7 @@
           59
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "13": [
@@ -573,7 +573,7 @@
           9
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Jesus Heals on the Sabbath",
@@ -582,7 +582,7 @@
           17
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Parables of the Mustard Seed and Yeast",
@@ -591,7 +591,7 @@
           21
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "The Narrow Door",
@@ -600,7 +600,7 @@
           30
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Jesus' Lament over Jerusalem",
@@ -609,7 +609,7 @@
           35
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "14": [
@@ -620,7 +620,7 @@
           6
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Teachings on Humility",
@@ -629,7 +629,7 @@
           14
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Parable of the Great Banquet",
@@ -638,7 +638,7 @@
           24
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Cost of Discipleship",
@@ -647,7 +647,7 @@
           35
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "15": [
@@ -658,7 +658,7 @@
           7
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Parable of the Lost Coin",
@@ -667,7 +667,7 @@
           10
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Parable of the Prodigal Son",
@@ -676,7 +676,7 @@
           32
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "16": [
@@ -687,7 +687,7 @@
           13
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "The Law and the Kingdom of God",
@@ -696,7 +696,7 @@
           18
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The Rich Man and Lazarus",
@@ -705,7 +705,7 @@
           31
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "17": [
@@ -716,7 +716,7 @@
           10
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Ten Healed of Leprosy",
@@ -725,7 +725,7 @@
           19
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Coming of the Kingdom of God",
@@ -734,7 +734,7 @@
           37
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "18": [
@@ -745,7 +745,7 @@
           8
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Parable of the Pharisee and Tax Collector",
@@ -754,7 +754,7 @@
           14
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "The Little Children and Jesus",
@@ -763,7 +763,7 @@
           17
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "The Rich Ruler",
@@ -772,7 +772,7 @@
           30
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Jesus Predicts His Death",
@@ -781,7 +781,7 @@
           34
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "A Blind Beggar Receives His Sight",
@@ -790,7 +790,7 @@
           43
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "19": [
@@ -801,7 +801,7 @@
           10
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Parable of the Ten Minas",
@@ -810,7 +810,7 @@
           27
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The Triumphal Entry",
@@ -819,7 +819,7 @@
           40
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Jesus Weeps over Jerusalem",
@@ -828,7 +828,7 @@
           44
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Jesus Cleanses the Temple",
@@ -837,7 +837,7 @@
           48
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "20": [
@@ -848,7 +848,7 @@
           8
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Parable of the Wicked Tenants",
@@ -857,7 +857,7 @@
           19
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Paying Taxes to Caesar",
@@ -866,7 +866,7 @@
           26
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "The Resurrection and Marriage",
@@ -875,7 +875,7 @@
           40
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Whose Son Is the Christ?",
@@ -884,7 +884,7 @@
           47
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "21": [
@@ -895,7 +895,7 @@
           4
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Signs of the End of the Age",
@@ -904,7 +904,7 @@
           28
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Watch and Pray",
@@ -913,7 +913,7 @@
           38
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "22": [
@@ -924,7 +924,7 @@
           6
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "The Last Supper",
@@ -933,7 +933,7 @@
           23
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Who Is the Greatest?",
@@ -942,7 +942,7 @@
           30
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Jesus Predicts Peter's Denial",
@@ -951,7 +951,7 @@
           38
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Jesus Prays on the Mount of Olives",
@@ -960,7 +960,7 @@
           46
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Jesus Arrested",
@@ -969,7 +969,7 @@
           53
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Peter Denies Jesus",
@@ -978,7 +978,7 @@
           62
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Jesus Before the Council",
@@ -987,7 +987,7 @@
           71
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "23": [
@@ -998,7 +998,7 @@
           5
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Jesus Before Herod",
@@ -1007,7 +1007,7 @@
           12
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Pilate Delivers Jesus to Be Crucified",
@@ -1016,7 +1016,7 @@
           25
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "The Crucifixion",
@@ -1025,7 +1025,7 @@
           43
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Death of Jesus",
@@ -1034,7 +1034,7 @@
           49
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "The Burial of Jesus",
@@ -1043,7 +1043,7 @@
           56
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "24": [
@@ -1054,7 +1054,7 @@
           12
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "On the Road to Emmaus",
@@ -1063,7 +1063,7 @@
           35
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Jesus Appears to the Disciples",
@@ -1072,7 +1072,7 @@
           49
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "The Ascension",
@@ -1081,7 +1081,7 @@
           53
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       }
     ]
   }

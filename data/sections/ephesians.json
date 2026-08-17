@@ -9,7 +9,7 @@
           14
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Prayer for Spiritual Wisdom",
@@ -18,7 +18,7 @@
           23
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "2": [
@@ -29,7 +29,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "One in Christ",
@@ -38,7 +38,7 @@
           22
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "3": [
@@ -49,7 +49,7 @@
           13
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Prayer for Strength and Love",
@@ -58,7 +58,7 @@
           21
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "4": [
@@ -69,7 +69,7 @@
           16
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Put Off the Old Self",
@@ -78,7 +78,7 @@
           32
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "5": [
@@ -89,7 +89,7 @@
           20
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Marriage as a Picture of Christ and the Church",
@@ -98,7 +98,7 @@
           33
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "6": [
@@ -109,7 +109,7 @@
           9
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "The Armor of God",
@@ -118,7 +118,7 @@
           20
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Final Greetings",
@@ -127,7 +127,7 @@
           24
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       }
     ]
   }

@@ -219,11 +219,13 @@ input:disabled,
   Classes are added to <html> element when active.
 */
 
-/* SVG Debug: Red borders on all SVGs */
+/* SVG Debug: Red borders on all SVGs.
+   Disabled 2026-08-17 (Ben: too noisy) — re-enable by uncommenting.
 .svg-debug-mode svg {
   border: 2px solid red !important;
   box-sizing: content-box;
 }
+*/
 
 /* Link Debug: Highlight broken/placeholder links only */
 .link-debug-mode a[href="#"],
@@ -231,4 +233,165 @@ input:disabled,
 .link-debug-mode a:not([href]) {
   outline: 2px solid red !important;
   outline-offset: 2px;
+}
+
+/*
+  Native app shell (Capacitor iOS).
+  The `native-app` class is added to <html> by components/native/NativeTabBar
+  only when running inside the Capacitor WebView — none of this applies to the
+  web app in a browser.
+*/
+/*
+  Library book sections: on phones every book starts collapsed to its header
+  row. BookHeader (app/library/[category]/page.tsx) toggles `book-collapsed`
+  on itself; this rule hides everything after it inside the section. Desktop
+  (md+) is unaffected — books always show their cards there.
+*/
+@media (max-width: 767px) {
+  .book-collapsed ~ * {
+    display: none;
+  }
+}
+
+/*
+  Native launch animation (components/native/NativeSplash.tsx).
+  A breath, not an ad: logo settles, SHAVAT breathes its tracking open,
+  the kicker glows in, the field dissolves. ~2.6s total, tap to skip.
+*/
+@keyframes splash-logo {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-title {
+  from {
+    opacity: 0;
+    letter-spacing: 0.08em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.3em;
+  }
+}
+
+@keyframes splash-kicker {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+@keyframes splash-exit {
+  0%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Cross-fade between tab screens (components/native/PageFade.tsx).
+   The class is re-applied on each navigation to replay the animation —
+   no remount involved. Scoped to the native shell; inert on the web. */
+@keyframes page-fade {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html.native-app .page-fade-run {
+  animation: page-fade 0.2s ease-out;
+}
+
+/*
+  Pre-paint splash cover: the inline script in layout.tsx adds
+  `native-splash` to <html> before first paint, and this paints the
+  splash-green field instantly — so the app never flashes before the
+  animated splash (NativeSplash) mounts and takes over. The 5s timeout
+  fade is a failsafe: if hydration ever fails, the cover retires itself.
+*/
+@keyframes splash-cover-retire {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+html.native-splash body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: #1f2e24;
+  animation: splash-cover-retire 0.5s ease 5s forwards;
+}
+
+/* Native tab bar: the spring-pop an icon does when its tab becomes active.
+   Used via animate-[tab-bounce_0.35s_ease-out] in NativeTabBar. */
+@keyframes tab-bounce {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.18);
+  }
+  70% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+html.native-app .scroll-mt-16 {
+  /* Reader sections reserve 64px of scroll headroom for the mobile web's
+     sticky header. The native shell hides that header, so only clear the
+     iPhone status bar — otherwise sections stop with a strange empty gap. */
+  scroll-margin-top: calc(env(safe-area-inset-top) + 0.5rem);
+}
+
+html.native-app {
+  /* Kill the document rubber-band bounce: when iOS overscrolls past the
+     edge, position:fixed elements (the tab bar) ride along with the bounce
+     and visibly detach from the bottom. The root element is the document
+     scroller, so the rule lives here. */
+  overscroll-behavior-y: none;
+}
+
+/*
+  The app shell's min-h-screen wrapper + the body's native top/bottom padding
+  made every page ~100px taller than the screen, so even short (collapsed)
+  pages scrolled into empty space. In the native shell, "minimum full screen"
+  must mean the screen MINUS those insets, so short pages fit exactly and
+  don't scroll at all.
+*/
+html.native-app .min-h-screen {
+  min-height: calc(100svh - env(safe-area-inset-top) - 3.5rem - env(safe-area-inset-bottom));
+}
+
+html.native-app body {
+  overscroll-behavior-y: none;
+  /* Keep content clear of the fixed tab bar + iPhone home indicator. */
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+  /* The mobile web header is hidden in the native shell, so pad the top so
+     content clears the iPhone status bar / Dynamic Island instead. */
+  padding-top: env(safe-area-inset-top);
+  /* Native apps don't flash gray on tap; suppress the WebView default. */
+  -webkit-tap-highlight-color: transparent;
 }

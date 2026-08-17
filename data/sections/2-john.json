@@ -9,7 +9,7 @@
           6
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Warning Against Deceivers",
@@ -18,7 +18,7 @@
           11
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Final Words",
@@ -27,7 +27,7 @@
           13
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ]
   }

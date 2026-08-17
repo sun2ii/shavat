@@ -55,7 +55,7 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
   return (
     <>
       <span
-        className={`block mb-3 transition-colors cursor-pointer rounded ${
+        className={`block mb-3 transition-colors cursor-pointer rounded [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] ${
           isSelected
             ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : ''
@@ -63,7 +63,13 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
         data-verse={verse.verse}
         onDoubleClick={handleInteraction}
       >
-        <sup className="mr-1 text-xs font-sans font-semibold select-none align-super text-gold">
+        {/* Verse number doubles as a single-tap toggle for touch devices,
+            where double-tap conflicts with iOS text selection/zoom. Inline
+            padding widens the hit area without changing the line box. */}
+        <sup
+          className="mr-1 px-1 -mx-0.5 py-2 text-xs font-sans font-semibold select-none align-super text-gold cursor-pointer"
+          onClick={handleInteraction}
+        >
           {verse.verse}
         </sup>
         {spans && spans.length > 0 && speakerColors

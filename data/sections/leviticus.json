@@ -9,7 +9,7 @@
           9
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Burnt Offering from Flock or Birds",
@@ -18,7 +18,7 @@
           17
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "2": [
@@ -29,7 +29,7 @@
           10
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Regulations for Grain Offerings",
@@ -38,7 +38,7 @@
           16
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       }
     ],
     "3": [
@@ -49,7 +49,7 @@
           5
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Peace Offering from Flock",
@@ -58,7 +58,7 @@
           17
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "4": [
@@ -69,7 +69,7 @@
           12
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Sin Offering for Community",
@@ -78,7 +78,7 @@
           21
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Sin Offering for Leader",
@@ -87,7 +87,7 @@
           26
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Sin Offering for Individual",
@@ -96,7 +96,7 @@
           35
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "5": [
@@ -107,7 +107,7 @@
           13
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Guilt Offering",
@@ -116,7 +116,7 @@
           19
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "6": [
@@ -127,7 +127,7 @@
           7
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Law of Burnt Offering",
@@ -136,7 +136,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Law of Grain Offering",
@@ -145,7 +145,7 @@
           23
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Law of Sin Offering",
@@ -154,7 +154,7 @@
           30
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "7": [
@@ -165,7 +165,7 @@
           10
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Law of Peace Offering",
@@ -174,7 +174,7 @@
           21
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Prohibition of Fat and Blood",
@@ -183,7 +183,7 @@
           27
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Priests' Portion",
@@ -192,7 +192,7 @@
           38
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "8": [
@@ -203,7 +203,7 @@
           13
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Offerings for Ordination",
@@ -212,7 +212,7 @@
           30
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Seven Days of Ordination",
@@ -221,7 +221,7 @@
           36
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "9": [
@@ -232,7 +232,7 @@
           14
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Offerings for the People",
@@ -241,7 +241,7 @@
           21
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Glory of the Lord Appears",
@@ -250,7 +250,7 @@
           24
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       }
     ],
     "10": [
@@ -261,7 +261,7 @@
           7
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Regulations for Priests",
@@ -270,7 +270,7 @@
           15
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "The Sin Offering Controversy",
@@ -279,7 +279,7 @@
           20
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "11": [
@@ -290,7 +290,7 @@
           8
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Water Creatures and Birds",
@@ -299,7 +299,7 @@
           23
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Swarming Creatures",
@@ -308,7 +308,7 @@
           38
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Purpose of Dietary Laws",
@@ -317,7 +317,7 @@
           47
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "12": [
@@ -328,7 +328,7 @@
           8
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "13": [
@@ -339,7 +339,7 @@
           28
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Laws about Baldness",
@@ -348,7 +348,7 @@
           46
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Laws about Mildew in Fabric",
@@ -357,7 +357,7 @@
           59
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "14": [
@@ -368,7 +368,7 @@
           32
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Laws about Mildew in Houses",
@@ -377,7 +377,7 @@
           57
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "15": [
@@ -388,7 +388,7 @@
           18
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Female Discharges",
@@ -397,7 +397,7 @@
           33
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "16": [
@@ -408,7 +408,7 @@
           10
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "The Atonement Ritual",
@@ -417,7 +417,7 @@
           22
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Annual Observance",
@@ -426,7 +426,7 @@
           34
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "17": [
@@ -437,7 +437,7 @@
           9
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Prohibition Against Eating Blood",
@@ -446,7 +446,7 @@
           16
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "18": [
@@ -457,7 +457,7 @@
           5
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Unlawful Sexual Relations",
@@ -466,7 +466,7 @@
           23
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       },
       {
         "title": "Warning Against Defilement",
@@ -475,7 +475,7 @@
           30
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "19": [
@@ -486,7 +486,7 @@
           4
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Various Moral and Social Laws",
@@ -495,7 +495,7 @@
           18
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "More Holiness Laws",
@@ -504,7 +504,7 @@
           37
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "20": [
@@ -515,7 +515,7 @@
           5
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Penalties for Sexual Sins",
@@ -524,7 +524,7 @@
           21
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Call to Separation",
@@ -533,7 +533,7 @@
           27
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "21": [
@@ -544,7 +544,7 @@
           9
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Rules for High Priest",
@@ -553,7 +553,7 @@
           15
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Priestly Qualifications",
@@ -562,7 +562,7 @@
           24
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "22": [
@@ -573,7 +573,7 @@
           16
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Acceptable Offerings",
@@ -582,7 +582,7 @@
           33
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "23": [
@@ -593,7 +593,7 @@
           3
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Passover and Unleavened Bread",
@@ -602,7 +602,7 @@
           8
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Firstfruits and Weeks",
@@ -611,7 +611,7 @@
           22
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Trumpets, Atonement, Booths",
@@ -620,7 +620,7 @@
           44
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "24": [
@@ -631,7 +631,7 @@
           9
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Blasphemy and Retaliation Laws",
@@ -640,7 +640,7 @@
           23
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "25": [
@@ -651,7 +651,7 @@
           7
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The Jubilee Year",
@@ -660,7 +660,7 @@
           22
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Redemption of Property",
@@ -669,7 +669,7 @@
           34
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Treatment of the Poor",
@@ -678,7 +678,7 @@
           55
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "26": [
@@ -689,7 +689,7 @@
           13
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Curses for Disobedience",
@@ -698,7 +698,7 @@
           39
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Promise of Restoration",
@@ -707,7 +707,7 @@
           46
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "27": [
@@ -718,7 +718,7 @@
           13
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Redemption of Property",
@@ -727,7 +727,7 @@
           25
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       },
       {
         "title": "Things Not Redeemable",
@@ -736,7 +736,7 @@
           34
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ]
   }

@@ -9,7 +9,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The Apostles Wait in Prayer",
@@ -18,7 +18,7 @@
           14
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Matthias Chosen to Replace Judas",
@@ -27,7 +27,7 @@
           26
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "2": [
@@ -38,7 +38,7 @@
           13
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Peter's Sermon",
@@ -47,7 +47,7 @@
           36
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The Fellowship of Believers",
@@ -56,7 +56,7 @@
           47
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "3": [
@@ -67,7 +67,7 @@
           10
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Peter Speaks to the Onlookers",
@@ -76,7 +76,7 @@
           26
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "4": [
@@ -87,7 +87,7 @@
           22
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The Believers' Prayer",
@@ -96,7 +96,7 @@
           31
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "The Believers Share Everything",
@@ -105,7 +105,7 @@
           37
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "5": [
@@ -116,7 +116,7 @@
           11
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "The Apostles Heal Many",
@@ -125,7 +125,7 @@
           16
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "The Apostles Persecuted",
@@ -134,7 +134,7 @@
           42
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "6": [
@@ -145,7 +145,7 @@
           7
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Stephen Seized",
@@ -154,7 +154,7 @@
           15
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "7": [
@@ -165,7 +165,7 @@
           16
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Moses and the Exodus",
@@ -174,7 +174,7 @@
           43
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "The Tabernacle and Solomon's Temple",
@@ -183,7 +183,7 @@
           50
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Israel's Resistance and Stephen's Martyrdom",
@@ -192,7 +192,7 @@
           60
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "8": [
@@ -203,7 +203,7 @@
           3
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Philip in Samaria",
@@ -212,7 +212,7 @@
           8
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Simon the Sorcerer",
@@ -221,7 +221,7 @@
           25
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Philip and the Ethiopian",
@@ -230,7 +230,7 @@
           40
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "9": [
@@ -241,7 +241,7 @@
           9
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Ananias and Saul",
@@ -250,7 +250,7 @@
           19
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "Saul in Damascus and Jerusalem",
@@ -259,7 +259,7 @@
           31
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Aeneas and Dorcas",
@@ -268,7 +268,7 @@
           43
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       }
     ],
     "10": [
@@ -279,7 +279,7 @@
           8
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Peter's Vision",
@@ -288,7 +288,7 @@
           23
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Peter at Cornelius's House",
@@ -297,7 +297,7 @@
           33
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "The Gentiles Receive the Holy Spirit",
@@ -306,7 +306,7 @@
           48
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       }
     ],
     "11": [
@@ -317,7 +317,7 @@
           18
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "The Church in Antioch",
@@ -326,7 +326,7 @@
           30
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       }
     ],
     "12": [
@@ -337,7 +337,7 @@
           19
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Herod's Death",
@@ -346,7 +346,7 @@
           25
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "13": [
@@ -357,7 +357,7 @@
           3
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "On Cyprus",
@@ -366,7 +366,7 @@
           12
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "In Pisidian Antioch",
@@ -375,7 +375,7 @@
           43
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Rejection and Turn to the Gentiles",
@@ -384,7 +384,7 @@
           52
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "14": [
@@ -395,7 +395,7 @@
           7
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "In Lystra and Derbe",
@@ -404,7 +404,7 @@
           20
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "The Return to Antioch in Syria",
@@ -413,7 +413,7 @@
           28
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "15": [
@@ -424,7 +424,7 @@
           12
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "James's Judgment",
@@ -433,7 +433,7 @@
           21
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "The Council's Letter to Gentile Believers",
@@ -442,7 +442,7 @@
           35
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       },
       {
         "title": "Paul and Barnabas Separate",
@@ -451,7 +451,7 @@
           41
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       }
     ],
     "16": [
@@ -462,7 +462,7 @@
           5
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Paul's Vision of the Man of Macedonia",
@@ -471,7 +471,7 @@
           10
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       },
       {
         "title": "Lydia's Conversion in Philippi",
@@ -480,7 +480,7 @@
           15
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Paul and Silas in Prison",
@@ -489,7 +489,7 @@
           40
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "17": [
@@ -500,7 +500,7 @@
           9
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "In Berea",
@@ -509,7 +509,7 @@
           15
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "In Athens",
@@ -518,7 +518,7 @@
           34
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "18": [
@@ -529,7 +529,7 @@
           17
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Priscilla, Aquila and Apollos",
@@ -538,7 +538,7 @@
           28
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "19": [
@@ -549,7 +549,7 @@
           10
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "The Sons of Sceva",
@@ -558,7 +558,7 @@
           20
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       },
       {
         "title": "The Riot in Ephesus",
@@ -567,7 +567,7 @@
           41
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       }
     ],
     "20": [
@@ -578,7 +578,7 @@
           6
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Eutychus Raised from the Dead at Troas",
@@ -587,7 +587,7 @@
           12
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       },
       {
         "title": "Paul's Farewell to the Ephesian Elders",
@@ -596,7 +596,7 @@
           38
         ],
         "color": "bg-teal-50 dark:bg-teal-950/20",
-        "borderColor": "border-teal-400"
+        "borderColor": "border-teal-500"
       }
     ],
     "21": [
@@ -607,7 +607,7 @@
           16
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "Paul's Arrival at Jerusalem",
@@ -616,7 +616,7 @@
           26
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "Paul Arrested",
@@ -625,7 +625,7 @@
           40
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "22": [
@@ -636,7 +636,7 @@
           21
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Paul the Roman Citizen",
@@ -645,7 +645,7 @@
           30
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       }
     ],
     "23": [
@@ -656,7 +656,7 @@
           11
         ],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The Plot to Kill Paul",
@@ -665,7 +665,7 @@
           22
         ],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Paul Transferred to Caesarea",
@@ -674,7 +674,7 @@
           35
         ],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "24": [
@@ -685,7 +685,7 @@
           21
         ],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Paul's Two Years in Caesarea",
@@ -694,7 +694,7 @@
           27
         ],
         "color": "bg-cyan-50 dark:bg-cyan-950/20",
-        "borderColor": "border-cyan-400"
+        "borderColor": "border-cyan-500"
       }
     ],
     "25": [
@@ -705,7 +705,7 @@
           12
         ],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "Festus Consults King Agrippa",
@@ -714,7 +714,7 @@
           27
         ],
         "color": "bg-emerald-50 dark:bg-emerald-950/20",
-        "borderColor": "border-emerald-400"
+        "borderColor": "border-emerald-500"
       }
     ],
     "26": [
@@ -725,7 +725,7 @@
           11
         ],
         "color": "bg-violet-50 dark:bg-violet-950/20",
-        "borderColor": "border-violet-400"
+        "borderColor": "border-violet-500"
       },
       {
         "title": "Paul Recounts His Conversion",
@@ -734,7 +734,7 @@
           18
         ],
         "color": "bg-orange-50 dark:bg-orange-950/20",
-        "borderColor": "border-orange-400"
+        "borderColor": "border-orange-500"
       },
       {
         "title": "Paul's Defense and Appeal",
@@ -743,7 +743,7 @@
           32
         ],
         "color": "bg-pink-50 dark:bg-pink-950/20",
-        "borderColor": "border-pink-400"
+        "borderColor": "border-pink-500"
       }
     ],
     "27": [
@@ -754,7 +754,7 @@
           12
         ],
         "color": "bg-sky-50 dark:bg-sky-950/20",
-        "borderColor": "border-sky-400"
+        "borderColor": "border-sky-500"
       },
       {
         "title": "The Storm",
@@ -763,7 +763,7 @@
           26
         ],
         "color": "bg-indigo-50 dark:bg-indigo-950/20",
-        "borderColor": "border-indigo-400"
+        "borderColor": "border-indigo-500"
       },
       {
         "title": "The Shipwreck",
@@ -772,7 +772,7 @@
           44
         ],
         "color": "bg-red-50 dark:bg-red-950/20",
-        "borderColor": "border-red-400"
+        "borderColor": "border-red-500"
       }
     ],
     "28": [
@@ -783,7 +783,7 @@
           10
         ],
         "color": "bg-yellow-50 dark:bg-yellow-950/20",
-        "borderColor": "border-yellow-400"
+        "borderColor": "border-yellow-500"
       },
       {
         "title": "Paul's Arrival at Rome",
@@ -792,7 +792,7 @@
           16
         ],
         "color": "bg-slate-50 dark:bg-slate-950/20",
-        "borderColor": "border-slate-400"
+        "borderColor": "border-slate-500"
       },
       {
         "title": "Paul Preaches at Rome Under Guard",
@@ -801,7 +801,7 @@
           31
         ],
         "color": "bg-gray-50 dark:bg-gray-800/20",
-        "borderColor": "border-gray-400"
+        "borderColor": "border-gray-500"
       }
     ]
   }

@@ -14,6 +14,7 @@ import BookReader from '@/components/BookReader';
 import { getChapterSections } from '@/lib/sections';
 import { getChapterSpeakers } from '@/lib/speakers';
 import { getCurrentUser } from '@/lib/auth';
+import { getTopLevelCategoryForBook } from '@/lib/top-level-categories';
 
 export interface BookReadingParams {
   book: string;
@@ -105,7 +106,7 @@ export default async function BookReadingRoute({
     return (
       <main>
         <div className="max-w-4xl mx-auto px-4 py-6">
-          <div className="mb-6 flex items-center justify-between">
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h1 className="text-2xl font-light text-[rgb(var(--text-primary))]">
                 {bookEntry.name}
@@ -118,7 +119,7 @@ export default async function BookReadingRoute({
               {chapterNum > 1 && (
                 <a
                   href={readingPath(book, chapterNum - 1)}
-                  className="px-4 py-2 text-sm border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
+                  className="inline-flex min-h-[44px] items-center px-5 py-2 text-sm border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] active:border-[rgb(var(--text-secondary))] transition-colors"
                 >
                   ← Previous
                 </a>
@@ -126,7 +127,7 @@ export default async function BookReadingRoute({
               {chapterNum < bookEntry.chapterCount && (
                 <a
                   href={readingPath(book, chapterNum + 1)}
-                  className="px-4 py-2 text-sm border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] transition-colors"
+                  className="inline-flex min-h-[44px] items-center px-5 py-2 text-sm border border-[rgb(var(--border))] rounded hover:border-[rgb(var(--text-secondary))] active:border-[rgb(var(--text-secondary))] transition-colors"
                 >
                   Next →
                 </a>
@@ -202,6 +203,7 @@ export default async function BookReadingRoute({
         bookSlug={book}
         bookName={bookEntry.name}
         bookAbbreviation={bookEntry.abbreviation}
+        bookCategory={getTopLevelCategoryForBook(bookEntry.category, bookEntry.testament)}
         verses={verses}
         division={division}
         currentChapter={chapterNum}

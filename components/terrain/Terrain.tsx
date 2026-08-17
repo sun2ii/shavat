@@ -1,35 +1,25 @@
 'use client';
 
-import { Suspense } from 'react';
-import { ResolvedSegment } from '@/lib/terrain';
 import StoryTerrain from './StoryTerrain';
+import PageHeader from '@/components/PageHeader';
 
 /*
   Terrain — orientation before navigation.
-
-  The story terrain shows the biblical journey from creation to all things new.
+  Read is space (the shelf); the Map is time (the story). One scrolling
+  terrain of ten acts, Creation to all things new.
 */
 
-export default function Terrain({ segments }: { segments: ResolvedSegment[] }) {
+export default function Terrain() {
   return (
-    <main className="mx-auto max-w-5xl px-4">
-      {/* Compact on purpose: the header orients, then hands the viewport to the land. */}
-      <header className="pb-6 pt-2 text-center md:pb-8 md:pt-4">
-        <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.34em] text-gold">
-          The landscape of Scripture
-        </p>
-        <h1 className="mt-2 font-serif text-3xl font-light tracking-tight text-ink md:text-4xl">
-          Terrain
-        </h1>
-        <p className="mx-auto mt-1.5 max-w-md font-serif text-sm italic text-muted">
-          One story, from creation to all things new.
-        </p>
-      </header>
+    <main className="mx-auto max-w-3xl px-4 pb-8">
+      <PageHeader
+        kicker="The landscape of Scripture"
+        title="Terrain"
+        subtitle="One story, from creation to all things new."
+      />
 
       <section role="region" aria-label="Story terrain">
-        <Suspense fallback={<div className="py-24 text-center text-muted">Loading...</div>}>
-          <StoryTerrain segments={segments} />
-        </Suspense>
+        <StoryTerrain />
       </section>
     </main>
   );

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { getStoryTerrain } from '@/lib/terrain';
 import Terrain from '@/components/terrain/Terrain';
 
 export const metadata: Metadata = {
@@ -12,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function TerrainPage() {
-  return <Terrain segments={getStoryTerrain()} />;
+  return <Terrain />;
 }

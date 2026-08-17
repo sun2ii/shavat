@@ -6,19 +6,19 @@
         "title": "The Lord's Rebuke: Paneled Houses, Ruined Temple",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Consider Your Ways: The Curse of Self-First Living",
         "verseRange": [7, 11],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The People Obey and the Lord Stirs Their Spirit",
         "verseRange": [12, 15],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "2": [
@@ -26,25 +26,25 @@
         "title": "The Former Glory and the Greater Glory to Come",
         "verseRange": [1, 9],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Holy Does Not Transfer, Defilement Does",
         "verseRange": [10, 14],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       },
       {
         "title": "From This Day I Will Bless You",
         "verseRange": [15, 19],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Zerubbabel: The Lord's Signet Ring",
         "verseRange": [20, 23],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ]
   }

@@ -33,7 +33,7 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={scrollToTop}
-      className="fixed bottom-6 left-1/2 lg:left-[calc(50%+111px)] -translate-x-1/2 p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-lg cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 z-50"
+      className="fixed bottom-6 [.native-app_&]:bottom-[calc(4.5rem+env(safe-area-inset-bottom))] left-1/2 lg:left-[calc(50%+111px)] -translate-x-1/2 p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-full shadow-lg cursor-pointer hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 z-40"
       aria-label="Return to top"
     >
       <NormalizedIcon src="/icons/general/arrowup.webp" alt="Return to top" width={24} height={24} />

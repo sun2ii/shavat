@@ -6,6 +6,16 @@ import { HOSEA } from './hosea/book';
 import { GALATIANS } from './galatians/book';
 import { FIRST_THESSALONIANS } from './1-thessalonians/book';
 import { SECOND_THESSALONIANS } from './2-thessalonians/book';
+import { FIRST_CORINTHIANS } from './1-corinthians/book';
+import { SECOND_CORINTHIANS } from './2-corinthians/book';
+import { ROMANS } from './romans/book';
+import { PHILIPPIANS } from './philippians/book';
+import { PHILEMON } from './philemon/book';
+import { COLOSSIANS } from './colossians/book';
+import { EPHESIANS } from './ephesians/book';
+import { FIRST_TIMOTHY } from './1-timothy/book';
+import { TITUS } from './titus/book';
+import { SECOND_TIMOTHY } from './2-timothy/book';
 
 /**
  * Books with a writing at /writings/<slug>. Two kinds live here:
@@ -27,6 +37,16 @@ const BOOK_ORIENTATIONS: Record<string, BookOrientation> = {
   galatians: GALATIANS,
   '1-thessalonians': FIRST_THESSALONIANS,
   '2-thessalonians': SECOND_THESSALONIANS,
+  '1-corinthians': FIRST_CORINTHIANS,
+  '2-corinthians': SECOND_CORINTHIANS,
+  romans: ROMANS,
+  philippians: PHILIPPIANS,
+  philemon: PHILEMON,
+  colossians: COLOSSIANS,
+  ephesians: EPHESIANS,
+  '1-timothy': FIRST_TIMOTHY,
+  titus: TITUS,
+  '2-timothy': SECOND_TIMOTHY,
 };
 
 export function getBookMemorial(bookSlug: string): BookMemorial | undefined {

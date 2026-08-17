@@ -43,13 +43,13 @@ export default function HighlightsList() {
   }
 
   return (
-    <main>
+    <div>
       <header className="mb-8">
         <p className="font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold mb-2">
           Your Reading
         </p>
-        <div className="flex items-baseline gap-4">
-          <h1 className="font-serif font-bold text-5xl text-ink leading-none">Highlights</h1>
+        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <h1 className="font-serif font-bold text-4xl sm:text-5xl text-ink leading-none">Highlights</h1>
           <span className="font-sans text-sm text-faint">
             {highlights.length} saved · {chapters.length}{' '}
             {chapters.length === 1 ? 'chapter' : 'chapters'}
@@ -91,7 +91,7 @@ export default function HighlightsList() {
                         </Link>
                         <button
                           onClick={() => handleDelete(highlight.id)}
-                          className="font-sans text-xs text-faint hover:text-red-500 transition-colors"
+                          className="font-sans text-xs text-faint hover:text-red-500 active:text-red-500 transition-colors p-2.5 -m-2.5"
                         >
                           Delete
                         </button>
@@ -112,6 +112,6 @@ export default function HighlightsList() {
           </section>
         ))}
       </div>
-    </main>
+    </div>
   );
 }

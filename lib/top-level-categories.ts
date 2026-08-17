@@ -103,3 +103,23 @@ export function getAllTopLevelCategories(): TopLevelCategory[] {
 export function getTopLevelCategoryBySlug(slug: string): TopLevelCategory | undefined {
   return Object.values(TOP_LEVEL_CATEGORIES).find(cat => cat.slug === slug);
 }
+
+// Map a book's internal category to its top-level library category
+export function getTopLevelCategoryForBook(bookCategory: string, testament: 'old' | 'new'): string {
+  switch (bookCategory) {
+    case 'pentateuch':
+      return 'torah';
+    case 'historical':
+      return 'historical';
+    case 'wisdom':
+      return 'wisdom';
+    case 'major-prophets':
+    case 'minor-prophets':
+      return 'prophets';
+    case 'gospels':
+      return 'gospels';
+    // All other NT categories (acts, pauline, general, apocalypse) go to apostolic
+    default:
+      return testament === 'new' ? 'apostolic' : 'historical';
+  }
+}

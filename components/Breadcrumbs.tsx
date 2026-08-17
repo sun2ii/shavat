@@ -200,7 +200,7 @@ export default function Breadcrumbs() {
 
   return (
     <nav className="mb-4 text-xs text-[rgb(var(--text-secondary))]">
-      <ol className="flex items-center gap-2">
+      <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
         {breadcrumbs.map((crumb, index) => (
           <li key={crumb.href} className="flex items-center gap-2">
             {index > 0 && <span className="opacity-50">/</span>}
@@ -209,7 +209,7 @@ export default function Breadcrumbs() {
             ) : (
               <Link
                 href={crumb.href}
-                className="hover:text-[rgb(var(--text-primary))] transition-colors"
+                className="inline-block px-1 -mx-1 py-2 -my-2 hover:text-[rgb(var(--text-primary))] active:text-[rgb(var(--text-primary))] transition-colors"
               >
                 {crumb.label}
               </Link>

@@ -35,20 +35,29 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
   return (
     <div
       className="relative"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      // Hover open/close is mouse-only: on touch, the emulated mouseenter +
+      // click sequence would toggle the popover open-then-closed in one tap.
+      onPointerEnter={(e) => { if (e.pointerType === 'mouse') setOpen(true); }}
+      onPointerLeave={(e) => { if (e.pointerType === 'mouse') setOpen(false); }}
     >
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="font-sans text-[13px] font-semibold text-blue-ref bg-[rgb(var(--blue-ref)/0.12)] px-2.5 py-1 rounded-full cursor-pointer"
+        className="font-sans text-[13px] font-semibold text-blue-ref bg-[rgb(var(--blue-ref)/0.12)] px-3 py-2 md:px-2.5 md:py-1 rounded-full cursor-pointer"
       >
         {divisionName}
       </button>
 
       {open && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
-          <div className="w-72 max-h-96 overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
+        <>
+          {/* Invisible scrim so a tap anywhere outside closes the popover on touch. */}
+          <div
+            className="fixed inset-0 z-40 cursor-default"
+            aria-hidden="true"
+            onClick={() => setOpen(false)}
+          />
+          <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
+          <div className="w-72 max-h-[min(24rem,calc(100dvh-200px))] overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
             {divisions.map((div) => {
               const isCurrentDivision = div.id === currentDivisionId;
               const title = div.title
@@ -111,7 +120,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
                     </p>
                   )}
 
-                  <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+                  <div className="flex flex-wrap gap-x-1.5 gap-y-1.5 font-serif text-[15px] leading-none">
                     {div.chapters.map((chapter) => {
                       const isCurrent = isCurrentDivision && chapter === currentChapter;
                       return (
@@ -119,11 +128,11 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
                           key={chapter}
                           href={readingPath(bookSlug, div.id, chapter)}
                           onClick={() => setOpen(false)}
-                          className={
+                          className={`inline-flex min-w-[30px] min-h-[32px] items-center justify-center rounded ${
                             isCurrent
                               ? 'text-gold font-bold'
-                              : 'text-muted hover:text-ink transition-colors'
-                          }
+                              : 'text-muted hover:text-ink active:text-ink transition-colors'
+                          }`}
                         >
                           {chapter}
                         </Link>
@@ -134,7 +143,8 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
               );
             })}
           </div>
-        </div>
+          </div>
+        </>
       )}
     </div>
   );
@@ -275,12 +285,12 @@ export default function ChapterNav({
           <Link
             href={writingPath(bookSlug)}
             title={`${bookName} overview`}
-            className="font-sans text-xs tracking-[0.24em] uppercase text-muted hover:text-ink font-semibold transition-colors"
+            className="max-w-[calc(100%-120px)] truncate text-center py-1 font-sans text-xs tracking-[0.24em] uppercase text-muted hover:text-ink active:text-ink font-semibold transition-colors"
           >
             {bookName}
           </Link>
         ) : (
-          <p className="font-sans text-xs tracking-[0.24em] uppercase text-muted font-semibold">
+          <p className="max-w-[calc(100%-120px)] truncate text-center font-sans text-xs tracking-[0.24em] uppercase text-muted font-semibold">
             {bookName}
           </p>
         )}
@@ -313,7 +323,7 @@ export default function ChapterNav({
           />
 
           {/* Current division chapters */}
-          <div className="flex flex-wrap justify-center gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+          <div className="flex flex-wrap justify-center gap-x-1 gap-y-2 font-serif text-[15px] leading-none">
             {division.chapters.map((ch) => {
               const isActive = ch === currentChapter;
               const isCompleted = isChapterComplete(bookSlug, ch);
@@ -321,7 +331,8 @@ export default function ChapterNav({
                 <Link
                   key={ch}
                   href={readingPath(bookSlug, division.id, ch)}
-                  className={`transition-colors relative ${
+                  aria-label={isCompleted ? `Chapter ${ch}, completed` : `Chapter ${ch}`}
+                  className={`inline-flex min-w-[32px] min-h-[36px] items-center justify-center transition-colors relative ${
                     isActive && isCompleted
                       ? 'text-blue-600 dark:text-blue-400 font-bold'
                       : isActive
@@ -334,7 +345,7 @@ export default function ChapterNav({
                 >
                   {ch}
                   {isCompleted && (
-                    <span className={`absolute -top-1 -right-1.5 text-[8px] ${
+                    <span className={`absolute top-0 right-0.5 text-[10px] ${
                       isActive ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
                     }`}>✓</span>
                   )}
@@ -347,7 +358,7 @@ export default function ChapterNav({
           <div className="flex items-center justify-center gap-4 mt-4">
             <button
               onClick={handleBookmark}
-              className={`font-sans text-[11px] font-medium px-3 py-1.5 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
+              className={`font-sans text-[12px] md:text-[11px] font-medium px-4 py-2.5 md:px-3 md:py-1.5 min-h-[44px] md:min-h-0 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
                 showSaved
                   ? 'bg-gold/20 text-gold scale-105 shadow-lg shadow-gold/20'
                   : isBookmarked
@@ -365,7 +376,7 @@ export default function ChapterNav({
               <button
                 onClick={handleToggleComplete}
                 disabled={isToggling}
-                className={`font-sans text-[11px] font-medium px-3 py-1.5 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
+                className={`font-sans text-[12px] md:text-[11px] font-medium px-4 py-2.5 md:px-3 md:py-1.5 min-h-[44px] md:min-h-0 rounded-lg transition-all duration-300 flex items-center gap-1.5 ${
                   justCompleted
                     ? 'bg-green-500/20 text-green-500 scale-105 shadow-lg shadow-green-500/20'
                     : isCurrentComplete
@@ -406,13 +417,13 @@ export default function ChapterNav({
             };
 
             const renderProphets = (prophets: typeof activeProphets) => (
-              <div className="flex items-center gap-1">
+              <div className="flex flex-wrap items-center justify-center gap-1">
                 {prophets.map((p, i) => (
                   <Fragment key={p.id}>
                     {i > 0 && <span className="text-faint">·</span>}
                     <Link
                       href={`/${p.id}`}
-                      className="font-sans text-xs transition-opacity hover:opacity-70"
+                      className="inline-block px-1 py-1.5 font-sans text-xs transition-opacity hover:opacity-70 active:opacity-70"
                       style={{ color: prophetColors[p.id] || 'rgb(var(--text-secondary))' }}
                     >
                       {p.name}

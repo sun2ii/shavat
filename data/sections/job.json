@@ -6,25 +6,25 @@
         "title": "Job's righteousness established",
         "verseRange": [1, 5],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Satan challenges Job's motives",
         "verseRange": [6, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Catastrophic loss of possessions and children",
         "verseRange": [13, 19],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Job worships in grief",
         "verseRange": [20, 22],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "2": [
@@ -32,19 +32,19 @@
         "title": "Satan demands permission to strike Job's body",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Job afflicted with sores",
         "verseRange": [7, 10],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Three friends arrive in silence",
         "verseRange": [11, 13],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "3": [
@@ -52,19 +52,19 @@
         "title": "Job curses the day of his birth",
         "verseRange": [1, 10],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Why did I not die at birth",
         "verseRange": [11, 19],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Why is light given to the suffering",
         "verseRange": [20, 26],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "4": [
@@ -72,13 +72,13 @@
         "title": "Eliphaz begins: can the innocent perish",
         "verseRange": [1, 11],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "A terrifying vision in the night",
         "verseRange": [12, 21],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "5": [
@@ -86,19 +86,19 @@
         "title": "Resentment kills the fool",
         "verseRange": [1, 7],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Seek God who does great things",
         "verseRange": [8, 16],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Blessed is the one God disciplines",
         "verseRange": [17, 27],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "6": [
@@ -106,25 +106,25 @@
         "title": "Job's anguish weighed against his words",
         "verseRange": [1, 7],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "A longing for death",
         "verseRange": [8, 13],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Friends like failing streams",
         "verseRange": [14, 23],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Show me where I have erred",
         "verseRange": [24, 30],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "7": [
@@ -132,19 +132,19 @@
         "title": "Human life is hard service",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "My days are a breath",
         "verseRange": [7, 10],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Why have you made me your target",
         "verseRange": [11, 21],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "8": [
@@ -152,19 +152,19 @@
         "title": "Bildad: does God pervert justice",
         "verseRange": [1, 7],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Learn from former generations",
         "verseRange": [8, 19],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God will not reject the blameless",
         "verseRange": [20, 22],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "9": [
@@ -172,19 +172,19 @@
         "title": "How can a mortal be righteous before God",
         "verseRange": [1, 12],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Even if innocent, I cannot answer him",
         "verseRange": [13, 24],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "If only there were an arbiter",
         "verseRange": [25, 35],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "10": [
@@ -192,19 +192,19 @@
         "title": "I loathe my life",
         "verseRange": [1, 7],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "You formed me, now you destroy me",
         "verseRange": [8, 17],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Let me alone before I go",
         "verseRange": [18, 22],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "11": [
@@ -212,13 +212,13 @@
         "title": "Zophar: can you fathom God's mystery",
         "verseRange": [1, 12],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Set your heart right and life will be bright",
         "verseRange": [13, 20],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "12": [
@@ -226,19 +226,19 @@
         "title": "Job: I am not inferior to you",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Ask the beasts, they will teach you",
         "verseRange": [7, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "With God is wisdom and might",
         "verseRange": [13, 25],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "13": [
@@ -246,19 +246,19 @@
         "title": "You are worthless physicians",
         "verseRange": [1, 12],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Though he slay me, I will hope in him",
         "verseRange": [13, 19],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Withdraw your hand and let me speak",
         "verseRange": [20, 28],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "14": [
@@ -266,25 +266,25 @@
         "title": "Mortals born of woman, few days and trouble",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "A tree has hope if cut down",
         "verseRange": [7, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "If only you would hide me in Sheol",
         "verseRange": [13, 17],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "You destroy the hope of mortals",
         "verseRange": [18, 22],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "15": [
@@ -292,13 +292,13 @@
         "title": "Eliphaz: should a wise man answer with wind",
         "verseRange": [1, 16],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The wicked writhe in pain all their days",
         "verseRange": [17, 35],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "16": [
@@ -306,19 +306,19 @@
         "title": "Miserable comforters are you all",
         "verseRange": [1, 5],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God has worn me out, torn me apart",
         "verseRange": [6, 14],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "My witness is in heaven",
         "verseRange": [15, 22],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "17": [
@@ -326,13 +326,13 @@
         "title": "My spirit is broken, the grave awaits",
         "verseRange": [1, 9],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Where then is my hope",
         "verseRange": [10, 16],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "18": [
@@ -340,13 +340,13 @@
         "title": "Bildad: how long will you hunt for words",
         "verseRange": [1, 4],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The lamp of the wicked goes out",
         "verseRange": [5, 21],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "19": [
@@ -354,25 +354,25 @@
         "title": "How long will you torment me",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God has stripped my honor from me",
         "verseRange": [7, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "My relatives and friends have failed me",
         "verseRange": [13, 22],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "I know that my Redeemer lives",
         "verseRange": [23, 29],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "20": [
@@ -380,19 +380,19 @@
         "title": "Zophar: the triumph of the wicked is brief",
         "verseRange": [1, 11],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Wickedness sweet in the mouth turns to poison",
         "verseRange": [12, 22],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "This is the wicked person's portion",
         "verseRange": [23, 29],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "21": [
@@ -400,19 +400,19 @@
         "title": "Why do the wicked prosper",
         "verseRange": [1, 16],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Does God store up punishment for children",
         "verseRange": [17, 26],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Your answers are empty falsehood",
         "verseRange": [27, 34],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "22": [
@@ -420,19 +420,19 @@
         "title": "Eliphaz: is not your wickedness great",
         "verseRange": [1, 11],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Can God judge through thick darkness",
         "verseRange": [12, 20],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Return to the Almighty and be restored",
         "verseRange": [21, 30],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "23": [
@@ -440,13 +440,13 @@
         "title": "If only I knew where to find God",
         "verseRange": [1, 9],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "He knows the way I take",
         "verseRange": [10, 17],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "24": [
@@ -454,19 +454,19 @@
         "title": "Why does the Almighty not set times for judgment",
         "verseRange": [1, 12],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Those who rebel against the light",
         "verseRange": [13, 17],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The wicked are exalted, then gone",
         "verseRange": [18, 25],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "25": [
@@ -474,7 +474,7 @@
         "title": "Bildad: how can a mortal be pure",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       }
     ],
     "26": [
@@ -482,13 +482,13 @@
         "title": "How you have helped the powerless",
         "verseRange": [1, 4],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God stretches the north over empty space",
         "verseRange": [5, 14],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "27": [
@@ -496,19 +496,19 @@
         "title": "Till I die I will not deny my integrity",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "What hope has the godless when cut off",
         "verseRange": [7, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The heritage of oppressors from God",
         "verseRange": [13, 23],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "28": [
@@ -516,19 +516,19 @@
         "title": "Humans mine for precious metals",
         "verseRange": [1, 11],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Where can wisdom be found",
         "verseRange": [12, 19],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God alone understands the way to wisdom",
         "verseRange": [20, 28],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "29": [
@@ -536,19 +536,19 @@
         "title": "In former days God watched over me",
         "verseRange": [1, 10],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "I rescued the poor and fatherless",
         "verseRange": [11, 17],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "I thought I would die in my nest",
         "verseRange": [18, 25],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "30": [
@@ -556,19 +556,19 @@
         "title": "But now I am mocked by the young",
         "verseRange": [1, 15],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God has cast me into the mire",
         "verseRange": [16, 23],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "I go about darkened, not by the sun",
         "verseRange": [24, 31],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "31": [
@@ -576,25 +576,25 @@
         "title": "A covenant with my eyes",
         "verseRange": [1, 12],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "I have not withheld from the poor",
         "verseRange": [13, 23],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "I have not trusted in gold",
         "verseRange": [24, 34],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Let the Almighty answer me",
         "verseRange": [35, 40],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "32": [
@@ -602,19 +602,19 @@
         "title": "Elihu's anger kindled",
         "verseRange": [1, 5],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "I am young, you are old",
         "verseRange": [6, 14],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "I am full of words, I must speak",
         "verseRange": [15, 22],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "33": [
@@ -622,19 +622,19 @@
         "title": "God speaks in dreams and visions",
         "verseRange": [1, 18],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "An angel as mediator",
         "verseRange": [19, 28],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God redeems the soul from the pit",
         "verseRange": [29, 33],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "34": [
@@ -642,25 +642,25 @@
         "title": "Job says God denies him justice",
         "verseRange": [1, 9],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Far be it from God to do wickedness",
         "verseRange": [10, 20],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God sees all the ways of mortals",
         "verseRange": [21, 30],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Job speaks without knowledge",
         "verseRange": [31, 37],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       }
     ],
     "35": [
@@ -668,13 +668,13 @@
         "title": "Does your righteousness benefit God",
         "verseRange": [1, 8],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "God does not answer because of pride",
         "verseRange": [9, 16],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "36": [
@@ -682,19 +682,19 @@
         "title": "God is mighty and does not despise",
         "verseRange": [1, 15],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Beware, do not turn to iniquity",
         "verseRange": [16, 25],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "God's power in the storm",
         "verseRange": [26, 33],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "37": [
@@ -702,13 +702,13 @@
         "title": "God thunders wondrously",
         "verseRange": [1, 13],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Do you know how God commands them",
         "verseRange": [14, 24],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "38": [
@@ -716,31 +716,31 @@
         "title": "The LORD answers from the whirlwind",
         "verseRange": [1, 3],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Where were you when I laid earth's foundation",
         "verseRange": [4, 18],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "Have you entered the storehouses of snow",
         "verseRange": [19, 30],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "Can you bind the Pleiades",
         "verseRange": [31, 38],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Who provides for the ravens",
         "verseRange": [39, 41],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       }
     ],
     "39": [
@@ -748,31 +748,31 @@
         "title": "Do you know when the mountain goats give birth",
         "verseRange": [1, 4],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "The wild donkey and ox",
         "verseRange": [5, 12],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The ostrich flaps joyfully",
         "verseRange": [13, 18],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       },
       {
         "title": "The horse leaps like a locust",
         "verseRange": [19, 25],
         "color": "bg-purple-50 dark:bg-purple-950/20",
-        "borderColor": "border-purple-400"
+        "borderColor": "border-purple-500"
       },
       {
         "title": "Does the hawk soar by your wisdom",
         "verseRange": [26, 30],
         "color": "bg-rose-50 dark:bg-rose-950/20",
-        "borderColor": "border-rose-400"
+        "borderColor": "border-rose-500"
       }
     ],
     "40": [
@@ -780,13 +780,13 @@
         "title": "Will you condemn me to justify yourself",
         "verseRange": [1, 14],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Behold Behemoth, made with you",
         "verseRange": [15, 24],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       }
     ],
     "41": [
@@ -794,19 +794,19 @@
         "title": "Can you draw out Leviathan with a hook",
         "verseRange": [1, 11],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Leviathan's fearsome body",
         "verseRange": [12, 24],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "King over all the proud",
         "verseRange": [25, 34],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ],
     "42": [
@@ -814,19 +814,19 @@
         "title": "I spoke of things I did not understand",
         "verseRange": [1, 6],
         "color": "bg-amber-50 dark:bg-amber-950/20",
-        "borderColor": "border-amber-400"
+        "borderColor": "border-amber-500"
       },
       {
         "title": "Job's friends rebuked and restored",
         "verseRange": [7, 9],
         "color": "bg-blue-50 dark:bg-blue-950/20",
-        "borderColor": "border-blue-400"
+        "borderColor": "border-blue-500"
       },
       {
         "title": "The LORD restores Job's fortunes",
         "verseRange": [10, 17],
         "color": "bg-green-50 dark:bg-green-950/20",
-        "borderColor": "border-green-400"
+        "borderColor": "border-green-500"
       }
     ]
   }

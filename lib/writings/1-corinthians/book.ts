@@ -7,6 +7,7 @@ export const FIRST_CORINTHIANS: BookOrientation = {
   scripture: '1 Corinthians 1–16',
   summary:
     'Paul addresses a divided, morally confused church in a wealthy port city, correcting their views on wisdom, sexuality, worship, and resurrection.',
+  place: { city: 'Las Vegas', vibe: 'money, sex, status, excess' },
 
   sections: [
     {

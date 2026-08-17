@@ -7,6 +7,7 @@ export const FIRST_TIMOTHY: BookOrientation = {
   scripture: '1 Timothy 1–6',
   summary:
     'Paul\`s instructions to his young delegate Timothy on how to lead the church at Ephesus, addressing false teaching, worship, leadership qualifications, and pastoral care.',
+  place: { city: 'New Orleans', vibe: 'magic, spirituality, commerce' },
 
   sections: [
     {

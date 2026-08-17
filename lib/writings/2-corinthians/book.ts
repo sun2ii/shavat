@@ -7,6 +7,7 @@ export const SECOND_CORINTHIANS: BookOrientation = {
   scripture: '2 Corinthians 1–13',
   summary:
     'Paul\`s most personal letter, defending his apostleship against rivals while revealing the paradox that God\`s power is made perfect in human weakness.',
+  place: { city: 'Las Vegas', vibe: 'money, sex, status, excess' },
 
   sections: [
     {

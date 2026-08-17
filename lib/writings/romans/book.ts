@@ -7,6 +7,7 @@ export const ROMANS: BookOrientation = {
   scripture: 'Romans 1–16',
   summary:
     'Paul\`s most complete and systematic presentation of the gospel, written to a church he did not found, explaining justification by faith, life in the Spirit, and God\`s faithfulness to Israel.',
+  place: { city: 'Tokyo', vibe: 'power, capital, influence' },
 
   sections: [
     {

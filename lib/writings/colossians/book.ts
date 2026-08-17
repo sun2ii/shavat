@@ -7,6 +7,7 @@ export const COLOSSIANS: BookOrientation = {
   scripture: 'Colossians 1–4',
   summary:
     'Paul\`s letter to a church threatened by false teaching, proclaiming Christ as supreme over all creation and sufficient for all spiritual needs.',
+  place: { city: 'Ubud', vibe: 'mysticism, spiritual mixing' },
 
   sections: [
     {

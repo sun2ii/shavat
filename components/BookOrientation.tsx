@@ -125,6 +125,12 @@ export default function BookOrientation({ book }: { book: BookOrientationData })
         <p className="font-serif italic text-[21px] md:text-[23px] leading-[1.7] text-ink text-left">
           {book.summary}
         </p>
+
+        {book.place ? (
+          <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-faint mt-6">
+            Think <span className="text-purple-400">{book.place.city}</span>: {book.place.vibe}
+          </p>
+        ) : null}
       </header>
 
       <hr className="border-hairline" />

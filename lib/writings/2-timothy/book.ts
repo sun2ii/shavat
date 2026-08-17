@@ -7,6 +7,7 @@ export const SECOND_TIMOTHY: BookOrientation = {
   scripture: '2 Timothy 1–4',
   summary:
     'Paul\`s last letter, written from prison awaiting execution, passing the torch to Timothy with urgency and tenderness.',
+  place: { city: 'New Orleans', vibe: 'magic, spirituality, commerce' },
 
   sections: [
     {

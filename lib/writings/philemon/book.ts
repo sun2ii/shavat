@@ -7,6 +7,7 @@ export const PHILEMON: BookOrientation = {
   scripture: 'Philemon 1–25',
   summary:
     'Paul\`s personal appeal to a slave owner to receive back his runaway slave, now a Christian brother, demonstrating how the gospel transforms social relationships.',
+  place: { city: 'Ubud', vibe: 'mysticism, spiritual mixing' },
 
   sections: [
     {

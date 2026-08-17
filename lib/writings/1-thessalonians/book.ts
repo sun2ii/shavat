@@ -11,6 +11,7 @@ export const FIRST_THESSALONIANS: BookOrientation = {
   scripture: '1 Thessalonians 1–5',
   summary:
     'Paul writes to a young church born in persecution, commending their faith and clarifying their hope.',
+  place: { city: 'Osaka', vibe: 'commerce, trade, connected' },
 
   sections: [
     // ---------------------------------------------------------------- terrain

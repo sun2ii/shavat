@@ -7,6 +7,7 @@ export const TITUS: BookOrientation = {
   scripture: 'Titus 1–3',
   summary:
     'Paul\`s instructions to Titus for establishing church order in Crete, emphasizing that sound doctrine produces godly living and good works.',
+  place: { city: 'Costa Rica', vibe: 'distinct regional culture, communities needing organization' },
 
   sections: [
     {

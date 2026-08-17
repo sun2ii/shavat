@@ -227,5 +227,9 @@ export interface BookOrientation {
   subtitle: string;        // e.g. "Covenant Faithfulness in the Days of the Judges"
   scripture: string;       // e.g. "Ruth 1–4"
   summary: string;         // the whole book in one sentence
+  place?: {                 // modern analogy for the destination city
+    city: string;           // e.g. "Ubud", "Las Vegas"
+    vibe: string;           // e.g. "mysticism, spiritual mixing"
+  };
   sections: OrientationSection[];
 }

@@ -7,6 +7,7 @@ export const EPHESIANS: BookOrientation = {
   scripture: 'Ephesians 1–6',
   summary:
     'Paul\`s most expansive vision of God\`s eternal purpose: to unite all things in Christ through the church, where Jew and Gentile become one new humanity.',
+  place: { city: 'New Orleans', vibe: 'magic, spirituality, commerce' },
 
   sections: [
     {

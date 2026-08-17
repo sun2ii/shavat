@@ -12,6 +12,7 @@ export const GALATIANS: BookOrientation = {
   scripture: 'Galatians 1–6',
   summary:
     'Paul\`s urgent defense of justification by faith alone, written to churches tempted to add circumcision to Christ.',
+  place: { city: 'Nashville', vibe: 'religious tradition, rules, belonging' },
 
   sections: [
     // ---------------------------------------------------------------- terrain

@@ -11,6 +11,7 @@ export const SECOND_THESSALONIANS: BookOrientation = {
   scripture: '2 Thessalonians 1–3',
   summary:
     'Paul corrects a dangerous misunderstanding: the day of the Lord has not arrived, and until it does, keep working.',
+  place: { city: 'Osaka', vibe: 'commerce, trade, connected' },
 
   sections: [
     // ---------------------------------------------------------------- terrain

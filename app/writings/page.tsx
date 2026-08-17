@@ -215,6 +215,29 @@ export default function WritingsPage() {
           })}
         </div>
       )}
+
+      {/* Link to Epistles Reference */}
+      <div className="mt-16 pt-8 border-t border-hairline">
+        <Link
+          href="/writings/epistles"
+          className="group flex items-baseline justify-between gap-4 rounded-lg border border-hairline bg-surface px-4 py-3 transition-colors hover:bg-paper-2"
+        >
+          <div>
+            <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+              Reference
+            </p>
+            <p className="mt-1 font-serif text-lg font-light text-ink">
+              Understanding the Epistles
+            </p>
+            <p className="mt-0.5 font-serif text-sm italic text-muted">
+              Modern city parallels for ancient contexts
+            </p>
+          </div>
+          <span className="font-sans text-sm text-faint group-hover:text-gold transition-colors">
+            →
+          </span>
+        </Link>
+      </div>
     </main>
   );
 }

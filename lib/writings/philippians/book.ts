@@ -7,6 +7,7 @@ export const PHILIPPIANS: BookOrientation = {
   scripture: 'Philippians 1–4',
   summary:
     'Paul\`s warmest letter, written from prison to his favorite church, urging unity and joy through the pattern of Christ\`s self-emptying humility.',
+  place: { city: 'San Diego', vibe: 'military, civic pride, loyalty' },
 
   sections: [
     {

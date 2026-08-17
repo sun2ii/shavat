@@ -11,7 +11,7 @@ const config: CapacitorConfig = {
   server: {
     // Production deployment. The app opens straight to /today to avoid
     // flashing the marketing home page before the native redirect.
-    url: 'https://shavat.app/today',
+    url: 'https://www.shavat.app/today',
   },
 };
 

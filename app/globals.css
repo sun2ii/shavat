@@ -227,13 +227,15 @@ input:disabled,
 }
 */
 
-/* Link Debug: Highlight broken/placeholder links only */
+/* Link Debug: Highlight broken/placeholder links only
+   Disabled 2026-08-16 — re-enable by uncommenting.
 .link-debug-mode a[href="#"],
 .link-debug-mode a[href=""],
 .link-debug-mode a:not([href]) {
   outline: 2px solid red !important;
   outline-offset: 2px;
 }
+*/
 
 /*
   Native app shell (Capacitor iOS).

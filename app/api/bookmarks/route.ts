@@ -1,71 +1,96 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { getCurrentUser } from '@/lib/auth';
+import { sql } from '@/lib/db';
 
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
-
-interface Bookmark {
-  book: string;
-  chapter: number;
-  verse: number;
-}
-
-interface BookmarkStore {
-  [clientId: string]: Bookmark;
-}
-
-const BOOKMARKS_FILE = path.join(process.cwd(), 'bookmarks.json');
-
-async function readBookmarks(): Promise<BookmarkStore> {
-  try {
-    const data = await fs.readFile(BOOKMARKS_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch (error) {
-    return {};
-  }
-}
-
-async function writeBookmarks(store: BookmarkStore): Promise<void> {
-  await fs.writeFile(BOOKMARKS_FILE, JSON.stringify(store, null, 2), 'utf-8');
-}
-
+// GET: Fetch bookmarks for user (optionally filtered by book)
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const clientId = searchParams.get('clientId');
-
-  if (!clientId) {
-    return NextResponse.json({ error: 'clientId required' }, { status: 400 });
+  const user = await getCurrentUser();
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const store = await readBookmarks();
-  const bookmark = store[clientId] || null;
+  const { searchParams } = new URL(request.url);
+  const book = searchParams.get('book');
 
-  return NextResponse.json({ bookmark });
+  try {
+    if (book) {
+      // Get bookmarks for a specific book
+      const rows = await sql`
+        SELECT book, chapter, verse, created_at
+        FROM bookmarks
+        WHERE user_email = ${user.email} AND book = ${book}
+        ORDER BY chapter
+      `;
+      return NextResponse.json({ bookmarks: rows });
+    } else {
+      // Get all bookmarks
+      const rows = await sql`
+        SELECT book, chapter, verse, created_at
+        FROM bookmarks
+        WHERE user_email = ${user.email}
+        ORDER BY created_at DESC
+      `;
+      return NextResponse.json({ bookmarks: rows });
+    }
+  } catch (err) {
+    console.error('Error fetching bookmarks:', err);
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
+  }
 }
 
+// POST: Add or update a bookmark
 export async function POST(request: NextRequest) {
+  const user = await getCurrentUser();
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
-    const { clientId, bookmark } = body;
+    const { book, chapter, verse } = body as { book: string; chapter: number; verse?: number };
 
-    if (!clientId || !bookmark) {
-      return NextResponse.json(
-        { error: 'clientId and bookmark required' },
-        { status: 400 }
-      );
+    if (!book || chapter === undefined) {
+      return NextResponse.json({ error: 'Missing book or chapter' }, { status: 400 });
     }
 
-    const store = await readBookmarks();
-    store[clientId] = bookmark;
-    await writeBookmarks(store);
+    // Upsert: insert or update if already exists
+    await sql`
+      INSERT INTO bookmarks (user_email, book, chapter, verse, created_at)
+      VALUES (${user.email}, ${book}, ${chapter}, ${verse ?? null}, NOW())
+      ON CONFLICT (user_email, book, chapter)
+      DO UPDATE SET verse = ${verse ?? null}, created_at = NOW()
+    `;
 
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Error saving bookmark:', error);
-    return NextResponse.json(
-      { error: 'Failed to save bookmark' },
-      { status: 500 }
-    );
+  } catch (err) {
+    console.error('Error saving bookmark:', err);
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
+  }
+}
+
+// DELETE: Remove a bookmark
+export async function DELETE(request: NextRequest) {
+  const user = await getCurrentUser();
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  try {
+    const body = await request.json();
+    const { book, chapter } = body as { book: string; chapter: number };
+
+    if (!book || chapter === undefined) {
+      return NextResponse.json({ error: 'Missing book or chapter' }, { status: 400 });
+    }
+
+    await sql`
+      DELETE FROM bookmarks
+      WHERE user_email = ${user.email} AND book = ${book} AND chapter = ${chapter}
+    `;
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error('Error deleting bookmark:', err);
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }

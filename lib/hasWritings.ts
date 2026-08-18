@@ -177,6 +177,8 @@ const WRITINGS: Writing[] = [
   { book: 'hosea', chapter: 12, division: 'god-calls-israel-home', divisionIndex: 2, title: 'The Father\'s Heart: Jacob\'s Story', path: '/writings/hosea/god-calls-israel-home-2' },
   { book: 'hosea', chapter: 13, division: 'god-calls-israel-home', divisionIndex: 3, title: 'The Father\'s Heart: Death, Where Is Your Sting?', path: '/writings/hosea/god-calls-israel-home-3' },
   { book: 'hosea', chapter: 14, division: 'god-calls-israel-home', divisionIndex: 4, title: 'The Father\'s Heart: Return, O Israel', path: '/writings/hosea/god-calls-israel-home-4' },
+  // Philemon
+  { book: 'philemon', chapter: 1, division: 'epistle', divisionIndex: 1, title: 'Reconciliation: No Longer a Slave But a Brother', path: '/writings/philemon/epistle-1' },
 ];
 
 export function hasWriting(book: string, chapter: number): boolean {

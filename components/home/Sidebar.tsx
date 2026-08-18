@@ -9,6 +9,7 @@ import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 const staticNavLinks = [
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
+  { href: '/saved', label: 'Bookmarks', iconSrc: '/icons/general/laurel.webp' },
   { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.webp' },
 ];
 
@@ -59,22 +60,20 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
       <div className="text-center">
         <div
           className="overflow-hidden mx-auto transition-all duration-300"
-          style={{ width: isOpen ? 85 : 60, height: isOpen ? 95 : 66 }}
+          style={{ width: isOpen ? 85 : 44, height: isOpen ? 95 : 48 }}
         >
           <Image
             src="/logo.webp"
             alt="Shavat"
-            width={isOpen ? 110 : 78}
-            height={isOpen ? 110 : 78}
+            width={isOpen ? 110 : 44}
+            height={isOpen ? 110 : 44}
             className="block mx-auto transition-all duration-300"
-            style={{ transform: 'scale(1.2)', transformOrigin: 'top center' }}
+            style={{ transform: isOpen ? 'scale(1.2)' : 'scale(1)', transformOrigin: 'top center' }}
           />
         </div>
         <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-40 opacity-100 mt-3.5' : 'max-h-0 opacity-0 mt-0'}`}>
           <div className="font-playfair text-[27px] font-semibold tracking-[7px]">SHAVAT</div>
-          <div className="text-[10px] tracking-[2.4px] text-sidebar-text-muted leading-[1.7] mt-2.5">
-            KNOW WHERE YOU ARE<br/>IN SCRIPTURE.
-          </div>
+          <div className="text-[15px] text-sidebar-text-muted mt-0.5">שָׁבַת</div>
         </div>
       </div>
 

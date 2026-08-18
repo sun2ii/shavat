@@ -12,7 +12,6 @@ interface Props {
   restClass?: string;
   /** Color held while the copied glow burns off. */
   flashClass?: string;
-  title?: string;
   children: React.ReactNode;
 }
 
@@ -26,7 +25,6 @@ export default function CopyHeading({
   className = '',
   restClass = 'text-ink hover:text-gold',
   flashClass = 'text-gold',
-  title = 'Copy section',
   children,
 }: Props) {
   const [copied, setCopied] = useState(false);
@@ -50,8 +48,7 @@ export default function CopyHeading({
   return (
     <button
       onClick={handleCopy}
-      title={title}
-      aria-label={copied ? 'Copied' : title}
+      aria-label={copied ? 'Copied' : 'Copy section'}
       className={`inline-block max-w-full cursor-pointer ${COPY_TRANSITION} ${className} ${
         copied ? `${flashClass} ${COPY_GLOW}` : `${restClass} ${COPY_GLOW_OFF}`
       }`}

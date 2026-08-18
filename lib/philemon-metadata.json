@@ -1,6 +1,15 @@
 {
   "bookTheme": "Reconciliation Through Christ",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "Reconciliation Through Christ",
+      "chapters": [1],
+      "theme": "No longer a slave but a brother",
+      "summary": "Paul appeals for Onesimus, a runaway slave who became a believer, asking Philemon to receive him as a brother in Christ",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Paul appeals for Onesimus, no longer a slave but a beloved brother"
   }

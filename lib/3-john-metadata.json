@@ -1,6 +1,15 @@
 {
   "bookTheme": "Walk in Truth and Love",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "The Epistle",
+      "chapters": [1],
+      "theme": "Support faithful workers",
+      "summary": "Gaius praised for hospitality to traveling teachers, Diotrephes rebuked for pride and rejection of apostolic authority",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Gaius praised for walking in truth, Diotrephes rebuked for rejecting apostolic authority, imitate good"
   }

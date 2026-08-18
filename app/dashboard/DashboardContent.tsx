@@ -3,11 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import BibleProgressGrid from './BibleProgressGrid';
-import BookmarksPlaceholder from './BookmarksPlaceholder';
 import HighlightsPlaceholder from './HighlightsPlaceholder';
 import LogoutButton from './LogoutButton';
 
-type DashboardTab = 'progress' | 'bookmarks' | 'highlights';
+type DashboardTab = 'progress' | 'highlights';
 
 interface Props {
   stats: {
@@ -43,16 +42,6 @@ export default function DashboardContent({ stats, currentReading, completedByBoo
               }`}
             >
               Progress
-            </button>
-            <button
-              onClick={() => setActiveTab('bookmarks')}
-              className={`px-3.5 py-2.5 md:px-3 md:py-1.5 font-sans text-xs md:text-[11px] font-medium rounded-lg transition-colors cursor-pointer ${
-                activeTab === 'bookmarks'
-                  ? 'bg-gold/10 text-gold'
-                  : 'text-muted hover:text-ink hover:bg-surface'
-              }`}
-            >
-              Bookmarks
             </button>
             <button
               onClick={() => setActiveTab('highlights')}
@@ -95,7 +84,6 @@ export default function DashboardContent({ stats, currentReading, completedByBoo
 
       {/* Tab Content */}
       {activeTab === 'progress' && <BibleProgressGrid completedByBook={completedByBook} />}
-      {activeTab === 'bookmarks' && <BookmarksPlaceholder />}
       {activeTab === 'highlights' && <HighlightsPlaceholder />}
     </div>
   );

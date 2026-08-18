@@ -4,28 +4,46 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { storage } from '@/lib/storage';
 import { getHighlightColor } from '@/lib/highlight-colors';
-import { BIBLE_INDEX } from '@/lib/bible-index';
 import type { Bookmark, Highlight } from '@/lib/types';
+import { bookName } from '@/lib/book-helpers';
+import { useBookmarks } from '@/components/providers/BookmarkProvider';
 import PageHeader from '@/components/PageHeader';
 
-function bookName(slug: string): string {
-  return BIBLE_INDEX.find((b) => b.slug === slug)?.name ?? slug;
+interface DbBookmark {
+  book: string;
+  chapter: number;
+  verse: number | null;
+  created_at: string;
 }
 
-export default function SavedContent() {
+interface Props {
+  isAuthenticated?: boolean;
+  serverBookmarks?: DbBookmark[];
+}
+
+export default function SavedContent({ isAuthenticated = false, serverBookmarks = [] }: Props) {
   const [highlights, setHighlights] = useState<Highlight[]>([]);
-  const [bookmark, setBookmark] = useState<Bookmark | null>(null);
+  const [localBookmark, setLocalBookmark] = useState<Bookmark | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     setHighlights(storage.getHighlights());
-    setBookmark(storage.getBookmark());
+    if (!isAuthenticated) {
+      setLocalBookmark(storage.getBookmark());
+    }
     setLoaded(true);
-  }, []);
+  }, [isAuthenticated]);
 
   const handleDelete = (id: string) => {
     storage.deleteHighlight(id);
-    setHighlights(storage.getHighlights());
+    setHighlights(prev => prev.filter(h => h.id !== id));
+  };
+
+  const { toggleBookmark, isBookmarked: isChapterBookmarked } = useBookmarks();
+
+  const handleDeleteBookmark = async (book: string, chapter: number) => {
+    if (!isAuthenticated) return;
+    await toggleBookmark(book, chapter);
   };
 
   // Group highlights by book, then chapter, newest books last edited first.
@@ -36,7 +54,11 @@ export default function SavedContent() {
     return acc;
   }, {} as Record<string, Record<number, Highlight[]>>);
 
-  const isEmpty = highlights.length === 0 && !bookmark;
+  // Use server bookmarks for authenticated (filtered by context for optimistic deletes), localStorage for unauthenticated
+  const bookmarks = isAuthenticated
+    ? serverBookmarks.filter(bm => isChapterBookmarked(bm.book, bm.chapter))
+    : (localBookmark ? [localBookmark] : []);
+  const isEmpty = highlights.length === 0 && bookmarks.length === 0;
 
   return (
     // No top padding on the container: PageHeader owns the top spacing so
@@ -47,31 +69,57 @@ export default function SavedContent() {
         title="Saved"
         subtitle={
           highlights.length > 0
-            ? `${highlights.length} ${highlights.length === 1 ? 'highlight' : 'highlights'}`
+            ? `${highlights.length} ${highlights.length === 1 ? 'highlight' : 'highlights'}${bookmarks.length > 0 ? ` · ${bookmarks.length} ${bookmarks.length === 1 ? 'bookmark' : 'bookmarks'}` : ''}`
+            : bookmarks.length > 0
+            ? `${bookmarks.length} ${bookmarks.length === 1 ? 'bookmark' : 'bookmarks'}`
             : 'Highlights and bookmarks from your reading.'
         }
       />
 
-      {/* Reading position (bookmark) */}
-      {bookmark && (
+      {/* Bookmarks section */}
+      {bookmarks.length > 0 && (
         <section className="mb-10">
-          <h2 className="mb-2 font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
-            Reading position
+          <h2 className="mb-3 font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
+            {isAuthenticated ? 'Bookmarks' : 'Reading position'}
           </h2>
-          <Link
-            href={`/${bookmark.book}/${bookmark.chapter}`}
-            className="flex items-baseline justify-between gap-4 rounded-xl border border-hairline bg-surface p-4 transition-colors hover:bg-paper-2 active:bg-paper-2"
-          >
-            <span>
-              <span className="block font-serif text-xl text-ink">
-                {bookName(bookmark.book)} {bookmark.chapter}
-              </span>
-              <span className="mt-0.5 block font-sans text-xs text-faint">
-                verse {bookmark.verse}
-              </span>
-            </span>
-            <span className="font-sans text-sm text-gold-ink whitespace-nowrap">Return →</span>
-          </Link>
+          <div className="space-y-2">
+            {bookmarks.map((bm, idx) => (
+              <div
+                key={`${bm.book}-${bm.chapter}-${idx}`}
+                className="flex items-center justify-between gap-4 rounded-xl border border-hairline bg-surface p-4 transition-colors hover:bg-paper-2"
+              >
+                <Link
+                  href={`/${bm.book}/${bm.chapter}`}
+                  className="flex-1"
+                >
+                  <span className="block font-serif text-xl text-ink">
+                    {bookName(bm.book)} {bm.chapter}
+                  </span>
+                  {bm.verse && (
+                    <span className="mt-0.5 block font-sans text-xs text-faint">
+                      verse {bm.verse}
+                    </span>
+                  )}
+                </Link>
+                <div className="flex items-center gap-3">
+                  {isAuthenticated && (
+                    <button
+                      onClick={() => handleDeleteBookmark(bm.book, bm.chapter)}
+                      className="font-sans text-xs text-faint hover:text-red-500 transition-colors"
+                    >
+                      Remove
+                    </button>
+                  )}
+                  <Link
+                    href={`/${bm.book}/${bm.chapter}`}
+                    className="font-sans text-sm text-gold-ink whitespace-nowrap hover:text-gold transition-colors"
+                  >
+                    Return →
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 
@@ -146,9 +194,9 @@ export default function SavedContent() {
         </div>
       )}
 
-      {loaded && !isEmpty && (
+      {loaded && !isEmpty && !isAuthenticated && (
         <p className="mt-12 border-t border-hairline pt-4 font-sans text-xs text-faint">
-          Saved on this device for now — account sync is on the roadmap.
+          Saved on this device for now — sign in to sync across devices.
         </p>
       )}
 
@@ -183,7 +231,7 @@ export default function SavedContent() {
                   </span>
                 </div>
                 <p className="font-serif text-base leading-snug text-ink">
-                  “And God said, ‘Let there be light,’ and there was light.”
+                  "And God said, 'Let there be light,' and there was light."
                 </p>
                 <p className="mt-1 font-serif italic text-xs text-muted">
                   The first words spoken into the dark.
@@ -203,7 +251,7 @@ export default function SavedContent() {
               </span>
             </div>
             <p className="font-serif text-base leading-snug text-ink">
-              Order doesn’t arrive all at once — light, then sky, then land.
+              Order doesn't arrive all at once — light, then sky, then land.
               I want to stop rushing the middle days of things.
             </p>
             <div className="mt-1.5 flex items-center gap-3 font-sans text-[10px] text-faint">

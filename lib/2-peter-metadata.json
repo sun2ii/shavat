@@ -1,6 +1,15 @@
 {
   "bookTheme": "Growing in Grace and Knowledge",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "The Epistle",
+      "chapters": [1, 2, 3],
+      "theme": "Growing in grace and guarding against false teaching",
+      "summary": "Add to faith virtue, knowledge, and love; beware of false teachers who exploit; the day of the Lord will come suddenly",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "God's divine power gives us everything for life and godliness, make your calling sure",
     "2": "False teachers condemned, judgment awaits them as it did fallen angels and Sodom",

@@ -1,6 +1,15 @@
 {
   "bookTheme": "Walk in Truth and Love",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "The Epistle",
+      "chapters": [1],
+      "theme": "Guard the apostolic teaching",
+      "summary": "Walk in truth and love, do not welcome deceivers who deny Christ came in the flesh",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Walk in love and truth, do not welcome those who deny Christ has come in the flesh"
   }

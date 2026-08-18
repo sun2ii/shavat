@@ -90,7 +90,6 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
         <h1 className="mb-8">
           <CopyHeading
             text={memorialText(memorial)}
-            title="Copy the whole memorial"
             className="font-serif text-4xl md:text-5xl leading-tight text-center"
           >
             {memorial.title}
@@ -165,7 +164,6 @@ export default function DivisionMemorial({ memorial }: { memorial: DivisionMemor
           <h2 className="mb-8">
             <CopyHeading
               text={chapterText(bookName, chapter)}
-              title={`Copy ${bookName} ${chapter.chapter}`}
               className="font-serif text-3xl md:text-4xl text-left"
             >
               {chapter.theme}

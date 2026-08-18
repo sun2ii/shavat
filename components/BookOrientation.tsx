@@ -111,7 +111,6 @@ export default function BookOrientation({ book }: { book: BookOrientationData })
         <h1 className="mb-3">
           <CopyHeading
             text={orientationText(book)}
-            title="Copy the whole orientation"
             className="font-serif text-4xl md:text-5xl leading-tight text-center"
           >
             {book.title}

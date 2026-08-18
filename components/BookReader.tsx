@@ -74,13 +74,9 @@ function copyFlashClass(borderColor: string): string {
 }
 
 /*
-  Collapsible content that opens INSTANTLY. No height animation: an animating
-  height means the layout is mid-flight when we scroll to the section, and on
-  iOS the browser's scroll anchoring fights scripted scrolling during layout
-  changes — the root cause of sections landing mid-page. With an instant
-  open, layout is final before the (equally instant) scroll fires, so the
-  tapped section lands at the top every time. A layout-neutral opacity fade
-  keeps the reveal gentle.
+  Collapsible content: height is always instant (required for scroll positioning),
+  but opening has a gentle fade-in for peaceful Scripture reading.
+  Close is instant - animated close breaks scroll positioning.
 */
 function CollapsibleVerses({
   id,
@@ -92,10 +88,10 @@ function CollapsibleVerses({
   children: React.ReactNode;
 }) {
   return (
-    <div id={id} className="overflow-hidden" style={{ height: isCollapsed ? 0 : 'auto' }}>
+    <div id={id} className="overflow-x-visible overflow-y-hidden" style={{ height: isCollapsed ? 0 : 'auto' }}>
       <div
-        className={`font-serif text-ink text-[21px] leading-[1.95] transition-opacity duration-300 ${
-          isCollapsed ? 'opacity-0' : 'opacity-100'
+        className={`font-serif text-ink text-[21px] leading-[1.95] ${
+          isCollapsed ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000 ease-out'
         }`}
       >
         {children}
@@ -122,29 +118,50 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const unfoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Reading progress bar
+  const [readingProgress, setReadingProgress] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+      setReadingProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial call
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Get the context to update progress optimistically
   const { markChapterComplete } = useReadingProgress();
 
-  // Track reading progress when navigating to next chapter
-  const handleNextClick = async () => {
+  // Mark chapter as read and navigate
+  const markReadAndNavigate = (href: string) => {
     if (isAuthenticated && book && chapter) {
       // Optimistically update context (instant UI feedback)
       markChapterComplete(book, chapter);
 
-      // Persist to database
-      try {
-        await fetch('/api/reading-progress', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ book, chapter }),
-        });
-      } catch (err) {
-        console.error('Failed to save reading progress:', err);
-      }
+      // Persist to database in background (don't block navigation)
+      fetch('/api/reading-progress', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ book, chapter }),
+      }).catch(err => console.error('Failed to save reading progress:', err));
     }
-    // Navigate to next chapter
+    router.push(href);
+  };
+
+  // Track reading progress when navigating to next chapter
+  const handleNextClick = () => {
     if (nextChapter && nextDivisionId && book) {
-      router.push(readingPath(book, nextDivisionId, nextChapter));
+      markReadAndNavigate(readingPath(book, nextDivisionId, nextChapter));
+    }
+  };
+
+  // Track reading progress when returning to library
+  const handleReturnToLibrary = () => {
+    if (bookCategory) {
+      markReadAndNavigate(`/library/${bookCategory}`);
     }
   };
 
@@ -295,128 +312,156 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     return () => window.removeEventListener('keydown', handleCopy);
   }, [selectedVerses, verses]);
 
+  // Progress bar component
+  const ProgressBar = () => (
+    <div className="fixed top-0 left-0 right-0 h-[3px] z-50 bg-transparent pointer-events-none">
+      <div
+        className="h-full transition-[width] duration-100 ease-out"
+        style={{
+          width: `${readingProgress * 100}%`,
+          background: 'linear-gradient(to right, rgb(52 211 153 / 0.7), rgb(16 185 129))'
+        }}
+      />
+    </div>
+  );
+
   if (sections && sections.length > 0) {
     return (
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6">
+      <div className="px-6 sm:px-10 md:px-16">
+        <ProgressBar />
         <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
-        <div className="space-y-4">
-          {sections.map((daySection) => {
+        <div>
+          {sections.map((daySection, sectionIndex) => {
             const dayVerses = verses.filter(
               (v) => v.verse >= daySection.verseRange[0] && v.verse <= daySection.verseRange[1]
             );
             const sectionId = slugify(daySection.title);
             const isCollapsed = expandedSection !== daySection.title;
+            const speakers = chapterSpeakers ? sectionSpeakers(daySection.verseRange) : {};
+            const speakerEntries = Object.entries(speakers);
+            // Highlight the next section after the expanded one
+            const expandedIndex = sections.findIndex(s => s.title === expandedSection);
+            const isNextSection = expandedIndex !== -1 && sectionIndex === expandedIndex + 1;
             return (
-              /*
-                Folded, the whole card is the target. Open, only the header is —
-                otherwise selecting a verse or double-clicking one for its
-                commentary would slam the section shut underneath the reader.
-              */
               <div
                 key={daySection.title}
                 id={sectionId}
                 onClick={isCollapsed ? (e) => toggleSection(daySection.title, e.currentTarget) : undefined}
-                className={`scroll-mt-16 rounded-r-2xl rounded-bl-2xl border-l-4 px-6 md:px-8 ${
-                  isCollapsed ? 'cursor-pointer py-5' : 'py-6 md:py-8'
-                } ${daySection.borderColor} ${daySection.color}`}
+                className={`scroll-mt-16 py-3 md:py-4 ${
+                  isCollapsed ? 'cursor-pointer' : ''
+                }`}
               >
-                {/* Voices bar: always visible */}
-                <SpeakerLegend
-                  heading={`${actualChapter}:${daySection.verseRange[0]}–${daySection.verseRange[1]}`}     
-                  speakers={chapterSpeakers ? sectionSpeakers(daySection.verseRange) : {}}
-                  className="-mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-5 rounded-tr-2xl"
-                />
+                {/* Header: title centered, verse range on right */}
                 <div
                   id={`${sectionId}-header`}
-                  onClick={() => {
-                    // Collapsed, this bubbles to the card, which owns the toggle.
-                    if (!isCollapsed) toggleSection(daySection.title);
-                  }}
-                  className="cursor-pointer"
+                  className="relative flex items-start justify-center"
                 >
-                  <h3 className={`relative text-center px-10 md:px-0 ${isCollapsed ? 'mb-0' : 'mb-4'}`}>
-                    <button
-                      onClick={async (e) => {
-                        e.stopPropagation();
-                        // Capture before the await — React nulls currentTarget after.
-                        const origin = e.currentTarget as HTMLElement;
-                        // Copying implies reading: unfold too, but sequentially —
-                        // secure the copy, let the glow bloom, then open. Never
-                        // the reverse: closing under a copy click reads as a
-                        // misfire, and an instant unfold swallows the glow.
-                        const copied = await handleCopySection(daySection.title, dayVerses);
-                        if (!isCollapsed) return;
-                        if (unfoldTimer.current) clearTimeout(unfoldTimer.current);
-                        if (copied) {
-                          unfoldTimer.current = setTimeout(
-                            () => toggleSection(daySection.title, origin),
-                            COPY_UNFOLD_DELAY_MS
-                          );
-                        } else {
-                          toggleSection(daySection.title, origin);
-                        }
-                      }}
-                      title="Copy section"
-                      className={`py-2 -my-2 px-1 font-sans text-[14px] tracking-[0.16em] uppercase font-bold cursor-pointer text-center rounded outline-none focus-visible:ring-2 focus-visible:ring-gold/60 ${COPY_TRANSITION} ${
+                  {/* Center: Title + speakers - clicking anywhere here copies + opens */}
+                  <div
+                    className="flex flex-col gap-1 cursor-pointer items-center text-center w-full"
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      const origin = e.currentTarget as HTMLElement;
+                      const copied = await handleCopySection(daySection.title, dayVerses);
+                      // If already open, just copy - don't collapse
+                      if (!isCollapsed) {
+                        return;
+                      }
+                      // If collapsed, open after copy flash (or immediately if copy failed)
+                      if (unfoldTimer.current) clearTimeout(unfoldTimer.current);
+                      if (copied) {
+                        unfoldTimer.current = setTimeout(
+                          () => toggleSection(daySection.title, origin),
+                          COPY_UNFOLD_DELAY_MS
+                        );
+                      } else {
+                        toggleSection(daySection.title, origin);
+                      }
+                    }}
+                  >
+                    <span
+                      className={`py-2 -my-2 px-1 font-sans text-[14px] tracking-[0.16em] uppercase font-bold text-center rounded ${COPY_TRANSITION} ${
                         copiedSection === daySection.title
-                          ? `${copyFlashClass(daySection.borderColor)} ${COPY_GLOW}`
+                          ? `text-blue-500 dark:text-blue-400 ${COPY_GLOW}`
                           : `text-gold-ink hover:text-gold ${COPY_GLOW_OFF}`
                       }`}
                     >
                       {daySection.title}
-                    </button>
-                    {/* The keyboard path, and the sign that the card folds at all. */}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleSection(daySection.title, e.currentTarget);
-                      }}
-                      aria-expanded={!isCollapsed}
-                      aria-controls={`${sectionId}-verses`}
-                      title={isCollapsed ? 'Expand section' : 'Collapse section'}
-                      className="absolute -right-6 md:-right-8 inset-y-0 -my-3 w-14 md:w-20 flex items-center justify-end pr-5 cursor-pointer text-faint hover:text-ink active:text-ink transition-colors"
-                    >
-                      <svg
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.75"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={`h-4 w-4 transition-transform duration-300 ease-out ${
-                          isCollapsed ? '' : 'rotate-180'
-                        }`}
-                      >
-                        <path d="M5 7.5 10 12.5 15 7.5" />
-                      </svg>
-                    </button>
-                  </h3>
+                    </span>
 
-                  {isCollapsed && (
-                    <p className="mt-2 text-center font-sans text-[11px] tracking-[0.16em] uppercase text-faint">
-                      Verses {daySection.verseRange[0]}–{daySection.verseRange[1]}
-                    </p>
-                  )}
+                    {/* Speaker names with colored dots */}
+                    {speakerEntries.length > 0 && (
+                      <div className="flex items-center gap-2 flex-wrap">
+                        {speakerEntries.map(([id, def]) => (
+                          <span key={id} className="flex items-center gap-1">
+                            <span
+                              className="h-2 w-2 rounded-full"
+                              style={{ backgroundColor: `rgb(var(--speaker-${def.color}))` }}
+                            />
+                            <span className="font-sans text-[10px] tracking-[0.12em] uppercase text-muted">
+                              {def.name}
+                            </span>
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right: Verse range pill + chevron */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleSection(daySection.title, e.currentTarget);
+                    }}
+                    aria-expanded={!isCollapsed}
+                    aria-controls={`${sectionId}-verses`}
+                    className={`absolute right-0 top-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full flex-shrink-0 min-w-[90px] justify-center transition-all duration-150 cursor-pointer ${
+                      !isCollapsed
+                        ? 'bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 text-white shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(16,185,129,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(16,185,129,0.3),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
+                        : isNextSection
+                        ? 'bg-emerald-900/30 text-emerald-200/70 shadow-[0_2px_4px_rgba(0,0,0,0.15)] hover:bg-emerald-800/40 active:translate-y-[1px]'
+                        : 'bg-gradient-to-b from-stone-500 via-stone-600 to-stone-700 text-stone-100 shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:from-stone-400 hover:via-stone-500 hover:to-stone-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
+                    }`}
+                  >
+                    <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
+                      {actualChapter}:{daySection.verseRange[0]}–{daySection.verseRange[1]}
+                    </span>
+                    <svg
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`h-3 w-3 [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.3))] transition-transform duration-500 ease-out ${
+                        isCollapsed ? '' : 'rotate-180'
+                      }`}
+                    >
+                      <path d="M5 7.5 10 12.5 15 7.5" />
+                    </svg>
+                  </button>
                 </div>
 
-
-                {/* Scrolling on expand is handled by toggleSection's timer. */}
+                {/* Verses (collapsible) */}
                 <CollapsibleVerses
                   id={`${sectionId}-verses`}
                   isCollapsed={isCollapsed}
                 >
-                  {dayVerses.map((verse) => (
-                    <Verse
-                      key={verse.verse}
-                      verse={verse}
-                      isSelected={selectedVerses.has(verse.verse)}
-                      onToggle={toggleVerse}
-                      commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
-                      showCommentaryGate={!isAuthenticated}
-                      spans={spansByVerse.get(verse.verse)}
-                      speakerColors={speakerColors}
-                    />
-                  ))}
+                  <div className="mt-6">
+                    {dayVerses.map((verse) => (
+                      <Verse
+                        key={verse.verse}
+                        verse={verse}
+                        isSelected={selectedVerses.has(verse.verse)}
+                        onToggle={toggleVerse}
+                        commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
+                        showCommentaryGate={!isAuthenticated}
+                        spans={spansByVerse.get(verse.verse)}
+                        speakerColors={speakerColors}
+                        isFirstVerse={verse.verse === daySection.verseRange[0]}
+                      />
+                    ))}
+                  </div>
                 </CollapsibleVerses>
               </div>
             );
@@ -428,7 +473,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
         {/* Navigation buttons below sections */}
         {(prevChapter || nextChapter || bookCategory) && (
-          <div className="mt-8 pt-6 pb-6 border-t border-hairline">
+          <div className="py-6 md:py-8 border-t border-hairline">
             {/* Prev / Next */}
             <div className="flex justify-between items-center">
               {prevChapter && prevDivisionId && book ? (
@@ -444,17 +489,17 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               {nextChapter && nextDivisionId && book ? (
                 <button
                   onClick={handleNextClick}
-                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors cursor-pointer"
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-amber-500/40 text-amber-400/80 rounded-lg shadow-[0_0_12px_rgba(245,158,11,0.15)] hover:border-amber-400 hover:text-amber-300 hover:shadow-[0_0_16px_rgba(245,158,11,0.25)] transition-all cursor-pointer"
                 >
                   Next →
                 </button>
               ) : bookCategory ? (
-                <Link
-                  href={`/library/${bookCategory}`}
-                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                <button
+                  onClick={handleReturnToLibrary}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-emerald-500/40 text-emerald-400/80 rounded-lg shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:border-emerald-400 hover:text-emerald-300 hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] transition-all cursor-pointer"
                 >
                   Return to Library →
-                </Link>
+                </button>
               ) : (
                 <div />
               )}
@@ -468,6 +513,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // Default rendering for other chapters
   return (
     <div>
+      <ProgressBar />
       {chapterSpeakers && (
         <SpeakerLegend
           heading={`${bookLabel} ${actualChapter}`}
@@ -475,7 +521,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           speakers={chapterSpeakers.speakers}
         />
       )}
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6">
+      <div className="px-6 sm:px-10 md:px-16">
         <div className="font-serif text-ink text-[21px] leading-[1.95]">
           {verses.map((verse) => (
             <Verse
@@ -487,6 +533,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               showCommentaryGate={!isAuthenticated}
               spans={spansByVerse.get(verse.verse)}
               speakerColors={speakerColors}
+              isFirstVerse={verse.verse === 1}
             />
           ))}
         </div>

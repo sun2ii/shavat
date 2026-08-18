@@ -72,7 +72,6 @@ export default function BookMemorial({ book }: { book: BookMemorialData }) {
         <h1 className="mb-3">
           <CopyHeading
             text={bookText(book)}
-            title="Copy the whole overview"
             className="font-serif text-4xl md:text-5xl leading-tight text-center"
           >
             {book.title}

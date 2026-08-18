@@ -11,6 +11,7 @@ import { hasBookWriting } from '@/lib/writings/bookWritings';
 import { readingPath, writingPath } from '@/lib/routes';
 import BookMap from './BookMap';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
+import { useBookmarks } from '@/components/providers/BookmarkProvider';
 
 interface Props {
   bookSlug: string;
@@ -22,14 +23,16 @@ interface Props {
   isAuthenticated?: boolean;
 }
 
-function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }: {
+function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, bookmarkedChapters }: {
   divisions: BookDivision[];
   bookSlug: string;
   currentDivisionId: string;
   currentChapter: number;
+  bookmarkedChapters: Set<number>;
 }) {
   const [open, setOpen] = useState(false);
   const currentDivision = divisions.find(d => d.id === currentDivisionId);
+  const { isChapterComplete } = useReadingProgress();
   const divisionName = currentDivision?.title.replace('The Book of ', '').replace(/^The /, '') || '';
 
   return (
@@ -123,18 +126,30 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter }:
                   <div className="flex flex-wrap gap-x-1.5 gap-y-1.5 font-serif text-[15px] leading-none">
                     {div.chapters.map((chapter) => {
                       const isCurrent = isCurrentDivision && chapter === currentChapter;
+                      const isRead = isChapterComplete(bookSlug, chapter);
+                      const isBookmarkedCh = bookmarkedChapters.has(chapter);
                       return (
                         <Link
                           key={chapter}
                           href={readingPath(bookSlug, div.id, chapter)}
                           onClick={() => setOpen(false)}
-                          className={`inline-flex min-w-[30px] min-h-[32px] items-center justify-center rounded ${
-                            isCurrent
-                              ? 'text-gold font-bold'
-                              : 'text-muted hover:text-ink active:text-ink transition-colors'
+                          className={`relative inline-flex min-w-[30px] min-h-[32px] items-center justify-center rounded ${
+                            isCurrent && isRead
+                              ? 'text-emerald-500 font-bold'
+                              : isCurrent
+                              ? 'text-muted font-bold'
+                              : isRead
+                              ? 'text-emerald-500 hover:text-emerald-400 transition-colors'
+                              : 'text-muted/50 hover:text-ink active:text-ink transition-colors'
                           }`}
                         >
                           {chapter}
+                          {isBookmarkedCh && (
+                            <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-[8px] text-gold">★</span>
+                          )}
+                          {isCurrent && (
+                            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-blue-500">▲</span>
+                          )}
                         </Link>
                       );
                     })}
@@ -160,7 +175,6 @@ export default function ChapterNav({
   isAuthenticated = false,
 }: Props) {
   const router = useRouter();
-  const [isBookmarked, setIsBookmarked] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
 
   // Use reading progress from context (loaded server-side, no delay)
@@ -168,6 +182,14 @@ export default function ChapterNav({
   const isCurrentComplete = isChapterComplete(bookSlug, currentChapter);
   const [isToggling, setIsToggling] = useState(false);
   const [justCompleted, setJustCompleted] = useState(false);
+
+  // Use bookmarks from context (loaded server-side, no delay)
+  const { isBookmarked: isChapterBookmarked, getBookmarkedChapters, toggleBookmark } = useBookmarks();
+  const bookmarkedChapters = getBookmarkedChapters(bookSlug);
+
+  // For authenticated users, use context; for unauthenticated, use localStorage state
+  const [localBookmark, setLocalBookmark] = useState(false);
+  const isBookmarked = isAuthenticated ? isChapterBookmarked(bookSlug, currentChapter) : localBookmark;
 
   const chapterIndex = division.chapters.indexOf(currentChapter);
 
@@ -191,11 +213,12 @@ export default function ChapterNav({
   const writingExists = hasWriting(bookSlug, currentChapter);
   const writing = writingExists ? getWriting(bookSlug, currentChapter) : null;
 
+  // Load localStorage bookmark state for unauthenticated users
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === 'undefined' || isAuthenticated) return;
     const bookmark = storage.getBookmark();
-    setIsBookmarked(bookmark?.chapter === currentChapter && bookmark?.book === bookName);
-  }, [currentChapter, bookName]);
+    setLocalBookmark(bookmark?.chapter === currentChapter && bookmark?.book === bookSlug);
+  }, [currentChapter, bookSlug, isAuthenticated]);
 
   // Prefetch adjacent chapters for instant navigation
   useEffect(() => {
@@ -233,20 +256,27 @@ export default function ChapterNav({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId, prevDivisionChapterNum, nextDivisionChapterNum]);
 
-  const handleBookmark = () => {
+  const handleBookmark = async () => {
     if (typeof window === 'undefined') return;
-    try {
-      if (isBookmarked) {
-        storage.clearBookmark();
-        setIsBookmarked(false);
-      } else {
-        storage.setBookmark({ book: bookName, chapter: currentChapter, verse: 1 });
-        setIsBookmarked(true);
+
+    if (isAuthenticated) {
+      // Use context for authenticated users (optimistic update + API sync)
+      await toggleBookmark(bookSlug, currentChapter);
+      if (!isBookmarked) {
         setShowSaved(true);
         setTimeout(() => setShowSaved(false), 1500);
       }
-    } catch (error) {
-      console.error('Failed to save bookmark', error);
+    } else {
+      // Use localStorage for unauthenticated users
+      if (localBookmark) {
+        storage.clearBookmark();
+        setLocalBookmark(false);
+      } else {
+        storage.setBookmark({ book: bookSlug, chapter: currentChapter, verse: 1 });
+        setLocalBookmark(true);
+        setShowSaved(true);
+        setTimeout(() => setShowSaved(false), 1500);
+      }
     }
   };
 
@@ -277,6 +307,7 @@ export default function ChapterNav({
             basePath={readingPath(bookSlug)}
             currentChapter={currentChapter}
             currentDivisionId={division.id}
+            bookSlug={bookSlug}
           />
         </div>
 
@@ -320,6 +351,7 @@ export default function ChapterNav({
             bookSlug={bookSlug}
             currentDivisionId={division.id}
             currentChapter={currentChapter}
+            bookmarkedChapters={bookmarkedChapters}
           />
 
           {/* Current division chapters */}
@@ -327,6 +359,7 @@ export default function ChapterNav({
             {division.chapters.map((ch) => {
               const isActive = ch === currentChapter;
               const isCompleted = isChapterComplete(bookSlug, ch);
+              const isBookmarkedCh = bookmarkedChapters.has(ch);
               return (
                 <Link
                   key={ch}
@@ -334,9 +367,9 @@ export default function ChapterNav({
                   aria-label={isCompleted ? `Chapter ${ch}, completed` : `Chapter ${ch}`}
                   className={`inline-flex min-w-[32px] min-h-[36px] items-center justify-center transition-colors relative ${
                     isActive && isCompleted
-                      ? 'text-blue-600 dark:text-blue-400 font-bold'
+                      ? 'text-green-600 dark:text-green-400 font-bold'
                       : isActive
-                      ? `${titleColor} font-bold`
+                      ? 'text-muted font-bold'
                       : isCompleted
                       ? 'text-green-600 dark:text-green-400'
                       : 'text-faint hover:text-ink'
@@ -344,10 +377,11 @@ export default function ChapterNav({
                   title={isCompleted ? 'Completed' : undefined}
                 >
                   {ch}
-                  {isCompleted && (
-                    <span className={`absolute top-0 right-0.5 text-[10px] ${
-                      isActive ? 'text-blue-600 dark:text-blue-400' : 'text-green-600 dark:text-green-400'
-                    }`}>✓</span>
+                  {isBookmarkedCh && (
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 text-[8px] text-gold">★</span>
+                  )}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-blue-500">▲</span>
                   )}
                 </Link>
               );

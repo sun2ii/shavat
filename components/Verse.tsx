@@ -43,9 +43,11 @@ interface Props {
   spans?: Pick<QuoteSpan, 'speaker' | 'quote'>[];
   /* Speaker id → palette slot (1–10), resolved against the --speaker-N vars. */
   speakerColors?: Record<string, number>;
+  /** First verse of chapter gets drop cap treatment */
+  isFirstVerse?: boolean;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -54,47 +56,63 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
 
   return (
     <>
-      <span
-        className={`block mb-3 transition-colors cursor-pointer rounded [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] ${
+      <div
+        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text ${
           isSelected
             ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
-            : ''
+            : 'hover:text-[rgb(var(--speaker-4))]'
         }`}
         data-verse={verse.verse}
-        onDoubleClick={handleInteraction}
+        onDoubleClick={(e) => {
+          e.preventDefault();
+          handleInteraction();
+        }}
       >
-        {/* Verse number doubles as a single-tap toggle for touch devices,
-            where double-tap conflicts with iOS text selection/zoom. Inline
-            padding widens the hit area without changing the line box. */}
-        <sup
-          className="mr-1 px-1 -mx-0.5 py-2 text-xs font-sans font-semibold select-none align-super text-gold cursor-pointer"
+        {/* Verse number - fixed width, aligned to first line of text */}
+        <span
+          className="w-7 flex-shrink-0 text-center text-[13px] font-sans font-medium select-none text-gold cursor-pointer"
+          style={{ lineHeight: '1.95', paddingTop: '0.15em' }}
           onClick={handleInteraction}
         >
           {verse.verse}
-        </sup>
-        {spans && spans.length > 0 && speakerColors
-          ? tokenizeVerse(verse.text, spans).map((run, i) =>
-              run.speaker && speakerColors[run.speaker] ? (
-                <span
-                  key={i}
-                  className="font-bold italic"
-                  style={{ color: `rgb(var(--speaker-${speakerColors[run.speaker]}))` }}
-                >
-                  {renderWithPlaces(run.text)}
-                </span>
-              ) : (
-                <span key={i}>{renderWithPlaces(run.text)}</span>
+        </span>
+        <span className="flex-1">
+          {isFirstVerse && verse.text.length > 0 && (
+            <span
+              className="float-left text-[2.6rem] font-serif mr-1.5 select-none"
+              style={{
+                color: 'rgb(var(--speaker-4))',
+                lineHeight: '0.85',
+                marginTop: '0.12em',
+              }}
+            >
+              {verse.text[0]}
+            </span>
+          )}
+          {spans && spans.length > 0 && speakerColors
+            ? tokenizeVerse(isFirstVerse ? verse.text.slice(1) : verse.text, spans).map((run, i) =>
+                run.speaker && speakerColors[run.speaker] ? (
+                  <span
+                    key={i}
+                    className="font-bold italic"
+                    style={{ color: `rgb(var(--speaker-${speakerColors[run.speaker]}))` }}
+                  >
+                    {renderWithPlaces(run.text)}
+                  </span>
+                ) : (
+                  <span key={i}>{renderWithPlaces(run.text)}</span>
+                )
               )
-            )
-          : renderWithPlaces(verse.text)}
-      </span>
+            : renderWithPlaces(isFirstVerse ? verse.text.slice(1) : verse.text)}
+        </span>
+      </div>
 
       {isSelected && commentary && (
-        <span className="block my-5 pl-5 border-l-2 border-gold">
-          <span className="block font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-gold-ink mb-1.5">
+        <span className="block mt-4 mb-5 pl-6 pr-4 py-4 border-l-[3px] border-gold/60 bg-[rgb(var(--highlight-yellow)/0.06)] rounded-r">
+          <span className="block font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-gold-ink mb-2">
             Commentary · Verse {verse.verse}
           </span>
-          <span className="block font-serif text-[16.5px] leading-relaxed text-muted">
+          <span className="block font-serif text-[17px] leading-relaxed text-muted">
             {commentary}
           </span>
         </span>

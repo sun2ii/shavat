@@ -10,6 +10,7 @@ import DebugModeSync from '@/components/SvgDebugMode';
 import { getCurrentUser } from '@/lib/auth';
 import { sql } from '@/lib/db';
 import { ReadingProgressProvider } from '@/components/providers/ReadingProgressProvider';
+import { BookmarkProvider } from '@/components/providers/BookmarkProvider';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -67,6 +68,28 @@ async function getReadingProgress(userEmail: string | null): Promise<Record<stri
   }
 }
 
+// Fetch bookmarks for authenticated user
+async function getBookmarks(userEmail: string | null): Promise<Record<string, number[]>> {
+  if (!userEmail) return {};
+
+  try {
+    const rows = await sql`
+      SELECT book, array_agg(chapter ORDER BY chapter) as chapters
+      FROM bookmarks
+      WHERE user_email = ${userEmail}
+      GROUP BY book
+    `;
+
+    const bookmarks: Record<string, number[]> = {};
+    for (const row of rows) {
+      bookmarks[row.book as string] = row.chapters as number[];
+    }
+    return bookmarks;
+  } catch {
+    return {};
+  }
+}
+
 export default async function RootLayout({
   children,
 }: {
@@ -75,6 +98,7 @@ export default async function RootLayout({
   const user = await getCurrentUser();
   const isAuthenticated = !!user;
   const readingProgress = await getReadingProgress(user?.email ?? null);
+  const bookmarks = await getBookmarks(user?.email ?? null);
 
   return (
     <html lang="en">
@@ -92,12 +116,14 @@ export default async function RootLayout({
         <RoutePersistence />
         <GlobalKeyboardNav />
         <DebugModeSync />
-        <ReadingProgressProvider initialProgress={readingProgress}>
-          <InnerLayout isAuthenticated={isAuthenticated}>
-            {/* Cross-fades tab switches in the native shell; inert on web. */}
-            <PageFade>{children}</PageFade>
-          </InnerLayout>
-        </ReadingProgressProvider>
+        <BookmarkProvider initialBookmarks={bookmarks}>
+          <ReadingProgressProvider initialProgress={readingProgress}>
+            <InnerLayout isAuthenticated={isAuthenticated}>
+              {/* Cross-fades tab switches in the native shell; inert on web. */}
+              <PageFade>{children}</PageFade>
+            </InnerLayout>
+          </ReadingProgressProvider>
+        </BookmarkProvider>
         {/* These render only inside the Capacitor iOS shell; null on the web. */}
         <NativeTabBar />
         <NativeSplash />

@@ -15,7 +15,7 @@ export default function HighlightsList() {
 
   const handleDelete = (id: string) => {
     storage.deleteHighlight(id);
-    setHighlights(storage.getHighlights());
+    setHighlights(prev => prev.filter(h => h.id !== id));
   };
 
   const highlightsByChapter = highlights.reduce((acc, highlight) => {

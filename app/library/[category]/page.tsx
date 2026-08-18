@@ -69,75 +69,72 @@ const ACTS_SECTIONS = [
 ];
 
 /*
-  Pauline Epistles organized chronologically by journey/era.
+  Pauline Epistles organized by theme.
 
-  DURING ACTS (Paul's letters written during the events recorded in Acts):
-  - First Journey: Galatians
-  - Second Journey: 1-2 Thessalonians
-  - Third Journey: 1-2 Corinthians, Romans
-  - Rome: Philippians, Philemon, Colossians, Ephesians (prison epistles)
-
-  AFTER ACTS (Paul's letters written after Acts 28 ends):
-  - Later Ministry: 1 Timothy, Titus
-  - Final Imprisonment: 2 Timothy
+  01 EARLY CHURCH: Galatians, 1-2 Thessalonians
+  02 CHURCH & GOSPEL: 1-2 Corinthians, Romans
+  03 LIFE IN CHRIST: Philippians, Philemon, Colossians, Ephesians
+  04 LEADING THE CHURCH: 1 Timothy, Titus, 2 Timothy
 */
 type PaulineEra = {
   id: string;
   number: string;
   title: string;
-  subtitle?: string;
   books: string[];
-  duringActs: boolean;
 };
 
 const PAULINE_ERAS: PaulineEra[] = [
   {
-    id: 'first-journey',
+    id: 'early-church',
     number: '01',
-    title: 'First Journey',
-    subtitle: 'Acts 13–15 · ~AD 48–49',
-    books: ['galatians'],
-    duringActs: true,
+    title: 'Early Church',
+    books: ['galatians', '1-thessalonians', '2-thessalonians'],
   },
   {
-    id: 'second-journey',
+    id: 'church-gospel',
     number: '02',
-    title: 'Second Journey',
-    subtitle: 'Acts 15–18 · ~AD 49–52',
-    books: ['1-thessalonians', '2-thessalonians'],
-    duringActs: true,
+    title: 'Church & Gospel',
+    books: ['romans', '1-corinthians', '2-corinthians'],
   },
   {
-    id: 'third-journey',
+    id: 'life-in-christ',
     number: '03',
-    title: 'Third Journey',
-    subtitle: 'Acts 18–21 · ~AD 53–57',
-    books: ['1-corinthians', '2-corinthians', 'romans'],
-    duringActs: true,
+    title: 'Life in Christ',
+    books: ['philemon', 'philippians', 'colossians', 'ephesians'],
   },
   {
-    id: 'rome',
+    id: 'leading-the-church',
     number: '04',
-    title: 'Rome',
-    subtitle: 'Acts 28 · ~AD 60–62',
-    books: ['philippians', 'philemon', 'colossians', 'ephesians'],
-    duringActs: true,
+    title: 'Leading the Church',
+    books: ['titus', '1-timothy', '2-timothy'],
+  },
+];
+
+/*
+  General Epistles organized by authorship.
+
+  01 JESUS' DISCIPLES: 1-2 Peter, 1-2-3 John
+  02 OTHER: Hebrews, James, Jude
+*/
+type GeneralEra = {
+  id: string;
+  number: string;
+  title: string;
+  books: string[];
+};
+
+const GENERAL_ERAS: GeneralEra[] = [
+  {
+    id: 'jesus-disciples',
+    number: '01',
+    title: "Jesus' Disciples",
+    books: ['1-peter', '2-peter', '1-john', '2-john', '3-john'],
   },
   {
-    id: 'later-ministry',
-    number: '05',
-    title: 'Later Ministry',
-    subtitle: '~AD 62–65',
-    books: ['1-timothy', 'titus'],
-    duringActs: false,
-  },
-  {
-    id: 'final-imprisonment',
-    number: '06',
-    title: 'Final Imprisonment',
-    subtitle: '~AD 64–67',
-    books: ['2-timothy'],
-    duringActs: false,
+    id: 'other',
+    number: '02',
+    title: 'Other Voices',
+    books: ['hebrews', 'james', 'jude'],
   },
 ];
 
@@ -240,7 +237,7 @@ function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' }
   );
 }
 
-function BookHeader({ number, name, sub, anchor }: { number?: string; name: string; sub?: string; anchor?: string }) {
+function BookHeader({ number, name, sub, anchor, noBorder }: { number?: string; name: string; sub?: string; anchor?: string; noBorder?: boolean }) {
   // On phones every book starts collapsed to just this header row — tap to
   // unfold its cards. The `book-collapsed` class hides all following siblings
   // in the section via a media-scoped rule in globals.css, so desktop stays
@@ -251,7 +248,7 @@ function BookHeader({ number, name, sub, anchor }: { number?: string; name: stri
       onClick={() => setOpen((v) => !v)}
       role="button"
       aria-expanded={open}
-      className={`flex flex-wrap items-baseline gap-2 pt-5 pb-1.5 border-t border-hairline cursor-pointer select-none md:pointer-events-none md:cursor-auto ${
+      className={`flex flex-wrap items-baseline gap-2 pt-5 pb-1.5 ${noBorder ? '' : 'border-t border-hairline'} cursor-pointer select-none md:pointer-events-none md:cursor-auto ${
         open ? '' : 'book-collapsed'
       }`}
     >
@@ -275,7 +272,6 @@ function DivisionCard({
   href,
   title,
   scripture,
-  theme,
   hasCommentary,
   hasWritings,
   hasSpeakers,
@@ -308,9 +304,9 @@ function DivisionCard({
     <Link
       href={href}
       style={{ '--accent': accent } as React.CSSProperties}
-      className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] active:bg-paper-2 active:border-l-[var(--accent)] text-center min-h-[72px] flex flex-col justify-between ${
+      className={`relative block rounded px-2 py-2 border shadow-sm hover:shadow-md transition-[background-color,border-color,transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:bg-gold/10 hover:border-gold/50 active:bg-gold/10 active:border-gold/50 text-center ${
         isComplete
-          ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
+          ? 'bg-emerald-500/5 border-emerald-500/30'
           : 'bg-surface border-hairline'
       } ${
         focused
@@ -318,18 +314,11 @@ function DivisionCard({
           : 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold'
       }`}
     >
-      <div>
-        <div className="font-serif text-[12px] leading-tight text-ink">
-          {title}
-        </div>
-        {theme && (
-          <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2 whitespace-pre-line">
-            {theme}
-          </div>
-        )}
+      <div className="font-serif text-[12px] leading-tight text-ink">
+        {title}
       </div>
-      <div className="flex items-center justify-center">
-        <span className="font-sans text-[10px] text-gold">{scripture}</span>
+      <div className="font-sans text-[10px] text-gold mt-0.5">
+        {scripture}
       </div>
       {/* Dots in bottom-right corner */}
       {showDots && (
@@ -740,8 +729,9 @@ export default function LibraryPage() {
       }
 
       // Number keys 1-9 navigate to tabs dynamically based on TABS array
+      // Only trigger when no modifier keys are held (Cmd/Ctrl/Alt)
       const numKey = parseInt(e.key, 10);
-      if (numKey >= 1 && numKey <= TABS.length) {
+      if (numKey >= 1 && numKey <= TABS.length && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const tab = TABS[numKey - 1];
         if (tab) {
           router.push(`/library/${tab.id}`);
@@ -841,30 +831,18 @@ export default function LibraryPage() {
                           { length: item.endChapter - item.startChapter + 1 },
                           (_, i) => item.startChapter + i
                         );
-                        const isComplete = isDivisionComplete('genesis', chapters);
                         return (
-                          <Link
+                          <DivisionCard
                             key={item.title}
                             href={readingPath('genesis', item.startChapter)}
-                            className={`relative block rounded px-2 py-1.5 border border-l-2 transition-[background-color,border-color,transform] duration-150 hover:-translate-y-px hover:bg-paper-2 hover:border-l-[var(--accent)] active:bg-paper-2 active:border-l-[var(--accent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold text-center min-h-[72px] flex flex-col justify-between ${
-                              isComplete
-                                ? 'bg-emerald-500/5 border-emerald-500/30 border-l-emerald-500'
-                                : 'bg-surface border-hairline'
-                            }`}
-                            style={{ '--accent': accent } as React.CSSProperties}
-                          >
-                            <div>
-                              <div className="font-serif text-[12px] leading-tight text-ink">
-                                {item.title}
-                              </div>
-                              <div className="font-serif italic text-[10px] text-muted leading-snug mt-0.5 line-clamp-2">
-                                {item.theme}
-                              </div>
-                            </div>
-                            <div className="font-sans text-[10px] text-gold">
-                              {item.scripture}
-                            </div>
-                          </Link>
+                            title={item.title}
+                            scripture={item.scripture}
+                            hasCommentary={divisionHasCommentary('genesis', chapters)}
+                            hasWritings={divisionHasWritings('genesis', chapters)}
+                            hasSpeakers={divisionHasSpeakers('genesis', chapters)}
+                            accent={accent}
+                            isComplete={isDivisionComplete('genesis', chapters)}
+                          />
                         );
                       })}
                     </div>
@@ -1288,115 +1266,91 @@ export default function LibraryPage() {
 
         return (
           <div className="space-y-6">
-            {/* ACTS - The Historical Spine */}
-            {actsBook && (
-              <section>
-                <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                  {ACTS_SECTIONS.map((section, i) => (
-                    <DivisionCard
-                      key={section.id}
-                      href={section.href}
-                      title={section.title}
-                      scripture={section.scripture}
-                      theme={section.theme}
-                      hasCommentary={divisionHasCommentary('acts', section.chapters)}
-                      hasWritings={divisionHasWritings('acts', section.chapters)}
-                      hasSpeakers={divisionHasSpeakers('acts', section.chapters)}
-                      accent={ACCENTS[i % ACCENTS.length]}
-                      focused={focusedCardId === section.id}
-                      isComplete={isDivisionComplete('acts', section.chapters)}
-                    />
-                  ))}
-                </div>
-              </section>
-            )}
+            {/* ACTS & REVELATION - Side by side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+              {/* ACTS */}
+              {actsBook && (
+                <section>
+                  <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} noBorder />
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
+                    {ACTS_SECTIONS.map((section, i) => (
+                      <DivisionCard
+                        key={section.id}
+                        href={section.href}
+                        title={section.title}
+                        scripture={section.scripture}
+                        theme={section.theme}
+                        hasCommentary={divisionHasCommentary('acts', section.chapters)}
+                        hasWritings={divisionHasWritings('acts', section.chapters)}
+                        hasSpeakers={divisionHasSpeakers('acts', section.chapters)}
+                        accent={ACCENTS[i % ACCENTS.length]}
+                        focused={focusedCardId === section.id}
+                        isComplete={isDivisionComplete('acts', section.chapters)}
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
 
-            {/* PAULINE EPISTLES - Chronologically nested into Acts */}
+              {/* REVELATION */}
+              {apocalypseBooks.length > 0 && (
+                <section>
+                  <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} noBorder />
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
+                    {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
+                  </div>
+                </section>
+              )}
+            </div>
+
+            {/* PAULINE EPISTLES - Organized by theme */}
             <section>
               <BookHeader name="Pauline Epistles" sub="13 books" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+                {PAULINE_ERAS.map((era, eraIdx) => {
+                  const eraBooks = era.books
+                    .map(slug => paulineBooks.find(b => b.slug === slug))
+                    .filter((b): b is typeof paulineBooks[0] => b !== undefined);
 
-              {/* Two main columns: During Acts | After Acts */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mt-2">
-                {/* Left: During Acts */}
-                <div>
-                  <div className="font-sans text-[10px] tracking-wider text-gold/70 uppercase mb-2">
-                    During Acts
-                  </div>
-                  {/* 2 sub-columns for eras */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
-                    {PAULINE_ERAS.filter(era => era.duringActs).map((era, eraIdx) => {
-                      const eraBooks = era.books
-                        .map(slug => paulineBooks.find(b => b.slug === slug))
-                        .filter((b): b is typeof paulineBooks[0] => b !== undefined);
-
-                      return (
-                        <div key={era.id}>
-                          <div className="flex items-baseline gap-1 mb-1 flex-wrap">
-                            <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
-                            <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
-                            {era.subtitle && (
-                              <span className="font-sans text-[10px] text-muted italic">{era.subtitle}</span>
-                            )}
-                          </div>
-                          <div className="grid grid-cols-2 gap-1">
-                            {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Right: After Acts */}
-                <div>
-                  <div className="font-sans text-[10px] tracking-wider text-gold/70 uppercase mb-2">
-                    After Acts
-                  </div>
-                  {/* 2 sub-columns for eras */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
-                    {PAULINE_ERAS.filter(era => !era.duringActs).map((era, eraIdx) => {
-                      const eraBooks = era.books
-                        .map(slug => paulineBooks.find(b => b.slug === slug))
-                        .filter((b): b is typeof paulineBooks[0] => b !== undefined);
-
-                      return (
-                        <div key={era.id}>
-                          <div className="flex items-baseline gap-1 mb-1 flex-wrap">
-                            <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
-                            <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
-                            {era.subtitle && (
-                              <span className="font-sans text-[10px] text-muted italic">{era.subtitle}</span>
-                            )}
-                          </div>
-                          <div className="grid grid-cols-2 gap-1">
-                            {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + 4 + i) % ACCENTS.length]))}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                  return (
+                    <div key={era.id}>
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
+                        <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
+                      </div>
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                        {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
-            {/* GENERAL EPISTLES - Keep flat, no chronological structure */}
+            {/* GENERAL EPISTLES - Organized by authorship */}
             <section>
               <BookHeader name="General Epistles" sub={`${generalBooks.length} books`} />
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                {generalBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+                {GENERAL_ERAS.map((era, eraIdx) => {
+                  const eraBooks = era.books
+                    .map(slug => generalBooks.find(b => b.slug === slug))
+                    .filter((b): b is typeof generalBooks[0] => b !== undefined);
+
+                  return (
+                    <div key={era.id}>
+                      <div className="flex items-baseline gap-1 mb-1">
+                        <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
+                        <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
+                      </div>
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                        {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
-            {/* REVELATION - Isolated at the end */}
-            {apocalypseBooks.length > 0 && (
-              <section>
-                <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                  {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
-                </div>
-              </section>
-            )}
           </div>
         );
       }

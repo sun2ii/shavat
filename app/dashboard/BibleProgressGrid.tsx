@@ -26,7 +26,7 @@ type ApostolicDiv = 'acts' | 'pauline' | 'general' | 'apocalypse';
 
 const APOSTOLIC_DIVS: { id: ApostolicDiv; label: string; books: string[] }[] = [
   { id: 'acts', label: '', books: ['acts'] },
-  { id: 'pauline', label: 'Pauline', books: ['romans', '1-corinthians', '2-corinthians', 'galatians', 'ephesians', 'philippians', 'colossians', '1-thessalonians', '2-thessalonians', '1-timothy', '2-timothy', 'titus', 'philemon'] },
+  { id: 'pauline', label: 'Pauline', books: ['galatians', '1-thessalonians', '2-thessalonians', '1-corinthians', '2-corinthians', 'romans', 'philippians', 'philemon', 'colossians', 'ephesians', '1-timothy', 'titus', '2-timothy'] },
   { id: 'general', label: 'General', books: ['hebrews', 'james', '1-peter', '2-peter', '1-john', '2-john', '3-john', 'jude'] },
   { id: 'apocalypse', label: 'Apocalypse', books: ['revelation'] },
 ];

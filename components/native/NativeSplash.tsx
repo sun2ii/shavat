@@ -53,6 +53,9 @@ export default function NativeSplash() {
       <div className="mt-5 font-playfair text-3xl font-semibold text-[#F7F5F1] animate-[splash-title_1.1s_ease-out_0.25s_both]">
         SHAVAT
       </div>
+      <div className="mt-2 text-xl text-[#F7F5F1]/70 animate-[splash-title_1.1s_ease-out_0.35s_both]">
+        שָׁבַת
+      </div>
       <div className="mt-3 font-sans text-[10px] uppercase tracking-[0.35em] text-[#C8A248] animate-[splash-kicker_0.8s_ease-out_0.95s_both]">
         Know where you are
       </div>

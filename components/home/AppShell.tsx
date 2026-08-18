@@ -23,6 +23,25 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Restore sidebar state from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('shavat-sidebar-collapsed');
+      if (saved === 'true') {
+        setSidebarOpen(false);
+      }
+    } catch {}
+  }, []);
+
+  // Toggle sidebar and persist preference
+  const handleSidebarToggle = () => {
+    const newState = !sidebarOpen;
+    setSidebarOpen(newState);
+    try {
+      localStorage.setItem('shavat-sidebar-collapsed', newState ? 'false' : 'true');
+    } catch {}
+  };
+
   return (
     <div className="min-h-screen font-inter bg-paper text-ink">
       {/* Desktop: sidebar layout */}
@@ -31,11 +50,11 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
           className="min-h-screen"
           style={{
             display: 'grid',
-            gridTemplateColumns: sidebarOpen ? '222px 1fr' : '110px 1fr',
+            gridTemplateColumns: sidebarOpen ? '200px 1fr' : '72px 1fr',
             transition: 'grid-template-columns 0.3s ease'
           }}
         >
-          <Sidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} isAuthenticated={isAuthenticated} />
+          <Sidebar isOpen={sidebarOpen} onToggle={handleSidebarToggle} isAuthenticated={isAuthenticated} />
           <main className="min-w-0 overflow-auto">
             {children}
           </main>
@@ -46,7 +65,7 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
       <div className="lg:hidden">
         {/* Mobile header — hidden inside the Capacitor iOS shell, where the
             bottom tab bar is the navigation and the header would waste space. */}
-        <header className="sticky top-0 z-30 bg-sidebar-bg px-4 py-3 flex items-center gap-4 [.native-app_&]:hidden">
+        <header className="sticky top-0 z-40 bg-sidebar-bg px-4 py-3 flex items-center gap-4 [.native-app_&]:hidden">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-1 text-sidebar-text-muted hover:text-sidebar-text"

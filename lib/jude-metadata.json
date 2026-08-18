@@ -1,6 +1,15 @@
 {
   "bookTheme": "Contend for the Faith",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "The Epistle",
+      "chapters": [1],
+      "theme": "Stand firm against false teaching",
+      "summary": "Contend for the faith once delivered, false teachers are like clouds without rain, keep yourselves in God's love, await Christ's mercy",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Contend for the faith, false teachers condemned, keep yourselves in God's love"
   }

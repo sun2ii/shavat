@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { storage } from '@/lib/storage';
 import { getHighlightColor } from '@/lib/highlight-colors';
-import { BIBLE_INDEX } from '@/lib/bible-index';
 import type { Highlight } from '@/lib/types';
+import { bookName } from '@/lib/book-helpers';
 import ThemeToggle from '@/components/ThemeToggle';
 import LogoutButton from '@/app/dashboard/LogoutButton';
 import BibleProgressGrid from '@/app/dashboard/BibleProgressGrid';
@@ -15,10 +15,6 @@ interface Props {
   currentReading: { book: string; slug: string; chapter: number } | null;
   stats: { completedChapters: number; totalChapters: number; percentage: string } | null;
   completedByBook: Record<string, number[]>;
-}
-
-function bookName(slug: string): string {
-  return BIBLE_INDEX.find((b) => b.slug === slug)?.name ?? slug;
 }
 
 /** Most recent saved verse — a small remembrance card and the door to Saved. */

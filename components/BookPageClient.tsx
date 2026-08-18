@@ -50,7 +50,7 @@ export default function BookPageClient({
   const nextDivisionId = hasNextInDivision ? division.id : nextDivision?.id;
 
   return (
-    <main>
+    <main key={`${bookSlug}-${currentChapter}`} className="chapter-enter">
       <ChapterNav
         bookSlug={bookSlug}
         bookName={bookName}

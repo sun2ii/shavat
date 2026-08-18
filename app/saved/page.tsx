@@ -1,10 +1,43 @@
+import { getCurrentUser } from '@/lib/auth';
+import { sql } from '@/lib/db';
 import SavedContent from './SavedContent';
 
 // Saved — everything the reader made with their own hand: highlights (with
-// their notes) and the reading-position bookmark, in one place. v1 reads the
-// existing localStorage stores; account-backed sync is the known follow-up
-// (see docs + project notes). Authored essays/writings deliberately live in
-// the Read world, not here.
-export default function SavedPage() {
-  return <SavedContent />;
+// their notes), bookmarks, and reflections. v1 reads localStorage for
+// unauthenticated users; authenticated users get account-backed storage.
+
+interface DbBookmark {
+  book: string;
+  chapter: number;
+  verse: number | null;
+  created_at: string;
+}
+
+async function getBookmarks(userEmail: string): Promise<DbBookmark[]> {
+  try {
+    const rows = await sql`
+      SELECT book, chapter, verse, created_at
+      FROM bookmarks
+      WHERE user_email = ${userEmail}
+      ORDER BY created_at DESC
+    `;
+    return rows as DbBookmark[];
+  } catch {
+    return [];
+  }
+}
+
+export default async function SavedPage() {
+  const user = await getCurrentUser();
+  const isAuthenticated = !!user;
+
+  // Fetch server-side data for authenticated users
+  const serverBookmarks = isAuthenticated ? await getBookmarks(user!.email) : [];
+
+  return (
+    <SavedContent
+      isAuthenticated={isAuthenticated}
+      serverBookmarks={serverBookmarks}
+    />
+  );
 }

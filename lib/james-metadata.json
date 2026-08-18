@@ -1,6 +1,15 @@
 {
   "bookTheme": "Faith That Works",
-  "divisions": [],
+  "divisions": [
+    {
+      "id": "epistle",
+      "title": "The Epistle",
+      "chapters": [1, 2, 3, 4, 5],
+      "theme": "Faith without works is dead",
+      "summary": "Practical wisdom for believers: trials produce maturity, be doers of the word, faith is shown by deeds, tame the tongue, submit to God",
+      "contentType": "epistle"
+    }
+  ],
   "chapterSummaries": {
     "1": "Trials produce perseverance, ask God for wisdom, faith without works is dead",
     "2": "Do not show favoritism, faith without deeds is useless",

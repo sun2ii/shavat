@@ -2,7 +2,7 @@
   "divisions": [
     {
       "id": "the-quest-for-meaning",
-      "title": "The Quest for Meaning",
+      "title": "Vanity",
       "chapters": [1, 2],
       "theme": "Vanity of vanities, all is vanity",
       "summary": "The Teacher examines pleasure, wisdom, toil, and achievement, finding all meaningless under the sun.",
@@ -10,7 +10,7 @@
     },
     {
       "id": "time-justice-and-god",
-      "title": "Time, Justice, and God",
+      "title": "Time & Justice",
       "chapters": [3, 4, 5],
       "theme": "A time for everything under heaven",
       "summary": "Seasons of life, oppression observed, the folly of vows, and the fear of God as anchor.",
@@ -26,7 +26,7 @@
     },
     {
       "id": "life-death-and-the-creator",
-      "title": "Life, Death & the Creator",
+      "title": "Remember",
       "chapters": [9, 10, 11, 12],
       "theme": "Remember your Creator in the days of your youth",
       "summary": "Enjoy life while you can, wisdom and folly contrasted, youth fades, dust returns, fear God and keep his commandments.",

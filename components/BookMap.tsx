@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 
 interface MapDivision {
   id: string;
@@ -15,6 +16,7 @@ interface Props {
   basePath: string;
   currentChapter: number;
   currentDivisionId: string;
+  bookSlug: string;
 }
 
 /**
@@ -29,9 +31,11 @@ export default function BookMap({
   basePath,
   currentChapter,
   currentDivisionId,
+  bookSlug,
 }: Props) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const { isChapterComplete } = useReadingProgress();
 
   useEffect(() => {
     if (!open) return;
@@ -96,6 +100,7 @@ export default function BookMap({
                     {division.chapters.map((chapter) => {
                       const isCurrent =
                         isCurrentDivision && chapter === currentChapter;
+                      const isRead = isChapterComplete(bookSlug, chapter);
                       return (
                         <Link
                           key={chapter}
@@ -104,7 +109,9 @@ export default function BookMap({
                           className={
                             isCurrent
                               ? 'text-gold font-bold'
-                              : 'text-muted hover:text-ink transition-colors'
+                              : isRead
+                              ? 'text-emerald-500 hover:text-emerald-400 transition-colors'
+                              : 'text-muted/50 hover:text-ink transition-colors'
                           }
                         >
                           {chapter}

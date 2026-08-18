@@ -9,7 +9,7 @@ export function Header() {
           <div className="w-[54px] h-[60px] rounded-md overflow-hidden flex-none bg-shavat-pale dark:bg-shavat-charcoal" />
           <div>
             <div className="font-playfair text-[34px] font-semibold tracking-wide-6 text-shavat-darkest dark:text-shavat-cream leading-none">
-              SHAVAT
+              SHAVAT <span className="text-[18px] text-shavat-charcoal dark:text-shavat-silver font-normal">שָׁבַת</span>
             </div>
             <div className="flex items-center gap-2 mt-1">
               <span className="h-px w-7 bg-shavat-gold" />

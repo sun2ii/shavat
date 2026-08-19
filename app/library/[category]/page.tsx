@@ -1305,7 +1305,7 @@ export default function LibraryPage() {
 
             {/* PAULINE EPISTLES - Organized by theme */}
             <section>
-              <BookHeader name="Pauline Epistles" sub="13 books" />
+              <BookHeader name="Paul's Epistles" sub="13 books" />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
                 {PAULINE_ERAS.map((era, eraIdx) => {
                   const eraBooks = era.books

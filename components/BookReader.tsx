@@ -356,9 +356,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   id={`${sectionId}-header`}
                   className="relative flex items-start justify-center"
                 >
-                  {/* Center: Title + speakers - clicking anywhere here copies + opens */}
+                  {/* Title + speakers - left on mobile, center on desktop */}
                   <div
-                    className="flex flex-col gap-1 cursor-pointer items-center text-center w-full"
+                    className="flex flex-col gap-1 cursor-pointer items-start sm:items-center text-left sm:text-center w-full"
                     onClick={async (e) => {
                       e.stopPropagation();
                       const origin = e.currentTarget as HTMLElement;
@@ -415,7 +415,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                     }}
                     aria-expanded={!isCollapsed}
                     aria-controls={`${sectionId}-verses`}
-                    className={`absolute right-0 top-0 flex items-center gap-1.5 px-3.5 py-1.5 rounded-full flex-shrink-0 min-w-[90px] justify-center transition-all duration-150 cursor-pointer ${
+                    className={`absolute right-0 top-0 flex items-center gap-1 px-2.5 py-1 rounded-full flex-shrink-0 min-w-[50px] justify-center transition-all duration-150 cursor-pointer ${
                       !isCollapsed
                         ? 'bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 text-white shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(16,185,129,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(16,185,129,0.3),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
                         : isNextSection
@@ -424,7 +424,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                     }`}
                   >
                     <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                      {actualChapter}:{daySection.verseRange[0]}–{daySection.verseRange[1]}
+                      {daySection.verseRange[1] - daySection.verseRange[0] + 1}
                     </span>
                     <svg
                       viewBox="0 0 20 20"

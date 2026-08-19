@@ -115,6 +115,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     }
     return null;
   });
+  // Auto-highlight first verse of newly opened section (clears on any hover)
+  const [autoHighlightedVerse, setAutoHighlightedVerse] = useState<number | null>(null);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const unfoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -243,9 +245,10 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     every "lands anywhere but the top" bug. closest() walks up from the real
     tapped element, so it can only find the visible copy.
   */
-  const toggleSection = (sectionName: string, origin?: HTMLElement | null) => {
+  const toggleSection = (sectionName: string, origin?: HTMLElement | null, firstVerse?: number) => {
     const newSection = expandedSection === sectionName ? null : sectionName;
     setExpandedSection(newSection);
+    setAutoHighlightedVerse(newSection && firstVerse ? firstVerse : null);
     if (newSection) {
       const id = slugify(newSection);
       window.history.replaceState(null, '', `#${id}`);
@@ -346,7 +349,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               <div
                 key={daySection.title}
                 id={sectionId}
-                onClick={isCollapsed ? (e) => toggleSection(daySection.title, e.currentTarget) : undefined}
+                onClick={isCollapsed ? (e) => toggleSection(daySection.title, e.currentTarget, daySection.verseRange[0]) : undefined}
                 className={`scroll-mt-16 py-3 md:py-4 ${
                   isCollapsed ? 'cursor-pointer' : ''
                 }`}
@@ -371,11 +374,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                       if (unfoldTimer.current) clearTimeout(unfoldTimer.current);
                       if (copied) {
                         unfoldTimer.current = setTimeout(
-                          () => toggleSection(daySection.title, origin),
+                          () => toggleSection(daySection.title, origin, daySection.verseRange[0]),
                           COPY_UNFOLD_DELAY_MS
                         );
                       } else {
-                        toggleSection(daySection.title, origin);
+                        toggleSection(daySection.title, origin, daySection.verseRange[0]);
                       }
                     }}
                   >
@@ -411,7 +414,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      toggleSection(daySection.title, e.currentTarget);
+                      toggleSection(daySection.title, e.currentTarget, daySection.verseRange[0]);
                     }}
                     aria-expanded={!isCollapsed}
                     aria-controls={`${sectionId}-verses`}
@@ -459,6 +462,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         spans={spansByVerse.get(verse.verse)}
                         speakerColors={speakerColors}
                         isFirstVerse={verse.verse === daySection.verseRange[0]}
+                        isHighlighted={autoHighlightedVerse === verse.verse}
+                        onMouseEnter={() => setAutoHighlightedVerse(null)}
                       />
                     ))}
                   </div>

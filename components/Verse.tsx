@@ -45,9 +45,13 @@ interface Props {
   speakerColors?: Record<string, number>;
   /** First verse of chapter gets drop cap treatment */
   isFirstVerse?: boolean;
+  /** Purple text highlight for first verse of opened section */
+  isHighlighted?: boolean;
+  /** Called when mouse enters verse (to clear auto-highlight) */
+  onMouseEnter?: () => void;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -57,12 +61,15 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
   return (
     <>
       <div
-        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text ${
+        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text hover:text-[rgb(var(--speaker-4))] ${
           isSelected
             ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
-            : 'hover:text-[rgb(var(--speaker-4))]'
+            : isHighlighted
+            ? 'text-[rgb(var(--speaker-4))]'
+            : ''
         }`}
         data-verse={verse.verse}
+        onMouseEnter={onMouseEnter}
         onDoubleClick={(e) => {
           e.preventDefault();
           handleInteraction();

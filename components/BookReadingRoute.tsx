@@ -21,17 +21,29 @@ export interface BookReadingParams {
   slug?: string[];
 }
 
-export function bookReadingMetadata(book: string): Metadata {
+export function bookReadingMetadata(book: string, slug?: string[]): Metadata {
   const bookEntry = getBookBySlug(book);
 
   if (!bookEntry) {
     return { title: 'Shavat' };
   }
 
+  // Extract chapter from slug: either [chapter] or [division, chapter]
+  let chapter: number | null = null;
+  if (slug && slug.length > 0) {
+    const lastSegment = slug[slug.length - 1];
+    const parsed = parseInt(lastSegment);
+    if (!isNaN(parsed)) {
+      chapter = parsed;
+    }
+  }
+
+  const title = chapter ? `${bookEntry.name} ${chapter}` : bookEntry.name;
+
   return {
-    title: `Shavat | ${bookEntry.name}`,
+    title,
     openGraph: {
-      title: `Shavat | ${bookEntry.name}`,
+      title,
       images: ['/shavat.png'],
     },
   };

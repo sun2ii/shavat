@@ -16,6 +16,7 @@ import { EPHESIANS } from './ephesians/book';
 import { FIRST_TIMOTHY } from './1-timothy/book';
 import { TITUS } from './titus/book';
 import { SECOND_TIMOTHY } from './2-timothy/book';
+import { ISAIAH } from './isaiah/book';
 
 /**
  * Books with a writing at /writings/<slug>. Two kinds live here:
@@ -34,6 +35,7 @@ const BOOK_ORIENTATIONS: Record<string, BookOrientation> = {
   ruth: RUTH,
   acts: ACTS,
   hosea: HOSEA,
+  isaiah: ISAIAH,
   galatians: GALATIANS,
   '1-thessalonians': FIRST_THESSALONIANS,
   '2-thessalonians': SECOND_THESSALONIANS,

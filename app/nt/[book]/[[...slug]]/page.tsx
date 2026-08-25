@@ -6,7 +6,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return bookReadingMetadata(params.book);
+  return bookReadingMetadata(params.book, params.slug);
 }
 
 export default function NewTestamentBookPage({ params }: Props) {

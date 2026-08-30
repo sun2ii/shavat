@@ -10,14 +10,14 @@ interface Props {
 
 type TabId = 'torah' | 'judges' | 'kings' | 'prophets' | 'exile' | 'wisdom' | 'gospels' | 'apostolic';
 
-// Prophet eras for sub-divisions
-type ProphetEra = 'north' | 'south' | 'judahs-fall' | 'exile-era' | 'return-era';
+// Prophet groups: "3" (large books) and "12" (historical eras)
+type ProphetGroup = '3' | 'north' | 'south' | 'exile-era' | 'return-era';
 
-const PROPHET_ERAS: { id: ProphetEra; label: string; books: string[] }[] = [
+const PROPHET_GROUPS: { id: ProphetGroup; label: string; books: string[] }[] = [
+  { id: '3', label: '3', books: ['isaiah', 'jeremiah', 'ezekiel'] },
   { id: 'north', label: 'North', books: ['jonah', 'amos', 'hosea'] },
-  { id: 'south', label: 'South', books: ['isaiah', 'micah'] },
-  { id: 'judahs-fall', label: 'Fall of the South', books: ['nahum', 'zephaniah', 'jeremiah', 'habakkuk'] },
-  { id: 'exile-era', label: 'Exile', books: ['lamentations', 'ezekiel', 'daniel', 'obadiah'] },
+  { id: 'south', label: 'South', books: ['micah', 'nahum', 'zephaniah', 'habakkuk'] },
+  { id: 'exile-era', label: 'Exile', books: ['lamentations', 'daniel', 'obadiah'] },
   { id: 'return-era', label: 'Return', books: ['haggai', 'zechariah', 'malachi', 'joel'] },
 ];
 
@@ -104,7 +104,7 @@ function isTabComplete(tab: typeof TABS[number], completedByBook: Record<string,
   return progress.completed === progress.total;
 }
 
-function getEraProgress(era: typeof PROPHET_ERAS[number], completedByBook: Record<string, number[]>) {
+function getEraProgress(era: typeof PROPHET_GROUPS[number], completedByBook: Record<string, number[]>) {
   let completedBooks = 0;
   for (const slug of era.books) {
     const book = BIBLE_INDEX.find(b => b.slug === slug);
@@ -115,7 +115,7 @@ function getEraProgress(era: typeof PROPHET_ERAS[number], completedByBook: Recor
   return { completed: completedBooks, total: era.books.length };
 }
 
-function isEraComplete(era: typeof PROPHET_ERAS[number], completedByBook: Record<string, number[]>) {
+function isEraComplete(era: typeof PROPHET_GROUPS[number], completedByBook: Record<string, number[]>) {
   const progress = getEraProgress(era, completedByBook);
   return progress.completed === progress.total;
 }
@@ -143,7 +143,7 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
   // Calculate OT stats
   const otBooks = [
     ...TABS.filter(t => t.testament === 'old' && t.id !== 'prophets').flatMap(t => t.books),
-    ...PROPHET_ERAS.flatMap(e => e.books)
+    ...PROPHET_GROUPS.flatMap(e => e.books)
   ];
   const otTotal = otBooks.length;
   let otCompleted = 0;
@@ -167,9 +167,9 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
   const ntAllComplete = ntCompleted === ntTotal;
 
   const renderTabSection = (tab: typeof TABS[number]) => {
-    // Special handling for Prophets - show sub-divisions inline
+    // Special handling for Prophets - show "3" and "12" groups
     if (tab.id === 'prophets') {
-      const allProphetBooks = PROPHET_ERAS.flatMap(e => e.books);
+      const allProphetBooks = PROPHET_GROUPS.flatMap(g => g.books);
       const totalBooks = allProphetBooks.length;
       let completedBooks = 0;
       for (const slug of allProphetBooks) {
@@ -179,6 +179,10 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
         if (completed === book.chapterCount) completedBooks++;
       }
       const allComplete = completedBooks === totalBooks;
+
+      // Separate "3" from the "12" eras
+      const bigThree = PROPHET_GROUPS.find(g => g.id === '3')!;
+      const twelveEras = PROPHET_GROUPS.filter(g => g.id !== '3');
 
       return (
         <div key={tab.id}>
@@ -198,13 +202,38 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
             </Link>
           </div>
           <div className="space-y-1.5">
-            {PROPHET_ERAS.map(era => {
+            {/* "3" - the three large books */}
+            {(() => {
+              const groupComplete = isEraComplete(bigThree, completedByBook);
+              const books = bigThree.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
+              return (
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-1">
+                  <span className={`font-sans text-[10px] w-auto sm:w-12 flex-shrink-0 py-0 sm:py-2.5 flex items-center gap-1 ${
+                    groupComplete ? 'text-emerald-500' : 'text-faint'
+                  }`}>
+                    <span className="text-faint">›</span>
+                    <span>{bigThree.label}</span>
+                  </span>
+                  <div className="flex flex-wrap gap-1">
+                    {books.map(book => (
+                      <BookTile
+                        key={book.slug}
+                        book={book}
+                        completedChapters={completedByBook[book.slug] || []}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+            {/* "12" - historical eras */}
+            {twelveEras.map(era => {
               const eraComplete = isEraComplete(era, completedByBook);
               const books = era.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
 
               return (
                 <div key={era.id} className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-1">
-                  <span className={`font-sans text-[10px] w-auto sm:w-20 flex-shrink-0 py-0 sm:py-2.5 flex items-center gap-1 ${
+                  <span className={`font-sans text-[10px] w-auto sm:w-12 flex-shrink-0 py-0 sm:py-2.5 flex items-center gap-1 ${
                     eraComplete ? 'text-emerald-500' : 'text-faint'
                   }`}>
                     <span className="text-faint">›</span>

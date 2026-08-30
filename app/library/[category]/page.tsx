@@ -149,33 +149,38 @@ const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
   apostolic: { kicker: 'Acts, Epistles & Revelation', title: 'Apostolic' },
 };
 
-// Prophet historical eras and anchors
-type ProphetEra = 'north' | 'south' | 'judahs-fall' | 'exile' | 'return-era';
+// Prophet navigation: primary groups and historical eras
+type ProphetGroup = '3' | '12';
+type ProphetEra = 'north' | 'south' | 'exile' | 'return-era';
+
+const PROPHET_GROUPS: { id: ProphetGroup; label: string }[] = [
+  { id: '3', label: '3' },
+  { id: '12', label: '12' },
+];
 
 const PROPHET_ERAS: { id: ProphetEra; label: string }[] = [
   { id: 'north', label: 'North' },
   { id: 'south', label: 'South' },
-  { id: 'judahs-fall', label: 'Fall of the South' },
   { id: 'exile', label: 'Exile' },
   { id: 'return-era', label: 'Return' },
 ];
 
+// The three large prophetic books (Isaiah 66ch, Jeremiah 52ch, Ezekiel 48ch)
+const BIG_THREE = ['isaiah', 'jeremiah', 'ezekiel'];
+
+// Data for "12" group only (the three big books are handled separately)
 const PROPHET_DATA: Record<string, { era: ProphetEra; anchor: string }> = {
   // North - prophets to the northern kingdom (Israel)
   'jonah': { era: 'north', anchor: '2 Kings 14:23–29' },
   'amos': { era: 'north', anchor: '2 Kings 14:23–29' },
   'hosea': { era: 'north', anchor: '2 Kings 14–17' },
-  // South - prophets to the southern kingdom (Judah) while North still exists
-  'isaiah': { era: 'south', anchor: '2 Kings 15–20' },
+  // South - prophets to the southern kingdom (Judah)
   'micah': { era: 'south', anchor: '2 Kings 15:32–20' },
-  // Judah's Fall - North has fallen, Judah approaches Babylon
-  'nahum': { era: 'judahs-fall', anchor: '~2 Kings 21–23' },
-  'zephaniah': { era: 'judahs-fall', anchor: '2 Kings 22–23' },
-  'jeremiah': { era: 'judahs-fall', anchor: '2 Kings 22–25' },
-  'habakkuk': { era: 'judahs-fall', anchor: '~2 Kings 23–24' },
+  'nahum': { era: 'south', anchor: '~2 Kings 21–23' },
+  'zephaniah': { era: 'south', anchor: '2 Kings 22–23' },
+  'habakkuk': { era: 'south', anchor: '~2 Kings 23–24' },
   // Exile - Jerusalem has fallen, God's people in exile
   'lamentations': { era: 'exile', anchor: '2 Kings 25' },
-  'ezekiel': { era: 'exile', anchor: '2 Kings 24–25' },
   'daniel': { era: 'exile', anchor: '2 Kings 24' },
   'obadiah': { era: 'exile', anchor: '~2 Kings 25' },
   // Return - exiles return and rebuild
@@ -183,6 +188,13 @@ const PROPHET_DATA: Record<string, { era: ProphetEra; anchor: string }> = {
   'zechariah': { era: 'return-era', anchor: 'Ezra 5–6' },
   'malachi': { era: 'return-era', anchor: 'Ezra–Nehemiah' },
   'joel': { era: 'return-era', anchor: 'Date uncertain' },
+};
+
+// Anchors for the three big books
+const BIG_THREE_ANCHORS: Record<string, string> = {
+  'isaiah': '2 Kings 15–20',
+  'jeremiah': '2 Kings 22–25',
+  'ezekiel': '2 Kings 24–25',
 };
 
 /*
@@ -342,7 +354,7 @@ export default function LibraryPage() {
   const rawTab = params.category as string;
   const activeTab: TabId = VALID_TABS.includes(rawTab as TabId) ? (rawTab as TabId) : 'torah';
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
-  const [prophetEra, setProphetEra] = useState<ProphetEra>('north');
+  const [prophetGroup, setProphetGroup] = useState<ProphetGroup>('3');
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   // Get reading progress from context (server-side fetched, no delay)
@@ -738,13 +750,11 @@ export default function LibraryPage() {
         }
       }
 
-      // Prophet era shortcuts: qwerty keys map to PROPHET_ERAS dynamically
+      // Prophet shortcuts: Q/W for group
       if (activeTab === 'prophets') {
-        const qwertyKeys = ['q', 'w', 'e', 'r', 't', 'y'];
-        const keyIndex = qwertyKeys.indexOf(e.key.toLowerCase());
-        if (keyIndex !== -1 && keyIndex < PROPHET_ERAS.length) {
-          setProphetEra(PROPHET_ERAS[keyIndex].id);
-        }
+        const key = e.key.toLowerCase();
+        if (key === 'q') setProphetGroup('3');
+        if (key === 'w') setProphetGroup('12');
       }
 
       // ? opens shortcuts modal
@@ -1043,87 +1053,169 @@ export default function LibraryPage() {
 
       case 'prophets': {
         const allProphetBooks = getBooksByTopLevelCategory('prophets');
-        // Filter books by selected era
-        const books = allProphetBooks.filter((book) => {
-          const prophetData = PROPHET_DATA[book.slug];
-          return prophetData && prophetData.era === prophetEra;
-        });
-        // Sort to ensure consistent order within each era
-        const eraOrder: Record<ProphetEra, string[]> = {
-          'north': ['jonah', 'amos', 'hosea'],
-          'south': ['isaiah', 'micah'],
-          'judahs-fall': ['nahum', 'zephaniah', 'jeremiah', 'habakkuk'],
-          'exile': ['lamentations', 'ezekiel', 'daniel', 'obadiah'],
-          'return-era': ['haggai', 'zechariah', 'malachi', 'joel'],
-        };
-        const sortedBooks = books.sort((a, b) => {
-          const order = eraOrder[prophetEra];
-          return order.indexOf(a.slug) - order.indexOf(b.slug);
-        });
-
         const bookBlocks: React.ReactNode[] = [];
 
-        sortedBooks.forEach((book, i) => {
-          const accent = ACCENTS[i % ACCENTS.length];
-          const prophetData = PROPHET_DATA[book.slug];
-          const divisions = getAllDivisions(book.slug);
+        if (prophetGroup === '3') {
+          // The three large prophetic books
+          const bigThreeBooks = allProphetBooks.filter((book) => BIG_THREE.includes(book.slug));
+          const sortedBigThree = bigThreeBooks.sort((a, b) =>
+            BIG_THREE.indexOf(a.slug) - BIG_THREE.indexOf(b.slug)
+          );
 
-          if (divisions.length > 0) {
-            bookBlocks.push(
-              <div key={book.slug}>
-                <BookHeader
-                  number={String(i + 1).padStart(2, '0')}
-                  name={book.name}
-                  anchor={prophetData?.anchor}
-                  sub={`${divisions.length} sections · ${book.chapterCount} ch`}
-                />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                  {divisions.map((division) => (
-                    <DivisionCard
-                      key={division.id}
-                      href={readingPath(book.slug, division.id, division.chapters[0])}
-                      title={division.title.replace('The Book of ', '').replace(/^The /, '')}
-                      scripture={formatScripture(book.name, division.chapters)}
-                      theme={division.theme}
-                                            hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
-                      hasWritings={divisionHasWritings(book.slug, division.chapters)}
-                      hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
-                      accent={accent}
-                      focused={focusedCardId === `${book.slug}:${division.id}`}
-                      isComplete={isDivisionComplete(book.slug, division.chapters)}
-                    />
-                  ))}
-                </div>
-              </div>,
-            );
-          } else {
-            const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
-            bookBlocks.push(
-              <div key={book.slug}>
-                <BookHeader
-                  number={String(i + 1).padStart(2, '0')}
-                  name={book.name}
-                  anchor={prophetData?.anchor}
-                  sub={`${book.chapterCount} chapters`}
-                />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
-                  <DivisionCard
-                    href={readingPath(book.slug, 1)}
-                    title={book.name}
-                    scripture={formatScripture(book.name, allChapters)}
-                    theme={getBookTheme(book.slug)}
-                    hasCommentary={divisionHasCommentary(book.slug, allChapters)}
-                    hasWritings={divisionHasWritings(book.slug, allChapters)}
-                    hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
-                    accent={accent}
-                    focused={focusedCardId === book.slug}
-                    isComplete={isDivisionComplete(book.slug, allChapters)}
+          sortedBigThree.forEach((book, i) => {
+            const accent = ACCENTS[i % ACCENTS.length];
+            const divisions = getAllDivisions(book.slug);
+
+            if (divisions.length > 0) {
+              bookBlocks.push(
+                <div key={book.slug}>
+                  <BookHeader
+                    number={String(i + 1).padStart(2, '0')}
+                    name={book.name}
+                    anchor={BIG_THREE_ANCHORS[book.slug]}
+                    sub={`${divisions.length} sections · ${book.chapterCount} ch`}
                   />
-                </div>
-              </div>,
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    {divisions.map((division) => (
+                      <DivisionCard
+                        key={division.id}
+                        href={readingPath(book.slug, division.id, division.chapters[0])}
+                        title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                        scripture={formatScripture(book.name, division.chapters)}
+                        theme={division.theme}
+                        hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                        hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                        hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
+                        accent={accent}
+                        focused={focusedCardId === `${book.slug}:${division.id}`}
+                        isComplete={isDivisionComplete(book.slug, division.chapters)}
+                      />
+                    ))}
+                  </div>
+                </div>,
+              );
+            } else {
+              const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+              bookBlocks.push(
+                <div key={book.slug}>
+                  <BookHeader
+                    number={String(i + 1).padStart(2, '0')}
+                    name={book.name}
+                    anchor={BIG_THREE_ANCHORS[book.slug]}
+                    sub={`${book.chapterCount} chapters`}
+                  />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <DivisionCard
+                      href={readingPath(book.slug, 1)}
+                      title={book.name}
+                      scripture={formatScripture(book.name, allChapters)}
+                      theme={getBookTheme(book.slug)}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
+                      accent={accent}
+                      focused={focusedCardId === book.slug}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
+                    />
+                  </div>
+                </div>,
+              );
+            }
+          });
+        } else {
+          // The twelve: show all eras with section headings
+          const eraOrder: Record<ProphetEra, string[]> = {
+            'north': ['jonah', 'amos', 'hosea'],
+            'south': ['micah', 'nahum', 'zephaniah', 'habakkuk'],
+            'exile': ['lamentations', 'daniel', 'obadiah'],
+            'return-era': ['haggai', 'zechariah', 'malachi', 'joel'],
+          };
+
+          let globalBookIndex = 0;
+          PROPHET_ERAS.forEach((era) => {
+            // Section heading for this era
+            bookBlocks.push(
+              <div key={`heading-${era.id}`} className="pt-4 first:pt-0">
+                <span className="font-sans text-[10px] font-medium uppercase tracking-wider text-muted">
+                  {era.label}
+                </span>
+              </div>
             );
-          }
-        });
+
+            const eraBooks = allProphetBooks
+              .filter((book) => {
+                const prophetData = PROPHET_DATA[book.slug];
+                return prophetData && prophetData.era === era.id;
+              })
+              .sort((a, b) => {
+                const order = eraOrder[era.id];
+                return order.indexOf(a.slug) - order.indexOf(b.slug);
+              });
+
+            eraBooks.forEach((book) => {
+              globalBookIndex++;
+              const accent = ACCENTS[(globalBookIndex - 1) % ACCENTS.length];
+              const prophetData = PROPHET_DATA[book.slug];
+              const divisions = getAllDivisions(book.slug);
+
+              if (divisions.length > 0) {
+                bookBlocks.push(
+                  <div key={book.slug}>
+                    <BookHeader
+                      number={String(globalBookIndex).padStart(2, '0')}
+                      name={book.name}
+                      anchor={prophetData?.anchor}
+                      sub={`${divisions.length} sections · ${book.chapterCount} ch`}
+                    />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                      {divisions.map((division) => (
+                        <DivisionCard
+                          key={division.id}
+                          href={readingPath(book.slug, division.id, division.chapters[0])}
+                          title={division.title.replace('The Book of ', '').replace(/^The /, '')}
+                          scripture={formatScripture(book.name, division.chapters)}
+                          theme={division.theme}
+                          hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                          hasWritings={divisionHasWritings(book.slug, division.chapters)}
+                          hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
+                          accent={accent}
+                          focused={focusedCardId === `${book.slug}:${division.id}`}
+                          isComplete={isDivisionComplete(book.slug, division.chapters)}
+                        />
+                      ))}
+                    </div>
+                  </div>,
+                );
+              } else {
+                const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
+                bookBlocks.push(
+                  <div key={book.slug}>
+                    <BookHeader
+                      number={String(globalBookIndex).padStart(2, '0')}
+                      name={book.name}
+                      anchor={prophetData?.anchor}
+                      sub={`${book.chapterCount} chapters`}
+                    />
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                      <DivisionCard
+                        href={readingPath(book.slug, 1)}
+                        title={book.name}
+                        scripture={formatScripture(book.name, allChapters)}
+                        theme={getBookTheme(book.slug)}
+                        hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                        hasWritings={divisionHasWritings(book.slug, allChapters)}
+                        hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
+                        accent={accent}
+                        focused={focusedCardId === book.slug}
+                        isComplete={isDivisionComplete(book.slug, allChapters)}
+                      />
+                    </div>
+                  </div>,
+                );
+              }
+            });
+          });
+        }
 
         return (
           <div className="space-y-2">
@@ -1473,20 +1565,20 @@ export default function LibraryPage() {
               </span>
             </div>
           )}
-          {/* Prophet era sub-navigation */}
+          {/* Prophet sub-navigation: primary (3/12) only */}
           {activeTab === 'prophets' && (
-            <div className="flex flex-wrap justify-start md:justify-end gap-1">
-              {PROPHET_ERAS.map((era) => (
+            <div className="flex flex-wrap items-center justify-start md:justify-end gap-1">
+              {PROPHET_GROUPS.map((group) => (
                 <button
-                  key={era.id}
-                  onClick={() => setProphetEra(era.id)}
+                  key={group.id}
+                  onClick={() => setProphetGroup(group.id)}
                   className={`px-3 py-1.5 md:px-2 md:py-0.5 rounded text-[11px] md:text-[10px] font-sans transition-colors ${
-                    prophetEra === era.id
+                    prophetGroup === group.id
                       ? 'bg-gold/20 text-gold font-medium'
                       : 'text-muted hover:text-ink active:text-ink'
                   }`}
                 >
-                  {era.label}
+                  {group.label}
                 </button>
               ))}
             </div>
@@ -1535,14 +1627,10 @@ export default function LibraryPage() {
               </div>
               {activeTab === 'prophets' && (
                 <div>
-                  <div className="text-muted text-xs uppercase tracking-wide mb-1">Prophet Eras</div>
+                  <div className="text-muted text-xs uppercase tracking-wide mb-1">Prophets</div>
                   <div className="space-y-1">
-                    {PROPHET_ERAS.map((era, i) => (
-                      <div key={era.id} className="flex justify-between">
-                        <span className="text-ink">{era.label}</span>
-                        <span className="text-muted">{['Q', 'W', 'E', 'R', 'T', 'Y'][i]}</span>
-                      </div>
-                    ))}
+                    <div className="flex justify-between"><span className="text-ink">3 (large books)</span><span className="text-muted">Q</span></div>
+                    <div className="flex justify-between"><span className="text-ink">12 (historical)</span><span className="text-muted">W</span></div>
                   </div>
                 </div>
               )}

@@ -361,7 +361,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 >
                   {/* Title + speakers - left on mobile, center on desktop */}
                   <div
-                    className="flex flex-col gap-1 cursor-pointer items-start sm:items-center text-left sm:text-center w-full"
+                    className="flex flex-col gap-1 cursor-pointer items-start sm:items-center text-left sm:text-center w-full pr-16"
                     onClick={async (e) => {
                       e.stopPropagation();
                       const origin = e.currentTarget as HTMLElement;

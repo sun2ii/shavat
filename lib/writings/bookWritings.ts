@@ -17,6 +17,21 @@ import { FIRST_TIMOTHY } from './1-timothy/book';
 import { TITUS } from './titus/book';
 import { SECOND_TIMOTHY } from './2-timothy/book';
 import { ISAIAH } from './isaiah/book';
+import { JEREMIAH } from './jeremiah/book';
+import { LAMENTATIONS } from './lamentations/book';
+import { EZEKIEL } from './ezekiel/book';
+import { DANIEL } from './daniel/book';
+import { JOEL } from './joel/book';
+import { AMOS } from './amos/book';
+import { OBADIAH } from './obadiah/book';
+import { JONAH } from './jonah/book';
+import { MICAH } from './micah/book';
+import { NAHUM } from './nahum/book';
+import { HABAKKUK } from './habakkuk/book';
+import { ZEPHANIAH } from './zephaniah/book';
+import { HAGGAI } from './haggai/book';
+import { ZECHARIAH } from './zechariah/book';
+import { MALACHI } from './malachi/book';
 
 /**
  * Books with a writing at /writings/<slug>. Two kinds live here:
@@ -36,6 +51,21 @@ const BOOK_ORIENTATIONS: Record<string, BookOrientation> = {
   acts: ACTS,
   hosea: HOSEA,
   isaiah: ISAIAH,
+  jeremiah: JEREMIAH,
+  lamentations: LAMENTATIONS,
+  ezekiel: EZEKIEL,
+  daniel: DANIEL,
+  joel: JOEL,
+  amos: AMOS,
+  obadiah: OBADIAH,
+  jonah: JONAH,
+  micah: MICAH,
+  nahum: NAHUM,
+  habakkuk: HABAKKUK,
+  zephaniah: ZEPHANIAH,
+  haggai: HAGGAI,
+  zechariah: ZECHARIAH,
+  malachi: MALACHI,
   galatians: GALATIANS,
   '1-thessalonians': FIRST_THESSALONIANS,
   '2-thessalonians': SECOND_THESSALONIANS,

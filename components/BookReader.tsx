@@ -15,6 +15,8 @@ import { readingPath } from '@/lib/routes';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { usePathname } from 'next/navigation';
 import ScrollToTop from './ScrollToTop';
+import { getChapterTopics } from '@/lib/getProverbsTopics';
+import type { ProverbsTopic } from '@/lib/proverbs-topics';
 
 interface Props {
   verses: VerseType[];
@@ -191,6 +193,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // Display name as printed in the text ("2 Kings"), not the route slug.
   const bookLabel = verses[0]?.book || actualBook;
 
+  // Load topic tags for Proverbs verses
+  const isProverbs = actualBook?.toLowerCase() === 'proverbs';
+  const chapterTopics: Map<number, ProverbsTopic[]> = isProverbs && actualChapter
+    ? getChapterTopics(actualChapter)
+    : new Map();
+
   // Each fold's legend lists only the characters speaking inside it.
   const sectionSpeakers = (range: [number, number]): Record<string, SpeakerDef> => {
     const result: Record<string, SpeakerDef> = {};
@@ -206,9 +214,39 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   };
 
   // On mount, restore expanded section from URL hash and scroll position from sessionStorage
+  // Also handle verse-specific hashes like #v7
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove #
-    if (hash && sections) {
+    if (!hash) return;
+
+    // Check for verse hash pattern: v{number}
+    const verseMatch = hash.match(/^v(\d+)$/);
+    if (verseMatch) {
+      const verseNum = parseInt(verseMatch[1], 10);
+      // Find the section containing this verse and expand it
+      if (sections) {
+        const matchingSection = sections.find(
+          s => verseNum >= s.verseRange[0] && verseNum <= s.verseRange[1]
+        );
+        if (matchingSection) {
+          setExpandedSection(matchingSection.title);
+        }
+      }
+      // Scroll to and highlight the verse after a brief delay for section expansion
+      setTimeout(() => {
+        const verseEl = document.querySelector(`[data-verse="${verseNum}"]`);
+        if (verseEl) {
+          verseEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          // Brief highlight effect
+          setSelectedVerses(new Set([verseNum]));
+          setTimeout(() => setSelectedVerses(new Set()), 2000);
+        }
+      }, 150);
+      return;
+    }
+
+    // Handle section hash (existing behavior)
+    if (sections) {
       // Find section whose slugified title matches the hash
       const matchingSection = sections.find(s => slugify(s.title) === hash);
       if (matchingSection) {
@@ -464,6 +502,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         isFirstVerse={verse.verse === daySection.verseRange[0]}
                         isHighlighted={autoHighlightedVerse === verse.verse}
                         onMouseEnter={() => setAutoHighlightedVerse(null)}
+                        topics={chapterTopics.get(verse.verse)}
+                        chapter={actualChapter}
+                        showDefinitions={isProverbs}
                       />
                     ))}
                   </div>
@@ -539,6 +580,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               spans={spansByVerse.get(verse.verse)}
               speakerColors={speakerColors}
               isFirstVerse={verse.verse === 1}
+              topics={chapterTopics.get(verse.verse)}
+              chapter={actualChapter}
+              showDefinitions={isProverbs}
             />
           ))}
         </div>

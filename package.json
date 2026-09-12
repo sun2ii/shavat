@@ -10,6 +10,8 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "audit:speakers": "npx tsx scripts/audit-speakers.ts",
+    "import:oshb:proverbs": "npx tsx scripts/import-oshb-proverbs.ts",
+    "import:strongs:hebrew": "npx tsx scripts/import-strongs-hebrew.ts",
     "ios:sync": "cap sync ios",
     "ios:open": "cap open ios"
   },

@@ -230,14 +230,15 @@ function formatScripture(bookName: string, chapters: number[]): string {
   return first === last ? `${bookName} ${first}` : `${bookName} ${first}–${last}`;
 }
 
-function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' }) {
-  const titles = { red: 'Commentary', green: 'Writings', blue: 'Voices', orange: 'Places', purple: 'People' };
+function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' | 'teal' }) {
+  const titles = { red: 'Commentary', green: 'Writings', blue: 'Voices', orange: 'Places', purple: 'People', teal: 'Map' };
   const colors = {
     red: 'bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]',
     green: 'bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]',
     blue: 'bg-[rgb(25,70,135)] dark:bg-[rgb(130,170,230)]',
     orange: 'bg-[rgb(180,100,40)] dark:bg-[rgb(230,160,100)]',
     purple: 'bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]',
+    teal: 'bg-[rgb(20,120,120)] dark:bg-[rgb(100,200,200)]',
   };
   return (
     <span
@@ -288,6 +289,7 @@ function DivisionCard({
   hasSpeakers,
   hasPlaces,
   hasPeople,
+  hasMap,
   accent,
   focused,
   isComplete,
@@ -301,11 +303,12 @@ function DivisionCard({
   hasSpeakers?: boolean;
   hasPlaces?: boolean;
   hasPeople?: boolean;
+  hasMap?: boolean;
   accent: string;
   focused?: boolean;
   isComplete?: boolean;
 }) {
-  const showDots = hasCommentary || hasWritings || hasSpeakers || hasPlaces || hasPeople;
+  const showDots = hasCommentary || hasWritings || hasSpeakers || hasPlaces || hasPeople || hasMap;
   return (
     /*
       One surface, one hairline, on every card in the app. The left border is
@@ -339,6 +342,7 @@ function DivisionCard({
           {hasSpeakers && <Mark tone="blue" />}
           {hasPlaces && <Mark tone="orange" />}
           {hasPeople && <Mark tone="purple" />}
+          {hasMap && <Mark tone="teal" />}
         </div>
       )}
     </Link>
@@ -1263,9 +1267,10 @@ export default function LibraryPage() {
                       title={division.title.replace('The Book of ', '').replace(/^The /, '')}
                       scripture={formatScripture(book.name, division.chapters)}
                       theme={division.theme}
-                                            hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
+                      hasCommentary={divisionHasCommentary(book.slug, division.chapters)}
                       hasWritings={divisionHasWritings(book.slug, division.chapters)}
                       hasSpeakers={divisionHasSpeakers(book.slug, division.chapters)}
+                      hasMap={book.slug === 'proverbs'}
                       accent={accent}
                       focused={focusedCardId === `${book.slug}:${division.id}`}
                       isComplete={isDivisionComplete(book.slug, division.chapters)}
@@ -1288,6 +1293,7 @@ export default function LibraryPage() {
               hasCommentary={divisionHasCommentary(book.slug, allChapters)}
               hasWritings={divisionHasWritings(book.slug, allChapters)}
               hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
+              hasMap={book.slug === 'proverbs'}
               accent={accent}
               focused={focusedCardId === book.slug}
               isComplete={isDivisionComplete(book.slug, allChapters)}
@@ -1454,6 +1460,10 @@ export default function LibraryPage() {
             <span className="flex items-center gap-1">
               <span className="h-1 w-1 rounded-full bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]" />
               People
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="h-1 w-1 rounded-full bg-[rgb(20,120,120)] dark:bg-[rgb(100,200,200)]" />
+              Map
             </span>
           </div>
         </div>

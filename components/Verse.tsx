@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { Verse as VerseType } from '@/lib/types';
 import { tokenizeVerse, type QuoteSpan } from '@/lib/speaker-quotes';
 import { tokenizePlaces } from '@/lib/places';
+import type { ProverbsTopic } from '@/lib/proverbs-topics';
+import ProverbsTopicTag from './ProverbsTopicTag';
+import TextWithDefinitions from './TextWithDefinitions';
 
 // Save scroll position before navigating to place page
 function saveScrollPosition() {
@@ -10,10 +13,11 @@ function saveScrollPosition() {
 }
 
 // Render text with place names as clickable links (underlined brown)
-function renderWithPlaces(text: string): React.ReactNode {
+// If withDefinitions is true, also wrap words with definition tooltips
+function renderWithPlaces(text: string, withDefinitions: boolean = false): React.ReactNode {
   const segments = tokenizePlaces(text);
   if (segments.length === 1 && !segments[0].isPlace) {
-    return text;
+    return withDefinitions ? <TextWithDefinitions text={text} /> : text;
   }
   return segments.map((seg, i) =>
     seg.isPlace && seg.placeId ? (
@@ -28,6 +32,8 @@ function renderWithPlaces(text: string): React.ReactNode {
       >
         {seg.text}
       </Link>
+    ) : withDefinitions ? (
+      <TextWithDefinitions key={i} text={seg.text} />
     ) : (
       seg.text
     )
@@ -49,9 +55,15 @@ interface Props {
   isHighlighted?: boolean;
   /** Called when mouse enters verse (to clear auto-highlight) */
   onMouseEnter?: () => void;
+  /** Topic tags for Proverbs verses */
+  topics?: ProverbsTopic[];
+  /** Chapter number (needed for Hebrew lookup) */
+  chapter?: number;
+  /** Show word definition tooltips on hover */
+  showDefinitions?: boolean;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -75,6 +87,14 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
           handleInteraction();
         }}
       >
+        {/* Topic tags - fixed width column before verse number */}
+        {topics !== undefined && (
+          <span className="flex-shrink-0 w-[70px] flex flex-col gap-0.5 mr-1 items-start" style={{ paddingTop: '0.15em' }}>
+            {topics.map((topic) => (
+              <ProverbsTopicTag key={topic} topic={topic} />
+            ))}
+          </span>
+        )}
         {/* Verse number - fixed width, aligned to first line of text */}
         <span
           className="w-7 flex-shrink-0 text-center text-[13px] font-sans font-medium select-none text-gold cursor-pointer"
@@ -104,13 +124,13 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
                     className="font-bold italic"
                     style={{ color: `rgb(var(--speaker-${speakerColors[run.speaker]}))` }}
                   >
-                    {renderWithPlaces(run.text)}
+                    {renderWithPlaces(run.text, showDefinitions)}
                   </span>
                 ) : (
-                  <span key={i}>{renderWithPlaces(run.text)}</span>
+                  <span key={i}>{renderWithPlaces(run.text, showDefinitions)}</span>
                 )
               )
-            : renderWithPlaces(isFirstVerse ? verse.text.slice(1) : verse.text)}
+            : renderWithPlaces(isFirstVerse ? verse.text.slice(1) : verse.text, showDefinitions)}
         </span>
       </div>
 

@@ -45,7 +45,7 @@ export default function ResetPasswordPage() {
         return;
       }
 
-      router.push('/login?reset=success');
+      router.push('/?reset=success');
     } catch {
       setError('Something went wrong. Please try again.');
     } finally {
@@ -120,7 +120,7 @@ export default function ResetPasswordPage() {
             href="/"
             className="font-sans text-sm text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]"
           >
-            ← Back to Home
+            ← Back to Sign in
           </Link>
         </div>
       </div>

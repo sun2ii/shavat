@@ -122,7 +122,7 @@ export default function SignupPage() {
             href="/"
             className="font-sans text-sm text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]"
           >
-            ← Back to Home
+            ← Back to Sign in
           </Link>
         </div>
       </div>

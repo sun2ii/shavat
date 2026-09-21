@@ -11,6 +11,7 @@ import { getCurrentUser } from '@/lib/auth';
 import { sql } from '@/lib/db';
 import { ReadingProgressProvider } from '@/components/providers/ReadingProgressProvider';
 import { BookmarkProvider } from '@/components/providers/BookmarkProvider';
+import { TranslationProvider } from '@/components/providers/TranslationProvider';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -116,14 +117,16 @@ export default async function RootLayout({
         <RoutePersistence />
         <GlobalKeyboardNav />
         <DebugModeSync />
-        <BookmarkProvider initialBookmarks={bookmarks}>
-          <ReadingProgressProvider initialProgress={readingProgress}>
-            <InnerLayout isAuthenticated={isAuthenticated}>
-              {/* Cross-fades tab switches in the native shell; inert on web. */}
-              <PageFade>{children}</PageFade>
-            </InnerLayout>
-          </ReadingProgressProvider>
-        </BookmarkProvider>
+        <TranslationProvider>
+          <BookmarkProvider initialBookmarks={bookmarks}>
+            <ReadingProgressProvider initialProgress={readingProgress}>
+              <InnerLayout isAuthenticated={isAuthenticated}>
+                {/* Cross-fades tab switches in the native shell; inert on web. */}
+                <PageFade>{children}</PageFade>
+              </InnerLayout>
+            </ReadingProgressProvider>
+          </BookmarkProvider>
+        </TranslationProvider>
         {/* These render only inside the Capacitor iOS shell; null on the web. */}
         <NativeTabBar />
         <NativeSplash />

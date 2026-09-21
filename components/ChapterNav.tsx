@@ -10,6 +10,7 @@ import { hasWriting, getWriting } from '@/lib/hasWritings';
 import { hasBookWriting } from '@/lib/writings/bookWritings';
 import { readingPath, writingPath } from '@/lib/routes';
 import BookMap from './BookMap';
+import TranslationToggle from './TranslationToggle';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
 
@@ -60,7 +61,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
             onClick={() => setOpen(false)}
           />
           <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
-          <div className="w-72 max-h-[min(24rem,calc(100dvh-200px))] overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
+          <div className="w-72 bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
             {divisions.map((div) => {
               const isCurrentDivision = div.id === currentDivisionId;
               const title = div.title
@@ -309,6 +310,11 @@ export default function ChapterNav({
             currentDivisionId={division.id}
             bookSlug={bookSlug}
           />
+        </div>
+
+        {/* Right: translation toggle */}
+        <div className="absolute right-4 sm:right-6 top-6">
+          <TranslationToggle />
         </div>
 
         {/* The book's name is the way up to its overview, when one is recorded. */}

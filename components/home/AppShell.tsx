@@ -14,9 +14,9 @@ interface AppShellProps {
 }
 
 const mobileNavLinks = [
-  { href: '/', label: 'Home', iconSrc: '/icons/sidebar/home.webp' },
+  { href: '/dashboard', label: 'Dashboard', iconSrc: '/icons/sidebar/home.webp' },
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.webp' },
+  { href: '/saved', label: 'Bookmarks', iconSrc: '/icons/general/laurel.webp' },
 ];
 
 export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
@@ -43,11 +43,11 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
   };
 
   return (
-    <div className="min-h-screen font-inter bg-paper text-ink">
+    <div className="h-screen font-inter bg-paper text-ink overflow-hidden">
       {/* Desktop: sidebar layout */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block h-full">
         <div
-          className="min-h-screen"
+          className="h-full"
           style={{
             display: 'grid',
             gridTemplateColumns: sidebarOpen ? '200px 1fr' : '72px 1fr',
@@ -55,17 +55,17 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
           }}
         >
           <Sidebar isOpen={sidebarOpen} onToggle={handleSidebarToggle} isAuthenticated={isAuthenticated} />
-          <main className="min-w-0 overflow-auto">
+          <main className="min-w-0 h-full overflow-auto">
             {children}
           </main>
         </div>
       </div>
 
       {/* Mobile/Tablet: no sidebar, hamburger menu */}
-      <div className="lg:hidden">
+      <div className="lg:hidden h-full flex flex-col">
         {/* Mobile header — hidden inside the Capacitor iOS shell, where the
             bottom tab bar is the navigation and the header would waste space. */}
-        <header className="sticky top-0 z-40 bg-sidebar-bg px-4 py-3 flex items-center gap-4 [.native-app_&]:hidden">
+        <header className="sticky top-0 z-40 bg-sidebar-bg px-4 py-3 flex items-center gap-4 [.native-app_&]:hidden flex-shrink-0">
           <button
             onClick={() => setMobileMenuOpen(true)}
             className="p-1 text-sidebar-text-muted hover:text-sidebar-text"
@@ -79,7 +79,7 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
         </header>
 
         {/* Main content */}
-        <main className="min-w-0 overflow-auto">
+        <main className="min-w-0 flex-1 overflow-auto">
           {children}
         </main>
       </div>
@@ -176,26 +176,6 @@ function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void;
             <ThemeToggleIcon isDark={isDark} size={24} />
             <span className="text-sm">{isDark ? 'Light Mode' : 'Dark Mode'}</span>
           </button>
-
-          {/* Review link - only shown when authenticated */}
-          {isAuthenticated && (
-            <Link
-              href="/review"
-              onClick={onClose}
-              className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                pathname.startsWith('/review')
-                  ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
-                  : 'text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg'
-              }`}
-            >
-              <span className={pathname.startsWith('/review') ? 'text-sidebar-active-text' : 'text-gold'}>
-                <svg width="24" height="24" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M9 2 L11 6 L15.5 6.5 L12 10 L13 14.5 L9 12 L5 14.5 L6 10 L2.5 6.5 L7 6 Z" />
-                </svg>
-              </span>
-              <span className="text-sm text-blue-500">Review</span>
-            </Link>
-          )}
 
           <div className="text-[10px] text-sidebar-text-muted text-center mt-3">
             Stay oriented in Scripture.

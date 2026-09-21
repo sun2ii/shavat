@@ -10,7 +10,6 @@ import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 const staticNavLinks = [
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
   { href: '/saved', label: 'Bookmarks', iconSrc: '/icons/general/laurel.webp' },
-  { href: '/writings', label: 'Writings', iconSrc: '/icons/sidebar/writings.webp' },
 ];
 
 const homeIconSrc = '/icons/sidebar/home.webp';
@@ -134,25 +133,6 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
           <ThemeToggleIcon isDark={isDark} size={24} />
           {isOpen && (isDark ? 'Light Mode' : 'Dark Mode')}
         </button>
-
-        {/* Review link - only shown when authenticated */}
-        {isAuthenticated && (
-          <Link
-            href="/review"
-            className={`flex items-center py-3 px-4 transition-colors ${
-              pathname.startsWith('/review')
-                ? 'text-sidebar-active-text font-semibold'
-                : 'text-sidebar-text-muted hover:text-sidebar-text'
-            } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
-          >
-            <span className={pathname.startsWith('/review') ? 'text-sidebar-active-text' : 'text-gold'}>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M9 2 L11 6 L15.5 6.5 L12 10 L13 14.5 L9 12 L5 14.5 L6 10 L2.5 6.5 L7 6 Z" />
-              </svg>
-            </span>
-            {isOpen && <span className="text-blue-500">Review</span>}
-          </Link>
-        )}
 
         {/* Toggle sidebar */}
         <button

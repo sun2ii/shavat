@@ -9,11 +9,27 @@
       "contentType": "narrative"
     },
     {
-      "id": "dialogues",
-      "title": "Dialogues",
-      "chapters": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-      "theme": "Three cycles of speeches",
-      "summary": "Job and his friends wrestle with innocent suffering. Each friend speaks, Job responds, and wisdom hides.",
+      "id": "job-laments",
+      "title": "Job Laments",
+      "chapters": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "theme": "Job laments; friends accuse",
+      "summary": "Job curses his birth. Eliphaz, Bildad, and Zophar each speak, insisting suffering implies sin. Job protests his innocence.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "friends-harden",
+      "title": "Friends Harden",
+      "chapters": [15, 16, 17, 18, 19, 20, 21],
+      "theme": "Accusations intensify",
+      "summary": "Friends harden their stance: the wicked always perish. Job counters with observation: the wicked often prosper.",
+      "contentType": "wisdom"
+    },
+    {
+      "id": "jobs-defense",
+      "title": "Job's Defense",
+      "chapters": [22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+      "theme": "Job's final defense",
+      "summary": "Eliphaz invents sins. Bildad's reply shrinks. Zophar is silent. Job delivers his oath of innocence.",
       "contentType": "wisdom"
     },
     {

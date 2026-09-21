@@ -7,6 +7,16 @@ export interface SpeakerDef {
   color: number;
 }
 
+/*
+  Verse-range speaker attribution (translation-agnostic).
+  Maps verse ranges to speaker IDs. Used for showing speaker legend/dots
+  without requiring exact quote matching.
+  Example: { "6-12": ["the-lord", "satan"], "21": ["job"] }
+*/
+export interface VerseSpeakers {
+  [verseRange: string]: string[];
+}
+
 export interface QuoteSpan {
   verse: number;
   speaker: string;
@@ -22,7 +32,42 @@ export interface QuoteSpan {
 export interface ChapterSpeakers {
   /* Only the speakers appearing in this chapter — the legend reads this directly. */
   speakers: Record<string, SpeakerDef>;
+  /* Quote spans for inline highlighting (translation-specific, optional) */
   spans: QuoteSpan[];
+  /* Verse-range attribution for speaker legend (translation-agnostic, optional) */
+  verseSpeakers?: VerseSpeakers;
+}
+
+/*
+  Get speakers for a verse range (e.g., verses 6-12).
+  Used by section headers to show which speakers appear in that section.
+*/
+export function getSpeakersInRange(
+  verseSpeakers: VerseSpeakers | undefined,
+  allSpeakers: Record<string, SpeakerDef>,
+  rangeStart: number,
+  rangeEnd: number
+): Record<string, SpeakerDef> {
+  if (!verseSpeakers) return {};
+
+  const result: Record<string, SpeakerDef> = {};
+
+  for (const [range, speakerIds] of Object.entries(verseSpeakers)) {
+    // Parse range: "6-12" or "21"
+    const [start, end] = range.includes('-')
+      ? range.split('-').map(Number)
+      : [Number(range), Number(range)];
+
+    // Check if this range overlaps with the requested range
+    if (start <= rangeEnd && end >= rangeStart) {
+      for (const id of speakerIds) {
+        const def = allSpeakers[id];
+        if (def) result[id] = def;
+      }
+    }
+  }
+
+  return result;
 }
 
 export interface VerseRun {

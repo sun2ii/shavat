@@ -1,6 +1,6 @@
 // Books with speaker/voice data in data/speakers/*.json
 // Update this list when adding new speaker files.
-const SPEAKER_BOOKS = new Set(['amos', 'jonah', 'hosea', '2-kings']);
+const SPEAKER_BOOKS = new Set(['amos', 'jonah', 'hosea', '2-kings', 'job']);
 
 export function hasSpeakers(book: string): boolean {
   return SPEAKER_BOOKS.has(book);

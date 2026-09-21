@@ -6,6 +6,7 @@ import { BIBLE_INDEX } from '@/lib/bible-index';
 
 interface Props {
   completedByBook: Record<string, number[]>;
+  showOnlyUnfinished?: boolean;
 }
 
 type TabId = 'torah' | 'judges' | 'kings' | 'prophets' | 'seventeen' | 'wisdom' | 'gospels' | 'apostolic';
@@ -136,7 +137,19 @@ function isApostolicDivComplete(div: typeof APOSTOLIC_DIVS[number], completedByB
   return progress.completed === progress.total;
 }
 
-export default function BibleProgressGrid({ completedByBook }: Props) {
+export default function BibleProgressGrid({ completedByBook, showOnlyUnfinished = false }: Props) {
+  // Helper to check if a book is complete
+  const isBookComplete = (slug: string) => {
+    const book = BIBLE_INDEX.find(b => b.slug === slug);
+    if (!book) return false;
+    return (completedByBook[slug]?.length || 0) === book.chapterCount;
+  };
+
+  // Filter books based on showOnlyUnfinished
+  const filterBooks = (slugs: string[]) => {
+    if (!showOnlyUnfinished) return slugs;
+    return slugs.filter(slug => !isBookComplete(slug));
+  };
   const otTabs = TABS.filter(t => t.testament === 'old');
   const ntTabs = TABS.filter(t => t.testament === 'new');
 
@@ -177,6 +190,14 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
       }
       const allComplete = completedBooks === allSeventeenBooks.length;
 
+      // Filter eras that have unfinished books
+      const filteredEras = SEVENTEEN_ERAS.map(era => ({
+        ...era,
+        books: filterBooks(era.books)
+      })).filter(era => era.books.length > 0);
+
+      if (showOnlyUnfinished && filteredEras.length === 0) return null;
+
       return (
         <div key={tab.id}>
           <div className="flex items-center gap-2 mb-1.5">
@@ -195,8 +216,8 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2">
-            {SEVENTEEN_ERAS.map(era => {
-              const eraComplete = isEraComplete(era, completedByBook);
+            {filteredEras.map(era => {
+              const eraComplete = isEraComplete(SEVENTEEN_ERAS.find(e => e.id === era.id)!, completedByBook);
               const books = era.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
 
               return (
@@ -237,6 +258,14 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
       }
       const allComplete = completedBooks === totalBooks;
 
+      // Filter divisions that have unfinished books
+      const filteredDivs = APOSTOLIC_DIVS.map(div => ({
+        ...div,
+        books: filterBooks(div.books)
+      })).filter(div => div.books.length > 0);
+
+      if (showOnlyUnfinished && filteredDivs.length === 0) return null;
+
       return (
         <div key={tab.id}>
           <div className="flex items-center gap-2 mb-1.5">
@@ -255,8 +284,8 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
             </Link>
           </div>
           <div className="space-y-1.5">
-            {APOSTOLIC_DIVS.map(div => {
-              const divComplete = isApostolicDivComplete(div, completedByBook);
+            {filteredDivs.map(div => {
+              const divComplete = isApostolicDivComplete(APOSTOLIC_DIVS.find(d => d.id === div.id)!, completedByBook);
               const books = div.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
 
               return (
@@ -285,7 +314,10 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
 
     const progress = getTabProgress(tab, completedByBook);
     const complete = isTabComplete(tab, completedByBook);
-    const books = tab.books.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
+    const filteredSlugs = filterBooks(tab.books);
+    const books = filteredSlugs.map(slug => BIBLE_INDEX.find(b => b.slug === slug)!).filter(Boolean);
+
+    if (showOnlyUnfinished && books.length === 0) return null;
 
     return (
       <div key={tab.id}>
@@ -339,7 +371,7 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
           </span>
         </div>
         <div className={`space-y-4 ${otOpen ? '' : 'hidden md:block'}`}>
-          {otTabs.map(renderTabSection)}
+          {otTabs.map(renderTabSection).filter(Boolean)}
         </div>
       </div>
 
@@ -358,7 +390,7 @@ export default function BibleProgressGrid({ completedByBook }: Props) {
           </span>
         </div>
         <div className={`space-y-4 ${ntOpen ? '' : 'hidden md:block'}`}>
-          {ntTabs.map(renderTabSection)}
+          {ntTabs.map(renderTabSection).filter(Boolean)}
         </div>
       </div>
     </div>

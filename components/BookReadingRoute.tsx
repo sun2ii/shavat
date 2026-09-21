@@ -1,7 +1,8 @@
 import { notFound, redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { getBookBySlug } from '@/lib/bible-index';
-import { createBookAccessor } from '@/lib/book-accessor';
+import { createBookAccessor, Translation } from '@/lib/book-accessor';
 import {
   getBookMetadataSync,
   getDivisionById,
@@ -72,7 +73,15 @@ export default async function BookReadingRoute({
     redirect(readingPath(book, ...slug));
   }
 
-  const bookUtils = createBookAccessor(book);
+  // Get translation from cookie (set by client-side TranslationProvider)
+  const cookieStore = await cookies();
+  const translationCookie = cookieStore.get('shavat-translation')?.value;
+  const translation: Translation =
+    translationCookie === 'kjv' || translationCookie === 'web'
+      ? translationCookie
+      : 'niv';
+
+  const bookUtils = createBookAccessor(book, translation);
   if (!bookUtils) {
     notFound();
   }

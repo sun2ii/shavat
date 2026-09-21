@@ -1,5 +1,13 @@
-import { HomeContent } from '@/components/home/HomeContent';
+import { getCurrentUser } from '@/lib/auth';
+import { redirect } from 'next/navigation';
+import { LoginForm } from '@/components/auth/LoginForm';
 
-export default function Home() {
-  return <HomeContent />;
+export default async function Home() {
+  const user = await getCurrentUser();
+
+  if (user) {
+    redirect('/dashboard');
+  }
+
+  return <LoginForm />;
 }

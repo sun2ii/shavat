@@ -11,6 +11,7 @@ import ChapterOutline from './ChapterOutline';
 import SpeakerLegend from './SpeakerLegend';
 import type { Section } from '@/lib/sections';
 import type { ChapterSpeakers, QuoteSpan, SpeakerDef } from '@/lib/speaker-quotes';
+import { getSpeakersInRange } from '@/lib/speaker-quotes';
 import { readingPath } from '@/lib/routes';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { usePathname } from 'next/navigation';
@@ -200,14 +201,28 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     : new Map();
 
   // Each fold's legend lists only the characters speaking inside it.
+  // Uses verse-range attribution if available (translation-agnostic),
+  // falls back to quote spans (translation-specific).
   const sectionSpeakers = (range: [number, number]): Record<string, SpeakerDef> => {
+    if (!chapterSpeakers) return {};
+
+    // Try verse-range attribution first (works across translations)
+    const fromRanges = getSpeakersInRange(
+      chapterSpeakers.verseSpeakers,
+      chapterSpeakers.speakers,
+      range[0],
+      range[1]
+    );
+    if (Object.keys(fromRanges).length > 0) {
+      return fromRanges;
+    }
+
+    // Fall back to quote-span detection
     const result: Record<string, SpeakerDef> = {};
-    if (chapterSpeakers) {
-      for (const span of chapterSpeakers.spans) {
-        if (span.verse >= range[0] && span.verse <= range[1]) {
-          const def = chapterSpeakers.speakers[span.speaker];
-          if (def) result[span.speaker] = def;
-        }
+    for (const span of chapterSpeakers.spans) {
+      if (span.verse >= range[0] && span.verse <= range[1]) {
+        const def = chapterSpeakers.speakers[span.speaker];
+        if (def) result[span.speaker] = def;
       }
     }
     return result;

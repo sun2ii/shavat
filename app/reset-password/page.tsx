@@ -97,21 +97,12 @@ export default function ResetPasswordRequestPage() {
 
           <div className="mt-6 text-center">
             <Link
-              href="/login"
+              href="/"
               className="font-sans text-sm text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]"
             >
-              Back to sign in
+              ← Back to Sign in
             </Link>
           </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <Link
-            href="/"
-            className="font-sans text-sm text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]"
-          >
-            ← Back to Home
-          </Link>
         </div>
       </div>
     </div>

@@ -12,3 +12,6 @@ bookmarks.json
 
 # Generated speaker audit reports (diagnostic, not production data)
 reports/
+
+# Large external Bible data (5.3GB, downloaded separately)
+api/

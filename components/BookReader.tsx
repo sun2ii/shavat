@@ -301,6 +301,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // next chapter. Enter = double-tap on the cursor verse.
   const [cursorVerse, setCursorVerse] = useState<number | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  // Exactly one verse is ever purple: the keyboard cursor when there is one,
+  // otherwise the first verse of a section just opened by mouse.
+  const litVerse = cursorVerse ?? autoHighlightedVerse;
 
   // toggleSection tints the section's first verse; re-clear after it so the
   // cursor stays the only highlighted verse.
@@ -717,7 +720,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         spans={spansByVerse.get(verse.verse)}
                         speakerColors={speakerColors}
                         isFirstVerse={verse.verse === daySection.verseRange[0]}
-                        isHighlighted={autoHighlightedVerse === verse.verse || cursorVerse === verse.verse}
+                        isHighlighted={litVerse === verse.verse}
                         onMouseEnter={() => setAutoHighlightedVerse(null)}
                         topics={chapterTopics.get(verse.verse)}
                         chapter={actualChapter}
@@ -798,7 +801,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               spans={spansByVerse.get(verse.verse)}
               speakerColors={speakerColors}
               isFirstVerse={verse.verse === 1}
-              isHighlighted={cursorVerse === verse.verse}
+              isHighlighted={litVerse === verse.verse}
               topics={chapterTopics.get(verse.verse)}
               chapter={actualChapter}
               showDefinitions={isProverbs}

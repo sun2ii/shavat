@@ -89,7 +89,7 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
   return (
     <>
       <div
-        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text hover:text-[rgb(var(--speaker-4))] ${
+        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text ${
           isSelected
             ? 'shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : isHighlighted

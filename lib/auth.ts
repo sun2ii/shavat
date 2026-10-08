@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { cookies } from 'next/headers';
 import { sql } from './db';
 import bcrypt from 'bcryptjs';
@@ -111,13 +112,16 @@ export async function getUserByEmail(email: string): Promise<(User & { password_
   return rows[0] as User & { password_hash: string };
 }
 
-// Get current authenticated user
-export async function getCurrentUser(): Promise<User | null> {
+// Get current authenticated user.
+// Wrapped in React cache(): the layout and the page both call this during
+// one request, so without it every navigation pays the two-query session +
+// user lookup twice. Inside route handlers cache() is a transparent no-op.
+export const getCurrentUser = cache(async (): Promise<User | null> => {
   const session = await getSessionFromCookie();
   if (!session) return null;
 
   return getUserById(session.user_id);
-}
+});
 
 // Password reset tokens
 export async function createPasswordResetToken(userId: string): Promise<string> {

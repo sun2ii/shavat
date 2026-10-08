@@ -7,19 +7,36 @@ import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
+import LogoutButton from '@/components/auth/LogoutButton';
 
 interface AppShellProps {
   children: React.ReactNode;
   isAuthenticated?: boolean;
+  userEmail?: string | null;
+}
+
+// Who is signed in, and the way out. Sits at the top right of the content
+// area on every page, above the scroll region so it never overlaps page
+// chrome (the reader has its own top-right icon cluster).
+function AccountStrip({ email }: { email: string }) {
+  return (
+    <div className="shrink-0 flex items-center justify-end gap-3 px-4 sm:px-6 h-7 font-sans text-[11px] text-faint">
+      <span className="truncate max-w-[220px]" title={email}>
+        {email}
+      </span>
+      <span className="text-hairline">·</span>
+      <LogoutButton className="text-faint hover:text-ink" />
+    </div>
+  );
 }
 
 const mobileNavLinks = [
   { href: '/dashboard', label: 'Dashboard', iconSrc: '/icons/sidebar/home.webp' },
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
-  { href: '/saved', label: 'Bookmarks', iconSrc: '/icons/general/laurel.webp' },
+  { href: '/saved', label: 'Saved', iconSrc: '/icons/general/laurel.webp' },
 ];
 
-export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
+export function AppShell({ children, isAuthenticated = false, userEmail = null }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -43,7 +60,9 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
   };
 
   return (
-    <div className="h-screen font-inter bg-paper text-ink overflow-hidden">
+    // overflow-clip, not overflow-hidden: a hidden box can still be scrolled
+    // by scrollIntoView, which would drag the sidebar up. Clip cannot.
+    <div className="h-screen font-inter bg-paper text-ink overflow-clip">
       {/* Desktop: sidebar layout */}
       <div className="hidden lg:block h-full">
         <div
@@ -51,12 +70,21 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
           style={{
             display: 'grid',
             gridTemplateColumns: sidebarOpen ? '200px 1fr' : '72px 1fr',
+            // The single row must not grow with page content, or the content
+            // column outgrows the viewport and the root clips it unscrollably.
+            gridTemplateRows: 'minmax(0, 1fr)',
             transition: 'grid-template-columns 0.3s ease'
           }}
         >
           <Sidebar isOpen={sidebarOpen} onToggle={handleSidebarToggle} isAuthenticated={isAuthenticated} />
-          <main className="min-w-0 h-full overflow-auto">
-            {children}
+          {/* Column: account strip (fixed height) over the scroll region, so a
+              page's h-full still means "the scroll region", not strip + region.
+              min-h-0 lets this grid item shrink to the row instead of its content. */}
+          <main className="min-w-0 min-h-0 h-full flex flex-col">
+            {userEmail && <AccountStrip email={userEmail} />}
+            <div className="flex-1 min-h-0 overflow-auto">
+              {children}
+            </div>
           </main>
         </div>
       </div>
@@ -76,6 +104,12 @@ export function AppShell({ children, isAuthenticated = false }: AppShellProps) {
             <Image src="/logo.webp" alt="Shavat" width={36} height={36} />
             <span className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</span>
           </div>
+          {userEmail && (
+            <div className="ml-auto flex items-center gap-2 font-sans text-[11px] text-sidebar-text-muted min-w-0">
+              <span className="truncate max-w-[140px]" title={userEmail}>{userEmail}</span>
+              <LogoutButton className="text-sidebar-text-muted hover:text-sidebar-text" />
+            </div>
+          )}
         </header>
 
         {/* Main content */}

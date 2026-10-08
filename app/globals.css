@@ -48,8 +48,8 @@
     --text-disabled: 170 168 162; /* atmospheric           */
     --border: 217 209 181;       /* #D9D1B5 shavat-sand   */
     --border-subtle: 229 224 211; /* lighter border        */
-    --gold: 200 162 72;          /* #C8A248 shavat-gold   */
-    --gold-ink: 160 130 58;      /* darker gold for text  */
+    --gold: 201 132 46;          /* #C9842E amber, warmer than the old #C8A248 so it reads on sand */
+    --gold-ink: 158 98 30;       /* #9E621E darker amber for text */
     --brand: 31 46 36;           /* #1F2E24 shavat-darkest */
     --brand-hover: 58 74 60;     /* hover state           */
     --blue-ref: 107 127 105;     /* #6B7F69 shavat-mid    */
@@ -244,15 +244,13 @@ input:disabled,
   web app in a browser.
 */
 /*
-  Library book sections: on phones every book starts collapsed to its header
-  row. BookHeader (app/library/[category]/page.tsx) toggles `book-collapsed`
-  on itself; this rule hides everything after it inside the section. Desktop
-  (md+) is unaffected — books always show their cards there.
+  Library book sections: every book starts collapsed to its header row on
+  every breakpoint. BookHeader (app/library/[category]/page.tsx) toggles
+  `book-collapsed` on itself; this rule hides everything after it inside
+  the section.
 */
-@media (max-width: 767px) {
-  .book-collapsed ~ * {
-    display: none;
-  }
+.book-collapsed ~ * {
+  display: none;
 }
 
 /*
@@ -412,4 +410,16 @@ html.native-app body {
   padding-top: env(safe-area-inset-top);
   /* Native apps don't flash gray on tap; suppress the WebView default. */
   -webkit-tap-highlight-color: transparent;
+}
+
+/*
+  Light mode depth: a faint drop shadow under every glyph lifts the type off
+  the sand background. text-shadow inherits, so one rule on <html> covers the
+  whole page; the sidebar is dark in both themes and opts out.
+*/
+html.light {
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.12);
+}
+html.light aside {
+  text-shadow: none;
 }

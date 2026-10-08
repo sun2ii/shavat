@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { getCurrentUser, requireRole } from '@/lib/auth';
 import Link from 'next/link';
-import LogoutButton from '../dashboard/LogoutButton';
+import LogoutButton from '@/components/auth/LogoutButton';
 
 export default async function AdminPage() {
   const user = await getCurrentUser();
@@ -26,7 +26,7 @@ export default async function AdminPage() {
               {user.email}
             </span>
             <Link
-              href="/dashboard"
+              href="/library"
               className="font-sans text-xs text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]"
             >
               Dashboard

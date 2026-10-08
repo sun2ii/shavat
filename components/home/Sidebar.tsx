@@ -9,7 +9,7 @@ import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 const staticNavLinks = [
   { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
-  { href: '/saved', label: 'Bookmarks', iconSrc: '/icons/general/laurel.webp' },
+  { href: '/saved', label: 'Saved', iconSrc: '/icons/general/laurel.webp' },
 ];
 
 const homeIconSrc = '/icons/sidebar/home.webp';
@@ -78,7 +78,7 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
 
       {/* Nav */}
       <nav className="flex flex-col gap-1.5 mt-9 text-[14.5px]">
-        {/* Home link - goes to /dashboard when authenticated, / when not */}
+        {/* Dashboard = "jump back to where I was". Signed out, the slot is Home (/). */}
         {(() => {
           const homeHref = isAuthenticated ? '/dashboard' : '/';
           const isHomeActive = pathname === '/' || pathname === '/dashboard';
@@ -119,27 +119,25 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
       {/* Spacer to push bottom items down */}
       <div className="flex-1" />
 
-      {/* Bottom controls */}
-      <div className="flex flex-col gap-2">
-        {/* Settings = Theme Toggle */}
+
+      {/* Bottom controls: one row, theme icon beside collapse. Stacks when collapsed (72px). */}
+      <div className={`flex items-center ${isOpen ? 'flex-row gap-1 px-2' : 'flex-col gap-2'}`}>
         <button
           onClick={toggleTheme}
-          className={`flex items-center py-3 px-4 bg-transparent border-none text-sidebar-text-muted cursor-pointer text-[14.5px] hover:text-sidebar-text transition-colors ${
-            isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'
-          }`}
+          className="flex items-center justify-center p-2 rounded-lg bg-transparent border-none text-sidebar-text-muted cursor-pointer hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
           aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         >
           <ThemeToggleIcon isDark={isDark} size={24} />
-          {isOpen && (isDark ? 'Light Mode' : 'Dark Mode')}
         </button>
 
-        {/* Toggle sidebar */}
         <button
           onClick={onToggle}
-          className={`flex items-center py-3 px-4 bg-transparent border-none text-sidebar-text-muted cursor-pointer text-[14.5px] hover:text-sidebar-text transition-colors ${
-            isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'
+          className={`flex items-center p-2 rounded-lg bg-transparent border-none text-sidebar-text-muted cursor-pointer text-[14.5px] hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors ${
+            isOpen ? 'gap-2.5' : ''
           }`}
+          aria-label={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
+          title={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
         >
           <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
             <SidebarIcon src="/icons/sidebar/collapse.webp" alt="Collapse" />

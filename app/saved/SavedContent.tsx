@@ -1,12 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { storage } from '@/lib/storage';
 import { getHighlightColor } from '@/lib/highlight-colors';
 import type { Bookmark, Highlight } from '@/lib/types';
 import { bookName } from '@/lib/book-helpers';
+import { BIBLE_INDEX } from '@/lib/bible-index';
+import { getAllTopLevelCategories, getTopLevelCategoryForBook } from '@/lib/top-level-categories';
+import { readingPath } from '@/lib/routes';
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
+import { useHighlights } from '@/components/providers/HighlightProvider';
 import PageHeader from '@/components/PageHeader';
 
 interface DbBookmark {
@@ -16,18 +20,22 @@ interface DbBookmark {
   created_at: string;
 }
 
+// The minimum either source (DB or localStorage) provides.
+type AnyBookmark = { book: string; chapter: number; verse?: number | null };
+
 interface Props {
   isAuthenticated?: boolean;
   serverBookmarks?: DbBookmark[];
 }
 
 export default function SavedContent({ isAuthenticated = false, serverBookmarks = [] }: Props) {
-  const [highlights, setHighlights] = useState<Highlight[]>([]);
+  // Highlights come from the provider: account-backed when signed in,
+  // this device's localStorage when not.
+  const { highlights, removeHighlight } = useHighlights();
   const [localBookmark, setLocalBookmark] = useState<Bookmark | null>(null);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setHighlights(storage.getHighlights());
     if (!isAuthenticated) {
       setLocalBookmark(storage.getBookmark());
     }
@@ -35,8 +43,7 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
   }, [isAuthenticated]);
 
   const handleDelete = (id: string) => {
-    storage.deleteHighlight(id);
-    setHighlights(prev => prev.filter(h => h.id !== id));
+    void removeHighlight(id);
   };
 
   const { toggleBookmark, isBookmarked: isChapterBookmarked } = useBookmarks();
@@ -55,10 +62,31 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
   }, {} as Record<string, Record<number, Highlight[]>>);
 
   // Use server bookmarks for authenticated (filtered by context for optimistic deletes), localStorage for unauthenticated
-  const bookmarks = isAuthenticated
+  const bookmarks: AnyBookmark[] = isAuthenticated
     ? serverBookmarks.filter(bm => isChapterBookmarked(bm.book, bm.chapter))
     : (localBookmark ? [localBookmark] : []);
   const isEmpty = highlights.length === 0 && bookmarks.length === 0;
+
+  // Bookmarks grouped the way the library is: category → book → chapters,
+  // all in canonical order. One dense row per book, one chip per chapter.
+  const groupedBookmarks = useMemo(() => {
+    const byBook = new Map<string, AnyBookmark[]>();
+    for (const bm of bookmarks) {
+      if (!byBook.has(bm.book)) byBook.set(bm.book, []);
+      byBook.get(bm.book)!.push(bm);
+    }
+    return getAllTopLevelCategories()
+      .map((cat) => ({
+        cat,
+        books: BIBLE_INDEX
+          .filter((b) => byBook.has(b.slug) && getTopLevelCategoryForBook(b.category, b.testament) === cat.id)
+          .map((b) => ({
+            book: b,
+            items: byBook.get(b.slug)!.slice().sort((x, y) => x.chapter - y.chapter),
+          })),
+      }))
+      .filter((g) => g.books.length > 0);
+  }, [bookmarks]);
 
   return (
     // No top padding on the container: PageHeader owns the top spacing so
@@ -82,40 +110,45 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
           <h2 className="mb-3 font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
             {isAuthenticated ? 'Bookmarks' : 'Reading position'}
           </h2>
-          <div className="space-y-2">
-            {bookmarks.map((bm, idx) => (
-              <div
-                key={`${bm.book}-${bm.chapter}-${idx}`}
-                className="flex items-center justify-between gap-4 rounded-xl border border-hairline bg-surface p-4 transition-colors hover:bg-paper-2"
-              >
-                <Link
-                  href={`/${bm.book}/${bm.chapter}`}
-                  className="flex-1"
-                >
-                  <span className="block font-serif text-xl text-ink">
-                    {bookName(bm.book)} {bm.chapter}
-                  </span>
-                  {bm.verse && (
-                    <span className="mt-0.5 block font-sans text-xs text-faint">
-                      verse {bm.verse}
-                    </span>
-                  )}
-                </Link>
-                <div className="flex items-center gap-3">
-                  {isAuthenticated && (
-                    <button
-                      onClick={() => handleDeleteBookmark(bm.book, bm.chapter)}
-                      className="font-sans text-xs text-faint hover:text-red-500 transition-colors"
-                    >
-                      Remove
-                    </button>
-                  )}
-                  <Link
-                    href={`/${bm.book}/${bm.chapter}`}
-                    className="font-sans text-sm text-gold-ink whitespace-nowrap hover:text-gold transition-colors"
-                  >
-                    Return →
-                  </Link>
+          <div className="space-y-4">
+            {groupedBookmarks.map(({ cat, books }) => (
+              <div key={cat.id}>
+                <div className="mb-1 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+                  {cat.name}
+                </div>
+                <div className="divide-y divide-hairline border-y border-hairline">
+                  {books.map(({ book, items }) => (
+                    <div key={book.slug} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 py-1.5">
+                      <span className="w-28 shrink-0 font-serif text-sm font-bold text-ink">
+                        {book.name}
+                      </span>
+                      <div className="flex flex-wrap gap-1">
+                        {items.map((bm) => (
+                          <span
+                            key={bm.chapter}
+                            className="inline-flex items-center rounded border border-hairline bg-surface font-sans text-[11px]"
+                          >
+                            <Link
+                              href={readingPath(bm.book, bm.chapter)}
+                              className="px-2 py-0.5 text-ink hover:text-gold transition-colors"
+                            >
+                              {bm.chapter}
+                              {bm.verse && bm.verse > 1 ? `:${bm.verse}` : ''}
+                            </Link>
+                            {isAuthenticated && (
+                              <button
+                                onClick={() => handleDeleteBookmark(bm.book, bm.chapter)}
+                                aria-label={`Remove bookmark ${book.name} ${bm.chapter}`}
+                                className="pr-1.5 text-faint hover:text-red-500 transition-colors"
+                              >
+                                ×
+                              </button>
+                            )}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -123,75 +156,64 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
         </section>
       )}
 
-      {/* Highlights, grouped by book and chapter */}
+      {/* Highlights: same dense treatment as bookmarks. One row per
+          highlight under its book, in chapter and verse order. */}
       {highlights.length > 0 && (
-        <div className="space-y-10">
-          {Object.entries(byBookChapter).map(([book, chapters]) => (
-            <section key={book}>
-              <h2 className="mb-5 border-b-2 border-ink pb-3 font-serif font-bold text-2xl text-ink">
-                {bookName(book)}
-              </h2>
-              <div className="space-y-8">
-                {Object.keys(chapters)
-                  .map(Number)
-                  .sort((a, b) => a - b)
-                  .map((chapterNum) => (
-                    <div key={chapterNum}>
-                      <h3 className="mb-3 font-sans text-xs tracking-[0.16em] uppercase text-muted font-semibold">
-                        <Link
-                          href={`/${book}/${chapterNum}`}
-                          className="hover:text-gold active:text-gold transition-colors"
-                        >
-                          Chapter {chapterNum} →
-                        </Link>
-                      </h3>
-                      <div className="grid gap-3.5 sm:grid-cols-2">
-                        {chapters[chapterNum]
-                          .slice()
-                          .sort((a, b) => a.verseStart - b.verseStart)
-                          .map((highlight) => {
-                            const color = getHighlightColor(highlight.color);
-                            return (
-                              <div
-                                key={highlight.id}
-                                className="flex overflow-hidden rounded-xl border border-hairline bg-surface"
-                              >
-                                <span className="w-[5px] shrink-0" style={{ background: color.swatch }} />
-                                <div className="flex-1 p-4">
-                                  <div className="mb-2.5 flex items-center justify-between">
-                                    <Link
-                                      href={`/${book}/${highlight.chapter}`}
-                                      className="font-sans text-[11px] font-bold tracking-[0.12em] uppercase transition-colors hover:opacity-80 active:opacity-80"
-                                      style={{ color: color.label }}
-                                    >
-                                      {highlight.verseStart === highlight.verseEnd
-                                        ? `Verse ${highlight.verseStart}`
-                                        : `Verses ${highlight.verseStart}–${highlight.verseEnd}`}
-                                    </Link>
-                                    <button
-                                      onClick={() => handleDelete(highlight.id)}
-                                      className="p-2.5 -m-2.5 font-sans text-xs text-faint transition-colors hover:text-red-500 active:text-red-500"
-                                    >
-                                      Delete
-                                    </button>
-                                  </div>
-                                  {highlight.note && (
-                                    <p className="font-serif text-lg leading-snug text-ink">{highlight.note}</p>
-                                  )}
-                                  <p className="mt-2 font-sans text-xs text-faint">
-                                    {new Date(highlight.createdAt).toLocaleDateString()}
-                                  </p>
-                                </div>
-                              </div>
-                            );
-                          })}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </section>
-          ))}
-        </div>
+        <section className="mb-10">
+          <h2 className="mb-3 font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
+            Highlights
+          </h2>
+          <div className="space-y-4">
+            {Object.entries(byBookChapter).map(([book, chapters]) => {
+              const rows = Object.keys(chapters)
+                .map(Number)
+                .sort((a, b) => a - b)
+                .flatMap((ch) => chapters[ch].slice().sort((a, b) => a.verseStart - b.verseStart));
+              return (
+                <div key={book}>
+                  <div className="mb-1 font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+                    {bookName(book)}
+                  </div>
+                  <div className="divide-y divide-hairline border-y border-hairline">
+                    {rows.map((h) => {
+                      const color = getHighlightColor(h.color);
+                      const ref =
+                        h.verseStart === h.verseEnd
+                          ? `${h.chapter}:${h.verseStart}`
+                          : `${h.chapter}:${h.verseStart}–${h.verseEnd}`;
+                      return (
+                        <div key={h.id} className="flex items-baseline gap-3 py-1.5">
+                          <span className="h-3 w-1 shrink-0 self-center rounded" style={{ background: color.swatch }} />
+                          <Link
+                            href={readingPath(book, h.chapter) + `#v${h.verseStart}`}
+                            className="w-16 shrink-0 font-sans text-[11px] font-semibold tabular-nums transition-opacity hover:opacity-80"
+                            style={{ color: color.label }}
+                            title={`${color.name} · ${bookName(book)} ${ref}`}
+                          >
+                            {ref}
+                          </Link>
+                          <span className="min-w-0 flex-1 truncate font-serif italic text-sm" style={{ color: color.label }}>
+                            {h.note ?? ''}
+                          </span>
+                          <span className="shrink-0 font-sans text-[10px] text-faint tabular-nums">
+                            {new Date(h.createdAt).toLocaleDateString()}
+                          </span>
+                          <button
+                            onClick={() => handleDelete(h.id)}
+                            aria-label={`Delete highlight ${bookName(book)} ${ref}`}
+                            className="shrink-0 px-1 text-faint hover:text-red-500 transition-colors"
+                          >
+                            ×
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
       )}
 
       {loaded && !isEmpty && !isAuthenticated && (
@@ -199,94 +221,6 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
           Saved on this device for now — sign in to sync across devices.
         </p>
       )}
-
-      {/*
-        ── VISION PREVIEW — remove when SAVED_ROADMAP.md ships ──
-        Non-functional example cards showing what Saved becomes, so the end
-        state can be seen and felt in the app before it's built. Dashed
-        borders + "example" pills mark everything below as not real.
-      */}
-      <section className="mt-2">
-        <div className="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h2 className="font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
-            The vision — coming soon
-          </h2>
-          <span className="font-sans text-[10px] text-faint">
-            examples · SAVED_ROADMAP.md
-          </span>
-        </div>
-
-        <div className="space-y-3">
-          {/* Example highlight — with the actual verse text on the card */}
-          <div className="rounded-xl border border-dashed border-hairline">
-            <div className="flex overflow-hidden rounded-xl">
-              <span className="w-[5px] shrink-0 bg-[#e5c65a]" />
-              <div className="flex-1 p-3">
-                <div className="mb-1 flex items-center justify-between gap-3">
-                  <span className="font-sans text-[10px] font-bold tracking-[0.12em] uppercase text-[#b08a2e]">
-                    Highlight · Genesis 1:3
-                  </span>
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-faint">
-                    example
-                  </span>
-                </div>
-                <p className="font-serif text-base leading-snug text-ink">
-                  "And God said, 'Let there be light,' and there was light."
-                </p>
-                <p className="mt-1 font-serif italic text-xs text-muted">
-                  The first words spoken into the dark.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Example reflection — the reader's own writing, passage-anchored */}
-          <div className="rounded-xl border border-dashed border-hairline p-3">
-            <div className="mb-1 flex items-center justify-between gap-3">
-              <span className="font-sans text-[10px] font-bold tracking-[0.12em] uppercase text-gold-ink">
-                Reflection · Genesis 1:1–5
-              </span>
-              <span className="font-sans text-[9px] uppercase tracking-wider text-faint">
-                example
-              </span>
-            </div>
-            <p className="font-serif text-base leading-snug text-ink">
-              Order doesn't arrive all at once — light, then sky, then land.
-              I want to stop rushing the middle days of things.
-            </p>
-            <div className="mt-1.5 flex items-center gap-3 font-sans text-[10px] text-faint">
-              <span>Written Aug 17</span>
-              <span className="opacity-50">Edit</span>
-              <span className="opacity-50">Delete</span>
-            </div>
-          </div>
-
-          {/* Example bookmark — a place deliberately held */}
-          <div className="flex items-center justify-between gap-4 rounded-xl border border-dashed border-hairline p-3">
-            <span>
-              <span className="mb-0.5 flex items-center gap-3">
-                <span className="font-sans text-[10px] font-bold tracking-[0.12em] uppercase text-gold-ink">
-                  Bookmark
-                </span>
-                <span className="font-sans text-[9px] uppercase tracking-wider text-faint">
-                  example
-                </span>
-              </span>
-              <span className="block font-serif text-lg leading-tight text-ink">Exodus 14</span>
-              <span className="block font-sans text-[11px] text-faint">
-                held on purpose — the sea, the crossing
-              </span>
-            </span>
-            <span className="whitespace-nowrap font-sans text-sm text-gold-ink opacity-50">
-              Return →
-            </span>
-          </div>
-        </div>
-
-        <p className="mt-3 font-sans text-[11px] text-faint">
-          Marks, thoughts, places — synced, verse text on every card, private by default.
-        </p>
-      </section>
     </main>
   );
 }

@@ -1,8 +1,8 @@
 import { notFound, redirect } from 'next/navigation';
-import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { getBookBySlug } from '@/lib/bible-index';
-import { createBookAccessor, Translation } from '@/lib/book-accessor';
+import { createBookAccessor } from '@/lib/book-accessor';
+import { resolveTranslation } from '@/lib/translation-preference';
 import {
   getBookMetadataSync,
   getDivisionById,
@@ -73,13 +73,8 @@ export default async function BookReadingRoute({
     redirect(readingPath(book, ...slug));
   }
 
-  // Get translation from cookie (set by client-side TranslationProvider)
-  const cookieStore = await cookies();
-  const translationCookie = cookieStore.get('shavat-translation')?.value;
-  const translation: Translation =
-    translationCookie === 'kjv' || translationCookie === 'web'
-      ? translationCookie
-      : 'niv';
+  // Account setting > cookie > default; shared with the layout via React cache.
+  const translation = await resolveTranslation(user);
 
   const bookUtils = createBookAccessor(book, translation);
   if (!bookUtils) {

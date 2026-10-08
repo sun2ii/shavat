@@ -7,8 +7,8 @@ import { getHighlightColor } from '@/lib/highlight-colors';
 import type { Highlight } from '@/lib/types';
 import { bookName } from '@/lib/book-helpers';
 import ThemeToggle from '@/components/ThemeToggle';
-import LogoutButton from '@/app/dashboard/LogoutButton';
-import BibleProgressGrid from '@/app/dashboard/BibleProgressGrid';
+import LogoutButton from '@/components/auth/LogoutButton';
+import BibleProgressGrid from '@/components/BibleProgressGrid';
 
 interface Props {
   isAuthenticated: boolean;

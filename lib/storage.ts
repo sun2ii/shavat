@@ -67,6 +67,11 @@ export const storage = {
     safeSetItem(STORAGE_KEYS.HIGHLIGHTS, JSON.stringify(highlights));
   },
 
+  updateHighlight: (id: string, patch: Partial<Pick<Highlight, 'color' | 'note'>>): void => {
+    const highlights = storage.getHighlights().map(h => (h.id === id ? { ...h, ...patch } : h));
+    safeSetItem(STORAGE_KEYS.HIGHLIGHTS, JSON.stringify(highlights));
+  },
+
   // Bookmark (single value, overwrite)
   getBookmark: (): Bookmark | null => {
     const raw = safeGetItem(STORAGE_KEYS.BOOKMARK);

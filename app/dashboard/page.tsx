@@ -1,89 +1,46 @@
 import { redirect } from 'next/navigation';
 import { getCurrentUser } from '@/lib/auth';
 import { sql } from '@/lib/db';
-import { BIBLE_INDEX } from '@/lib/bible-index';
-import DashboardContent from './DashboardContent';
+import { getBookBySlug } from '@/lib/bible-index';
+import { readingPath } from '@/lib/routes';
+import { nextChapterAfter } from '@/lib/next-chapter';
+import JumpBack, { ReadingTarget } from '@/components/dashboard/JumpBack';
 
-// Total chapters in the Bible
-const TOTAL_BIBLE_CHAPTERS = BIBLE_INDEX.reduce((sum, book) => sum + book.chapterCount, 0);
+// "Continue reading" = the first unread chapter after the one most recently
+// marked complete. Finish Psalm 91 and this points at Psalm 92.
+async function getContinueTarget(userEmail: string): Promise<ReadingTarget | null> {
+  try {
+    const latest = await sql`
+      SELECT book, chapter
+      FROM reading_progress
+      WHERE user_email = ${userEmail}
+      ORDER BY completed_at DESC
+      LIMIT 1
+    `;
+    if (latest.length === 0) return null;
+    const last = { book: latest[0].book as string, chapter: latest[0].chapter as number };
 
-// Get completed chapters per book from database
-async function getCompletedChapters(userEmail: string): Promise<Record<string, number[]>> {
-  const rows = await sql`
-    SELECT book, array_agg(chapter ORDER BY chapter) as chapters
-    FROM reading_progress
-    WHERE user_email = ${userEmail}
-    GROUP BY book
-  `;
+    const rows = await sql`
+      SELECT chapter FROM reading_progress
+      WHERE user_email = ${userEmail} AND book = ${last.book}
+    `;
+    const next = nextChapterAfter(last, rows.map((r) => r.chapter as number));
+    if (!next) return null;
 
-  const completedByBook: Record<string, number[]> = {};
-  for (const row of rows) {
-    completedByBook[row.book as string] = row.chapters as number[];
+    const book = getBookBySlug(next.book);
+    if (!book) return null;
+    return { href: readingPath(next.book, next.chapter), label: `${book.name} ${next.chapter}` };
+  } catch {
+    return null;
   }
-  return completedByBook;
-}
-
-// Calculate stats for the entire Bible
-function calculateBibleStats(completedByBook: Record<string, number[]>) {
-  let completedChapters = 0;
-  let completedBooks = 0;
-  let inProgressBooks = 0;
-
-  for (const book of BIBLE_INDEX) {
-    const completed = completedByBook[book.slug] || [];
-    completedChapters += completed.length;
-
-    if (completed.length === book.chapterCount) {
-      completedBooks++;
-    } else if (completed.length > 0) {
-      inProgressBooks++;
-    }
-  }
-
-  const percentage = ((completedChapters / TOTAL_BIBLE_CHAPTERS) * 100).toFixed(2);
-
-  return {
-    completedChapters,
-    totalChapters: TOTAL_BIBLE_CHAPTERS,
-    completedBooks,
-    inProgressBooks,
-    totalBooks: 66,
-    percentage,
-  };
-}
-
-// Find current reading position (first incomplete chapter in an in-progress book)
-function findCurrentReading(completedByBook: Record<string, number[]>) {
-  for (const book of BIBLE_INDEX) {
-    const completed = completedByBook[book.slug] || [];
-    if (completed.length > 0 && completed.length < book.chapterCount) {
-      // Find first incomplete chapter
-      for (let ch = 1; ch <= book.chapterCount; ch++) {
-        if (!completed.includes(ch)) {
-          return { book: book.name, slug: book.slug, chapter: ch };
-        }
-      }
-    }
-  }
-  return null;
 }
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();
-
   if (!user) {
     redirect('/login');
   }
 
-  const completedByBook = await getCompletedChapters(user.email);
-  const stats = calculateBibleStats(completedByBook);
-  const currentReading = findCurrentReading(completedByBook);
-
-  return (
-    <DashboardContent
-      stats={stats}
-      currentReading={currentReading}
-      completedByBook={completedByBook}
-    />
-  );
+  const target = await getContinueTarget(user.email);
+  return <JumpBack target={target} />;
 }

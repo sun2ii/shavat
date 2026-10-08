@@ -1,9 +1,13 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Verse as VerseType } from '@/lib/types';
+import { Verse as VerseType, Highlight, HighlightColor } from '@/lib/types';
+import { useHighlights } from '@/components/providers/HighlightProvider';
+import { loadingBus } from '@/lib/loading-bus';
+import { FIRST_VERSE_HASH } from '@/lib/reader-keys';
+import { HIGHLIGHT_KEYS } from '@/lib/highlight-colors';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION, COPY_UNFOLD_DELAY_MS } from '@/lib/copy-glow';
@@ -153,13 +157,15 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
         body: JSON.stringify({ book, chapter }),
       }).catch(err => console.error('Failed to save reading progress:', err));
     }
+    loadingBus.start();
     router.push(href);
   };
 
   // Track reading progress when navigating to next chapter
   const handleNextClick = () => {
     if (nextChapter && nextDivisionId && book) {
-      markReadAndNavigate(readingPath(book, nextDivisionId, nextChapter));
+      // #v1: the next chapter opens on its first verse (see lib/reader-keys).
+      markReadAndNavigate(readingPath(book, nextDivisionId, nextChapter) + FIRST_VERSE_HASH);
     }
   };
 
@@ -247,16 +253,10 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           setExpandedSection(matchingSection.title);
         }
       }
-      // Scroll to and highlight the verse after a brief delay for section expansion
-      setTimeout(() => {
-        const verseEl = document.querySelector(`[data-verse="${verseNum}"]`);
-        if (verseEl) {
-          verseEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
-          // Brief highlight effect
-          setSelectedVerses(new Set([verseNum]));
-          setTimeout(() => setSelectedVerses(new Set()), 2000);
-        }
-      }, 150);
+      // Put the reading cursor on it. The cursor effect below scrolls it into
+      // view (within this instance's own DOM, so the hidden twin can't win).
+      setCursorVerse(verseNum);
+      setAutoHighlightedVerse(null);
       return;
     }
 
@@ -287,7 +287,138 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     if (!window.location.hash) {
       setExpandedSection(null);
     }
+    // Per-chapter interaction state is cleared by hand. The cursor is kept
+    // when the URL names a verse (#v12): the hash effect above just set it.
+    if (!/^#v\d+$/.test(window.location.hash)) setCursorVerse(null);
+    setSelectedVerses(new Set());
+    setToolbarVerse(null);
+    setAutoHighlightedVerse(null);
   }, [actualBook, actualChapter]);
+
+  // ── Keyboard reading cursor ──
+  // ↓ / ↑ step through verses. Leaving a section opens the adjacent one and
+  // lands on its first (or last) verse. Past the final section, ↓ goes to the
+  // next chapter. Enter = double-tap on the cursor verse.
+  const [cursorVerse, setCursorVerse] = useState<number | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // toggleSection tints the section's first verse; re-clear after it so the
+  // cursor stays the only highlighted verse.
+  const openSection = (title: string, firstVerse: number) => {
+    toggleSection(title, rootRef.current, firstVerse);
+    setAutoHighlightedVerse(null);
+  };
+
+  const stepCursor = (dir: 1 | -1) => {
+    const nums = verses.map((v) => v.verse).sort((a, b) => a - b);
+    if (nums.length === 0) return;
+    // The cursor is the only purple verse while the keyboard drives; drop the
+    // "first verse of the opened section" tint (toggleSection sets it, and a
+    // later setState in the same tick wins).
+    setAutoHighlightedVerse(null);
+
+    if (!sections || sections.length === 0) {
+      const i = cursorVerse === null ? (dir > 0 ? 0 : nums.length - 1) : nums.indexOf(cursorVerse) + dir;
+      if (i >= 0 && i < nums.length) setCursorVerse(nums[i]);
+      else if (dir > 0 && nextChapter && nextDivisionId) handleNextClick();
+      return;
+    }
+
+    const sectionOf = (v: number) =>
+      sections.find((s) => v >= s.verseRange[0] && v <= s.verseRange[1]);
+
+    if (cursorVerse === null) {
+      const sec = sections.find((s) => s.title === expandedSection) ?? sections[0];
+      if (expandedSection !== sec.title) openSection(sec.title, sec.verseRange[0]);
+      setCursorVerse(sec.verseRange[0]);
+      return;
+    }
+
+    const sec = sectionOf(cursorVerse);
+    const next = cursorVerse + dir;
+    if (sec && next >= sec.verseRange[0] && next <= sec.verseRange[1]) {
+      setCursorVerse(next);
+      return;
+    }
+
+    // Next section in the direction of travel. When the cursor sits on a verse
+    // no section covers (ranges with gaps), pick the nearest section ahead or
+    // behind rather than indexing from -1, which would reopen the first one.
+    const target = sec
+      ? sections[sections.indexOf(sec) + dir]
+      : dir > 0
+      ? sections.find((s) => s.verseRange[0] > cursorVerse)
+      : [...sections].reverse().find((s) => s.verseRange[1] < cursorVerse);
+    if (target) {
+      const landing = dir > 0 ? target.verseRange[0] : target.verseRange[1];
+      openSection(target.title, target.verseRange[0]);
+      setCursorVerse(landing);
+      return;
+    }
+    if (dir > 0 && nextChapter && nextDivisionId) handleNextClick();
+  };
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      // Escape closes the toolbar from anywhere, including inside its note box.
+      if (e.key === 'Escape' && toolbarVerse !== null) {
+        e.preventDefault();
+        (document.activeElement as HTMLElement | null)?.blur?.();
+        closeToolbar();
+        return;
+      }
+      const t = e.target as HTMLElement | null;
+      if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t?.isContentEditable) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        stepCursor(1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        stepCursor(-1);
+      } else if (e.key === 'Enter' && cursorVerse !== null) {
+        e.preventDefault();
+        toggleVerse(cursorVerse);
+      } else if (e.key === 'h' && cursorVerse !== null) {
+        // Toggle the highlight toolbar on the cursor verse.
+        e.preventDefault();
+        if (toolbarVerse === cursorVerse) {
+          closeToolbar();
+        } else {
+          setSelectedVerses(new Set([cursorVerse]));
+          setToolbarVerse(cursorVerse);
+        }
+      } else if (HIGHLIGHT_KEYS[e.key] && cursorVerse !== null && actualBook && actualChapter) {
+        // c / s / p: one-key highlight of the selection (or the cursor verse)
+        // as that kind. Pressing the same kind on an existing highlight of
+        // that kind removes it, so each key is a toggle.
+        e.preventDefault();
+        const kind = HIGHLIGHT_KEYS[e.key];
+        const existing = highlightByVerse.get(cursorVerse);
+        const range = selectionRange ?? { start: cursorVerse, end: cursorVerse };
+        if (existing && existing.color === kind && existing.verseStart === range.start && existing.verseEnd === range.end) {
+          void removeHighlight(existing.id);
+        } else {
+          void saveHighlight({ book: actualBook, chapter: actualChapter, verseStart: range.start, verseEnd: range.end, color: kind, note: existing?.note });
+        }
+        setSelectedVerses(new Set());
+        setToolbarVerse(null);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  });
+
+  // Keep the cursor verse in view. Delayed a beat so a section's own
+  // scroll-to-top (toggleSection) settles first.
+  useEffect(() => {
+    if (cursorVerse === null) return;
+    const id = setTimeout(() => {
+      const el = rootRef.current?.querySelector<HTMLElement>(`[data-verse="${cursorVerse}"]`);
+      el?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }, 80);
+    return () => clearTimeout(id);
+  }, [cursorVerse, expandedSection]);
 
   /*
     SIMPLE by design, after much pain: the section opens instantly (no height
@@ -305,8 +436,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     if (newSection) {
       const id = slugify(newSection);
       window.history.replaceState(null, '', `#${id}`);
+      // origin may be the tapped element (walk up) or the reader root (walk down).
       const card =
-        origin?.closest<HTMLElement>(`[id="${id}"]`) ?? document.getElementById(id);
+        origin?.closest<HTMLElement>(`[id="${id}"]`) ??
+        origin?.querySelector<HTMLElement>(`[id="${id}"]`) ??
+        document.getElementById(id);
       requestAnimationFrame(() => {
         card?.scrollIntoView({ block: 'start' });
       });
@@ -324,17 +458,85 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     }
   }, [isAuthenticated, actualBook, actualChapter]);
 
+  // The verse the reader double-tapped last; the highlight toolbar hangs off
+  // it. Kept separate from selectedVerses because deep links (#v12) also
+  // write selectedVerses for a 2s flash and must not open the toolbar.
+  const [toolbarVerse, setToolbarVerse] = useState<number | null>(null);
+
   const toggleVerse = (verseNum: number) => {
     setSelectedVerses(prev => {
       const next = new Set(prev);
       if (next.has(verseNum)) {
         next.delete(verseNum);
+        setToolbarVerse((t) => (t === verseNum ? null : t));
       } else {
         next.add(verseNum);
+        setToolbarVerse(verseNum);
       }
       return next;
     });
   };
+
+  // ── Highlights ──
+  const { forChapter, saveHighlight, removeHighlight } = useHighlights();
+  const chapterHighlights = useMemo(
+    () => (actualBook && actualChapter ? forChapter(actualBook, actualChapter) : []),
+    [forChapter, actualBook, actualChapter],
+  );
+  // verse number → the highlight covering it (ranges expanded)
+  const highlightByVerse = useMemo(() => {
+    const map = new Map<number, Highlight>();
+    for (const h of chapterHighlights) {
+      for (let v = h.verseStart; v <= h.verseEnd; v++) map.set(v, h);
+    }
+    return map;
+  }, [chapterHighlights]);
+
+  // The range a save will cover: everything selected, or just the tapped verse.
+  const selectionRange = useMemo(() => {
+    const nums = selectedVerses.size > 0 ? [...selectedVerses] : toolbarVerse !== null ? [toolbarVerse] : [];
+    if (nums.length === 0) return null;
+    return { start: Math.min(...nums), end: Math.max(...nums) };
+  }, [selectedVerses, toolbarVerse]);
+  const rangeLabel = selectionRange
+    ? selectionRange.start === selectionRange.end
+      ? `verse ${selectionRange.start}`
+      : `verses ${selectionRange.start}–${selectionRange.end}`
+    : '';
+
+  const closeToolbar = () => {
+    setToolbarVerse(null);
+    setSelectedVerses(new Set());
+  };
+
+  const handleSaveHighlight = async (color: HighlightColor, note: string) => {
+    if (!actualBook || !actualChapter || !selectionRange) return;
+    await saveHighlight({
+      book: actualBook,
+      chapter: actualChapter,
+      verseStart: selectionRange.start,
+      verseEnd: selectionRange.end,
+      color,
+      note: note.trim() || undefined,
+    });
+    closeToolbar();
+  };
+
+  const handleRemoveHighlight = async () => {
+    const existing = toolbarVerse !== null ? highlightByVerse.get(toolbarVerse) : undefined;
+    if (existing) await removeHighlight(existing.id);
+    closeToolbar();
+  };
+
+  // Props every Verse gets for highlighting; keeps both render branches in sync.
+  const highlightProps = (verseNum: number) => ({
+    highlight: highlightByVerse.get(verseNum),
+    showHighlightToolbar: toolbarVerse === verseNum,
+    highlightRangeLabel: rangeLabel,
+    onSaveHighlight: handleSaveHighlight,
+    onRemoveHighlight: handleRemoveHighlight,
+    onCloseHighlightToolbar: closeToolbar,
+  });
 
   const handleCopySection = async (sectionName: string, sectionVerses: VerseType[]) => {
     const sectionText = sectionVerses.map(v => `${v.verse}. ${v.text}`).join('\n\n');
@@ -383,7 +585,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   if (sections && sections.length > 0) {
     return (
-      <div className="px-6 sm:px-10 md:px-16">
+      <div ref={rootRef} className="px-6 sm:px-10 md:px-16" data-cursor={cursorVerse ?? ''}>
         <ProgressBar />
         <ChapterOutline sections={sections} book={actualBook} chapter={actualChapter} />
         <div>
@@ -403,7 +605,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 key={daySection.title}
                 id={sectionId}
                 onClick={isCollapsed ? (e) => toggleSection(daySection.title, e.currentTarget, daySection.verseRange[0]) : undefined}
-                className={`scroll-mt-16 py-3 md:py-4 ${
+                className={`scroll-mt-16 py-1.5 md:py-2 ${
                   isCollapsed ? 'cursor-pointer' : ''
                 }`}
               >
@@ -515,11 +717,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         spans={spansByVerse.get(verse.verse)}
                         speakerColors={speakerColors}
                         isFirstVerse={verse.verse === daySection.verseRange[0]}
-                        isHighlighted={autoHighlightedVerse === verse.verse}
+                        isHighlighted={autoHighlightedVerse === verse.verse || cursorVerse === verse.verse}
                         onMouseEnter={() => setAutoHighlightedVerse(null)}
                         topics={chapterTopics.get(verse.verse)}
                         chapter={actualChapter}
                         showDefinitions={isProverbs}
+                        {...highlightProps(verse.verse)}
                       />
                     ))}
                   </div>
@@ -550,14 +753,14 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               {nextChapter && nextDivisionId && book ? (
                 <button
                   onClick={handleNextClick}
-                  className="px-6 py-3 text-sm font-sans font-semibold border border-amber-500/40 text-amber-400/80 rounded-lg shadow-[0_0_12px_rgba(245,158,11,0.15)] hover:border-amber-400 hover:text-amber-300 hover:shadow-[0_0_16px_rgba(245,158,11,0.25)] transition-all cursor-pointer"
+                  className="px-6 py-3 text-sm font-sans font-semibold rounded-lg transition-all cursor-pointer border border-gold-ink/60 bg-gold/10 text-gold-ink hover:bg-gold/20 hover:border-gold-ink dark:border-amber-500/40 dark:bg-transparent dark:text-amber-400/80 dark:shadow-[0_0_12px_rgba(245,158,11,0.15)] dark:hover:border-amber-400 dark:hover:text-amber-300 dark:hover:shadow-[0_0_16px_rgba(245,158,11,0.25)]"
                 >
                   Next →
                 </button>
               ) : bookCategory ? (
                 <button
                   onClick={handleReturnToLibrary}
-                  className="px-6 py-3 text-sm font-sans font-semibold border border-emerald-500/40 text-emerald-400/80 rounded-lg shadow-[0_0_12px_rgba(16,185,129,0.15)] hover:border-emerald-400 hover:text-emerald-300 hover:shadow-[0_0_16px_rgba(16,185,129,0.25)] transition-all cursor-pointer"
+                  className="px-6 py-3 text-sm font-sans font-semibold rounded-lg transition-all cursor-pointer border border-emerald-700/50 bg-emerald-600/10 text-emerald-800 hover:bg-emerald-600/20 hover:border-emerald-700 dark:border-emerald-500/40 dark:bg-transparent dark:text-emerald-400/80 dark:shadow-[0_0_12px_rgba(16,185,129,0.15)] dark:hover:border-emerald-400 dark:hover:text-emerald-300 dark:hover:shadow-[0_0_16px_rgba(16,185,129,0.25)]"
                 >
                   Return to Library →
                 </button>
@@ -573,7 +776,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   // Default rendering for other chapters
   return (
-    <div>
+    <div ref={rootRef} data-cursor={cursorVerse ?? ''}>
       <ProgressBar />
       {chapterSpeakers && (
         <SpeakerLegend
@@ -595,9 +798,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               spans={spansByVerse.get(verse.verse)}
               speakerColors={speakerColors}
               isFirstVerse={verse.verse === 1}
+              isHighlighted={cursorVerse === verse.verse}
               topics={chapterTopics.get(verse.verse)}
               chapter={actualChapter}
               showDefinitions={isProverbs}
+              {...highlightProps(verse.verse)}
             />
           ))}
         </div>

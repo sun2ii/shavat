@@ -1,13 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslation, TRANSLATIONS, Translation } from './providers/TranslationProvider';
+import { loadingBus } from '@/lib/loading-bus';
 
 export default function TranslationToggle() {
   const { translation, setTranslation } = useTranslation();
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  // router.refresh() is async on the server; the transition tells us when
+  // the new text has actually arrived, which drives the loading bar.
+  const [isPending, startTransition] = useTransition();
+
+  useEffect(() => {
+    if (!isPending) return;
+    loadingBus.start();
+    return () => loadingBus.stop();
+  }, [isPending]);
 
   const options = Object.entries(TRANSLATIONS) as [Translation, { name: string; fullName: string }][];
 
@@ -15,7 +25,7 @@ export default function TranslationToggle() {
     if (key !== translation) {
       setTranslation(key);
       // Refresh to load new translation from server
-      router.refresh();
+      startTransition(() => router.refresh());
     }
     setOpen(false);
   };
@@ -29,7 +39,9 @@ export default function TranslationToggle() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="font-sans text-[11px] font-semibold text-muted hover:text-ink bg-surface/80 px-2 py-1 rounded cursor-pointer transition-colors"
+        className={`font-sans text-[11px] font-semibold text-muted hover:text-ink bg-surface/80 px-2 py-1 rounded cursor-pointer transition-opacity ${
+          isPending ? 'opacity-50 animate-pulse' : ''
+        }`}
       >
         {TRANSLATIONS[translation].name}
       </button>

@@ -30,7 +30,7 @@ export default function SpeakerLegend({ heading, detail, speakers, className = '
     >
       <div className="px-6 md:px-8 py-2.5 flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
         <div className="flex items-baseline gap-3 min-w-0">
-          <span className="font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-[#C8A248] truncate">
+          <span className="font-sans text-[11px] tracking-[0.16em] uppercase font-bold text-gold truncate">
             {heading}
           </span>
           {detail && (

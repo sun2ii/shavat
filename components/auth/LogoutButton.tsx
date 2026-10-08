@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function LogoutButton() {
+export default function LogoutButton({ className }: { className?: string } = {}) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -24,7 +24,9 @@ export default function LogoutButton() {
     <button
       onClick={handleLogout}
       disabled={loading}
-      className="font-sans text-xs text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))] disabled:opacity-50"
+      className={`font-sans text-xs disabled:opacity-50 ${
+        className ?? 'text-[rgb(var(--text-tertiary))] hover:text-[rgb(var(--text-primary))]'
+      }`}
     >
       {loading ? 'Signing out...' : 'Sign out'}
     </button>

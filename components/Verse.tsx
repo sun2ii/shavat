@@ -1,10 +1,12 @@
 import Link from 'next/link';
-import { Verse as VerseType } from '@/lib/types';
+import { Verse as VerseType, Highlight, HighlightColor } from '@/lib/types';
 import { tokenizeVerse, type QuoteSpan } from '@/lib/speaker-quotes';
 import { tokenizePlaces } from '@/lib/places';
 import type { ProverbsTopic } from '@/lib/proverbs-topics';
+import { getHighlightColor } from '@/lib/highlight-colors';
 import ProverbsTopicTag from './ProverbsTopicTag';
 import TextWithDefinitions from './TextWithDefinitions';
+import HighlightToolbar from './HighlightToolbar';
 
 // Save scroll position before navigating to place page
 function saveScrollPosition() {
@@ -61,29 +63,51 @@ interface Props {
   chapter?: number;
   /** Show word definition tooltips on hover */
   showDefinitions?: boolean;
+  /** Persisted highlight covering this verse, if any */
+  highlight?: Highlight;
+  /** Render the highlight toolbar under this verse */
+  showHighlightToolbar?: boolean;
+  /** Label for the range the toolbar will mark, e.g. "verses 3–5" */
+  highlightRangeLabel?: string;
+  onSaveHighlight?: (color: HighlightColor, note: string) => void;
+  onRemoveHighlight?: () => void;
+  onCloseHighlightToolbar?: () => void;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false, highlight, showHighlightToolbar = false, highlightRangeLabel, onSaveHighlight, onRemoveHighlight, onCloseHighlightToolbar }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
     }
   };
 
+  // A saved highlight tints the row by its palette color; selection keeps
+  // the gold ring on top of it so the two states stay distinguishable.
+  const palette = highlight ? getHighlightColor(highlight.color) : null;
+  const swatch = palette?.swatch ?? null;
+
   return (
     <>
       <div
         className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text hover:text-[rgb(var(--speaker-4))] ${
           isSelected
-            ? 'bg-[rgb(var(--highlight-yellow))] shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
+            ? 'shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : isHighlighted
             ? 'text-[rgb(var(--speaker-4))]'
             : ''
-        }`}
+        } ${isSelected && !swatch ? 'bg-[rgb(var(--highlight-yellow))]' : ''}`}
+        style={swatch ? { backgroundColor: `${swatch}40` } : undefined}
         data-verse={verse.verse}
         onMouseEnter={onMouseEnter}
+        // The browser selects a word on the second mousedown of a double-click,
+        // before dblclick fires. Blocking multi-click mousedown stops that while
+        // leaving ordinary click-and-drag text selection alone.
+        onMouseDown={(e) => {
+          if (e.detail > 1) e.preventDefault();
+        }}
         onDoubleClick={(e) => {
           e.preventDefault();
+          window.getSelection()?.removeAllRanges();
           handleInteraction();
         }}
       >
@@ -133,6 +157,26 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
             : renderWithPlaces(isFirstVerse ? verse.text.slice(1) : verse.text, showDefinitions)}
         </span>
       </div>
+
+      {/* The note rides with the first verse of its highlight only */}
+      {highlight?.note && highlight.verseStart === verse.verse && !showHighlightToolbar && (
+        <span
+          className="block -mt-1 mb-3 ml-7 pl-3 font-serif italic text-[15px] leading-snug border-l-2"
+          style={{ borderColor: swatch ?? undefined, color: palette?.label }}
+        >
+          {highlight.note}
+        </span>
+      )}
+
+      {showHighlightToolbar && onSaveHighlight && onCloseHighlightToolbar && (
+        <HighlightToolbar
+          rangeLabel={highlightRangeLabel ?? `verse ${verse.verse}`}
+          existing={highlight}
+          onSave={onSaveHighlight}
+          onRemove={onRemoveHighlight}
+          onCancel={onCloseHighlightToolbar}
+        />
+      )}
 
       {isSelected && commentary && (
         <span className="block mt-4 mb-5 pl-6 pr-4 py-4 border-l-[3px] border-gold/60 bg-[rgb(var(--highlight-yellow)/0.06)] rounded-r">

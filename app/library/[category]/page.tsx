@@ -18,7 +18,39 @@ import { divisionHasSpeakers } from '@/lib/hasSpeakers';
 import { getBookTheme } from '@/lib/getBookThemes';
 import { GENESIS_SECTIONS } from '@/lib/genesis-views';
 
-type TabId = 'torah' | 'judges' | 'kingdom' | 'prophets' | 'seventeen' | 'wisdom' | 'gospels' | 'apostolic';
+// A section is one render unit (a group of books). A tab shows one or more
+// sections: "ot" composes judges + kingdom + prophets + wisdom under headings.
+type SectionId = 'torah' | 'judges' | 'kingdom' | 'prophets' | 'seventeen' | 'wisdom' | 'gospels' | 'apostolic';
+type TabId = 'torah' | 'ot' | 'seventeen' | 'nt';
+
+const TAB_SECTIONS: Record<TabId, SectionId[]> = {
+  torah: ['torah'],
+  ot: ['judges', 'kingdom', 'prophets', 'wisdom'],
+  seventeen: ['seventeen'],
+  nt: ['gospels', 'apostolic'],
+};
+
+// Old per-section URLs still resolve to the tab that now contains them.
+const LEGACY_TABS: Record<string, TabId> = {
+  judges: 'ot',
+  kingdom: 'ot',
+  prophets: 'ot',
+  wisdom: 'ot',
+  gospels: 'nt',
+  apostolic: 'nt',
+};
+
+// Headings shown above each section inside a multi-section tab.
+const SECTION_HEADINGS: Record<SectionId, { title: string; sub: string }> = {
+  torah: { title: 'Torah', sub: 'The Five Books of Moses' },
+  judges: { title: 'Judges', sub: 'Joshua, Judges, Ruth' },
+  kingdom: { title: 'Kings', sub: 'Samuel, Kings & Chronicles' },
+  prophets: { title: 'Prophets', sub: 'Isaiah, Jeremiah, Ezekiel' },
+  seventeen: { title: '17', sub: 'Minor Prophets & Restoration' },
+  wisdom: { title: 'Wisdom & Poetry', sub: 'Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon' },
+  gospels: { title: 'Gospels', sub: 'The Four Gospels' },
+  apostolic: { title: 'Apostolic', sub: 'Acts, Epistles & Revelation' },
+};
 
 type FocusableCard = {
   id: string;
@@ -28,14 +60,10 @@ type FocusableCard = {
 };
 
 const TABS = [
-  { id: 'torah' as TabId, label: 'Law' },
-  { id: 'judges' as TabId, label: 'Judges' },
-  { id: 'kingdom' as TabId, label: 'Kings' },
-  { id: 'prophets' as TabId, label: 'Prophets' },
+  { id: 'torah' as TabId, label: 'Torah' },
+  { id: 'ot' as TabId, label: 'OT' },
   { id: 'seventeen' as TabId, label: '17' },
-  { id: 'wisdom' as TabId, label: 'Wisdom' },
-  { id: 'gospels' as TabId, label: 'Gospels' },
-  { id: 'apostolic' as TabId, label: 'Apostolic' },
+  { id: 'nt' as TabId, label: 'NT' },
 ];
 
 
@@ -139,14 +167,10 @@ const GENERAL_ERAS: GeneralEra[] = [
 ];
 
 const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
-  torah: { kicker: 'The Five Books of Moses', title: 'Law' },
-  judges: { kicker: 'Joshua, Judges, Ruth', title: 'Judges' },
-  kingdom: { kicker: 'Samuel, Kings & Chronicles', title: 'Kings' },
-  prophets: { kicker: 'Isaiah, Jeremiah, Ezekiel', title: 'Prophets' },
+  torah: { kicker: 'The Five Books of Moses', title: 'Torah' },
+  ot: { kicker: 'History, Prophets & Wisdom', title: 'Old Testament' },
   seventeen: { kicker: 'Minor Prophets & Restoration', title: '17' },
-  wisdom: { kicker: 'Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon', title: 'Wisdom & Poetry' },
-  gospels: { kicker: 'The Four Gospels', title: 'Gospels' },
-  apostolic: { kicker: 'Acts, Epistles & Revelation', title: 'Apostolic' },
+  nt: { kicker: 'Gospels, Acts, Epistles & Revelation', title: 'New Testament' },
 };
 
 // Prophet eras for the "17" section
@@ -189,13 +213,6 @@ const PROPHET_DATA: Record<string, { era: ProphetEra; anchor: string }> = {
   'esther': { era: 'restoration', anchor: '483–473 BC' },
 };
 
-// Anchors for the three big books
-const BIG_THREE_ANCHORS: Record<string, string> = {
-  'isaiah': '2 Kings 15–20',
-  'jeremiah': '2 Kings 22–25',
-  'ezekiel': '2 Kings 24–25',
-};
-
 /*
   Accents — one per book, and they are only ever a LINE. Never a fill.
 
@@ -230,49 +247,28 @@ function formatScripture(bookName: string, chapters: number[]): string {
   return first === last ? `${bookName} ${first}` : `${bookName} ${first}–${last}`;
 }
 
-function Mark({ tone }: { tone: 'red' | 'green' | 'blue' | 'orange' | 'purple' | 'teal' }) {
-  const titles = { red: 'Commentary', green: 'Writings', blue: 'Voices', orange: 'Places', purple: 'People', teal: 'Map' };
-  const colors = {
-    red: 'bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]',
-    green: 'bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]',
-    blue: 'bg-[rgb(25,70,135)] dark:bg-[rgb(130,170,230)]',
-    orange: 'bg-[rgb(180,100,40)] dark:bg-[rgb(230,160,100)]',
-    purple: 'bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]',
-    teal: 'bg-[rgb(20,120,120)] dark:bg-[rgb(100,200,200)]',
-  };
-  return (
-    <span
-      title={titles[tone]}
-      aria-label={titles[tone]}
-      className={`h-1.5 w-1.5 shrink-0 rounded-full ${colors[tone]}`}
-    />
-  );
-}
-
-function BookHeader({ number, name, sub, anchor, noBorder }: { number?: string; name: string; sub?: string; anchor?: string; noBorder?: boolean }) {
-  // On phones every book starts collapsed to just this header row — tap to
-  // unfold its cards. The `book-collapsed` class hides all following siblings
-  // in the section via a media-scoped rule in globals.css, so desktop stays
-  // fully expanded regardless of state (pointer disabled there too).
+function BookHeader({ number, name, sub, noBorder }: { number?: string; name: string; sub?: string; noBorder?: boolean }) {
+  // Every book starts collapsed to this header row on every breakpoint.
+  // Click to unfold its cards. The `book-collapsed` class hides all following
+  // siblings in the section via a rule in globals.css.
   const [open, setOpen] = useState(false);
   return (
     <div
       onClick={() => setOpen((v) => !v)}
       role="button"
       aria-expanded={open}
-      className={`flex flex-wrap items-baseline gap-2 pt-5 pb-1.5 ${noBorder ? '' : 'border-t border-hairline'} cursor-pointer select-none md:pointer-events-none md:cursor-auto ${
+      className={`flex flex-wrap items-baseline gap-2 pt-2.5 pb-1.5 ${noBorder ? '' : 'border-t border-hairline'} cursor-pointer select-none hover:text-gold ${
         open ? '' : 'book-collapsed'
       }`}
     >
       {number && <span className="font-serif text-[11px] font-bold text-gold">{number}</span>}
       <div className="flex flex-wrap items-baseline gap-2.5">
         <span className="font-serif text-lg font-bold text-ink leading-none">{name}</span>
-        {anchor && <span className="font-sans text-[10px] text-gold/80">{anchor}</span>}
         {sub && <span className="font-serif italic text-[11px] text-muted">{sub}</span>}
       </div>
       <span
         aria-hidden="true"
-        className={`ml-auto md:hidden font-sans text-faint transition-transform ${open ? 'rotate-90' : ''}`}
+        className={`ml-auto font-sans text-faint transition-transform ${open ? 'rotate-90' : ''}`}
       >
         ›
       </span>
@@ -308,7 +304,10 @@ function DivisionCard({
   focused?: boolean;
   isComplete?: boolean;
 }) {
-  const showDots = hasCommentary || hasWritings || hasSpeakers || hasPlaces || hasPeople || hasMap;
+  // Content-type dots (commentary, writings, voices, places, people, map) were
+  // removed from the grid as noise. The flags are still accepted so the many
+  // call sites need no change, but nothing renders from them.
+  void hasCommentary; void hasWritings; void hasSpeakers; void hasPlaces; void hasPeople; void hasMap;
   return (
     /*
       One surface, one hairline, on every card in the app. The left border is
@@ -334,28 +333,25 @@ function DivisionCard({
       <div className="font-sans text-[10px] text-gold mt-0.5">
         {scripture}
       </div>
-      {/* Dots in bottom-right corner */}
-      {showDots && (
-        <div className="absolute bottom-1 right-1 flex items-center gap-0.5">
-          {hasCommentary && <Mark tone="red" />}
-          {hasWritings && <Mark tone="green" />}
-          {hasSpeakers && <Mark tone="blue" />}
-          {hasPlaces && <Mark tone="orange" />}
-          {hasPeople && <Mark tone="purple" />}
-          {hasMap && <Mark tone="teal" />}
-        </div>
-      )}
     </Link>
   );
 }
 
-const VALID_TABS: TabId[] = ['torah', 'judges', 'kingdom', 'prophets', 'seventeen', 'wisdom', 'gospels', 'apostolic'];
+const VALID_TABS: TabId[] = ['torah', 'ot', 'seventeen', 'nt'];
 
 export default function LibraryPage() {
   const params = useParams();
   const router = useRouter();
   const rawTab = params.category as string;
-  const activeTab: TabId = VALID_TABS.includes(rawTab as TabId) ? (rawTab as TabId) : 'torah';
+  const activeTab: TabId = VALID_TABS.includes(rawTab as TabId)
+    ? (rawTab as TabId)
+    : LEGACY_TABS[rawTab] ?? 'torah';
+  const sections = TAB_SECTIONS[activeTab];
+
+  // Rewrite legacy section URLs (/library/judges etc.) to their tab.
+  useEffect(() => {
+    if (LEGACY_TABS[rawTab]) router.replace(`/library/${LEGACY_TABS[rawTab]}`);
+  }, [rawTab, router]);
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -384,7 +380,7 @@ export default function LibraryPage() {
       }
     };
 
-    switch (activeTab) {
+    for (const sectionId of sections) switch (sectionId) {
       case 'torah':
         getBooksByTopLevelCategory('torah').forEach((book) => {
           if (book.slug === 'genesis') {
@@ -505,7 +501,7 @@ export default function LibraryPage() {
 
     const percentage = totalDivisions > 0 ? Math.round((completedDivisions / totalDivisions) * 100) : 0;
     return { completed: completedDivisions, total: totalDivisions, percentage };
-  }, [activeTab, isDivisionComplete]);
+  }, [sections, isDivisionComplete]);
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -531,7 +527,7 @@ export default function LibraryPage() {
       });
     };
 
-    switch (activeTab) {
+    for (const sectionId of sections) switch (sectionId) {
       case 'torah': {
         getBooksByTopLevelCategory('torah').forEach((book) => {
           const divisions =
@@ -562,7 +558,7 @@ export default function LibraryPage() {
       }
       case 'wisdom':
       case 'prophets': {
-        const books = getBooksByTopLevelCategory(activeTab);
+        const books = getBooksByTopLevelCategory(sectionId);
         books.forEach((book) => {
           if (book.slug === 'psalms') {
             // Psalms uses collections
@@ -585,7 +581,7 @@ export default function LibraryPage() {
         break;
       }
       case 'apostolic': {
-        const books = getBooksByTopLevelCategory(activeTab);
+        const books = getBooksByTopLevelCategory(sectionId);
 
         // Acts sections
         ACTS_SECTIONS.forEach((section) => {
@@ -798,7 +794,7 @@ export default function LibraryPage() {
     return (
       <section key={book.slug}>
         <BookHeader number={number} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} chapters`} />
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
           {divisions.map((division) => {
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
             const hasWritings = divisionHasWritings(book.slug, division.chapters);
@@ -824,12 +820,36 @@ export default function LibraryPage() {
     );
   };
 
+  // One tab = one or more sections. A single-section tab renders bare; a
+  // multi-section tab (OT) puts a heading above each section.
   const renderTabContent = () => {
-    switch (activeTab) {
+    if (sections.length === 1) return renderSection(sections[0]);
+    return (
+      <div className="space-y-5">
+        {sections.map((id) => {
+          const heading = SECTION_HEADINGS[id];
+          return (
+            <section key={id}>
+              <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                  {heading.title}
+                </span>
+                <span className="font-serif italic text-[11px] text-muted">{heading.sub}</span>
+              </div>
+              {renderSection(id)}
+            </section>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const renderSection = (sectionId: SectionId) => {
+    switch (sectionId) {
       case 'torah': {
         const torahBooks = getBooksByTopLevelCategory('torah');
         return (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {torahBooks.map((book, idx) => {
               const number = String(idx + 1).padStart(2, '0');
               const accent = ACCENTS[idx % ACCENTS.length];
@@ -839,7 +859,7 @@ export default function LibraryPage() {
                 return (
                   <section key={book.slug}>
                     <BookHeader number={number} name={book.name} sub={`${GENESIS_SECTIONS.length} sections · 50 chapters`} />
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       {GENESIS_SECTIONS.map((item) => {
                         const chapters = Array.from(
                           { length: item.endChapter - item.startChapter + 1 },
@@ -872,7 +892,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -896,7 +916,7 @@ export default function LibraryPage() {
       case 'gospels': {
         const gospelBooks = getBooksByTopLevelCategory('gospels');
         return (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {gospelBooks.map((book, idx) => {
               const divisions =
                 book.slug === 'mark'
@@ -909,7 +929,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -936,7 +956,7 @@ export default function LibraryPage() {
         const judgesBooks = getBooksByTopLevelCategory('historical').filter(b => judgesSlugs.includes(b.slug));
 
         return (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {judgesBooks.map((book, idx) => {
               const number = String(idx + 1).padStart(2, '0');
               const accent = ACCENTS[idx % ACCENTS.length];
@@ -950,7 +970,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -979,7 +999,7 @@ export default function LibraryPage() {
         kingdomBooks.sort((a, b) => kingdomSlugs.indexOf(a.slug) - kingdomSlugs.indexOf(b.slug));
 
         return (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {kingdomBooks.map((book, idx) => {
               const number = String(idx + 1).padStart(2, '0');
               const accent = ACCENTS[idx % ACCENTS.length];
@@ -993,7 +1013,7 @@ export default function LibraryPage() {
               return (
                 <section key={book.slug}>
                   <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
@@ -1023,7 +1043,7 @@ export default function LibraryPage() {
         );
 
         return (
-          <div className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {sortedBigThree.map((book, i) => {
               const accent = ACCENTS[i % ACCENTS.length];
               const divisions = getAllDivisions(book.slug);
@@ -1034,10 +1054,9 @@ export default function LibraryPage() {
                     <BookHeader
                       number={String(i + 1).padStart(2, '0')}
                       name={book.name}
-                      anchor={BIG_THREE_ANCHORS[book.slug]}
                       sub={`${divisions.length} sections · ${book.chapterCount} ch`}
                     />
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       {divisions.map((division) => (
                         <DivisionCard
                           key={division.id}
@@ -1063,10 +1082,9 @@ export default function LibraryPage() {
                     <BookHeader
                       number={String(i + 1).padStart(2, '0')}
                       name={book.name}
-                      anchor={BIG_THREE_ANCHORS[book.slug]}
                       sub={`${book.chapterCount} chapters`}
                     />
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       <DivisionCard
                         href={readingPath(book.slug, 1)}
                         title={book.name}
@@ -1109,7 +1127,7 @@ export default function LibraryPage() {
         let globalBookIndex = 0;
 
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
             {PROPHET_ERAS.map((era) => {
               const eraBooks = allBooksForEras
                 .filter((book) => {
@@ -1124,7 +1142,7 @@ export default function LibraryPage() {
               return (
                 <div key={era.id}>
                   <div className="mb-2">
-                    <span className="font-sans text-[10px] font-medium uppercase tracking-wider text-muted/60">
+                    <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                       {era.label}
                     </span>
                   </div>
@@ -1132,7 +1150,6 @@ export default function LibraryPage() {
                     {eraBooks.map((book) => {
                       globalBookIndex++;
                       const accent = ACCENTS[(globalBookIndex - 1) % ACCENTS.length];
-                      const prophetData = PROPHET_DATA[book.slug];
                       const divisions = getAllDivisions(book.slug);
 
                       if (divisions.length > 0) {
@@ -1141,7 +1158,6 @@ export default function LibraryPage() {
                             <BookHeader
                               number={String(globalBookIndex).padStart(2, '0')}
                               name={book.name}
-                              anchor={prophetData?.anchor}
                               sub={`${divisions.length} sections · ${book.chapterCount} ch`}
                             />
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
@@ -1170,7 +1186,6 @@ export default function LibraryPage() {
                             <BookHeader
                               number={String(globalBookIndex).padStart(2, '0')}
                               name={book.name}
-                              anchor={prophetData?.anchor}
                               sub={`${book.chapterCount} chapters`}
                             />
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
@@ -1200,7 +1215,7 @@ export default function LibraryPage() {
       }
 
       case 'wisdom': {
-        const books = getBooksByTopLevelCategory(activeTab);
+        const books = getBooksByTopLevelCategory(sectionId);
         const bookBlocks: React.ReactNode[] = [];
         let looseTiles: React.ReactNode[] = [];
 
@@ -1208,7 +1223,7 @@ export default function LibraryPage() {
           if (looseTiles.length === 0) return;
           bookBlocks.push(
             <div key={`tiles-${bookBlocks.length}`} className="pt-2">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                 {looseTiles}
               </div>
             </div>,
@@ -1225,7 +1240,7 @@ export default function LibraryPage() {
             bookBlocks.push(
               <div key="psalms">
                 <BookHeader number={String(i + 1).padStart(2, '0')} name="Psalms" sub={`${psalmsCollections.length} collections`} />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                   {psalmsCollections.map((collection, j) => {
                     const first = collection.psalms[0];
                     const last = collection.psalms[collection.psalms.length - 1];
@@ -1259,7 +1274,7 @@ export default function LibraryPage() {
             bookBlocks.push(
               <div key={book.slug}>
                 <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} ch`} />
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                   {divisions.map((division) => (
                     <DivisionCard
                       key={division.id}
@@ -1303,11 +1318,11 @@ export default function LibraryPage() {
 
         flushLooseTiles();
 
-        return <div className="space-y-2">{bookBlocks}</div>;
+        return <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">{bookBlocks}</div>;
       }
 
       case 'apostolic': {
-        const books = getBooksByTopLevelCategory(activeTab);
+        const books = getBooksByTopLevelCategory(sectionId);
         const paulineBooks = books.filter((b) => b.category === 'pauline');
         const generalBooks = books.filter((b) => b.category === 'general');
         const apocalypseBooks = books.filter((b) => b.category === 'apocalypse');
@@ -1334,14 +1349,13 @@ export default function LibraryPage() {
         };
 
         return (
-          <div className="space-y-6">
-            {/* ACTS & REVELATION - Side by side */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-              {/* ACTS */}
-              {actsBook && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2">
+            {/* Reading order: Acts · Paul's Epistles · General Epistles · Revelation */}
+            {/* ACTS */}
+            {actsBook && (
                 <section>
-                  <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} noBorder />
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
+                  <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     {ACTS_SECTIONS.map((section, i) => (
                       <DivisionCard
                         key={section.id}
@@ -1361,21 +1375,10 @@ export default function LibraryPage() {
                 </section>
               )}
 
-              {/* REVELATION */}
-              {apocalypseBooks.length > 0 && (
-                <section>
-                  <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} noBorder />
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-1">
-                    {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
-                  </div>
-                </section>
-              )}
-            </div>
-
             {/* PAULINE EPISTLES - Organized by theme */}
             <section>
               <BookHeader name="Paul's Epistles" sub="13 books" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+              <div className="grid grid-cols-1 gap-y-2 mt-2">
                 {PAULINE_ERAS.map((era, eraIdx) => {
                   const eraBooks = era.books
                     .map(slug => paulineBooks.find(b => b.slug === slug))
@@ -1387,7 +1390,7 @@ export default function LibraryPage() {
                         <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
                         <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
                       </div>
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                         {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
                       </div>
                     </div>
@@ -1399,7 +1402,7 @@ export default function LibraryPage() {
             {/* GENERAL EPISTLES - Organized by authorship */}
             <section>
               <BookHeader name="General Epistles" sub={`${generalBooks.length} books`} />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mt-2">
+              <div className="grid grid-cols-1 gap-y-2 mt-2">
                 {GENERAL_ERAS.map((era, eraIdx) => {
                   const eraBooks = era.books
                     .map(slug => generalBooks.find(b => b.slug === slug))
@@ -1411,7 +1414,7 @@ export default function LibraryPage() {
                         <span className="font-serif text-[11px] font-bold text-gold">{era.number}</span>
                         <span className="font-serif text-[11px] font-semibold text-ink">{era.title}</span>
                       </div>
-                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                         {eraBooks.map((book, i) => renderBookCard(book, ACCENTS[(eraIdx + i) % ACCENTS.length]))}
                       </div>
                     </div>
@@ -1420,6 +1423,15 @@ export default function LibraryPage() {
               </div>
             </section>
 
+            {/* REVELATION */}
+            {apocalypseBooks.length > 0 && (
+                <section>
+                  <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} />
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
+                    {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
+                  </div>
+                </section>
+            )}
           </div>
         );
       }
@@ -1431,100 +1443,46 @@ export default function LibraryPage() {
   return (
     <main className="max-w-6xl mx-auto md:select-text pb-8 px-4">
       {/* Header: the shared PageHeader recipe (same as Map and Saved),
-          then the legend + tabs row beneath it. */}
+          then the centered tabs row beneath it. */}
       <PageHeader
-        kicker={activeTab === 'gospels' || activeTab === 'apostolic' ? 'New Testament' : 'Old Testament'}
+        kicker={activeTab === 'nt' ? 'New Testament' : 'Old Testament'}
         title={mast.title}
         subtitle={mast.kicker}
       />
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 pb-3">
-        <div>
-          {/* Color legend — desktop only; on the phone the dots speak for themselves */}
-          <div className="hidden md:flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[10px] text-muted">
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(155,30,40)] dark:bg-[rgb(230,130,130)]" />
-              Commentary
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(122,153,90)] dark:bg-[rgb(138,154,91)]" />
-              Writings
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(25,70,135)] dark:bg-[rgb(130,170,230)]" />
-              Voices
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(180,100,40)] dark:bg-[rgb(230,160,100)]" />
-              Places
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(100,50,160)] dark:bg-[rgb(180,150,230)]" />
-              People
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="h-1 w-1 rounded-full bg-[rgb(20,120,120)] dark:bg-[rgb(100,200,200)]" />
-              Map
-            </span>
-          </div>
-        </div>
-
-        <div className="flex w-full flex-col items-stretch gap-0.5 md:w-auto md:items-end md:pt-1">
-          {/* Mobile: grouped wrapping pills — nothing scrolls horizontally */}
-          <div className="flex flex-col gap-2.5 md:hidden">
-            {[
-              // OT: Law/Judges/Kings, Prophets/17/Wisdom (6 tabs)
-              // NT: Gospels/Apostolic (2 tabs)
-              { label: 'OLD TESTAMENT', tabs: TABS.slice(0, 6), grid: true },
-              { label: 'NEW TESTAMENT', tabs: TABS.slice(6), grid: true },
-            ].map((group) => (
-              <div key={group.label}>
-                <div className="mb-1 font-sans text-[10px] tracking-wider text-gold">
-                  {group.label}
-                </div>
-                <div
-                  className={`${
-                    group.grid ? 'grid grid-cols-3 gap-1.5' : 'flex flex-wrap gap-1.5'
-                  } font-sans text-xs font-medium`}
+      <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-3 pb-3">
+        <div className="flex w-full flex-col items-stretch gap-0.5 md:w-auto md:items-center md:pt-1">
+          {/* Mobile: one row of four pills */}
+          <div className="grid grid-cols-4 gap-1.5 md:hidden font-sans text-xs font-medium">
+            {TABS.map((tab) => {
+              const active = activeTab === tab.id;
+              return (
+                <Link
+                  key={tab.id}
+                  href={`/library/${tab.id}`}
+                  className={`rounded-full px-3 py-2 whitespace-nowrap text-center transition-colors ${
+                    active
+                      ? 'bg-surface text-ink shadow-sm border border-hairline'
+                      : 'bg-paper-2 text-muted active:text-ink'
+                  }`}
                 >
-                  {group.tabs.map((tab) => {
-                    const active = activeTab === tab.id;
-                    return (
-                      <Link
-                        key={tab.id}
-                        href={`/library/${tab.id}`}
-                        className={`rounded-full px-3 py-2 whitespace-nowrap text-center transition-colors ${
-                          active
-                            ? 'bg-surface text-ink shadow-sm border border-hairline'
-                            : 'bg-paper-2 text-muted active:text-ink'
-                        }`}
-                      >
-                        {tab.label}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
+                  {tab.label}
+                </Link>
+              );
+            })}
           </div>
 
-          {/* Desktop: original capsule with OT/NT labels above */}
-          <div className="hidden md:flex md:flex-col md:items-end md:gap-0.5">
-            {/* OT / NT labels - 3 columns matching divider sections */}
-            <div className="grid grid-cols-3 w-full font-sans text-[10px] tracking-wider text-gold">
-              <span className="col-span-2 text-center">OLD TESTAMENT</span>
-              <span className="text-center">NEW TESTAMENT</span>
-            </div>
-            {/* Tabs */}
-            <div className="inline-flex bg-paper-2 rounded-full p-0.5 font-sans text-[10px] font-medium">
+          {/* Desktop: one capsule, dividers marking the three acts: Torah | OT 17 | NT */}
+          <div className="hidden md:flex md:flex-col md:items-center">
+            <div className="inline-flex bg-paper-2 rounded-full p-1 font-sans text-[13px] font-medium">
               {TABS.map((tab) => {
                 const active = activeTab === tab.id;
-                const showDivider = tab.id === 'gospels';
+                const showDivider = tab.id === 'ot' || tab.id === 'nt';
                 return (
                   <span key={tab.id} className="flex items-center">
-                    {showDivider && <span className="mx-2 h-4 w-px bg-hairline" />}
+                    {showDivider && <span className="mx-2.5 h-5 w-px bg-hairline" />}
                     <Link
                       href={`/library/${tab.id}`}
-                      className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${
+                      className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-colors ${
                         active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
                       }`}
                     >

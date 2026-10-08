@@ -1,14 +1,16 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { Translation, TRANSLATIONS, DEFAULT_TRANSLATION } from '@/lib/translations';
 
-export type Translation = 'niv' | 'kjv' | 'web';
+// Re-exported for existing client imports (TranslationToggle).
+export type { Translation };
+export { TRANSLATIONS };
 
-export const TRANSLATIONS: Record<Translation, { name: string; fullName: string }> = {
-  niv: { name: 'NIV', fullName: 'New International Version' },
-  kjv: { name: 'KJV', fullName: 'King James Version' },
-  web: { name: 'WEB', fullName: 'World English Bible' },
-};
+// Must match lib/translation-preference.ts (server). Duplicated as literals
+// because that module imports next/headers and cannot be loaded on the client.
+const COOKIE = 'shavat-translation';
+const SETTING_KEY = 'translation';
 
 interface TranslationContextType {
   translation: Translation;
@@ -21,7 +23,7 @@ export function useTranslation() {
   const context = useContext(TranslationContext);
   if (!context) {
     return {
-      translation: 'niv' as Translation,
+      translation: DEFAULT_TRANSLATION,
       setTranslation: () => {},
     };
   }
@@ -30,36 +32,35 @@ export function useTranslation() {
 
 interface Props {
   children: ReactNode;
+  /** Resolved on the server (account > cookie > default), so SSR and first
+   *  client render agree and no mounted/hydration dance is needed. */
+  initialTranslation: Translation;
+  /** When true, changes are also written to the account via /api/user-settings. */
+  persistToAccount: boolean;
 }
 
-export function TranslationProvider({ children }: Props) {
-  const [translation, setTranslationState] = useState<Translation>('niv');
-  const [mounted, setMounted] = useState(false);
-
-  // Load from localStorage on mount
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem('shavat-translation');
-    if (saved && (saved === 'niv' || saved === 'kjv' || saved === 'web')) {
-      setTranslationState(saved);
-    }
-  }, []);
+export function TranslationProvider({ children, initialTranslation, persistToAccount }: Props) {
+  const [translation, setTranslationState] = useState<Translation>(initialTranslation);
 
   const setTranslation = useCallback((t: Translation) => {
     setTranslationState(t);
-    localStorage.setItem('shavat-translation', t);
-    // Also set cookie so server can read it
-    document.cookie = `shavat-translation=${t};path=/;max-age=31536000`;
-  }, []);
 
-  // Avoid hydration mismatch by using default until mounted
-  const value = {
-    translation: mounted ? translation : 'niv',
-    setTranslation,
-  };
+    // Device-level persistence and the transport the server reads for
+    // anonymous requests. Always written, so a later sign-out keeps the choice.
+    document.cookie = `${COOKIE}=${t};path=/;max-age=31536000`;
+
+    // Account-level persistence: follows the user across devices.
+    if (persistToAccount) {
+      fetch('/api/user-settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: SETTING_KEY, value: t }),
+      }).catch((err) => console.error('Failed to save translation to account:', err));
+    }
+  }, [persistToAccount]);
 
   return (
-    <TranslationContext.Provider value={value}>
+    <TranslationContext.Provider value={{ translation, setTranslation }}>
       {children}
     </TranslationContext.Provider>
   );

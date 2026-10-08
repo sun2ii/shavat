@@ -1,17 +1,20 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import RoutePersistence from '@/components/RoutePersistence';
-import GlobalKeyboardNav from '@/components/GlobalKeyboardNav';
 import InnerLayout from '@/components/InnerLayout';
 import NativeTabBar from '@/components/native/NativeTabBar';
 import NativeSplash from '@/components/native/NativeSplash';
 import PageFade from '@/components/native/PageFade';
 import DebugModeSync from '@/components/SvgDebugMode';
+import LoadingBar from '@/components/LoadingBar';
 import { getCurrentUser } from '@/lib/auth';
 import { sql } from '@/lib/db';
 import { ReadingProgressProvider } from '@/components/providers/ReadingProgressProvider';
 import { BookmarkProvider } from '@/components/providers/BookmarkProvider';
 import { TranslationProvider } from '@/components/providers/TranslationProvider';
+import { HighlightProvider } from '@/components/providers/HighlightProvider';
+import { resolveTranslation } from '@/lib/translation-preference';
+import { listHighlights } from '@/lib/highlights-db';
 
 export const metadata: Metadata = {
   title: 'Shavat',
@@ -98,8 +101,12 @@ export default async function RootLayout({
 }) {
   const user = await getCurrentUser();
   const isAuthenticated = !!user;
-  const readingProgress = await getReadingProgress(user?.email ?? null);
-  const bookmarks = await getBookmarks(user?.email ?? null);
+  const [readingProgress, bookmarks, translation, highlights] = await Promise.all([
+    getReadingProgress(user?.email ?? null),
+    getBookmarks(user?.email ?? null),
+    resolveTranslation(user),
+    user ? listHighlights(user.email) : Promise.resolve([]),
+  ]);
 
   return (
     <html lang="en">
@@ -114,17 +121,19 @@ export default async function RootLayout({
         />
       </head>
       <body className="select-none-ui">
+        <LoadingBar />
         <RoutePersistence />
-        <GlobalKeyboardNav />
         <DebugModeSync />
-        <TranslationProvider>
+        <TranslationProvider initialTranslation={translation} persistToAccount={isAuthenticated}>
           <BookmarkProvider initialBookmarks={bookmarks}>
-            <ReadingProgressProvider initialProgress={readingProgress}>
-              <InnerLayout isAuthenticated={isAuthenticated}>
-                {/* Cross-fades tab switches in the native shell; inert on web. */}
-                <PageFade>{children}</PageFade>
-              </InnerLayout>
-            </ReadingProgressProvider>
+            <HighlightProvider initialHighlights={highlights} persistToAccount={isAuthenticated}>
+              <ReadingProgressProvider initialProgress={readingProgress}>
+                <InnerLayout isAuthenticated={isAuthenticated} userEmail={user?.email ?? null}>
+                  {/* Cross-fades tab switches in the native shell; inert on web. */}
+                  <PageFade>{children}</PageFade>
+                </InnerLayout>
+              </ReadingProgressProvider>
+            </HighlightProvider>
           </BookmarkProvider>
         </TranslationProvider>
         {/* These render only inside the Capacitor iOS shell; null on the web. */}

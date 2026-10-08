@@ -29,5 +29,8 @@ export default function PageFade({ children }: { children: React.ReactNode }) {
     el.classList.add('page-fade-run');
   }, [pathname]);
 
-  return <div ref={ref}>{children}</div>;
+  // h-full so a page can claim the shell's full height (e.g. the dashboard
+  // centers one link). Taller pages overflow this box and the shell's
+  // overflow-auto main still scrolls them.
+  return <div ref={ref} className="h-full">{children}</div>;
 }

@@ -2,12 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import { Verse } from './types';
 import { getBookBySlug } from './bible-index';
+import { Translation, DEFAULT_TRANSLATION } from './translations';
 
 // One factory for all 66 books — replaces the per-book wrapper modules
 // (lib/<book>.ts) and the getBookUtils switch. Server-only: reads the
 // canonical lib/<book>.json on first access, cached per slug.
 
-export type Translation = 'niv' | 'kjv' | 'web';
+export type { Translation };
 
 export interface BookAccessor {
   getChapter(chapterNum: number): Verse[] | null;
@@ -23,7 +24,7 @@ interface BookJSON {
 // Cache keyed by "translation:slug"
 const cache = new Map<string, BookAccessor | null>();
 
-export function createBookAccessor(slug: string, translation: Translation = 'niv'): BookAccessor | null {
+export function createBookAccessor(slug: string, translation: Translation = DEFAULT_TRANSLATION): BookAccessor | null {
   const cacheKey = `${translation}:${slug}`;
 
   if (cache.has(cacheKey)) {
@@ -40,7 +41,7 @@ export function createBookAccessor(slug: string, translation: Translation = 'niv
 
   // Try translation-specific file first, fall back to default (NIV)
   let filePath: string;
-  if (translation !== 'niv') {
+  if (translation !== DEFAULT_TRANSLATION) {
     const translationPath = path.join(process.cwd(), 'lib', 'translations', translation, file);
     if (fs.existsSync(translationPath)) {
       filePath = translationPath;

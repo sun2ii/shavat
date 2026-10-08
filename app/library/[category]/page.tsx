@@ -21,17 +21,17 @@ import { GENESIS_SECTIONS } from '@/lib/genesis-views';
 // A section is one render unit (a group of books). A tab shows one or more
 // sections: "ot" composes judges + kingdom + prophets + wisdom under headings.
 type SectionId = 'torah' | 'judges' | 'kingdom' | 'prophets' | 'seventeen' | 'wisdom' | 'gospels' | 'apostolic';
-type TabId = 'torah' | 'ot' | 'seventeen' | 'nt';
+type TabId = 'ot' | 'seventeen' | 'nt';
 
 const TAB_SECTIONS: Record<TabId, SectionId[]> = {
-  torah: ['torah'],
-  ot: ['judges', 'kingdom', 'prophets', 'wisdom'],
+  ot: ['torah', 'judges', 'kingdom', 'prophets', 'wisdom'],
   seventeen: ['seventeen'],
   nt: ['gospels', 'apostolic'],
 };
 
 // Old per-section URLs still resolve to the tab that now contains them.
 const LEGACY_TABS: Record<string, TabId> = {
+  torah: 'ot',
   judges: 'ot',
   kingdom: 'ot',
   prophets: 'ot',
@@ -60,7 +60,6 @@ type FocusableCard = {
 };
 
 const TABS = [
-  { id: 'torah' as TabId, label: 'Torah' },
   { id: 'ot' as TabId, label: 'OT' },
   { id: 'seventeen' as TabId, label: '17' },
   { id: 'nt' as TabId, label: 'NT' },
@@ -167,9 +166,8 @@ const GENERAL_ERAS: GeneralEra[] = [
 ];
 
 const MASTHEAD: Record<TabId, { kicker: string; title: string }> = {
-  torah: { kicker: 'The Five Books of Moses', title: 'Torah' },
-  ot: { kicker: 'History, Prophets & Wisdom', title: 'Old Testament' },
-  seventeen: { kicker: 'Minor Prophets & Restoration', title: '17' },
+  ot: { kicker: 'Torah, History, Prophets & Wisdom', title: 'Old Testament' },
+  seventeen: { kicker: 'Minor Prophets & Restoration', title: '17 Prophets' },
   nt: { kicker: 'Gospels, Acts, Epistles & Revelation', title: 'New Testament' },
 };
 
@@ -247,6 +245,21 @@ function formatScripture(bookName: string, chapters: number[]): string {
   return first === last ? `${bookName} ${first}` : `${bookName} ${first}–${last}`;
 }
 
+// Group heading inside a tab (Torah, Judges, Kings… and the 17's eras).
+// Deliberately unlike everything around it: sans, uppercase, wide-tracked,
+// and a deep blue-teal that is neither the ink of book names nor the amber
+// accent. No rule — the color and the type do the separating.
+function SectionHeading({ title, sub }: { title: string; sub?: string }) {
+  return (
+    <div className="mb-0.5 flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+      <h2 className="font-sans text-lg font-bold uppercase tracking-[0.18em] text-[#2f6f8f] dark:text-[#8fc1da]">
+        {title}
+      </h2>
+      {sub && <span className="font-serif italic text-[12px] text-muted">{sub}</span>}
+    </div>
+  );
+}
+
 function BookHeader({ number, name, sub, noBorder }: { number?: string; name: string; sub?: string; noBorder?: boolean }) {
   // Every book starts collapsed to this header row on every breakpoint.
   // Click to unfold its cards. The `book-collapsed` class hides all following
@@ -257,7 +270,7 @@ function BookHeader({ number, name, sub, noBorder }: { number?: string; name: st
       onClick={() => setOpen((v) => !v)}
       role="button"
       aria-expanded={open}
-      className={`flex flex-wrap items-baseline gap-2 pt-2.5 pb-1.5 ${noBorder ? '' : 'border-t border-hairline'} cursor-pointer select-none hover:text-gold ${
+      className={`flex flex-wrap items-baseline gap-2 pt-1.5 pb-1 ${noBorder ? '' : 'border-t border-hairline'} cursor-pointer select-none hover:text-gold ${
         open ? '' : 'book-collapsed'
       }`}
     >
@@ -337,7 +350,7 @@ function DivisionCard({
   );
 }
 
-const VALID_TABS: TabId[] = ['torah', 'ot', 'seventeen', 'nt'];
+const VALID_TABS: TabId[] = ['ot', 'seventeen', 'nt'];
 
 export default function LibraryPage() {
   const params = useParams();
@@ -345,7 +358,7 @@ export default function LibraryPage() {
   const rawTab = params.category as string;
   const activeTab: TabId = VALID_TABS.includes(rawTab as TabId)
     ? (rawTab as TabId)
-    : LEGACY_TABS[rawTab] ?? 'torah';
+    : LEGACY_TABS[rawTab] ?? 'ot';
   const sections = TAB_SECTIONS[activeTab];
 
   // Rewrite legacy section URLs (/library/judges etc.) to their tab.
@@ -825,17 +838,12 @@ export default function LibraryPage() {
   const renderTabContent = () => {
     if (sections.length === 1) return renderSection(sections[0]);
     return (
-      <div className="space-y-5">
+      <div className="space-y-3">
         {sections.map((id) => {
           const heading = SECTION_HEADINGS[id];
           return (
             <section key={id}>
-              <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                  {heading.title}
-                </span>
-                <span className="font-serif italic text-[11px] text-muted">{heading.sub}</span>
-              </div>
+              <SectionHeading title={heading.title} sub={heading.sub} />
               {renderSection(id)}
             </section>
           );
@@ -1141,11 +1149,7 @@ export default function LibraryPage() {
 
               return (
                 <div key={era.id}>
-                  <div className="mb-2">
-                    <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold">
-                      {era.label}
-                    </span>
-                  </div>
+                  <SectionHeading title={era.label} />
                   <div className="space-y-2">
                     {eraBooks.map((book) => {
                       globalBookIndex++;
@@ -1451,8 +1455,8 @@ export default function LibraryPage() {
       />
       <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-3 pb-3">
         <div className="flex w-full flex-col items-stretch gap-0.5 md:w-auto md:items-center md:pt-1">
-          {/* Mobile: one row of four pills */}
-          <div className="grid grid-cols-4 gap-1.5 md:hidden font-sans text-xs font-medium">
+          {/* Mobile: one row of three pills */}
+          <div className="grid grid-cols-3 gap-1.5 md:hidden font-sans text-xs font-medium">
             {TABS.map((tab) => {
               const active = activeTab === tab.id;
               return (
@@ -1471,12 +1475,12 @@ export default function LibraryPage() {
             })}
           </div>
 
-          {/* Desktop: one capsule, dividers marking the three acts: Torah | OT 17 | NT */}
+          {/* Desktop: one capsule, a divider between each act: OT | 17 | NT */}
           <div className="hidden md:flex md:flex-col md:items-center">
             <div className="inline-flex bg-paper-2 rounded-full p-1 font-sans text-[13px] font-medium">
-              {TABS.map((tab) => {
+              {TABS.map((tab, i) => {
                 const active = activeTab === tab.id;
-                const showDivider = tab.id === 'ot' || tab.id === 'nt';
+                const showDivider = i > 0;
                 return (
                   <span key={tab.id} className="flex items-center">
                     {showDivider && <span className="mx-2.5 h-5 w-px bg-hairline" />}

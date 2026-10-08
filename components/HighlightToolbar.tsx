@@ -57,7 +57,15 @@ export default function HighlightToolbar({ rangeLabel, existing, onSave, onRemov
       <textarea
         value={note}
         onChange={(e) => setNote(e.target.value)}
-        placeholder="Add a note (optional)"
+        // Enter saves and closes; Shift+Enter is a line break. (Escape is
+        // handled by the reader's key handler and closes the toolbar.)
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            onSave(color, note);
+          }
+        }}
+        placeholder="Add a note"
         rows={2}
         className="block w-full resize-y rounded border border-hairline bg-paper-2 px-2 py-1.5 font-serif text-sm leading-snug text-ink placeholder:text-faint outline-none focus:border-gold"
       />

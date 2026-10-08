@@ -10,7 +10,7 @@ export interface Verse {
 // Three named kinds lead (character / setting / plot, each with a one-key
 // shortcut), then the plain colors. The id is what gets persisted.
 export type HighlightColor =
-  | 'character' | 'setting' | 'plot'
+  | 'character' | 'setting' | 'plot' | 'quote'
   | 'yellow' | 'blue' | 'purple' | 'rose' | 'emerald' | 'silver';
 
 export interface Highlight {

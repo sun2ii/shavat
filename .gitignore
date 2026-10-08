@@ -14,4 +14,4 @@ bookmarks.json
 reports/
 
 # Large external Bible data (5.3GB, downloaded separately)
-api/
+/api/

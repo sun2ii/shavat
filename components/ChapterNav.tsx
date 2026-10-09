@@ -278,16 +278,16 @@ export default function ChapterNav({
     return () => window.removeEventListener('keydown', onKey);
   });
 
-  const handleBookmark = async () => {
+  const handleBookmark = () => {
     if (typeof window === 'undefined') return;
 
     if (isAuthenticated) {
-      // Use context for authenticated users (optimistic update + API sync)
-      await toggleBookmark(bookSlug, currentChapter);
+      // Show toast immediately (optimistic), API syncs in background
       if (!isBookmarked) {
         setShowSaved(true);
         setTimeout(() => setShowSaved(false), 1500);
       }
+      void toggleBookmark(bookSlug, currentChapter);
     } else {
       // Use localStorage for unauthenticated users
       if (localBookmark) {
@@ -521,6 +521,18 @@ export default function ChapterNav({
           })()}
         </div>
       </nav>
+
+      {/* Bookmark toast - brief visual confirmation */}
+      {showSaved && (
+        <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-50">
+          <div className="bg-surface/95 backdrop-blur-sm border border-gold/30 rounded-xl px-6 py-4 shadow-xl animate-[fade-in_0.15s_ease-out]">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl text-gold">★</span>
+              <span className="font-sans text-sm font-medium text-ink">Bookmarked</span>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

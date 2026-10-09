@@ -1,0 +1,33 @@
+{
+  "id": "imitation-of-christ",
+  "title": "The Imitation of Christ",
+  "author": "Thomas a Kempis",
+  "translator": "William Benham",
+  "source": "https://standardebooks.org/ebooks/thomas-a-kempis/the-imitation-of-christ/william-benham",
+  "books": [
+    {
+      "id": 1,
+      "slug": "imitation-1",
+      "title": "Admonitions Profitable for the Spiritual Life",
+      "chapters": 25
+    },
+    {
+      "id": 2,
+      "slug": "imitation-2",
+      "title": "Admonitions Concerning the Inner Life",
+      "chapters": 12
+    },
+    {
+      "id": 3,
+      "slug": "imitation-3",
+      "title": "On Inward Consolation",
+      "chapters": 59
+    },
+    {
+      "id": 4,
+      "slug": "imitation-4",
+      "title": "Of the Sacrament of the Altar",
+      "chapters": 18
+    }
+  ]
+}

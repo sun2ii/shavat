@@ -7,7 +7,6 @@ import { Verse as VerseType, Highlight, HighlightColor } from '@/lib/types';
 import { useHighlights } from '@/components/providers/HighlightProvider';
 import { loadingBus } from '@/lib/loading-bus';
 import { FIRST_VERSE_HASH } from '@/lib/reader-keys';
-import { HIGHLIGHT_KEYS } from '@/lib/highlight-colors';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION, COPY_UNFOLD_DELAY_MS } from '@/lib/copy-glow';
@@ -35,6 +34,8 @@ interface Props {
   nextDivisionId?: string | null;
   bookCategory?: string;
   isAuthenticated?: boolean;
+  /** Initial verse/paragraph to highlight with purple cursor */
+  initialCursor?: number;
 }
 
 function slugify(text: string): string {
@@ -107,7 +108,7 @@ function CollapsibleVerses({
   );
 }
 
-export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, bookCategory, isAuthenticated = false }: Props) {
+export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, bookCategory, isAuthenticated = false, initialCursor }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
@@ -123,7 +124,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     return null;
   });
   // Auto-highlight first verse of newly opened section (clears on any hover)
-  const [autoHighlightedVerse, setAutoHighlightedVerse] = useState<number | null>(null);
+  // Also used for initialCursor prop to highlight first paragraph on load
+  const [autoHighlightedVerse, setAutoHighlightedVerse] = useState<number | null>(initialCursor ?? null);
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const unfoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -379,7 +381,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         stepCursor(-1);
-      } else if (e.key === 'Enter' && cursorVerse !== null) {
+      } else if (e.key === 'Enter' && cursorVerse !== null && toolbarVerse === null) {
+        // Only toggle verse if toolbar is NOT open (toolbar handles its own Enter)
         e.preventDefault();
         toggleVerse(cursorVerse);
       } else if (e.key === 'h' && cursorVerse !== null) {
@@ -391,21 +394,6 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           setSelectedVerses(new Set([cursorVerse]));
           setToolbarVerse(cursorVerse);
         }
-      } else if (HIGHLIGHT_KEYS[e.key] && cursorVerse !== null && actualBook && actualChapter) {
-        // c / s / p: one-key highlight of the selection (or the cursor verse)
-        // as that kind. Pressing the same kind on an existing highlight of
-        // that kind removes it, so each key is a toggle.
-        e.preventDefault();
-        const kind = HIGHLIGHT_KEYS[e.key];
-        const existing = highlightByVerse.get(cursorVerse);
-        const range = selectionRange ?? { start: cursorVerse, end: cursorVerse };
-        if (existing && existing.color === kind && existing.verseStart === range.start && existing.verseEnd === range.end) {
-          void removeHighlight(existing.id);
-        } else {
-          void saveHighlight({ book: actualBook, chapter: actualChapter, verseStart: range.start, verseEnd: range.end, color: kind, note: existing?.note });
-        }
-        setSelectedVerses(new Set());
-        setToolbarVerse(null);
       }
     };
     window.addEventListener('keydown', onKey);
@@ -436,6 +424,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     const newSection = expandedSection === sectionName ? null : sectionName;
     setExpandedSection(newSection);
     setAutoHighlightedVerse(newSection && firstVerse ? firstVerse : null);
+    // Clicking a section teleports the keyboard cursor there, so up/down
+    // arrows continue from this position rather than forcing 40 presses.
+    if (newSection && firstVerse) {
+      setCursorVerse(firstVerse);
+    }
     if (newSection) {
       const id = slugify(newSection);
       window.history.replaceState(null, '', `#${id}`);
@@ -466,6 +459,13 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // write selectedVerses for a 2s flash and must not open the toolbar.
   const [toolbarVerse, setToolbarVerse] = useState<number | null>(null);
 
+  // Single tap sets the purple cursor (for phone navigation)
+  const handleTapVerse = (verseNum: number) => {
+    setAutoHighlightedVerse(null);
+    setCursorVerse(verseNum);
+  };
+
+  // Double tap opens the highlight toolbar
   const toggleVerse = (verseNum: number) => {
     setSelectedVerses(prev => {
       const next = new Set(prev);
@@ -512,17 +512,26 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     setSelectedVerses(new Set());
   };
 
-  const handleSaveHighlight = async (color: HighlightColor, note: string) => {
+  const handleSaveHighlight = (color: HighlightColor, note: string) => {
     if (!actualBook || !actualChapter || !selectionRange) return;
-    await saveHighlight({
+    // If no note provided, use the verse text as the note (prefixed with [v] marker)
+    let finalNote = note.trim();
+    if (!finalNote) {
+      const verseTexts = verses
+        .filter(v => v.verse >= selectionRange.start && v.verse <= selectionRange.end)
+        .map(v => v.text);
+      finalNote = '[v]' + verseTexts.join(' ');
+    }
+    // Close toolbar immediately (optimistic), SQL syncs in background
+    closeToolbar();
+    void saveHighlight({
       book: actualBook,
       chapter: actualChapter,
       verseStart: selectionRange.start,
       verseEnd: selectionRange.end,
       color,
-      note: note.trim() || undefined,
+      note: finalNote || undefined,
     });
-    closeToolbar();
   };
 
   const handleRemoveHighlight = async () => {
@@ -715,6 +724,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         verse={verse}
                         isSelected={selectedVerses.has(verse.verse)}
                         onToggle={toggleVerse}
+                        onTap={handleTapVerse}
                         commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
                         showCommentaryGate={!isAuthenticated}
                         spans={spansByVerse.get(verse.verse)}
@@ -796,6 +806,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               verse={verse}
               isSelected={selectedVerses.has(verse.verse)}
               onToggle={toggleVerse}
+              onTap={handleTapVerse}
               commentary={isAuthenticated ? commentary.get(verse.verse) : undefined}
               showCommentaryGate={!isAuthenticated}
               spans={spansByVerse.get(verse.verse)}

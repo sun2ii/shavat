@@ -19,8 +19,33 @@ interface AppShellProps {
 // area on every page, above the scroll region so it never overlaps page
 // chrome (the reader has its own top-right icon cluster).
 function AccountStrip({ email }: { email: string }) {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const next = !root.classList.contains('dark');
+    root.classList.toggle('dark', next);
+    root.classList.toggle('light', !next);
+    try {
+      localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
+    } catch {}
+    setIsDark(next);
+  };
+
   return (
     <div className="shrink-0 flex items-center justify-end gap-3 px-4 sm:px-6 h-7 font-sans text-[11px] text-faint">
+      <button
+        onClick={toggleTheme}
+        className="flex items-center justify-center p-0.5 text-faint hover:text-ink transition-colors"
+        aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        <ThemeToggleIcon isDark={isDark} size={14} />
+      </button>
       <span className="truncate max-w-[220px]" title={email}>
         {email}
       </span>

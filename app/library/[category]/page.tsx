@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
-import PageHeader from '@/components/PageHeader';
+import { TabbedPageHeader, type TabColumn } from '@/components/PageHeader';
 import { getBooksByTopLevelCategory } from '@/lib/top-level-categories';
 import { readingPath } from '@/lib/routes';
 import { CATEGORIES } from '@/lib/bible-metadata';
@@ -260,7 +260,7 @@ function SectionHeading({ title, sub }: { title: string; sub?: string }) {
   );
 }
 
-function BookHeader({ number, name, sub, noBorder }: { number?: string; name: string; sub?: string; noBorder?: boolean }) {
+function BookHeader({ number, name, sub, noBorder, isComplete }: { number?: string; name: string; sub?: string; noBorder?: boolean; isComplete?: boolean }) {
   // Every book starts collapsed to this header row on every breakpoint.
   // Click to unfold its cards. The `book-collapsed` class hides all following
   // siblings in the section via a rule in globals.css.
@@ -276,7 +276,8 @@ function BookHeader({ number, name, sub, noBorder }: { number?: string; name: st
     >
       {number && <span className="font-serif text-[11px] font-bold text-gold">{number}</span>}
       <div className="flex flex-wrap items-baseline gap-2.5">
-        <span className="font-serif text-lg font-bold text-ink leading-none">{name}</span>
+        <span className={`font-serif text-lg font-bold leading-none ${isComplete ? 'text-emerald-600 dark:text-emerald-400' : 'text-ink'}`}>{name}</span>
+        {isComplete && <span className="text-emerald-500 text-[10px]">✓</span>}
         {sub && <span className="font-serif italic text-[11px] text-muted">{sub}</span>}
       </div>
       <span
@@ -369,28 +370,36 @@ export default function LibraryPage() {
   const [showShortcuts, setShowShortcuts] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   // Get reading progress from context (server-side fetched, no delay)
-  const { isDivisionComplete } = useReadingProgress();
+  // Include `progress` in destructure to ensure useMemo recalculates when it changes
+  const { isDivisionComplete, progress } = useReadingProgress();
 
-  // Calculate progress stats for the current tab
-  const tabProgress = useMemo(() => {
+  // Calculate progress stats for the current tab AND per-book completion
+  const { tabProgress, bookComplete } = useMemo(() => {
     let totalDivisions = 0;
     let completedDivisions = 0;
+    const bookStatus: Record<string, { total: number; completed: number }> = {};
+
+    const trackBook = (bookSlug: string, isComplete: boolean) => {
+      if (!bookStatus[bookSlug]) bookStatus[bookSlug] = { total: 0, completed: 0 };
+      bookStatus[bookSlug].total++;
+      if (isComplete) bookStatus[bookSlug].completed++;
+    };
 
     const countDivisions = (bookSlug: string, divisions: { chapters: number[] }[]) => {
       divisions.forEach((div) => {
         totalDivisions++;
-        if (isDivisionComplete(bookSlug, div.chapters)) {
-          completedDivisions++;
-        }
+        const complete = isDivisionComplete(bookSlug, div.chapters);
+        if (complete) completedDivisions++;
+        trackBook(bookSlug, complete);
       });
     };
 
     const countSingleBook = (bookSlug: string, chapterCount: number) => {
       const allChapters = Array.from({ length: chapterCount }, (_, i) => i + 1);
       totalDivisions++;
-      if (isDivisionComplete(bookSlug, allChapters)) {
-        completedDivisions++;
-      }
+      const complete = isDivisionComplete(bookSlug, allChapters);
+      if (complete) completedDivisions++;
+      trackBook(bookSlug, complete);
     };
 
     for (const sectionId of sections) switch (sectionId) {
@@ -403,7 +412,9 @@ export default function LibraryPage() {
                 (_, i) => sec.startChapter + i
               );
               totalDivisions++;
-              if (isDivisionComplete('genesis', chapters)) completedDivisions++;
+              const complete = isDivisionComplete('genesis', chapters);
+              if (complete) completedDivisions++;
+              trackBook('genesis', complete);
             });
           } else {
             const divisions = getAllDivisions(book.slug);
@@ -450,7 +461,6 @@ export default function LibraryPage() {
         });
         break;
       case 'prophets':
-        // Just the 3 big prophets: Isaiah, Jeremiah, Ezekiel
         BIG_THREE.forEach((slug) => {
           const book = getBooksByTopLevelCategory('prophets').find(b => b.slug === slug);
           if (!book) return;
@@ -463,7 +473,6 @@ export default function LibraryPage() {
         });
         break;
       case 'seventeen':
-        // The 17: minor prophets + Lamentations, Daniel + Ezra, Nehemiah, Esther
         const seventeenSlugs = [
           ...getBooksByTopLevelCategory('prophets').filter(b => !BIG_THREE.includes(b.slug)).map(b => b.slug),
           'ezra', 'nehemiah', 'esther'
@@ -485,7 +494,9 @@ export default function LibraryPage() {
           if (book.slug === 'psalms') {
             getAllCollections().forEach((col) => {
               totalDivisions++;
-              if (isDivisionComplete('psalms', col.psalms)) completedDivisions++;
+              const complete = isDivisionComplete('psalms', col.psalms);
+              if (complete) completedDivisions++;
+              trackBook('psalms', complete);
             });
           } else {
             const divisions = getAllDivisions(book.slug);
@@ -500,10 +511,11 @@ export default function LibraryPage() {
       case 'apostolic':
         getBooksByTopLevelCategory('apostolic').forEach((book) => {
           if (book.slug === 'acts') {
-            // Acts has 3 sections now
             ACTS_SECTIONS.forEach((section) => {
               totalDivisions++;
-              if (isDivisionComplete('acts', section.chapters)) completedDivisions++;
+              const complete = isDivisionComplete('acts', section.chapters);
+              if (complete) completedDivisions++;
+              trackBook('acts', complete);
             });
           } else {
             countSingleBook(book.slug, book.chapterCount);
@@ -513,8 +525,18 @@ export default function LibraryPage() {
     }
 
     const percentage = totalDivisions > 0 ? Math.round((completedDivisions / totalDivisions) * 100) : 0;
-    return { completed: completedDivisions, total: totalDivisions, percentage };
-  }, [sections, isDivisionComplete]);
+
+    // A book is complete if all its divisions are complete
+    const bookComplete: Record<string, boolean> = {};
+    for (const [slug, status] of Object.entries(bookStatus)) {
+      bookComplete[slug] = status.total > 0 && status.completed === status.total;
+    }
+
+    return {
+      tabProgress: { completed: completedDivisions, total: totalDivisions, percentage },
+      bookComplete,
+    };
+  }, [sections, isDivisionComplete, progress]);
 
   const genesisBooks = getAllBooks();
   const psalmsCollections = getAllCollections();
@@ -793,6 +815,7 @@ export default function LibraryPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [router, focusableCards, focusedCardIndex, gridColumns, activeTab]);
 
+
   // Render a whole "book" that has thematic divisions (Genesis, Mark, ...).
   const renderDividedBook = (
     book: { slug: string; name: string; chapterCount: number },
@@ -806,7 +829,7 @@ export default function LibraryPage() {
     const accent = ACCENTS[(parseInt(number, 10) - 1) % ACCENTS.length];
     return (
       <section key={book.slug}>
-        <BookHeader number={number} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} chapters`} />
+        <BookHeader number={number} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} chapters`} isComplete={bookComplete[book.slug]} />
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
           {divisions.map((division) => {
             const hasCommentary = divisionHasCommentary(book.slug, division.chapters);
@@ -864,9 +887,13 @@ export default function LibraryPage() {
 
               // Genesis uses section views
               if (book.slug === 'genesis') {
+                const genesisSectionChapters = GENESIS_SECTIONS.map((item) =>
+                  Array.from({ length: item.endChapter - item.startChapter + 1 }, (_, i) => item.startChapter + i)
+                );
+                const genesisComplete = genesisSectionChapters.every(chapters => isDivisionComplete('genesis', chapters));
                 return (
                   <section key={book.slug}>
-                    <BookHeader number={number} name={book.name} sub={`${GENESIS_SECTIONS.length} sections · 50 chapters`} />
+                    <BookHeader number={number} name={book.name} sub={`${GENESIS_SECTIONS.length} sections · 50 chapters`} isComplete={bookComplete['genesis']} />
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       {GENESIS_SECTIONS.map((item) => {
                         const chapters = Array.from(
@@ -897,21 +924,22 @@ export default function LibraryPage() {
               if (divisions.length > 0) {
                 return renderDividedBook(book, number, divisions, book.slug);
               }
+              const allChapters = Array.from({ length: book.chapterCount }, (_, i) => i + 1);
               return (
                 <section key={book.slug}>
-                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} isComplete={bookComplete[book.slug]} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
-                      scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      scripture={formatScripture(book.name, allChapters)}
                       theme={getBookTheme(book.slug)}
-                      hasCommentary={divisionHasCommentary(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
-                      hasWritings={divisionHasWritings(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
-                      hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={accent}
                       focused={focusedCardId === book.slug}
-                      isComplete={isDivisionComplete(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
                     />
                   </div>
                 </section>
@@ -934,21 +962,22 @@ export default function LibraryPage() {
               if (divisions.length > 0) {
                 return renderDividedBook(book, number, divisions, book.slug);
               }
+              const allChapters = Array.from({ length: book.chapterCount }, (_, i) => i + 1);
               return (
                 <section key={book.slug}>
-                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} isComplete={bookComplete[book.slug]} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
                       title={`Read ${book.name}`}
-                      scripture={formatScripture(book.name, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      scripture={formatScripture(book.name, allChapters)}
                       theme={getBookTheme(book.slug)}
-                      hasCommentary={divisionHasCommentary(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
-                      hasWritings={divisionHasWritings(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
-                      hasSpeakers={divisionHasSpeakers(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      hasCommentary={divisionHasCommentary(book.slug, allChapters)}
+                      hasWritings={divisionHasWritings(book.slug, allChapters)}
+                      hasSpeakers={divisionHasSpeakers(book.slug, allChapters)}
                       accent={ACCENTS[idx % ACCENTS.length]}
                       focused={focusedCardId === book.slug}
-                      isComplete={isDivisionComplete(book.slug, Array.from({ length: book.chapterCount }, (_, i) => i + 1))}
+                      isComplete={isDivisionComplete(book.slug, allChapters)}
                     />
                   </div>
                 </section>
@@ -977,7 +1006,7 @@ export default function LibraryPage() {
               const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
               return (
                 <section key={book.slug}>
-                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} isComplete={bookComplete[book.slug]} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
@@ -1020,7 +1049,7 @@ export default function LibraryPage() {
               const allChapters = Array.from({ length: book.chapterCount }, (_, k) => k + 1);
               return (
                 <section key={book.slug}>
-                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} />
+                  <BookHeader number={number} name={book.name} sub={`${book.chapterCount} chapters`} isComplete={bookComplete[book.slug]} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     <DivisionCard
                       href={readingPath(book.slug, 1)}
@@ -1063,6 +1092,7 @@ export default function LibraryPage() {
                       number={String(i + 1).padStart(2, '0')}
                       name={book.name}
                       sub={`${divisions.length} sections · ${book.chapterCount} ch`}
+                      isComplete={bookComplete[book.slug]}
                     />
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       {divisions.map((division) => (
@@ -1091,6 +1121,7 @@ export default function LibraryPage() {
                       number={String(i + 1).padStart(2, '0')}
                       name={book.name}
                       sub={`${book.chapterCount} chapters`}
+                      isComplete={bookComplete[book.slug]}
                     />
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                       <DivisionCard
@@ -1163,6 +1194,7 @@ export default function LibraryPage() {
                               number={String(globalBookIndex).padStart(2, '0')}
                               name={book.name}
                               sub={`${divisions.length} sections · ${book.chapterCount} ch`}
+                              isComplete={bookComplete[book.slug]}
                             />
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                               {divisions.map((division) => (
@@ -1191,6 +1223,7 @@ export default function LibraryPage() {
                               number={String(globalBookIndex).padStart(2, '0')}
                               name={book.name}
                               sub={`${book.chapterCount} chapters`}
+                              isComplete={bookComplete[book.slug]}
                             />
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                               <DivisionCard
@@ -1241,9 +1274,10 @@ export default function LibraryPage() {
           // Psalms uses collections
           if (book.slug === 'psalms') {
             flushLooseTiles();
+            const psalmsComplete = psalmsCollections.every(col => isDivisionComplete('psalms', col.psalms));
             bookBlocks.push(
               <div key="psalms">
-                <BookHeader number={String(i + 1).padStart(2, '0')} name="Psalms" sub={`${psalmsCollections.length} collections`} />
+                <BookHeader number={String(i + 1).padStart(2, '0')} name="Psalms" sub={`${psalmsCollections.length} collections`} isComplete={bookComplete['psalms']} />
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                   {psalmsCollections.map((collection, j) => {
                     const first = collection.psalms[0];
@@ -1277,7 +1311,7 @@ export default function LibraryPage() {
             flushLooseTiles();
             bookBlocks.push(
               <div key={book.slug}>
-                <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} ch`} />
+                <BookHeader number={String(i + 1).padStart(2, '0')} name={book.name} sub={`${divisions.length} sections · ${book.chapterCount} ch`} isComplete={bookComplete[book.slug]} />
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                   {divisions.map((division) => (
                     <DivisionCard
@@ -1358,7 +1392,7 @@ export default function LibraryPage() {
             {/* ACTS */}
             {actsBook && (
                 <section>
-                  <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} />
+                  <BookHeader name="Acts" sub={`${ACTS_SECTIONS.length} sections · ${actsBook.chapterCount} chapters`} isComplete={bookComplete['acts']} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     {ACTS_SECTIONS.map((section, i) => (
                       <DivisionCard
@@ -1381,7 +1415,7 @@ export default function LibraryPage() {
 
             {/* PAULINE EPISTLES - Organized by theme */}
             <section>
-              <BookHeader name="Paul's Epistles" sub="13 books" />
+              <BookHeader name="Paul's Epistles" sub="13 books" isComplete={paulineBooks.every(b => bookComplete[b.slug])} />
               <div className="grid grid-cols-1 gap-y-2 mt-2">
                 {PAULINE_ERAS.map((era, eraIdx) => {
                   const eraBooks = era.books
@@ -1405,7 +1439,7 @@ export default function LibraryPage() {
 
             {/* GENERAL EPISTLES - Organized by authorship */}
             <section>
-              <BookHeader name="General Epistles" sub={`${generalBooks.length} books`} />
+              <BookHeader name="General Epistles" sub={`${generalBooks.length} books`} isComplete={generalBooks.every(b => bookComplete[b.slug])} />
               <div className="grid grid-cols-1 gap-y-2 mt-2">
                 {GENERAL_ERAS.map((era, eraIdx) => {
                   const eraBooks = era.books
@@ -1430,7 +1464,7 @@ export default function LibraryPage() {
             {/* REVELATION */}
             {apocalypseBooks.length > 0 && (
                 <section>
-                  <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} />
+                  <BookHeader name="Revelation" sub={`${apocalypseBooks[0].chapterCount} chapters`} isComplete={bookComplete['revelation']} />
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1">
                     {apocalypseBooks.map((book, i) => renderBookCard(book, ACCENTS[i % ACCENTS.length]))}
                   </div>
@@ -1442,74 +1476,67 @@ export default function LibraryPage() {
     }
   };
 
-  const mast = MASTHEAD[activeTab];
+  // Build tab columns for TabbedPageHeader
+  const headerTabs: TabColumn[] = [
+    { id: 'ot', kicker: 'Old Testament', title: 'Old Testament', subtitle: 'Torah, History, Prophets & Wisdom', href: '/library/ot' },
+    { id: 'seventeen', kicker: '17 Prophets', title: '17 Prophets', subtitle: 'Minor Prophets & Restoration', href: '/library/seventeen' },
+    { id: 'nt', kicker: 'New Testament', title: 'New Testament', subtitle: 'Gospels, Acts, Epistles & Revelation', href: '/library/nt' },
+  ];
+
+  // Mobile tabs (pills) + progress indicator
+  const mobileControls = (
+    <div className="flex flex-col items-center gap-2">
+      <div className="grid grid-cols-3 gap-1.5 font-sans text-xs font-medium">
+        {TABS.map((tab) => {
+          const active = activeTab === tab.id;
+          return (
+            <Link
+              key={tab.id}
+              href={`/library/${tab.id}`}
+              className={`rounded-full px-3 py-2 whitespace-nowrap text-center transition-colors ${
+                active
+                  ? 'bg-surface text-ink shadow-sm border border-hairline'
+                  : 'bg-paper-2 text-muted active:text-ink'
+              }`}
+            >
+              {tab.label}
+            </Link>
+          );
+        })}
+      </div>
+      {tabProgress.total > 0 && (
+        <div className="flex items-center gap-2 font-sans text-[11px]">
+          <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-muted'}>
+            {tabProgress.completed} / {tabProgress.total}
+          </span>
+          <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-gold'}>
+            {tabProgress.percentage}%
+          </span>
+        </div>
+      )}
+    </div>
+  );
+
+  // Desktop progress indicator (rightSlot)
+  const progressSlot = tabProgress.total > 0 ? (
+    <div className="flex items-center gap-2 font-sans text-sm">
+      <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-muted'}>
+        {tabProgress.completed} / {tabProgress.total}
+      </span>
+      <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-gold'}>
+        {tabProgress.percentage}%
+      </span>
+    </div>
+  ) : null;
 
   return (
     <main className="max-w-6xl mx-auto md:select-text pb-8 px-4">
-      {/* Header: the shared PageHeader recipe (same as Map and Saved),
-          then the centered tabs row beneath it. */}
-      <PageHeader
-        kicker={activeTab === 'nt' ? 'New Testament' : 'Old Testament'}
-        title={mast.title}
-        subtitle={mast.kicker}
+      <TabbedPageHeader
+        tabs={headerTabs}
+        activeId={activeTab}
+        rightSlot={progressSlot}
+        mobileSlot={mobileControls}
       />
-      <div className="flex flex-col md:flex-row md:items-start md:justify-center gap-3 pb-3">
-        <div className="flex w-full flex-col items-stretch gap-0.5 md:w-auto md:items-center md:pt-1">
-          {/* Mobile: one row of three pills */}
-          <div className="grid grid-cols-3 gap-1.5 md:hidden font-sans text-xs font-medium">
-            {TABS.map((tab) => {
-              const active = activeTab === tab.id;
-              return (
-                <Link
-                  key={tab.id}
-                  href={`/library/${tab.id}`}
-                  className={`rounded-full px-3 py-2 whitespace-nowrap text-center transition-colors ${
-                    active
-                      ? 'bg-surface text-ink shadow-sm border border-hairline'
-                      : 'bg-paper-2 text-muted active:text-ink'
-                  }`}
-                >
-                  {tab.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Desktop: one capsule, a divider between each act: OT | 17 | NT */}
-          <div className="hidden md:flex md:flex-col md:items-center">
-            <div className="inline-flex bg-paper-2 rounded-full p-1 font-sans text-[13px] font-medium">
-              {TABS.map((tab, i) => {
-                const active = activeTab === tab.id;
-                const showDivider = i > 0;
-                return (
-                  <span key={tab.id} className="flex items-center">
-                    {showDivider && <span className="mx-2.5 h-5 w-px bg-hairline" />}
-                    <Link
-                      href={`/library/${tab.id}`}
-                      className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-colors ${
-                        active ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'
-                      }`}
-                    >
-                      {tab.label}
-                    </Link>
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-          {/* Progress indicator - below tabs */}
-          {tabProgress.total > 0 && (
-            <div className="flex items-center gap-2 font-sans text-[11px] mt-1">
-              <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-muted'}>
-                {tabProgress.completed} / {tabProgress.total}
-              </span>
-              <span className={tabProgress.percentage === 100 ? 'text-emerald-500 font-medium' : 'text-gold'}>
-                {tabProgress.percentage}%
-              </span>
-            </div>
-          )}
-        </div>
-      </div>
 
       {renderTabContent()}
 

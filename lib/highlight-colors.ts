@@ -24,7 +24,7 @@ const ALL_COLORS: HighlightColorDef[] = [
   { id: 'quote', name: 'Quote', swatch: '#8a86cf', label: '#5f5bb0', key: 'q' },
   // Plain colors.
   // Pushed toward orange: the old straw yellow vanished into the sand paper.
-  { id: 'yellow', name: 'Gold', swatch: '#e9a93c', label: '#b4731f' },
+  { id: 'yellow', name: 'Highlight', swatch: '#7cb392', label: '#4e9a75', key: 'h' },
   { id: 'blue', name: 'Blue', swatch: '#7ba0cf', label: '#5a87c9' },
   { id: 'rose', name: 'Rose', swatch: '#d98ba6', label: '#c76a8a' },
   { id: 'emerald', name: 'Emerald', swatch: '#7cb392', label: '#4e9a75' },

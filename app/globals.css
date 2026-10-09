@@ -359,6 +359,18 @@ html.native-splash body::after {
   }
 }
 
+/* Toast fade-in for bookmark confirmation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Chapter transition: gentle fade-in when navigating between chapters */
 @keyframes chapter-fade {
   from {
@@ -413,12 +425,12 @@ html.native-app body {
 }
 
 /*
-  Light mode depth: a faint drop shadow under every glyph lifts the type off
+  Light mode depth: a subtle drop shadow under every glyph lifts the type off
   the sand background. text-shadow inherits, so one rule on <html> covers the
   whole page; the sidebar is dark in both themes and opts out.
 */
 html.light {
-  text-shadow: 0 1px 1px rgb(0 0 0 / 0.12);
+  text-shadow: 0 1px 1px rgb(0 0 0 / 0.15);
 }
 html.light aside {
   text-shadow: none;

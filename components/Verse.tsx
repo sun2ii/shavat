@@ -46,6 +46,8 @@ interface Props {
   verse: VerseType;
   isSelected?: boolean;
   onToggle?: (verseNum: number) => void;
+  /** Single tap sets cursor (phone) */
+  onTap?: (verseNum: number) => void;
   commentary?: string;
   showCommentaryGate?: boolean;
   spans?: Pick<QuoteSpan, 'speaker' | 'quote'>[];
@@ -74,7 +76,7 @@ interface Props {
   onCloseHighlightToolbar?: () => void;
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false, highlight, showHighlightToolbar = false, highlightRangeLabel, onSaveHighlight, onRemoveHighlight, onCloseHighlightToolbar }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, onTap, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false, highlight, showHighlightToolbar = false, highlightRangeLabel, onSaveHighlight, onRemoveHighlight, onCloseHighlightToolbar }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -89,11 +91,11 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
   return (
     <>
       <div
-        className={`flex items-start mb-3 transition-colors duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text ${
+        className={`flex items-start mb-3 transition-all duration-200 cursor-pointer rounded-sm [-webkit-tap-highlight-color:transparent] [touch-action:manipulation] md:select-text ${
           isSelected
             ? 'shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : isHighlighted
-            ? 'text-[rgb(var(--speaker-4))]'
+            ? 'text-violet-500 font-semibold text-[24.5px] drop-shadow-[0_0_6px_rgba(139,92,246,0.2)]'
             : ''
         } ${isSelected && !swatch ? 'bg-[rgb(var(--highlight-yellow))]' : ''}`}
         style={swatch ? { backgroundColor: `${swatch}40` } : undefined}
@@ -104,6 +106,10 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
         // leaving ordinary click-and-drag text selection alone.
         onMouseDown={(e) => {
           if (e.detail > 1) e.preventDefault();
+        }}
+        onClick={() => {
+          // Single tap sets cursor (purple highlight)
+          if (onTap) onTap(verse.verse);
         }}
         onDoubleClick={(e) => {
           e.preventDefault();
@@ -159,7 +165,8 @@ export default function Verse({ verse, isSelected = false, onToggle, commentary,
       </div>
 
       {/* The note rides with the first verse of its highlight only */}
-      {highlight?.note && highlight.verseStart === verse.verse && !showHighlightToolbar && (
+      {/* Skip showing if note starts with [v] (auto-filled verse text) */}
+      {highlight?.note && highlight.verseStart === verse.verse && !showHighlightToolbar && !highlight.note.startsWith('[v]') && (
         <span
           className="block -mt-1 mb-3 ml-7 pl-3 font-serif italic text-[15px] leading-snug border-l-2"
           style={{ borderColor: swatch ?? undefined, color: palette?.label }}

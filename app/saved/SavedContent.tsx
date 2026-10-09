@@ -54,7 +54,18 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
   };
 
   // Group highlights by book, then chapter, newest books last edited first.
-  const byBookChapter = highlights.reduce((acc, h) => {
+  // Deduplicate: only keep one highlight per book+chapter+verseStart (keep newest)
+  const deduped = highlights.reduce((acc, h) => {
+    const key = `${h.book}:${h.chapter}:${h.verseStart}`;
+    const existing = acc.get(key);
+    if (!existing || h.createdAt > existing.createdAt) {
+      acc.set(key, h);
+    }
+    return acc;
+  }, new Map<string, Highlight>());
+  const uniqueHighlights = Array.from(deduped.values());
+
+  const byBookChapter = uniqueHighlights.reduce((acc, h) => {
     const book = h.book || 'genesis';
     (acc[book] ??= {})[h.chapter] ??= [];
     acc[book][h.chapter].push(h);
@@ -65,7 +76,7 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
   const bookmarks: AnyBookmark[] = isAuthenticated
     ? serverBookmarks.filter(bm => isChapterBookmarked(bm.book, bm.chapter))
     : (localBookmark ? [localBookmark] : []);
-  const isEmpty = highlights.length === 0 && bookmarks.length === 0;
+  const isEmpty = uniqueHighlights.length === 0 && bookmarks.length === 0;
 
   // Bookmarks grouped the way the library is: category → book → chapters,
   // all in canonical order. One dense row per book, one chip per chapter.
@@ -96,8 +107,8 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
         kicker="Your hand in the text"
         title="Saved"
         subtitle={
-          highlights.length > 0
-            ? `${highlights.length} ${highlights.length === 1 ? 'highlight' : 'highlights'}${bookmarks.length > 0 ? ` · ${bookmarks.length} ${bookmarks.length === 1 ? 'bookmark' : 'bookmarks'}` : ''}`
+          uniqueHighlights.length > 0
+            ? `${uniqueHighlights.length} ${uniqueHighlights.length === 1 ? 'highlight' : 'highlights'}${bookmarks.length > 0 ? ` · ${bookmarks.length} ${bookmarks.length === 1 ? 'bookmark' : 'bookmarks'}` : ''}`
             : bookmarks.length > 0
             ? `${bookmarks.length} ${bookmarks.length === 1 ? 'bookmark' : 'bookmarks'}`
             : 'Highlights and bookmarks from your reading.'
@@ -158,7 +169,7 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
 
       {/* Highlights: same dense treatment as bookmarks. One row per
           highlight under its book, in chapter and verse order. */}
-      {highlights.length > 0 && (
+      {uniqueHighlights.length > 0 && (
         <section className="mb-10">
           <h2 className="mb-3 font-sans text-xs tracking-[0.2em] uppercase text-gold font-semibold">
             Highlights
@@ -192,8 +203,11 @@ export default function SavedContent({ isAuthenticated = false, serverBookmarks 
                           >
                             {ref}
                           </Link>
-                          <span className="min-w-0 flex-1 truncate font-serif italic text-sm" style={{ color: color.label }}>
-                            {h.note ?? ''}
+                          <span
+                            className={`min-w-0 flex-1 truncate font-serif text-sm ${h.note?.startsWith('[v]') ? '' : 'italic'}`}
+                            style={{ color: h.note?.startsWith('[v]') ? 'rgb(var(--text-tertiary))' : color.label }}
+                          >
+                            {h.note?.startsWith('[v]') ? h.note.slice(3) : (h.note ?? '')}
                           </span>
                           <span className="shrink-0 font-sans text-[10px] text-faint tabular-nums">
                             {new Date(h.createdAt).toLocaleDateString()}

@@ -1,14 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
-import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 const staticNavLinks = [
-  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
+  { href: '/library', label: 'Holy Bible', iconSrc: '/icons/sidebar/library.webp' },
+  { href: '/readings', label: 'Readings', iconSrc: '/icons/sidebar/writings.webp' },
   { href: '/saved', label: 'Saved', iconSrc: '/icons/general/laurel.webp' },
 ];
 
@@ -34,22 +33,6 @@ interface SidebarProps {
 
 export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarProps) {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  const toggleTheme = () => {
-    const root = document.documentElement;
-    const next = !root.classList.contains('dark');
-    root.classList.toggle('dark', next);
-    root.classList.toggle('light', !next);
-    try {
-      localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
-    } catch {}
-    setIsDark(next);
-  };
 
   return (
     <aside className="bg-sidebar-bg text-sidebar-text flex flex-col sticky top-0 h-screen border-r border-sidebar-border transition-[padding] duration-300"
@@ -119,30 +102,17 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false }: SidebarPr
       {/* Spacer to push bottom items down */}
       <div className="flex-1" />
 
-
-      {/* Bottom controls: one row, theme icon beside collapse. Stacks when collapsed (72px). */}
-      <div className={`flex items-center ${isOpen ? 'flex-row gap-1 px-2' : 'flex-col gap-2'}`}>
-        <button
-          onClick={toggleTheme}
-          className="flex items-center justify-center p-2 rounded-lg bg-transparent border-none text-sidebar-text-muted cursor-pointer hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
-          aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-          <ThemeToggleIcon isDark={isDark} size={24} />
-        </button>
-
+      {/* Bottom: just collapse toggle, aligned right */}
+      <div className={`flex ${isOpen ? 'justify-end px-2' : 'justify-center'}`}>
         <button
           onClick={onToggle}
-          className={`flex items-center p-2 rounded-lg bg-transparent border-none text-sidebar-text-muted cursor-pointer text-[14.5px] hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors ${
-            isOpen ? 'gap-2.5' : ''
-          }`}
+          className="flex items-center justify-center p-2 rounded-lg bg-transparent border-none text-sidebar-text-muted cursor-pointer hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
           aria-label={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
           title={isOpen ? 'Collapse sidebar' : 'Expand sidebar'}
         >
           <div className="transition-transform duration-300" style={{ transform: isOpen ? 'rotate(0)' : 'rotate(180deg)' }}>
             <SidebarIcon src="/icons/sidebar/collapse.webp" alt="Collapse" />
           </div>
-          {isOpen && 'Collapse'}
         </button>
       </div>
     </aside>

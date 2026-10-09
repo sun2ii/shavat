@@ -56,7 +56,7 @@ export default function JumpBack({ target: serverTarget }: Props) {
         <span className="font-serif text-5xl md:text-6xl font-bold">
           {target?.label ?? 'Library'}
         </span>
-        <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold group-hover:text-ink transition-colors">
+        <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold group-hover:text-ink transition-colors select-none">
           Continue reading →
         </span>
       </Link>

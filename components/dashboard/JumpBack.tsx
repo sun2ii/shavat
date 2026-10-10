@@ -31,30 +31,46 @@ export function describeReadingPath(path: string): ReadingTarget | null {
 interface Props {
   /** Server-computed: the next unread chapter after the last one marked complete. */
   target: ReadingTarget | null;
+  /** Category label (e.g., "Holy Bible" or "Christian Readings") */
+  category?: string;
+  /** Fallback href when no target */
+  fallbackHref?: string;
 }
 
-export default function JumpBack({ target: serverTarget }: Props) {
+export default function JumpBack({ target: serverTarget, category, fallbackHref = '/library' }: Props) {
   // The account's "next chapter" wins. Only when nothing has ever been marked
   // complete do we fall back to the last page this device visited.
   const [target, setTarget] = useState<ReadingTarget | null>(serverTarget);
 
   useEffect(() => {
     if (serverTarget) return;
-    const last = getLastRoute();
-    const described = last ? describeReadingPath(last) : null;
-    if (described) setTarget(described);
-  }, [serverTarget]);
+    // Only use route persistence for Bible (no category or "Holy Bible")
+    if (!category || category === 'Holy Bible') {
+      const last = getLastRoute();
+      const described = last ? describeReadingPath(last) : null;
+      if (described) setTarget(described);
+    }
+  }, [serverTarget, category]);
+
+  const fallbackLabel = category === 'Christian Readings' ? 'Readings' : 'Library';
 
   return (
-    <div>
-      <Link
-        href={target?.href ?? '/library'}
-        className="group inline-flex flex-col gap-1 text-ink hover:text-gold transition-colors"
-      >
-        <span className="font-serif text-4xl md:text-5xl font-bold">
-          {target?.label ?? 'Library'}
+    <div className="pl-1">
+      {category && (
+        <span className={`font-sans text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 block ${
+          category === 'Christian Readings' ? 'text-blue-400' : 'text-gold'
+        }`}>
+          {category}
         </span>
-        <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold group-hover:text-ink transition-colors select-none">
+      )}
+      <Link
+        href={target?.href ?? fallbackHref}
+        className="group inline-flex flex-col gap-1 transition-colors"
+      >
+        <span className="font-serif text-3xl md:text-4xl font-bold text-ink">
+          {target?.label ?? fallbackLabel}
+        </span>
+        <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-emerald-500 group-hover:text-emerald-400 transition-colors select-none animate-pulse">
           Continue reading →
         </span>
       </Link>

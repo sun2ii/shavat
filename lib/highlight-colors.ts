@@ -17,14 +17,14 @@ export interface HighlightColorDef {
 }
 
 const ALL_COLORS: HighlightColorDef[] = [
-  // Named kinds first: distinct hues from the plain colors below.
+  // Default highlight first (H key).
+  { id: 'yellow', name: 'Highlight', swatch: '#7cb392', label: '#4e9a75', key: 'h' },
+  // Named kinds: distinct hues from the plain colors below.
   { id: 'character', name: 'Character', swatch: '#e08a5a', label: '#b5603a', key: 'c' },
   { id: 'setting', name: 'Setting', swatch: '#5fb3b3', label: '#2f8a8a', key: 's' },
   { id: 'plot', name: 'Plot', swatch: '#c8657a', label: '#a3465a', key: 'p' },
   { id: 'quote', name: 'Quote', swatch: '#8a86cf', label: '#5f5bb0', key: 'q' },
   // Plain colors.
-  // Pushed toward orange: the old straw yellow vanished into the sand paper.
-  { id: 'yellow', name: 'Highlight', swatch: '#7cb392', label: '#4e9a75', key: 'h' },
   { id: 'blue', name: 'Blue', swatch: '#7ba0cf', label: '#5a87c9' },
   { id: 'rose', name: 'Rose', swatch: '#d98ba6', label: '#c76a8a' },
   { id: 'emerald', name: 'Emerald', swatch: '#7cb392', label: '#4e9a75' },

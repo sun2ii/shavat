@@ -4,17 +4,20 @@ import { createContext, useContext, useState, useEffect, useCallback, ReactNode 
 
 export type LineSpacing = 'compact' | 'comfortable' | 'spacious';
 export type Appearance = 'light' | 'dark' | 'system';
+export type KeyboardStyle = 'standard' | 'vim';
 
 export interface ReadingPreferences {
   fontSize: number;
   lineSpacing: LineSpacing;
   appearance: Appearance;
+  keyboardStyle: KeyboardStyle;
 }
 
 const DEFAULT_PREFERENCES: ReadingPreferences = {
   fontSize: 21,
   lineSpacing: 'comfortable',
   appearance: 'system',
+  keyboardStyle: 'standard',
 };
 
 const STORAGE_KEY = 'shavat-reading-preferences';
@@ -31,6 +34,7 @@ interface ReadingPreferencesContextType {
   setFontSize: (size: number) => void;
   setLineSpacing: (spacing: LineSpacing) => void;
   setAppearance: (appearance: Appearance) => void;
+  setKeyboardStyle: (style: KeyboardStyle) => void;
 }
 
 const ReadingPreferencesContext = createContext<ReadingPreferencesContextType | null>(null);
@@ -60,6 +64,7 @@ export function ReadingPreferencesProvider({
           fontSize: parsed.fontSize ?? prev.fontSize,
           lineSpacing: parsed.lineSpacing ?? prev.lineSpacing,
           appearance: parsed.appearance ?? prev.appearance,
+          keyboardStyle: parsed.keyboardStyle ?? prev.keyboardStyle,
         }));
       }
     } catch {}
@@ -110,9 +115,13 @@ export function ReadingPreferencesProvider({
     setPreferences((prev) => ({ ...prev, appearance }));
   }, []);
 
+  const setKeyboardStyle = useCallback((keyboardStyle: KeyboardStyle) => {
+    setPreferences((prev) => ({ ...prev, keyboardStyle }));
+  }, []);
+
   return (
     <ReadingPreferencesContext.Provider
-      value={{ preferences, setFontSize, setLineSpacing, setAppearance }}
+      value={{ preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle }}
     >
       {children}
     </ReadingPreferencesContext.Provider>

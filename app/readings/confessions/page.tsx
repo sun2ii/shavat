@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { getReadingMetadata } from '@/lib/readings-accessor';
 import PageHeader from '@/components/PageHeader';
+import ReadingChapterGrid from '@/components/ReadingChapterGrid';
 
 export default function ConfessionsPage() {
   const metadata = getReadingMetadata('confessions');
@@ -17,23 +17,11 @@ export default function ConfessionsPage() {
         subtitle={`Translated by ${metadata.translator}`}
       />
 
-      <div className="space-y-6">
-        {metadata.books.map((book) => (
-          <section key={book.id}>
-            <Link
-              href={`/readings/confessions/${book.id}/1`}
-              className="flex items-baseline gap-2 mb-2 group"
-            >
-              <span className="font-serif text-[11px] font-bold text-gold">
-                {String(book.id).padStart(2, '0')}
-              </span>
-              <h2 className="font-serif text-lg font-bold text-ink group-hover:text-gold transition-colors">
-                {book.title}
-              </h2>
-            </Link>
-          </section>
-        ))}
-      </div>
+      <ReadingChapterGrid
+        books={metadata.books}
+        readingId="confessions"
+        singleChapterPerBook
+      />
     </main>
   );
 }

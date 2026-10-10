@@ -16,6 +16,7 @@ import TranslationToggle from './TranslationToggle';
 import SettingsDropdown from './SettingsDropdown';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
+import { useReadingPreferences } from '@/components/providers/ReadingPreferencesProvider';
 
 interface Props {
   bookSlug: string;
@@ -182,6 +183,8 @@ export default function ChapterNav({
 }: Props) {
   const router = useRouter();
   const [showSaved, setShowSaved] = useState(false);
+  const { preferences } = useReadingPreferences();
+  const isVim = preferences.keyboardStyle === 'vim';
 
   // Use reading progress from context (loaded server-side, no delay)
   const { isChapterComplete, toggleChapterComplete } = useReadingProgress();
@@ -248,10 +251,13 @@ export default function ChapterNav({
 
       // Chapter navigation. The #v1 hash makes the chapter that loads open its
       // first section with the cursor on verse 1 (BookReader's hash handler).
-      if (e.key === 'ArrowLeft' && prevChapter && prevDivisionId && prevDivisionChapterNum !== null) {
+      const prevKey = isVim ? 'h' : 'ArrowLeft';
+      const nextKey = isVim ? 'l' : 'ArrowRight';
+
+      if (e.key === prevKey && prevChapter && prevDivisionId && prevDivisionChapterNum !== null) {
         loadingBus.start();
         router.push(readingPath(bookSlug, prevDivisionId, prevChapter) + FIRST_VERSE_HASH);
-      } else if (e.key === 'ArrowRight' && nextChapter && nextDivisionId && nextDivisionChapterNum !== null) {
+      } else if (e.key === nextKey && nextChapter && nextDivisionId && nextDivisionChapterNum !== null) {
         loadingBus.start();
         router.push(readingPath(bookSlug, nextDivisionId, nextChapter) + FIRST_VERSE_HASH);
       }
@@ -259,7 +265,7 @@ export default function ChapterNav({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId, prevDivisionChapterNum, nextDivisionChapterNum]);
+  }, [router, bookSlug, prevChapter, nextChapter, prevDivisionId, nextDivisionId, prevDivisionChapterNum, nextDivisionChapterNum, isVim]);
 
   // b = bookmark this chapter, r = mark as read. No dependency array on
   // purpose: the handlers below close over current state, and re-subscribing

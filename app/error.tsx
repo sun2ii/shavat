@@ -61,7 +61,7 @@ export default function Error({
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={reset}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[rgb(var(--brand))] text-[rgb(var(--bg-primary))] rounded-lg font-medium text-sm hover:bg-[rgb(var(--brand-hover))] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gold text-[rgb(var(--bg-primary))] rounded-lg font-medium text-sm hover:bg-gold/90 transition-colors"
           >
             Try Again
           </button>

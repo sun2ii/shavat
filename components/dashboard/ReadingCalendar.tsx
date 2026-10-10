@@ -2,19 +2,26 @@
 
 import { useMemo, useState } from 'react';
 
+type ColorScheme = 'gold' | 'blue';
+
 interface Props {
   /** Map of YYYY-MM-DD -> chapter count */
   data: Record<string, number>;
+  /** Color scheme for the calendar cells */
+  colorScheme?: ColorScheme;
+  /** Number of weeks to show (default 53 = ~1 year) */
+  weeks?: number;
 }
 
-// Generate 53 weeks x 7 days grid ending on today
-function generateCalendarDays(): Date[] {
+// Generate calendar days ending on today
+function generateCalendarDays(numWeeks: number = 53): Date[] {
   const today = new Date();
   const days: Date[] = [];
 
-  // Start from 52 weeks ago, aligned to Sunday
+  // Start from (numWeeks - 1) weeks ago, aligned to Sunday
+  const daysBack = (numWeeks - 1) * 7;
   const start = new Date(today);
-  start.setDate(start.getDate() - 364 - start.getDay());
+  start.setDate(start.getDate() - daysBack - start.getDay());
 
   // Generate all days up to and including today
   const current = new Date(start);
@@ -47,23 +54,33 @@ function getIntensity(count: number): number {
   return 4;
 }
 
-// Gold-themed colors following GitHub's contribution pattern (brighter = more)
-const INTENSITY_COLORS = [
-  'rgb(var(--bg-secondary))',           // 0: empty
-  '#7a5806',                            // 1: darkest gold
-  '#9a6f08',                            // 2: darker
-  '#b8860b',                            // 3: dark goldenrod
-  '#d4a54a',                            // 4: brightest gold
-];
+// Color schemes following GitHub's contribution pattern (brighter = more)
+const COLOR_SCHEMES: Record<ColorScheme, string[]> = {
+  gold: [
+    'rgb(var(--bg-secondary))',           // 0: empty
+    '#7a5806',                            // 1: darkest gold
+    '#9a6f08',                            // 2: darker
+    '#b8860b',                            // 3: dark goldenrod
+    '#d4a54a',                            // 4: brightest gold
+  ],
+  blue: [
+    'rgb(var(--bg-secondary))',           // 0: empty
+    '#1e3a5f',                            // 1: darkest blue
+    '#2563eb',                            // 2: darker
+    '#3b82f6',                            // 3: medium blue
+    '#60a5fa',                            // 4: brightest blue
+  ],
+};
 
 const MONTH_LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const DAY_LABELS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-export default function ReadingCalendar({ data }: Props) {
+export default function ReadingCalendar({ data, colorScheme = 'gold', weeks: numWeeks = 53 }: Props) {
   const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string; alignRight?: boolean } | null>(null);
+  const colors = COLOR_SCHEMES[colorScheme];
 
-  const { days, weeks, monthMarkers } = useMemo(() => {
-    const allDays = generateCalendarDays();
+  const { weeks, monthMarkers } = useMemo(() => {
+    const allDays = generateCalendarDays(numWeeks);
 
     // Group into weeks (7 days each, starting Sunday)
     const weekGroups: Date[][] = [];
@@ -93,8 +110,8 @@ export default function ReadingCalendar({ data }: Props) {
       }
     });
 
-    return { days: allDays, weeks: weekGroups, monthMarkers: markers };
-  }, []);
+    return { weeks: weekGroups, monthMarkers: markers };
+  }, [numWeeks]);
 
   return (
     <div className="relative w-full">
@@ -150,7 +167,7 @@ export default function ReadingCalendar({ data }: Props) {
                 <div
                   key={dateKey}
                   className="aspect-square rounded-[2px] cursor-pointer"
-                  style={{ backgroundColor: INTENSITY_COLORS[intensity] }}
+                  style={{ backgroundColor: colors[intensity] }}
                   onMouseEnter={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
                     const text =
@@ -191,7 +208,7 @@ export default function ReadingCalendar({ data }: Props) {
       {/* Legend */}
       <div className="flex items-center gap-1.5 mt-3 text-[11px] text-muted font-sans justify-end">
         <span>Less</span>
-        {INTENSITY_COLORS.map((color, i) => (
+        {colors.map((color, i) => (
           <div
             key={i}
             className="w-3 h-3 rounded-[2px]"
@@ -199,6 +216,7 @@ export default function ReadingCalendar({ data }: Props) {
           />
         ))}
         <span>More</span>
+        <span className="ml-2 text-faint">1–12+</span>
       </div>
     </div>
   );

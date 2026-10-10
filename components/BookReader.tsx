@@ -152,10 +152,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // Get the context to update progress optimistically
   const { markChapterComplete } = useReadingProgress();
 
-  // Reading preferences (font size, line spacing)
+  // Reading preferences (font size, line spacing, keyboard style)
   const { preferences } = useReadingPreferences();
   const fontSize = preferences.fontSize;
   const lineHeight = LINE_HEIGHT_MAP[preferences.lineSpacing];
+  const isVim = preferences.keyboardStyle === 'vim';
 
   // Mark chapter as read and navigate
   const markReadAndNavigate = (href: string) => {
@@ -386,18 +387,25 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       const t = e.target as HTMLElement | null;
       if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t?.isContentEditable) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key === 'ArrowDown') {
+      // Vim j/k moves cursor, arrow keys always work
+      const downKey = isVim ? 'j' : null;
+      const upKey = isVim ? 'k' : null;
+
+      if (e.key === 'ArrowDown' || e.key === downKey) {
         e.preventDefault();
         stepCursor(1);
-      } else if (e.key === 'ArrowUp') {
+      } else if (e.key === 'ArrowUp' || e.key === upKey) {
         e.preventDefault();
         stepCursor(-1);
       } else if (e.key === 'Enter' && cursorVerse !== null && toolbarVerse === null) {
         // Only toggle verse if toolbar is NOT open (toolbar handles its own Enter)
         e.preventDefault();
         toggleVerse(cursorVerse);
-      } else if (e.key === 'h' && cursorVerse !== null) {
+      } else if ((e.key === 'h' || (isVim && e.key === "'")) && cursorVerse !== null) {
         // Toggle the highlight toolbar on the cursor verse.
+        // In vim mode, ' (apostrophe) is the highlight key since h is for navigation.
+        // In standard mode, h is the highlight key.
+        if (isVim && e.key === 'h') return; // h is for navigation in vim mode
         e.preventDefault();
         if (toolbarVerse === cursorVerse) {
           closeToolbar();
@@ -688,39 +696,44 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                     )}
                   </div>
 
-                  {/* Right: Verse range pill + chevron */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleSection(daySection.title, e.currentTarget, daySection.verseRange[0]);
-                    }}
-                    aria-expanded={!isCollapsed}
-                    aria-controls={`${sectionId}-verses`}
-                    className={`absolute right-0 top-0 flex items-center gap-1 px-2.5 py-1 rounded-full flex-shrink-0 min-w-[50px] justify-center transition-all duration-150 cursor-pointer ${
-                      !isCollapsed
-                        ? 'bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 text-white shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(16,185,129,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(16,185,129,0.3),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
-                        : isNextSection
-                        ? 'bg-emerald-900/30 text-emerald-200/70 shadow-[0_2px_4px_rgba(0,0,0,0.15)] hover:bg-emerald-800/40 active:translate-y-[1px]'
-                        : 'bg-gradient-to-b from-stone-500 via-stone-600 to-stone-700 text-stone-100 shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:from-stone-400 hover:via-stone-500 hover:to-stone-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
-                    }`}
-                  >
-                    <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                      {daySection.verseRange[1] - daySection.verseRange[0] + 1}
+                  {/* Right: Verse number + pill + chevron */}
+                  <div className="absolute right-0 top-0 flex items-center gap-2">
+                    <span className="font-sans text-[11px] font-medium tabular-nums text-muted">
+                      {daySection.verseRange[0]}
                     </span>
-                    <svg
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={`h-3 w-3 [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.3))] transition-transform duration-500 ease-out ${
-                        isCollapsed ? '' : 'rotate-180'
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleSection(daySection.title, e.currentTarget, daySection.verseRange[0]);
+                      }}
+                      aria-expanded={!isCollapsed}
+                      aria-controls={`${sectionId}-verses`}
+                      className={`flex items-center gap-1 px-2.5 py-1 rounded-full flex-shrink-0 min-w-[50px] justify-center transition-all duration-150 cursor-pointer ${
+                        !isCollapsed
+                          ? 'bg-gradient-to-b from-emerald-500 via-emerald-600 to-emerald-700 text-white shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(16,185,129,0.25),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(16,185,129,0.3),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:from-emerald-400 hover:via-emerald-500 hover:to-emerald-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
+                          : isNextSection
+                          ? 'bg-emerald-900/30 text-emerald-200/70 shadow-[0_2px_4px_rgba(0,0,0,0.15)] hover:bg-emerald-800/40 active:translate-y-[1px]'
+                          : 'bg-gradient-to-b from-stone-500 via-stone-600 to-stone-700 text-stone-100 shadow-[0_2px_4px_rgba(0,0,0,0.2),0_4px_8px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_3px_6px_rgba(0,0,0,0.25),0_6px_12px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:from-stone-400 hover:via-stone-500 hover:to-stone-600 active:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_0_1px_2px_rgba(0,0,0,0.1)] active:translate-y-[1px]'
                       }`}
                     >
-                      <path d="M5 7.5 10 12.5 15 7.5" />
-                    </svg>
-                  </button>
+                      <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
+                        {daySection.verseRange[1] - daySection.verseRange[0] + 1}
+                      </span>
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`h-3 w-3 [filter:drop-shadow(0_1px_1px_rgba(0,0,0,0.3))] transition-transform duration-500 ease-out ${
+                          isCollapsed ? '' : 'rotate-180'
+                        }`}
+                      >
+                        <path d="M5 7.5 10 12.5 15 7.5" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
 
                 {/* Verses (collapsible) */}

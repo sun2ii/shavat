@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
 
 interface Props {
-  email: string;
+  email?: string;
 }
 
 function UserIcon({ size = 14 }: { size?: number }) {
@@ -114,11 +114,14 @@ export default function SettingsDropdown({ email }: Props) {
       {isOpen && (
         <div className="absolute right-0 top-full mt-1 w-56 bg-[rgb(var(--surface-elevated))] border border-hairline rounded-lg shadow-lg z-50 py-2">
           {/* Email */}
-          <div className="px-4 py-2 text-[12px] text-muted truncate" title={email}>
-            {email}
-          </div>
-
-          <div className="h-px bg-hairline my-1" />
+          {email && (
+            <>
+              <div className="px-4 py-2 text-[12px] text-muted truncate" title={email}>
+                {email}
+              </div>
+              <div className="h-px bg-hairline my-1" />
+            </>
+          )}
 
           {/* Settings link */}
           <Link

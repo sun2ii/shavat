@@ -124,7 +124,7 @@ export default function GlobalError({
           }
           button {
             padding: 0.75rem 1.5rem;
-            background: rgb(var(--brand));
+            background: rgb(var(--gold));
             color: rgb(var(--bg-primary));
             border: none;
             border-radius: 0.5rem;

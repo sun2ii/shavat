@@ -45,20 +45,18 @@ export default async function DashboardPage() {
   // Fetch calendar data server-side
   const calendarRows = await sql`
     SELECT
-      DATE(completed_at AT TIME ZONE 'UTC') as date,
+      TO_CHAR(DATE(completed_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') as date,
       COUNT(*)::int as count
     FROM reading_progress
     WHERE user_email = ${user.email}
       AND completed_at >= NOW() - INTERVAL '365 days'
     GROUP BY DATE(completed_at AT TIME ZONE 'UTC')
-    ORDER BY date
+    ORDER BY DATE(completed_at AT TIME ZONE 'UTC')
   `;
 
   const calendarData: Record<string, number> = {};
   for (const row of calendarRows) {
-    const date = row.date as Date;
-    const key = date.toISOString().split('T')[0];
-    calendarData[key] = row.count as number;
+    calendarData[row.date as string] = row.count as number;
   }
 
   const target = await getContinueTarget(user.email);

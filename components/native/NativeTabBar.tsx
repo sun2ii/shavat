@@ -83,10 +83,9 @@ const TABS: Tab[] = [
     label: 'Read',
     match: ['/readings'],
     icon: (
-      // scroll/document
+      // closed book
       <svg {...iconProps} aria-hidden="true">
-        <path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" />
-        <path d="M19 3H9a2 2 0 0 0-2 2v14" />
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
       </svg>
     ),
   },

@@ -12,21 +12,18 @@ export async function GET() {
   try {
     const rows = await sql`
       SELECT
-        DATE(completed_at AT TIME ZONE 'UTC') as date,
+        TO_CHAR(DATE(completed_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') as date,
         COUNT(*)::int as count
       FROM reading_progress
       WHERE user_email = ${user.email}
         AND completed_at >= NOW() - INTERVAL '365 days'
       GROUP BY DATE(completed_at AT TIME ZONE 'UTC')
-      ORDER BY date
+      ORDER BY DATE(completed_at AT TIME ZONE 'UTC')
     `;
 
     const data: Record<string, number> = {};
     for (const row of rows) {
-      // Format as YYYY-MM-DD string
-      const date = row.date as Date;
-      const key = date.toISOString().split('T')[0];
-      data[key] = row.count as number;
+      data[row.date as string] = row.count as number;
     }
 
     return NextResponse.json({ data });

@@ -5,7 +5,7 @@
  * (see isNativeApp in ./native.ts). On the web this component returns null,
  * so the browser experience is unchanged.
  *
- * Information architecture (decided 2026-08-17): Today · Read · Map · Saved.
+ * Information architecture: Today · Bible · Read · Saved.
  * Progress is not a tab — the Today screen absorbs it. The 5th slot stays
  * empty until a concept earns it. One owner per concept; no duplicates.
  *
@@ -42,9 +42,9 @@ const iconProps = {
 
 const TABS: Tab[] = [
   {
-    href: '/today',
+    href: '/dashboard',
     label: 'Today',
-    match: ['/today'],
+    match: ['/today', '/dashboard'],
     icon: (
       // rising sun
       <svg {...iconProps} aria-hidden="true">
@@ -58,7 +58,7 @@ const TABS: Tab[] = [
   },
   {
     href: '/library',
-    label: 'Read',
+    label: 'Bible',
     match: [
       '/library',
       '/ot',
@@ -79,15 +79,14 @@ const TABS: Tab[] = [
     ),
   },
   {
-    href: '/map',
-    label: 'Map',
-    match: ['/map', '/terrain', '/timeline', '/chronology'],
+    href: '/readings',
+    label: 'Read',
+    match: ['/readings'],
     icon: (
-      // folded map
+      // scroll/document
       <svg {...iconProps} aria-hidden="true">
-        <path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4Z" />
-        <path d="M9 4v13" />
-        <path d="M15 6.5v13" />
+        <path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4" />
+        <path d="M19 3H9a2 2 0 0 0-2 2v14" />
       </svg>
     ),
   },
@@ -113,9 +112,9 @@ export default function NativeTabBar() {
     if (isNativeApp()) {
       setNative(true);
       document.documentElement.classList.add('native-app');
-      // The native app's front door is Today, not the marketing home page.
+      // The native app's front door is Dashboard, not the marketing home page.
       if (window.location.pathname === '/') {
-        router.replace('/today');
+        router.replace('/dashboard');
       }
       // Warm the haptics module so the first tap doesn't pay the import.
       import('@capacitor/haptics').catch(() => {});

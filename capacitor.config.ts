@@ -9,9 +9,8 @@ const config: CapacitorConfig = {
   appName: 'Shavat',
   webDir: 'ios-shell',
   server: {
-    // Production deployment. The app opens straight to /today to avoid
-    // flashing the marketing home page before the native redirect.
-    url: 'https://www.shavat.app/today',
+    // Production deployment. The app opens straight to /dashboard.
+    url: 'https://www.shavat.app/dashboard',
   },
 };
 

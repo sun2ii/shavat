@@ -1,0 +1,20 @@
+{
+  "id": "practice-presence-god",
+  "title": "The Practice of the Presence of God",
+  "author": "Brother Lawrence",
+  "source": "https://www.gutenberg.org/cache/epub/13871/pg13871.txt",
+  "books": [
+    {
+      "id": 1,
+      "slug": "conversations",
+      "title": "Conversations",
+      "chapters": 4
+    },
+    {
+      "id": 2,
+      "slug": "letters",
+      "title": "Letters",
+      "chapters": 15
+    }
+  ]
+}

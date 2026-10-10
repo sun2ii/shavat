@@ -367,7 +367,6 @@ export default function LibraryPage() {
     if (LEGACY_TABS[rawTab]) router.replace(`/library/${LEGACY_TABS[rawTab]}`);
   }, [rawTab, router]);
   const [focusedCardIndex, setFocusedCardIndex] = useState<number | null>(null);
-  const [showShortcuts, setShowShortcuts] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   // Get reading progress from context (server-side fetched, no delay)
   // Include `progress` in destructure to ensure useMemo recalculates when it changes
@@ -792,21 +791,14 @@ export default function LibraryPage() {
         }
       }
 
-      // ? opens shortcuts modal
-      if (e.key === '?' || (e.shiftKey && e.key === '/')) {
-        e.preventDefault();
-        setShowShortcuts((prev) => !prev);
-      }
-
       // / opens search modal
       if (e.key === '/' && !e.shiftKey) {
         e.preventDefault();
         setShowSearch(true);
       }
 
-      // Escape closes modals
+      // Escape closes search modal
       if (e.key === 'Escape') {
-        setShowShortcuts(false);
         setShowSearch(false);
       }
     };
@@ -861,7 +853,7 @@ export default function LibraryPage() {
   const renderTabContent = () => {
     if (sections.length === 1) return renderSection(sections[0]);
     return (
-      <div className="space-y-3">
+      <div className="space-y-6">
         {sections.map((id) => {
           const heading = SECTION_HEADINGS[id];
           return (
@@ -1539,58 +1531,6 @@ export default function LibraryPage() {
       />
 
       {renderTabContent()}
-
-      {/* Help button - desktop only */}
-      <button
-        onClick={() => setShowShortcuts(true)}
-        className="hidden md:flex fixed bottom-4 right-4 h-8 w-8 items-center justify-center rounded-full bg-surface border border-hairline text-muted hover:text-ink hover:border-gold/50 transition-colors font-sans text-sm"
-        title="Keyboard shortcuts (?)"
-      >
-        ?
-      </button>
-
-      {/* Shortcuts Modal */}
-      {showShortcuts && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
-          onClick={() => setShowShortcuts(false)}
-        >
-          <div
-            className="bg-surface border border-hairline rounded-lg shadow-xl max-w-md w-full mx-4 p-5 max-h-[80dvh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-serif font-bold text-lg text-ink">Keyboard Shortcuts</h2>
-              <button
-                onClick={() => setShowShortcuts(false)}
-                className="h-11 w-11 -m-2 flex items-center justify-center text-muted hover:text-ink active:text-ink text-xl leading-none"
-              >
-                &times;
-              </button>
-            </div>
-            <div className="space-y-3 font-sans text-sm">
-              <div>
-                <div className="text-muted text-xs uppercase tracking-wide mb-1">Navigation</div>
-                <div className="space-y-1">
-                  <div className="flex justify-between"><span className="text-ink">Navigate tabs</span><span className="text-muted">1 &ndash; {TABS.length}</span></div>
-                  <div className="flex justify-between"><span className="text-ink">Move selection</span><span className="text-muted">&larr; &rarr; &uarr; &darr;</span></div>
-                  <div className="flex justify-between"><span className="text-ink">Open selected</span><span className="text-muted">Enter</span></div>
-                </div>
-              </div>
-              <div>
-                <div className="text-muted text-xs uppercase tracking-wide mb-1">Actions</div>
-                <div className="space-y-1">
-                  <div className="flex justify-between"><span className="text-ink">Search</span><span className="text-muted">/</span></div>
-                  <div className="flex justify-between"><span className="text-ink">Show shortcuts</span><span className="text-muted">?</span></div>
-                  <div className="flex justify-between"><span className="text-ink">Close modal</span><span className="text-muted">Esc</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Search Modal */}
       {showSearch && (
         <div
           className="fixed inset-0 z-50 flex items-start justify-center pt-[10dvh] bg-black/40"

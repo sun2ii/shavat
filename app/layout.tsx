@@ -13,6 +13,7 @@ import { ReadingProgressProvider } from '@/components/providers/ReadingProgressP
 import { BookmarkProvider } from '@/components/providers/BookmarkProvider';
 import { TranslationProvider } from '@/components/providers/TranslationProvider';
 import { HighlightProvider } from '@/components/providers/HighlightProvider';
+import { ReadingPreferencesProvider } from '@/components/providers/ReadingPreferencesProvider';
 import { resolveTranslation } from '@/lib/translation-preference';
 import { listHighlights } from '@/lib/highlights-db';
 
@@ -124,18 +125,20 @@ export default async function RootLayout({
         <LoadingBar />
         <RoutePersistence />
         <DebugModeSync />
-        <TranslationProvider initialTranslation={translation} persistToAccount={isAuthenticated}>
-          <BookmarkProvider initialBookmarks={bookmarks}>
-            <HighlightProvider initialHighlights={highlights} persistToAccount={isAuthenticated}>
-              <ReadingProgressProvider initialProgress={readingProgress}>
-                <InnerLayout isAuthenticated={isAuthenticated} userEmail={user?.email ?? null}>
-                  {/* Cross-fades tab switches in the native shell; inert on web. */}
-                  <PageFade>{children}</PageFade>
-                </InnerLayout>
-              </ReadingProgressProvider>
-            </HighlightProvider>
-          </BookmarkProvider>
-        </TranslationProvider>
+        <ReadingPreferencesProvider>
+          <TranslationProvider initialTranslation={translation} persistToAccount={isAuthenticated}>
+            <BookmarkProvider initialBookmarks={bookmarks}>
+              <HighlightProvider initialHighlights={highlights} persistToAccount={isAuthenticated}>
+                <ReadingProgressProvider initialProgress={readingProgress}>
+                  <InnerLayout isAuthenticated={isAuthenticated} userEmail={user?.email ?? null}>
+                    {/* Cross-fades tab switches in the native shell; inert on web. */}
+                    <PageFade>{children}</PageFade>
+                  </InnerLayout>
+                </ReadingProgressProvider>
+              </HighlightProvider>
+            </BookmarkProvider>
+          </TranslationProvider>
+        </ReadingPreferencesProvider>
         {/* These render only inside the Capacitor iOS shell; null on the web. */}
         <NativeTabBar />
         <NativeSplash />

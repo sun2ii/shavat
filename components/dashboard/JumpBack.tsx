@@ -45,21 +45,19 @@ export default function JumpBack({ target: serverTarget }: Props) {
     if (described) setTarget(described);
   }, [serverTarget]);
 
-  // One thing on the page: the place to go back to, dead center.
-  // h-full fills the shell's scroll area so the centering is true.
   return (
-    <main className="h-full flex items-center justify-center px-6 text-center">
+    <div>
       <Link
         href={target?.href ?? '/library'}
-        className="group flex flex-col items-center gap-3 text-ink hover:text-gold transition-colors"
+        className="group inline-flex flex-col gap-1 text-ink hover:text-gold transition-colors"
       >
-        <span className="font-serif text-5xl md:text-6xl font-bold">
+        <span className="font-serif text-4xl md:text-5xl font-bold">
           {target?.label ?? 'Library'}
         </span>
         <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-gold group-hover:text-ink transition-colors select-none">
           Continue reading →
         </span>
       </Link>
-    </main>
+    </div>
   );
 }

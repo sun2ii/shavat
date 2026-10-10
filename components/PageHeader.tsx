@@ -80,7 +80,7 @@ export function TabbedPageHeader({
   mobileSlot?: React.ReactNode;
 }) {
   return (
-    <header className="pb-4 pt-2 md:pb-5 md:pt-3">
+    <header className="pb-6 pt-2 md:pb-8 md:pt-5">
       {/* Mobile: show active tab title + custom mobile controls */}
       <div className="md:hidden text-center">
         {tabs.filter(t => t.id === activeId).map((tab) => (
@@ -96,7 +96,7 @@ export function TabbedPageHeader({
             </p>
           </div>
         ))}
-        {mobileSlot && <div className="mt-3">{mobileSlot}</div>}
+        {mobileSlot && <div className="mt-4">{mobileSlot}</div>}
       </div>
 
       {/* Desktop: 3 balanced columns */}
@@ -128,7 +128,7 @@ export function TabbedPageHeader({
           })}
         </div>
         {rightSlot && (
-          <div className="mt-2 text-right">{rightSlot}</div>
+          <div className="mt-4 pt-3 border-t border-hairline text-right">{rightSlot}</div>
         )}
       </div>
     </header>

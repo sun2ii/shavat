@@ -1,0 +1,87 @@
+{
+  "id": "confessions",
+  "title": "Confessions",
+  "author": "Saint Augustine",
+  "translator": "E. B. Pusey",
+  "source": "https://www.gutenberg.org/files/3296/3296-h/3296-h.htm",
+  "books": [
+    {
+      "id": 1,
+      "slug": "confessions-1",
+      "title": "Infancy and Boyhood",
+      "chapters": 1
+    },
+    {
+      "id": 2,
+      "slug": "confessions-2",
+      "title": "Object of These Confessions",
+      "chapters": 1
+    },
+    {
+      "id": 3,
+      "slug": "confessions-3",
+      "title": "From Sixteen to Twenty-Eight",
+      "chapters": 1
+    },
+    {
+      "id": 4,
+      "slug": "confessions-4",
+      "title": "Augustine and the Manichees",
+      "chapters": 1
+    },
+    {
+      "id": 5,
+      "slug": "confessions-5",
+      "title": "Augustine at Rome and Milan",
+      "chapters": 1
+    },
+    {
+      "id": 6,
+      "slug": "confessions-6",
+      "title": "Struggle for the Faith",
+      "chapters": 1
+    },
+    {
+      "id": 7,
+      "slug": "confessions-7",
+      "title": "Inner Conflicts",
+      "chapters": 1
+    },
+    {
+      "id": 8,
+      "slug": "confessions-8",
+      "title": "The Conversion",
+      "chapters": 1
+    },
+    {
+      "id": 9,
+      "slug": "confessions-9",
+      "title": "Death of Monica",
+      "chapters": 1
+    },
+    {
+      "id": 10,
+      "slug": "confessions-10",
+      "title": "Memory and Self-Knowledge",
+      "chapters": 1
+    },
+    {
+      "id": 11,
+      "slug": "confessions-11",
+      "title": "Time and Eternity",
+      "chapters": 1
+    },
+    {
+      "id": 12,
+      "slug": "confessions-12",
+      "title": "Meditations on Scripture",
+      "chapters": 1
+    },
+    {
+      "id": 13,
+      "slug": "confessions-13",
+      "title": "Allegorical Interpretation",
+      "chapters": 1
+    }
+  ]
+}

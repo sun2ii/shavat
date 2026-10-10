@@ -5,6 +5,7 @@ import { getBookBySlug } from '@/lib/bible-index';
 import { readingPath } from '@/lib/routes';
 import { nextChapterAfter } from '@/lib/next-chapter';
 import JumpBack, { ReadingTarget } from '@/components/dashboard/JumpBack';
+import ReadingCalendar from '@/components/dashboard/ReadingCalendar';
 
 // "Continue reading" = the first unread chapter after the one most recently
 // marked complete. Finish Psalm 91 and this points at Psalm 92.
@@ -41,6 +42,41 @@ export default async function DashboardPage() {
     redirect('/login');
   }
 
+  // Fetch calendar data server-side
+  const calendarRows = await sql`
+    SELECT
+      DATE(completed_at AT TIME ZONE 'UTC') as date,
+      COUNT(*)::int as count
+    FROM reading_progress
+    WHERE user_email = ${user.email}
+      AND completed_at >= NOW() - INTERVAL '365 days'
+    GROUP BY DATE(completed_at AT TIME ZONE 'UTC')
+    ORDER BY date
+  `;
+
+  const calendarData: Record<string, number> = {};
+  for (const row of calendarRows) {
+    const date = row.date as Date;
+    const key = date.toISOString().split('T')[0];
+    calendarData[key] = row.count as number;
+  }
+
   const target = await getContinueTarget(user.email);
-  return <JumpBack target={target} />;
+
+  return (
+    <main className="min-h-full px-6 py-8">
+      {/* Continue reading - top left */}
+      <section className="mb-10">
+        <JumpBack target={target} />
+      </section>
+
+      {/* Reading activity calendar - full width */}
+      <section>
+        <h2 className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-4">
+          Reading Activity
+        </h2>
+        <ReadingCalendar data={calendarData} />
+      </section>
+    </main>
+  );
 }

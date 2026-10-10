@@ -10,6 +10,22 @@ const READINGS = [
     books: 4,
     chapters: 114,
   },
+  {
+    id: 'confessions',
+    title: 'Confessions',
+    author: 'Saint Augustine',
+    description: 'Spiritual autobiography and philosophical reflections',
+    books: 13,
+    chapters: 13,
+  },
+  {
+    id: 'practice-presence-god',
+    title: 'The Practice of the Presence of God',
+    author: 'Brother Lawrence',
+    description: 'Conversations and letters on practicing God\'s presence',
+    books: 2,
+    chapters: 19,
+  },
 ];
 
 export default function ReadingsPage() {

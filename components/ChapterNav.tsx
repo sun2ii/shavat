@@ -13,6 +13,7 @@ import { loadingBus } from '@/lib/loading-bus';
 import { FIRST_VERSE_HASH } from '@/lib/reader-keys';
 import BookMap from './BookMap';
 import TranslationToggle from './TranslationToggle';
+import SettingsDropdown from './SettingsDropdown';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
 
@@ -24,6 +25,7 @@ interface Props {
   division: BookDivision;
   chapterSummary?: string;
   isAuthenticated?: boolean;
+  userEmail?: string | null;
 }
 
 function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, bookmarkedChapters }: {
@@ -176,6 +178,7 @@ export default function ChapterNav({
   division,
   chapterSummary,
   isAuthenticated = false,
+  userEmail,
 }: Props) {
   const router = useRouter();
   const [showSaved, setShowSaved] = useState(false);

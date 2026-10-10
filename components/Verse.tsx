@@ -95,7 +95,7 @@ export default function Verse({ verse, isSelected = false, onToggle, onTap, comm
           isSelected
             ? 'shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : isHighlighted
-            ? 'text-violet-500 font-semibold text-[24.5px] drop-shadow-[0_0_6px_rgba(139,92,246,0.2)]'
+            ? 'text-violet-500 bg-gray-200/50 dark:bg-white/5 rounded-sm drop-shadow-[0_0_6px_rgba(139,92,246,0.2)]'
             : ''
         } ${isSelected && !swatch ? 'bg-[rgb(var(--highlight-yellow))]' : ''}`}
         style={swatch ? { backgroundColor: `${swatch}40` } : undefined}

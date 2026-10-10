@@ -21,6 +21,7 @@ import { usePathname } from 'next/navigation';
 import ScrollToTop from './ScrollToTop';
 import { getChapterTopics } from '@/lib/getProverbsTopics';
 import type { ProverbsTopic } from '@/lib/proverbs-topics';
+import { useReadingPreferences, LINE_HEIGHT_MAP } from '@/components/providers/ReadingPreferencesProvider';
 
 interface Props {
   verses: VerseType[];
@@ -90,17 +91,22 @@ function CollapsibleVerses({
   id,
   isCollapsed,
   children,
+  fontSize,
+  lineHeight,
 }: {
   id: string;
   isCollapsed: boolean;
   children: React.ReactNode;
+  fontSize: number;
+  lineHeight: number;
 }) {
   return (
     <div id={id} className="overflow-x-visible overflow-y-hidden" style={{ height: isCollapsed ? 0 : 'auto' }}>
       <div
-        className={`font-serif text-ink text-[21px] leading-[1.95] ${
+        className={`font-serif text-ink ${
           isCollapsed ? 'opacity-0' : 'opacity-100 transition-opacity duration-1000 ease-out'
         }`}
+        style={{ fontSize: `${fontSize}px`, lineHeight }}
       >
         {children}
       </div>
@@ -145,6 +151,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   // Get the context to update progress optimistically
   const { markChapterComplete } = useReadingProgress();
+
+  // Reading preferences (font size, line spacing)
+  const { preferences } = useReadingPreferences();
+  const fontSize = preferences.fontSize;
+  const lineHeight = LINE_HEIGHT_MAP[preferences.lineSpacing];
 
   // Mark chapter as read and navigate
   const markReadAndNavigate = (href: string) => {
@@ -716,6 +727,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                 <CollapsibleVerses
                   id={`${sectionId}-verses`}
                   isCollapsed={isCollapsed}
+                  fontSize={fontSize}
+                  lineHeight={lineHeight}
                 >
                   <div className="mt-6">
                     {dayVerses.map((verse) => (

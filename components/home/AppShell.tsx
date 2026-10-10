@@ -3,11 +3,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
-import LogoutButton from '@/components/auth/LogoutButton';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -15,43 +14,22 @@ interface AppShellProps {
   userEmail?: string | null;
 }
 
-// Who is signed in, and the way out. Sits at the top right of the content
-// area on every page, above the scroll region so it never overlaps page
-// chrome (the reader has its own top-right icon cluster).
-function AccountStrip({ email }: { email: string }) {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
-  }, []);
-
-  const toggleTheme = () => {
-    const root = document.documentElement;
-    const next = !root.classList.contains('dark');
-    root.classList.toggle('dark', next);
-    root.classList.toggle('light', !next);
-    try {
-      localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
-    } catch {}
-    setIsDark(next);
-  };
-
+// Gear icon for mobile menu settings
+function GearIcon({ size = 14 }: { size?: number }) {
   return (
-    <div className="shrink-0 flex items-center justify-end gap-3 px-4 sm:px-6 h-7 font-sans text-[11px] text-faint">
-      <button
-        onClick={toggleTheme}
-        className="flex items-center justify-center p-0.5 text-faint hover:text-ink transition-colors"
-        aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      >
-        <ThemeToggleIcon isDark={isDark} size={14} />
-      </button>
-      <span className="truncate max-w-[220px]" title={email}>
-        {email}
-      </span>
-      <span className="text-hairline">·</span>
-      <LogoutButton className="text-faint hover:text-ink" />
-    </div>
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
   );
 }
 
@@ -101,15 +79,9 @@ export function AppShell({ children, isAuthenticated = false, userEmail = null }
             transition: 'grid-template-columns 0.3s ease'
           }}
         >
-          <Sidebar isOpen={sidebarOpen} onToggle={handleSidebarToggle} isAuthenticated={isAuthenticated} />
-          {/* Column: account strip (fixed height) over the scroll region, so a
-              page's h-full still means "the scroll region", not strip + region.
-              min-h-0 lets this grid item shrink to the row instead of its content. */}
-          <main className="min-w-0 min-h-0 h-full flex flex-col">
-            {userEmail && <AccountStrip email={userEmail} />}
-            <div className="flex-1 min-h-0 overflow-auto">
-              {children}
-            </div>
+          <Sidebar isOpen={sidebarOpen} onToggle={handleSidebarToggle} isAuthenticated={isAuthenticated} userEmail={userEmail} />
+          <main className="min-w-0 min-h-0 h-full overflow-auto">
+            {children}
           </main>
         </div>
       </div>
@@ -129,12 +101,6 @@ export function AppShell({ children, isAuthenticated = false, userEmail = null }
             <Image src="/logo.webp" alt="Shavat" width={36} height={36} />
             <span className="font-playfair text-lg font-semibold text-sidebar-text tracking-wider">SHAVAT</span>
           </div>
-          {userEmail && (
-            <div className="ml-auto flex items-center gap-2 font-sans text-[11px] text-sidebar-text-muted min-w-0">
-              <span className="truncate max-w-[140px]" title={userEmail}>{userEmail}</span>
-              <LogoutButton className="text-sidebar-text-muted hover:text-sidebar-text" />
-            </div>
-          )}
         </header>
 
         {/* Main content */}
@@ -145,14 +111,15 @@ export function AppShell({ children, isAuthenticated = false, userEmail = null }
 
       {/* Mobile menu overlay */}
       {mobileMenuOpen && (
-        <MobileMenu onClose={() => setMobileMenuOpen(false)} isAuthenticated={isAuthenticated} />
+        <MobileMenu onClose={() => setMobileMenuOpen(false)} isAuthenticated={isAuthenticated} userEmail={userEmail} />
       )}
     </div>
   );
 }
 
-function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void; isAuthenticated?: boolean }) {
+function MobileMenu({ onClose, isAuthenticated = false, userEmail }: { onClose: () => void; isAuthenticated?: boolean; userEmail?: string | null }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -168,6 +135,16 @@ function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void;
       localStorage.setItem('shavat-theme', next ? 'dark' : 'light');
     } catch {}
     setIsDark(next);
+  };
+
+  const handleSignOut = async () => {
+    onClose();
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      router.push('/login');
+    } catch {
+      router.push('/login');
+    }
   };
 
   return (
@@ -225,20 +202,52 @@ function MobileMenu({ onClose, isAuthenticated = false }: { onClose: () => void;
           </div>
         </nav>
 
-        {/* Footer with theme toggle and Review */}
+        {/* Footer with account, settings, theme */}
         <div className="p-4 border-t border-sidebar-border flex flex-col gap-1">
+          {/* User email */}
+          {userEmail && (
+            <div className="px-4 py-2 text-[11px] text-sidebar-text-muted truncate" title={userEmail}>
+              {userEmail}
+            </div>
+          )}
+
+          <Link
+            href="/settings"
+            onClick={onClose}
+            className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
+          >
+            <GearIcon size={20} />
+            <span className="text-sm">Settings</span>
+          </Link>
+
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
+            className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-sidebar-text-muted hover:text-sidebar-text hover:bg-sidebar-hover-bg transition-colors"
             title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            <ThemeToggleIcon isDark={isDark} size={24} />
-            <span className="text-sm">{isDark ? 'Light Mode' : 'Dark Mode'}</span>
+            <span className="flex items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              </svg>
+              <span className="text-sm">Appearance</span>
+            </span>
+            <ThemeToggleIcon isDark={isDark} size={20} />
           </button>
 
-          <div className="text-[10px] text-sidebar-text-muted text-center mt-3">
-            Stay oriented in Scripture.
-          </div>
+          {userEmail && (
+            <button
+              onClick={handleSignOut}
+              className="flex items-center gap-3 w-full px-4 py-3 rounded-lg text-red-400 hover:text-red-300 hover:bg-sidebar-hover-bg transition-colors"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+              <span className="text-sm">Sign Out</span>
+            </button>
+          )}
         </div>
       </div>
     </>

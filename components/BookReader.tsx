@@ -17,6 +17,7 @@ import type { ChapterSpeakers, QuoteSpan, SpeakerDef } from '@/lib/speaker-quote
 import { getSpeakersInRange } from '@/lib/speaker-quotes';
 import { readingPath } from '@/lib/routes';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
+import { useKeyboardNav } from '@/components/KeyboardNav';
 import { usePathname } from 'next/navigation';
 import ScrollToTop from './ScrollToTop';
 import { getChapterTopics } from '@/lib/getProverbsTopics';
@@ -33,6 +34,10 @@ interface Props {
   nextChapter?: number | null;
   prevDivisionId?: string | null;
   nextDivisionId?: string | null;
+  /** Custom href for next chapter navigation (overrides division-based routing) */
+  nextHref?: string | null;
+  /** Custom href for prev chapter navigation (overrides division-based routing) */
+  prevHref?: string | null;
   bookCategory?: string;
   isAuthenticated?: boolean;
   /** Initial verse/paragraph to highlight with purple cursor */
@@ -114,7 +119,7 @@ function CollapsibleVerses({
   );
 }
 
-export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, bookCategory, isAuthenticated = false, initialCursor }: Props) {
+export default function BookReader({ verses, book, chapter, sections, chapterSpeakers, prevChapter, nextChapter, prevDivisionId, nextDivisionId, nextHref, prevHref, bookCategory, isAuthenticated = false, initialCursor }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const [selectedVerses, setSelectedVerses] = useState<Set<number>>(new Set());
@@ -149,44 +154,69 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Get the context to update progress optimistically
-  const { markChapterComplete } = useReadingProgress();
+  // Compute full navigation hrefs (for readings these are passed in, for Bible we compute them)
+  const computedNextHref = nextHref || (nextChapter && nextDivisionId && book
+    ? readingPath(book, nextDivisionId, nextChapter) + FIRST_VERSE_HASH
+    : null);
+  const computedPrevHref = prevHref || (prevChapter && prevDivisionId && book
+    ? readingPath(book, prevDivisionId, prevChapter)
+    : null);
 
-  // Reading preferences (font size, line spacing, keyboard style)
-  const { preferences } = useReadingPreferences();
+  // Toast states for keyboard shortcuts
+  const [showBookmarkToast, setShowBookmarkToast] = useState(false);
+  const [showCompleteToast, setShowCompleteToast] = useState(false);
+  const [showShortcuts, setShowShortcuts] = useState(false);
+
+  // Centralized keyboard navigation hook
+  const {
+    isVim,
+    canGoNext,
+    canGoPrev,
+    handleNext,
+    handlePrev,
+    handleBookmark,
+    handleToggleComplete,
+  } = useKeyboardNav({
+    book: book || '',
+    chapter: chapter || 0,
+    prevHref: computedPrevHref,
+    nextHref: computedNextHref,
+    isAuthenticated,
+    onBookmarkAdded: () => {
+      setShowBookmarkToast(true);
+      setTimeout(() => setShowBookmarkToast(false), 1500);
+    },
+    onMarkedComplete: () => {
+      setShowCompleteToast(true);
+      setTimeout(() => setShowCompleteToast(false), 1500);
+    },
+  });
+
+  // Reading preferences (font size, line spacing)
+  const { preferences, setKeyboardStyle } = useReadingPreferences();
   const fontSize = preferences.fontSize;
   const lineHeight = LINE_HEIGHT_MAP[preferences.lineSpacing];
-  const isVim = preferences.keyboardStyle === 'vim';
 
-  // Mark chapter as read and navigate
-  const markReadAndNavigate = (href: string) => {
-    if (isAuthenticated && book && chapter) {
-      // Optimistically update context (instant UI feedback)
-      markChapterComplete(book, chapter);
-
-      // Persist to database in background (don't block navigation)
-      fetch('/api/reading-progress', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ book, chapter }),
-      }).catch(err => console.error('Failed to save reading progress:', err));
-    }
-    loadingBus.start();
-    router.push(href);
+  const toggleKeyboardStyle = () => {
+    setKeyboardStyle(isVim ? 'standard' : 'vim');
   };
 
-  // Track reading progress when navigating to next chapter
-  const handleNextClick = () => {
-    if (nextChapter && nextDivisionId && book) {
-      // #v1: the next chapter opens on its first verse (see lib/reader-keys).
-      markReadAndNavigate(readingPath(book, nextDivisionId, nextChapter) + FIRST_VERSE_HASH);
-    }
-  };
+  // Get markChapterComplete for return to library
+  const { markChapterComplete } = useReadingProgress();
 
   // Track reading progress when returning to library
   const handleReturnToLibrary = () => {
     if (bookCategory) {
-      markReadAndNavigate(`/library/${bookCategory}`);
+      if (isAuthenticated && book && chapter) {
+        markChapterComplete(book, chapter);
+        fetch('/api/reading-progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ book, chapter }),
+        }).catch(err => console.error('Failed to save reading progress:', err));
+      }
+      loadingBus.start();
+      router.push(`/library/${bookCategory}`);
     }
   };
 
@@ -337,7 +367,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     if (!sections || sections.length === 0) {
       const i = cursorVerse === null ? (dir > 0 ? 0 : nums.length - 1) : nums.indexOf(cursorVerse) + dir;
       if (i >= 0 && i < nums.length) setCursorVerse(nums[i]);
-      else if (dir > 0 && nextChapter && nextDivisionId) handleNextClick();
+      else if (dir > 0 && canGoNext) handleNext();
       return;
     }
 
@@ -372,46 +402,83 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       setCursorVerse(landing);
       return;
     }
-    if (dir > 0 && nextChapter && nextDivisionId) handleNextClick();
+    if (dir > 0 && canGoNext) handleNext();
   };
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      // Escape closes the toolbar from anywhere, including inside its note box.
-      if (e.key === 'Escape' && toolbarVerse !== null) {
-        e.preventDefault();
-        (document.activeElement as HTMLElement | null)?.blur?.();
-        closeToolbar();
-        return;
+      // Escape closes the toolbar or shortcuts panel
+      if (e.key === 'Escape') {
+        if (showShortcuts) {
+          e.preventDefault();
+          setShowShortcuts(false);
+          return;
+        }
+        if (toolbarVerse !== null) {
+          e.preventDefault();
+          (document.activeElement as HTMLElement | null)?.blur?.();
+          closeToolbar();
+          return;
+        }
       }
+
       const t = e.target as HTMLElement | null;
       if (t instanceof HTMLInputElement || t instanceof HTMLTextAreaElement || t?.isContentEditable) return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
-      // Vim j/k moves cursor, arrow keys always work
-      const downKey = isVim ? 'j' : null;
-      const upKey = isVim ? 'k' : null;
 
-      if (e.key === 'ArrowDown' || e.key === downKey) {
+      // Show keyboard shortcuts (works in both modes)
+      if (e.key === '/') {
         e.preventDefault();
-        stepCursor(1);
-      } else if (e.key === 'ArrowUp' || e.key === upKey) {
-        e.preventDefault();
-        stepCursor(-1);
-      } else if (e.key === 'Enter' && cursorVerse !== null && toolbarVerse === null) {
-        // Only toggle verse if toolbar is NOT open (toolbar handles its own Enter)
-        e.preventDefault();
-        toggleVerse(cursorVerse);
-      } else if ((e.key === 'h' || (isVim && e.key === "'")) && cursorVerse !== null) {
-        // Toggle the highlight toolbar on the cursor verse.
-        // In vim mode, ' (apostrophe) is the highlight key since h is for navigation.
-        // In standard mode, h is the highlight key.
-        if (isVim && e.key === 'h') return; // h is for navigation in vim mode
-        e.preventDefault();
-        if (toolbarVerse === cursorVerse) {
-          closeToolbar();
-        } else {
-          setSelectedVerses(new Set([cursorVerse]));
-          setToolbarVerse(cursorVerse);
+        setShowShortcuts(s => !s);
+        return;
+      }
+
+      if (isVim) {
+        // Vim mode: j/k = verse nav, h/l = chapter nav, i = highlight, o = bookmark, p = mark read
+        if (e.key === 'j') {
+          e.preventDefault();
+          stepCursor(1);
+        } else if (e.key === 'k') {
+          e.preventDefault();
+          stepCursor(-1);
+        } else if (e.key === 'h' && canGoPrev) {
+          e.preventDefault();
+          handlePrev();
+        } else if (e.key === 'l' && canGoNext) {
+          e.preventDefault();
+          handleNext();
+        } else if (e.key === 'i' && cursorVerse !== null) {
+          e.preventDefault();
+          if (toolbarVerse === cursorVerse) {
+            closeToolbar();
+          } else {
+            setSelectedVerses(new Set([cursorVerse]));
+            setToolbarVerse(cursorVerse);
+          }
+        } else if (e.key === 'o') {
+          e.preventDefault();
+          handleBookmark();
+        } else if (e.key === 'p' && isAuthenticated) {
+          e.preventDefault();
+          handleToggleComplete();
+        }
+      } else {
+        // Standard mode: arrow keys for nav
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          stepCursor(1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          stepCursor(-1);
+        } else if (e.key === 'ArrowLeft' && canGoPrev) {
+          e.preventDefault();
+          handlePrev();
+        } else if (e.key === 'ArrowRight' && canGoNext) {
+          e.preventDefault();
+          handleNext();
+        } else if (e.key === 'Enter' && cursorVerse !== null && toolbarVerse === null) {
+          e.preventDefault();
+          toggleVerse(cursorVerse);
         }
       }
     };
@@ -614,6 +681,116 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     </div>
   );
 
+  // Toast notifications and keyboard shortcuts overlay
+  const Toasts = () => (
+    <>
+      {showBookmarkToast && (
+        <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-50">
+          <div className="bg-surface/95 backdrop-blur-sm border border-gold/30 rounded-xl px-6 py-4 shadow-xl animate-[fade-in_0.15s_ease-out]">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl text-gold">★</span>
+              <span className="font-sans text-sm font-medium text-ink">Bookmarked</span>
+            </div>
+          </div>
+        </div>
+      )}
+      {showCompleteToast && (
+        <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-50">
+          <div className="bg-surface/95 backdrop-blur-sm border border-emerald-500/30 rounded-xl px-6 py-4 shadow-xl animate-[fade-in_0.15s_ease-out]">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl text-emerald-500">✓</span>
+              <span className="font-sans text-sm font-medium text-ink">Marked as read</span>
+            </div>
+          </div>
+        </div>
+      )}
+      {showShortcuts && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+          onClick={() => setShowShortcuts(false)}
+        >
+          <div
+            className="bg-surface border border-hairline rounded-xl px-8 py-6 shadow-2xl max-w-md"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-6 mb-4">
+              <h2 className="font-sans text-lg font-bold text-ink">Keyboard Shortcuts</h2>
+              <button
+                onClick={toggleKeyboardStyle}
+                className="font-sans text-xs text-muted px-2 py-1 bg-muted/10 hover:bg-muted/20 rounded cursor-pointer transition-colors"
+              >
+                {isVim ? 'Vim' : 'Standard'}
+              </button>
+            </div>
+            <div className="space-y-3 font-sans text-sm">
+              {isVim ? (
+                <>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Move down</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">j</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Move up</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">k</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Previous chapter</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">h</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Next chapter</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">l</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Highlight verse</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">i</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Toggle bookmark</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">o</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Mark as read</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">p</kbd>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Move down</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">↓</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Move up</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">↑</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Previous chapter</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">←</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Next chapter</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">→</kbd>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted">Select verse</span>
+                    <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">Enter</kbd>
+                  </div>
+                </>
+              )}
+              <div className="pt-2 border-t border-hairline">
+                <div className="flex justify-between">
+                  <span className="text-muted">Close / Dismiss</span>
+                  <kbd className="px-2 py-0.5 bg-muted/10 rounded text-ink font-mono">Esc</kbd>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+
   if (sections && sections.length > 0) {
     return (
       <div ref={rootRef} className="px-6 sm:px-10 md:px-16" data-cursor={cursorVerse ?? ''}>
@@ -775,11 +952,18 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
         <ScrollToTop />
 
         {/* Navigation buttons below sections */}
-        {(prevChapter || nextChapter || bookCategory) && (
+        {(prevChapter || nextChapter || prevHref || nextHref || bookCategory) && (
           <div className="py-6 md:py-8 border-t border-hairline">
             {/* Prev / Next */}
             <div className="flex justify-between items-center">
-              {prevChapter && prevDivisionId && book ? (
+              {prevHref ? (
+                <Link
+                  href={prevHref}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                >
+                  ← Previous
+                </Link>
+              ) : prevChapter && prevDivisionId && book ? (
                 <Link
                   href={readingPath(book, prevDivisionId, prevChapter)}
                   className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
@@ -789,9 +973,9 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               ) : (
                 <div />
               )}
-              {nextChapter && nextDivisionId && book ? (
+              {canGoNext ? (
                 <button
-                  onClick={handleNextClick}
+                  onClick={handleNext}
                   className="px-6 py-3 text-sm font-sans font-semibold rounded-lg transition-all cursor-pointer border border-gold-ink/60 bg-gold/10 text-gold-ink hover:bg-gold/20 hover:border-gold-ink dark:border-amber-500/40 dark:bg-transparent dark:text-amber-400/80 dark:shadow-[0_0_12px_rgba(245,158,11,0.15)] dark:hover:border-amber-400 dark:hover:text-amber-300 dark:hover:shadow-[0_0_16px_rgba(245,158,11,0.25)]"
                 >
                   Next →
@@ -809,6 +993,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
             </div>
           </div>
         )}
+        <Toasts />
       </div>
     );
   }
@@ -817,6 +1002,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   return (
     <div ref={rootRef} data-cursor={cursorVerse ?? ''}>
       <ProgressBar />
+      <Toasts />
       {chapterSpeakers && (
         <SpeakerLegend
           heading={`${bookLabel} ${actualChapter}`}
@@ -846,6 +1032,34 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
             />
           ))}
         </div>
+
+        {/* Navigation buttons */}
+        {(prevHref || nextHref || canGoNext) && (
+          <div className="py-6 md:py-8 border-t border-hairline mt-8">
+            <div className="flex justify-between items-center">
+              {prevHref ? (
+                <Link
+                  href={prevHref}
+                  className="px-6 py-3 text-sm font-sans font-semibold border border-hairline rounded-lg hover:border-gold hover:text-gold transition-colors"
+                >
+                  ← Previous
+                </Link>
+              ) : (
+                <div />
+              )}
+              {canGoNext ? (
+                <button
+                  onClick={handleNext}
+                  className="px-6 py-3 text-sm font-sans font-semibold rounded-lg transition-all cursor-pointer border border-gold-ink/60 bg-gold/10 text-gold-ink hover:bg-gold/20 hover:border-gold-ink dark:border-amber-500/40 dark:bg-transparent dark:text-amber-400/80 dark:shadow-[0_0_12px_rgba(245,158,11,0.15)] dark:hover:border-amber-400 dark:hover:text-amber-300 dark:hover:shadow-[0_0_16px_rgba(245,158,11,0.25)]"
+                >
+                  Next →
+                </button>
+              ) : (
+                <div />
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { Highlight, HighlightColor } from '@/lib/types';
 import { HIGHLIGHT_COLORS, getHighlightColor } from '@/lib/highlight-colors';
 
@@ -23,8 +23,18 @@ export default function HighlightToolbar({ rangeLabel, existing, onSave, onRemov
   const [color, setColor] = useState<HighlightColor>(existing?.color ?? HIGHLIGHT_OPTIONS[0].id);
   const [note, setNote] = useState(existing?.note ?? '');
   const [removed, setRemoved] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const selectedDef = getHighlightColor(color);
+
+  // Auto-focus the textarea when toolbar opens
+  useEffect(() => {
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      textareaRef.current?.focus();
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSave = useCallback(() => {
     if (removed) return;
@@ -100,6 +110,7 @@ export default function HighlightToolbar({ rangeLabel, existing, onSave, onRemov
       </div>
 
       <textarea
+        ref={textareaRef}
         value={note}
         onChange={(e) => setNote(e.target.value)}
         placeholder="Add a note"

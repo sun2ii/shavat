@@ -5,9 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
-import { useReadingPreferences } from '@/components/providers/ReadingPreferencesProvider';
 import { storage } from '@/lib/storage';
-import { loadingBus } from '@/lib/loading-bus';
 import SettingsDropdown from './SettingsDropdown';
 
 interface Book {
@@ -36,7 +34,7 @@ interface Props {
  * - Center: reading title, book title, chapter selector
  * - Right: bookmark, mark-as-read, settings icons
  */
-export default function ReadingNav({
+export default function ChristianBookNav({
   readingId,
   readingTitle,
   bookSlug,
@@ -52,8 +50,6 @@ export default function ReadingNav({
   const [mapOpen, setMapOpen] = useState(false);
   const [showSaved, setShowSaved] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
-  const { preferences } = useReadingPreferences();
-  const isVim = preferences.keyboardStyle === 'vim';
 
   const { isChapterComplete, toggleChapterComplete } = useReadingProgress();
   const isCurrentComplete = isChapterComplete(bookSlug, currentChapter);
@@ -129,32 +125,7 @@ export default function ReadingNav({
     if (nextHref) router.prefetch(nextHref);
   }, [router, prevHref, nextHref]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-
-      const prevKey = isVim ? 'h' : 'ArrowLeft';
-      const nextKey = isVim ? 'l' : 'ArrowRight';
-
-      if (e.key === prevKey && prevHref) {
-        loadingBus.start();
-        router.push(prevHref);
-      } else if (e.key === nextKey && nextHref) {
-        loadingBus.start();
-        router.push(nextHref);
-      } else if (e.key === 'b') {
-        e.preventDefault();
-        handleBookmark();
-      } else if (e.key === 'r' && isAuthenticated) {
-        e.preventDefault();
-        void handleToggleComplete();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  });
+  // Keyboard navigation is handled by BookReader to avoid duplicate handlers
 
   const handleBookmark = () => {
     if (typeof window === 'undefined') return;
@@ -298,7 +269,7 @@ export default function ReadingNav({
         {/* Center: reading title */}
         <Link
           href={`/readings/${readingId}`}
-          className="max-w-[calc(100%-120px)] truncate text-center py-1 font-sans text-xs tracking-[0.24em] uppercase text-muted hover:text-ink active:text-ink font-semibold transition-colors"
+          className="max-w-[calc(100%-120px)] truncate text-center py-1 font-sans text-xs tracking-[0.24em] uppercase text-blue-500 hover:text-ink active:text-ink font-semibold transition-colors"
         >
           {readingTitle}
         </Link>
@@ -314,31 +285,29 @@ export default function ReadingNav({
           </p>
         )}
 
-        {/* Chapter selector */}
-        <div className="mt-3 flex flex-wrap justify-center gap-x-1 gap-y-2 font-serif text-[15px] leading-none">
-          {Array.from({ length: totalChapters }, (_, i) => i + 1).map((ch) => {
+        {/* Chapter grid for current book - 10 columns */}
+        <div className="mt-3 grid grid-cols-10 gap-x-4 gap-y-2 font-serif text-[15px] leading-none w-fit mx-auto">
+          {Array.from({ length: totalChapters }, (_, i) => {
+            const ch = i + 1;
             const isActive = ch === currentChapter;
             const isCompleted = isChapterComplete(bookSlug, ch);
             return (
               <Link
                 key={ch}
                 href={buildHref(bookId, ch)}
-                aria-label={isCompleted ? `Chapter ${ch}, completed` : `Chapter ${ch}`}
-                className={`inline-flex items-center justify-center min-w-[32px] min-h-[36px] transition-colors relative ${
-                  isActive && isCompleted
-                    ? 'text-green-600 dark:text-green-400 font-bold'
-                    : isActive
-                    ? 'text-muted font-bold'
-                    : isCompleted
-                    ? 'text-green-600 dark:text-green-400'
-                    : 'text-faint hover:text-ink'
+                className={`text-center tabular-nums transition-colors ${
+                  isActive
+                    ? 'font-bold text-gold'
+                    : 'hover:text-ink'
+                } ${
+                  !isActive && isCompleted
+                    ? 'text-emerald-600 dark:text-emerald-400'
+                    : !isActive
+                    ? 'text-muted/50'
+                    : ''
                 }`}
-                title={isCompleted ? 'Completed' : undefined}
               >
                 {ch}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-blue-500">▲</span>
-                )}
               </Link>
             );
           })}

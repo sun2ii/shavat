@@ -1,7 +1,7 @@
 'use client';
 
 import { Verse as VerseType, BookDivision } from '@/lib/types';
-import ChapterNav from './ChapterNav';
+import BibleNav from './BibleNav';
 import BookReader from './BookReader';
 import type { Section } from '@/lib/sections';
 import type { ChapterSpeakers } from '@/lib/speaker-quotes';
@@ -51,7 +51,7 @@ export default function BookPageClient({
 
   return (
     <main key={`${bookSlug}-${currentChapter}`} className="chapter-enter">
-      <ChapterNav
+      <BibleNav
         bookSlug={bookSlug}
         bookName={bookName}
         bookAbbreviation={bookAbbreviation}

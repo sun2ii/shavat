@@ -171,7 +171,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
   );
 }
 
-export default function ChapterNav({
+export default function BibleNav({
   bookSlug,
   bookName,
   bookAbbreviation,

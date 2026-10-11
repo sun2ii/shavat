@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { getReadingMetadata, createReadingAccessor } from '@/lib/readings-accessor';
 import { getCurrentUser } from '@/lib/auth';
 import BookReader from '@/components/BookReader';
-import ReadingNav from '@/components/ReadingNav';
+import ChristianBookNav from '@/components/ChristianBookNav';
 
 // Supported readings with their configuration
 const READINGS_CONFIG: Record<string, {
@@ -109,6 +109,24 @@ export default async function ReadingChapterPage({ params }: Props) {
   const prevChapter = chapterNum > 1 ? chapterNum - 1 : null;
   const nextChapter = chapterNum < bookInfo.chapters ? chapterNum + 1 : null;
 
+  // Build navigation hrefs for keyboard nav (j/down to mark as read and go next)
+  const nextBookInfo = bookNum < metadata.books.length ? metadata.books.find(b => b.id === bookNum + 1) : null;
+  const prevBookInfo = bookNum > 1 ? metadata.books.find(b => b.id === bookNum - 1) : null;
+
+  // Next href: next chapter in same book, or first chapter of next book
+  const nextHref = nextChapter
+    ? `/readings/${reading}/${bookNum}/${nextChapter}`
+    : nextBookInfo
+    ? `/readings/${reading}/${nextBookInfo.id}/1`
+    : null;
+
+  // Prev href: prev chapter in same book, or last chapter of prev book
+  const prevHref = prevChapter
+    ? `/readings/${reading}/${bookNum}/${prevChapter}`
+    : prevBookInfo
+    ? `/readings/${reading}/${prevBookInfo.id}/${prevBookInfo.chapters}`
+    : null;
+
   // Build book title based on reading type
   const bookTitle = reading === 'confessions' || reading === 'practice-presence-god'
     ? (reading === 'confessions' ? `Book ${bookNum}: ${bookInfo.title}` : bookInfo.title)
@@ -116,7 +134,7 @@ export default async function ReadingChapterPage({ params }: Props) {
 
   return (
     <main>
-      <ReadingNav
+      <ChristianBookNav
         readingId={reading}
         readingTitle={config.getTitle()}
         bookSlug={bookSlug}
@@ -135,6 +153,8 @@ export default async function ReadingChapterPage({ params }: Props) {
         chapter={chapterNum}
         prevChapter={prevChapter}
         nextChapter={nextChapter}
+        nextHref={nextHref}
+        prevHref={prevHref}
         isAuthenticated={isAuthenticated}
         initialCursor={1}
       />

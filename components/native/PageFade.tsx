@@ -29,8 +29,10 @@ export default function PageFade({ children }: { children: React.ReactNode }) {
     el.classList.add('page-fade-run');
   }, [pathname]);
 
-  // h-full so a page can claim the shell's full height (e.g. the dashboard
-  // centers one link). Taller pages overflow this box and the shell's
-  // overflow-auto main still scrolls them.
-  return <div ref={ref} className="h-full">{children}</div>;
+  // min-h-full, never h-full: a short page may still claim the shell's full
+  // height, but a tall page must GROW this box rather than overflow it. The
+  // native shell appends a tab-bar spacer (main::after) after this wrapper;
+  // with a fixed h-full box the spacer landed at 100% height, buried under
+  // the overflowing chapter, and Next / Previous stayed under the tab bar.
+  return <div ref={ref} className="min-h-full">{children}</div>;
 }

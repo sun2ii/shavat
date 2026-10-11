@@ -572,15 +572,10 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const [toolbarVerse, setToolbarVerse] = useState<number | null>(null);
 
   // Single tap sets the purple cursor (for phone navigation)
+  // A tap (any device) paints the verse purple by making it the cursor.
+  // It never scrolls: the follow-scroll effect only fires for keyboard moves
+  // (scrollOnCursorChange), so on a phone the page stays exactly where it is.
   const handleTapVerse = (verseNum: number) => {
-    // Phones: a tap is for reading and scrolling, not for moving the cursor.
-    // Coarse pointer without hover = touch device; also the Capacitor shell.
-    if (
-      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
-      document.documentElement.classList.contains('native-app')
-    ) {
-      return;
-    }
     setAutoHighlightedVerse(null);
     setCursorVerse(verseNum);
   };

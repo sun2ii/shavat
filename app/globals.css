@@ -421,8 +421,16 @@ html.native-app body {
 /* The scroller: clear the status bar above and the tab bar + home indicator below. */
 html.native-app main.overflow-auto {
   padding-top: env(safe-area-inset-top);
-  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
   overscroll-behavior-y: none;
+}
+/* Bottom clearance as a real trailing block, not padding: WebKit does not
+   reliably count a scroll container's own padding-bottom as scrollable
+   overflow, which left the Next / Previous row parked under the tab bar
+   where it could not be tapped. A block after the content always scrolls. */
+html.native-app main.overflow-auto::after {
+  content: '';
+  display: block;
+  height: calc(3.5rem + env(safe-area-inset-bottom));
 }
 
 /* Short pages must fill the scroller exactly (no phantom scroll range). */

@@ -18,6 +18,18 @@ import { useReadingProgress } from '@/components/providers/ReadingProgressProvid
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
 import { useReadingPreferences } from '@/components/providers/ReadingPreferencesProvider';
 
+/*
+  Chapter grid invariant (every book, every division, every list):
+    column  = position within the division mod 10
+    row     = position within the division div 10
+  Ten fixed-width cells, so 1–10 sit over 11–20 sit over 21–24. The grid is
+  shrink-wrapped and centered as a block; the cells inside it never center.
+  34px × 10 = 340px, which still fits a 375px phone with the nav's padding.
+*/
+const CHAPTER_GRID_CLASS = 'grid justify-center gap-x-0 gap-y-1 font-serif text-[15px] leading-none';
+const CHAPTER_GRID_STYLE = { gridTemplateColumns: 'repeat(10, 34px)' } as const;
+const CHAPTER_CELL_CLASS = 'w-[34px] min-h-[32px]';
+
 interface Props {
   bookSlug: string;
   bookName: string;
@@ -129,7 +141,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
                     </p>
                   )}
 
-                  <div className="flex flex-wrap gap-x-1.5 gap-y-1.5 font-serif text-[15px] leading-none">
+                  <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
                     {div.chapters.map((chapter) => {
                       const isCurrent = isCurrentDivision && chapter === currentChapter;
                       const isRead = isChapterComplete(bookSlug, chapter);
@@ -139,7 +151,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
                           key={chapter}
                           href={readingPath(bookSlug, div.id, chapter)}
                           onClick={() => setOpen(false)}
-                          className={`relative inline-flex min-w-[30px] min-h-[32px] items-center justify-center rounded ${
+                          className={`relative inline-flex items-center justify-center rounded ${CHAPTER_CELL_CLASS} ${
                             isCurrent && isRead
                               ? 'text-emerald-500 font-bold'
                               : isCurrent
@@ -421,20 +433,11 @@ export default function BibleNav({
             bookmarkedChapters={bookmarkedChapters}
           />
 
-          {/* Current division chapters. Long divisions (Psalms) become a grid
-              with enough columns to fit in at most three rows. */}
-          {(() => {
-            const dense = division.chapters.length > 24;
-            const cols = dense ? Math.ceil(division.chapters.length / 3) : 0;
-            return (
-          <div
-            className={
-              dense
-                ? 'grid gap-x-0.5 gap-y-0.5 font-serif text-[14px] leading-none'
-                : 'flex flex-wrap justify-center gap-x-1 gap-y-2 font-serif text-[15px] leading-none'
-            }
-            style={dense ? { gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` } : undefined}
-          >
+          {/* Current division chapters: one rule for every book. Ten fixed-width
+              columns, rows of ten counted from the division's first chapter,
+              left-packed (1–10 / 11–20 / 21–24). No centering, no per-size
+              branching, so the eye learns one layout and reuses it. */}
+          <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
             {division.chapters.map((ch) => {
               const isActive = ch === currentChapter;
               const isCompleted = isChapterComplete(bookSlug, ch);
@@ -444,9 +447,7 @@ export default function BibleNav({
                   key={ch}
                   href={readingPath(bookSlug, division.id, ch)}
                   aria-label={isCompleted ? `Chapter ${ch}, completed` : `Chapter ${ch}`}
-                  className={`inline-flex items-center justify-center transition-colors relative ${
-                    dense ? 'min-w-[34px] min-h-[30px]' : 'min-w-[32px] min-h-[36px]'
-                  } ${
+                  className={`inline-flex items-center justify-center transition-colors relative ${CHAPTER_CELL_CLASS} ${
                     isActive && isCompleted
                       ? 'text-green-600 dark:text-green-400 font-bold'
                       : isActive
@@ -468,8 +469,6 @@ export default function BibleNav({
               );
             })}
           </div>
-            );
-          })()}
 
           {/* Prophets active during this chapter */}
           {(() => {

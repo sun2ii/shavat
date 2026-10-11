@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import type { Highlight, HighlightColor } from '@/lib/types';
 import { HIGHLIGHT_COLORS, getHighlightColor } from '@/lib/highlight-colors';
 
@@ -164,20 +165,31 @@ export default function HighlightToolbar({ rangeLabel, existing, onSave, onRemov
     </>
   );
 
-  // Mobile: full-screen modal from bottom
+  // Mobile: a centered card, portaled to <body>.
+  //
+  // Portal, because this component renders inside the verse list, under
+  // <main class="chapter-enter">, whose entrance animation applies a
+  // transform. A transformed ancestor becomes the containing block for
+  // position: fixed descendants, so "inset-0" meant the chapter box, not the
+  // screen: the sheet sat at the bottom of the chapter, not the viewport.
+  // Rendering at body level makes the overlay's frame the real screen.
+  //
+  // Centered, not a bottom sheet, because the bottom edge is exactly where
+  // the keyboard appears when the note field focuses.
   if (isMobile) {
-    return (
+    return createPortal(
       <div
-        className="fixed inset-0 z-50 flex items-end justify-center bg-black/50"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
         onClick={onCancel}
       >
         <div
-          className="w-full max-w-lg rounded-t-2xl bg-surface p-5 pb-8 font-sans shadow-xl animate-in slide-in-from-bottom duration-200"
+          className="w-full max-w-lg rounded-2xl bg-surface p-5 font-sans shadow-xl"
           onClick={(e) => e.stopPropagation()}
         >
           {toolbarContent}
         </div>
-      </div>
+      </div>,
+      document.body
     );
   }
 

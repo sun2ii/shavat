@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
+import { getNavLinks, isNavLinkActive } from './nav-links';
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -32,12 +33,6 @@ function GearIcon({ size = 14 }: { size?: number }) {
     </svg>
   );
 }
-
-const mobileNavLinks = [
-  { href: '/dashboard', label: 'Dashboard', iconSrc: '/icons/sidebar/home.webp' },
-  { href: '/library', label: 'Library', iconSrc: '/icons/sidebar/library.webp' },
-  { href: '/saved', label: 'Saved', iconSrc: '/icons/general/laurel.webp' },
-];
 
 export function AppShell({ children, isAuthenticated = false, userEmail = null }: AppShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -181,8 +176,9 @@ function MobileMenu({ onClose, isAuthenticated = false, userEmail }: { onClose: 
         {/* Nav links */}
         <nav className="flex-1 overflow-y-auto p-4">
           <div className="flex flex-col gap-1">
-            {mobileNavLinks.map((link) => {
-              const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+            {/* Same list as the desktop sidebar: see ./nav-links.ts */}
+            {getNavLinks(isAuthenticated).map((link) => {
+              const isActive = isNavLinkActive(link, pathname);
               return (
                 <Link
                   key={link.href}

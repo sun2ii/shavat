@@ -6,14 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { NormalizedIcon } from '@/components/ui/NormalizedIcon';
 import { ThemeToggleIcon } from '@/components/ui/ThemeToggleIcon';
-
-const staticNavLinks = [
-  { href: '/library', label: 'Holy Bible', iconSrc: '/icons/sidebar/library.webp' },
-  { href: '/readings', label: 'Readings', iconSrc: '/icons/sidebar/writings.webp' },
-  { href: '/saved', label: 'Saved', iconSrc: '/icons/general/laurel.webp' },
-];
-
-const homeIconSrc = '/icons/sidebar/home.webp';
+import { getNavLinks, isNavLinkActive } from './nav-links';
 
 function SidebarIcon({ src, alt, size = 24 }: { src: string; alt: string; size?: number }) {
   return (
@@ -153,26 +146,9 @@ export function Sidebar({ isOpen, onToggle, isAuthenticated = false, userEmail }
 
       {/* Nav */}
       <nav className="flex flex-col gap-1.5 mt-9 text-[14.5px]">
-        {/* Dashboard = "jump back to where I was". Signed out, the slot is Home (/). */}
-        {(() => {
-          const homeHref = isAuthenticated ? '/dashboard' : '/';
-          const isHomeActive = pathname === '/' || pathname === '/dashboard';
-          return (
-            <Link
-              href={homeHref}
-              className={`flex items-center rounded-lg py-3 px-4 transition-colors ${
-                isHomeActive
-                  ? 'bg-sidebar-active-bg text-sidebar-active-text font-semibold'
-                  : 'text-sidebar-text hover:bg-sidebar-hover-bg'
-              } ${isOpen ? 'gap-3.5 justify-start' : 'gap-0 justify-center'}`}
-            >
-              <SidebarIcon src={homeIconSrc} alt={isAuthenticated ? 'Dashboard' : 'Home'} />
-              {isOpen && (isAuthenticated ? 'Dashboard' : 'Home')}
-            </Link>
-          );
-        })()}
-        {staticNavLinks.map((link) => {
-          const isActive = pathname === link.href || pathname.startsWith(link.href + '/');
+        {/* Same list as the mobile drawer: see ./nav-links.ts */}
+        {getNavLinks(isAuthenticated).map((link) => {
+          const isActive = isNavLinkActive(link, pathname);
           return (
             <Link
               key={link.href}

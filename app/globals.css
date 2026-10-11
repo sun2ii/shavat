@@ -394,34 +394,49 @@ html.native-app .scroll-mt-16 {
   scroll-margin-top: calc(env(safe-area-inset-top) + 0.5rem);
 }
 
-html.native-app {
-  /* Kill the document rubber-band bounce: when iOS overscrolls past the
-     edge, position:fixed elements (the tab bar) ride along with the bounce
-     and visibly detach from the bottom. The root element is the document
-     scroller, so the rule lives here. */
+/*
+  Native shell scroll model — one invariant: THE DOCUMENT NEVER SCROLLS.
+
+  WKWebView positions `position: fixed` elements against the visual viewport.
+  If the document has any scroll range, taps, momentum settles and backdrop
+  re-snapshots nudge that viewport a few px and the tab bar rides along
+  (the 10–20px twitch on tapping a verse). Body padding plus a 100vh shell
+  used to give the document ~100px of hidden range. Now html/body are locked
+  to the screen and the app shell's own <main> is the only scroller; the
+  safe-area and tab-bar clearance live inside it instead of on body.
+*/
+html.native-app,
+html.native-app body {
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
   overscroll-behavior-y: none;
 }
 
-/*
-  The app shell's min-h-screen wrapper + the body's native top/bottom padding
-  made every page ~100px taller than the screen, so even short (collapsed)
-  pages scrolled into empty space. In the native shell, "minimum full screen"
-  must mean the screen MINUS those insets, so short pages fit exactly and
-  don't scroll at all.
-*/
+html.native-app body {
+  /* Native apps don't flash gray on tap; suppress the WebView default. */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The scroller: clear the status bar above and the tab bar + home indicator below. */
+html.native-app main.overflow-auto {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+  overscroll-behavior-y: none;
+}
+
+/* Short pages must fill the scroller exactly (no phantom scroll range). */
 html.native-app .min-h-screen {
   min-height: calc(100svh - env(safe-area-inset-top) - 3.5rem - env(safe-area-inset-bottom));
 }
 
-html.native-app body {
-  overscroll-behavior-y: none;
-  /* Keep content clear of the fixed tab bar + iPhone home indicator. */
-  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
-  /* The mobile web header is hidden in the native shell, so pad the top so
-     content clears the iPhone status bar / Dynamic Island instead. */
-  padding-top: env(safe-area-inset-top);
-  /* Native apps don't flash gray on tap; suppress the WebView default. */
-  -webkit-tap-highlight-color: transparent;
+/* Opaque tab bar: backdrop-filter on a fixed element forces WebKit to
+   re-snapshot what's behind it on every repaint beneath, which is the other
+   half of the twitch. A solid paper background needs no snapshot. */
+html.native-app nav[aria-label="App navigation"] {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgb(var(--bg-primary));
 }
 
 /*

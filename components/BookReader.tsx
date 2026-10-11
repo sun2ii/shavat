@@ -345,6 +345,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   // next chapter. Enter = double-tap on the cursor verse.
   const [cursorVerse, setCursorVerse] = useState<number | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  // Track whether cursor change came from tap (no scroll) vs keyboard (scroll)
+  const scrollOnCursorChange = useRef(false);
   // Exactly one verse is ever purple: the keyboard cursor when there is one,
   // otherwise the first verse of a section just opened by mouse.
   const litVerse = cursorVerse ?? autoHighlightedVerse;
@@ -363,6 +365,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     // "first verse of the opened section" tint (toggleSection sets it, and a
     // later setState in the same tick wins).
     setAutoHighlightedVerse(null);
+    // Keyboard navigation should scroll to keep cursor in view
+    scrollOnCursorChange.current = true;
 
     if (!sections || sections.length === 0) {
       const i = cursorVerse === null ? (dir > 0 ? 0 : nums.length - 1) : nums.indexOf(cursorVerse) + dir;
@@ -488,11 +492,33 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   // Keep the cursor verse in view. Delayed a beat so a section's own
   // scroll-to-top (toggleSection) settles first.
+  // Only scroll for keyboard navigation, not tap (mobile UX: tap shouldn't move page).
+  // Position verse ~20% from top of viewport for comfortable reading position.
   useEffect(() => {
     if (cursorVerse === null) return;
+    if (!scrollOnCursorChange.current) return;
+    scrollOnCursorChange.current = false;
     const id = setTimeout(() => {
       const el = rootRef.current?.querySelector<HTMLElement>(`[data-verse="${cursorVerse}"]`);
-      el?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      if (!el) return;
+      // The reader does not scroll the window: on desktop the app shell's
+      // <main> is the scroll container, in the native shell too. Find the
+      // nearest scrollable ancestor and move THAT, falling back to the window.
+      let scroller: HTMLElement | null = el.parentElement;
+      while (scroller && scroller !== document.body) {
+        const { overflowY } = getComputedStyle(scroller);
+        if ((overflowY === 'auto' || overflowY === 'scroll') && scroller.scrollHeight > scroller.clientHeight) break;
+        scroller = scroller.parentElement;
+      }
+      const rect = el.getBoundingClientRect();
+      if (scroller && scroller !== document.body) {
+        const top = scroller.getBoundingClientRect().top;
+        const target = scroller.scrollTop + (rect.top - top) - scroller.clientHeight * 0.2; // 20% from top
+        scroller.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+      } else {
+        const target = window.scrollY + rect.top - window.innerHeight * 0.2;
+        window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+      }
     }, 80);
     return () => clearTimeout(id);
   }, [cursorVerse, expandedSection]);
@@ -547,6 +573,14 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
 
   // Single tap sets the purple cursor (for phone navigation)
   const handleTapVerse = (verseNum: number) => {
+    // Phones: a tap is for reading and scrolling, not for moving the cursor.
+    // Coarse pointer without hover = touch device; also the Capacitor shell.
+    if (
+      window.matchMedia('(hover: none) and (pointer: coarse)').matches ||
+      document.documentElement.classList.contains('native-app')
+    ) {
+      return;
+    }
     setAutoHighlightedVerse(null);
     setCursorVerse(verseNum);
   };

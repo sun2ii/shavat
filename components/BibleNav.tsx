@@ -18,17 +18,12 @@ import { useReadingProgress } from '@/components/providers/ReadingProgressProvid
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
 import { useReadingPreferences } from '@/components/providers/ReadingPreferencesProvider';
 
-/*
-  Chapter grid invariant (every book, every division, every list):
-    column  = position within the division mod 10
-    row     = position within the division div 10
-  Ten fixed-width cells, so 1–10 sit over 11–20 sit over 21–24. The grid is
-  shrink-wrapped and centered as a block; the cells inside it never center.
-  34px × 10 = 340px, which still fits a 375px phone with the nav's padding.
-*/
-const CHAPTER_GRID_CLASS = 'grid justify-center gap-x-0 gap-y-1 font-serif text-[15px] leading-none';
-const CHAPTER_GRID_STYLE = { gridTemplateColumns: 'repeat(10, 34px)' } as const;
-const CHAPTER_CELL_CLASS = 'w-[34px] min-h-[32px]';
+import {
+  CHAPTER_GRID_CLASS,
+  CHAPTER_GRID_STYLE,
+  CHAPTER_CELL_CLASS,
+  CHAPTER_PANEL_WIDTH_CLASS,
+} from './chapter-grid';
 
 interface Props {
   bookSlug: string;
@@ -78,7 +73,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
             onClick={() => setOpen(false)}
           />
           <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
-          <div className="w-72 bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
+          <div className={`${CHAPTER_PANEL_WIDTH_CLASS} bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left`}>
             {divisions.map((div) => {
               const isCurrentDivision = div.id === currentDivisionId;
               const title = div.title

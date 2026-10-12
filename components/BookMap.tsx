@@ -3,6 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
+import {
+  CHAPTER_GRID_CLASS,
+  CHAPTER_GRID_STYLE,
+  CHAPTER_CELL_CLASS,
+  CHAPTER_PANEL_WIDTH_CLASS,
+} from './chapter-grid';
 
 interface MapDivision {
   id: string;
@@ -80,8 +86,11 @@ export default function BookMap({
       </button>
 
       {open && (
-        <div className="absolute left-0 top-full pt-2 z-50">
-          <div className="w-72 max-h-96 overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
+        // Left-anchored to the pill. On phones the pill sits at the nav's 16px
+        // inset, and a 372px panel from x=16 overruns a 375px screen, so pull
+        // the anchor back by that inset there (0..372 fits).
+        <div className="absolute left-0 max-sm:-left-4 top-full pt-2 z-50">
+          <div className={`${CHAPTER_PANEL_WIDTH_CLASS} max-h-96 overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left`}>
             {divisions.map((division) => {
               const isCurrentDivision = division.id === currentDivisionId;
               const title = division.title
@@ -96,7 +105,7 @@ export default function BookMap({
                   >
                     {title}
                   </div>
-                  <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+                  <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
                     {division.chapters.map((chapter) => {
                       const isCurrent =
                         isCurrentDivision && chapter === currentChapter;
@@ -106,13 +115,13 @@ export default function BookMap({
                           key={chapter}
                           href={`${basePath}/${division.id}/${chapter}`}
                           onClick={() => setOpen(false)}
-                          className={
+                          className={`inline-flex items-center justify-center ${CHAPTER_CELL_CLASS} ${
                             isCurrent
                               ? 'text-gold font-bold'
                               : isRead
                               ? 'text-emerald-500 hover:text-emerald-400 transition-colors'
                               : 'text-muted/50 hover:text-ink transition-colors'
-                          }
+                          }`}
                         >
                           {chapter}
                         </Link>

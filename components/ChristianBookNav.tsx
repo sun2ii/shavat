@@ -7,6 +7,12 @@ import { useReadingProgress } from '@/components/providers/ReadingProgressProvid
 import { useBookmarks } from '@/components/providers/BookmarkProvider';
 import { storage } from '@/lib/storage';
 import SettingsDropdown from './SettingsDropdown';
+import {
+  CHAPTER_GRID_CLASS,
+  CHAPTER_GRID_STYLE,
+  CHAPTER_CELL_CLASS,
+  CHAPTER_PANEL_WIDTH_CLASS,
+} from './chapter-grid';
 
 interface Book {
   id: number;
@@ -186,8 +192,8 @@ export default function ChristianBookNav({
             </button>
 
             {mapOpen && (
-              <div className="absolute left-0 top-full pt-2 z-50">
-                <div className="w-72 max-h-96 overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left">
+              <div className="absolute left-0 max-sm:-left-4 top-full pt-2 z-50">
+                <div className={`${CHAPTER_PANEL_WIDTH_CLASS} max-h-96 overflow-y-auto bg-surface border border-hairline rounded-xl shadow-xl p-4 space-y-3 text-left`}>
                   {allBooks.map((book) => {
                     const isCurrentBook = book.id === bookId;
                     return (
@@ -199,7 +205,7 @@ export default function ChristianBookNav({
                         >
                           {book.title}
                         </div>
-                        <div className="flex flex-wrap gap-x-2.5 gap-y-1 font-serif text-[15px] leading-none">
+                        <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
                           {Array.from({ length: book.chapters }, (_, i) => i + 1).map((ch) => {
                             const isCurrent = isCurrentBook && ch === currentChapter;
                             const isRead = isChapterComplete(book.slug, ch);
@@ -208,13 +214,13 @@ export default function ChristianBookNav({
                                 key={ch}
                                 href={buildHref(book.id, ch)}
                                 onClick={() => setMapOpen(false)}
-                                className={
+                                className={`inline-flex items-center justify-center ${CHAPTER_CELL_CLASS} ${
                                   isCurrent
                                     ? 'text-gold font-bold'
                                     : isRead
                                     ? 'text-emerald-500 hover:text-emerald-400 transition-colors'
                                     : 'text-muted/50 hover:text-ink transition-colors'
-                                }
+                                }`}
                               >
                                 {ch}
                               </Link>

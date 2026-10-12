@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import {
   CHAPTER_GRID_CLASS,
-  CHAPTER_GRID_STYLE,
+  chapterGridStyle,
   CHAPTER_CELL_CLASS,
   CHAPTER_PANEL_WIDTH_CLASS,
 } from './chapter-grid';
@@ -105,7 +105,7 @@ export default function BookMap({
                   >
                     {title}
                   </div>
-                  <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
+                  <div className={CHAPTER_GRID_CLASS} style={chapterGridStyle(division.chapters.length)}>
                     {division.chapters.map((chapter) => {
                       const isCurrent =
                         isCurrentDivision && chapter === currentChapter;

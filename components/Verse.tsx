@@ -95,7 +95,9 @@ export default function Verse({ verse, isSelected = false, onToggle, onTap, comm
           isSelected
             ? 'shadow-[0_0_0_2px_rgb(var(--highlight-yellow))]'
             : isHighlighted
-            ? 'text-violet-500 bg-gray-200/50 dark:bg-white/5 rounded-sm drop-shadow-[0_0_6px_rgba(139,92,246,0.2)]'
+            // Cursor verse: colour, tint and glow come from the --cursor token
+            // (globals.css .verse-cursor), chosen in Settings → Cursor Color.
+            ? 'verse-cursor rounded-sm'
             : ''
         } ${isSelected && !swatch ? 'bg-[rgb(var(--highlight-yellow))]' : ''}`}
         style={swatch ? { backgroundColor: `${swatch}40` } : undefined}
@@ -108,7 +110,7 @@ export default function Verse({ verse, isSelected = false, onToggle, onTap, comm
           if (e.detail > 1) e.preventDefault();
         }}
         onClick={() => {
-          // Single tap sets cursor (purple highlight)
+          // Single tap sets cursor (accent-coloured verse)
           if (onTap) onTap(verse.verse);
         }}
         onDoubleClick={(e) => {
@@ -133,7 +135,9 @@ export default function Verse({ verse, isSelected = false, onToggle, onTap, comm
         >
           {verse.verse}
         </span>
-        <span className="flex-1">
+        {/* verse-text: the words only. The cursor's watery shimmer paints
+            through this span, so the gold verse number stays still. */}
+        <span className="flex-1 verse-text">
           {isFirstVerse && verse.text.length > 0 && (
             <span
               className="float-left text-[2.6rem] font-serif mr-1.5 select-none"

@@ -20,7 +20,7 @@ import { useReadingPreferences } from '@/components/providers/ReadingPreferences
 
 import {
   CHAPTER_GRID_CLASS,
-  CHAPTER_GRID_STYLE,
+  chapterGridStyle,
   CHAPTER_CELL_CLASS,
   CHAPTER_PANEL_WIDTH_CLASS,
 } from './chapter-grid';
@@ -136,7 +136,7 @@ function DivisionMap({ divisions, bookSlug, currentDivisionId, currentChapter, b
                     </p>
                   )}
 
-                  <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
+                  <div className={CHAPTER_GRID_CLASS} style={chapterGridStyle(div.chapters.length)}>
                     {div.chapters.map((chapter) => {
                       const isCurrent = isCurrentDivision && chapter === currentChapter;
                       const isRead = isChapterComplete(bookSlug, chapter);
@@ -432,7 +432,7 @@ export default function BibleNav({
               columns, rows of ten counted from the division's first chapter,
               left-packed (1–10 / 11–20 / 21–24). No centering, no per-size
               branching, so the eye learns one layout and reuses it. */}
-          <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
+          <div className={CHAPTER_GRID_CLASS} style={chapterGridStyle(division.chapters.length)}>
             {division.chapters.map((ch) => {
               const isActive = ch === currentChapter;
               const isCompleted = isChapterComplete(bookSlug, ch);

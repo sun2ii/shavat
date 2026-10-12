@@ -9,7 +9,7 @@ import { storage } from '@/lib/storage';
 import SettingsDropdown from './SettingsDropdown';
 import {
   CHAPTER_GRID_CLASS,
-  CHAPTER_GRID_STYLE,
+  chapterGridStyle,
   CHAPTER_CELL_CLASS,
   CHAPTER_PANEL_WIDTH_CLASS,
 } from './chapter-grid';
@@ -205,7 +205,7 @@ export default function ChristianBookNav({
                         >
                           {book.title}
                         </div>
-                        <div className={CHAPTER_GRID_CLASS} style={CHAPTER_GRID_STYLE}>
+                        <div className={CHAPTER_GRID_CLASS} style={chapterGridStyle(book.chapters)}>
                           {Array.from({ length: book.chapters }, (_, i) => i + 1).map((ch) => {
                             const isCurrent = isCurrentBook && ch === currentChapter;
                             const isRead = isChapterComplete(book.slug, ch);

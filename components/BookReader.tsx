@@ -905,7 +905,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                   {/* Right: Verse number + pill + chevron */}
                   <div className="absolute right-0 top-0 flex items-center gap-2">
                     <span className="font-sans text-[11px] font-medium tabular-nums text-muted">
-                      {daySection.verseRange[0]}
+                      {/* "v17 +7": the section starts at verse 17 and holds 7 more. */}
+                      v{daySection.verseRange[0]}
                     </span>
                     <button
                       onClick={(e) => {
@@ -923,7 +924,8 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                       }`}
                     >
                       <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                        {daySection.verseRange[1] - daySection.verseRange[0] + 1}
+                        {/* "+9": nine more verses behind this pill, not "verse 9". */}
+                        +{daySection.verseRange[1] - daySection.verseRange[0] + 1}
                       </span>
                       <svg
                         viewBox="0 0 20 20"

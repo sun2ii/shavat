@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import { DEFAULT_CURSOR_ACCENT, isCursorAccent, type CursorAccentId } from '@/lib/cursor-accents';
 
 export type LineSpacing = 'compact' | 'comfortable' | 'spacious';
 export type Appearance = 'light' | 'dark' | 'system';
@@ -11,6 +12,8 @@ export interface ReadingPreferences {
   lineSpacing: LineSpacing;
   appearance: Appearance;
   keyboardStyle: KeyboardStyle;
+  /** Colour of the verse the reader is on. See lib/cursor-accents.ts. */
+  cursorAccent: CursorAccentId;
 }
 
 const DEFAULT_PREFERENCES: ReadingPreferences = {
@@ -18,6 +21,7 @@ const DEFAULT_PREFERENCES: ReadingPreferences = {
   lineSpacing: 'comfortable',
   appearance: 'system',
   keyboardStyle: 'standard',
+  cursorAccent: DEFAULT_CURSOR_ACCENT,
 };
 
 const STORAGE_KEY = 'shavat-reading-preferences';
@@ -35,6 +39,7 @@ interface ReadingPreferencesContextType {
   setLineSpacing: (spacing: LineSpacing) => void;
   setAppearance: (appearance: Appearance) => void;
   setKeyboardStyle: (style: KeyboardStyle) => void;
+  setCursorAccent: (accent: CursorAccentId) => void;
 }
 
 const ReadingPreferencesContext = createContext<ReadingPreferencesContextType | null>(null);
@@ -65,6 +70,7 @@ export function ReadingPreferencesProvider({
           lineSpacing: parsed.lineSpacing ?? prev.lineSpacing,
           appearance: parsed.appearance ?? prev.appearance,
           keyboardStyle: parsed.keyboardStyle ?? prev.keyboardStyle,
+          cursorAccent: isCursorAccent(parsed.cursorAccent) ? parsed.cursorAccent : prev.cursorAccent,
         }));
       }
     } catch {}
@@ -102,6 +108,16 @@ export function ReadingPreferencesProvider({
     }
   }, [preferences.appearance, mounted]);
 
+  // Apply cursor accent: one attribute on <html> moves the --cursor token.
+  useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.dataset.cursor = preferences.cursorAccent;
+  }, [preferences.cursorAccent, mounted]);
+
+  const setCursorAccent = useCallback((cursorAccent: CursorAccentId) => {
+    setPreferences((prev) => ({ ...prev, cursorAccent }));
+  }, []);
+
   const setFontSize = useCallback((size: number) => {
     const clamped = Math.max(14, Math.min(28, size));
     setPreferences((prev) => ({ ...prev, fontSize: clamped }));
@@ -121,7 +137,7 @@ export function ReadingPreferencesProvider({
 
   return (
     <ReadingPreferencesContext.Provider
-      value={{ preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle }}
+      value={{ preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle, setCursorAccent }}
     >
       {children}
     </ReadingPreferencesContext.Provider>

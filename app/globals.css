@@ -37,28 +37,36 @@
 @layer base {
   :root,
   .light {
-    --bg-primary: 215 208 198;   /* #D7D0C6 old money sand */
-    --bg-secondary: 205 197 186; /* #CDC5BA muted taupe   */
-    --surface: 222 216 206;      /* #DED8CE linen         */
-    --surface-elevated: 228 222 213; /* #E4DED5 lifted    */
-    --tint-warm: 205 197 186;    /* #CDC5BA book tint     */
+    /*
+      Light ground: aged linen, one step deeper than the old #D7D0C6 sand,
+      which read as pale and flat. The scale keeps its order
+      (secondary < primary < surface < elevated) so cards still lift off
+      the page; lines and disabled text are darkened in step so they do
+      not vanish into the deeper ground.
+    */
+    --bg-primary: 200 191 178;   /* #C8BFB2 aged linen     */
+    --bg-secondary: 188 178 164; /* #BCB2A4 deeper taupe   */
+    --surface: 209 201 189;      /* #D1C9BD lifted linen   */
+    --surface-elevated: 217 210 199; /* #D9D2C7 card       */
+    --tint-warm: 188 178 164;    /* #BCB2A4 book tint      */
     --text-primary: 31 46 36;    /* #1F2E24 shavat-darkest */
     --text-secondary: 74 74 69;  /* #4A4A45 shavat-charcoal */
-    --text-tertiary: 122 122 116; /* #7A7A74 shavat-gray   */
-    --text-disabled: 170 168 162; /* atmospheric           */
-    --border: 217 209 181;       /* #D9D1B5 shavat-sand   */
-    --border-subtle: 229 224 211; /* lighter border        */
+    --text-tertiary: 112 112 106; /* #70706A shavat-gray   */
+    --text-disabled: 152 148 140; /* atmospheric           */
+    --border: 172 162 146;       /* #ACA292 darker than ground, so rules show */
+    --border-subtle: 186 177 163; /* faint rule            */
     --gold: 201 132 46;          /* #C9842E amber, warmer than the old #C8A248 so it reads on sand */
     --gold-ink: 158 98 30;       /* #9E621E darker amber for text */
     --brand: 31 46 36;           /* #1F2E24 shavat-darkest */
     --brand-hover: 58 74 60;     /* hover state           */
     --blue-ref: 107 127 105;     /* #6B7F69 shavat-mid    */
-    --highlight-yellow: 240 226 189;
-    --highlight-blue: 188 208 234;
-    --highlight-purple: 221 207 240;
-    --highlight-rose: 242 206 218;
-    --highlight-emerald: 202 229 212;
-    --highlight-silver: 223 226 231;
+    /* Washes sit a touch under the old values so they tint, not glare, on the deeper ground. */
+    --highlight-yellow: 228 212 172;
+    --highlight-blue: 178 197 222;
+    --highlight-purple: 209 195 228;
+    --highlight-rose: 229 194 206;
+    --highlight-emerald: 190 216 199;
+    --highlight-silver: 210 213 218;
     /* Sidebar colors (light mode uses same dark sidebar) */
     --sidebar-bg: 31 46 36;
     --sidebar-border: 51 66 47;
@@ -457,4 +465,103 @@ html.light {
 }
 html.light aside {
   text-shadow: none;
+}
+
+/*
+  Cursor accent: the verse the reader is on (keyboard cursor or a tap).
+  One token, --cursor, chosen by data-cursor="<id>" on <html> (see
+  lib/cursor-accents.ts and ReadingPreferencesProvider). The .verse-cursor
+  rule turns the token into text colour + faint tint + glow; the glow is the
+  part that makes the verse jump off the page, the colour is the variable.
+
+  Each accent has a light value (dark enough to read on sand) and a dark
+  value (bright enough to glow on charcoal). The selector also matches
+  data-cursor on any element, so Settings can preview one swatch per accent.
+*/
+/* Light values are deep: on sand, a mid-tone plus the glint reads washed out. */
+:root, .light { --cursor: 10 80 38; }   /* emerald, the default */
+.dark { --cursor: 74 222 128; }
+
+[data-cursor="emerald"] { --cursor: 10 80 38; }
+.dark [data-cursor="emerald"], .dark[data-cursor="emerald"] { --cursor: 74 222 128; }
+
+[data-cursor="gold"] { --cursor: 112 66 14; }
+.dark [data-cursor="gold"], .dark[data-cursor="gold"] { --cursor: 233 169 60; }
+
+[data-cursor="azure"] { --cursor: 20 58 126; }
+.dark [data-cursor="azure"], .dark[data-cursor="azure"] { --cursor: 96 165 250; }
+
+[data-cursor="violet"] { --cursor: 76 24 156; }
+.dark [data-cursor="violet"], .dark[data-cursor="violet"] { --cursor: 167 139 250; }
+
+[data-cursor="crimson"] { --cursor: 118 10 40; }
+.dark [data-cursor="crimson"], .dark[data-cursor="crimson"] { --cursor: 251 113 133; }
+
+[data-cursor="ember"] { --cursor: 138 42 6; }
+.dark [data-cursor="ember"], .dark[data-cursor="ember"] { --cursor: 251 146 60; }
+
+.verse-cursor {
+  color: rgb(var(--cursor));
+  background-color: rgb(var(--cursor) / 0.08);
+}
+.dark .verse-cursor {
+  background-color: rgb(var(--cursor) / 0.07);
+}
+
+/*
+  Watery shimmer. A flat colour can only pulse as one; water needs the light
+  to MOVE across the words. So the words are painted with a gradient clipped
+  to the glyphs: a solid base in the accent colour, plus two translucent
+  glint bands (a brighter mix of the accent) that slide in opposite
+  directions at different speeds. Where the bands cross, the text brightens;
+  elsewhere it rests. The glow is a drop-shadow of those same pixels, so the
+  halo ripples with the glints instead of breathing uniformly.
+
+  text-shadow is off here on purpose: with background-clip: text it paints
+  through the transparent fill and muddies the glyphs.
+*/
+.verse-cursor .verse-text {
+  /* Light mode: a restrained glint (mostly the accent, a little white) keeps
+     the words dark enough to read on sand; dark mode can afford more white. */
+  --cursor-glint: color-mix(in srgb, rgb(var(--cursor)) 72%, white);
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-image:
+    linear-gradient(105deg, transparent 0 38%, var(--cursor-glint) 50%, transparent 62% 100%),
+    linear-gradient(70deg, transparent 0 42%, color-mix(in srgb, var(--cursor-glint) 55%, transparent) 50%, transparent 58% 100%),
+    linear-gradient(rgb(var(--cursor)), rgb(var(--cursor)));
+  background-size: 260% 100%, 200% 100%, 100% 100%;
+  background-position: 0% 0, 100% 0, 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+  /* Light mode glow is a faint halo only: a strong dark blur around dark
+     glyphs on sand smears their edges and costs legibility. */
+  filter: drop-shadow(0 0 5px rgb(var(--cursor) / 0.22));
+  animation: cursor-water 5.5s linear infinite;
+}
+.dark .verse-cursor .verse-text {
+  --cursor-glint: color-mix(in srgb, rgb(var(--cursor)) 55%, white);
+  filter:
+    drop-shadow(0 0 1px rgb(var(--cursor) / 0.7))
+    drop-shadow(0 0 9px rgb(var(--cursor) / 0.55))
+    drop-shadow(0 0 22px rgb(var(--cursor) / 0.25));
+}
+/* Place links keep their own colour. The transparent fill above is inherited,
+   which would let the gradient show through the link's glyphs; restoring an
+   opaque fill from the link's own `color` paints its amber on top. */
+.verse-cursor .verse-text a {
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Each band spans more than the box, so at both ends of its travel it is
+   fully outside the words: the loop has no seam. The two bands run opposite
+   ways, so their crossings drift rather than repeat in the same place. */
+@keyframes cursor-water {
+  0%   { background-position: 0% 0, 100% 0, 0 0; }
+  100% { background-position: 100% 0, 0% 0, 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .verse-cursor .verse-text { animation: none; }
 }

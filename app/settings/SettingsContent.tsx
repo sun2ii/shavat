@@ -11,6 +11,7 @@ import {
   type KeyboardStyle,
   LINE_HEIGHT_MAP,
 } from '@/components/providers/ReadingPreferencesProvider';
+import { CURSOR_ACCENTS } from '@/lib/cursor-accents';
 
 interface Props {
   user: User;
@@ -62,7 +63,7 @@ const TIMEZONE_SETTING_KEY = 'timezone';
 
 export default function SettingsContent({ user }: Props) {
   const router = useRouter();
-  const { preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle } = useReadingPreferences();
+  const { preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle, setCursorAccent } = useReadingPreferences();
   const [passwordStatus, setPasswordStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [passwordError, setPasswordError] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -266,6 +267,56 @@ export default function SettingsContent({ user }: Props) {
                 {mode === 'system' ? 'System Default' : `${mode} Mode`}
               </button>
             ))}
+          </div>
+        </div>
+
+        {/* Cursor Color: the verse you are on. Each swatch carries its own
+            data-cursor so it previews its accent regardless of the current one;
+            the sample line below uses the live selection via <html>. */}
+        <div className="mb-8">
+          <label className="block font-sans text-sm font-medium text-ink mb-3">
+            Cursor Color
+          </label>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {CURSOR_ACCENTS.map((accent) => {
+              const selected = preferences.cursorAccent === accent.id;
+              return (
+                <button
+                  key={accent.id}
+                  type="button"
+                  onClick={() => setCursorAccent(accent.id)}
+                  data-cursor={accent.id}
+                  title={accent.hint}
+                  aria-pressed={selected}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg font-sans text-sm transition-colors ${
+                    selected
+                      ? 'border border-gold text-ink bg-[rgb(var(--surface))]'
+                      : 'border border-hairline text-muted hover:text-ink hover:border-gold'
+                  }`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="h-3.5 w-3.5 rounded-full"
+                    style={{
+                      background: 'rgb(var(--cursor))',
+                      boxShadow: '0 0 8px rgb(var(--cursor) / 0.7)',
+                    }}
+                  />
+                  {accent.name}
+                </button>
+              );
+            })}
+          </div>
+          <div
+            className="p-4 rounded-lg border border-hairline bg-[rgb(var(--surface))]"
+            style={{
+              fontFamily: 'Cardo, Georgia, serif',
+              fontSize: `${preferences.fontSize}px`,
+              lineHeight: LINE_HEIGHT_MAP[preferences.lineSpacing],
+            }}
+          >
+            <p className="text-ink">And God said, Let there be light: and there was light.</p>
+            <p className="verse-cursor rounded-sm"><span className="verse-text">And God saw the light, that it was good: and God divided the light from the darkness.</span></p>
           </div>
         </div>
 

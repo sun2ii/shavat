@@ -1,7 +1,9 @@
 // Reader keyboard contract, in one place so the two components that share
 // it (ChapterNav, BookReader) cannot drift.
 //
-//   ↓ / ↑   next / previous verse (crosses sections, ↓ past the end → next chapter)
+//   ↓ / ↑   next / previous verse (crosses sections; ↓ past the end → next
+//           chapter on its first verse, ↑ before the start → previous chapter
+//           on its LAST verse)
 //   ← / →   previous / next chapter
 //   Enter   toggle selection of the cursor verse (commentary + highlight toolbar)
 //   h       toggle the highlight toolbar on the cursor verse
@@ -13,3 +15,8 @@
 // one-shot flag) because the shell renders the page twice and dev StrictMode
 // doubles effects: every copy must read the same answer.
 export const FIRST_VERSE_HASH = '#v1';
+// The mirror for travelling backwards. The chapter that loads resolves it to
+// its own final verse number, which the sender cannot know.
+export const LAST_VERSE_HASH = '#vlast';
+// Any cursor hash: #v12 or #vlast.
+export const VERSE_HASH_RE = /^#v(\d+|last)$/;

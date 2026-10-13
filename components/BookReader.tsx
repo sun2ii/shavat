@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Verse as VerseType, Highlight, HighlightColor } from '@/lib/types';
 import { useHighlights } from '@/components/providers/HighlightProvider';
 import { loadingBus } from '@/lib/loading-bus';
-import { FIRST_VERSE_HASH } from '@/lib/reader-keys';
+import { FIRST_VERSE_HASH, LAST_VERSE_HASH, VERSE_HASH_RE } from '@/lib/reader-keys';
 import Verse from './Verse';
 import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION, COPY_UNFOLD_DELAY_MS } from '@/lib/copy-glow';
@@ -278,16 +278,24 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     return result;
   };
 
+  // Armed by keyboard steps and hash arrivals; consumed by the follow-scroll
+  // effect below. Taps never arm it, so on a phone the page stays put.
+  const scrollOnCursorChange = useRef(false);
+
   // On mount, restore expanded section from URL hash and scroll position from sessionStorage
   // Also handle verse-specific hashes like #v7
   useEffect(() => {
     const hash = window.location.hash.slice(1); // Remove #
     if (!hash) return;
 
-    // Check for verse hash pattern: v{number}
-    const verseMatch = hash.match(/^v(\d+)$/);
+    // Check for verse hash pattern: v{number}, or vlast (arriving from the
+    // next chapter by pressing ↑ on its first verse).
+    const verseMatch = hash.match(/^v(\d+|last)$/);
     if (verseMatch) {
-      const verseNum = parseInt(verseMatch[1], 10);
+      const verseNum = verseMatch[1] === 'last'
+        ? Math.max(...verses.map((v) => v.verse))
+        : parseInt(verseMatch[1], 10);
+      if (!Number.isFinite(verseNum)) return;
       // Find the section containing this verse and expand it
       if (sections) {
         const matchingSection = sections.find(
@@ -297,8 +305,11 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
           setExpandedSection(matchingSection.title);
         }
       }
-      // Put the reading cursor on it. The cursor effect below scrolls it into
-      // view (within this instance's own DOM, so the hidden twin can't win).
+      // Put the reading cursor on it and arm the follow-scroll, so arriving
+      // on #vlast from the next chapter shows the final verse instead of the
+      // chapter top. The scroll runs within this instance's own DOM, so the
+      // hidden twin can't win.
+      scrollOnCursorChange.current = true;
       setCursorVerse(verseNum);
       setAutoHighlightedVerse(null);
       return;
@@ -323,7 +334,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
         }
       }
     }
-  }, [sections, pathname]);
+  }, [sections, pathname, verses]);
 
   // Section titles are chapter-scoped, so a chapter change folds everything again.
   useEffect(() => {
@@ -333,7 +344,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     }
     // Per-chapter interaction state is cleared by hand. The cursor is kept
     // when the URL names a verse (#v12): the hash effect above just set it.
-    if (!/^#v\d+$/.test(window.location.hash)) setCursorVerse(null);
+    if (!VERSE_HASH_RE.test(window.location.hash)) setCursorVerse(null);
     setSelectedVerses(new Set());
     setToolbarVerse(null);
     setAutoHighlightedVerse(null);
@@ -346,7 +357,6 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const [cursorVerse, setCursorVerse] = useState<number | null>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   // Track whether cursor change came from tap (no scroll) vs keyboard (scroll)
-  const scrollOnCursorChange = useRef(false);
   // Exactly one verse is ever purple: the keyboard cursor when there is one,
   // otherwise the first verse of a section just opened by mouse.
   const litVerse = cursorVerse ?? autoHighlightedVerse;
@@ -356,6 +366,16 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const openSection = (title: string, firstVerse: number) => {
     toggleSection(title, rootRef.current, firstVerse);
     setAutoHighlightedVerse(null);
+  };
+
+  // ↑ before the first verse: previous chapter, landing on ITS last verse.
+  // handlePrev() (← key, Previous button) deliberately lands at the top; this
+  // is the keyboard-reading path, which must continue the text backwards.
+  const goPrevLastVerse = () => {
+    if (!computedPrevHref) return;
+    const base = computedPrevHref.split('#')[0];
+    loadingBus.start();
+    router.push(base + LAST_VERSE_HASH);
   };
 
   const stepCursor = (dir: 1 | -1) => {
@@ -372,6 +392,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       const i = cursorVerse === null ? (dir > 0 ? 0 : nums.length - 1) : nums.indexOf(cursorVerse) + dir;
       if (i >= 0 && i < nums.length) setCursorVerse(nums[i]);
       else if (dir > 0 && canGoNext) handleNext();
+      else if (dir < 0) goPrevLastVerse();
       return;
     }
 
@@ -407,6 +428,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
       return;
     }
     if (dir > 0 && canGoNext) handleNext();
+    else if (dir < 0) goPrevLastVerse();
   };
 
   useEffect(() => {
@@ -837,6 +859,26 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
             // Highlight the next section after the expanded one
             const expandedIndex = sections.findIndex(s => s.title === expandedSection);
             const isNextSection = expandedIndex !== -1 && sectionIndex === expandedIndex + 1;
+            // "Where I am": the section holding the cursor verse; failing that the
+            // open section; failing that the first. The count pills are a ladder
+            // measured from here:
+            //   behind me → its own length as a minus   (-9: already passed)
+            //   where I am → its own length as a plus    (+5: this section)
+            //   ahead     → running total from the END of my section
+            //               (+3, +8, +14 ...: what is still to come after this one)
+            const hereIndex = (() => {
+              const byCursor = litVerse != null
+                ? sections.findIndex(s => litVerse >= s.verseRange[0] && litVerse <= s.verseRange[1])
+                : -1;
+              if (byCursor !== -1) return byCursor;
+              return expandedIndex !== -1 ? expandedIndex : 0;
+            })();
+            const ownLength = daySection.verseRange[1] - daySection.verseRange[0] + 1;
+            const pillLabel = sectionIndex < hereIndex
+              ? `-${ownLength}`
+              : sectionIndex === hereIndex
+              ? `+${ownLength}`
+              : `+${daySection.verseRange[1] - sections[hereIndex].verseRange[1]}`;
             return (
               <div
                 key={daySection.title}
@@ -924,10 +966,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                       }`}
                     >
                       <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                        {/* Running total: verses covered from the chapter's first
-                            section through the end of THIS one, so the pills
-                            read v1 +5, v6 +13, v14 +20 as a progress ladder. */}
-                        +{daySection.verseRange[1] - sections[0].verseRange[0] + 1}
+                        {pillLabel}
                       </span>
                       <svg
                         viewBox="0 0 20 20"

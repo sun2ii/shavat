@@ -924,8 +924,10 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                       }`}
                     >
                       <span className="font-sans text-[11px] font-semibold tabular-nums [text-shadow:0_1px_2px_rgba(0,0,0,0.3)]">
-                        {/* "+9": nine more verses behind this pill, not "verse 9". */}
-                        +{daySection.verseRange[1] - daySection.verseRange[0] + 1}
+                        {/* Running total: verses covered from the chapter's first
+                            section through the end of THIS one, so the pills
+                            read v1 +5, v6 +13, v14 +20 as a progress ladder. */}
+                        +{daySection.verseRange[1] - sections[0].verseRange[0] + 1}
                       </span>
                       <svg
                         viewBox="0 0 20 20"

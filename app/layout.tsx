@@ -51,15 +51,40 @@ const themeScript = `(function(){try{var t=localStorage.getItem('shavat-theme');
 // never flashes before the animated splash (NativeSplash) takes over.
 const splashScript = `(function(){try{var c=window.Capacitor;if(c&&c.isNativePlatform&&c.isNativePlatform()&&!sessionStorage.getItem('shavat-splash-played')){document.documentElement.classList.add('native-splash');}}catch(e){}})();`;
 
-// Fetch reading progress for authenticated user
-async function getReadingProgress(userEmail: string | null): Promise<Record<string, number[]>> {
+// Get current season for authenticated user
+async function getCurrentSeasonForUser(userEmail: string | null): Promise<1 | 2 | 3> {
+  if (!userEmail) return 1;
+
+  try {
+    const rows = await sql`
+      SELECT current_season FROM reading_seasons WHERE user_email = ${userEmail}
+    `;
+
+    if (rows.length === 0) {
+      // Initialize user with season 1
+      await sql`
+        INSERT INTO reading_seasons (user_email, current_season, started_at)
+        VALUES (${userEmail}, 1, NOW())
+        ON CONFLICT (user_email) DO NOTHING
+      `;
+      return 1;
+    }
+
+    return rows[0].current_season as 1 | 2 | 3;
+  } catch {
+    return 1;
+  }
+}
+
+// Fetch reading progress for authenticated user in current season
+async function getReadingProgress(userEmail: string | null, season: 1 | 2 | 3): Promise<Record<string, number[]>> {
   if (!userEmail) return {};
 
   try {
     const rows = await sql`
       SELECT book, array_agg(chapter ORDER BY chapter) as chapters
       FROM reading_progress
-      WHERE user_email = ${userEmail}
+      WHERE user_email = ${userEmail} AND season = ${season}
       GROUP BY book
     `;
 
@@ -102,8 +127,9 @@ export default async function RootLayout({
 }) {
   const user = await getCurrentUser();
   const isAuthenticated = !!user;
+  const currentSeason = await getCurrentSeasonForUser(user?.email ?? null);
   const [readingProgress, bookmarks, translation, highlights] = await Promise.all([
-    getReadingProgress(user?.email ?? null),
+    getReadingProgress(user?.email ?? null, currentSeason),
     getBookmarks(user?.email ?? null),
     resolveTranslation(user),
     user ? listHighlights(user.email) : Promise.resolve([]),
@@ -129,7 +155,7 @@ export default async function RootLayout({
           <TranslationProvider initialTranslation={translation} persistToAccount={isAuthenticated}>
             <BookmarkProvider initialBookmarks={bookmarks}>
               <HighlightProvider initialHighlights={highlights} persistToAccount={isAuthenticated}>
-                <ReadingProgressProvider initialProgress={readingProgress}>
+                <ReadingProgressProvider initialProgress={readingProgress} initialSeason={currentSeason}>
                   <InnerLayout isAuthenticated={isAuthenticated} userEmail={user?.email ?? null}>
                     {/* Cross-fades tab switches in the native shell; inert on web. */}
                     <PageFade>{children}</PageFade>

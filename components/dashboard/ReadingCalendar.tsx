@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 
-type ColorScheme = 'gold' | 'blue';
+type ColorScheme = 'gold' | 'blue' | 'purple' | 'green';
 
 interface Props {
   /** Map of YYYY-MM-DD -> chapter count */
@@ -69,6 +69,20 @@ const COLOR_SCHEMES: Record<ColorScheme, string[]> = {
     '#2563eb',                            // 2: darker
     '#3b82f6',                            // 3: medium blue
     '#60a5fa',                            // 4: brightest blue
+  ],
+  purple: [
+    'rgb(var(--bg-secondary))',           // 0: empty
+    '#581c87',                            // 1: darkest purple
+    '#7c3aed',                            // 2: darker violet
+    '#a855f7',                            // 3: medium purple
+    '#c084fc',                            // 4: brightest purple
+  ],
+  green: [
+    'rgb(var(--bg-secondary))',           // 0: empty
+    '#14532d',                            // 1: darkest green
+    '#16a34a',                            // 2: darker green
+    '#22c55e',                            // 3: medium green
+    '#4ade80',                            // 4: brightest green
   ],
 };
 

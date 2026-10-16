@@ -10,7 +10,7 @@ const config: CapacitorConfig = {
   webDir: 'ios-shell',
   server: {
     // Production deployment. The app opens straight to /dashboard.
-    url: 'https://www.shavat.app/dashboard',
+    url: 'https://www.shavat.app/',
   },
 };
 

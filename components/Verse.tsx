@@ -2,21 +2,22 @@ import Link from 'next/link';
 import { Verse as VerseType, Highlight, HighlightColor } from '@/lib/types';
 import { tokenizeVerse, type QuoteSpan } from '@/lib/speaker-quotes';
 import { tokenizePlaces } from '@/lib/places';
+import { tokenizeCharacters } from '@/lib/entities/characters';
+import { type ScriptureRef, tokenizeReferences } from '@/lib/entities/scripture-references';
 import type { ProverbsTopic } from '@/lib/proverbs-topics';
 import { getHighlightColor } from '@/lib/highlight-colors';
 import ProverbsTopicTag from './ProverbsTopicTag';
 import TextWithDefinitions from './TextWithDefinitions';
 import HighlightToolbar from './HighlightToolbar';
 
-// Save scroll position before navigating to place page
+// Save scroll position before navigating to entity page
 function saveScrollPosition() {
   const scrollKey = `scroll-${window.location.pathname}${window.location.hash}`;
   sessionStorage.setItem(scrollKey, String(window.scrollY));
 }
 
-// Render text with place names as clickable links (underlined brown)
-// If withDefinitions is true, also wrap words with definition tooltips
-function renderWithPlaces(text: string, withDefinitions: boolean = false): React.ReactNode {
+// Render text with place names as clickable links (underlined amber)
+function renderPlaceSegment(text: string, withDefinitions: boolean, keyPrefix: string): React.ReactNode {
   const segments = tokenizePlaces(text);
   if (segments.length === 1 && !segments[0].isPlace) {
     return withDefinitions ? <TextWithDefinitions text={text} /> : text;
@@ -24,9 +25,9 @@ function renderWithPlaces(text: string, withDefinitions: boolean = false): React
   return segments.map((seg, i) =>
     seg.isPlace && seg.placeId ? (
       <Link
-        key={i}
+        key={`${keyPrefix}-place-${i}`}
         href={`/places/${seg.placeId}`}
-        className="underline text-amber-900 dark:text-amber-600 hover:text-amber-700 dark:hover:text-amber-400"
+        className="underline decoration-amber-600/50 text-amber-900 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400"
         onClick={(e) => {
           e.stopPropagation();
           saveScrollPosition();
@@ -35,9 +36,83 @@ function renderWithPlaces(text: string, withDefinitions: boolean = false): React
         {seg.text}
       </Link>
     ) : withDefinitions ? (
-      <TextWithDefinitions key={i} text={seg.text} />
+      <TextWithDefinitions key={`${keyPrefix}-place-${i}`} text={seg.text} />
     ) : (
-      seg.text
+      <span key={`${keyPrefix}-place-${i}`}>{seg.text}</span>
+    )
+  );
+}
+
+// Render text with character names as clickable links (underlined blue)
+// Then delegate to place tokenization for remaining text
+function renderCharactersAndPlaces(text: string, withDefinitions: boolean, keyPrefix: string): React.ReactNode {
+  const charSegments = tokenizeCharacters(text);
+
+  // If no characters found, just do place tokenization
+  if (charSegments.length === 1 && !charSegments[0].isCharacter) {
+    return renderPlaceSegment(text, withDefinitions, keyPrefix);
+  }
+
+  return charSegments.map((seg, i) =>
+    seg.isCharacter && seg.characterId ? (
+      <Link
+        key={`${keyPrefix}-char-${i}`}
+        href={`/characters/${seg.characterId}`}
+        className="underline decoration-blue-500/50 text-blue-700 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300"
+        onClick={(e) => {
+          e.stopPropagation();
+          saveScrollPosition();
+        }}
+      >
+        {seg.text}
+      </Link>
+    ) : (
+      <span key={`${keyPrefix}-char-${i}`}>{renderPlaceSegment(seg.text, withDefinitions, `${keyPrefix}-char-${i}`)}</span>
+    )
+  );
+}
+
+// Full entity rendering: references (outermost) → characters → places
+// References get a dotted underline + tooltip, inner text still gets character/place links
+function renderWithEntities(
+  text: string,
+  withDefinitions: boolean = false,
+  scriptureRefs?: ScriptureRef[]
+): React.ReactNode {
+  // First tokenize by scripture references
+  const refSegments = tokenizeReferences(text, scriptureRefs || []);
+
+  // If no references, just do character/place tokenization
+  if (refSegments.length === 1 && !refSegments[0].isRef) {
+    return renderCharactersAndPlaces(text, withDefinitions, 'root');
+  }
+
+  return refSegments.map((seg, i) =>
+    seg.isRef && seg.ref ? (
+      <span key={`ref-${i}`} className="scripture-ref-wrapper">
+        <Link
+          href={seg.ref.sourceHref}
+          className="scripture-ref-text text-inherit border-b-2 border-dotted border-emerald-500/60 hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 transition-colors"
+          onClick={(e) => {
+            e.stopPropagation();
+            saveScrollPosition();
+          }}
+        >
+          {renderCharactersAndPlaces(seg.text, withDefinitions, `ref-${i}`)}
+        </Link>
+        <Link
+          href={seg.ref.sourceHref}
+          className="scripture-ref-pill inline-flex items-center ml-1.5 px-1.5 py-0.5 text-[10px] font-sans font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 rounded opacity-0 transition-opacity"
+          onClick={(e) => {
+            e.stopPropagation();
+            saveScrollPosition();
+          }}
+        >
+          ↗ {seg.ref.sourceLabel}
+        </Link>
+      </span>
+    ) : (
+      <span key={`ref-${i}`}>{renderCharactersAndPlaces(seg.text, withDefinitions, `ref-${i}`)}</span>
     )
   );
 }
@@ -74,9 +149,11 @@ interface Props {
   onSaveHighlight?: (color: HighlightColor, note: string) => void;
   onRemoveHighlight?: () => void;
   onCloseHighlightToolbar?: () => void;
+  /** OT/cross references for this verse */
+  scriptureRefs?: ScriptureRef[];
 }
 
-export default function Verse({ verse, isSelected = false, onToggle, onTap, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false, highlight, showHighlightToolbar = false, highlightRangeLabel, onSaveHighlight, onRemoveHighlight, onCloseHighlightToolbar }: Props) {
+export default function Verse({ verse, isSelected = false, onToggle, onTap, commentary, showCommentaryGate = false, spans, speakerColors, isFirstVerse = false, isHighlighted = false, onMouseEnter, topics, chapter, showDefinitions = false, highlight, showHighlightToolbar = false, highlightRangeLabel, onSaveHighlight, onRemoveHighlight, onCloseHighlightToolbar, scriptureRefs }: Props) {
   const handleInteraction = () => {
     if (onToggle) {
       onToggle(verse.verse);
@@ -158,13 +235,13 @@ export default function Verse({ verse, isSelected = false, onToggle, onTap, comm
                     className="font-bold italic"
                     style={{ color: `rgb(var(--speaker-${speakerColors[run.speaker]}))` }}
                   >
-                    {renderWithPlaces(run.text, showDefinitions)}
+                    {renderWithEntities(run.text, showDefinitions, scriptureRefs)}
                   </span>
                 ) : (
-                  <span key={i}>{renderWithPlaces(run.text, showDefinitions)}</span>
+                  <span key={i}>{renderWithEntities(run.text, showDefinitions, scriptureRefs)}</span>
                 )
               )
-            : renderWithPlaces(isFirstVerse ? verse.text.slice(1) : verse.text, showDefinitions)}
+            : renderWithEntities(isFirstVerse ? verse.text.slice(1) : verse.text, showDefinitions, scriptureRefs)}
         </span>
       </div>
 

@@ -12,6 +12,7 @@ import { loadCommentary, getCommentary } from '@/lib/getCommentary';
 import { COPY_FLASH_MS, COPY_GLOW, COPY_GLOW_OFF, COPY_TRANSITION, COPY_UNFOLD_DELAY_MS } from '@/lib/copy-glow';
 import ChapterOutline from './ChapterOutline';
 import SpeakerLegend from './SpeakerLegend';
+import EntityLegend from './EntityLegend';
 import type { Section } from '@/lib/sections';
 import type { ChapterSpeakers, QuoteSpan, SpeakerDef } from '@/lib/speaker-quotes';
 import { getSpeakersInRange } from '@/lib/speaker-quotes';
@@ -23,6 +24,7 @@ import ScrollToTop from './ScrollToTop';
 import { getChapterTopics } from '@/lib/getProverbsTopics';
 import type { ProverbsTopic } from '@/lib/proverbs-topics';
 import { useReadingPreferences, LINE_HEIGHT_MAP } from '@/components/providers/ReadingPreferencesProvider';
+import { getReferencesForChapter } from '@/lib/entities/scripture-references';
 
 interface Props {
   verses: VerseType[];
@@ -249,6 +251,12 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
   const chapterTopics: Map<number, ProverbsTopic[]> = isProverbs && actualChapter
     ? getChapterTopics(actualChapter)
     : new Map();
+
+  // Load scripture references (OT quotations, cross-references)
+  const scriptureRefs = useMemo(() => {
+    if (!actualBook || !actualChapter) return new Map();
+    return getReferencesForChapter(actualBook.toLowerCase(), actualChapter);
+  }, [actualBook, actualChapter]);
 
   // Each fold's legend lists only the characters speaking inside it.
   // Uses verse-range attribution if available (translation-agnostic),
@@ -1010,6 +1018,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
                         topics={chapterTopics.get(verse.verse)}
                         chapter={actualChapter}
                         showDefinitions={isProverbs}
+                        scriptureRefs={scriptureRefs.get(verse.verse)}
                         {...highlightProps(verse.verse)}
                       />
                     ))}
@@ -1075,13 +1084,17 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
     <div ref={rootRef} data-cursor={cursorVerse ?? ''}>
       <ProgressBar />
       <Toasts />
-      {chapterSpeakers && (
+      {chapterSpeakers ? (
         <SpeakerLegend
           heading={`${bookLabel} ${actualChapter}`}
           detail={`${verses.length} verses`}
           speakers={chapterSpeakers.speakers}
         />
-      )}
+      ) : null}
+      <EntityLegend
+        heading={!chapterSpeakers ? `${bookLabel} ${actualChapter}` : undefined}
+        detail={!chapterSpeakers ? `${verses.length} verses` : undefined}
+      />
       <div className="px-6 sm:px-10 md:px-16">
         <div className="font-serif text-ink text-[21px] leading-[1.95]">
           {verses.map((verse) => (
@@ -1100,6 +1113,7 @@ export default function BookReader({ verses, book, chapter, sections, chapterSpe
               topics={chapterTopics.get(verse.verse)}
               chapter={actualChapter}
               showDefinitions={isProverbs}
+              scriptureRefs={scriptureRefs.get(verse.verse)}
               {...highlightProps(verse.verse)}
             />
           ))}

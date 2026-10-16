@@ -11,6 +11,7 @@ import {
   type KeyboardStyle,
   LINE_HEIGHT_MAP,
 } from '@/components/providers/ReadingPreferencesProvider';
+import { useReadingProgress } from '@/components/providers/ReadingProgressProvider';
 import { CURSOR_ACCENTS } from '@/lib/cursor-accents';
 
 interface Props {
@@ -42,6 +43,36 @@ const TIMEZONE_OPTIONS = [
 // Sample verse for live preview
 const PREVIEW_TEXT = `In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep.`;
 
+// Season display info
+type Season = 1 | 2 | 3;
+
+const SEASON_LABELS: Record<Season, string> = {
+  1: 'First Reading',
+  2: 'Second Reading',
+  3: 'Third Reading',
+};
+
+const SEASON_STYLES: Record<Season, { bg: string; text: string; border: string; dot: string }> = {
+  1: {
+    bg: 'bg-amber-500/10',
+    text: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-500/30',
+    dot: 'bg-amber-500',
+  },
+  2: {
+    bg: 'bg-purple-500/10',
+    text: 'text-purple-600 dark:text-purple-400',
+    border: 'border-purple-500/30',
+    dot: 'bg-purple-500',
+  },
+  3: {
+    bg: 'bg-emerald-500/10',
+    text: 'text-emerald-600 dark:text-emerald-400',
+    border: 'border-emerald-500/30',
+    dot: 'bg-emerald-500',
+  },
+};
+
 function BackIcon() {
   return (
     <svg
@@ -64,6 +95,7 @@ const TIMEZONE_SETTING_KEY = 'timezone';
 export default function SettingsContent({ user }: Props) {
   const router = useRouter();
   const { preferences, setFontSize, setLineSpacing, setAppearance, setKeyboardStyle, setCursorAccent } = useReadingPreferences();
+  const { season, startNewSeason } = useReadingProgress();
   const [passwordStatus, setPasswordStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [passwordError, setPasswordError] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -71,6 +103,9 @@ export default function SettingsContent({ user }: Props) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [timezone, setTimezone] = useState<string>('');
   const [timezoneStatus, setTimezoneStatus] = useState<'idle' | 'loading' | 'success'>('idle');
+  const [showSeasonModal, setShowSeasonModal] = useState(false);
+  const [seasonConfirmText, setSeasonConfirmText] = useState('');
+  const [isStartingSeason, setIsStartingSeason] = useState(false);
 
   // Load timezone setting on mount
   useEffect(() => {
@@ -156,8 +191,24 @@ export default function SettingsContent({ user }: Props) {
     }
   };
 
+  const handleStartNewSeason = async () => {
+    if (seasonConfirmText !== 'new season') return;
+    setIsStartingSeason(true);
+    const result = await startNewSeason();
+    if (result) {
+      router.refresh();
+    }
+    setIsStartingSeason(false);
+    setShowSeasonModal(false);
+    setSeasonConfirmText('');
+  };
+
+  const nextSeason = ((season % 3) + 1) as Season;
+  const currentStyles = SEASON_STYLES[season];
+  const nextStyles = SEASON_STYLES[nextSeason];
+
   return (
-    <main className="min-h-full px-6 py-8 max-w-2xl mx-auto">
+    <main className="min-h-full px-6 py-8 max-w-5xl mx-auto">
       {/* Header with back button */}
       <header className="flex items-center gap-4 mb-10">
         <button
@@ -177,8 +228,12 @@ export default function SettingsContent({ user }: Props) {
         </div>
       </header>
 
-      {/* Reading Section */}
-      <section className="mb-12">
+      {/* Two-column layout */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        {/* Left Column */}
+        <div>
+          {/* Reading Section */}
+          <section className="mb-12">
         <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-muted mb-6 pb-2 border-b border-hairline">
           Reading
         </h2>
@@ -369,105 +424,243 @@ export default function SettingsContent({ user }: Props) {
         </div>
       </section>
 
-      {/* Account Section */}
+      {/* Reading Journey Section */}
       <section className="mb-12">
         <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-muted mb-6 pb-2 border-b border-hairline">
-          Account
+          Reading Journey
         </h2>
 
-        {/* Email */}
-        <div className="mb-8">
-          <label className="block font-sans text-sm font-medium text-ink mb-2">
-            Email
-          </label>
-          <p className="font-sans text-sm text-muted">{user.email}</p>
-        </div>
-
-        {/* Timezone */}
+        {/* Current Season */}
         <div className="mb-8">
           <label className="block font-sans text-sm font-medium text-ink mb-3">
-            Timezone
+            Current Season
           </label>
-          <div className="flex items-center gap-3">
-            <select
-              value={timezone}
-              onChange={(e) => handleTimezoneChange(e.target.value)}
-              className="w-full max-w-xs px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm focus:outline-none focus:border-gold"
-            >
-              {TIMEZONE_OPTIONS.map((tz) => (
-                <option key={tz.value} value={tz.value}>
-                  {tz.label}
-                </option>
-              ))}
-            </select>
-            {timezoneStatus === 'loading' && (
-              <span className="font-sans text-xs text-muted">Saving...</span>
-            )}
-            {timezoneStatus === 'success' && (
-              <span className="font-sans text-xs text-green-600">Saved</span>
-            )}
+          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${currentStyles.bg} ${currentStyles.border} border`}>
+            <span className={`w-2 h-2 rounded-full ${currentStyles.dot}`} />
+            <span className={`font-sans text-xs font-medium ${currentStyles.text}`}>
+              {SEASON_LABELS[season]}
+            </span>
           </div>
           <p className="mt-2 font-sans text-xs text-muted">
-            Used for reading calendar and activity tracking
+            Your reading progress is tracked within this season. Starting a new season will archive your current progress.
           </p>
         </div>
 
-        {/* Change Password */}
+        {/* View History */}
         <div className="mb-8">
-          <label className="block font-sans text-sm font-medium text-ink mb-3">
-            Change Password
-          </label>
-          <form onSubmit={handlePasswordChange} className="space-y-3 max-w-sm">
-            <input
-              type="password"
-              placeholder="Current password"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
-              required
-            />
-            <input
-              type="password"
-              placeholder="New password"
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
-              required
-            />
-            <input
-              type="password"
-              placeholder="Confirm new password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
-              required
-            />
-            {passwordError && (
-              <p className="font-sans text-sm text-red-500">{passwordError}</p>
-            )}
-            {passwordStatus === 'success' && (
-              <p className="font-sans text-sm text-green-600">Password changed successfully</p>
-            )}
-            <button
-              type="submit"
-              disabled={passwordStatus === 'loading'}
-              className="px-4 py-2 rounded-lg bg-gold text-white font-sans text-sm font-medium hover:bg-gold-ink disabled:opacity-50 transition-colors"
-            >
-              {passwordStatus === 'loading' ? 'Changing...' : 'Change Password'}
-            </button>
-          </form>
+          <Link
+            href="/dashboard/history"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-hairline text-ink font-sans text-sm font-medium hover:border-gold transition-colors"
+          >
+            View Reading History
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
 
-        {/* Sign Out */}
+        {/* Start New Season */}
         <div>
+          <label className="block font-sans text-sm font-medium text-ink mb-3">
+            Start New Season
+          </label>
+          <p className="font-sans text-xs text-muted mb-3">
+            Archive your current progress and begin a fresh {SEASON_LABELS[nextSeason]} journey with a new color.
+          </p>
           <button
-            onClick={handleSignOut}
+            onClick={() => setShowSeasonModal(true)}
             className="px-4 py-2 rounded-lg border border-red-300 text-red-600 font-sans text-sm font-medium hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
           >
-            Sign Out
+            Start New Season
           </button>
         </div>
       </section>
+        </div>
+
+        {/* Right Column */}
+        <div>
+          {/* Account Section */}
+          <section className="mb-12">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-muted mb-6 pb-2 border-b border-hairline">
+              Account
+            </h2>
+
+            {/* Email */}
+            <div className="mb-8">
+              <label className="block font-sans text-sm font-medium text-ink mb-2">
+                Email
+              </label>
+              <p className="font-sans text-sm text-muted">{user.email}</p>
+            </div>
+
+            {/* Timezone */}
+            <div className="mb-8">
+              <label className="block font-sans text-sm font-medium text-ink mb-3">
+                Timezone
+              </label>
+              <div className="flex items-center gap-3">
+                <select
+                  value={timezone}
+                  onChange={(e) => handleTimezoneChange(e.target.value)}
+                  className="w-full max-w-xs px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm focus:outline-none focus:border-gold"
+                >
+                  {TIMEZONE_OPTIONS.map((tz) => (
+                    <option key={tz.value} value={tz.value}>
+                      {tz.label}
+                    </option>
+                  ))}
+                </select>
+                {timezoneStatus === 'loading' && (
+                  <span className="font-sans text-xs text-muted">Saving...</span>
+                )}
+                {timezoneStatus === 'success' && (
+                  <span className="font-sans text-xs text-green-600">Saved</span>
+                )}
+              </div>
+              <p className="mt-2 font-sans text-xs text-muted">
+                Used for reading calendar and activity tracking
+              </p>
+            </div>
+
+            {/* Change Password */}
+            <div className="mb-8">
+              <label className="block font-sans text-sm font-medium text-ink mb-3">
+                Change Password
+              </label>
+              <form onSubmit={handlePasswordChange} className="space-y-3">
+                <input
+                  type="password"
+                  placeholder="Current password"
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="New password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Confirm new password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-ink font-sans text-sm placeholder:text-muted focus:outline-none focus:border-gold"
+                  required
+                />
+                {passwordError && (
+                  <p className="font-sans text-sm text-red-500">{passwordError}</p>
+                )}
+                {passwordStatus === 'success' && (
+                  <p className="font-sans text-sm text-green-600">Password changed successfully</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={passwordStatus === 'loading'}
+                  className="px-4 py-2 rounded-lg bg-gold text-white font-sans text-sm font-medium hover:bg-gold-ink disabled:opacity-50 transition-colors"
+                >
+                  {passwordStatus === 'loading' ? 'Changing...' : 'Change Password'}
+                </button>
+              </form>
+            </div>
+
+            {/* Sign Out */}
+            <div>
+              <button
+                onClick={handleSignOut}
+                className="px-4 py-2 rounded-lg border border-red-300 text-red-600 font-sans text-sm font-medium hover:bg-red-50 dark:border-red-800 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
+              >
+                Sign Out
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* Danger Modal for New Season */}
+      {showSeasonModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => {
+              setShowSeasonModal(false);
+              setSeasonConfirmText('');
+            }}
+          />
+
+          {/* Modal */}
+          <div className="relative w-full max-w-md rounded-xl bg-[rgb(var(--bg-primary))] border border-red-500/30 shadow-2xl p-6">
+            {/* Warning icon */}
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-red-500/10 mb-4">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-red-500">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </div>
+
+            <h3 className="font-serif text-xl text-ink mb-2">Start New Season</h3>
+            <p className="font-sans text-sm text-muted mb-4">
+              This will archive all your current reading progress and start a fresh {SEASON_LABELS[nextSeason]} journey.
+            </p>
+
+            {/* Season transition preview */}
+            <div className="flex items-center gap-3 mb-6 p-3 rounded-lg bg-surface">
+              <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full ${currentStyles.bg} ${currentStyles.border} border`}>
+                <span className={`w-2 h-2 rounded-full ${currentStyles.dot}`} />
+                <span className={`font-sans text-xs ${currentStyles.text}`}>{SEASON_LABELS[season]}</span>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-muted">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full ${nextStyles.bg} ${nextStyles.border} border`}>
+                <span className={`w-2 h-2 rounded-full ${nextStyles.dot}`} />
+                <span className={`font-sans text-xs ${nextStyles.text}`}>{SEASON_LABELS[nextSeason]}</span>
+              </div>
+            </div>
+
+            {/* Confirmation input */}
+            <div className="mb-6">
+              <label className="block font-sans text-sm text-ink mb-2">
+                Type <span className="font-mono bg-surface px-1 py-0.5 rounded text-red-600 dark:text-red-400">new season</span> to confirm
+              </label>
+              <input
+                type="text"
+                value={seasonConfirmText}
+                onChange={(e) => setSeasonConfirmText(e.target.value)}
+                placeholder="new season"
+                className="w-full px-3 py-2 rounded-lg border border-hairline bg-[rgb(var(--surface))] text-gray-900 dark:text-white font-sans text-sm placeholder:text-muted focus:outline-none focus:border-red-500"
+                autoFocus
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setShowSeasonModal(false);
+                  setSeasonConfirmText('');
+                }}
+                className="flex-1 px-4 py-2 rounded-lg border border-hairline text-ink font-sans text-sm font-medium hover:bg-surface transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleStartNewSeason}
+                disabled={seasonConfirmText !== 'new season' || isStartingSeason}
+                className="flex-1 px-4 py-2 rounded-lg bg-red-600 text-white font-sans text-sm font-medium hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                {isStartingSeason ? 'Starting...' : 'Start New Season'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

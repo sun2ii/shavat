@@ -7,15 +7,17 @@ import { nextChapterAfter } from '@/lib/next-chapter';
 import { isChristianReading, readingDisplayName, readingChapterPath } from '@/lib/book-helpers';
 import JumpBack, { ReadingTarget } from '@/components/dashboard/JumpBack';
 import ReadingCalendar from '@/components/dashboard/ReadingCalendar';
+import SeasonIndicator from '@/components/dashboard/SeasonIndicator';
+import { getCurrentSeason, SEASON_COLORS, type Season } from '@/lib/seasons';
 
 // Get continue target for Bible books only
-async function getBibleContinueTarget(userEmail: string): Promise<ReadingTarget | null> {
+async function getBibleContinueTarget(userEmail: string, season: Season): Promise<ReadingTarget | null> {
   try {
-    // Get all Bible reading progress
+    // Get all Bible reading progress for current season
     const allProgress = await sql`
       SELECT book, chapter, completed_at
       FROM reading_progress
-      WHERE user_email = ${userEmail}
+      WHERE user_email = ${userEmail} AND season = ${season}
       ORDER BY completed_at DESC
     `;
 
@@ -41,13 +43,13 @@ async function getBibleContinueTarget(userEmail: string): Promise<ReadingTarget 
 }
 
 // Get continue target for Christian Readings only
-async function getReadingsContinueTarget(userEmail: string): Promise<ReadingTarget | null> {
+async function getReadingsContinueTarget(userEmail: string, season: Season): Promise<ReadingTarget | null> {
   try {
-    // Get all Christian Readings progress
+    // Get all Christian Readings progress for current season
     const allProgress = await sql`
       SELECT book, chapter, completed_at
       FROM reading_progress
-      WHERE user_email = ${userEmail}
+      WHERE user_email = ${userEmail} AND season = ${season}
       ORDER BY completed_at DESC
     `;
 
@@ -88,7 +90,10 @@ export default async function DashboardPage() {
     redirect('/login');
   }
 
-  // Fetch all reading progress with book slugs to separate Bible from Christian Readings
+  const season = await getCurrentSeason(user.email);
+  const seasonColor = SEASON_COLORS[season];
+
+  // Fetch reading progress for current season with book slugs to separate Bible from Christian Readings
   const calendarRows = await sql`
     SELECT
       TO_CHAR(DATE(completed_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') as date,
@@ -96,6 +101,7 @@ export default async function DashboardPage() {
       COUNT(*)::int as count
     FROM reading_progress
     WHERE user_email = ${user.email}
+      AND season = ${season}
       AND completed_at >= NOW() - INTERVAL '365 days'
     GROUP BY DATE(completed_at AT TIME ZONE 'UTC'), book
     ORDER BY DATE(completed_at AT TIME ZONE 'UTC')
@@ -117,11 +123,14 @@ export default async function DashboardPage() {
     }
   }
 
-  const bibleTarget = await getBibleContinueTarget(user.email);
-  const readingsTarget = await getReadingsContinueTarget(user.email);
+  const bibleTarget = await getBibleContinueTarget(user.email, season);
+  const readingsTarget = await getReadingsContinueTarget(user.email, season);
 
   return (
     <main className="min-h-full px-6 py-8 max-w-6xl mx-auto">
+      {/* Season indicator */}
+      <SeasonIndicator season={season} />
+
       {/* Continue reading - side by side */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
         <section>
@@ -139,7 +148,7 @@ export default async function DashboardPage() {
           <h2 className="font-sans text-[10px] font-semibold uppercase tracking-[0.2em] text-gold mb-4">
             Holy Bible
           </h2>
-          <ReadingCalendar data={bibleCalendarData} weeks={26} />
+          <ReadingCalendar data={bibleCalendarData} colorScheme={seasonColor} weeks={26} />
         </section>
 
         {/* Christian Readings activity */}

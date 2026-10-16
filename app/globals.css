@@ -565,3 +565,10 @@ html.light aside {
 @media (prefers-reduced-motion: reduce) {
   .verse-cursor .verse-text { animation: none; }
 }
+
+/* Scripture reference pill: only show on actual mouse hover, not keyboard/touch highlight */
+@media (hover: hover) {
+  .scripture-ref-wrapper:hover .scripture-ref-pill {
+    opacity: 1;
+  }
+}

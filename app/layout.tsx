@@ -76,15 +76,19 @@ async function getCurrentSeasonForUser(userEmail: string | null): Promise<1 | 2 
   }
 }
 
-// Fetch reading progress for authenticated user in current season
-async function getReadingProgress(userEmail: string | null, season: 1 | 2 | 3): Promise<Record<string, number[]>> {
+// Fetch reading progress for authenticated user
+// Bible books use current season; Christian Readings always use season 1
+async function getReadingProgress(userEmail: string | null, bibleSeason: 1 | 2 | 3): Promise<Record<string, number[]>> {
   if (!userEmail) return {};
 
+  const CHRISTIAN_READINGS_SEASON = 1;
+
   try {
+    // Get progress from current Bible season
     const rows = await sql`
       SELECT book, array_agg(chapter ORDER BY chapter) as chapters
       FROM reading_progress
-      WHERE user_email = ${userEmail} AND season = ${season}
+      WHERE user_email = ${userEmail} AND season = ${bibleSeason}
       GROUP BY book
     `;
 
@@ -92,6 +96,23 @@ async function getReadingProgress(userEmail: string | null, season: 1 | 2 | 3): 
     for (const row of rows) {
       progress[row.book as string] = row.chapters as number[];
     }
+
+    // Also get Christian Readings from season 1 if we're in a different season
+    if (bibleSeason !== CHRISTIAN_READINGS_SEASON) {
+      const { isChristianReading } = await import('@/lib/book-helpers');
+      const readingsRows = await sql`
+        SELECT book, array_agg(chapter ORDER BY chapter) as chapters
+        FROM reading_progress
+        WHERE user_email = ${userEmail} AND season = ${CHRISTIAN_READINGS_SEASON}
+        GROUP BY book
+      `;
+      for (const row of readingsRows) {
+        if (isChristianReading(row.book as string)) {
+          progress[row.book as string] = row.chapters as number[];
+        }
+      }
+    }
+
     return progress;
   } catch {
     return {};

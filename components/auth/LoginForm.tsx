@@ -1,10 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export function LoginForm() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -35,8 +37,9 @@ export function LoginForm() {
         return;
       }
 
-      // Hard navigation to bust layout cache and re-fetch auth state
-      window.location.href = '/dashboard';
+      // Full page refresh to re-fetch auth state from server, but stay in webview
+      router.refresh();
+      router.push('/dashboard');
     } catch {
       setError('Something went wrong. Please try again.');
     } finally {

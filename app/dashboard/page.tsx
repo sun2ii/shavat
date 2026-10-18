@@ -42,14 +42,17 @@ async function getBibleContinueTarget(userEmail: string, season: Season): Promis
   }
 }
 
+// Christian Readings always use season 1
+const CHRISTIAN_READINGS_SEASON = 1;
+
 // Get continue target for Christian Readings only
-async function getReadingsContinueTarget(userEmail: string, season: Season): Promise<ReadingTarget | null> {
+async function getReadingsContinueTarget(userEmail: string): Promise<ReadingTarget | null> {
   try {
-    // Get all Christian Readings progress for current season
+    // Get all Christian Readings progress (always season 1)
     const allProgress = await sql`
       SELECT book, chapter, completed_at
       FROM reading_progress
-      WHERE user_email = ${userEmail} AND season = ${season}
+      WHERE user_email = ${userEmail} AND season = ${CHRISTIAN_READINGS_SEASON}
       ORDER BY completed_at DESC
     `;
 
@@ -93,38 +96,52 @@ export default async function DashboardPage() {
   const season = await getCurrentSeason(user.email);
   const seasonColor = SEASON_COLORS[season];
 
-  // Fetch reading progress for current season with book slugs to separate Bible from Christian Readings
-  const calendarRows = await sql`
+  // Fetch Bible reading progress for current season
+  const bibleCalendarRows = await sql`
+    SELECT
+      TO_CHAR(DATE(completed_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') as date,
+      COUNT(*)::int as count
+    FROM reading_progress
+    WHERE user_email = ${user.email}
+      AND season = ${season}
+      AND completed_at >= NOW() - INTERVAL '365 days'
+    GROUP BY DATE(completed_at AT TIME ZONE 'UTC')
+    ORDER BY DATE(completed_at AT TIME ZONE 'UTC')
+  `;
+
+  // Fetch Christian Readings progress (always season 1)
+  const readingsCalendarRows = await sql`
     SELECT
       TO_CHAR(DATE(completed_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD') as date,
       book,
       COUNT(*)::int as count
     FROM reading_progress
     WHERE user_email = ${user.email}
-      AND season = ${season}
+      AND season = ${CHRISTIAN_READINGS_SEASON}
       AND completed_at >= NOW() - INTERVAL '365 days'
     GROUP BY DATE(completed_at AT TIME ZONE 'UTC'), book
     ORDER BY DATE(completed_at AT TIME ZONE 'UTC')
   `;
 
-  // Separate calendar data for Bible and Christian Readings
+  // Build calendar data
   const bibleCalendarData: Record<string, number> = {};
   const readingsCalendarData: Record<string, number> = {};
 
-  for (const row of calendarRows) {
-    const date = row.date as string;
-    const book = row.book as string;
-    const count = row.count as number;
+  for (const row of bibleCalendarRows) {
+    bibleCalendarData[row.date as string] = row.count as number;
+  }
 
+  // Filter to only Christian Readings from season 1 query
+  for (const row of readingsCalendarRows) {
+    const book = row.book as string;
     if (isChristianReading(book)) {
-      readingsCalendarData[date] = (readingsCalendarData[date] || 0) + count;
-    } else {
-      bibleCalendarData[date] = (bibleCalendarData[date] || 0) + count;
+      const date = row.date as string;
+      readingsCalendarData[date] = (readingsCalendarData[date] || 0) + (row.count as number);
     }
   }
 
   const bibleTarget = await getBibleContinueTarget(user.email, season);
-  const readingsTarget = await getReadingsContinueTarget(user.email, season);
+  const readingsTarget = await getReadingsContinueTarget(user.email);
 
   return (
     <main className="min-h-full px-6 py-8 max-w-6xl mx-auto">
